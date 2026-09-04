@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P3-R01-F02 演示流程图</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f5;color:#262626;font-size:13px;line-height:1.6;padding:24px}
+h1{font-size:20px;margin-bottom:6px;color:#111827}
+.sub{color:#8c8c8c;font-size:12px;margin-bottom:20px}
+.line-section{background:#fff;border-radius:8px;padding:20px;margin-bottom:20px;border:1px solid #f0f0f0}
+.line-title{font-size:15px;font-weight:600;margin-bottom:4px;padding-bottom:8px;border-bottom:2px solid}
+.line-buy{border-color:#1677ff;color:#1677ff}
+.line-rent{border-color:#722ed1;color:#722ed1}
+.line-shared{border-color:#8c8c8c;color:#595959}
+.flow{display:flex;flex-wrap:wrap;gap:0;align-items:flex-start;margin-top:16px;overflow-x:auto;padding-bottom:8px}
+.step{flex:none;min-width:140px;max-width:180px;text-align:center;position:relative;padding:0 20px 0 0}
+.step:last-child{padding-right:0}
+.node{background:#fff;border:2px solid #d9d9d9;border-radius:8px;padding:10px 8px;position:relative;transition:all .2s}
+.node:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.1)}
+.node.buy{border-color:#1677ff}
+.node.rent{border-color:#722ed1}
+.node.shared{border-color:#8c8c8c}
+.node-num{position:absolute;top:-10px;left:-10px;width:22px;height:22px;border-radius:50%;color:#fff;font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center}
+.node.buy .node-num{background:#1677ff}
+.node.rent .node-num{background:#722ed1}
+.node.shared .node-num{background:#8c8c8c}
+.node-name{font-size:13px;font-weight:600;color:#111827;margin-bottom:4px}
+.node-menu{font-size:11px;color:#8c8c8c;margin-bottom:6px}
+.node-ops{font-size:11px;color:#595959}
+.node-ops .op{display:inline-block;background:#f0f5ff;border-radius:3px;padding:1px 6px;margin:1px;color:#1677ff;font-size:10px}
+.node-ops .op.purple{background:#f9f0ff;color:#722ed1}
+.node-ops .op.gray{background:#fafafa;color:#595959}
+.node-ops .modal-tag{display:block;font-size:10px;color:#fa8c16;margin-top:2px}
+.arrow{position:absolute;top:50%;right:0;transform:translateY(-50%);width:20px;height:2px;background:#d9d9d9}
+.arrow::after{content:'';position:absolute;right:0;top:-4px;border:5px solid transparent;border-left:7px solid #d9d9d9}
+.loop-arrow{display:flex;align-items:center;gap:8px;margin-top:12px;padding:8px 12px;background:#f9f0ff;border-radius:6px;border:1px dashed #722ed1}
+.loop-arrow .loop-icon{font-size:18px;color:#722ed1}
+.loop-arrow .loop-text{font-size:12px;color:#722ed1}
+.notes{background:#fff;border-radius:8px;padding:20px;border:1px solid #f0f0f0;margin-top:20px}
+.notes h2{font-size:15px;font-weight:600;margin-bottom:12px;color:#fa8c16}
+.notes ul{list-style:none;padding-left:0}
+.notes li{padding:4px 0 4px 20px;position:relative;font-size:12px;color:#595959}
+.notes li::before{content:'⚠';position:absolute;left:0;color:#fa8c16}
+.notes li.ok::before{content:'✅';color:#52c41a}
+.colophon{margin-top:20px;padding-top:12px;border-top:1px solid #f0f0f0;font-size:11px;color:#bfbfbf;text-align:center}
+</style>
+</head>
+<body>
+<h1>包装租赁管理系统 · 演示流程图</h1>
+<p class="sub">2026-09-03 · v2 原型 41 页 · 用于第 3 次客户沟通演示 · 蓝色=买卖线 / 紫色=租赁线 / 灰色=共用模块</p>
+
+<!-- 主线一：零部件买卖 -->
+<div class="line-section">
+<div class="line-title line-buy">主线一：零部件买卖（纯贸易，无组装）</div>
+<p style="font-size:12px;color:#8c8c8c;margin:4px 0 0">流程：客户下订单 → 采购 → 入库 → 出库发货 → 开票 → 收款 → 核销</p>
+<div class="flow">
+  <div class="step">
+    <div class="node buy"><div class="node-num">1</div>
+      <div class="node-name">销售订单</div>
+      <div class="node-menu">销售管理 → 销售订单</div>
+      <div class="node-ops">
+        <span class="op">新建订单</span><span class="op">审核</span>
+        <span class="modal-tag">📦 弹窗：新建/审核</span>
+      </div>
+    </div><div class="arrow"></div>
+  </div>
+  <div class="step">
+    <div class="node buy"><div class="node-num">2</div>
+      <div class="node-name">采购订单</div>
+      <div class="node-menu">采购管理 → 采购订单</div>
+      <div class="node-ops">
+        <span class="op">关联销售单</span><span class="op">审核</span>
+        <span class="modal-tag">📦 弹窗：新建/审核</span>
+      </div>
+    </div><div class="arrow"></div>
+  </div>
+  <div class="step">
+    <div class="node buy"><div class="node-num">3</div>
+      <div class="node-name">采购入库</div>
+      <div class="node-menu">仓储作业 → 采购入库</div>
+      <div class="node-ops">
+        <span class="op">录单</span><span class="op">验收</span>
+        <span class="modal-tag">📦 弹窗：审核确认</span>
+      </div>
+    </div><div class="arrow"></div>
+  </div>
+  <div class="step">
+    <div class="node buy"><div class="node-num">4</div>
+      <div class="node-name">销售出库</div>
+      <div class="node-menu">仓储作业 → 销售出库</div>
+      <div class="node-ops">
+        <span class="op">新增出库</span><span class="op">审核</span>
+        <span class="modal-tag">📦 弹窗：新建/审核</span>
+      </div>
+    </div><div class="arrow"></div>
+  </div>
+  <div class="step">
+    <div class="node shared"><div class="node-num">5</div>
+      <div class="node-name">应收账单</div>
+      <div class="node-menu">财务应收 → 应收账单</div>
+      <div class="node-ops">
+        <span class="op gray">自动生成</span><span class="op gray">手动补单</span>
+        <span class="modal-tag">📦 弹窗：手动生成</span>
+      </div>
+    </div><div class="arrow"></div>
+  </div>
+  <div class="step">
+    <div class="node shared"><div class="node-num">6</div>
+      <div class="node-name">开票登记</div>
+      <div class="node-menu">财务应收 → 开票登记</div>
+      <div class="node-ops">
+        <span class="op gray">新增登记</span><span class="op gray">上传发票</span>
+        <span class="modal-tag">📦 弹窗：新增登记</span>
+      </div>
+    </div><div class="arrow"></div>
+  </div>
+  <div class="step">
+    <div class="node shared"><div class="node-num">7</div>
+      <div class="node-name">收款核销</div>
+      <div class="node-menu">财务应收 → 收款核销</div>
+      <div class="node-ops">
+        <span class="op gray">左右勾对</span><span class="op gray">部分核销</span>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- 主线二：循环包装租赁 -->
+<div class="line-section">
+<div class="line-title line-rent">主线二：循环包装租赁（A+B→C 组合，仅在此线）</div>
+<p style="font-size:12px;color:#8c8c8c;margin:4px 0 0">流程：建基础数据 → 采购入库 → 组装 → 租赁 → 出库 → 退租 → 散件入库 → 循环</p>
+<div class="flow">
+  <div class="step">
+    <div class="node rent"><div class="node-num">1</div>
+      <div class="node-name">客商管理</div>
+      <div class="node-menu">基础资料 → 客商管理</div>
+      <div class="node-ops">
+        <span class="op purple">新建客户</span><span class="op purple">新建供应商</span>
+        <span class="modal-tag">📦 弹窗：新建客商</span>
+      </div>
+    </div><div class="arrow"></div>
+  </div>
+  <div class="step">
+    <div class="node rent"><div class="node-num">2</div>
+      <div class="node-name">器具档案</div>
+      <div class="node-menu">基础资料 → 器具档案</div>
+      <div class="node-ops">
+        <span class="op purple">新建器具</span>
+        <span class="modal-tag">📦 弹窗：新建器具</span>
+      </div>
+    </div><div class="arrow"></div>
+  </div>
+  <div class="step">
+    <div class="node rent"><div class="node-num">3</div>
+      <div class="node-name">BOM</div>
+      <div class="node-menu">基础资料 → BOM</div>
+      <div class="node-ops">
+        <span class="op purple">定义配方</span><span class="op purple">A×1+B×1=C</span>
+      </div>
+    </div><div class="arrow"></div>
+  </div>
+  <div class="step">
+    <div class="node rent"><div class="node-num">4</div>
+      <div class="node-name">组装</div>
+      <div class="node-menu">仓储作业 → 组装</div>
+      <div class="node-ops">
+        <span class="op purple">选父项C</span><span class="op purple">自动带子件</span>
+      </div>
+    </div><div class="arrow"></div>
+  </div>
+  <div class="step">
+    <div class="node rent"><div class="node-num">5</div>
+      <div class="node-name">租赁单</div>
+      <div class="node-menu">包装管理 → 租赁单</div>
+      <div class="node-ops">
+        <span class="op purple">新建租赁单</span><span class="op purple">审核</span>
+        <span class="modal-tag">📦 弹窗：新建/审核</span>
+      </div>
+    </div><div class="arrow"></div>
+  </div>
+  <div class="step">
+    <div class="node rent"><div class="node-num">6</div>
+      <div class="node-name">组合出库</div>
+      <div class="node-menu">仓储作业 → 组合出库</div>
+      <div class="node-ops">
+        <span class="op purple">出库确认</span>
+        <span class="modal-tag">📦 弹窗：出库确认</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="flow" style="margin-top:8px">
+  <div class="step">
+    <div class="node rent"><div class="node-num">7</div>
+      <div class="node-name">退租申请</div>
+      <div class="node-menu">包装管理 → 退租申请</div>
+      <div class="node-ops">
+        <span class="op purple">新建申请</span><span class="op purple">审核</span>
+        <span class="modal-tag">📦 弹窗：新建/审核</span>
+      </div>
+    </div><div class="arrow"></div>
+  </div>
+  <div class="step">
+    <div class="node rent"><div class="node-num">8</div>
+      <div class="node-name">退租入库</div>
+      <div class="node-menu">仓储作业 → 退租入库</div>
+      <div class="node-ops">
+        <span class="op purple">按BOM拆散件</span><span class="op purple">缺损核对</span>
+        <span class="modal-tag">📦 弹窗：审核确认</span>
+      </div>
+    </div><div class="arrow"></div>
+  </div>
+  <div class="step">
+    <div class="node rent"><div class="node-num">9</div>
+      <div class="node-name">丢损赔偿</div>
+      <div class="node-menu">包装管理 → 丢损赔偿单</div>
+      <div class="node-ops">
+        <span class="op purple">自动生成</span>
+        <span class="modal-tag">📦 弹窗：审核确认</span>
+      </div>
+    </div><div class="arrow"></div>
+  </div>
+  <div class="step">
+    <div class="node rent"><div class="node-num">10</div>
+      <div class="node-name">在租台账</div>
+      <div class="node-menu">包装管理 → 在租台账</div>
+      <div class="node-ops">
+        <span class="op purple">四态统计</span><span class="op purple">平均租期</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="loop-arrow">
+  <span class="loop-icon">🔄</span>
+  <span class="loop-text">退租入库后散件回到在库 → 可重新组装（步骤4）→ 再出租（步骤5）→ 无限循环</span>
+</div>
+</div>
+
+
+<!-- 主线三：租入转租（L3 · 第一期实现） -->
+<div class="line-section">
+<div class="line-title line-rent">主线三：租入转租（向运营方租入 → 转租客户）</div>
+<p style="font-size:12px;color:#8c8c8c;margin:4px 0 0">第一期实现 · 2026-09-04 拍板（原会议暂缓，决策变更）｜流程：租入单 → 租入入库 → 转租 → 退租 → 整退归还 → 租金应付</p>
+<div class="flow">
+  <div class="step">
+    <div class="node rent"><div class="node-num">1</div>
+      <div class="node-name">租入单</div>
+      <div class="node-menu">采购管理 → 租入单</div>
+      <div class="node-ops">
+        <span class="op purple">新建</span><span class="op purple">审核</span><span class="op purple">生成租金应付</span>
+        <span class="modal-tag">📦 弹窗：新建/审核</span>
+      </div>
+    </div><div class="arrow"></div>
+  </div>
+  <div class="step">
+    <div class="node rent"><div class="node-num">2</div>
+      <div class="node-name">租入入库</div>
+      <div class="node-menu">仓储作业 → 租入入库</div>
+      <div class="node-ops">
+        <span class="op purple">关联RZD</span><span class="op purple">登记库区</span>
+        <span class="modal-tag">📦 弹窗：入库确认</span>
+      </div>
+    </div><div class="arrow"></div>
+  </div>
+  <div class="step">
+    <div class="node rent"><div class="node-num">3</div>
+      <div class="node-name">租赁单</div>
+      <div class="node-menu">包装管理 → 租赁单</div>
+      <div class="node-ops">
+        <span class="op purple">转租客户</span><span class="op purple">来源=租入-路凯</span>
+        <span class="modal-tag">📦 弹窗：新建/审核</span>
+      </div>
+    </div><div class="arrow"></div>
+  </div>
+  <div class="step">
+    <div class="node rent"><div class="node-num">4</div>
+      <div class="node-name">组合出库</div>
+      <div class="node-menu">仓储作业 → 组合出库</div>
+      <div class="node-ops">
+        <span class="op purple">出库确认</span>
+        <span class="modal-tag">📦 弹窗：出库确认</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="flow" style="margin-top:8px">
+  <div class="step">
+    <div class="node rent"><div class="node-num">5</div>
+      <div class="node-name">退租申请</div>
+      <div class="node-menu">包装管理 → 退租申请</div>
+      <div class="node-ops">
+        <span class="op purple">客户退回</span>
+        <span class="modal-tag">📦 弹窗：新建/审核</span>
+      </div>
+    </div><div class="arrow"></div>
+  </div>
+  <div class="step">
+    <div class="node rent"><div class="node-num">6</div>
+      <div class="node-name">退租入库</div>
+      <div class="node-menu">仓储作业 → 退租入库</div>
+      <div class="node-ops">
+        <span class="op purple">整箱退回</span><span class="op purple">不拆散</span>
+        <span class="modal-tag">📦 弹窗：审核确认</span>
+      </div>
+    </div><div class="arrow"></div>
+  </div>
+  <div class="step">
+    <div class="node rent"><div class="node-num">7</div>
+      <div class="node-name">租入归还</div>
+      <div class="node-menu">仓储作业 → 租入归还</div>
+      <div class="node-ops">
+        <span class="op purple">整退归还</span><span class="op purple">关联RZD</span>
+        <span class="modal-tag">📦 弹窗：新建/审核</span>
+      </div>
+    </div><div class="arrow"></div>
+  </div>
+  <div class="step">
+    <div class="node rent"><div class="node-num">8</div>
+      <div class="node-name">租金应付</div>
+      <div class="node-menu">财务协同 → 应付账单</div>
+      <div class="node-ops">
+        <span class="op purple">租金+损坏赔付</span><span class="op purple">付款登记</span>
+        <span class="modal-tag">📦 弹窗：付款确认</span>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- 主线四：混合转租（L4 · 第一期实现） -->
+<div class="line-section">
+<div class="line-title line-rent">主线四：混合转租（自购 + 租入 → 组合C → 转租）</div>
+<p style="font-size:12px;color:#8c8c8c;margin:4px 0 0">第一期实现 · 2026-09-04 拍板（统一管理A1：档案标记来源）｜流程：自购隔板入库 + 租入大箱 → 混合组装 → 出租 → 退租拆散分流 → 双线应付</p>
+<div class="flow">
+  <div class="step">
+    <div class="node rent"><div class="node-num">1</div>
+      <div class="node-name">采购入库</div>
+      <div class="node-menu">仓储作业 → 采购入库</div>
+      <div class="node-ops">
+        <span class="op purple">自购隔板</span><span class="op purple">器具采购</span>
+      </div>
+    </div><div class="arrow"></div>
+  </div>
+  <div class="step">
+    <div class="node rent"><div class="node-num">2</div>
+      <div class="node-name">租入单</div>
+      <div class="node-menu">采购管理 → 租入单</div>
+      <div class="node-ops">
+        <span class="op purple">租入大箱</span><span class="op purple">来源标记</span>
+        <span class="modal-tag">📦 弹窗：新建/审核</span>
+      </div>
+    </div><div class="arrow"></div>
+  </div>
+  <div class="step">
+    <div class="node rent"><div class="node-num">3</div>
+      <div class="node-name">混合组装</div>
+      <div class="node-menu">仓储作业 → 组装</div>
+      <div class="node-ops">
+        <span class="op purple">配方自动带出</span><span class="op purple">自购/租入标记</span>
+      </div>
+    </div><div class="arrow"></div>
+  </div>
+  <div class="step">
+    <div class="node rent"><div class="node-num">4</div>
+      <div class="node-name">租赁单</div>
+      <div class="node-menu">包装管理 → 租赁单</div>
+      <div class="node-ops">
+        <span class="op purple">组合C出租</span><span class="op purple">来源=混合</span>
+        <span class="modal-tag">📦 弹窗：新建/审核</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="flow" style="margin-top:8px">
+  <div class="step">
+    <div class="node rent"><div class="node-num">5</div>
+      <div class="node-name">组合出库</div>
+      <div class="node-menu">仓储作业 → 组合出库</div>
+      <div class="node-ops">
+        <span class="op purple">出库确认</span>
+        <span class="modal-tag">📦 弹窗：出库确认</span>
+      </div>
+    </div><div class="arrow"></div>
+  </div>
+  <div class="step">
+    <div class="node rent"><div class="node-num">6</div>
+      <div class="node-name">退租入库</div>
+      <div class="node-menu">仓储作业 → 退租入库</div>
+      <div class="node-ops">
+        <span class="op purple">按BOM拆散</span><span class="op purple">拆散去向分流</span>
+        <span class="modal-tag">📦 弹窗：审核确认</span>
+      </div>
+    </div><div class="arrow"></div>
+  </div>
+  <div class="step">
+    <div class="node rent"><div class="node-num">7</div>
+      <div class="node-name">租入归还</div>
+      <div class="node-menu">仓储作业 → 租入归还</div>
+      <div class="node-ops">
+        <span class="op purple">分流归还</span><span class="op purple">自购回库/租入归还</span>
+        <span class="modal-tag">📦 弹窗：新建/审核</span>
+      </div>
+    </div><div class="arrow"></div>
+  </div>
+  <div class="step">
+    <div class="node rent"><div class="node-num">8</div>
+      <div class="node-name">多线应付</div>
+      <div class="node-menu">财务协同 → 应付账单</div>
+      <div class="node-ops">
+        <span class="op purple">采购+租金+赔付</span>
+        <span class="modal-tag">📦 弹窗：付款确认</span>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- 演示注意事项 -->
+<div class="notes">
+<h2>演示注意事项</h2>
+<ul>
+  <li class="ok">45 页全部有菜单入口，无孤儿页面</li>
+  <li class="ok">44 个弹窗全部可交互（openModal/closeModal 已注入）</li>
+  <li class="ok">全站菜单一致（唯一值=1），死链=0，旧术语=0</li>
+  <li>行内"详情"按钮为纯视觉（无目标页面），演示时口述即可</li>
+  <li>录单页"暂存/提交"为纯视觉，不触发实际动作</li>
+  <li>收款核销的"自动匹配/生成核销记录"为纯视觉，手动勾选求和已可用</li>
+  <li>演示建议从租赁线开始（更有业务亮点），再走买卖线（更简单快速）</li>
+  <li>在租台账的四态统计卡是数据亮点，可停留展示</li>
+</ul>
+</div>
+
+<div class="colophon">P3-R01-F02 演示流程图 · 2026-09-03 · v2 原型 41 页 / 39 弹窗 / 12 一级菜单</div>
+<script>/*ia-fix: tab-switch + btn-feedback (2026-09-04)*/
+/* R3 顶部页签切换（点击换 active；× 不做关闭跳转——原型不销毁页签） */
+document.querySelectorAll('.tab').forEach(function (t) {
+  t.addEventListener('click', function () {
+    document.querySelectorAll('.tab').forEach(function (x) { x.classList.remove('active'); });
+    t.classList.add('active');
+  });
+});
+/* R1 死按钮全局反馈：无 onclick 的 button/a 给按压视觉态；「重置」清空所在筛选卡 */
+(function () {
+  document.addEventListener('click', function (e) {
+    var el = e.target.closest ? e.target.closest('button, a, .sm-link') : null;
+    if (!el) return;
+    if (el.getAttribute('onclick')) return;
+    var h = el.getAttribute('href');
+    if (el.tagName === 'A' && h && h !== '#' && !/^javascript:/i.test(h)) return;
+    if (el.disabled) return;
+    var txt = (el.textContent || '').trim();
+    if (txt === '重置') {
+      var card = el.closest('.filter-card') || el.closest('.card');
+      if (card) {
+        card.querySelectorAll('input:not([type=checkbox]):not([type=radio])').forEach(function (i) { if (!i.readOnly && !i.disabled) i.value = ''; });
+        card.querySelectorAll('select').forEach(function (s) { if (!s.disabled) s.selectedIndex = 0; });
+      }
+    }
+    el.style.transition = 'transform .08s';
+    el.style.transform = 'scale(.96)';
+    setTimeout(function () { el.style.transform = ''; }, 160);
+  }, true);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+# 会议原始材料（音频/视频/转写——客户敏感，不入库）
+2026-08-31*/
+2026-09-02*/
+
+# 历史归档（大文件与旧版本快照）
+99-归档/
+
+# 本地工具与配置
+.claude/
+.obsidian/
+.prompts/
+_v2tools/
+_build/
+__pycache__/
+search_prompts.js
+
+# 大文件
+*.zip
+*.mp3
+*.mp4
+*.m4a
+*.wav
+
+# 系统文件
+Thumbs.db
+desktop.ini

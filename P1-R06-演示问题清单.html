@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>P1-R06 · 演示问题清单</title>
+<style>
+  :root{
+    --ink:#1a1a1a; --sub:#595959; --faint:#8c8c8c; --line:#e5e7eb; --bg:#f6f7f9;
+    --blue:#2563eb; --blue-bg:#eff4ff;
+    --green:#16a34a; --green-bg:#f0faf3; --green-line:#bbe7c9;
+    --red:#dc2626; --red-bg:#fdf3f2; --red-line:#f5c6c0;
+    --gray:#6b7280; --gray-bg:#f4f4f5; --gray-line:#ddd;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--ink);font-size:15px;line-height:1.65;padding:28px 30px 40px}
+  .wrap{max-width:1180px;margin:0 auto}
+  header{border-bottom:3px solid var(--blue);padding-bottom:14px;margin-bottom:18px;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:8px}
+  header h1{font-size:24px;letter-spacing:.5px}
+  header .meta{color:var(--faint);font-size:12.5px}
+  .principle{background:var(--blue-bg);border:1px solid #c9d9f7;border-left:4px solid var(--blue);border-radius:8px;padding:13px 18px;margin-bottom:22px;font-size:16.5px}
+  .principle b{color:var(--blue)}
+  .principle span{display:block;font-size:13px;color:var(--sub);margin-top:3px}
+  .sec{margin-bottom:24px}
+  .sec-head{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+  .sec-head .chip{flex:none;font-size:13px;font-weight:700;color:#fff;border-radius:5px;padding:2px 10px;letter-spacing:1px}
+  .sec-head h2{font-size:18px}
+  .sec-head .who{font-size:12.5px;color:var(--faint)}
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:12px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:9px;padding:13px 15px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+  .card .q{font-weight:700;font-size:15px;margin-bottom:7px;display:flex;gap:8px;align-items:baseline}
+  .card .q .no{flex:none;font-size:11.5px;color:#fff;border-radius:4px;padding:1px 6px;font-weight:600;transform:translateY(-1px)}
+  .card .a{font-size:14px;color:#333}
+  .card .act{margin-top:8px;font-size:12.5px;color:var(--sub);border-top:1px dashed var(--line);padding-top:7px}
+  .card .act::before{content:"▸ 演示配合：";color:var(--faint)}
+  .card .warn{margin-top:8px;font-size:12.5px;font-weight:600}
+  /* A 绿 / B 红 / C 蓝 / D 灰 */
+  .sec-a .chip,.sec-a .no{background:var(--green)} .sec-a .card{border-top:3px solid var(--green);background:var(--green-bg)}
+  .sec-b .chip,.sec-b .no{background:var(--red)} .sec-b .card{border-top:3px solid var(--red);background:var(--red-bg)}
+  .sec-c .chip,.sec-c .no{background:var(--blue)} .sec-c .card{border-top:3px solid var(--blue);background:var(--blue-bg)}
+  .sec-d .chip,.sec-d .no{background:var(--gray)} .sec-d .card{border-top:3px solid var(--gray);background:var(--gray-bg)}
+  .sec-b .warn{color:var(--red)}
+  table{width:100%;border-collapse:collapse;background:#fff;border-radius:9px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.04);font-size:14px}
+  th{background:#1f2937;color:#fff;font-weight:600;padding:8px 12px;text-align:left;font-size:13.5px;letter-spacing:.5px}
+  td{padding:8px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  tr:nth-child(even) td{background:#fafbfc}
+  td.k{white-space:nowrap;font-weight:600;color:var(--blue)}
+  .route td.k{color:var(--ink)}
+  .check li{list-style:none;background:#fff;border:1px solid var(--line);border-radius:8px;padding:9px 14px;margin-bottom:8px;font-size:14px;display:flex;gap:9px;align-items:baseline}
+  .check li::before{content:"☐";color:var(--blue);font-size:16px}
+  footer{margin-top:26px;color:var(--faint);font-size:12px;text-align:center;border-top:1px solid var(--line);padding-top:12px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>演示问题清单 · Q&amp;A 口径</h1>
+  <div class="meta">P1-R06 · 2026-09-02 · 包装租赁系统原型（P3-R01）· 维护源为同名 MD</div>
+</header>
+
+<div class="principle">
+  <b>凡影响「系统怎么设计」的规则，要接；凡「收多少钱」的数字，不接。</b>
+  <span>系统单价/费率做成可配置——这本身就是对商务问题最好的挡箭牌。</span>
+</div>
+
+<div class="sec sec-a">
+  <div class="sec-head"><span class="chip">A</span><h2>我来答</h2><span class="who">功能 / 流程 —— 大方讲</span></div>
+  <div class="cards">
+    <div class="card"><div class="q"><span class="no">A1</span>为什么组装要单独记一笔？</div>
+      <div class="a">这是您方明确提的需求：<b>组装作为独立管理节点</b>。子件转母件全程留痕，不能只在出库时扣零件库存。</div>
+      <div class="act">小组装列表 → 新增组装单弹窗，指 BOM 配比与组装进度</div></div>
+    <div class="card"><div class="q"><span class="no">A2</span>租金系统怎么算？</div>
+      <div class="a">计费引擎<b>可配置</b>——按天、按张、按次都支持，规则确认后系统自动算，单价在数据字典里配。</div>
+      <div class="act">数据字典 → 计费参数；不展开具体数字（→ B1）</div></div>
+    <div class="card"><div class="q"><span class="no">A3</span>水单核销是什么？</div>
+      <div class="a">银行回单和账单<b>左右勾对</b>，支持一笔回款核销多张账单（部分核销）。现在吉客云和路凯都没有，本期补齐。</div>
+      <div class="act">水单核销页，指左右两栏</div></div>
+    <div class="card"><div class="q"><span class="no">A4</span>客户以后在哪下单？</div>
+      <div class="a">客户有<b>独立入口</b>，不进内部后台；提交后我方商务审核。</div>
+      <div class="act">左下角 ⇄ 切客户端：下单表单 + 我的订单</div></div>
+    <div class="card"><div class="q"><span class="no">A5</span>和吉客云/路凯什么关系？</div>
+      <div class="a">目标是把两套系统里<b>包装租赁相关的事都收进这一套</b>：吉客云管的自购包材库存+开单、路凯管的围板箱租赁下单。</div>
+      <div class="act">停留当前页，口头讲</div></div>
+    <div class="card"><div class="q"><span class="no">A6</span>库存怎么保证准？</div>
+      <div class="a">盘点管理生成盘盈盘亏单；库存查询<b>双视角</b>（零部件/组合件）<b>四态</b>（可用/在租/组装中/待验收）。</div>
+      <div class="act">库存查询页指页签</div></div>
+    <div class="card"><div class="q"><span class="no">A7</span>包材坏了怎么算？</div>
+      <div class="a">缺损赔偿单独模块，赔偿标准可配置，与退租验收联动。</div>
+      <div class="act">缺损赔偿页</div></div>
+  </div>
+</div>
+
+<div class="sec sec-b">
+  <div class="sec-head"><span class="chip">B</span><h2>挡回去</h2><span class="who">商务口径 —— 不是我的场子</span></div>
+  <div class="cards">
+    <div class="card"><div class="q"><span class="no">B1</span>租金多少钱 / 怎么报价？</div>
+      <div class="a">这是商务口径，系统层面<b>单价是开放配置的</b>，怎么定由商务这边定。</div></div>
+    <div class="card"><div class="q"><span class="no">B2</span>合同、折扣、付款条款？</div>
+      <div class="a">商务范围，会后商务同事对接。</div></div>
+    <div class="card"><div class="q"><span class="no">B3</span>项目收费模式（包干/按量）？</div>
+      <div class="a">同上，商务范围。</div>
+      <div class="warn">⚠ 三不：不接数字、不现场估价、不替商务承诺</div></div>
+  </div>
+</div>
+
+<div class="sec sec-c">
+  <div class="sec-head"><span class="chip">C</span><h2>与陈金共答</h2><span class="who">交付类</span></div>
+  <div class="cards">
+    <div class="card"><div class="q"><span class="no">C1</span>多久能上线？</div>
+      <div class="a">工期评估表已在排，等投入人力确认即出正式数字，X 个工作日内答复。</div>
+      <div class="warn" style="color:var(--blue)">⚠ 不现场承诺任何数字（前置条件未确认）</div></div>
+    <div class="card"><div class="q"><span class="no">C2</span>吉客云老数据怎么办？</div>
+      <div class="a">迁移在计划内，方案在技术方案阶段定，不丢数据。</div></div>
+    <div class="card"><div class="q"><span class="no">C3</span>路凯怎么对接？</div>
+      <div class="a">对接方式（接口/文件）待与路凯确认，系统里下发与结算导出位置已留好；<b>结算条款属商务口径</b>（→ B）。</div></div>
+    <div class="card"><div class="q"><span class="no">C4</span>有没有手机端？</div>
+      <div class="a">本期 PC 后台 + 客户下单网页入口，移动端二期评估。</div></div>
+  </div>
+</div>
+
+<div class="sec sec-d">
+  <div class="sec-head"><span class="chip">D</span><h2>记录不展开</h2><span class="who">新需求 / 疑点</span></div>
+  <div class="cards">
+    <div class="card"><div class="q"><span class="no">D1</span>被问倒的新需求</div>
+      <div class="a">只记录：「这个我们记下来，进需求清单评估」——<b>不现场承诺做不做</b>。会后回填 P1-R01 第八节待确认清单。</div></div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-head"><span class="chip" style="background:#1f2937">动线</span><h2>演示动线速记</h2><span class="who">约 15 分钟</span></div>
+  <table class="route">
+    <tr><th style="width:90px">环节</th><th style="width:430px">页面动线</th><th>讲什么</th></tr>
+    <tr><td class="k">开场 1min</td><td>项目看板 → 下钻项目详情</td><td>多项目一屏总览、项目维度盈亏</td></tr>
+    <tr><td class="k">客户线 3min</td><td>⇄ 客户端·下单 → 切回·订单审核 → 路凯下发</td><td>客户独立下单入口（替代路凯下单）；<b>切换动作放慢</b></td></tr>
+    <tr><td class="k">仓储线 5min</td><td>采购入库（弹窗录单）→ <b>小组装（重点）</b> → 组合出库 → 在租跟踪 → 退租验收</td><td>BOM 配比、子件转母件、组装进度</td></tr>
+    <tr><td class="k">财务线 3min</td><td>应收账单 → 开票登记 → 收款登记 → 水单核销 → 项目损益</td><td>核销左右勾对（现状缺失、本期补齐）</td></tr>
+    <tr><td class="k">收尾</td><td>停在项目损益或回看板</td><td>「吉客云 + 路凯两套系统的事，这一套全管了」</td></tr>
+  </table>
+</div>
+
+<div class="sec">
+  <div class="sec-head"><span class="chip" style="background:#1f2937">预检</span><h2>演示前 5 分钟</h2></div>
+  <ul class="check">
+    <li><b style="color:var(--red)">盈亏报表表格错列 bug</b>&nbsp;—— 财务线路径上，演示前必修</li>
+    <li>开一页确认右下角显示「标注 N」（非「收起」残留）；开过标注翻页前收起</li>
+    <li>浏览器缩放 100%~125%</li>
+    <li>标注层默认关；仅被问规则时点开角标现查——展示「功能点有编号可追溯」</li>
+  </ul>
+</div>
+
+<footer>P1-R06-演示问题清单.html · 演示用快照（内容以同名 MD 为准）· 汽车物流包装租赁项目</footer>
+</div>
+</body>
+</html>

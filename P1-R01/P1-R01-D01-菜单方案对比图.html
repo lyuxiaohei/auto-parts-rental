@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>菜单方案对比：折中式 vs 传统独立仓储（全量）</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f5;color:#262626;font-size:13px;line-height:1.6;padding:24px}
+h1{font-size:20px;margin-bottom:6px;color:#111827}
+.sub{color:#8c8c8c;font-size:12px;margin-bottom:20px}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.plan{background:#fff;border-radius:8px;padding:20px;border:1px solid #f0f0f0}
+.plan h2{font-size:15px;margin-bottom:4px;padding-bottom:8px;border-bottom:2px solid #111827}
+.plan .tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:3px;margin-bottom:12px}
+.tag-a{background:#e6f4ff;color:#1677ff}
+.tag-b{background:#f6ffed;color:#52c41a}
+.menu-tree{list-style:none}
+.menu-tree>li{margin-top:8px}
+.lv1{font-weight:600;font-size:14px;color:#111827;padding:6px 10px;background:#e8edf5;border-radius:4px;margin-top:12px}
+.lv2{font-weight:500;font-size:13px;color:#374151;padding:3px 0 3px 20px;position:relative}
+.lv2::before{content:'├';color:#bfbfbf;margin-right:6px;position:absolute;left:8px}
+.lv3{font-size:12px;color:#595959;padding:2px 0 2px 44px;position:relative}
+.lv3::before{content:'·';color:#bfbfbf;margin-right:4px;position:absolute;left:36px}
+.lv3.new{color:#722ed1;font-weight:500}
+.lv3.new::before{content:'★';color:#722ed1;font-size:10px}
+.lv3 .note{color:#8c8c8c;font-size:11px;margin-left:4px}
+.lv2.rent{color:#722ed1}
+.lv2.trade{color:#1677ff}
+.lv2 .group-label{font-size:11px;padding:1px 6px;border-radius:2px;margin-left:6px}
+.gl-rent{background:#f9f0ff;color:#722ed1}
+.gl-trade{background:#e6f4ff;color:#1677ff}
+.gl-common{background:#f6ffed;color:#52c41a}
+.gl-wms{background:#fff7e6;color:#fa8c16}
+.vs{background:#fff;border-radius:8px;padding:20px;margin-top:20px;border:1px solid #f0f0f0}
+.vs h2{font-size:15px;margin-bottom:12px}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th{background:#1f3864;color:#fff;padding:8px 10px;text-align:left;font-weight:600}
+td{padding:7px 10px;border:1px solid #f0f0f0;vertical-align:top}
+tr:nth-child(even) td{background:#f9fafb}
+.good{color:#52c41a;font-weight:600}
+.bad{color:#ff4d4f;font-weight:600}
+.mid{color:#fa8c16;font-weight:600}
+.rec{margin-top:16px;padding:12px;background:#f0f5ff;border-radius:6px;border-left:3px solid #1677ff}
+</style>
+</head>
+<body>
+<h1>全量菜单方案对比：折中式 vs 传统独立仓储</h1>
+<p class="sub">2026-09-03 · 基于第2次会结论 + P1-R07 行业调研 · ★=v2 新增 · [租]=租赁线专属 · [买]=买卖线专属 · [共]=两条线共用</p>
+
+<div class="compare">
+
+<!-- ======== 方案A ======== -->
+<div class="plan">
+<h2>方案A：折中式</h2>
+<span class="tag tag-a">独立仓储菜单 + 内部按业务线分组</span>
+
+<ul class="menu-tree">
+<li><div class="lv1">首页</div>
+  <ul><li class="lv2">项目看板<span class="note">（直连，跨项目经营总览）</span></li></ul>
+</li>
+
+<li><div class="lv1">项目管理</div>
+  <ul><li class="lv2">项目档案列表<span class="note">（直连，含上下游绑定弹窗）</span></li></ul>
+</li>
+
+<li><div class="lv1">基础数据</div>
+  <ul>
+  <li class="lv2">企业管理</li>
+  <li class="lv2">包材档案<span class="note">（围板箱/托盘/料箱）</span></li>
+  <li class="lv2">零部件档案</li>
+  <li class="lv2">子母件BOM<span class="note">（维护由行内进入）</span></li>
+  <li class="lv2">库位档案<span class="note">（编号+手工，预留扫码）</span></li>
+  </ul>
+</li>
+
+<li><div class="lv1">采购管理 ★新增</div>
+  <ul>
+  <li class="lv2">采购订单 ★<span class="note">（向供应商下单，先销后采/先采后销）</span></li>
+  <li class="lv2">销售订单 ★<span class="note">（买卖线客户购买订单）</span></li>
+  </ul>
+</li>
+
+<li><div class="lv1">仓储作业<span class="note">（独立菜单，内部按业务线分组）</span></div>
+  <ul>
+  <li class="lv2" style="color:#52c41a;font-weight:600">── 通用作业 ──<span class="group-label gl-common">两条线共用</span></li>
+  <li class="lv3">采购入库 <span class="note">[共] 选业务类型：买零件/买包装</span></li>
+  <li class="lv3">库存盘点 <span class="note">[共] 散件/组合两种方式</span></li>
+  <li class="lv3">库存查询 <span class="note">[共] 四态视图 + 零件视角</span></li>
+  <li class="lv2" style="color:#722ed1;font-weight:600">── 租赁线专属 ──<span class="group-label gl-rent">仅主线②</span></li>
+  <li class="lv3">小组装 <span class="note">[租] A+B→C，仅租赁域</span></li>
+  <li class="lv3">组合出库 <span class="note">[租] 租赁发货</span></li>
+  <li class="lv3">退租验收 <span class="note">[租] 散件入库+缺损核对（录入→验收一体化）</span></li>
+  <li class="lv2" style="color:#1677ff;font-weight:600">── 买卖线专属 ──<span class="group-label gl-trade">仅主线①</span></li>
+  <li class="lv3 new">销售出库 ★ <span class="note">[买] 零件发货</span></li>
+  </ul>
+</li>
+
+<li><div class="lv1">包装管理 ★（替代原租赁管理）</div>
+  <ul>
+  <li class="lv2 new">租赁单 ★<span class="note">（客户出租单，关联项目与客户）</span></li>
+  <li class="lv2">在租资产跟踪<span class="note">（四态统计+平均租期+周转率）</span></li>
+  <li class="lv2 new">丢损赔偿单 ★<span class="note">（退租缺损自动生成赔偿应收）</span></li>
+  <li class="lv2 new">组合方案 ★<span class="note">（BOM式：父=C，子=A×配比+B×配比）</span></li>
+  </ul>
+</li>
+
+<li><div class="lv1">订单协同</div>
+  <ul>
+  <li class="lv2">订单审核<span class="note">（统一订单列表+代下单标识）</span></li>
+  <li class="lv2">订单同步<span class="note">（传路凯）</span></li>
+  <li class="lv2">对账结算</li>
+  </ul>
+</li>
+
+<li><div class="lv1">财务应收<span class="note">（客户给我们钱）</span></div>
+  <ul>
+  <li class="lv2">应收账单</li>
+  <li class="lv2">开票登记<span class="note">（含发票上传）</span></li>
+  <li class="lv2">收款登记</li>
+  <li class="lv2">收款核销</li>
+  </ul>
+</li>
+<li><div class="lv1">财务应付 ★<span class="note">（我们给供应商/路凯付钱）</span></div>
+  <ul>
+  <li class="lv2 new">应付账单 ★<span class="note">（采购入库/租入自动生成，供应商/路凯）</span></li>
+  <li class="lv2 new">付款登记 ★<span class="note">（第一期简化版）</span></li>
+  </ul>
+</li>
+<li><div class="lv1">项目损益</div>
+  <ul>
+  <li class="lv2">项目损益<span class="note">（收入-成本，含应付侧）</span></li>
+  </ul>
+</li>
+
+<li><div class="lv1">系统管理</div>
+  <ul>
+  <li class="lv2">用户权限</li>
+  <li class="lv2">操作日志</li>
+  <li class="lv2">数据字典</li>
+  </ul>
+</li>
+</ul>
+
+<div style="margin-top:12px;padding:8px;background:#f8fafc;border-radius:4px;font-size:12px;color:#595959">
+一级菜单 <b>9</b> 个（含新增采购管理★、包装管理★）；仓储子项 <b>7</b> 个；全站菜单 <b>28</b> 项
+</div>
+</div>
+
+<!-- ======== 方案B ======== -->
+<div class="plan">
+<h2>方案B：传统独立仓储</h2>
+<span class="tag tag-b">仓储完全独立，按操作类型平铺（金蝶/用友模式）</span>
+
+<ul class="menu-tree">
+<li><div class="lv1">首页</div>
+  <ul><li class="lv2">项目看板<span class="note">（直连，跨项目经营总览）</span></li></ul>
+</li>
+
+<li><div class="lv1">项目管理</div>
+  <ul><li class="lv2">项目档案列表<span class="note">（直连，含上下游绑定弹窗）</span></li></ul>
+</li>
+
+<li><div class="lv1">基础数据</div>
+  <ul>
+  <li class="lv2">企业管理</li>
+  <li class="lv2">包材档案<span class="note">（围板箱/托盘/料箱）</span></li>
+  <li class="lv2">零部件档案</li>
+  <li class="lv2">子母件BOM<span class="note">（维护由行内进入）</span></li>
+  <li class="lv2">库位档案<span class="note">（编号+手工，预留扫码）</span></li>
+  </ul>
+</li>
+
+<li><div class="lv1">采购管理 ★新增</div>
+  <ul>
+  <li class="lv2">采购订单 ★<span class="note">（向供应商下单，先销后采/先采后销）</span></li>
+  <li class="lv2">销售订单 ★<span class="note">（买卖线客户购买订单）</span></li>
+  </ul>
+</li>
+
+<li><div class="lv1">仓储作业<span class="note">（完全独立，按操作类型平铺，不分业务线）</span></div>
+  <ul>
+  <li class="lv2" style="color:#fa8c16;font-weight:600">── 入库类 ──<span class="group-label gl-wms">按操作分</span></li>
+  <li class="lv3">采购入库 <span class="note">[共] 选业务类型：买零件/买包装</span></li>
+  <li class="lv3 new">退租入库 ★ <span class="note">[租] 从退租验收拆出为独立入库单</span></li>
+  <li class="lv3 new">其他入库 ★ <span class="note">[共] 盘盈/退货入库等</span></li>
+  <li class="lv2" style="color:#fa8c16;font-weight:600">── 出库类 ──<span class="group-label gl-wms">按操作分</span></li>
+  <li class="lv3 new">销售出库 ★ <span class="note">[买] 零件发货</span></li>
+  <li class="lv3">组合出库 <span class="note">[租] 租赁发货</span></li>
+  <li class="lv3 new">其他出库 ★ <span class="note">[共] 报废/盘亏等</span></li>
+  <li class="lv2" style="color:#fa8c16;font-weight:600">── 组装/拆散 ──<span class="group-label gl-wms">按操作分</span></li>
+  <li class="lv3">小组装 <span class="note">[租] A+B→C</span></li>
+  <li class="lv3 new">拆散作业 ★ <span class="note">[租] C→A/B，退租后拆回散件</span></li>
+  <li class="lv2" style="color:#fa8c16;font-weight:600">── 库存管理 ──<span class="group-label gl-wms">按操作分</span></li>
+  <li class="lv3">库存盘点 <span class="note">[共] 散件/组合两种方式</span></li>
+  <li class="lv3">库存查询 <span class="note">[共] 四态视图 + 零件视角</span></li>
+  <li class="lv3 new">库存调拨 ★ <span class="note">[共] 仓库间调拨，预留</span></li>
+  </ul>
+</li>
+
+<li><div class="lv1">包装管理 ★（替代原租赁管理）</div>
+  <ul>
+  <li class="lv2 new">租赁单 ★<span class="note">（客户出租单，关联项目与客户）</span></li>
+  <li class="lv2 new">退租申请 ★<span class="note">（客户/项目经理发起退租申请）</span></li>
+  <li class="lv2">在租资产跟踪<span class="note">（四态统计+平均租期+周转率）</span></li>
+  <li class="lv2 new">丢损赔偿单 ★<span class="note">（退租缺损自动生成赔偿应收）</span></li>
+  <li class="lv2 new">组合方案 ★<span class="note">（BOM式：父=C，子=A×配比+B×配比）</span></li>
+  </ul>
+</li>
+
+<li><div class="lv1">订单协同</div>
+  <ul>
+  <li class="lv2">订单审核<span class="note">（统一订单列表+代下单标识）</span></li>
+  <li class="lv2">订单同步<span class="note">（传路凯）</span></li>
+  <li class="lv2">对账结算</li>
+  </ul>
+</li>
+
+<li><div class="lv1">财务应收<span class="note">（客户给我们钱）</span></div>
+  <ul>
+  <li class="lv2">应收账单</li>
+  <li class="lv2">开票登记<span class="note">（含发票上传）</span></li>
+  <li class="lv2">收款登记</li>
+  <li class="lv2">收款核销</li>
+  </ul>
+</li>
+<li><div class="lv1">财务应付 ★<span class="note">（我们给供应商/路凯付钱）</span></div>
+  <ul>
+  <li class="lv2 new">应付账单 ★<span class="note">（采购入库/租入自动生成，供应商/路凯）</span></li>
+  <li class="lv2 new">付款登记 ★<span class="note">（第一期简化版）</span></li>
+  </ul>
+</li>
+<li><div class="lv1">项目损益</div>
+  <ul>
+  <li class="lv2">项目损益<span class="note">（收入-成本，含应付侧）</span></li>
+  </ul>
+</li>
+
+<li><div class="lv1">系统管理</div>
+  <ul>
+  <li class="lv2">用户权限</li>
+  <li class="lv2">操作日志</li>
+  <li class="lv2">数据字典</li>
+  </ul>
+</li>
+</ul>
+
+<div style="margin-top:12px;padding:8px;background:#f8fafc;border-radius:4px;font-size:12px;color:#595959">
+一级菜单 <b>9</b> 个（含新增采购管理★、包装管理★）；仓储子项 <b>11</b> 个（多退租入库★/其他入库★/其他出库★/调拨★）；全站菜单 <b>32</b> 项
+</div>
+</div>
+</div>
+
+<!-- 对比表 -->
+<div class="vs">
+<h2>方案对比分析</h2>
+<table>
+<tr><th style="width:110px">维度</th><th>方案A：折中式</th><th>方案B：传统独立仓储</th></tr>
+<tr><td>一级菜单数</td><td>9 个</td><td>9 个（相同）</td></tr>
+<tr><td>仓储子菜单数</td><td class="good">7 个</td><td class="bad">11 个（多退租入库/其他入库/其他出库/调拨）</td></tr>
+<tr><td>全站菜单总数</td><td class="good">28 项</td><td class="bad">32 项</td></tr>
+<tr><td>退租流程</td><td class="good">退租验收一体化（录入→验收→散件入库一步完成）</td><td class="bad">拆为"退租申请（包装管理）→退租入库（仓储）"两张单据、跨两个模块操作</td></tr>
+<tr><td>业务线区分</td><td class="good">子菜单直接标注 [租]/[买]/[共]，客户一看就懂</td><td class="mid">不标注，靠"业务类型"字段区分，可能混淆</td></tr>
+<tr><td>仓管操作路径</td><td class="good">所有出入库集中一个菜单，按业务线分组找</td><td class="good">所有出入库集中一个菜单，按操作类型找</td></tr>
+<tr><td>行业对标</td><td class="mid">傲蓝模式（按业务域组织）</td><td class="good">金蝶/用友标准模式（按操作类型组织）</td></tr>
+<tr><td>第2次会匹配</td><td class="good">袁丽晶按业务线思考，分组直接映射她的心智模型</td><td class="mid">袁可能觉得"退租为什么要去仓储模块做入库"</td></tr>
+<tr><td>客户学习成本</td><td class="good">低：两条线各自的功能一目了然</td><td class="mid">中：需要理解"入库类/出库类"的分类逻辑</td></tr>
+<tr><td>扩展性</td><td class="good">后续加维修/报废直接加到对应业务线子区</td><td class="mid">所有新增堆到仓储菜单，可能膨胀到15+</td></tr>
+<tr><td>开发复杂度</td><td class="good">较低：退租验收一张单搞定</td><td class="mid">较高：退租拆两步+需处理跨模块单据关联</td></tr>
+</table>
+
+<div class="rec">
+<b>推荐：方案A（折中式）</b><br>
+理由：①客户按业务线思考（袁丽晶"采购入库是资产的、退租是租赁的"），分组直接映射她的心智模型；②退租验收到散件入库一步完成（行业铁律"申请与验收分离"但不需要拆单据到不同模块）；③与第2次会"两条主线"架构定位一致；④菜单更少（28 vs 32）、开发更简单。<br><br>
+方案B 的优势在于更"标准"（金蝶/用友模式），如果客户团队熟悉 ERP 且偏好操作类型分组，可以后续切换。
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+[
+ {
+  "page": "仓储作业\\组装列表.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 7,
+   "links": 18,
+   "onclickEls": 54,
+   "modals": 1,
+   "modalTitles": [
+    "组装确认"
+   ],
+   "selects": 4,
+   "fakeSelects": 0,
+   "radios": 0,
+   "checkboxes": 0,
+   "inputs": 11,
+   "stabs": 5,
+   "tabs": 4,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ }
+]

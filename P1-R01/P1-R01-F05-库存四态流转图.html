@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P1-R01-F05 库存四态流转图</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--paper:#fafafa;--ink:#111827;--muted:#4b5563;--accent:#2563eb;--line:#e5e7eb}
+body{font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;background:var(--paper);color:var(--ink);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:3rem 2rem}
+.frame{max-width:1200px;width:100%}
+.eyebrow{font-family:'Geist Mono',Consolas,monospace;font-size:.66rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem}
+h1{font-family:'Instrument Serif','SimSun',serif;font-size:clamp(1.5rem,2.4vw+.75rem,2rem);font-weight:400;letter-spacing:-.02em;line-height:1.15;margin-bottom:1.5rem}
+svg{width:100%;min-width:900px;display:block}
+</style>
+</head>
+<body>
+<div class="frame">
+  <p class="eyebrow">P1-R01-F05 · State Machine · 库存四态</p>
+  <h1>循环包装库存四态流转</h1>
+  <svg viewBox="0 0 1000 520" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#4b5563"/></marker>
+      <marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2563eb"/></marker>
+    </defs>
+    <rect width="100%" height="100%" fill="#fafafa"/>
+
+    <!-- 状态节点：2x2 网格 -->
+    <!-- 在库（左上，焦点） -->
+    <rect x="80" y="60" width="200" height="80" rx="8" fill="rgba(37,99,235,0.08)" stroke="#2563eb" stroke-width="1.2"/>
+    <text x="180" y="90" fill="#111827" font-size="14" font-weight="600" font-family="'Geist','Microsoft YaHei',sans-serif" text-anchor="middle">在库库存</text>
+    <text x="180" y="112" fill="#4b5563" font-size="9" font-family="'Geist Mono',Consolas,monospace" text-anchor="middle">仓库内 · 可出租</text>
+
+    <!-- 客户端（右上） -->
+    <rect x="720" y="60" width="200" height="80" rx="8" fill="#ffffff" stroke="#111827" stroke-width="1"/>
+    <text x="820" y="90" fill="#111827" font-size="14" font-weight="600" font-family="'Geist','Microsoft YaHei',sans-serif" text-anchor="middle">客户端库存</text>
+    <text x="820" y="112" fill="#4b5563" font-size="9" font-family="'Geist Mono',Consolas,monospace" text-anchor="middle">租出在客户处</text>
+
+    <!-- 在途（右下） -->
+    <rect x="720" y="340" width="200" height="80" rx="8" fill="#ffffff" stroke="#111827" stroke-width="1"/>
+    <text x="820" y="370" fill="#111827" font-size="14" font-weight="600" font-family="'Geist','Microsoft YaHei',sans-serif" text-anchor="middle">在途库存</text>
+    <text x="820" y="392" fill="#4b5563" font-size="9" font-family="'Geist Mono',Consolas,monospace" text-anchor="middle">退租单已录入 · 未审核</text>
+
+    <!-- 退租库存（左下） -->
+    <rect x="80" y="340" width="200" height="80" rx="8" fill="#ffffff" stroke="#111827" stroke-width="1"/>
+    <text x="180" y="370" fill="#111827" font-size="14" font-weight="600" font-family="'Geist','Microsoft YaHei',sans-serif" text-anchor="middle">退租库存</text>
+    <text x="180" y="392" fill="#4b5563" font-size="9" font-family="'Geist Mono',Consolas,monospace" text-anchor="middle">审核通过 · 待入库</text>
+
+    <!-- 转移箭头 -->
+    <!-- 在库 → 客户端：出租（租赁单） -->
+    <line x1="280" y1="100" x2="720" y2="100" stroke="#2563eb" stroke-width="1.2" marker-end="url(#arrow-accent)"/>
+    <rect x="420" y="80" width="160" height="16" rx="2" fill="#fafafa"/>
+    <text x="500" y="92" fill="#2563eb" font-size="9" font-family="'Geist Mono',Consolas,monospace" text-anchor="middle">出租（租赁单）</text>
+
+    <!-- 客户端 → 在途：退租单录入 -->
+    <line x1="820" y1="140" x2="820" y2="340" stroke="#4b5563" stroke-width="1" marker-end="url(#arrow)"/>
+    <rect x="830" y="220" width="120" height="16" rx="2" fill="#fafafa"/>
+    <text x="890" y="232" fill="#4b5563" font-size="9" font-family="'Geist Mono',Consolas,monospace" text-anchor="middle">退租单录入</text>
+
+    <!-- 在途 → 退租库存：审核 -->
+    <line x1="720" y1="380" x2="280" y2="380" stroke="#4b5563" stroke-width="1" marker-end="url(#arrow)"/>
+    <rect x="420" y="360" width="120" height="16" rx="2" fill="#fafafa"/>
+    <text x="480" y="372" fill="#4b5563" font-size="9" font-family="'Geist Mono',Consolas,monospace" text-anchor="middle">审核通过</text>
+
+    <!-- 退租库存 → 在库：散件入库（循环回到可出租） -->
+    <line x1="180" y1="340" x2="180" y2="140" stroke="#2563eb" stroke-width="1.2" marker-end="url(#arrow-accent)"/>
+    <rect x="40" y="220" width="160" height="16" rx="2" fill="#fafafa"/>
+    <text x="120" y="232" fill="#2563eb" font-size="9" font-family="'Geist Mono',Consolas,monospace" text-anchor="middle">散件入库（循环）</text>
+
+    <!-- 组合出库说明 -->
+    <rect x="380" y="180" width="240" height="120" rx="8" fill="rgba(17,24,39,0.03)" stroke="rgba(17,24,39,0.20)" stroke-width="1" stroke-dasharray="4,3"/>
+    <text x="500" y="210" fill="#6b7280" font-size="8" font-family="'Geist Mono',Consolas,monospace" text-anchor="middle" letter-spacing="0.1em">退租入库方式</text>
+    <text x="500" y="232" fill="#111827" font-size="11" font-weight="600" font-family="'Geist','Microsoft YaHei',sans-serif" text-anchor="middle">按散件（A/B/C）单独入库</text>
+    <text x="500" y="250" fill="#4b5563" font-size="10" font-family="'Geist','Microsoft YaHei',sans-serif" text-anchor="middle">不按组合入库</text>
+    <text x="500" y="272" fill="#4b5563" font-size="10" font-family="'Geist','Microsoft YaHei',sans-serif" text-anchor="middle">退租后可重新小组装再出租</text>
+
+    <!-- 图例 -->
+    <line x1="48" y1="480" x2="952" y2="480" stroke="rgba(17,24,39,0.10)" stroke-width="0.8"/>
+    <text x="48" y="500" fill="#4b5563" font-size="8" font-family="'Geist Mono',Consolas,monospace" letter-spacing="0.14em">LEGEND</text>
+    <line x1="120" y1="496" x2="156" y2="496" stroke="#2563eb" stroke-width="1.2" marker-end="url(#arrow-accent)"/>
+    <text x="164" y="500" fill="#6b7280" font-size="8" font-family="'Geist Mono',Consolas,monospace">核心循环</text>
+    <line x1="250" y1="496" x2="286" y2="496" stroke="#4b5563" stroke-width="1" marker-end="url(#arrow)"/>
+    <text x="294" y="500" fill="#6b7280" font-size="8" font-family="'Geist Mono',Consolas,monospace">状态转移</text>
+    <rect x="380" y="488" width="16" height="12" rx="2" fill="rgba(37,99,235,0.08)" stroke="#2563eb" stroke-width="1"/>
+    <text x="404" y="500" fill="#6b7280" font-size="8" font-family="'Geist Mono',Consolas,monospace">起点（可出租）</text>
+    <rect x="510" y="488" width="16" height="12" rx="2" fill="#fff" stroke="#111827" stroke-width="1" stroke-dasharray="4,3"/>
+    <text x="534" y="500" fill="#6b7280" font-size="8" font-family="'Geist Mono',Consolas,monospace">入库规则说明</text>
+  </svg>
+</div>
+</body>
+</html>
