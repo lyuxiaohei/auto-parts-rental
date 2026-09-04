@@ -402,7 +402,7 @@ th.td-num { text-align:right; }
           <td>2026-09-02</td>
           <td>招商银行苏州分行 1109××××8821</td>
           <td><span class="tag tag-orange">待确认</span></td>
-          <td><span class="ops"><a onclick="openModal('auditModal')">确认</a><a>详情</a></span></td>
+          <td><span class="ops"><a onclick="openModal('auditModal')">确认</a><a onclick="openModal('detailModal')">详情</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
@@ -413,7 +413,7 @@ th.td-num { text-align:right; }
           <td>2026-08-31</td>
           <td>中国银行常州分行 3325××××0067</td>
           <td><span class="tag tag-green">已确认</span></td>
-          <td><span class="ops"><a>详情</a></span></td>
+          <td><span class="ops"><a onclick="openModal('detailModal')">详情</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
@@ -424,7 +424,7 @@ th.td-num { text-align:right; }
           <td>2026-08-28</td>
           <td>工商银行宁波分行 4402××××5531</td>
           <td><span class="tag tag-green">已确认</span></td>
-          <td><span class="ops"><a>详情</a></span></td>
+          <td><span class="ops"><a onclick="openModal('detailModal')">详情</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
@@ -435,7 +435,7 @@ th.td-num { text-align:right; }
           <td>2026-08-25</td>
           <td>招商银行苏州分行 1109××××8821</td>
           <td><span class="tag tag-green">已确认</span></td>
-          <td><span class="ops"><a>详情</a></span></td>
+          <td><span class="ops"><a onclick="openModal('detailModal')">详情</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
@@ -446,7 +446,7 @@ th.td-num { text-align:right; }
           <td>2026-08-18</td>
           <td>建设银行上海分行 6217××××9045</td>
           <td><span class="tag tag-green">已确认</span></td>
-          <td><span class="ops"><a>详情</a></span></td>
+          <td><span class="ops"><a onclick="openModal('detailModal')">详情</a></span></td>
         </tr>
       </tbody>
     </table>
@@ -589,6 +589,113 @@ th.td-num { text-align:right; }
   setTimeout(function(){ clearInterval(t); }, 4000);
 })();
 </script>
+
+
+
+<style id="detail-modal-css">
+/* 详情弹窗（四段式）专用样式：段落标题 / 关联链 / 流转时间线 */
+.dt-sec{font-size:13px;font-weight:600;color:#262626;margin:0 0 10px;padding-left:8px;border-left:3px solid #1677ff;line-height:1.3}
+.modal-body .dt-sec:not(:first-child){margin-top:18px}
+.chain{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.chain .node{border:1px solid #f0f0f0;border-radius:6px;padding:8px 12px;background:#fafafa;min-width:126px}
+.chain .node .n-role{font-size:11px;color:#8c8c8c}
+.chain .node .n-name{font-size:12.5px;font-weight:600;margin-top:2px;word-break:break-all}
+.chain .link-arrow{color:#8c8c8c}
+.tl{position:relative;padding-left:16px}
+.tl::before{content:'';position:absolute;left:4px;top:6px;bottom:6px;width:2px;background:#e6f4ff}
+.tl-i{position:relative;padding:0 0 12px 6px;font-size:12.5px;color:#262626}
+.tl-i:last-child{padding-bottom:0}
+.tl-i::before{content:'';position:absolute;left:-16px;top:5px;width:7px;height:7px;border-radius:50%;background:#fff;border:2px solid #1677ff}
+.tl-i.off::before{border-color:#d9d9d9}
+.tl-i .tl-t{color:#8c8c8c;font-size:12px;margin-right:8px;font-variant-numeric:tabular-nums}
+.tl-i .tl-who{color:#8c8c8c;font-size:12px;margin-left:8px}
+</style>
+<!-- 详情弹窗（四段式：单据头/明细/关联单据互溯链/流转时间线）· 详情落地页补齐 2026-09-04 -->
+<div class="modal-overlay" id="detailModal">
+  <div class="modal modal-lg" style="width:780px;">
+    <div class="modal-header">
+      <h3 class="modal-title">付款登记详情 · PAY-20260902-005</h3>
+      <span class="modal-close" onclick="closeModal('detailModal')">×</span>
+    </div>
+    <div class="modal-body">
+      <div class="dt-sec">单据信息</div>
+      <div class="dgrid c3"><div class="drow"><div class="dlabel">付款单号</div><div class="dval">PAY-20260902-005</div></div><div class="drow"><div class="dlabel">状态</div><div class="dval"><span class="tag tag-orange">待确认</span></div></div><div class="drow"><div class="dlabel">供应商</div><div class="dval">苏州联恒五金制品有限公司</div></div><div class="drow"><div class="dlabel">关联应付</div><div class="dval"><span class="lk" onclick="go('../财务协同/应付账单.html')">AP-20260830-007</span></div></div><div class="drow"><div class="dlabel">付款金额</div><div class="dval">6,000.00 元</div></div><div class="drow"><div class="dlabel">付款日期</div><div class="dval">2026-09-02</div></div><div class="drow"><div class="dlabel">付款账户</div><div class="dval">招商银行苏州分行 1109××××8821</div></div><div class="drow"><div class="dlabel">登记人</div><div class="dval">财务-周敏</div></div><div class="drow"><div class="dlabel">付款方式</div><div class="dval">银行转账</div></div><div class="drow"><div class="dlabel">凭证</div><div class="dval">已上传</div></div></div>
+      <div class="dt-sec">付款明细</div>
+      <div class="table-wrap"><table><thead><tr><th>关联账单</th><th>账单类型</th><th class="td-num">本次付款(元)</th></tr></thead>
+<tbody>
+<tr><td><span class="lk" onclick="go('../财务协同/应付账单.html')">AP-20260830-007</span></td><td>采购应付</td><td class="td-num">6,000.00</td></tr>
+</tbody></table></div>
+      <div class="dt-sec">关联单据</div>
+      <div class="chain"><div class="node"><div class="n-role">应付账单</div><div class="n-name"><span class="lk" onclick="go('../财务协同/应付账单.html')">AP-20260830-007</span></div></div><span class="link-arrow">→</span><div class="node" style="border-color:#1677ff;background:#e6f4ff;"><div class="n-role">付款登记（本单）</div><div class="n-name">PAY-20260902-005</div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">付款确认</div><div class="n-name">待确认（审核流）</div></div></div>
+      <div class="dt-sec">流转时间线</div>
+      <div class="tl"><div class="tl-i"><span class="tl-t">09-02 16:05</span>付款登记 · 上传付款凭证<span class="tl-who">财务-周敏</span></div><div class="tl-i off"><span class="tl-t">—</span>待确认 · 通过后账单转已付款</div></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-default" onclick="closeModal('detailModal')">关 闭</button>
+    </div>
+  </div>
+</div>
+<script>
+/* ===== 菜单折叠 / 页签与表单视觉态（统一脚本） ===== */
+function go(url) { location.href = url; }
+document.querySelectorAll('.sm-item.has-sub > .sm-link').forEach(function (link) {
+  link.addEventListener('click', function () { link.parentElement.classList.toggle('open'); });
+});
+/* 状态页签切换（视觉选中态） */
+document.querySelectorAll('.stabs .stab').forEach(function (tab) {
+  tab.addEventListener('click', function () {
+    tab.parentElement.querySelectorAll('.stab').forEach(function (t) { t.classList.remove('active'); });
+    tab.classList.add('active');
+  });
+});
+/* 表单单选/复选视觉态切换 */
+document.querySelectorAll('.radio').forEach(function (r) {
+  r.addEventListener('click', function () {
+    r.parentElement.querySelectorAll('.radio').forEach(function (x) { x.classList.remove('checked'); });
+    r.classList.add('checked');
+  });
+});
+document.querySelectorAll('.checkbox').forEach(function (c) {
+  c.addEventListener('click', function (c2) { c.classList.toggle('checked'); });
+});
+/* ===== 弹窗 ===== */
+function openModal(id) { document.getElementById(id).classList.add('show'); }
+function closeModal(id) { document.getElementById(id).classList.remove('show'); }
+document.querySelectorAll('.modal-overlay').forEach(function (ov) {
+  ov.addEventListener('click', function (e) { if (e.target === ov) ov.classList.remove('show'); });
+});
+</script>
+<script>/*ia-fix: tab-switch + btn-feedback (2026-09-04)*/
+/* R3 顶部页签切换（点击换 active；× 不做关闭跳转——原型不销毁页签） */
+document.querySelectorAll('.tab').forEach(function (t) {
+  t.addEventListener('click', function () {
+    document.querySelectorAll('.tab').forEach(function (x) { x.classList.remove('active'); });
+    t.classList.add('active');
+  });
+});
+/* R1 死按钮全局反馈：无 onclick 的 button/a 给按压视觉态；「重置」清空所在筛选卡 */
+(function () {
+  document.addEventListener('click', function (e) {
+    var el = e.target.closest ? e.target.closest('button, a, .sm-link') : null;
+    if (!el) return;
+    if (el.getAttribute('onclick')) return;
+    var h = el.getAttribute('href');
+    if (el.tagName === 'A' && h && h !== '#' && !/^javascript:/i.test(h)) return;
+    if (el.disabled) return;
+    var txt = (el.textContent || '').trim();
+    if (txt === '重置') {
+      var card = el.closest('.filter-card') || el.closest('.card');
+      if (card) {
+        card.querySelectorAll('input:not([type=checkbox]):not([type=radio])').forEach(function (i) { if (!i.readOnly && !i.disabled) i.value = ''; });
+        card.querySelectorAll('select').forEach(function (s) { if (!s.disabled) s.selectedIndex = 0; });
+      }
+    }
+    el.style.transition = 'transform .08s';
+    el.style.transform = 'scale(.96)';
+    setTimeout(function () { el.style.transform = ''; }, 160);
+  }, true);
+})();
+</script>
 <style id="proto-notes-style">
 body.proto-notes-on [data-note]{position:relative}
 body.proto-notes-on [data-note]::after{content:attr(data-note);position:absolute;top:1px;right:1px;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600;box-shadow:0 0 0 1.5px #fff;cursor:pointer;opacity:.75;transition:opacity .15s}
@@ -658,67 +765,6 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
     }
   });
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply);else apply();
-})();
-</script>
-<script>
-/* ===== 菜单折叠 / 页签与表单视觉态（统一脚本） ===== */
-function go(url) { location.href = url; }
-document.querySelectorAll('.sm-item.has-sub > .sm-link').forEach(function (link) {
-  link.addEventListener('click', function () { link.parentElement.classList.toggle('open'); });
-});
-/* 状态页签切换（视觉选中态） */
-document.querySelectorAll('.stabs .stab').forEach(function (tab) {
-  tab.addEventListener('click', function () {
-    tab.parentElement.querySelectorAll('.stab').forEach(function (t) { t.classList.remove('active'); });
-    tab.classList.add('active');
-  });
-});
-/* 表单单选/复选视觉态切换 */
-document.querySelectorAll('.radio').forEach(function (r) {
-  r.addEventListener('click', function () {
-    r.parentElement.querySelectorAll('.radio').forEach(function (x) { x.classList.remove('checked'); });
-    r.classList.add('checked');
-  });
-});
-document.querySelectorAll('.checkbox').forEach(function (c) {
-  c.addEventListener('click', function (c2) { c.classList.toggle('checked'); });
-});
-/* ===== 弹窗 ===== */
-function openModal(id) { document.getElementById(id).classList.add('show'); }
-function closeModal(id) { document.getElementById(id).classList.remove('show'); }
-document.querySelectorAll('.modal-overlay').forEach(function (ov) {
-  ov.addEventListener('click', function (e) { if (e.target === ov) ov.classList.remove('show'); });
-});
-</script>
-<script>/*ia-fix: tab-switch + btn-feedback (2026-09-04)*/
-/* R3 顶部页签切换（点击换 active；× 不做关闭跳转——原型不销毁页签） */
-document.querySelectorAll('.tab').forEach(function (t) {
-  t.addEventListener('click', function () {
-    document.querySelectorAll('.tab').forEach(function (x) { x.classList.remove('active'); });
-    t.classList.add('active');
-  });
-});
-/* R1 死按钮全局反馈：无 onclick 的 button/a 给按压视觉态；「重置」清空所在筛选卡 */
-(function () {
-  document.addEventListener('click', function (e) {
-    var el = e.target.closest ? e.target.closest('button, a, .sm-link') : null;
-    if (!el) return;
-    if (el.getAttribute('onclick')) return;
-    var h = el.getAttribute('href');
-    if (el.tagName === 'A' && h && h !== '#' && !/^javascript:/i.test(h)) return;
-    if (el.disabled) return;
-    var txt = (el.textContent || '').trim();
-    if (txt === '重置') {
-      var card = el.closest('.filter-card') || el.closest('.card');
-      if (card) {
-        card.querySelectorAll('input:not([type=checkbox]):not([type=radio])').forEach(function (i) { if (!i.readOnly && !i.disabled) i.value = ''; });
-        card.querySelectorAll('select').forEach(function (s) { if (!s.disabled) s.selectedIndex = 0; });
-      }
-    }
-    el.style.transition = 'transform .08s';
-    el.style.transform = 'scale(.96)';
-    setTimeout(function () { el.style.transform = ''; }, 160);
-  }, true);
 })();
 </script>
 </body>

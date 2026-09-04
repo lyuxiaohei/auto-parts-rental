@@ -473,7 +473,7 @@ th.td-num { text-align:right; }
           <td>2026-09-02</td>
           <td>—</td>
           <td><span class="tag tag-green">已完成</span></td>
-          <td><span class="ops"><a>详情</a><a onclick="go('../仓储作业/采购入库列表.html')">入库记录</a></span></td>
+          <td><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="go('../仓储作业/采购入库列表.html')">入库记录</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
@@ -487,7 +487,7 @@ th.td-num { text-align:right; }
           <td>2026-08-30</td>
           <td>—</td>
           <td><span class="tag tag-green">已完成</span></td>
-          <td><span class="ops"><a>详情</a><a onclick="go('../仓储作业/采购入库列表.html')">入库记录</a></span></td>
+          <td><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="go('../仓储作业/采购入库列表.html')">入库记录</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
@@ -501,7 +501,7 @@ th.td-num { text-align:right; }
           <td>2026-08-25</td>
           <td>—</td>
           <td><span class="tag tag-gray">已关闭</span></td>
-          <td><span class="ops"><a>详情</a></span></td>
+          <td><span class="ops"><a onclick="openModal('detailModal')">详情</a></span></td>
         </tr>
       </tbody>
     </table>
@@ -532,10 +532,13 @@ th.td-num { text-align:right; }
     <div class="input-box select-box" style="width:350px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option>路凯包装运营（上海）有限公司</option><option selected>苏州联恒五金制品有限公司</option><option>宁波华塑包装制品有限公司</option><option>常州正大塑料托盘厂</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
   </div><div class="form-row">
     <span class="form-label"><span class="req">*</span>物料类型</span>
-    <div class="input-box select-box" style="width:350px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>零部件</option><option>WBX-1210L 围板箱</option><option>PLT-1210P 塑料托盘</option><option>BTC-6040 料箱</option><option>LJ-A100 护角</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+    <div class="input-box select-box" style="width:350px;"><select onchange="var r=document.getElementById('poQjRow');if(r)r.style.display=(this.options[this.selectedIndex].text=='器具')?'flex':'none'" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>零部件</option><option>器具</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+  </div><div class="form-row" id="poQjRow" style="display:none;">
+    <span class="form-label"><span class="req">*</span>器具档案</span>
+    <div class="input-box select-box" style="width:350px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>WBX-1210L 围板箱</option><option>PLT-1210P 塑料托盘</option><option>BTC-6040 料箱</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
   </div><div class="form-row">
     <span class="form-label">关联销售订单号</span>
-    <div class="input-box" style="width:350px;"><input placeholder="选填，先销后采时自动带出"></div>
+    <div class="input-box" style="width:350px;"><input placeholder="选填 · 仅参考关联（非以销定采）"></div>
   </div><div class="form-row">
     <span class="form-label">预计到货日期</span>
     <div class="input-box" style="width:350px;"><input value="2026-09-15" placeholder="请输入"></div>
@@ -648,77 +651,54 @@ th.td-num { text-align:right; }
   setTimeout(function(){ clearInterval(t); }, 4000);
 })();
 </script>
-<style id="proto-notes-style">
-body.proto-notes-on [data-note]{position:relative}
-body.proto-notes-on [data-note]::after{content:attr(data-note);position:absolute;top:1px;right:1px;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600;box-shadow:0 0 0 1.5px #fff;cursor:pointer;opacity:.75;transition:opacity .15s}
-body.proto-notes-on [data-note]:hover::after{opacity:1}
-@keyframes pn-blink{0%{box-shadow:0 0 0 2px #722ed1}25%{box-shadow:0 0 0 5px rgba(114,46,209,.35)}100%{box-shadow:0 0 0 2px transparent}}
-.proto-pin{display:none;position:absolute;width:300px;background:#fff;border:1px solid #f0f0f0;border-top:2px solid #722ed1;border-radius:6px;box-shadow:0 4px 14px rgba(0,0,0,.13);z-index:890;padding:10px 12px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;font-size:12px;color:#262626}
-body.proto-notes-on .proto-pin.pn-open{display:block}
-.proto-pin .pnp-close{position:absolute;top:6px;right:8px;cursor:pointer;color:#8c8c8c;font-size:14px;line-height:1;padding:2px}
-.proto-pin .pnp-close:hover{color:#262626}
-.proto-pin .pnp-t{display:flex;align-items:center;gap:6px;font-weight:600;font-size:13px;color:#262626;padding-right:16px}
-.proto-pin .pnp-n{flex:none;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600}
-.proto-pin .pnp-d{margin-top:5px;color:#595959;line-height:1.6}
-.proto-pin .pnp-b{margin-top:6px;display:flex;gap:4px;flex-wrap:wrap}
-.proto-pin .pnp-tag{background:#f9f0ff;color:#722ed1;border-radius:3px;padding:0 6px;font-size:11px;line-height:20px}
-.proto-pin .pnp-src{margin-top:8px;padding-top:7px;border-top:1px dashed #e5dff0;font-size:11px;color:#595959;line-height:1.65}
-.proto-pin .pnp-src b{color:#722ed1;font-weight:600}
-.pn-fab{position:fixed;right:12px;bottom:12px;z-index:880;display:flex;align-items:center;gap:5px;height:24px;padding:0 10px;border-radius:4px;background:#fff;border:1px solid #ddd0ec;color:#722ed1;font-size:11px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.06);opacity:.6;transition:opacity .15s}
-.pn-fab:hover{opacity:1;border-color:#722ed1}
-body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
-.pn-fab .pn-fab-n{font-family:Consolas,monospace;font-weight:600}
+
+
+
+<style id="detail-modal-css">
+/* 详情弹窗（四段式）专用样式：段落标题 / 关联链 / 流转时间线 */
+.dt-sec{font-size:13px;font-weight:600;color:#262626;margin:0 0 10px;padding-left:8px;border-left:3px solid #1677ff;line-height:1.3}
+.modal-body .dt-sec:not(:first-child){margin-top:18px}
+.chain{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.chain .node{border:1px solid #f0f0f0;border-radius:6px;padding:8px 12px;background:#fafafa;min-width:126px}
+.chain .node .n-role{font-size:11px;color:#8c8c8c}
+.chain .node .n-name{font-size:12.5px;font-weight:600;margin-top:2px;word-break:break-all}
+.chain .link-arrow{color:#8c8c8c}
+.tl{position:relative;padding-left:16px}
+.tl::before{content:'';position:absolute;left:4px;top:6px;bottom:6px;width:2px;background:#e6f4ff}
+.tl-i{position:relative;padding:0 0 12px 6px;font-size:12.5px;color:#262626}
+.tl-i:last-child{padding-bottom:0}
+.tl-i::before{content:'';position:absolute;left:-16px;top:5px;width:7px;height:7px;border-radius:50%;background:#fff;border:2px solid #1677ff}
+.tl-i.off::before{border-color:#d9d9d9}
+.tl-i .tl-t{color:#8c8c8c;font-size:12px;margin-right:8px;font-variant-numeric:tabular-nums}
+.tl-i .tl-who{color:#8c8c8c;font-size:12px;margin-left:8px}
 </style>
-<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>B1 · 步骤 2/7 采购订单</div><div class="pnp-d">关联销售订单生成，锁定供应商与价格。<br>下一步 → 采购入库 CGRK-20260824-005。</div></div>
-<div class="pn-fab" id="protoNotesFab">标注</div></div>
-<script id="proto-notes-js">
-(function(){
-  var KEY='proto-notes-on';
-  function on(){return location.search.indexOf('notes=1')>-1||localStorage.getItem(KEY)==='1'}
-  function apply(){
-    document.body.classList.toggle('proto-notes-on',on());
-    var fab=document.getElementById('protoNotesFab');
-    if(fab){fab.innerHTML=on()?'收起':'标注 <span class="pn-fab-n">'+(document.querySelectorAll('[data-note]').length)+'</span>';fab.title=on()?'收起标注（Alt+N）':'显示标注（Alt+N）'}
-  }
-  function toggle(){var v=!on();localStorage.setItem(KEY,v?'1':'0');apply()}
-  document.addEventListener('keydown',function(e){if(e.altKey&&(e.key==='n'||e.key==='N')){e.preventDefault();toggle()}});
-  function place(el,pin){
-    var r=el.getBoundingClientRect(),sx=window.scrollX||0,sy=window.scrollY||0;
-    var w=pin.offsetWidth||248,h=pin.offsetHeight||90,vw=document.documentElement.clientWidth;
-    var x=r.right+sx+12;
-    if(x+w>sx+vw-8){var xl=r.left+sx-w-12;x=xl>=sx+8?xl:(sx+vw-w-8)}
-    var y=r.top+sy;
-    if(y+h>sy+document.documentElement.clientHeight-8)y=Math.max(sy+52,r.bottom+sy-h);
-    pin.style.left=x+'px';pin.style.top=y+'px';
-  }
-  document.addEventListener('click',function(e){
-    if(!on())return;
-    var tgt=e.target.closest?e.target.closest('[data-note]'):null;
-    if(tgt){
-      var r=tgt.getBoundingClientRect();
-      if(e.clientX>r.right-24&&e.clientY<r.top+22){
-        e.stopPropagation();e.preventDefault();
-        var pin=document.getElementById('proto-pin-'+tgt.getAttribute('data-note'));
-        if(pin){
-          if(pin.classList.contains('pn-open')){pin.classList.remove('pn-open')}
-          else{pin.classList.add('pn-open');place(tgt,pin)}
-        }
-      }
-    }
-  },true);
-  document.addEventListener('click',function(e){
-    var t=e.target;
-    var fab=t.closest?t.closest('.pn-fab'):null;
-    if(fab){toggle();return}
-    var pc=t.closest?t.closest('.proto-pin'):null;
-    if(pc){
-      if(t.classList&&t.classList.contains('pnp-close'))pc.classList.remove('pn-open');
-      return;
-    }
-  });
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply);else apply();
-})();
-</script>
+<!-- 详情弹窗（四段式：单据头/明细/关联单据互溯链/流转时间线）· 详情落地页补齐 2026-09-04 -->
+<div class="modal-overlay" id="detailModal">
+  <div class="modal modal-lg" style="width:780px;">
+    <div class="modal-header">
+      <h3 class="modal-title">采购订单详情 · PO-20260902-018</h3>
+      <span class="modal-close" onclick="closeModal('detailModal')">×</span>
+    </div>
+    <div class="modal-body">
+      <div class="dt-sec">单据信息</div>
+      <div class="dgrid c3"><div class="drow"><div class="dlabel">订单号</div><div class="dval">PO-20260902-018</div></div><div class="drow"><div class="dlabel">状态</div><div class="dval"><span class="tag tag-orange">待审核</span></div></div><div class="drow"><div class="dlabel">供应商</div><div class="dval">苏州联恒五金制品有限公司</div></div><div class="drow"><div class="dlabel">物料类型</div><div class="dval">零部件</div></div><div class="drow"><div class="dlabel">采购内容</div><div class="dval">锁扣组件 × 5,000 / 铰链 × 2,000</div></div><div class="drow"><div class="dlabel">数量合计</div><div class="dval">7,000 件</div></div><div class="drow"><div class="dlabel">订单金额</div><div class="dval">12,700.00 CNY</div></div><div class="drow"><div class="dlabel">交货日期</div><div class="dval">2026-09-10</div></div><div class="drow"><div class="dlabel">参考关联销售订单</div><div class="dval"><span class="lk" onclick="go('../销售管理/销售订单列表.html')">SO-20260831-0042</span>（参考 · 不以销定采）</div></div><div class="drow"><div class="dlabel">制单人</div><div class="dval">李国栋</div></div><div class="drow"><div class="dlabel">审核人</div><div class="dval">—</div></div></div>
+      <div class="dt-sec">物料行</div>
+      <div class="table-wrap"><table><thead><tr><th>零件号</th><th>名称规格</th><th>单位</th><th class="td-num">数量</th><th class="td-num">单价(元)</th><th class="td-num">金额(元)</th></tr></thead>
+<tbody>
+<tr><td>LJ-A100</td><td>锁扣组件 不锈钢 304</td><td>件</td><td class="td-num">5,000</td><td class="td-num">1.90</td><td class="td-num">9,500.00</td></tr>
+<tr><td>LJ-B200</td><td>铰链 锌合金 65mm</td><td>件</td><td class="td-num">2,000</td><td class="td-num">1.60</td><td class="td-num">3,200.00</td></tr>
+<tr><td></td><td>合计</td><td></td><td class="td-num">7,000</td><td></td><td class="td-num">12,700.00</td></tr>
+</tbody></table></div>
+      <div class="dt-sec">关联单据</div>
+      <div class="chain"><div class="node"><div class="n-role">销售订单（参考）</div><div class="n-name"><span class="lk" onclick="go('../销售管理/销售订单列表.html')">SO-20260831-0042</span></div></div><span class="link-arrow">→</span><div class="node" style="border-color:#1677ff;background:#e6f4ff;"><div class="n-role">采购订单（本单）</div><div class="n-name">PO-20260902-018 · 独立采购线</div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">采购入库</div><div class="n-name"><span class="lk" onclick="go('../仓储作业/采购入库列表.html')">凭单到货验收</span></div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">应付账单</div><div class="n-name"><span class="lk" onclick="go('../财务协同/应付账单.html')">采购应付</span></div></div></div>
+      <div class="dt-sec">流转时间线</div>
+      <div class="tl"><div class="tl-i"><span class="tl-t">09-02 14:20</span>制单 · 零部件采购（锁扣 / 铰链）<span class="tl-who">李国栋</span></div><div class="tl-i off"><span class="tl-t">—</span>待审核 · 通过后按交期 09-10 到货验收</div></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-default" onclick="closeModal('detailModal')">关 闭</button>
+    </div>
+  </div>
+</div>
 <script>
 /* ===== 菜单折叠 / 页签与表单视觉态（统一脚本） ===== */
 function go(url) { location.href = url; }
@@ -778,6 +758,77 @@ document.querySelectorAll('.tab').forEach(function (t) {
     el.style.transform = 'scale(.96)';
     setTimeout(function () { el.style.transform = ''; }, 160);
   }, true);
+})();
+</script>
+<style id="proto-notes-style">
+body.proto-notes-on [data-note]{position:relative}
+body.proto-notes-on [data-note]::after{content:attr(data-note);position:absolute;top:1px;right:1px;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600;box-shadow:0 0 0 1.5px #fff;cursor:pointer;opacity:.75;transition:opacity .15s}
+body.proto-notes-on [data-note]:hover::after{opacity:1}
+@keyframes pn-blink{0%{box-shadow:0 0 0 2px #722ed1}25%{box-shadow:0 0 0 5px rgba(114,46,209,.35)}100%{box-shadow:0 0 0 2px transparent}}
+.proto-pin{display:none;position:absolute;width:300px;background:#fff;border:1px solid #f0f0f0;border-top:2px solid #722ed1;border-radius:6px;box-shadow:0 4px 14px rgba(0,0,0,.13);z-index:890;padding:10px 12px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;font-size:12px;color:#262626}
+body.proto-notes-on .proto-pin.pn-open{display:block}
+.proto-pin .pnp-close{position:absolute;top:6px;right:8px;cursor:pointer;color:#8c8c8c;font-size:14px;line-height:1;padding:2px}
+.proto-pin .pnp-close:hover{color:#262626}
+.proto-pin .pnp-t{display:flex;align-items:center;gap:6px;font-weight:600;font-size:13px;color:#262626;padding-right:16px}
+.proto-pin .pnp-n{flex:none;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600}
+.proto-pin .pnp-d{margin-top:5px;color:#595959;line-height:1.6}
+.proto-pin .pnp-b{margin-top:6px;display:flex;gap:4px;flex-wrap:wrap}
+.proto-pin .pnp-tag{background:#f9f0ff;color:#722ed1;border-radius:3px;padding:0 6px;font-size:11px;line-height:20px}
+.proto-pin .pnp-src{margin-top:8px;padding-top:7px;border-top:1px dashed #e5dff0;font-size:11px;color:#595959;line-height:1.65}
+.proto-pin .pnp-src b{color:#722ed1;font-weight:600}
+.pn-fab{position:fixed;right:12px;bottom:12px;z-index:880;display:flex;align-items:center;gap:5px;height:24px;padding:0 10px;border-radius:4px;background:#fff;border:1px solid #ddd0ec;color:#722ed1;font-size:11px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.06);opacity:.6;transition:opacity .15s}
+.pn-fab:hover{opacity:1;border-color:#722ed1}
+body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
+.pn-fab .pn-fab-n{font-family:Consolas,monospace;font-weight:600}
+</style>
+<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>B1 采购线 · 步骤 1/3 采购订单</div><div class="pnp-d">零部件/器具两类公用一个采购订单模块（王琳总 0:40）；独立采购线，不以销定采（王琳总 2:36）。<br>锁定供应商与价格。下一步 → 采购入库 CGRK-20260824-005（凭订单到货验收）。</div></div>
+<div class="pn-fab" id="protoNotesFab">标注</div></div>
+<script id="proto-notes-js">
+(function(){
+  var KEY='proto-notes-on';
+  function on(){return location.search.indexOf('notes=1')>-1||localStorage.getItem(KEY)==='1'}
+  function apply(){
+    document.body.classList.toggle('proto-notes-on',on());
+    var fab=document.getElementById('protoNotesFab');
+    if(fab){fab.innerHTML=on()?'收起':'标注 <span class="pn-fab-n">'+(document.querySelectorAll('[data-note]').length)+'</span>';fab.title=on()?'收起标注（Alt+N）':'显示标注（Alt+N）'}
+  }
+  function toggle(){var v=!on();localStorage.setItem(KEY,v?'1':'0');apply()}
+  document.addEventListener('keydown',function(e){if(e.altKey&&(e.key==='n'||e.key==='N')){e.preventDefault();toggle()}});
+  function place(el,pin){
+    var r=el.getBoundingClientRect(),sx=window.scrollX||0,sy=window.scrollY||0;
+    var w=pin.offsetWidth||248,h=pin.offsetHeight||90,vw=document.documentElement.clientWidth;
+    var x=r.right+sx+12;
+    if(x+w>sx+vw-8){var xl=r.left+sx-w-12;x=xl>=sx+8?xl:(sx+vw-w-8)}
+    var y=r.top+sy;
+    if(y+h>sy+document.documentElement.clientHeight-8)y=Math.max(sy+52,r.bottom+sy-h);
+    pin.style.left=x+'px';pin.style.top=y+'px';
+  }
+  document.addEventListener('click',function(e){
+    if(!on())return;
+    var tgt=e.target.closest?e.target.closest('[data-note]'):null;
+    if(tgt){
+      var r=tgt.getBoundingClientRect();
+      if(e.clientX>r.right-24&&e.clientY<r.top+22){
+        e.stopPropagation();e.preventDefault();
+        var pin=document.getElementById('proto-pin-'+tgt.getAttribute('data-note'));
+        if(pin){
+          if(pin.classList.contains('pn-open')){pin.classList.remove('pn-open')}
+          else{pin.classList.add('pn-open');place(tgt,pin)}
+        }
+      }
+    }
+  },true);
+  document.addEventListener('click',function(e){
+    var t=e.target;
+    var fab=t.closest?t.closest('.pn-fab'):null;
+    if(fab){toggle();return}
+    var pc=t.closest?t.closest('.proto-pin'):null;
+    if(pc){
+      if(t.classList&&t.classList.contains('pnp-close'))pc.classList.remove('pn-open');
+      return;
+    }
+  });
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply);else apply();
 })();
 </script>
 </body>

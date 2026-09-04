@@ -415,7 +415,7 @@ th.td-num { text-align:right; }
           <td>2026-09-01</td>
           <td>2026-09-30</td>
           <td><span class="tag tag-red">未付款</span></td>
-          <td><span class="ops"><a onclick="openModal('auditModal')">账单确认</a><a onclick="go('../财务协同/付款登记.html')">付款</a><a>详情</a></span></td>
+          <td><span class="ops"><a onclick="openModal('auditModal')">账单确认</a><a onclick="go('../财务协同/付款登记.html')">付款</a><a onclick="openModal('detailModal')">详情</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
@@ -432,7 +432,7 @@ th.td-num { text-align:right; }
           <td>2026-08-30</td>
           <td>2026-09-29</td>
           <td><span class="tag tag-orange">部分付款</span></td>
-          <td><span class="ops"><a onclick="openModal('auditModal')">账单确认</a><a onclick="go('../财务协同/付款登记.html')">付款</a><a>详情</a></span></td>
+          <td><span class="ops"><a onclick="openModal('auditModal')">账单确认</a><a onclick="go('../财务协同/付款登记.html')">付款</a><a onclick="openModal('detailModal')">详情</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
@@ -449,7 +449,7 @@ th.td-num { text-align:right; }
           <td>2026-08-28</td>
           <td>2026-09-27</td>
           <td><span class="tag tag-green">已付款</span></td>
-          <td><span class="ops"><a>详情</a></span></td>
+          <td><span class="ops"><a onclick="openModal('detailModal')">详情</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
@@ -466,7 +466,7 @@ th.td-num { text-align:right; }
           <td>2026-08-25</td>
           <td>2026-09-24</td>
           <td><span class="tag tag-red">未付款</span></td>
-          <td><span class="ops"><a onclick="openModal('auditModal')">账单确认</a><a onclick="go('../财务协同/付款登记.html')">付款</a><a>详情</a></span></td>
+          <td><span class="ops"><a onclick="openModal('auditModal')">账单确认</a><a onclick="go('../财务协同/付款登记.html')">付款</a><a onclick="openModal('detailModal')">详情</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
@@ -483,7 +483,7 @@ th.td-num { text-align:right; }
           <td>2026-08-20</td>
           <td>2026-09-19</td>
           <td><span class="tag tag-green">已付款</span></td>
-          <td><span class="ops"><a>详情</a></span></td>
+          <td><span class="ops"><a onclick="openModal('detailModal')">详情</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
@@ -500,7 +500,7 @@ th.td-num { text-align:right; }
           <td>2026-08-15</td>
           <td>2026-09-14</td>
           <td><span class="tag tag-green">已付款</span></td>
-          <td><span class="ops"><a>详情</a></span></td>
+          <td><span class="ops"><a onclick="openModal('detailModal')">详情</a></span></td>
         </tr>
                       <tr>
           <td><input type="checkbox" class="cb"></td>
@@ -517,7 +517,7 @@ th.td-num { text-align:right; }
           <td>2026-09-03</td>
           <td>2026-10-02</td>
           <td><span class="tag tag-orange">未付款</span></td>
-          <td><span class="ops"><a>详情</a><a onclick="go('../财务协同/付款登记.html')">付款</a></span></td>
+          <td><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="go('../财务协同/付款登记.html')">付款</a></span></td>
         </tr>
 <tr>
           <td><input type="checkbox" class="cb"></td>
@@ -534,7 +534,7 @@ th.td-num { text-align:right; }
           <td>2026-09-03</td>
           <td>2026-10-02</td>
           <td><span class="tag tag-orange">未付款</span></td>
-          <td><span class="ops"><a>详情</a><a onclick="go('../财务协同/付款登记.html')">付款</a></span></td>
+          <td><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="go('../财务协同/付款登记.html')">付款</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
@@ -551,7 +551,7 @@ th.td-num { text-align:right; }
           <td>2026-09-03</td>
           <td>2026-09-18</td>
           <td><span class="tag tag-orange">未付款</span></td>
-          <td><span class="ops"><a>详情</a><a onclick="go('../财务协同/付款登记.html')">付款</a></span></td>
+          <td><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="go('../财务协同/付款登记.html')">付款</a></span></td>
         </tr>
       </tbody>
     </table>
@@ -671,79 +671,52 @@ th.td-num { text-align:right; }
   }
 })();
 </script>
-<style id="proto-notes-style">
-body.proto-notes-on [data-note]{position:relative}
-body.proto-notes-on [data-note]::after{content:attr(data-note);position:absolute;top:1px;right:1px;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600;box-shadow:0 0 0 1.5px #fff;cursor:pointer;opacity:.75;transition:opacity .15s}
-body.proto-notes-on [data-note]:hover::after{opacity:1}
-@keyframes pn-blink{0%{box-shadow:0 0 0 2px #722ed1}25%{box-shadow:0 0 0 5px rgba(114,46,209,.35)}100%{box-shadow:0 0 0 2px transparent}}
-.proto-pin{display:none;position:absolute;width:300px;background:#fff;border:1px solid #f0f0f0;border-top:2px solid #722ed1;border-radius:6px;box-shadow:0 4px 14px rgba(0,0,0,.13);z-index:890;padding:10px 12px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;font-size:12px;color:#262626}
-body.proto-notes-on .proto-pin.pn-open{display:block}
-.proto-pin .pnp-close{position:absolute;top:6px;right:8px;cursor:pointer;color:#8c8c8c;font-size:14px;line-height:1;padding:2px}
-.proto-pin .pnp-close:hover{color:#262626}
-.proto-pin .pnp-t{display:flex;align-items:center;gap:6px;font-weight:600;font-size:13px;color:#262626;padding-right:16px}
-.proto-pin .pnp-n{flex:none;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600}
-.proto-pin .pnp-d{margin-top:5px;color:#595959;line-height:1.6}
-.proto-pin .pnp-b{margin-top:6px;display:flex;gap:4px;flex-wrap:wrap}
-.proto-pin .pnp-tag{background:#f9f0ff;color:#722ed1;border-radius:3px;padding:0 6px;font-size:11px;line-height:20px}
-.proto-pin .pnp-src{margin-top:8px;padding-top:7px;border-top:1px dashed #e5dff0;font-size:11px;color:#595959;line-height:1.65}
-.proto-pin .pnp-src b{color:#722ed1;font-weight:600}
-.pn-fab{position:fixed;right:12px;bottom:12px;z-index:880;display:flex;align-items:center;gap:5px;height:24px;padding:0 10px;border-radius:4px;background:#fff;border:1px solid #ddd0ec;color:#722ed1;font-size:11px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.06);opacity:.6;transition:opacity .15s}
-.pn-fab:hover{opacity:1;border-color:#722ed1}
-body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
-.pn-fab .pn-fab-n{font-family:Consolas,monospace;font-weight:600}
+
+
+
+<style id="detail-modal-css">
+/* 详情弹窗（四段式）专用样式：段落标题 / 关联链 / 流转时间线 */
+.dt-sec{font-size:13px;font-weight:600;color:#262626;margin:0 0 10px;padding-left:8px;border-left:3px solid #1677ff;line-height:1.3}
+.modal-body .dt-sec:not(:first-child){margin-top:18px}
+.chain{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.chain .node{border:1px solid #f0f0f0;border-radius:6px;padding:8px 12px;background:#fafafa;min-width:126px}
+.chain .node .n-role{font-size:11px;color:#8c8c8c}
+.chain .node .n-name{font-size:12.5px;font-weight:600;margin-top:2px;word-break:break-all}
+.chain .link-arrow{color:#8c8c8c}
+.tl{position:relative;padding-left:16px}
+.tl::before{content:'';position:absolute;left:4px;top:6px;bottom:6px;width:2px;background:#e6f4ff}
+.tl-i{position:relative;padding:0 0 12px 6px;font-size:12.5px;color:#262626}
+.tl-i:last-child{padding-bottom:0}
+.tl-i::before{content:'';position:absolute;left:-16px;top:5px;width:7px;height:7px;border-radius:50%;background:#fff;border:2px solid #1677ff}
+.tl-i.off::before{border-color:#d9d9d9}
+.tl-i .tl-t{color:#8c8c8c;font-size:12px;margin-right:8px;font-variant-numeric:tabular-nums}
+.tl-i .tl-who{color:#8c8c8c;font-size:12px;margin-left:8px}
 </style>
-<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>L3 · 步骤 8/8 租金应付</div><div class="pnp-d">按周期对路凯生成的租金应付（36,000），RZD 单号可点跳租入单。<br>下一步 → 付款登记。</div></div>
-<div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>L4 · 步骤 8/8 租金应付（多线之一）</div><div class="pnp-d">L4 多线应付：采购应付（隔板）+ 租金应付（本行）+ 赔付应付 三线并存。</div></div>
-<div class="proto-pin" id="proto-pin-3"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">3</span>S1 · 采购应付</div><div class="pnp-d">S1 采购应付支线：采购入库 → 应付账单 → 付款登记（买卖线与器具采购共用）。</div></div>
-<div class="pn-fab" id="protoNotesFab">标注</div></div>
-<script id="proto-notes-js">
-(function(){
-  var KEY='proto-notes-on';
-  function on(){return location.search.indexOf('notes=1')>-1||localStorage.getItem(KEY)==='1'}
-  function apply(){
-    document.body.classList.toggle('proto-notes-on',on());
-    var fab=document.getElementById('protoNotesFab');
-    if(fab){fab.innerHTML=on()?'收起':'标注 <span class="pn-fab-n">'+(document.querySelectorAll('[data-note]').length)+'</span>';fab.title=on()?'收起标注（Alt+N）':'显示标注（Alt+N）'}
-  }
-  function toggle(){var v=!on();localStorage.setItem(KEY,v?'1':'0');apply()}
-  document.addEventListener('keydown',function(e){if(e.altKey&&(e.key==='n'||e.key==='N')){e.preventDefault();toggle()}});
-  function place(el,pin){
-    var r=el.getBoundingClientRect(),sx=window.scrollX||0,sy=window.scrollY||0;
-    var w=pin.offsetWidth||248,h=pin.offsetHeight||90,vw=document.documentElement.clientWidth;
-    var x=r.right+sx+12;
-    if(x+w>sx+vw-8){var xl=r.left+sx-w-12;x=xl>=sx+8?xl:(sx+vw-w-8)}
-    var y=r.top+sy;
-    if(y+h>sy+document.documentElement.clientHeight-8)y=Math.max(sy+52,r.bottom+sy-h);
-    pin.style.left=x+'px';pin.style.top=y+'px';
-  }
-  document.addEventListener('click',function(e){
-    if(!on())return;
-    var tgt=e.target.closest?e.target.closest('[data-note]'):null;
-    if(tgt){
-      var r=tgt.getBoundingClientRect();
-      if(e.clientX>r.right-24&&e.clientY<r.top+22){
-        e.stopPropagation();e.preventDefault();
-        var pin=document.getElementById('proto-pin-'+tgt.getAttribute('data-note'));
-        if(pin){
-          if(pin.classList.contains('pn-open')){pin.classList.remove('pn-open')}
-          else{pin.classList.add('pn-open');place(tgt,pin)}
-        }
-      }
-    }
-  },true);
-  document.addEventListener('click',function(e){
-    var t=e.target;
-    var fab=t.closest?t.closest('.pn-fab'):null;
-    if(fab){toggle();return}
-    var pc=t.closest?t.closest('.proto-pin'):null;
-    if(pc){
-      if(t.classList&&t.classList.contains('pnp-close'))pc.classList.remove('pn-open');
-      return;
-    }
-  });
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply);else apply();
-})();
-</script>
+<!-- 详情弹窗（四段式：单据头/明细/关联单据互溯链/流转时间线）· 详情落地页补齐 2026-09-04 -->
+<div class="modal-overlay" id="detailModal">
+  <div class="modal modal-lg" style="width:780px;">
+    <div class="modal-header">
+      <h3 class="modal-title">应付账单详情 · AP-20260901-008</h3>
+      <span class="modal-close" onclick="closeModal('detailModal')">×</span>
+    </div>
+    <div class="modal-body">
+      <div class="dt-sec">单据信息</div>
+      <div class="dgrid c3"><div class="drow"><div class="dlabel">账单号</div><div class="dval">AP-20260901-008</div></div><div class="drow"><div class="dlabel">状态</div><div class="dval"><span class="tag tag-orange">待付款</span></div></div><div class="drow"><div class="dlabel">供应商</div><div class="dval">宁波华塑包装制品有限公司</div></div><div class="drow"><div class="dlabel">账单类型</div><div class="dval">采购应付</div></div><div class="drow"><div class="dlabel">所属项目</div><div class="dval">PRJ-2601</div></div><div class="drow"><div class="dlabel">账期</div><div class="dval">2026-09</div></div><div class="drow"><div class="dlabel">关联采购订单</div><div class="dval"><span class="lk" onclick="go('../采购管理/采购订单列表.html')">PO-20260825-014</span></div></div><div class="drow"><div class="dlabel">关联采购入库</div><div class="dval"><span class="lk" onclick="go('../仓储作业/采购入库列表.html')">CGRK-20260828-012</span></div></div><div class="drow"><div class="dlabel">账单金额</div><div class="dval">84,000.00 元</div></div><div class="drow"><div class="dlabel">已付款</div><div class="dval">0.00 元</div></div><div class="drow"><div class="dlabel">生成方式</div><div class="dval">验收通过自动生成</div></div></div>
+      <div class="dt-sec">费用明细</div>
+      <div class="table-wrap"><table><thead><tr><th>来源单据</th><th>费用说明</th><th class="td-num">金额(元)</th></tr></thead>
+<tbody>
+<tr><td><span class="lk" onclick="go('../仓储作业/采购入库列表.html')">CGRK-20260828-012</span></td><td>采购入库验收 · 采购应付</td><td class="td-num">84,000.00</td></tr>
+</tbody></table></div>
+      <div class="dt-sec">关联单据</div>
+      <div class="chain"><div class="node"><div class="n-role">采购订单</div><div class="n-name"><span class="lk" onclick="go('../采购管理/采购订单列表.html')">PO-20260825-014</span></div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">采购入库</div><div class="n-name"><span class="lk" onclick="go('../仓储作业/采购入库列表.html')">CGRK-20260828-012</span></div></div><span class="link-arrow">→</span><div class="node" style="border-color:#1677ff;background:#e6f4ff;"><div class="n-role">应付账单（本单）</div><div class="n-name">AP-20260901-008 · 采购应付</div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">付款登记</div><div class="n-name"><span class="lk" onclick="go('../财务协同/付款登记.html')">待付款</span></div></div></div>
+      <div class="dt-sec">流转时间线</div>
+      <div class="tl"><div class="tl-i"><span class="tl-t">08-28</span>采购入库验收通过 · CGRK-20260828-012<span class="tl-who">张伟</span></div><div class="tl-i"><span class="tl-t">09-01</span>应付账单自动生成<span class="tl-who">系统</span></div><div class="tl-i off"><span class="tl-t">—</span>待付款 → 付款登记确认</div></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-default" onclick="closeModal('detailModal')">关 闭</button>
+    </div>
+  </div>
+</div>
 <script>
 /* ===== 菜单折叠 / 页签与表单视觉态（统一脚本） ===== */
 function go(url) { location.href = url; }
@@ -803,6 +776,79 @@ document.querySelectorAll('.tab').forEach(function (t) {
     el.style.transform = 'scale(.96)';
     setTimeout(function () { el.style.transform = ''; }, 160);
   }, true);
+})();
+</script>
+<style id="proto-notes-style">
+body.proto-notes-on [data-note]{position:relative}
+body.proto-notes-on [data-note]::after{content:attr(data-note);position:absolute;top:1px;right:1px;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600;box-shadow:0 0 0 1.5px #fff;cursor:pointer;opacity:.75;transition:opacity .15s}
+body.proto-notes-on [data-note]:hover::after{opacity:1}
+@keyframes pn-blink{0%{box-shadow:0 0 0 2px #722ed1}25%{box-shadow:0 0 0 5px rgba(114,46,209,.35)}100%{box-shadow:0 0 0 2px transparent}}
+.proto-pin{display:none;position:absolute;width:300px;background:#fff;border:1px solid #f0f0f0;border-top:2px solid #722ed1;border-radius:6px;box-shadow:0 4px 14px rgba(0,0,0,.13);z-index:890;padding:10px 12px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;font-size:12px;color:#262626}
+body.proto-notes-on .proto-pin.pn-open{display:block}
+.proto-pin .pnp-close{position:absolute;top:6px;right:8px;cursor:pointer;color:#8c8c8c;font-size:14px;line-height:1;padding:2px}
+.proto-pin .pnp-close:hover{color:#262626}
+.proto-pin .pnp-t{display:flex;align-items:center;gap:6px;font-weight:600;font-size:13px;color:#262626;padding-right:16px}
+.proto-pin .pnp-n{flex:none;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600}
+.proto-pin .pnp-d{margin-top:5px;color:#595959;line-height:1.6}
+.proto-pin .pnp-b{margin-top:6px;display:flex;gap:4px;flex-wrap:wrap}
+.proto-pin .pnp-tag{background:#f9f0ff;color:#722ed1;border-radius:3px;padding:0 6px;font-size:11px;line-height:20px}
+.proto-pin .pnp-src{margin-top:8px;padding-top:7px;border-top:1px dashed #e5dff0;font-size:11px;color:#595959;line-height:1.65}
+.proto-pin .pnp-src b{color:#722ed1;font-weight:600}
+.pn-fab{position:fixed;right:12px;bottom:12px;z-index:880;display:flex;align-items:center;gap:5px;height:24px;padding:0 10px;border-radius:4px;background:#fff;border:1px solid #ddd0ec;color:#722ed1;font-size:11px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.06);opacity:.6;transition:opacity .15s}
+.pn-fab:hover{opacity:1;border-color:#722ed1}
+body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
+.pn-fab .pn-fab-n{font-family:Consolas,monospace;font-weight:600}
+</style>
+<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>L3 · 步骤 8/8 租金应付</div><div class="pnp-d">按周期对路凯生成的租金应付（36,000），RZD 单号可点跳租入单。<br>下一步 → 付款登记。</div></div>
+<div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>L4 · 步骤 10/10 多线应付（租金）</div><div class="pnp-d">L4 多线应付：采购应付（隔板）+ 租金应付（本行）+ 赔付应付 三线并存。</div></div>
+<div class="proto-pin" id="proto-pin-3"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">3</span>S1 · 采购应付</div><div class="pnp-d">S1 采购应付支线：采购入库 → 应付账单 → 付款登记（买卖线与器具采购共用）。</div></div>
+<div class="pn-fab" id="protoNotesFab">标注</div></div>
+<script id="proto-notes-js">
+(function(){
+  var KEY='proto-notes-on';
+  function on(){return location.search.indexOf('notes=1')>-1||localStorage.getItem(KEY)==='1'}
+  function apply(){
+    document.body.classList.toggle('proto-notes-on',on());
+    var fab=document.getElementById('protoNotesFab');
+    if(fab){fab.innerHTML=on()?'收起':'标注 <span class="pn-fab-n">'+(document.querySelectorAll('[data-note]').length)+'</span>';fab.title=on()?'收起标注（Alt+N）':'显示标注（Alt+N）'}
+  }
+  function toggle(){var v=!on();localStorage.setItem(KEY,v?'1':'0');apply()}
+  document.addEventListener('keydown',function(e){if(e.altKey&&(e.key==='n'||e.key==='N')){e.preventDefault();toggle()}});
+  function place(el,pin){
+    var r=el.getBoundingClientRect(),sx=window.scrollX||0,sy=window.scrollY||0;
+    var w=pin.offsetWidth||248,h=pin.offsetHeight||90,vw=document.documentElement.clientWidth;
+    var x=r.right+sx+12;
+    if(x+w>sx+vw-8){var xl=r.left+sx-w-12;x=xl>=sx+8?xl:(sx+vw-w-8)}
+    var y=r.top+sy;
+    if(y+h>sy+document.documentElement.clientHeight-8)y=Math.max(sy+52,r.bottom+sy-h);
+    pin.style.left=x+'px';pin.style.top=y+'px';
+  }
+  document.addEventListener('click',function(e){
+    if(!on())return;
+    var tgt=e.target.closest?e.target.closest('[data-note]'):null;
+    if(tgt){
+      var r=tgt.getBoundingClientRect();
+      if(e.clientX>r.right-24&&e.clientY<r.top+22){
+        e.stopPropagation();e.preventDefault();
+        var pin=document.getElementById('proto-pin-'+tgt.getAttribute('data-note'));
+        if(pin){
+          if(pin.classList.contains('pn-open')){pin.classList.remove('pn-open')}
+          else{pin.classList.add('pn-open');place(tgt,pin)}
+        }
+      }
+    }
+  },true);
+  document.addEventListener('click',function(e){
+    var t=e.target;
+    var fab=t.closest?t.closest('.pn-fab'):null;
+    if(fab){toggle();return}
+    var pc=t.closest?t.closest('.proto-pin'):null;
+    if(pc){
+      if(t.classList&&t.classList.contains('pnp-close'))pc.classList.remove('pn-open');
+      return;
+    }
+  });
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply);else apply();
 })();
 </script>
 </body>

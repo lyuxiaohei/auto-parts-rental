@@ -396,7 +396,7 @@ th.td-num { text-align:right; }
 <div class="card">
   <div class="card-head">
     <h3 class="card-title">出库明细</h3>
-    <div class="head-btns"><button class="btn btn-dashed btn-sm">添加明细</button></div>
+    <div class="head-btns"><button class="btn btn-dashed btn-sm" onclick="addDetailRow(this)">添加明细</button></div>
   </div>
   <div class="table-wrap edit-tbl">
     <table>
@@ -450,6 +450,21 @@ th.td-num { text-align:right; }
   </div>
 </div>
 
+<script>
+/* ===== 添加明细：克隆明细表末行示例数据并重排序号（详情落地页补齐 2026-09-04） ===== */
+function addDetailRow(btn) {
+  var card = btn.closest('.card');
+  var tbody = card ? card.querySelector('tbody') : null;
+  if (!tbody) return;
+  var last = tbody.querySelector('tr:last-child');
+  if (!last) return;
+  var row = last.cloneNode(true);
+  row.querySelectorAll('input').forEach(function (i) { i.value = i.defaultValue || i.value; });
+  tbody.appendChild(row);
+  var rows = tbody.querySelectorAll('tr');
+  rows.forEach(function (r, i) { r.cells[0].textContent = i + 1; });
+}
+</script>
 <script>
 /* ===== 菜单折叠 / 页签与表单视觉态（统一脚本） ===== */
 function go(url) { location.href = url; }
