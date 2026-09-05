@@ -1,39 +1,25 @@
 [
  {
-  "page": "项目管理\\项目档案.html",
+  "page": "仓储作业\\其他出库列表.html",
   "js_errors": [],
-  "problems": [
-   {
-    "cat": "输入框",
-    "type": "input-not-editable",
-    "phase": "modal",
-    "where": {
-     "tag": "input",
-     "id": "",
-     "cls": "auto",
-     "text": "",
-     "row": "",
-     "inModal": "createModal"
-    },
-    "detail": "readonly 不可输入（预填:PRJ-2606）"
-   }
-  ],
+  "problems": [],
   "stats": {
-   "buttons": 9,
-   "links": 14,
-   "onclickEls": 67,
-   "modals": 2,
+   "buttons": 11,
+   "links": 6,
+   "onclickEls": 55,
+   "modals": 3,
    "modalTitles": [
-    "项目上下游绑定",
-    "新建项目"
+    "新增其他出库单",
+    "审核确认",
+    "其他出库单详情 · QTCK-20260"
    ],
-   "selects": 9,
+   "selects": 5,
    "fakeSelects": 0,
-   "radios": 0,
+   "radios": 5,
    "checkboxes": 0,
-   "inputs": 22,
-   "stabs": 0,
-   "tabs": 4,
+   "inputs": 14,
+   "stabs": 3,
+   "tabs": 3,
    "bgMut": 0
   },
   "dead_links": [],

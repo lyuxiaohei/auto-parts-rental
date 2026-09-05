@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>丢损赔偿审核 - 包装租赁管理后台</title>
+<title>丢损赔偿单详情 - 包装租赁管理后台</title>
 <style>
 :root {
   --primary: #1677ff;
@@ -73,22 +73,6 @@ svg { display:inline-block; vertical-align:middle; }
 .card-head .card-title { margin-bottom:0; }
 .card-head .head-btns { display:flex; align-items:center; gap:8px; }
 
-/* ===== 筛选区（13px 控件，样板：仓储作业/采购入库列表） ===== */
-.filter-card { background:#fff; border-radius:8px; padding:16px 18px; margin:0 0 12px; box-shadow:0 1px 3px rgba(0,0,0,0.05); }
-.filter-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; }
-.ff { display:flex; align-items:center; border:1px solid #d9d9d9; border-radius:6px; padding:0 10px; height:32px; background:#fff; transition:border-color .2s; }
-.ff:focus-within { border-color:#1677ff; }
-.ff .ff-label { flex-shrink:0; font-size:13px; color:#262626; margin-right:6px; white-space:nowrap; }
-.ff input, .ff select { flex:1; min-width:0; border:none; outline:none; height:100%; font-size:13px; color:#262626; background:transparent; font-family:inherit; }
-.ff input::placeholder { color:#bfbfbf; }
-.ff select { appearance:none; -webkit-appearance:none; color:#8c8c8c; cursor:pointer; }
-.ff .ff-chev { width:12px; height:12px; color:#8c8c8c; flex-shrink:0; pointer-events:none; }
-.ff .ff-sep { margin:0 6px; color:#8c8c8c; flex-shrink:0; }
-.filter-actions { display:flex; align-items:center; justify-content:flex-end; gap:10px; height:32px; }
-.link-collapse { display:flex; align-items:center; gap:4px; font-size:13px; color:#1677ff; cursor:pointer; background:none; border:none; font-family:inherit; }
-.link-collapse svg { width:12px; height:12px; transition:transform .2s; }
-.filter-card.collapsed .filter-grid .ff-row-extra { display:none; }
-.filter-card:not(.collapsed) .link-collapse svg { transform:rotate(180deg); }
 /* ===== 按钮（13px 体系，表单/卡片头/弹窗用；筛选区 12px 另按作用域覆盖） ===== */
 .btn { display:inline-flex; align-items:center; justify-content:center; height:30px; padding:0 14px; border-radius:6px; border:none; cursor:pointer; font-size:13px; background:var(--primary); color:#fff; white-space:nowrap; font-family:inherit; }
 .btn:hover { background:#4096ff; }
@@ -217,6 +201,23 @@ th.td-num { text-align:right; }
 
 /* ===== 本页业务样式 ===== */
 
+
+/* ===== 参考页筛选区样式 ===== */
+.filter-card { background:#fff; border-radius:8px; padding:16px 18px; margin:0 0 12px; box-shadow:0 1px 3px rgba(0,0,0,0.05); }
+.filter-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; }
+.ff { display:flex; align-items:center; border:1px solid #d9d9d9; border-radius:6px; padding:0 10px; height:32px; background:#fff; transition:border-color .2s; }
+.ff:focus-within { border-color:#1677ff; }
+.ff .ff-label { flex-shrink:0; font-size:13px; color:#262626; margin-right:6px; white-space:nowrap; }
+.ff input, .ff select { flex:1; min-width:0; border:none; outline:none; height:100%; font-size:13px; color:#262626; background:transparent; font-family:inherit; }
+.ff input::placeholder { color:#bfbfbf; }
+.ff select { appearance:none; -webkit-appearance:none; color:#8c8c8c; cursor:pointer; }
+.ff .ff-chev { width:12px; height:12px; color:#8c8c8c; flex-shrink:0; pointer-events:none; }
+.ff .ff-sep { margin:0 6px; color:#8c8c8c; flex-shrink:0; }
+.filter-actions { display:flex; align-items:center; justify-content:flex-end; gap:10px; height:32px; }
+.link-collapse { display:flex; align-items:center; gap:4px; font-size:13px; color:#1677ff; cursor:pointer; background:none; border:none; font-family:inherit; }
+.link-collapse svg { width:12px; height:12px; transition:transform .2s; }
+.filter-card.collapsed .filter-grid .ff-row-extra { display:none; }
+.filter-card:not(.collapsed) .link-collapse svg { transform:rotate(180deg); }
 </style>
 <style id="modal-css">
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:1000;align-items:center;justify-content:center}
@@ -230,41 +231,76 @@ th.td-num { text-align:right; }
 .modal-body{padding:20px 24px}
 .modal-footer{padding:12px 24px;border-top:1px solid #f0f0f0;display:flex;justify-content:flex-end;gap:8px}
 </style>
+<style id="proto-notes-style">
+body.proto-notes-on [data-note]{position:relative}
+body.proto-notes-on [data-note]::after{content:attr(data-note);position:absolute;top:1px;right:1px;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600;box-shadow:0 0 0 1.5px #fff;cursor:pointer;opacity:.75;transition:opacity .15s}
+body.proto-notes-on [data-note]:hover::after{opacity:1}
+@keyframes pn-blink{0%{box-shadow:0 0 0 2px #722ed1}25%{box-shadow:0 0 0 5px rgba(114,46,209,.35)}100%{box-shadow:0 0 0 2px transparent}}
+.proto-pin{display:none;position:absolute;width:300px;background:#fff;border:1px solid #f0f0f0;border-top:2px solid #722ed1;border-radius:6px;box-shadow:0 4px 14px rgba(0,0,0,.13);z-index:890;padding:10px 12px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;font-size:12px;color:#262626}
+body.proto-notes-on .proto-pin.pn-open{display:block}
+.proto-pin .pnp-close{position:absolute;top:6px;right:8px;cursor:pointer;color:#8c8c8c;font-size:14px;line-height:1;padding:2px}
+.proto-pin .pnp-close:hover{color:#262626}
+.proto-pin .pnp-t{display:flex;align-items:center;gap:6px;font-weight:600;font-size:13px;color:#262626;padding-right:16px}
+.proto-pin .pnp-n{flex:none;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600}
+.proto-pin .pnp-d{margin-top:5px;color:#595959;line-height:1.6}
+.proto-pin .pnp-b{margin-top:6px;display:flex;gap:4px;flex-wrap:wrap}
+.proto-pin .pnp-tag{background:#f9f0ff;color:#722ed1;border-radius:3px;padding:0 6px;font-size:11px;line-height:20px}
+.proto-pin .pnp-src{margin-top:8px;padding-top:7px;border-top:1px dashed #e5dff0;font-size:11px;color:#595959;line-height:1.65}
+.proto-pin .pnp-src b{color:#722ed1;font-weight:600}
+.pn-fab{position:fixed;right:12px;bottom:12px;z-index:880;display:flex;align-items:center;gap:5px;height:24px;padding:0 10px;border-radius:4px;background:#fff;border:1px solid #ddd0ec;color:#722ed1;font-size:11px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.06);opacity:.6;transition:opacity .15s}
+.pn-fab:hover{opacity:1;border-color:#722ed1}
+body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
+.pn-fab .pn-fab-n{font-family:Consolas,monospace;font-weight:600}
+</style>
+<style id="detail-modal-css">
+/* 详情弹窗（四段式）专用样式：段落标题 / 关联链 / 流转时间线 */
+.dt-sec{font-size:13px;font-weight:600;color:#262626;margin:0 0 10px;padding-left:8px;border-left:3px solid #1677ff;line-height:1.3}
+.modal-body .dt-sec:not(:first-child){margin-top:18px}
+.chain{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.chain .node{border:1px solid #f0f0f0;border-radius:6px;padding:8px 12px;background:#fafafa;min-width:126px}
+.chain .node .n-role{font-size:11px;color:#8c8c8c}
+.chain .node .n-name{font-size:12.5px;font-weight:600;margin-top:2px;word-break:break-all}
+.chain .link-arrow{color:#8c8c8c}
+.tl{position:relative;padding-left:16px}
+.tl::before{content:'';position:absolute;left:4px;top:6px;bottom:6px;width:2px;background:#e6f4ff}
+.tl-i{position:relative;padding:0 0 12px 6px;font-size:12.5px;color:#262626}
+.tl-i:last-child{padding-bottom:0}
+.tl-i::before{content:'';position:absolute;left:-16px;top:5px;width:7px;height:7px;border-radius:50%;background:#fff;border:2px solid #1677ff}
+.tl-i.off::before{border-color:#d9d9d9}
+.tl-i .tl-t{color:#8c8c8c;font-size:12px;margin-right:8px;font-variant-numeric:tabular-nums}
+.tl-i .tl-who{color:#8c8c8c;font-size:12px;margin-left:8px}
+</style>
 </head>
 <body style="background:#f5f6f8;min-height:100vh;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif">
-<!-- 弹窗模板：审核确认（auditModal） -->
+<!-- 弹窗模板：丢损赔偿单详情（详情落地页补齐 2026-09-04） -->
 <!-- 注入标记：包装管理/丢损赔偿单.html -->
-<div class="modal-overlay" id="auditModal">
-  <div class="modal">
+<!-- 详情弹窗（四段式：单据头/明细/关联单据互溯链/流转时间线）· 详情落地页补齐 2026-09-04 -->
+<div class="modal-overlay" id="detailModal">
+  <div class="modal modal-lg" style="width:780px;">
     <div class="modal-header">
-      <h3 class="modal-title">审核确认</h3>
-      <span class="modal-close" onclick="closeModal('auditModal')">×</span>
+      <h3 class="modal-title">丢损赔偿单详情 · BS-20260902-010</h3>
+      <span class="modal-close" onclick="closeModal('detailModal')">×</span>
     </div>
     <div class="modal-body">
-      <div class="dgrid" style="margin-bottom:16px;">
-        <div class="drow"><div class="dlabel">单据编号</div><div class="dval">BS-20260902-010</div></div>
-        <div class="drow"><div class="dlabel">单据类型</div><div class="dval">丢损赔偿单</div></div>
-        <div class="drow"><div class="dlabel">赔偿金额</div><div class="dval">930.00 元</div></div>
-        <div class="drow"><div class="dlabel">提交人 / 时间</div><div class="dval">系统自动生成 / 2026-09-02 17:02</div></div>
-        
-      </div>
-      <div class="form-row">
-        <span class="form-label"><span class="req">*</span>审核结论</span>
-        <div><span class="radio checked"><span class="dot"></span>通过</span><span class="radio"><span class="dot"></span>驳回</span></div>
-      </div>
-      <div class="form-row">
-        <span class="form-label">审核意见</span>
-        <div class="input-box"><input placeholder="选填，驳回时建议填写原因"></div>
-      </div>
-      <div class="form-row"><span class="form-label"></span><div style="font-size:12px;color:#fa8c16;line-height:1.7;">通过后自动核销库存：缺失/报废件生成「其他出库单（赔偿核销）」账面扣减；丢失件自客户态直接出账，不回在库。</div></div>
+      <div class="dt-sec">单据信息</div>
+      <div class="dgrid c3"><div class="drow"><div class="dlabel">赔偿单号</div><div class="dval">BS-20260902-010</div></div><div class="drow"><div class="dlabel">状态</div><div class="dval"><span class="tag tag-orange">待审核</span></div></div><div class="drow"><div class="dlabel">关联退租申请</div><div class="dval"><span class="lk" onclick="go('../../包装管理/退租申请列表.html')">TZSQ-20260829-004</span></div></div><div class="drow"><div class="dlabel">客户</div><div class="dval">小鹏汽车科技有限公司</div></div><div class="drow"><div class="dlabel">所属项目</div><div class="dval">PRJ-2603</div></div><div class="drow"><div class="dlabel">赔偿器具</div><div class="dval">ZH-2603-C 电池托盘护角套件</div></div><div class="drow"><div class="dlabel">资产来源</div><div class="dval">租入-路凯</div></div><div class="drow"><div class="dlabel">缺损数量</div><div class="dval">2 套</div></div><div class="drow"><div class="dlabel">丢失数量</div><div class="dval">1 套</div></div><div class="drow"><div class="dlabel">赔偿单价</div><div class="dval">310.00 元 / 套</div></div><div class="drow"><div class="dlabel">赔偿金额</div><div class="dval">930.00 元（(2+1) × 310.00）</div></div><div class="drow"><div class="dlabel">赔付对象</div><div class="dval">运营方（路凯）→ 转应付账单</div></div></div>
+      <div class="dt-sec">赔偿明细</div>
+      <div class="table-wrap"><table><thead><tr><th>器具</th><th>来源</th><th class="td-num">缺损</th><th class="td-num">丢失</th><th class="td-num">单价(元)</th><th class="td-num">金额(元)</th><th>转单据</th></tr></thead>
+<tbody>
+<tr><td>ZH-2603-C 电池托盘护角套件</td><td>租入 · 路凯</td><td class="td-num">2 套</td><td class="td-num">1 套</td><td class="td-num">310.00</td><td class="td-num">930.00</td><td>应付账单（转应付）</td></tr>
+</tbody></table></div>
+      <div class="dt-sec">关联单据</div>
+      <div class="chain"><div class="node"><div class="n-role">退租入库</div><div class="n-name"><span class="lk" onclick="go('../../仓储作业/退租入库列表.html')">验收发现缺损</span></div></div><span class="link-arrow">→</span><div class="node" style="border-color:#1677ff;background:#e6f4ff;"><div class="n-role">丢损赔偿（本单）</div><div class="n-name">BS-20260902-010 · 租入侧</div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">应付账单</div><div class="n-name"><span class="lk" onclick="go('../../财务协同/应付账单.html')">转应付（对运营方赔付）</span></div></div></div>
+      <div class="dt-sec">流转时间线</div>
+      <div class="tl"><div class="tl-i"><span class="tl-t">09-02 17:20</span>退租验收 · 发现缺损 2 套 / 丢失 1 套<span class="tl-who">张伟</span></div><div class="tl-i"><span class="tl-t">09-02 17:30</span>赔偿单生成 · 按对象直接转单据<span class="tl-who">系统</span></div><div class="tl-i off"><span class="tl-t">—</span>待审核 · 通过后转应付账单（无中间结算环节）</div></div>
     </div>
     <div class="modal-footer">
-      <button class="btn btn-default" onclick="closeModal('auditModal')">取消</button>
-      <button class="btn" onclick="closeModal('auditModal')">确认提交</button>
+      <button class="btn btn-default" onclick="closeModal('detailModal')">关 闭</button>
     </div>
   </div>
 </div>
 <script>
+function go(url) { location.href = url; }
 function openModal(id) { document.getElementById(id).classList.add('show'); }
 function closeModal(id) { document.getElementById(id).classList.remove('show'); }
 document.querySelectorAll('.modal-overlay').forEach(function (ov) {
