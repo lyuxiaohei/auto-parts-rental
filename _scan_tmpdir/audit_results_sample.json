@@ -1,43 +1,39 @@
 [
  {
-  "page": "P3-R01-F01-业务流程导航图-2026-09-04 171729.html",
+  "page": "项目管理\\项目档案.html",
   "js_errors": [],
-  "problems": [],
+  "problems": [
+   {
+    "cat": "输入框",
+    "type": "input-not-editable",
+    "phase": "modal",
+    "where": {
+     "tag": "input",
+     "id": "",
+     "cls": "auto",
+     "text": "",
+     "row": "",
+     "inModal": "createModal"
+    },
+    "detail": "readonly 不可输入（预填:PRJ-2606）"
+   }
+  ],
   "stats": {
-   "buttons": 0,
-   "links": 86,
-   "onclickEls": 7,
-   "modals": 0,
-   "modalTitles": [],
-   "selects": 0,
+   "buttons": 9,
+   "links": 14,
+   "onclickEls": 67,
+   "modals": 2,
+   "modalTitles": [
+    "项目上下游绑定",
+    "新建项目"
+   ],
+   "selects": 9,
    "fakeSelects": 0,
    "radios": 0,
    "checkboxes": 0,
-   "inputs": 0,
+   "inputs": 22,
    "stabs": 0,
-   "tabs": 0,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "P3-R01-F01-业务流程导航图.html",
-  "js_errors": [],
-  "problems": [],
-  "stats": {
-   "buttons": 0,
-   "links": 91,
-   "onclickEls": 7,
-   "modals": 0,
-   "modalTitles": [],
-   "selects": 0,
-   "fakeSelects": 0,
-   "radios": 0,
-   "checkboxes": 0,
-   "inputs": 0,
-   "stabs": 0,
-   "tabs": 0,
+   "tabs": 4,
    "bgMut": 0
   },
   "dead_links": [],
