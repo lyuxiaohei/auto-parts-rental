@@ -178,8 +178,8 @@ th.td-num { text-align:right; }
 /* ===== 弹窗 ===== */
 .modal-overlay { position:fixed; inset:0; background:rgba(0,0,0,.45); display:none; align-items:center; justify-content:center; z-index:1000; }
 .modal-overlay.show { display:flex; }
-.modal { background:#fff; border-radius:8px; width:480px; max-height:80vh; overflow-y:auto; box-shadow:0 6px 16px rgba(0,0,0,.12); }
-.modal-lg { width:680px; }
+.modal { background:#fff; border-radius:8px; width:640px; max-width:92vw; max-height:80vh; overflow-y:auto; box-shadow:0 6px 16px rgba(0,0,0,.12); }
+.modal-lg { width:780px; max-width:92vw; }
 .modal-header { padding:16px 24px; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
 .modal-title { font-size:16px; font-weight:600; color:#1a1a1a; margin:0; }
 .modal-close { cursor:pointer; font-size:20px; color:var(--text-3); line-height:1; }
@@ -196,7 +196,7 @@ th.td-num { text-align:right; }
 .dgrid.c3 { grid-template-columns:repeat(3,1fr); }
 .drow { display:flex; padding:8px 0; border-bottom:1px dashed var(--border); font-size:13px; min-width:0; }
 .dlabel { flex:0 0 110px; color:var(--text-3); white-space:nowrap; }
-.dval { flex:1; min-width:0; color:var(--text); word-break:break-all; }
+.dval { flex:1; min-width:0; color:var(--text); overflow-wrap:break-word; }
 
 /* ===== 统计卡 / 进度条 ===== */
 .stat-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:16px; }
@@ -221,8 +221,8 @@ th.td-num { text-align:right; }
 <style id="modal-css">
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:1000;align-items:center;justify-content:center}
 .modal-overlay.show{display:flex}
-.modal{background:#fff;border-radius:8px;width:480px;max-width:90vw;max-height:85vh;overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,.15)}
-.modal-lg{width:680px}
+.modal{background:#fff;border-radius:8px;width:640px;max-width:92vw;max-height:85vh;overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,.15)}
+.modal-lg{width:780px;max-width:92vw}
 .modal-header{padding:16px 24px;border-bottom:1px solid #f0f0f0;display:flex;justify-content:space-between;align-items:center}
 .modal-title{font-size:16px;font-weight:600;color:#262626}
 .modal-close{cursor:pointer;font-size:20px;color:#8c8c8c;line-height:1}
@@ -235,7 +235,7 @@ th.td-num { text-align:right; }
 <!-- 弹窗模板：出库确认（auditModal） -->
 <!-- 注入标记：仓储作业/组合出库列表.html -->
 <div class="modal-overlay" id="auditModal">
-  <div class="modal">
+  <div class="modal" style="width:720px">
     <div class="modal-header">
       <h3 class="modal-title">出库确认</h3>
       <span class="modal-close" onclick="closeModal('auditModal')">×</span>
@@ -246,7 +246,7 @@ th.td-num { text-align:right; }
         <div class="drow"><div class="dlabel">单据类型</div><div class="dval">组合出库单</div></div>
         <div class="drow"><div class="dlabel">出库数量</div><div class="dval">180 套</div></div>
         <div class="drow"><div class="dlabel">提交人 / 时间</div><div class="dval">张伟 / 2026-09-01 10:32</div></div>
-        <div class="drow"><div class="dlabel">备注</div><div class="dval">确认后库存扣减、对应租赁单进入在租状态</div></div>
+        <div class="drow" style="grid-column:1/-1;"><div class="dlabel">备注</div><div class="dval">确认后库存扣减、对应租赁单进入在租状态</div></div>
       </div>
       <div class="form-row">
         <span class="form-label"><span class="req">*</span>审核结论</span>

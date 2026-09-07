@@ -177,8 +177,8 @@ th.td-num { text-align:right; }
 /* ===== 弹窗 ===== */
 .modal-overlay { position:fixed; inset:0; background:rgba(0,0,0,.45); display:none; align-items:center; justify-content:center; z-index:1000; }
 .modal-overlay.show { display:flex; }
-.modal { background:#fff; border-radius:8px; width:480px; max-height:80vh; overflow-y:auto; box-shadow:0 6px 16px rgba(0,0,0,.12); }
-.modal-lg { width:680px; }
+.modal { background:#fff; border-radius:8px; width:640px; max-width:92vw; max-height:80vh; overflow-y:auto; box-shadow:0 6px 16px rgba(0,0,0,.12); }
+.modal-lg { width:780px; max-width:92vw; }
 .modal-header { padding:16px 24px; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
 .modal-title { font-size:16px; font-weight:600; color:#1a1a1a; margin:0; }
 .modal-close { cursor:pointer; font-size:20px; color:var(--text-3); line-height:1; }
@@ -195,7 +195,7 @@ th.td-num { text-align:right; }
 .dgrid.c3 { grid-template-columns:repeat(3,1fr); }
 .drow { display:flex; padding:8px 0; border-bottom:1px dashed var(--border); font-size:13px; min-width:0; }
 .dlabel { flex:0 0 110px; color:var(--text-3); white-space:nowrap; }
-.dval { flex:1; min-width:0; color:var(--text); word-break:break-all; }
+.dval { flex:1; min-width:0; color:var(--text); overflow-wrap:break-word; }
 
 /* ===== 统计卡 / 进度条 ===== */
 .stat-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:16px; }
@@ -220,8 +220,8 @@ th.td-num { text-align:right; }
 <style id="modal-css">
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:1000;align-items:center;justify-content:center}
 .modal-overlay.show{display:flex}
-.modal{background:#fff;border-radius:8px;width:480px;max-width:90vw;max-height:85vh;overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,.15)}
-.modal-lg{width:680px}
+.modal{background:#fff;border-radius:8px;width:640px;max-width:92vw;max-height:85vh;overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,.15)}
+.modal-lg{width:780px;max-width:92vw}
 .modal-header{padding:16px 24px;border-bottom:1px solid #f0f0f0;display:flex;justify-content:space-between;align-items:center}
 .modal-title{font-size:16px;font-weight:600;color:#262626}
 .modal-close{cursor:pointer;font-size:20px;color:#8c8c8c;line-height:1}
@@ -275,6 +275,7 @@ th.td-num { text-align:right; }
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></span>销售管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
    <li><div class="sm-link" onclick="go('../销售管理/销售订单列表.html')">销售订单</div></li>
+   <li><div class="sm-link" onclick="go('../包装管理/租赁单列表.html')">租赁单</div></li>
    </ul>
    </li>
    <li class="sm-item has-sub open">
@@ -302,7 +303,6 @@ th.td-num { text-align:right; }
    <li class="sm-item has-sub">
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8V21H3V8"/><rect x="1" y="3" width="22" height="5" rx="1"/><line x1="10" y1="12" x2="14" y2="12"/></svg></span>包装管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
-   <li><div class="sm-link" onclick="go('../包装管理/租赁单列表.html')">租赁单</div></li>
    <li><div class="sm-link" onclick="go('../包装管理/退租申请列表.html')">退租申请</div></li>
    <li><div class="sm-link" onclick="go('../包装管理/在租台账.html')">在租台账</div></li>
    <li><div class="sm-link" onclick="go('../包装管理/丢损赔偿单.html')">丢损赔偿单</div></li>
@@ -400,10 +400,26 @@ th.td-num { text-align:right; }
           <th>组装人</th>
           <th>开始时间</th>
           <th>状态</th>
-          <th>操作</th>
+          <th class="sticky-op">操作</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody><tr>
+          <td><input type="checkbox" class="cb"></td>
+          <td><span class="lk">ZZ-20260904-007</span></td>
+          <td>PRJ-2601</td>
+          <td>ZH-2601-A 驾驶室围板箱整箱套件（承接 CX-20260902-006 拆散件再组装）</td>
+          <td><span class="tag tag-gray">纯自有</span></td>
+          <td><div style="display:flex;align-items:center;gap:8px;">
+            <div style="flex:1;height:8px;background:#f0f0f0;border-radius:2px;min-width:70px;"><div style="width:64%;height:100%;background:var(--primary);border-radius:2px;"></div></div>
+            <span style="font-size:12px;color:var(--text-2);">32/50</span>
+          </div></td>
+          <td>自营运营</td>
+          <td>刘志强</td>
+          <td>2026-09-04 08:30</td>
+          <td><span class="tag tag-blue">组装中</span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('auditModal')">组装确认</a><a onclick="openModal('detailModal')">详情</a><a onclick="go('../仓储作业/组装录单.html')">录单</a></span></td>
+        </tr>
+        
         <tr>
           <td><input type="checkbox" class="cb"></td>
           <td data-note="1"><span class="lk">ZZ-20260822-006</span></td>
@@ -418,7 +434,7 @@ th.td-num { text-align:right; }
           <td>刘志强</td>
           <td>2026-08-22 09:00</td>
           <td><span class="tag tag-green">已完成</span></td>
-          <td><span class="ops"><a onclick="openModal('auditModal')">组装确认</a><a onclick="openModal('detailModal')">详情</a><a onclick="go('../仓储作业/组装录单.html')">录单</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('auditModal')">组装确认</a><a onclick="openModal('detailModal')">详情</a><a onclick="go('../仓储作业/组装录单.html')">录单</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
@@ -433,7 +449,7 @@ th.td-num { text-align:right; }
           <td>刘志强</td>
           <td>2026-08-30 08:30</td>
           <td><span class="tag tag-blue">组装中</span></td>
-          <td><span class="ops"><a onclick="openModal('auditModal')">组装确认</a><a onclick="openModal('detailModal')">详情</a><a onclick="go('../仓储作业/组装录单.html')">登记组装</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('auditModal')">组装确认</a><a onclick="openModal('detailModal')">详情</a><a onclick="go('../仓储作业/组装录单.html')">登记组装</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
@@ -448,7 +464,7 @@ th.td-num { text-align:right; }
           <td>刘志强</td>
           <td>2026-08-29 08:12</td>
           <td><span class="tag tag-orange">待审核</span></td>
-          <td><span class="ops"><a onclick="openModal('auditModal')">组装确认</a><a onclick="openModal('detailModal')">详情</a><a onclick="go('../仓储作业/组装录单.html')">登记组装</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('auditModal')">组装确认</a><a onclick="openModal('detailModal')">详情</a><a onclick="go('../仓储作业/组装录单.html')">登记组装</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
@@ -463,7 +479,7 @@ th.td-num { text-align:right; }
           <td>周建国</td>
           <td>2026-08-28 09:00</td>
           <td><span class="tag tag-blue">组装中</span></td>
-          <td><span class="ops"><a onclick="openModal('auditModal')">组装确认</a><a onclick="openModal('detailModal')">详情</a><a onclick="go('../仓储作业/组装录单.html')">登记组装</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('auditModal')">组装确认</a><a onclick="openModal('detailModal')">详情</a><a onclick="go('../仓储作业/组装录单.html')">登记组装</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
@@ -478,7 +494,7 @@ th.td-num { text-align:right; }
           <td>王海生</td>
           <td>2026-08-27 13:30</td>
           <td><span class="tag tag-green">已完成</span></td>
-          <td><span class="ops"><a onclick="openModal('auditModal')">组装确认</a><a onclick="openModal('detailModal')">详情</a><a onclick="go('../仓储作业/组装录单.html')">登记组装</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('auditModal')">组装确认</a><a onclick="openModal('detailModal')">详情</a><a onclick="go('../仓储作业/组装录单.html')">登记组装</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
@@ -493,7 +509,7 @@ th.td-num { text-align:right; }
           <td>周建国</td>
           <td>—</td>
           <td><span class="tag tag-orange">待组装</span></td>
-          <td><span class="ops"><a onclick="openModal('auditModal')">组装确认</a><a onclick="openModal('detailModal')">详情</a><a onclick="go('../仓储作业/组装录单.html')">登记组装</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('auditModal')">组装确认</a><a onclick="openModal('detailModal')">详情</a><a onclick="go('../仓储作业/组装录单.html')">登记组装</a></span></td>
         </tr>
       </tbody>
     </table>
@@ -628,7 +644,7 @@ document.addEventListener('click',function(e){
     </div>
     <div class="modal-body">
       <div class="dt-sec">单据信息</div>
-      <div class="dgrid c3"><div class="drow"><div class="dlabel">组装单号</div><div class="dval">ZZ-20260822-006</div></div><div class="drow"><div class="dlabel">状态</div><div class="dval"><span class="tag tag-green">已完成</span></div></div><div class="drow"><div class="dlabel">所属项目</div><div class="dval">PRJ-2604</div></div><div class="drow"><div class="dlabel">母件（产出）</div><div class="dval">ZH-2604-D 混合组合套件</div></div><div class="drow"><div class="dlabel">配方来源</div><div class="dval">混合（自购隔板 + 租入大箱 × 10）</div></div><div class="drow"><div class="dlabel">计划 / 完成</div><div class="dval">40 套 / 40 套</div></div><div class="drow"><div class="dlabel">组装人</div><div class="dval">刘志强</div></div><div class="drow"><div class="dlabel">组装日期</div><div class="dval">2026-08-22 09:00</div></div><div class="drow"><div class="dlabel">自购侧来源</div><div class="dval"><span class="lk" onclick="go('../仓储作业/采购入库列表.html')">CGRK-20260820-006</span>（折叠隔板 × 80）</div></div><div class="drow"><div class="dlabel">租入侧来源</div><div class="dval"><span class="lk" onclick="go('../采购管理/租入单列表.html')">RZD-20260815-005</span>（租入大箱 × 10）</div></div></div>
+      <div class="dgrid c3"><div class="drow"><div class="dlabel">组装单号</div><div class="dval">ZZ-20260822-006</div></div><div class="drow"><div class="dlabel">状态</div><div class="dval"><span class="tag tag-green">已完成</span></div></div><div class="drow"><div class="dlabel">所属项目</div><div class="dval">PRJ-2604</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">母件（产出）</div><div class="dval">ZH-2604-D 混合组合套件</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">配方来源</div><div class="dval">混合（自购隔板 + 租入大箱 × 10）</div></div><div class="drow"><div class="dlabel">计划 / 完成</div><div class="dval">40 套 / 40 套</div></div><div class="drow"><div class="dlabel">组装人</div><div class="dval">刘志强</div></div><div class="drow"><div class="dlabel">组装日期</div><div class="dval">2026-08-22 09:00</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">自购侧来源</div><div class="dval"><span class="lk" onclick="go('../仓储作业/采购入库列表.html')">CGRK-20260820-006</span>（折叠隔板 × 80）</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">租入侧来源</div><div class="dval"><span class="lk" onclick="go('../采购管理/租入单列表.html')">RZD-20260815-005</span>（租入大箱 × 10）</div></div></div>
       <div class="dt-sec">投入 / 产出明细</div>
       <div class="table-wrap"><table><thead><tr><th>类型</th><th>物料</th><th>来源</th><th>单位</th><th class="td-num">数量</th><th>去向</th></tr></thead>
 <tbody>

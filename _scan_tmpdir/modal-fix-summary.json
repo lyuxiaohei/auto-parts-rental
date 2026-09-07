@@ -1,0 +1,25 @@
+{
+ "round0": 234,
+ "fixable_input": 232,
+ "widened_modals": 18,
+ "fullwidth_drows": 69,
+ "exempt_longtext": [
+  [
+   "退租入库列表.html",
+   "auditModal",
+   3,
+   39,
+   "自有件→回在库库存；租入件（路凯围板箱）→转待归还，"
+  ]
+ ],
+ "exempt_bom": [
+  [
+   "BOM.html",
+   "stopModal",
+   1,
+   2,
+   "驾驶室围板箱整箱套件"
+  ]
+ ],
+ "exempt_stuck": []
+}

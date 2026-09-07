@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>P3-R01-F01 · 页面跳转关系图（v2）</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#fafafa; --paper2:#f0f2f5; --ink:#111827; --muted:#4b5563; --soft:#6b7280;
+    --rule:rgba(17,24,39,0.10); --rule-solid:#d1d5db;
+    --accent:#2563eb; --accent-tint:rgba(37,99,235,0.08); --link:#2563eb;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:'Geist',-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;
+    font-size:14px;line-height:1.6}
+  .wrap{max-width:1280px;margin:0 auto;padding:40px 40px 48px}
+
+  .eyebrow{font-family:'Geist Mono',monospace;font-size:8px;font-weight:500;
+    letter-spacing:0.18em;text-transform:uppercase;color:var(--soft)}
+  h1{font-family:'Instrument Serif',serif;font-size:28px;font-weight:400;margin:8px 0 8px}
+  .sub{color:var(--muted);font-size:13px;margin:0 0 32px}
+  .sub b{color:var(--ink);font-weight:600}
+
+  .sec-head{display:flex;align-items:baseline;gap:16px;margin:36px 0 16px;
+    border-top:1px solid var(--rule);padding-top:20px}
+  .sec-head .eyebrow{color:var(--ink)}
+  .sec-note{font-family:'Geist Mono',monospace;font-size:9px;color:var(--soft);letter-spacing:0.04em}
+
+  svg{display:block;width:100%;height:auto}
+  svg a{text-decoration:none}
+
+  /* 目录式导航行（替代卡片矩阵） */
+  .dir{border:1px solid var(--rule);border-radius:8px;background:#ffffff;padding:0 20px}
+  .drow{display:flex;gap:24px;padding:16px 0;border-bottom:1px solid var(--rule)}
+  .drow:last-child{border-bottom:none}
+  .dhead{flex:0 0 128px;display:flex;flex-direction:column;gap:4px;padding-top:4px}
+  .grp-tag{font-family:'Geist Mono',monospace;font-size:8px;letter-spacing:0.14em;
+    color:var(--muted);border:1px solid rgba(17,24,39,0.28);border-radius:2px;
+    padding:2px 6px;text-transform:uppercase;align-self:flex-start}
+  .grp-cnt{font-family:'Geist Mono',monospace;font-size:9px;color:var(--soft)}
+  .dchips{flex:1;display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;min-width:0}
+  .item{display:inline-flex;flex-wrap:wrap;align-items:center;gap:8px}
+  .chip{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;border-radius:6px;
+    border:1px solid var(--rule);background:rgba(17,24,39,0.02);color:var(--ink);
+    font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;white-space:nowrap}
+  .chip:hover{border-color:var(--accent);color:var(--accent)}
+  .chip.focal{border-color:var(--accent);background:var(--accent-tint)}
+  .chip .star{color:var(--accent);font-size:11px}
+  .pair{color:var(--soft);font-family:'Geist Mono',monospace;font-size:10px}
+  .edge{font-family:'Geist Mono',monospace;font-size:9px;color:var(--soft);letter-spacing:0.02em}
+  .edge a{color:var(--link);text-decoration:none}
+  .edge a:hover{text-decoration:underline}
+
+  footer{margin-top:40px;border-top:1px solid var(--rule);padding-top:16px;
+    font-family:'Geist Mono',monospace;font-size:9px;color:var(--soft);letter-spacing:0.06em}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <p class="eyebrow">P3-R01-F01 · v2 原型导航总览</p>
+  <h1>页面跳转关系图</h1>
+  <p class="sub">包装租赁管理后台原型 v2 · <b>44</b> 个页面 · <b>34</b> 条页面内业务跳转 · 侧边栏 <b>41</b> 项菜单全站互达（图上不画）· 录单统一为列表页弹窗（不占页面）· 所有节点点击直达</p>
+
+  <!-- ============ 业务主流程（叙事，两行大节点，可点） ============ -->
+  <div class="sec-head">
+    <span class="eyebrow">业务主流程</span>
+    <span class="sec-note">零部件买卖线 + 循环包装租赁线 · 点击节点直达页面</span>
+  </div>
+
+  <svg viewBox="0 0 1280 296" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <marker id="arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+        <polygon points="0 0, 8 3, 0 6" fill="#4b5563"/>
+      </marker>
+      <marker id="arr-soft" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+        <polygon points="0 0, 8 3, 0 6" fill="#6b7280"/>
+      </marker>
+    </defs>
+
+    <!-- 箭头层（先画线，后画框） -->
+    <g stroke="#4b5563" stroke-width="1" fill="none">
+      <!-- 第一行内箭头 -->
+      <line x1="284" y1="68" x2="324" y2="68" marker-end="url(#arr)"/>
+      <line x1="508" y1="68" x2="548" y2="68" marker-end="url(#arr)"/>
+      <line x1="732" y1="68" x2="772" y2="68" marker-end="url(#arr)"/>
+      <line x1="956" y1="68" x2="996" y2="68" marker-end="url(#arr)"/>
+      <!-- 第二行内箭头 -->
+      <line x1="284" y1="196" x2="324" y2="196" marker-end="url(#arr)"/>
+      <line x1="508" y1="196" x2="548" y2="196" marker-end="url(#arr)"/>
+      <line x1="732" y1="196" x2="772" y2="196" marker-end="url(#arr)"/>
+      <line x1="956" y1="196" x2="996" y2="196" marker-end="url(#arr)"/>
+      <!-- 接续箭头：组合出库（行1末）→ 退租入库（行2首），走行间通道 -->
+      <path d="M 1088 100 V 112 H 192 V 164" marker-end="url(#arr)"/>
+    </g>
+    <!-- 租赁循环回环：退租入库 → 组装/组合出库（循环再出库，虚线） -->
+    <path d="M 216 168 V 152 H 1064 V 104" fill="none" stroke="#6b7280" stroke-width="1"
+          stroke-dasharray="5,4" marker-end="url(#arr-soft)"/>
+    <rect x="600" y="138" width="80" height="12" rx="2" fill="#fafafa"/>
+    <text x="640" y="147" fill="#6b7280" font-size="8" font-family="'Geist Mono',monospace"
+          text-anchor="middle" letter-spacing="0.06em">循环再出库</text>
+
+    <!-- 节点层 · 第一行 -->
+    <a href="销售管理/销售订单列表.html">
+      <rect x="104" y="40" width="176" height="56" rx="6" fill="rgba(75,85,99,0.10)" stroke="#4b5563" stroke-width="1"/>
+      <text x="192" y="64" fill="#111827" font-size="12" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">销售订单</text>
+      <text x="192" y="82" fill="#6b7280" font-size="9" font-family="'Geist Mono',monospace" text-anchor="middle">客户 PO · 项目经理代下单</text>
+    </a>
+    <a href="订单协同/客户订单.html">
+      <rect x="328" y="40" width="176" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
+      <text x="416" y="64" fill="#111827" font-size="12" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">订单审核</text>
+      <text x="416" y="82" fill="#4b5563" font-size="9" font-family="'Geist Mono',monospace" text-anchor="middle">我方审核</text>
+    </a>
+    <a href="仓储作业/采购入库列表.html">
+      <rect x="552" y="40" width="176" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
+      <text x="640" y="64" fill="#111827" font-size="12" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">采购入库</text>
+      <text x="640" y="82" fill="#4b5563" font-size="9" font-family="'Geist Mono',monospace" text-anchor="middle">零配件 · 以托为单位</text>
+    </a>
+    <!-- 组装 · focal 1 -->
+    <a href="仓储作业/组装列表.html">
+      <rect x="776" y="40" width="176" height="56" rx="6" fill="rgba(37,99,235,0.08)" stroke="#2563eb" stroke-width="1.2"/>
+      <text x="864" y="64" fill="#111827" font-size="12" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">组装 ★</text>
+      <text x="864" y="82" fill="#2563eb" font-size="9" font-family="'Geist Mono',monospace" text-anchor="middle">A+B→C · 独立管理节点</text>
+    </a>
+    <a href="仓储作业/组合出库列表.html">
+      <rect x="1000" y="40" width="176" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
+      <text x="1088" y="64" fill="#111827" font-size="12" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">组合出库</text>
+      <text x="1088" y="82" fill="#4b5563" font-size="9" font-family="'Geist Mono',monospace" text-anchor="middle">一箱一件 · 关联订单</text>
+    </a>
+
+    <!-- 节点层 · 第二行 -->
+    <a href="仓储作业/退租入库列表.html">
+      <rect x="104" y="168" width="176" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
+      <text x="192" y="192" fill="#111827" font-size="12" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">退租入库</text>
+      <text x="192" y="210" fill="#4b5563" font-size="9" font-family="'Geist Mono',monospace" text-anchor="middle">按 BOM 拆回散件入库</text>
+    </a>
+    <a href="包装管理/丢损赔偿单.html">
+      <rect x="328" y="168" width="176" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
+      <text x="416" y="192" fill="#111827" font-size="12" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">丢损赔偿单</text>
+      <text x="416" y="210" fill="#4b5563" font-size="9" font-family="'Geist Mono',monospace" text-anchor="middle">缺损/丢失 → 赔偿应收</text>
+    </a>
+    <a href="财务协同/应收账单.html">
+      <rect x="552" y="168" width="176" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
+      <text x="640" y="192" fill="#111827" font-size="12" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">应收账单</text>
+      <text x="640" y="210" fill="#4b5563" font-size="9" font-family="'Geist Mono',monospace" text-anchor="middle">按项目/客户自动汇总</text>
+    </a>
+    <!-- 收款核销 · focal 2 -->
+    <a href="财务协同/银行水单核销.html">
+      <rect x="776" y="168" width="176" height="56" rx="6" fill="rgba(37,99,235,0.08)" stroke="#2563eb" stroke-width="1.2"/>
+      <text x="864" y="192" fill="#111827" font-size="12" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">收款核销 ★</text>
+      <text x="864" y="210" fill="#2563eb" font-size="9" font-family="'Geist Mono',monospace" text-anchor="middle">逐笔勾对 · 部分核销</text>
+    </a>
+    <a href="财务协同/盈亏报表.html">
+      <rect x="1000" y="168" width="176" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
+      <text x="1088" y="192" fill="#111827" font-size="12" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">项目损益</text>
+      <text x="1088" y="210" fill="#4b5563" font-size="9" font-family="'Geist Mono',monospace" text-anchor="middle">项目维度损益</text>
+    </a>
+
+    <!-- 图例（底部横条） -->
+    <line x1="40" y1="256" x2="1240" y2="256" stroke="rgba(17,24,39,0.10)" stroke-width="0.8"/>
+    <text x="40" y="278" fill="#4b5563" font-size="8" font-family="'Geist Mono',monospace" letter-spacing="0.14em">LEGEND</text>
+    <rect x="108" y="269" width="16" height="10" rx="2" fill="rgba(75,85,99,0.10)" stroke="#4b5563" stroke-width="0.8"/>
+    <text x="132" y="278" fill="#4b5563" font-size="8" font-family="'Geist Mono',monospace">买卖线入口</text>
+    <rect x="208" y="269" width="16" height="10" rx="2" fill="rgba(37,99,235,0.08)" stroke="#2563eb" stroke-width="0.8"/>
+    <text x="232" y="278" fill="#4b5563" font-size="8" font-family="'Geist Mono',monospace">★本期重点</text>
+    <rect x="308" y="269" width="16" height="10" rx="2" fill="#ffffff" stroke="#111827" stroke-width="0.8"/>
+    <text x="332" y="278" fill="#4b5563" font-size="8" font-family="'Geist Mono',monospace">业务页面</text>
+    <line x1="408" y1="274" x2="432" y2="274" stroke="#6b7280" stroke-width="1" stroke-dasharray="5,4"/>
+    <text x="440" y="278" fill="#4b5563" font-size="8" font-family="'Geist Mono',monospace">租赁循环</text>
+    <text x="1240" y="278" fill="#6b7280" font-size="8" font-family="'Geist Mono',monospace" text-anchor="end">侧边栏 41 项菜单全站互达 · 图中不逐一画出</text>
+  </svg>
+
+  <!-- ============ 页面导航目录（44 页全可点，34 条实际跳转边） ============ -->
+  <div class="sec-head">
+    <span class="eyebrow">页面导航目录 · v2 · 44 页 / 34 条业务跳转</span>
+    <span class="sec-note">⟷ = 两页互相跳转 · → 为页面内实际跳转链接，均可点击</span>
+  </div>
+
+  <div class="dir">
+    <div class="drow">
+      <div class="dhead"><span class="grp-tag">首页</span><span class="grp-cnt">1 页</span></div>
+      <div class="dchips">
+        <span class="item">
+          <a class="chip" href="首页/项目看板.html">项目看板</a>
+          <span class="edge">→ <a href="项目管理/项目档案.html">项目档案</a> · <a href="项目管理/项目详情.html">项目详情</a> · <a href="财务协同/盈亏报表.html">项目损益</a></span>
+        </span>
+      </div>
+    </div>
+
+    <div class="drow">
+      <div class="dhead"><span class="grp-tag">项目管理</span><span class="grp-cnt">2 页</span></div>
+      <div class="dchips">
+        <span class="item">
+          <a class="chip" href="项目管理/项目档案.html">项目档案</a>
+          <span class="edge">→ <a href="项目管理/项目详情.html">项目详情</a></span>
+        </span>
+        <span class="item">
+          <a class="chip" href="项目管理/项目详情.html">项目详情</a>
+          <span class="edge">查看明细 → <a href="仓储作业/采购入库列表.html">采购入库</a> · <a href="仓储作业/组装列表.html">组装</a> · <a href="仓储作业/组合出库列表.html">组合出库</a> · <a href="仓储作业/退租入库列表.html">退租入库</a> · <a href="订单协同/客户订单.html">订单审核</a> · <a href="财务协同/应收账单.html">应收账单</a> · <a href="财务协同/盈亏报表.html">项目损益</a> · <a href="项目管理/项目档案.html">项目档案</a></span>
+        </span>
+      </div>
+    </div>
+
+    <div class="drow">
+      <div class="dhead"><span class="grp-tag">基础资料</span><span class="grp-cnt">6 页</span></div>
+      <div class="dchips">
+        <span class="item"><a class="chip" href="基础数据/客商管理.html">客商管理</a></span>
+        <span class="item"><a class="chip" href="基础数据/器具档案.html">器具档案</a></span>
+        <span class="item"><a class="chip" href="基础数据/零部件档案.html">零部件档案</a></span>
+        <span class="item">
+          <a class="chip" href="基础数据/BOM.html">BOM</a><span class="pair">⟷</span><a class="chip" href="基础数据/BOM维护.html">BOM维护</a>
+        </span>
+        <span class="item"><a class="chip" href="基础数据/库位档案.html">库位档案</a></span>
+      </div>
+    </div>
+
+    <div class="drow">
+      <div class="dhead"><span class="grp-tag">采购管理</span><span class="grp-cnt">1 页 · 新增</span></div>
+      <div class="dchips">
+        <span class="item">
+          <a class="chip" href="采购管理/采购订单列表.html">采购订单</a>
+          <span class="edge">审核通过 → <a href="仓储作业/采购入库列表.html">采购入库</a></span>
+        </span>
+      </div>
+    </div>
+
+    <div class="drow">
+      <div class="dhead"><span class="grp-tag">销售管理</span><span class="grp-cnt">1 页 · 新增</span></div>
+      <div class="dchips">
+        <span class="item">
+          <a class="chip" href="销售管理/销售订单列表.html">销售订单</a>
+          <span class="edge">审核通过 → <a href="仓储作业/销售出库列表.html">销售出库</a></span>
+        </span>
+      </div>
+    </div>
+
+    <div class="drow">
+      <div class="dhead"><span class="grp-tag">仓储作业</span><span class="grp-cnt">15 页</span></div>
+      <div class="dchips">
+        <span class="item">
+          <a class="chip" href="仓储作业/采购入库列表.html">采购入库列表</a><span class="pair">⟷</span><a class="chip" href="仓储作业/采购入库录单.html">录单</a>
+          <span class="edge">审核后 → <a href="财务协同/应付账单.html">应付账单</a></span>
+        </span>
+        <span class="item">
+          <a class="chip" href="仓储作业/退租入库列表.html">退租入库</a><span class="star" style="color:#2563eb">★</span>
+          <span class="edge">缺损/丢失 → <a href="包装管理/丢损赔偿单.html">丢损赔偿单</a> · 拆回散件 → <a href="仓储作业/拆卸管理列表.html">拆卸管理</a></span>
+        </span>
+        <span class="item"><a class="chip" href="仓储作业/其他入库列表.html">其他入库</a></span>
+        <span class="item"><a class="chip" href="仓储作业/销售出库列表.html">销售出库</a></span>
+        <span class="item">
+          <a class="chip" href="仓储作业/组合出库列表.html">组合出库列表</a><span class="pair">⟷</span><a class="chip" href="仓储作业/组合出库录单.html">录单</a>
+        </span>
+        <span class="item"><a class="chip" href="仓储作业/其他出库列表.html">其他出库</a></span>
+        <span class="item">
+          <a class="chip focal" href="仓储作业/组装列表.html">组装<span class="star">★</span></a><span class="pair">⟷</span><a class="chip focal" href="仓储作业/组装录单.html">录单<span class="star">★</span></a>
+        </span>
+        <span class="item"><a class="chip" href="仓储作业/拆卸管理列表.html">拆卸管理</a></span>
+        <span class="item">
+          <a class="chip" href="仓储作业/盘点列表.html">库存盘点</a><span class="pair">⟷</span><a class="chip" href="仓储作业/盘点录入.html">录入</a>
+        </span>
+        <span class="item">
+          <a class="chip" href="仓储作业/库存查询.html">库存查询（四态）</a>
+          <span class="edge">查看配方 → <a href="基础数据/BOM.html">BOM</a></span>
+        </span>
+        <span class="item"><a class="chip" href="仓储作业/库存调拨列表.html">库存调拨</a></span>
+      </div>
+    </div>
+
+    <div class="drow">
+      <div class="dhead"><span class="grp-tag">包装管理</span><span class="grp-cnt">5 页</span></div>
+      <div class="dchips">
+        <span class="item">
+          <a class="chip" href="包装管理/租赁单列表.html">租赁单</a><span class="star" style="color:#2563eb">★</span>
+          <span class="edge">在租中 → <a href="包装管理/退租申请列表.html">退租申请</a></span>
+        </span>
+        <span class="item">
+          <a class="chip" href="包装管理/退租申请列表.html">退租申请</a><span class="star" style="color:#2563eb">★</span>
+          <span class="edge">审核通过 → <a href="仓储作业/退租入库列表.html">退租入库</a></span>
+        </span>
+        <span class="item">
+          <a class="chip" href="包装管理/在租台账.html">在租台账</a>
+          <span class="edge">→ <a href="包装管理/租出台账.html">租出台账</a></span>
+        </span>
+        <span class="item">
+          <a class="chip" href="包装管理/丢损赔偿单.html">丢损赔偿单</a>
+          <span class="edge">→ <a href="财务协同/应收账单.html">应收账单</a>（赔偿应收联动）</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="drow">
+      <div class="dhead"><span class="grp-tag">订单管理</span><span class="grp-cnt">3 页</span></div>
+      <div class="dchips">
+        <span class="item"><a class="chip" href="订单协同/客户订单.html">订单审核</a></span>
+        <span class="item"><a class="chip" href="订单协同/路凯下发.html">订单同步</a></span>
+        <span class="item"><a class="chip" href="订单协同/结算导出.html">对账结算</a></span>
+      </div>
+    </div>
+
+    <div class="drow">
+      <div class="dhead"><span class="grp-tag">财务应收</span><span class="grp-cnt">4 页</span></div>
+      <div class="dchips">
+        <span class="item">
+          <a class="chip" href="财务协同/应收账单.html">应收账单</a>
+          <span class="edge">→ <a href="财务协同/开票登记.html">开票登记</a> · <a href="财务协同/银行水单核销.html">收款核销</a></span>
+        </span>
+        <span class="item">
+          <a class="chip" href="财务协同/开票登记.html">开票登记</a>
+          <span class="edge">→ <a href="财务协同/应收账单.html">应收账单</a></span>
+        </span>
+        <span class="item">
+          <a class="chip" href="财务协同/回款登记.html">收款登记</a>
+          <span class="edge">→ <a href="财务协同/银行水单核销.html">收款核销</a></span>
+        </span>
+        <span class="item">
+          <a class="chip focal" href="财务协同/银行水单核销.html">收款核销<span class="star">★</span></a>
+          <span class="edge">→ <a href="财务协同/应收账单.html">应收账单</a></span>
+        </span>
+      </div>
+    </div>
+
+    <div class="drow">
+      <div class="dhead"><span class="grp-tag">财务应付</span><span class="grp-cnt">2 页 · 新增</span></div>
+      <div class="dchips">
+        <span class="item">
+          <a class="chip" href="财务协同/应付账单.html">应付账单</a>
+          <span class="edge">确认后 → <a href="财务协同/付款登记.html">付款登记</a></span>
+        </span>
+        <span class="item"><a class="chip" href="财务协同/付款登记.html">付款登记</a></span>
+      </div>
+    </div>
+
+    <div class="drow">
+      <div class="dhead"><span class="grp-tag">项目损益</span><span class="grp-cnt">1 页</span></div>
+      <div class="dchips">
+        <span class="item">
+          <a class="chip" href="财务协同/盈亏报表.html">项目损益</a>
+          <span class="edge">→ <a href="项目管理/项目详情.html">项目详情</a></span>
+        </span>
+      </div>
+    </div>
+
+    <div class="drow">
+      <div class="dhead"><span class="grp-tag">系统管理</span><span class="grp-cnt">3 页</span></div>
+      <div class="dchips">
+        <span class="item"><a class="chip" href="系统管理/用户权限.html">用户权限</a></span>
+        <span class="item"><a class="chip" href="系统管理/操作日志.html">操作日志</a></span>
+        <span class="item"><a class="chip" href="系统管理/数据字典.html">数据字典</a></span>
+      </div>
+    </div>
+  </div>
+
+  <footer>P3-R01-F01 · v2 · 2026-09-03 · 汽车物流包装租赁 · 包装租赁管理后台原型 · 44 页 / 34 条业务跳转 · 单一管理端（客户端已取消，项目经理在订单管理模块代下单）</footer>
+</div>
+</body>
+</html>

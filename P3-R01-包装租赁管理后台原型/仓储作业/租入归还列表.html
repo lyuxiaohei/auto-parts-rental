@@ -161,8 +161,8 @@ th.td-num { text-align:right; }
 /* ===== 弹窗 ===== */
 .modal-overlay { position:fixed; inset:0; background:rgba(0,0,0,.45); display:none; align-items:center; justify-content:center; z-index:1000; }
 .modal-overlay.show { display:flex; }
-.modal { background:#fff; border-radius:8px; width:480px; max-height:80vh; overflow-y:auto; box-shadow:0 6px 16px rgba(0,0,0,.12); }
-.modal-lg { width:680px; }
+.modal { background:#fff; border-radius:8px; width:640px; max-width:92vw; max-height:80vh; overflow-y:auto; box-shadow:0 6px 16px rgba(0,0,0,.12); }
+.modal-lg { width:780px; max-width:92vw; }
 .modal-header { padding:16px 24px; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
 .modal-title { font-size:16px; font-weight:600; color:#1a1a1a; margin:0; }
 .modal-close { cursor:pointer; font-size:20px; color:var(--text-3); line-height:1; }
@@ -179,7 +179,7 @@ th.td-num { text-align:right; }
 .dgrid.c3 { grid-template-columns:repeat(3,1fr); }
 .drow { display:flex; padding:8px 0; border-bottom:1px dashed var(--border); font-size:13px; min-width:0; }
 .dlabel { flex:0 0 110px; color:var(--text-3); white-space:nowrap; }
-.dval { flex:1; min-width:0; color:var(--text); word-break:break-all; }
+.dval { flex:1; min-width:0; color:var(--text); overflow-wrap:break-word; }
 
 /* ===== 统计卡 / 进度条 ===== */
 .stat-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:16px; }
@@ -222,8 +222,8 @@ th.td-num { text-align:right; }
 <style id="modal-css">
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:1000;align-items:center;justify-content:center}
 .modal-overlay.show{display:flex}
-.modal{background:#fff;border-radius:8px;width:480px;max-width:90vw;max-height:85vh;overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,.15)}
-.modal-lg{width:680px}
+.modal{background:#fff;border-radius:8px;width:640px;max-width:92vw;max-height:85vh;overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,.15)}
+.modal-lg{width:780px;max-width:92vw}
 .modal-header{padding:16px 24px;border-bottom:1px solid #f0f0f0;display:flex;justify-content:space-between;align-items:center}
 .modal-title{font-size:16px;font-weight:600;color:#262626}
 .modal-close{cursor:pointer;font-size:20px;color:#8c8c8c;line-height:1}
@@ -277,6 +277,7 @@ th.td-num { text-align:right; }
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></span>销售管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
    <li><div class="sm-link" onclick="go('../销售管理/销售订单列表.html')">销售订单</div></li>
+   <li><div class="sm-link" onclick="go('../包装管理/租赁单列表.html')">租赁单</div></li>
    </ul>
    </li>
    <li class="sm-item has-sub open">
@@ -304,7 +305,6 @@ th.td-num { text-align:right; }
    <li class="sm-item has-sub">
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8V21H3V8"/><rect x="1" y="3" width="22" height="5" rx="1"/><line x1="10" y1="12" x2="14" y2="12"/></svg></span>包装管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
-   <li><div class="sm-link" onclick="go('../包装管理/租赁单列表.html')">租赁单</div></li>
    <li><div class="sm-link" onclick="go('../包装管理/退租申请列表.html')">退租申请</div></li>
    <li><div class="sm-link" onclick="go('../包装管理/在租台账.html')">在租台账</div></li>
    <li><div class="sm-link" onclick="go('../包装管理/丢损赔偿单.html')">丢损赔偿单</div></li>
@@ -391,7 +391,7 @@ th.td-num { text-align:right; }
           <th>状态</th>
           <th>制单人</th>
           <th>归还时间</th>
-          <th>操作</th>
+          <th class="sticky-op">操作</th>
         </tr>
       </thead>
       <tbody>
@@ -406,7 +406,7 @@ th.td-num { text-align:right; }
           <td><span class="tag tag-green">已归还</span></td>
           <td>李国栋</td>
           <td>2026-09-03 11:30</td>
-          <td><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="go('../财务协同/应付账单.html')">租金应付</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="go('../财务协同/应付账单.html')">租金应付</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
@@ -419,7 +419,7 @@ th.td-num { text-align:right; }
           <td><span class="tag tag-orange">待审核</span></td>
           <td>李国栋</td>
           <td>2026-09-03 14:05</td>
-          <td><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('auditModal')">审核</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('auditModal')">审核</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
@@ -432,7 +432,7 @@ th.td-num { text-align:right; }
           <td><span class="tag tag-green">已归还</span></td>
           <td>王志远</td>
           <td>2026-08-31 10:15</td>
-          <td><span class="ops"><a onclick="openModal('detailModal')">详情</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a></span></td>
         </tr>
       </tbody>
     </table>
@@ -489,7 +489,7 @@ th.td-num { text-align:right; }
 </div>
 <!-- 弹窗：审核确认（独立模板见 弹窗/ 文件夹） -->
 <div class="modal-overlay" id="auditModal">
-  <div class="modal">
+  <div class="modal" style="width:720px">
     <div class="modal-header">
       <h3 class="modal-title">审核确认</h3>
       <span class="modal-close" onclick="closeModal('auditModal')">×</span>
@@ -500,9 +500,9 @@ th.td-num { text-align:right; }
         <div class="drow"><div class="dlabel">单据类型</div><div class="dval">租入归还单</div></div>
         <div class="drow"><div class="dlabel">关联租入单</div><div class="dval">RZD-20260815-005（部分归还）</div></div>
         <div class="drow"><div class="dlabel">归还类型</div><div class="dval">分流归还（L4 混合组装退租拆散）</div></div>
-        <div class="drow"><div class="dlabel">归还内容</div><div class="dval">围板箱 1200×1000×970 × 4 只（自购隔板回库，租入大箱部分归还）</div></div>
+        <div class="drow" style="grid-column:1/-1;"><div class="dlabel">归还内容</div><div class="dval">围板箱 1200×1000×970 × 4 只（自购隔板回库，租入大箱部分归还）</div></div>
         <div class="drow"><div class="dlabel">提交人 / 时间</div><div class="dval">李国栋 / 2026-09-03 14:05</div></div>
-        <div class="drow"><div class="dlabel">备注</div><div class="dval">审核通过后更新租入单状态，归还器具出库至运营方，并计入租金结算</div></div>
+        <div class="drow" style="grid-column:1/-1;"><div class="dlabel">备注</div><div class="dval">审核通过后更新租入单状态，归还器具出库至运营方，并计入租金结算</div></div>
       </div>
       <div class="form-row">
         <span class="form-label"><span class="req">*</span>审核结论</span>
@@ -548,7 +548,7 @@ th.td-num { text-align:right; }
     </div>
     <div class="modal-body">
       <div class="dt-sec">单据信息</div>
-      <div class="dgrid c3"><div class="drow"><div class="dlabel">归还单号</div><div class="dval">GHCK-20260903-001</div></div><div class="drow"><div class="dlabel">状态</div><div class="dval"><span class="tag tag-green">已归还</span></div></div><div class="drow"><div class="dlabel">关联租入单</div><div class="dval"><span class="lk" onclick="go('../采购管理/租入单列表.html')">RZD-20260815-003</span></div></div><div class="drow"><div class="dlabel">运营方</div><div class="dval">路凯包装运营（上海）有限公司</div></div><div class="drow"><div class="dlabel">归还类型</div><div class="dval">整退归还（L3）</div></div><div class="drow"><div class="dlabel">器具</div><div class="dval">围板箱 1200×1000×970</div></div><div class="drow"><div class="dlabel">归还数量</div><div class="dval">30 只</div></div><div class="drow"><div class="dlabel">器具状况</div><div class="dval">验收完好</div></div><div class="drow"><div class="dlabel">经办人</div><div class="dval">李国栋</div></div><div class="drow"><div class="dlabel">归还日期</div><div class="dval">2026-09-03</div></div><div class="drow"><div class="dlabel">租金结算</div><div class="dval">已生成租金应付 <span class="lk" onclick="go('../财务协同/应付账单.html')">AP-20260903-009</span>（36,000.00 元）</div></div></div>
+      <div class="dgrid c3"><div class="drow" style="grid-column:1/-1;"><div class="dlabel">归还单号</div><div class="dval">GHCK-20260903-001</div></div><div class="drow"><div class="dlabel">状态</div><div class="dval"><span class="tag tag-green">已归还</span></div></div><div class="drow"><div class="dlabel">关联租入单</div><div class="dval"><span class="lk" onclick="go('../采购管理/租入单列表.html')">RZD-20260815-003</span></div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">运营方</div><div class="dval">路凯包装运营（上海）有限公司</div></div><div class="drow"><div class="dlabel">归还类型</div><div class="dval">整退归还（L3）</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">器具</div><div class="dval">围板箱 1200×1000×970</div></div><div class="drow"><div class="dlabel">归还数量</div><div class="dval">30 只</div></div><div class="drow"><div class="dlabel">器具状况</div><div class="dval">验收完好</div></div><div class="drow"><div class="dlabel">经办人</div><div class="dval">李国栋</div></div><div class="drow"><div class="dlabel">归还日期</div><div class="dval">2026-09-03</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">租金结算</div><div class="dval">已生成租金应付 <span class="lk" onclick="go('../财务协同/应付账单.html')">AP-20260903-009</span>（36,000.00 元）</div></div></div>
       <div class="dt-sec">归还明细</div>
       <div class="table-wrap"><table><thead><tr><th>序号</th><th>器具</th><th>归还类型</th><th>单位</th><th class="td-num">数量</th><th>状况</th></tr></thead>
 <tbody>

@@ -162,8 +162,8 @@ th.td-num { text-align:right; }
 /* ===== 弹窗 ===== */
 .modal-overlay { position:fixed; inset:0; background:rgba(0,0,0,.45); display:none; align-items:center; justify-content:center; z-index:1000; }
 .modal-overlay.show { display:flex; }
-.modal { background:#fff; border-radius:8px; width:480px; max-height:80vh; overflow-y:auto; box-shadow:0 6px 16px rgba(0,0,0,.12); }
-.modal-lg { width:680px; }
+.modal { background:#fff; border-radius:8px; width:640px; max-width:92vw; max-height:80vh; overflow-y:auto; box-shadow:0 6px 16px rgba(0,0,0,.12); }
+.modal-lg { width:780px; max-width:92vw; }
 .modal-header { padding:16px 24px; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
 .modal-title { font-size:16px; font-weight:600; color:#1a1a1a; margin:0; }
 .modal-close { cursor:pointer; font-size:20px; color:var(--text-3); line-height:1; }
@@ -180,7 +180,7 @@ th.td-num { text-align:right; }
 .dgrid.c3 { grid-template-columns:repeat(3,1fr); }
 .drow { display:flex; padding:8px 0; border-bottom:1px dashed var(--border); font-size:13px; min-width:0; }
 .dlabel { flex:0 0 110px; color:var(--text-3); white-space:nowrap; }
-.dval { flex:1; min-width:0; color:var(--text); word-break:break-all; }
+.dval { flex:1; min-width:0; color:var(--text); overflow-wrap:break-word; }
 
 /* ===== 统计卡 / 进度条 ===== */
 .stat-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:16px; }
@@ -222,8 +222,8 @@ th.td-num { text-align:right; }
 <style id="modal-css">
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:1000;align-items:center;justify-content:center}
 .modal-overlay.show{display:flex}
-.modal{background:#fff;border-radius:8px;width:480px;max-width:90vw;max-height:85vh;overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,.15)}
-.modal-lg{width:680px}
+.modal{background:#fff;border-radius:8px;width:640px;max-width:92vw;max-height:85vh;overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,.15)}
+.modal-lg{width:780px;max-width:92vw}
 .modal-header{padding:16px 24px;border-bottom:1px solid #f0f0f0;display:flex;justify-content:space-between;align-items:center}
 .modal-title{font-size:16px;font-weight:600;color:#262626}
 .modal-close{cursor:pointer;font-size:20px;color:#8c8c8c;line-height:1}
@@ -283,12 +283,13 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
     </div>
     <div class="modal-body">
       <div class="dt-sec">单据信息</div>
-      <div class="dgrid c3"><div class="drow"><div class="dlabel">水单号</div><div class="dval">SD-20260830-011</div></div><div class="drow"><div class="dlabel">状态</div><div class="dval"><span class="tag tag-orange">待核销</span></div></div><div class="drow"><div class="dlabel">到账日期</div><div class="dval">2026-08-30</div></div><div class="drow"><div class="dlabel">付款方</div><div class="dval">一汽解放汽车有限公司</div></div><div class="drow"><div class="dlabel">到账金额</div><div class="dval">286,500.00 元</div></div><div class="drow"><div class="dlabel">已核销</div><div class="dval">0.00 元</div></div><div class="drow"><div class="dlabel">未核销</div><div class="dval">286,500.00 元</div></div><div class="drow"><div class="dlabel">关联回款</div><div class="dval"><span class="lk" onclick="go('../../财务协同/回款登记.html')">HK-20260830-014</span></div></div><div class="drow"><div class="dlabel">收款账户</div><div class="dval">招行基本户 1209****8866</div></div><div class="drow"><div class="dlabel">经办</div><div class="dval">财务-周敏</div></div></div>
+      <div class="dgrid c3"><div class="drow"><div class="dlabel">水单号</div><div class="dval">SD-20260830-011</div></div><div class="drow"><div class="dlabel">状态</div><div class="dval"><span class="tag tag-orange">待核销</span></div></div><div class="drow"><div class="dlabel">到账日期</div><div class="dval">2026-08-30</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">付款方</div><div class="dval">一汽解放汽车有限公司</div></div><div class="drow"><div class="dlabel">到账金额</div><div class="dval">286,500.00 元</div></div><div class="drow"><div class="dlabel">已核销</div><div class="dval">0.00 元</div></div><div class="drow"><div class="dlabel">未核销</div><div class="dval">286,500.00 元</div></div><div class="drow"><div class="dlabel">关联回款</div><div class="dval"><span class="lk" onclick="go('../../财务协同/回款登记.html')">HK-20260830-014</span></div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">收款账户</div><div class="dval">招行基本户 1209****8866</div></div><div class="drow"><div class="dlabel">经办</div><div class="dval">财务-周敏</div></div></div>
       <div class="dt-sec">核销勾对明细</div>
       <div class="table-wrap"><table><thead><tr><th>勾对</th><th>应收账单</th><th class="td-num">账单金额(元)</th><th class="td-num">本次核销(元)</th></tr></thead>
 <tbody>
 <tr><td><input type="checkbox" class="cb" checked></td><td><span class="lk" onclick="go('../../财务协同/应收账单.html')">AR-2026-08-PRJ2601</span></td><td class="td-num">486,200.00</td><td class="td-num">286,500.00（部分核销）</td></tr>
 </tbody></table></div>
+      <div style="margin-top:8px;font-size:12.5px;color:#1a1a1a;">本次核销后余额：<b style="color:#fa8c16;">¥199,700.00</b>（账单 486,200.00 − 本次核销 286,500.00 · 部分核销后账单余额继续挂账，水单额度已用完）</div>
       <div class="dt-sec">关联单据</div>
       <div class="chain"><div class="node"><div class="n-role">回款登记</div><div class="n-name"><span class="lk" onclick="go('../../财务协同/回款登记.html')">HK-20260830-014</span></div></div><span class="link-arrow">→</span><div class="node" style="border-color:#1677ff;background:#e6f4ff;"><div class="n-role">水单核销（本单）</div><div class="n-name">SD-20260830-011</div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">应收账单</div><div class="n-name"><span class="lk" onclick="go('../../财务协同/应收账单.html')">AR-2026-08-PRJ2601 · 核销冲抵</span></div></div></div>
       <div class="dt-sec">流转时间线</div>

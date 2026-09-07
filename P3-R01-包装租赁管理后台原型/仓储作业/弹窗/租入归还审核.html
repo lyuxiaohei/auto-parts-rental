@@ -162,8 +162,8 @@ th.td-num { text-align:right; }
 /* ===== 弹窗 ===== */
 .modal-overlay { position:fixed; inset:0; background:rgba(0,0,0,.45); display:none; align-items:center; justify-content:center; z-index:1000; }
 .modal-overlay.show { display:flex; }
-.modal { background:#fff; border-radius:8px; width:480px; max-height:80vh; overflow-y:auto; box-shadow:0 6px 16px rgba(0,0,0,.12); }
-.modal-lg { width:680px; }
+.modal { background:#fff; border-radius:8px; width:640px; max-width:92vw; max-height:80vh; overflow-y:auto; box-shadow:0 6px 16px rgba(0,0,0,.12); }
+.modal-lg { width:780px; max-width:92vw; }
 .modal-header { padding:16px 24px; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
 .modal-title { font-size:16px; font-weight:600; color:#1a1a1a; margin:0; }
 .modal-close { cursor:pointer; font-size:20px; color:var(--text-3); line-height:1; }
@@ -180,7 +180,7 @@ th.td-num { text-align:right; }
 .dgrid.c3 { grid-template-columns:repeat(3,1fr); }
 .drow { display:flex; padding:8px 0; border-bottom:1px dashed var(--border); font-size:13px; min-width:0; }
 .dlabel { flex:0 0 110px; color:var(--text-3); white-space:nowrap; }
-.dval { flex:1; min-width:0; color:var(--text); word-break:break-all; }
+.dval { flex:1; min-width:0; color:var(--text); overflow-wrap:break-word; }
 
 /* ===== 统计卡 / 进度条 ===== */
 .stat-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:16px; }
@@ -223,8 +223,8 @@ th.td-num { text-align:right; }
 <style id="modal-css">
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:1000;align-items:center;justify-content:center}
 .modal-overlay.show{display:flex}
-.modal{background:#fff;border-radius:8px;width:480px;max-width:90vw;max-height:85vh;overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,.15)}
-.modal-lg{width:680px}
+.modal{background:#fff;border-radius:8px;width:640px;max-width:92vw;max-height:85vh;overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,.15)}
+.modal-lg{width:780px;max-width:92vw}
 .modal-header{padding:16px 24px;border-bottom:1px solid #f0f0f0;display:flex;justify-content:space-between;align-items:center}
 .modal-title{font-size:16px;font-weight:600;color:#262626}
 .modal-close{cursor:pointer;font-size:20px;color:#8c8c8c;line-height:1}
@@ -237,7 +237,7 @@ th.td-num { text-align:right; }
 
 <!-- 注入标记：仓储作业/租入归还列表.html -->
 <div class="modal-overlay" id="auditModal">
-  <div class="modal">
+  <div class="modal" style="width:720px">
     <div class="modal-header">
       <h3 class="modal-title">审核确认</h3>
       <span class="modal-close" onclick="closeModal('auditModal')">×</span>
@@ -248,9 +248,9 @@ th.td-num { text-align:right; }
         <div class="drow"><div class="dlabel">单据类型</div><div class="dval">租入归还单</div></div>
         <div class="drow"><div class="dlabel">关联租入单</div><div class="dval">RZD-20260815-005（部分归还）</div></div>
         <div class="drow"><div class="dlabel">归还类型</div><div class="dval">分流归还（L4 混合组装退租拆散）</div></div>
-        <div class="drow"><div class="dlabel">归还内容</div><div class="dval">围板箱 1200×1000×970 × 4 只（自购隔板回库，租入大箱部分归还）</div></div>
+        <div class="drow" style="grid-column:1/-1;"><div class="dlabel">归还内容</div><div class="dval">围板箱 1200×1000×970 × 4 只（自购隔板回库，租入大箱部分归还）</div></div>
         <div class="drow"><div class="dlabel">提交人 / 时间</div><div class="dval">李国栋 / 2026-09-03 14:05</div></div>
-        <div class="drow"><div class="dlabel">备注</div><div class="dval">审核通过后更新租入单状态，归还器具出库至运营方，并计入租金结算</div></div>
+        <div class="drow" style="grid-column:1/-1;"><div class="dlabel">备注</div><div class="dval">审核通过后更新租入单状态，归还器具出库至运营方，并计入租金结算</div></div>
       </div>
       <div class="form-row">
         <span class="form-label"><span class="req">*</span>审核结论</span>

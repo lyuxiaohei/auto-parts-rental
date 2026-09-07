@@ -1,25 +1,21 @@
 [
  {
-  "page": "仓储作业\\其他出库列表.html",
+  "page": "P3-R01-F01-业务流程导航图.html",
   "js_errors": [],
   "problems": [],
   "stats": {
-   "buttons": 11,
-   "links": 6,
-   "onclickEls": 55,
-   "modals": 3,
-   "modalTitles": [
-    "新增其他出库单",
-    "审核确认",
-    "其他出库单详情 · QTCK-20260"
-   ],
-   "selects": 5,
+   "buttons": 0,
+   "links": 86,
+   "onclickEls": 8,
+   "modals": 0,
+   "modalTitles": [],
+   "selects": 0,
    "fakeSelects": 0,
-   "radios": 5,
+   "radios": 0,
    "checkboxes": 0,
-   "inputs": 14,
-   "stabs": 3,
-   "tabs": 3,
+   "inputs": 0,
+   "stabs": 0,
+   "tabs": 0,
    "bgMut": 0
   },
   "dead_links": [],

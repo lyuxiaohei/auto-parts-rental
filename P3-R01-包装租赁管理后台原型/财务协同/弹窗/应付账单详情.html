@@ -162,8 +162,8 @@ th.td-num { text-align:right; }
 /* ===== 弹窗 ===== */
 .modal-overlay { position:fixed; inset:0; background:rgba(0,0,0,.45); display:none; align-items:center; justify-content:center; z-index:1000; }
 .modal-overlay.show { display:flex; }
-.modal { background:#fff; border-radius:8px; width:480px; max-height:80vh; overflow-y:auto; box-shadow:0 6px 16px rgba(0,0,0,.12); }
-.modal-lg { width:680px; }
+.modal { background:#fff; border-radius:8px; width:640px; max-width:92vw; max-height:80vh; overflow-y:auto; box-shadow:0 6px 16px rgba(0,0,0,.12); }
+.modal-lg { width:780px; max-width:92vw; }
 .modal-header { padding:16px 24px; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
 .modal-title { font-size:16px; font-weight:600; color:#1a1a1a; margin:0; }
 .modal-close { cursor:pointer; font-size:20px; color:var(--text-3); line-height:1; }
@@ -180,7 +180,7 @@ th.td-num { text-align:right; }
 .dgrid.c3 { grid-template-columns:repeat(3,1fr); }
 .drow { display:flex; padding:8px 0; border-bottom:1px dashed var(--border); font-size:13px; min-width:0; }
 .dlabel { flex:0 0 110px; color:var(--text-3); white-space:nowrap; }
-.dval { flex:1; min-width:0; color:var(--text); word-break:break-all; }
+.dval { flex:1; min-width:0; color:var(--text); overflow-wrap:break-word; }
 
 /* ===== 统计卡 / 进度条 ===== */
 .stat-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:16px; }
@@ -222,8 +222,8 @@ th.td-num { text-align:right; }
 <style id="modal-css">
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:1000;align-items:center;justify-content:center}
 .modal-overlay.show{display:flex}
-.modal{background:#fff;border-radius:8px;width:480px;max-width:90vw;max-height:85vh;overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,.15)}
-.modal-lg{width:680px}
+.modal{background:#fff;border-radius:8px;width:640px;max-width:92vw;max-height:85vh;overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,.15)}
+.modal-lg{width:780px;max-width:92vw}
 .modal-header{padding:16px 24px;border-bottom:1px solid #f0f0f0;display:flex;justify-content:space-between;align-items:center}
 .modal-title{font-size:16px;font-weight:600;color:#262626}
 .modal-close{cursor:pointer;font-size:20px;color:#8c8c8c;line-height:1}
@@ -283,7 +283,7 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
     </div>
     <div class="modal-body">
       <div class="dt-sec">单据信息</div>
-      <div class="dgrid c3"><div class="drow"><div class="dlabel">账单号</div><div class="dval">AP-20260901-008</div></div><div class="drow"><div class="dlabel">状态</div><div class="dval"><span class="tag tag-orange">待付款</span></div></div><div class="drow"><div class="dlabel">供应商</div><div class="dval">宁波华塑包装制品有限公司</div></div><div class="drow"><div class="dlabel">账单类型</div><div class="dval">采购应付</div></div><div class="drow"><div class="dlabel">所属项目</div><div class="dval">PRJ-2601</div></div><div class="drow"><div class="dlabel">账期</div><div class="dval">2026-09</div></div><div class="drow"><div class="dlabel">关联采购订单</div><div class="dval"><span class="lk" onclick="go('../../采购管理/采购订单列表.html')">PO-20260825-014</span></div></div><div class="drow"><div class="dlabel">关联采购入库</div><div class="dval"><span class="lk" onclick="go('../../仓储作业/采购入库列表.html')">CGRK-20260828-012</span></div></div><div class="drow"><div class="dlabel">账单金额</div><div class="dval">84,000.00 元</div></div><div class="drow"><div class="dlabel">已付款</div><div class="dval">0.00 元</div></div><div class="drow"><div class="dlabel">生成方式</div><div class="dval">验收通过自动生成</div></div></div>
+      <div class="dgrid c3"><div class="drow"><div class="dlabel">账单号</div><div class="dval">AP-20260901-008</div></div><div class="drow"><div class="dlabel">状态</div><div class="dval"><span class="tag tag-orange">待付款</span></div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">供应商</div><div class="dval">宁波华塑包装制品有限公司</div></div><div class="drow"><div class="dlabel">账单类型</div><div class="dval">采购应付</div></div><div class="drow"><div class="dlabel">所属项目</div><div class="dval">PRJ-2601</div></div><div class="drow"><div class="dlabel">账期</div><div class="dval">2026-09</div></div><div class="drow"><div class="dlabel">关联采购订单</div><div class="dval"><span class="lk" onclick="go('../../采购管理/采购订单列表.html')">PO-20260825-014</span></div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">关联采购入库</div><div class="dval"><span class="lk" onclick="go('../../仓储作业/采购入库列表.html')">CGRK-20260828-012</span></div></div><div class="drow"><div class="dlabel">账单金额</div><div class="dval">84,000.00 元</div></div><div class="drow"><div class="dlabel">已付款</div><div class="dval">0.00 元</div></div><div class="drow"><div class="dlabel">生成方式</div><div class="dval">验收通过自动生成</div></div></div>
       <div class="dt-sec">费用明细</div>
       <div class="table-wrap"><table><thead><tr><th>来源单据</th><th>费用说明</th><th class="td-num">金额(元)</th></tr></thead>
 <tbody>

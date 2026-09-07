@@ -162,8 +162,8 @@ th.td-num { text-align:right; }
 /* ===== 弹窗 ===== */
 .modal-overlay { position:fixed; inset:0; background:rgba(0,0,0,.45); display:none; align-items:center; justify-content:center; z-index:1000; }
 .modal-overlay.show { display:flex; }
-.modal { background:#fff; border-radius:8px; width:480px; max-height:80vh; overflow-y:auto; box-shadow:0 6px 16px rgba(0,0,0,.12); }
-.modal-lg { width:680px; }
+.modal { background:#fff; border-radius:8px; width:640px; max-width:92vw; max-height:80vh; overflow-y:auto; box-shadow:0 6px 16px rgba(0,0,0,.12); }
+.modal-lg { width:780px; max-width:92vw; }
 .modal-header { padding:16px 24px; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
 .modal-title { font-size:16px; font-weight:600; color:#1a1a1a; margin:0; }
 .modal-close { cursor:pointer; font-size:20px; color:var(--text-3); line-height:1; }
@@ -180,7 +180,7 @@ th.td-num { text-align:right; }
 .dgrid.c3 { grid-template-columns:repeat(3,1fr); }
 .drow { display:flex; padding:8px 0; border-bottom:1px dashed var(--border); font-size:13px; min-width:0; }
 .dlabel { flex:0 0 110px; color:var(--text-3); white-space:nowrap; }
-.dval { flex:1; min-width:0; color:var(--text); word-break:break-all; }
+.dval { flex:1; min-width:0; color:var(--text); overflow-wrap:break-word; }
 
 /* ===== 统计卡 / 进度条 ===== */
 .stat-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:16px; }
@@ -222,8 +222,8 @@ th.td-num { text-align:right; }
 <style id="modal-css">
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:1000;align-items:center;justify-content:center}
 .modal-overlay.show{display:flex}
-.modal{background:#fff;border-radius:8px;width:480px;max-width:90vw;max-height:85vh;overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,.15)}
-.modal-lg{width:680px}
+.modal{background:#fff;border-radius:8px;width:640px;max-width:92vw;max-height:85vh;overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,.15)}
+.modal-lg{width:780px;max-width:92vw}
 .modal-header{padding:16px 24px;border-bottom:1px solid #f0f0f0;display:flex;justify-content:space-between;align-items:center}
 .modal-title{font-size:16px;font-weight:600;color:#262626}
 .modal-close{cursor:pointer;font-size:20px;color:#8c8c8c;line-height:1}
@@ -283,7 +283,7 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
     </div>
     <div class="modal-body">
       <div class="dt-sec">单据信息</div>
-      <div class="dgrid c3"><div class="drow"><div class="dlabel">订单号</div><div class="dval">SO-20260903-0047</div></div><div class="drow"><div class="dlabel">状态</div><div class="dval"><span class="tag tag-orange">待发货</span></div></div><div class="drow"><div class="dlabel">客户</div><div class="dval">上汽大众汽车有限公司宁波分公司</div></div><div class="drow"><div class="dlabel">所属项目</div><div class="dval">PRJ-2602</div></div><div class="drow"><div class="dlabel">订单内容</div><div class="dval">冲压件隔板 × 2,400（先采后销）</div></div><div class="drow"><div class="dlabel">数量</div><div class="dval">2,400 件</div></div><div class="drow"><div class="dlabel">订单金额</div><div class="dval">28,800.00 元</div></div><div class="drow"><div class="dlabel">下单方式</div><div class="dval">项目经理代下（订单唯一来源）</div></div><div class="drow"><div class="dlabel">业务员</div><div class="dval">王强</div></div><div class="drow"><div class="dlabel">下单时间</div><div class="dval">2026-09-03 11:20</div></div><div class="drow"><div class="dlabel">备注</div><div class="dval">先采后销 · 采购在途，库存到位后发货</div></div></div>
+      <div class="dgrid c3"><div class="drow"><div class="dlabel">订单号</div><div class="dval">SO-20260903-0047</div></div><div class="drow"><div class="dlabel">状态</div><div class="dval"><span class="tag tag-orange">待发货</span></div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">客户</div><div class="dval">上汽大众汽车有限公司宁波分公司</div></div><div class="drow"><div class="dlabel">所属项目</div><div class="dval">PRJ-2602</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">订单内容</div><div class="dval">冲压件隔板 × 2,400（先采后销）</div></div><div class="drow"><div class="dlabel">数量</div><div class="dval">2,400 件</div></div><div class="drow"><div class="dlabel">订单金额</div><div class="dval">28,800.00 元</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">下单方式</div><div class="dval">项目经理代下（订单唯一来源）</div></div><div class="drow"><div class="dlabel">业务员</div><div class="dval">王强</div></div><div class="drow"><div class="dlabel">下单时间</div><div class="dval">2026-09-03 11:20</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">备注</div><div class="dval">先采后销 · 采购在途，库存到位后发货</div></div></div>
       <div class="dt-sec">物料行</div>
       <div class="table-wrap"><table><thead><tr><th>物料</th><th>名称规格</th><th>单位</th><th class="td-num">数量</th><th class="td-num">单价(元)</th><th class="td-num">金额(元)</th></tr></thead>
 <tbody>

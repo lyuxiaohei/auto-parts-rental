@@ -1,7 +1,12 @@
 [
  {
   "page": "P3-R01-F01-业务流程导航图.html",
-  "js_errors": [],
+  "js_errors": [
+   {
+    "type": "error",
+    "text": "Failed to load resource: net::ERR_CONNECTION_RESET"
+   }
+  ],
   "problems": [],
   "stats": {
    "buttons": 0,
@@ -53,8 +58,8 @@
   "problems": [],
   "stats": {
    "buttons": 11,
-   "links": 5,
-   "onclickEls": 54,
+   "links": 6,
+   "onclickEls": 55,
    "modals": 3,
    "modalTitles": [
     "新增其他出库单",
@@ -65,7 +70,7 @@
    "fakeSelects": 0,
    "radios": 5,
    "checkboxes": 0,
-   "inputs": 13,
+   "inputs": 14,
    "stabs": 3,
    "tabs": 3,
    "bgMut": 0
@@ -80,7 +85,7 @@
   "stats": {
    "buttons": 2,
    "links": 15,
-   "onclickEls": 62,
+   "onclickEls": 63,
    "modals": 1,
    "modalTitles": [
     "库存流水 · LJ-A100 锁扣组件"
@@ -826,7 +831,7 @@
   "stats": {
    "buttons": 4,
    "links": 0,
-   "onclickEls": 4,
+   "onclickEls": 3,
    "modals": 1,
    "modalTitles": [
     "新增销售出库单(演示页)"
@@ -1044,8 +1049,8 @@
   "problems": [],
   "stats": {
    "buttons": 8,
-   "links": 21,
-   "onclickEls": 63,
+   "links": 24,
+   "onclickEls": 73,
    "modals": 2,
    "modalTitles": [
     "出库确认",
@@ -1055,7 +1060,7 @@
    "fakeSelects": 0,
    "radios": 2,
    "checkboxes": 0,
-   "inputs": 13,
+   "inputs": 14,
    "stabs": 3,
    "tabs": 4,
    "bgMut": 0
@@ -1091,8 +1096,8 @@
   "problems": [],
   "stats": {
    "buttons": 8,
-   "links": 18,
-   "onclickEls": 67,
+   "links": 21,
+   "onclickEls": 70,
    "modals": 2,
    "modalTitles": [
     "组装确认",
@@ -1102,7 +1107,7 @@
    "fakeSelects": 0,
    "radios": 0,
    "checkboxes": 0,
-   "inputs": 11,
+   "inputs": 12,
    "stabs": 5,
    "tabs": 4,
    "bgMut": 0
@@ -1164,7 +1169,7 @@
   "stats": {
    "buttons": 8,
    "links": 31,
-   "onclickEls": 71,
+   "onclickEls": 79,
    "modals": 2,
    "modalTitles": [
     "审核确认",
@@ -1211,7 +1216,7 @@
   "stats": {
    "buttons": 12,
    "links": 7,
-   "onclickEls": 58,
+   "onclickEls": 57,
    "modals": 3,
    "modalTitles": [
     "新增销售出库单",
@@ -1237,7 +1242,7 @@
   "stats": {
    "buttons": 8,
    "links": 11,
-   "onclickEls": 58,
+   "onclickEls": 59,
    "modals": 2,
    "modalTitles": [
     "审核确认",
@@ -1287,7 +1292,7 @@
   "stats": {
    "buttons": 1,
    "links": 0,
-   "onclickEls": 5,
+   "onclickEls": 6,
    "modals": 1,
    "modalTitles": [
     "丢损赔偿单详情 · BS-2026090(演示页)"
@@ -1526,8 +1531,8 @@
   "problems": [],
   "stats": {
    "buttons": 6,
-   "links": 18,
-   "onclickEls": 64,
+   "links": 20,
+   "onclickEls": 66,
    "modals": 1,
    "modalTitles": [
     "器具出租履历 · ZH-2604-D"
@@ -1536,7 +1541,7 @@
    "fakeSelects": 0,
    "radios": 0,
    "checkboxes": 0,
-   "inputs": 14,
+   "inputs": 15,
    "stabs": 5,
    "tabs": 4,
    "bgMut": 0
@@ -1576,8 +1581,8 @@
   "problems": [],
   "stats": {
    "buttons": 12,
-   "links": 10,
-   "onclickEls": 62,
+   "links": 12,
+   "onclickEls": 64,
    "modals": 3,
    "modalTitles": [
     "新建退租申请",
@@ -1588,7 +1593,7 @@
    "fakeSelects": 0,
    "radios": 2,
    "checkboxes": 0,
-   "inputs": 23,
+   "inputs": 24,
    "stabs": 5,
    "tabs": 3,
    "bgMut": 0
@@ -2291,8 +2296,8 @@
   "problems": [],
   "stats": {
    "buttons": 10,
-   "links": 20,
-   "onclickEls": 72,
+   "links": 22,
+   "onclickEls": 74,
    "modals": 3,
    "modalTitles": [
     "新增开票登记",
@@ -2303,7 +2308,7 @@
    "fakeSelects": 0,
    "radios": 0,
    "checkboxes": 0,
-   "inputs": 15,
+   "inputs": 16,
    "stabs": 3,
    "tabs": 4,
    "bgMut": 0
@@ -3081,7 +3086,7 @@
     "where": {
      "tag": "input",
      "id": "",
-     "cls": "",
+     "cls": "auto",
      "text": "",
      "row": "",
      "inModal": "createModal"

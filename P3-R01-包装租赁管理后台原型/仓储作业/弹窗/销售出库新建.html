@@ -178,8 +178,8 @@ th.td-num { text-align:right; }
 /* ===== 弹窗 ===== */
 .modal-overlay { position:fixed; inset:0; background:rgba(0,0,0,.45); display:none; align-items:center; justify-content:center; z-index:1000; }
 .modal-overlay.show { display:flex; }
-.modal { background:#fff; border-radius:8px; width:480px; max-height:80vh; overflow-y:auto; box-shadow:0 6px 16px rgba(0,0,0,.12); }
-.modal-lg { width:680px; }
+.modal { background:#fff; border-radius:8px; width:640px; max-width:92vw; max-height:80vh; overflow-y:auto; box-shadow:0 6px 16px rgba(0,0,0,.12); }
+.modal-lg { width:780px; max-width:92vw; }
 .modal-header { padding:16px 24px; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
 .modal-title { font-size:16px; font-weight:600; color:#1a1a1a; margin:0; }
 .modal-close { cursor:pointer; font-size:20px; color:var(--text-3); line-height:1; }
@@ -196,7 +196,7 @@ th.td-num { text-align:right; }
 .dgrid.c3 { grid-template-columns:repeat(3,1fr); }
 .drow { display:flex; padding:8px 0; border-bottom:1px dashed var(--border); font-size:13px; min-width:0; }
 .dlabel { flex:0 0 110px; color:var(--text-3); white-space:nowrap; }
-.dval { flex:1; min-width:0; color:var(--text); word-break:break-all; }
+.dval { flex:1; min-width:0; color:var(--text); overflow-wrap:break-word; }
 
 /* ===== 统计卡 / 进度条 ===== */
 .stat-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:16px; }
@@ -221,8 +221,8 @@ th.td-num { text-align:right; }
 <style id="modal-css">
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:1000;align-items:center;justify-content:center}
 .modal-overlay.show{display:flex}
-.modal{background:#fff;border-radius:8px;width:480px;max-width:90vw;max-height:85vh;overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,.15)}
-.modal-lg{width:680px}
+.modal{background:#fff;border-radius:8px;width:640px;max-width:92vw;max-height:85vh;overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,.15)}
+.modal-lg{width:780px;max-width:92vw}
 .modal-header{padding:16px 24px;border-bottom:1px solid #f0f0f0;display:flex;justify-content:space-between;align-items:center}
 .modal-title{font-size:16px;font-weight:600;color:#262626}
 .modal-close{cursor:pointer;font-size:20px;color:#8c8c8c;line-height:1}
@@ -248,6 +248,9 @@ th.td-num { text-align:right; }
     <span class="form-label"></span>
     <div style="font-size:12px;color:#8c8c8c;line-height:1.7;">库存可用量：内衬 EPE 珍珠棉（LJ-F600）在库 <b style="color:#1677ff;">1,520</b> 件 · 原料区 RA —— 按库存可用量发货，超量需先入库</div>
   </div><div class="form-row">
+    <span class="form-label"></span>
+    <div style="font-size:12px;color:#fa8c16;line-height:1.7;font-weight:600;">库存可用量不足：本次申请 5,000 件 &gt; 可用 1,520 件，无法提交 —— 请先补货入库或调减出库数量</div>
+  </div><div class="form-row">
     <span class="form-label"><span class="req">*</span>出库仓库</span>
     <div class="input-box select-box" style="width:350px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>原料区 RA</option><option>华东中心仓（WH-01）</option><option>华南仓（WH-02）</option><option>西南仓（WH-03）</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
   </div><div class="form-row">
@@ -257,7 +260,7 @@ th.td-num { text-align:right; }
   <div class="table-wrap" style="border:1px solid var(--border);border-radius:6px;">
     <table class="edit-tbl">
       <thead><tr><th>物料编码</th><th>物料名称</th><th>单位</th><th>出库数量</th><th>备注</th></tr></thead>
-      <tbody><tr><td><input value="LJ-F600"></td><td><input value="内衬 EPE 珍珠棉"></td><td><input value="件"></td><td><input value="5,000"></td><td><input value="" placeholder="跳转页码"></td></tr></tbody>
+      <tbody><tr><td><input value="LJ-F600"></td><td><input value="内衬 EPE 珍珠棉"></td><td><input value="件"></td><td><input value="5,000"></td><td><input value="" placeholder="选填"></td></tr></tbody>
     </table>
   </div>
   <button class="btn btn-dashed btn-sm" style="width:100%;margin-top:8px;">+ 添加一行</button><div class="form-row">
@@ -268,7 +271,7 @@ th.td-num { text-align:right; }
     <div class="modal-footer">
       <button class="btn btn-default" onclick="closeModal('createModal')">取消</button>
       <button class="btn btn-default" onclick="closeModal('createModal')">保存草稿</button>
-      <button class="btn" onclick="closeModal('createModal')">提交审核</button>
+      <button class="btn" disabled title="库存可用量不足" style="opacity:.45;cursor:not-allowed;">提交审核</button>
     </div>
   </div>
 </div>

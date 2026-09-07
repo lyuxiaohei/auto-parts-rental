@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>盘点录入 - 包装租赁管理后台</title>
+<style>
+:root {
+  --primary: #1677ff;
+  --primary-bg: #e6f4ff;
+  --strip-bg: #e6f7ff;
+  --page-bg: #f5f5f5;
+  --side-bg: #fafafa;
+  --thead-bg: #fafafa;
+  --border: #f0f0f0;
+  --input-border: #d9d9d9;
+  --text: #262626;
+  --text-2: #595959;
+  --text-3: #8c8c8c;
+  --placeholder: #bfbfbf;
+  --danger: #ff4d4f;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif; background:var(--page-bg); color:var(--text); font-size:13px; line-height:1.5715; min-width:1200px; margin:0; }
+svg { display:inline-block; vertical-align:middle; }
+
+/* ===== 顶栏 ===== */
+.topbar { height:44px; background:#fff; border-bottom:1px solid var(--border); display:flex; align-items:center; }
+.topbar .logo { width:208px; flex-shrink:0; padding-left:24px; color:var(--primary); font-size:16px; font-weight:700; letter-spacing:.5px; white-space:nowrap; }
+.topbar .tools { margin-left:auto; display:flex; align-items:center; gap:18px; padding-right:20px; color:var(--text-2); }
+.topbar .tools .ico-btn { cursor:pointer; display:inline-flex; align-items:center; }
+.topbar .manual { color:var(--primary); font-size:13px; display:inline-flex; align-items:center; gap:4px; cursor:pointer; }
+.topbar .avatar { width:28px; height:28px; border-radius:50%; background:var(--primary); display:inline-flex; align-items:center; justify-content:center; cursor:pointer; }
+
+/* ===== 主体 ===== */
+.body { display:flex; align-items:stretch; }
+.body.fixed { height:calc(100vh - 44px); overflow:hidden; }
+.body.fixed .sidebar { height:100%; overflow-y:auto; }
+.body.fixed .main-col { height:100%; overflow-y:auto; }
+.sidebar { width:208px; flex-shrink:0; background:var(--side-bg); border-right:1px solid var(--border); display:flex; flex-direction:column; min-height:calc(100vh - 44px); }
+.main-col { flex:1; min-width:0; display:flex; flex-direction:column; }
+
+/* ===== 页签条 ===== */
+.tabs { background:#fff; border-bottom:1px solid var(--border); padding:8px 16px 0; display:flex; gap:6px; overflow-x:auto; }
+.tab { height:28px; display:inline-flex; align-items:center; gap:6px; padding:0 10px; border:1px solid var(--border); border-radius:4px; background:#fff; color:var(--text); font-size:13px; white-space:nowrap; cursor:pointer; }
+.tab .close { color:var(--text-3); font-size:12px; line-height:1; }
+.tab .close:hover { color:var(--text); }
+.tab.active { background:var(--strip-bg); border-color:transparent; color:var(--primary); }
+
+/* ===== 侧边栏菜单 + 当前系统标识 ===== */
+.side-menu { flex:1; padding:8px 0; overflow-y:auto; list-style:none; margin:0; }
+.side-menu ul { list-style:none; margin:0; padding:0; }
+.sm-ico { width:16px; height:16px; flex:none; margin-right:10px; display:inline-flex; align-items:center; justify-content:center; }
+.sm-link { height:40px; display:flex; align-items:center; padding:0 24px; font-size:14px; color:#262626; cursor:pointer; white-space:nowrap; }
+.sm-link:hover { color:#1677ff; }
+.sm-arrow { margin-left:auto; display:inline-flex; color:#8c8c8c; transition:transform .2s; }
+.sm-item:not(.open) > .sm-sub { display:none; }
+.sm-item.has-sub.open > .sm-link { color:#1677ff; }
+.sm-item.has-sub.open > .sm-link .sm-arrow { transform:rotate(180deg); color:#1677ff; }
+.sm-sub .sm-link { padding-left:48px; }
+.sm-sub .sm-sub .sm-link { padding-left:64px; }
+.sm-link.selected { background:#e6f4ff; color:#1677ff; border-right:3px solid #1677ff; }
+.side-foot { position:relative; flex:none; border-top:1px solid #f0f0f0; padding:8px; }
+.sys-cur { display:flex; align-items:center; gap:8px; height:36px; padding:0 8px; border-radius:6px; color:#262626; }
+.sys-badge { width:24px; height:24px; border-radius:6px; background:#1677ff; color:#fff; font-size:12px; font-weight:600; display:inline-flex; align-items:center; justify-content:center; flex:none; }
+.sys-name { flex:1; min-width:0; font-size:13px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+
+/* ===== 内容区卡片 ===== */
+.content { padding:16px 20px 32px; }
+.card { background:#fff; border-radius:8px; padding:20px 24px; margin-bottom:16px; box-shadow:0 1px 2px rgba(0,0,0,.03); }
+.card-title { font-size:16px; font-weight:600; color:#1a1a1a; margin-bottom:20px; }
+.card-head { display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; flex-wrap:wrap; gap:10px; }
+.card-head .card-title { margin-bottom:0; }
+.card-head .head-btns { display:flex; align-items:center; gap:8px; }
+
+/* ===== 按钮（13px 体系，表单/卡片头/弹窗用；筛选区 12px 另按作用域覆盖） ===== */
+.btn { display:inline-flex; align-items:center; justify-content:center; height:30px; padding:0 14px; border-radius:6px; border:none; cursor:pointer; font-size:13px; background:var(--primary); color:#fff; white-space:nowrap; font-family:inherit; }
+.btn:hover { background:#4096ff; }
+.btn-sm { height:28px; padding:0 12px; font-size:12px; }
+.btn-default { background:#fff; color:var(--text); border:1px solid var(--input-border); }
+.btn-default:hover { border-color:#4096ff; color:#4096ff; background:#fff; }
+.btn-dashed { background:#fff; color:var(--primary); border:1px dashed var(--primary); }
+.btn-dashed:hover { background:var(--primary-bg); }
+
+/* ===== 状态页签 ===== */
+.stabs { display:flex; padding:10px 16px 0; border-bottom:1px solid var(--border); gap:24px; background:#fff; }
+.stab { padding:0 2px 10px; font-size:13px; color:rgba(0,0,0,.65); cursor:pointer; border-bottom:2px solid transparent; margin-bottom:-1px; user-select:none; }
+.stab:hover { color:var(--primary); }
+.stab.active { color:var(--primary); border-bottom-color:var(--primary); font-weight:500; }
+.stabs .stab-count { font-size:12px; color:var(--text-3); margin-left:4px; }
+
+/* ===== 数据表格 ===== */
+.table-wrap { overflow-x:auto; }
+table { width:100%; border-collapse:collapse; font-size:12px; white-space:nowrap; }
+thead th { background:var(--thead-bg); font-weight:600; color:rgba(0,0,0,.85); text-align:left; padding:10px 12px; border-bottom:1px solid var(--border); }
+tbody td { padding:9px 12px; border-bottom:1px solid var(--border); color:rgba(0,0,0,.85); }
+tbody tr:hover td { background:#f5faff; }
+th.sticky-op, td.sticky-op { position:sticky; right:0; background:#fff; box-shadow:-6px 0 8px -6px rgba(0,0,0,.12); }
+thead th.sticky-op { background:var(--thead-bg); }
+tbody tr:hover td.sticky-op { background:#f5faff; }
+.lk { color:var(--primary); cursor:pointer; display:inline-flex; align-items:center; gap:3px; }
+.lk svg { width:11px; height:11px; flex:none; }
+.ops a { color:var(--primary); cursor:pointer; margin-right:10px; }
+.ops a:last-child { margin-right:0; }
+.tag { display:inline-block; padding:0 7px; height:22px; line-height:20px; font-size:12px; border-radius:2px; border:1px solid transparent; }
+.tag-green { color:#52c41a; background:#f6ffed; border-color:#b7eb8f; }
+.tag-orange { color:#fa8c16; background:#fff7e6; border-color:#ffd591; }
+.tag-blue { color:var(--primary); background:var(--primary-bg); border-color:var(--primary); }
+.tag-red { color:var(--danger); background:#fff1f0; border-color:#ffa39e; }
+.tag-gray { color:var(--text-3); background:#fafafa; border-color:#d9d9d9; }
+.cb { width:13px; height:13px; accent-color:var(--primary); cursor:pointer; vertical-align:middle; }
+.td-num { text-align:right; font-variant-numeric:tabular-nums; }
+th.td-num { text-align:right; }
+
+/* ===== 分页器 ===== */
+.pager { display:flex; align-items:center; justify-content:flex-end; gap:8px; padding:14px 16px; font-size:12px; color:rgba(0,0,0,.85); flex-wrap:wrap; }
+.pg-info { margin-right:8px; }
+.pg-btn { min-width:30px; height:30px; padding:0 6px; border:1px solid var(--input-border); border-radius:4px; background:#fff; display:inline-flex; align-items:center; justify-content:center; cursor:pointer; color:rgba(0,0,0,.85); font-size:12px; user-select:none; }
+.pg-btn:hover { color:var(--primary); border-color:var(--primary); }
+.pg-btn.cur { background:var(--primary); border-color:var(--primary); color:#fff; }
+.pg-ellipsis { color:rgba(0,0,0,.45); padding:0 2px; }
+.pg-size { height:30px; border:1px solid var(--input-border); border-radius:4px; padding:0 8px; display:inline-flex; align-items:center; gap:6px; cursor:pointer; background:#fff; }
+.pg-size svg { width:11px; height:11px; color:rgba(0,0,0,.35); }
+.pg-jump { display:inline-flex; align-items:center; gap:6px; }
+.pg-jump input { width:44px; height:30px; border:1px solid var(--input-border); border-radius:4px; text-align:center; font-size:12px; outline:none; font-family:inherit; }
+.pg-jump input:focus { border-color:var(--primary); }
+
+/* ===== 表单 ===== */
+.form-row { display:flex; align-items:center; margin-bottom:20px; }
+.form-row:last-child { margin-bottom:0; }
+.form-label { flex:0 0 120px; text-align:right; margin-right:8px; font-size:13px; color:var(--text); white-space:nowrap; }
+.req { color:var(--danger); margin-right:4px; }
+.info-ico { color:var(--text-3); margin:0 2px; display:inline-flex; vertical-align:middle; }
+.input-box { width:350px; height:30px; border:1px solid var(--input-border); border-radius:6px; display:flex; align-items:center; padding:0 11px; background:#fff; font-size:13px; color:var(--text); }
+.input-box input { flex:1; min-width:0; height:100%; border:none; outline:none; background:transparent; font:inherit; color:inherit; padding:0; }
+.input-box input::placeholder { color:var(--placeholder); }
+.input-box:focus-within { border-color:var(--primary); box-shadow:0 0 0 2px rgba(22,119,255,.1); }
+.input-box .suffix { margin-left:auto; display:inline-flex; align-items:center; gap:6px; color:var(--text-3); font-size:12px; }
+.input-box .clear-ico { display:inline-flex; cursor:pointer; }
+.select-box { justify-content:space-between; cursor:pointer; }
+.select-box .caret { color:var(--text-3); }
+.radio, .checkbox { display:inline-flex; align-items:center; margin-right:24px; cursor:pointer; font-size:13px; color:var(--text); }
+.radio .dot { width:16px; height:16px; border-radius:50%; border:1px solid var(--input-border); margin-right:6px; position:relative; background:#fff; }
+.radio.checked .dot { border-color:var(--primary); }
+.radio.checked .dot::after { content:''; position:absolute; inset:3px; border-radius:50%; background:var(--primary); }
+.checkbox .box { width:16px; height:16px; border-radius:2px; border:1px solid var(--input-border); margin-right:6px; background:#fff; display:inline-flex; align-items:center; justify-content:center; color:#fff; font-size:11px; }
+.checkbox.checked .box { background:var(--primary); border-color:var(--primary); }
+.pn-hint { margin-top:6px; font-size:12px; color:var(--text-3); line-height:1.7; }
+.pn-hint code { background:#fafafa; border:1px solid var(--border); border-radius:4px; padding:0 4px; margin:0 1px; color:#d4380d; font-family:Consolas,Monaco,monospace; font-size:11px; }
+.input-box.error { border-color:var(--danger); background:#fff1f0; }
+.char-count.over { color:var(--danger); }
+.field-error { margin-top:6px; font-size:12px; color:var(--danger); line-height:1.6; }
+.field-ok { margin-top:6px; font-size:12px; color:#52c41a; }
+.form-tip { font-size:12px; color:var(--text-3); }
+
+/* ===== 可编辑明细表（录单页通用） ===== */
+.edit-tbl input { width:100%; min-width:70px; height:28px; border:1px solid var(--input-border); border-radius:4px; font-size:12px; padding:0 8px; outline:none; font-family:inherit; background:#fff; }
+.edit-tbl input:focus { border-color:var(--primary); box-shadow:0 0 0 2px rgba(22,119,255,.1); }
+.edit-tbl .auto { background:#fafafa; color:var(--text-2); }
+.auto-cell { color:var(--text-2); background:#fafafa; }
+
+/* ===== 弹窗 ===== */
+.modal-overlay { position:fixed; inset:0; background:rgba(0,0,0,.45); display:none; align-items:center; justify-content:center; z-index:1000; }
+.modal-overlay.show { display:flex; }
+.modal { background:#fff; border-radius:8px; width:480px; max-height:80vh; overflow-y:auto; box-shadow:0 6px 16px rgba(0,0,0,.12); }
+.modal-lg { width:780px; max-width:92vw; }
+.modal-header { padding:16px 24px; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
+.modal-title { font-size:16px; font-weight:600; color:#1a1a1a; margin:0; }
+.modal-close { cursor:pointer; font-size:20px; color:var(--text-3); line-height:1; }
+.modal-close:hover { color:var(--text); }
+.modal-body { padding:20px 24px; }
+.modal-footer { padding:12px 24px; border-top:1px solid var(--border); display:flex; justify-content:flex-end; gap:10px; }
+
+/* ===== 固定提交条（表单页） ===== */
+.submit-bar { position:fixed; left:208px; right:0; bottom:0; background:#fff; border-top:1px solid var(--border); padding:10px 24px; display:flex; justify-content:flex-end; align-items:center; gap:10px; z-index:50; box-shadow:0 -2px 8px rgba(0,0,0,.04); }
+.content.submit-pad { padding-bottom:72px; }
+
+/* ===== 详情描述行 ===== */
+.dgrid { display:grid; grid-template-columns:repeat(2,1fr); gap:0 32px; }
+.dgrid.c3 { grid-template-columns:repeat(3,1fr); }
+.drow { display:flex; padding:8px 0; border-bottom:1px dashed var(--border); font-size:13px; min-width:0; }
+.dlabel { flex:0 0 110px; color:var(--text-3); white-space:nowrap; }
+.dval { flex:1; min-width:0; color:var(--text); word-break:break-all; }
+
+/* ===== 统计卡 / 进度条 ===== */
+.stat-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:16px; }
+.stat { background:#fff; border-radius:8px; padding:18px 20px; box-shadow:0 1px 2px rgba(0,0,0,.03); }
+.stat .st-label { font-size:13px; color:var(--text-2); display:flex; align-items:center; justify-content:space-between; }
+.stat .st-num { font-size:26px; font-weight:700; color:var(--text); margin-top:8px; font-variant-numeric:tabular-nums; }
+.stat .st-num .unit { font-size:13px; font-weight:400; color:var(--text-3); margin-left:4px; }
+.stat .st-foot { font-size:12px; color:var(--text-3); margin-top:6px; }
+.stat .st-foot em { font-style:normal; color:#52c41a; }
+.stat .st-foot em.down { color:var(--danger); }
+.hbar { display:flex; align-items:center; gap:10px; font-size:12px; }
+.hbar .hb-track { flex:1; height:14px; background:#f5f5f5; border-radius:2px; overflow:hidden; }
+.hbar .hb-fill { height:100%; background:var(--primary); border-radius:2px; }
+.hbar .hb-fill.green { background:#52c41a; }
+.hbar .hb-fill.orange { background:#fa8c16; }
+.hbar .hb-fill.red { background:var(--danger); }
+.hbar .hb-val { flex:none; width:76px; text-align:right; color:var(--text-2); font-variant-numeric:tabular-nums; }
+
+
+/* 整窗滚动布局：系统切换块固定到视口左下角 */
+.side-foot { position:fixed; left:0; bottom:0; width:208px; background:var(--side-bg); z-index:30; }
+.side-menu { padding-bottom:64px; }
+/* ===== 本页业务样式 ===== */
+
+</style>
+<style id="modal-css">
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:1000;align-items:center;justify-content:center}
+.modal-overlay.show{display:flex}
+.modal{background:#fff;border-radius:8px;width:480px;max-width:90vw;max-height:85vh;overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,.15)}
+.modal-lg{width:780px;max-width:92vw}
+.modal-header{padding:16px 24px;border-bottom:1px solid #f0f0f0;display:flex;justify-content:space-between;align-items:center}
+.modal-title{font-size:16px;font-weight:600;color:#262626}
+.modal-close{cursor:pointer;font-size:20px;color:#8c8c8c;line-height:1}
+.modal-close:hover{color:#262626}
+.modal-body{padding:20px 24px}
+.modal-footer{padding:12px 24px;border-top:1px solid #f0f0f0;display:flex;justify-content:flex-end;gap:8px}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">包装租赁管理后台</div>
+  <div class="tools">
+    <span class="ico-btn" title="刷新"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg></span>
+    <span class="ico-btn" title="通知"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9a6 6 0 0 1 12 0c0 5 2 6 2 6H4s2-1 2-6"/><path d="M10 20a2 2 0 0 0 4 0"/></svg></span>
+    <span class="manual">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.2 9a2.8 2.8 0 0 1 5.5.7c0 1.8-2.7 2.3-2.7 3.8"/><line x1="12" y1="17" x2="12" y2="17.01"/></svg>
+      操作手册
+    </span>
+    <span class="avatar" title="账户"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="8" width="14" height="10" rx="3"/><circle cx="10" cy="13" r="0.6" fill="#fff"/><circle cx="14" cy="13" r="0.6" fill="#fff"/><path d="M12 8V4"/><circle cx="12" cy="3.4" r="0.8" fill="#fff"/></svg></span>
+  </div>
+</header>
+<div class="body">
+<aside class="sidebar">
+  <ul class="side-menu">
+      <li class="sm-item has-sub">
+   <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>首页<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+   <ul class="sm-sub">
+   <li><div class="sm-link" onclick="go('../首页/项目看板.html')">项目看板</div></li>
+   <li><div class="sm-link" onclick="go('../首页/我的待办.html')">我的待办</div></li>
+   </ul>
+   </li>
+   <li class="sm-item"><div class="sm-link" onclick="go('../项目管理/项目档案.html')"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></span>项目管理</div></li>
+   <li class="sm-item has-sub">
+   <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></span>基础资料<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+   <ul class="sm-sub">
+   <li><div class="sm-link" onclick="go('../基础数据/客商管理.html')">客商管理</div></li>
+   <li><div class="sm-link" onclick="go('../基础数据/器具档案.html')">器具档案</div></li>
+   <li><div class="sm-link" onclick="go('../基础数据/零部件档案.html')">零部件档案</div></li>
+   <li><div class="sm-link" onclick="go('../基础数据/BOM.html')">BOM</div></li>
+   <li><div class="sm-link" onclick="go('../基础数据/库位档案.html')">库位档案</div></li>
+   </ul>
+   </li>
+   <li class="sm-item has-sub">
+   <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></span>采购管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+   <ul class="sm-sub">
+   <li><div class="sm-link" onclick="go('../采购管理/采购订单列表.html')">采购订单</div></li>
+   <li><div class="sm-link" onclick="go('../采购管理/租入单列表.html')">租入单</div></li>
+   </ul>
+   </li>
+   <li class="sm-item has-sub">
+   <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></span>销售管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+   <ul class="sm-sub">
+   <li><div class="sm-link" onclick="go('../销售管理/销售订单列表.html')">销售订单</div></li>
+   <li><div class="sm-link" onclick="go('../包装管理/租赁单列表.html')">租赁单</div></li>
+   </ul>
+   </li>
+   <li class="sm-item has-sub open">
+   <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/><line x1="10" y1="12" x2="14" y2="12"/></svg></span>仓储作业<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+   <ul class="sm-sub">
+   <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">入库类</li>
+   <li><div class="sm-link" onclick="go('../仓储作业/采购入库列表.html')">采购入库</div></li>
+   <li><div class="sm-link" onclick="go('../仓储作业/退租入库列表.html')">退租入库</div></li>
+   <li><div class="sm-link" onclick="go('../仓储作业/其他入库列表.html')">其他入库</div></li>
+   <li><div class="sm-link" onclick="go('../仓储作业/租入入库列表.html')">租入入库</div></li>
+   <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">出库类</li>
+   <li><div class="sm-link" onclick="go('../仓储作业/组合出库列表.html')">租赁出库</div></li>
+   <li><div class="sm-link" onclick="go('../仓储作业/销售出库列表.html')">销售出库</div></li>
+   <li><div class="sm-link" onclick="go('../仓储作业/其他出库列表.html')">其他出库</div></li>
+   <li><div class="sm-link" onclick="go('../仓储作业/租入归还列表.html')">租入归还</div></li>
+   <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">组装拆卸</li>
+   <li><div class="sm-link" onclick="go('../仓储作业/组装列表.html')">组装</div></li>
+   <li><div class="sm-link" onclick="go('../仓储作业/拆卸管理列表.html')">拆卸管理</div></li>
+   <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">库存管理</li>
+   <li><div class="sm-link selected">库存盘点</div></li>
+   <li><div class="sm-link" onclick="go('../仓储作业/库存查询.html')">库存查询</div></li>
+   <li><div class="sm-link" onclick="go('../仓储作业/库存调拨列表.html')">库存调拨</div></li>
+   </ul>
+   </li>
+   <li class="sm-item has-sub">
+   <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8V21H3V8"/><rect x="1" y="3" width="22" height="5" rx="1"/><line x1="10" y1="12" x2="14" y2="12"/></svg></span>包装管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+   <ul class="sm-sub">
+   <li><div class="sm-link" onclick="go('../包装管理/退租申请列表.html')">退租申请</div></li>
+   <li><div class="sm-link" onclick="go('../包装管理/在租台账.html')">在租台账</div></li>
+   <li><div class="sm-link" onclick="go('../包装管理/丢损赔偿单.html')">丢损赔偿单</div></li>
+   </ul>
+   </li>
+   <li class="sm-item has-sub">
+   <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></span>财务应收<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+   <ul class="sm-sub">
+   <li><div class="sm-link" onclick="go('../财务协同/应收账单.html')">应收账单</div></li>
+   <li><div class="sm-link" onclick="go('../财务协同/开票登记.html')">开票登记</div></li>
+   <li><div class="sm-link" onclick="go('../财务协同/回款登记.html')">收款登记</div></li>
+   <li><div class="sm-link" onclick="go('../财务协同/银行水单核销.html')">收款核销</div></li>
+   </ul>
+   </li>
+   <li class="sm-item has-sub">
+   <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>财务应付<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+   <ul class="sm-sub">
+   <li><div class="sm-link" onclick="go('../财务协同/应付账单.html')">应付账单</div></li>
+   <li><div class="sm-link" onclick="go('../财务协同/付款登记.html')">付款登记</div></li>
+   </ul>
+   </li>
+   <li class="sm-item"><div class="sm-link" onclick="go('../财务协同/盈亏报表.html')"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span>项目损益</div></li>
+   <li class="sm-item has-sub">
+   <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h.01a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51h.01a1.65 1.65 0 0 0 1.82.33l.06-.06a2 2 0 1 1 2.83-2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v.01a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span>系统管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+   <ul class="sm-sub">
+   <li><div class="sm-link" onclick="go('../系统管理/用户权限.html')">用户权限</div></li>
+   <li><div class="sm-link" onclick="go('../系统管理/操作日志.html')">操作日志</div></li>
+   <li><div class="sm-link" onclick="go('../系统管理/数据字典.html')">数据字典</div></li>
+   </ul>
+   </li>
+  </ul> <div class="side-foot">
+    <div class="sys-cur">
+      <span class="sys-badge">租</span>
+      <span class="sys-name">包装租赁管理后台</span>
+    </div>
+  </div></aside>
+  <div class="main-col">
+<div class="tabs">
+  <span class="tab">盘点管理 <span class="close">×</span></span>
+  <span class="tab active">盘点录入 <span class="close">×</span></span>
+  <span class="tab">库存查询 <span class="close">×</span></span>
+  <span class="tab">退租入库 <span class="close">×</span></span>
+</div>
+    <div class="content submit-pad">
+<div class="card">
+  <div class="card-head">
+    <h3 class="card-title">基本信息</h3>
+    <div class="head-btns"><button class="btn btn-default btn-sm" onclick="go('../仓储作业/盘点列表.html')">返回列表</button></div>
+  </div>
+  <div class="form-row">
+    <div class="form-label">盘点单号：</div>
+    <div>
+      <div class="input-box" style="width:280px;"><input type="text" value="PD-202608-03" placeholder="请输入"></div>
+<div class="pn-hint">按单据编码规则自动生成，不可编辑。</div>    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-label"><span class="req">*</span>盘点仓库：</div>
+    <div>
+      <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>华东中心仓（WH-01）</option><option>华南仓（WH-02）</option><option>西南仓（WH-03）</option></select><span class="caret">▾</span></div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-label"><span class="req">*</span>盘点范围：</div>
+    <div>
+      <div class="input-box select-box" style="width:480px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>全库区（原料区 RA / 成品区 RB / 退货区 RC / 组装区 RD）</option><option>全库区（原料区 RA / 成品区 RB / 退货区 RC / 组装区 RD）·其他</option></select><span class="caret">▾</span></div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-label"><span class="req">*</span>盘点口径：</div>
+    <div>
+      <div style="display:flex;">
+        <span class="radio checked"><span class="dot"></span>零件视角</span>
+        <span class="radio"><span class="dot"></span>组合视角</span>
+      </div>
+</div>
+  </div>
+  <div class="form-row">
+    <div class="form-label"><span class="req">*</span>盘点人：</div>
+    <div>
+      <div class="input-box select-box" style="width:180px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>张伟</option><option>李国栋</option><option>王强</option></select><span class="caret">▾</span></div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-label"><span class="req">*</span>盘点日期：</div>
+    <div>
+      <div class="input-box" style="width:180px;"><input type="text" value="2026-08-31" placeholder="请输入"></div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-head">
+    <h3 class="card-title" data-note="1">盘点明细</h3>
+    <div class="head-btns"><button class="btn btn-default btn-sm">导出盘点底稿</button></div>
+  </div>
+  <div class="table-wrap edit-tbl">
+    <table>
+      <thead><tr><th>库位</th><th>编码</th><th>名称</th><th>账面数量</th><th style="width:110px;">实盘数量 *</th><th>差异</th><th style="width:180px;">差异说明</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>RA-A-01-01</td>
+          <td>LJ-A100</td>
+          <td>锁扣组件 不锈钢 304</td>
+          <td class="td-num">4,860</td>
+          <td class="td-num"><input value="4,858"></td>
+          <td class="td-num auto-cell"><span style="color:var(--danger)">-2</span></td>
+          <td><input value="" placeholder="差异必填说明"></td>
+        </tr>
+        <tr>
+          <td>RA-A-01-02</td>
+          <td>LJ-B200</td>
+          <td>铰链 锌合金 65mm</td>
+          <td class="td-num">4,640</td>
+          <td class="td-num"><input value="4,640"></td>
+          <td class="td-num auto-cell">0</td>
+          <td><input value="" placeholder="差异必填说明"></td>
+        </tr>
+        <tr>
+          <td>RA-B-02-01</td>
+          <td>LJ-D400</td>
+          <td>箱盖 ABS 吸塑</td>
+          <td class="td-num">1,860</td>
+          <td class="td-num"><input value="1,860"></td>
+          <td class="td-num auto-cell">0</td>
+          <td><input value="" placeholder="差异必填说明"></td>
+        </tr>
+        <tr>
+          <td>RB-A-01-01</td>
+          <td>ZH-2601-A</td>
+          <td>驾驶室围板箱整箱套件</td>
+          <td class="td-num">640</td>
+          <td class="td-num"><input value="642"></td>
+          <td class="td-num auto-cell"><span style="color:var(--primary)">+2</span></td>
+          <td><input value="上月组装回填遗漏" placeholder="差异必填说明"></td>
+        </tr>
+        <tr>
+          <td>RB-A-01-02</td>
+          <td>ZH-2602-B</td>
+          <td>冲压件料箱组套</td>
+          <td class="td-num">700</td>
+          <td class="td-num"><input value="700"></td>
+          <td class="td-num auto-cell">0</td>
+          <td><input value="" placeholder="差异必填说明"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="pn-hint" style="margin-top:10px;">本单当前进度：已盘 1,024 / 1,286 项；差异 ≠ 0 时差异说明必填。</div>
+</div>
+
+<div class="card">
+  <h3 class="card-title" data-note="2">盈亏处理</h3>
+  <div class="form-row">
+    <div class="form-label"><span class="req">*</span>处理方式：</div>
+    <div>
+      <div style="display:flex;">
+        <span class="radio checked"><span class="dot"></span>生成库存调整单（需审核）</span>
+        <span class="radio"><span class="dot"></span>仅记录不调整</span>
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-label">复 盘 人：</div>
+    <div>
+      <div class="input-box select-box" style="width:280px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>李国栋（仓储主管）</option><option>王强（采购主管）</option><option>刘志强（运营）</option></select><span class="caret">▾</span></div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-label">备注：</div>
+    <div>
+      <div class="input-box" style="width:520px;"><input type="text" value="" placeholder="选填"></div>
+    </div>
+  </div>
+</div>
+<div class="submit-bar"><button class="btn btn-default" onclick="go('../仓储作业/盘点列表.html')">取 消</button><button class="btn btn-default">暂 存</button><button class="btn">提交复盘</button></div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ===== 菜单折叠 / 页签与表单视觉态（统一脚本） ===== */
+function go(url) { location.href = url; }
+document.querySelectorAll('.sm-item.has-sub > .sm-link').forEach(function (link) {
+  link.addEventListener('click', function () { link.parentElement.classList.toggle('open'); });
+});
+/* 状态页签切换（视觉选中态） */
+document.querySelectorAll('.stabs .stab').forEach(function (tab) {
+  tab.addEventListener('click', function () {
+    tab.parentElement.querySelectorAll('.stab').forEach(function (t) { t.classList.remove('active'); });
+    tab.classList.add('active');
+  });
+});
+/* 表单单选/复选视觉态切换 */
+document.querySelectorAll('.radio').forEach(function (r) {
+  r.addEventListener('click', function () {
+    r.parentElement.querySelectorAll('.radio').forEach(function (x) { x.classList.remove('checked'); });
+    r.classList.add('checked');
+  });
+});
+document.querySelectorAll('.checkbox').forEach(function (c) {
+  c.addEventListener('click', function () { c.classList.toggle('checked'); });
+});
+</script>
+<style id="proto-notes-style">
+body.proto-notes-on [data-note]{position:relative}
+body.proto-notes-on [data-note]::after{content:attr(data-note);position:absolute;top:1px;right:1px;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600;box-shadow:0 0 0 1.5px #fff;cursor:pointer;opacity:.75;transition:opacity .15s}
+body.proto-notes-on [data-note]:hover::after{opacity:1}
+@keyframes pn-blink{0%{box-shadow:0 0 0 2px #722ed1}25%{box-shadow:0 0 0 5px rgba(114,46,209,.35)}100%{box-shadow:0 0 0 2px transparent}}
+.proto-pin{display:none;position:absolute;width:300px;background:#fff;border:1px solid #f0f0f0;border-top:2px solid #722ed1;border-radius:6px;box-shadow:0 4px 14px rgba(0,0,0,.13);z-index:890;padding:10px 12px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;font-size:12px;color:#262626}
+body.proto-notes-on .proto-pin.pn-open{display:block}
+.proto-pin .pnp-close{position:absolute;top:6px;right:8px;cursor:pointer;color:#8c8c8c;font-size:14px;line-height:1;padding:2px}
+.proto-pin .pnp-close:hover{color:#262626}
+.proto-pin .pnp-t{display:flex;align-items:center;gap:6px;font-weight:600;font-size:13px;color:#262626;padding-right:16px}
+.proto-pin .pnp-n{flex:none;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600}
+.proto-pin .pnp-d{margin-top:5px;color:#595959;line-height:1.6}
+.proto-pin .pnp-b{margin-top:6px;display:flex;gap:4px;flex-wrap:wrap}
+.proto-pin .pnp-tag{background:#f9f0ff;color:#722ed1;border-radius:3px;padding:0 6px;font-size:11px;line-height:20px}
+.proto-pin .pnp-src{margin-top:8px;padding-top:7px;border-top:1px dashed #e5dff0;font-size:11px;color:#595959;line-height:1.65}
+.proto-pin .pnp-src b{color:#722ed1;font-weight:600}
+.pn-fab{position:fixed;right:12px;bottom:12px;z-index:880;display:flex;align-items:center;gap:5px;height:24px;padding:0 10px;border-radius:4px;background:#fff;border:1px solid #ddd0ec;color:#722ed1;font-size:11px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.06);opacity:.6;transition:opacity .15s}
+.pn-fab:hover{opacity:1;border-color:#722ed1}
+body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
+.pn-fab .pn-fab-n{font-family:Consolas,monospace;font-weight:600}
+</style>
+<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>盘点明细</div><div class="pnp-d">账面数量自动填入，实盘手工录入，差异自动算出</div><div class="pnp-b"><span class="pnp-tag">FP3-05 · 盘点单</span><span class="pnp-tag">REQ-12 · 盘点</span></div><div class="pnp-src"><div class="src-item"><b>FP3-05 盘点单</b>：零件/组合两种方式盘点、盘盈亏调整</div><div class="src-item"><b>REQ-12 盘点</b>：支持零件/组合双视角盘点</div></div></div>
+<div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>盈亏处理</div><div class="pnp-d">盘盈亏调整入库存账</div><div class="pnp-b"><span class="pnp-tag">FP3-05 · 盘点单</span><span class="pnp-tag">REQ-12 · 盘点</span></div><div class="pnp-src"><div class="src-item"><b>FP3-05 盘点单</b>：零件/组合两种方式盘点、盘盈亏调整</div><div class="src-item"><b>REQ-12 盘点</b>：支持零件/组合双视角盘点</div></div></div>
+<div class="pn-fab" id="protoNotesFab">标注</div></div>
+<script id="proto-notes-js">
+(function(){
+  var KEY='proto-notes-on';
+  function on(){return location.search.indexOf('notes=1')>-1||localStorage.getItem(KEY)==='1'}
+  function apply(){
+    document.body.classList.toggle('proto-notes-on',on());
+    var fab=document.getElementById('protoNotesFab');
+    if(fab){fab.innerHTML=on()?'收起':'标注 <span class="pn-fab-n">'+(document.querySelectorAll('[data-note]').length)+'</span>';fab.title=on()?'收起标注（Alt+N）':'显示标注（Alt+N）'}
+  }
+  function toggle(){var v=!on();localStorage.setItem(KEY,v?'1':'0');apply()}
+  document.addEventListener('keydown',function(e){if(e.altKey&&(e.key==='n'||e.key==='N')){e.preventDefault();toggle()}});
+  function place(el,pin){
+    var r=el.getBoundingClientRect(),sx=window.scrollX||0,sy=window.scrollY||0;
+    var w=pin.offsetWidth||248,h=pin.offsetHeight||90,vw=document.documentElement.clientWidth;
+    var x=r.right+sx+12;
+    if(x+w>sx+vw-8){var xl=r.left+sx-w-12;x=xl>=sx+8?xl:(sx+vw-w-8)}
+    var y=r.top+sy;
+    if(y+h>sy+document.documentElement.clientHeight-8)y=Math.max(sy+52,r.bottom+sy-h);
+    pin.style.left=x+'px';pin.style.top=y+'px';
+  }
+  document.addEventListener('click',function(e){
+    if(!on())return;
+    var tgt=e.target.closest?e.target.closest('[data-note]'):null;
+    if(tgt){
+      var r=tgt.getBoundingClientRect();
+      if(e.clientX>r.right-24&&e.clientY<r.top+22){
+        e.stopPropagation();e.preventDefault();
+        var pin=document.getElementById('proto-pin-'+tgt.getAttribute('data-note'));
+        if(pin){
+          if(pin.classList.contains('pn-open')){pin.classList.remove('pn-open')}
+          else{pin.classList.add('pn-open');place(tgt,pin)}
+        }
+      }
+    }
+  },true);
+  document.addEventListener('click',function(e){
+    var t=e.target;
+    var fab=t.closest?t.closest('.pn-fab'):null;
+    if(fab){toggle();return}
+    var pc=t.closest?t.closest('.proto-pin'):null;
+    if(pc){
+      if(t.classList&&t.classList.contains('pnp-close'))pc.classList.remove('pn-open');
+      return;
+    }
+  });
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply);else apply();
+})();
+</script>
+<script>/*ia-fix: tab-switch + btn-feedback (2026-09-04)*/
+/* R3 顶部页签切换（点击换 active；× 不做关闭跳转——原型不销毁页签） */
+document.querySelectorAll('.tab').forEach(function (t) {
+  t.addEventListener('click', function () {
+    document.querySelectorAll('.tab').forEach(function (x) { x.classList.remove('active'); });
+    t.classList.add('active');
+  });
+});
+/* R1 死按钮全局反馈：无 onclick 的 button/a 给按压视觉态；「重置」清空所在筛选卡 */
+(function () {
+  document.addEventListener('click', function (e) {
+    var el = e.target.closest ? e.target.closest('button, a, .sm-link') : null;
+    if (!el) return;
+    if (el.getAttribute('onclick')) return;
+    var h = el.getAttribute('href');
+    if (el.tagName === 'A' && h && h !== '#' && !/^javascript:/i.test(h)) return;
+    if (el.disabled) return;
+    var txt = (el.textContent || '').trim();
+    if (txt === '重置') {
+      var card = el.closest('.filter-card') || el.closest('.card');
+      if (card) {
+        card.querySelectorAll('input:not([type=checkbox]):not([type=radio])').forEach(function (i) { if (!i.readOnly && !i.disabled) i.value = ''; });
+        card.querySelectorAll('select').forEach(function (s) { if (!s.disabled) s.selectedIndex = 0; });
+      }
+    }
+    el.style.transition = 'transform .08s';
+    el.style.transform = 'scale(.96)';
+    setTimeout(function () { el.style.transform = ''; }, 160);
+  }, true);
+})();
+</script>
+</body>
+</html>

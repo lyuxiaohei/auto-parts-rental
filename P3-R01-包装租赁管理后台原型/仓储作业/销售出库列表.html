@@ -177,8 +177,8 @@ th.td-num { text-align:right; }
 /* ===== 弹窗 ===== */
 .modal-overlay { position:fixed; inset:0; background:rgba(0,0,0,.45); display:none; align-items:center; justify-content:center; z-index:1000; }
 .modal-overlay.show { display:flex; }
-.modal { background:#fff; border-radius:8px; width:480px; max-height:80vh; overflow-y:auto; box-shadow:0 6px 16px rgba(0,0,0,.12); }
-.modal-lg { width:680px; }
+.modal { background:#fff; border-radius:8px; width:640px; max-width:92vw; max-height:80vh; overflow-y:auto; box-shadow:0 6px 16px rgba(0,0,0,.12); }
+.modal-lg { width:780px; max-width:92vw; }
 .modal-header { padding:16px 24px; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
 .modal-title { font-size:16px; font-weight:600; color:#1a1a1a; margin:0; }
 .modal-close { cursor:pointer; font-size:20px; color:var(--text-3); line-height:1; }
@@ -195,7 +195,7 @@ th.td-num { text-align:right; }
 .dgrid.c3 { grid-template-columns:repeat(3,1fr); }
 .drow { display:flex; padding:8px 0; border-bottom:1px dashed var(--border); font-size:13px; min-width:0; }
 .dlabel { flex:0 0 110px; color:var(--text-3); white-space:nowrap; }
-.dval { flex:1; min-width:0; color:var(--text); word-break:break-all; }
+.dval { flex:1; min-width:0; color:var(--text); overflow-wrap:break-word; }
 
 /* ===== 统计卡 / 进度条 ===== */
 .stat-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:16px; }
@@ -221,8 +221,8 @@ th.td-num { text-align:right; }
 <style id="modal-css">
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:1000;align-items:center;justify-content:center}
 .modal-overlay.show{display:flex}
-.modal{background:#fff;border-radius:8px;width:480px;max-width:90vw;max-height:85vh;overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,.15)}
-.modal-lg{width:680px}
+.modal{background:#fff;border-radius:8px;width:640px;max-width:92vw;max-height:85vh;overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,.15)}
+.modal-lg{width:780px;max-width:92vw}
 .modal-header{padding:16px 24px;border-bottom:1px solid #f0f0f0;display:flex;justify-content:space-between;align-items:center}
 .modal-title{font-size:16px;font-weight:600;color:#262626}
 .modal-close{cursor:pointer;font-size:20px;color:#8c8c8c;line-height:1}
@@ -276,6 +276,7 @@ th.td-num { text-align:right; }
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></span>销售管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
    <li><div class="sm-link" onclick="go('../销售管理/销售订单列表.html')">销售订单</div></li>
+   <li><div class="sm-link" onclick="go('../包装管理/租赁单列表.html')">租赁单</div></li>
    </ul>
    </li>
    <li class="sm-item has-sub open">
@@ -303,7 +304,6 @@ th.td-num { text-align:right; }
    <li class="sm-item has-sub">
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8V21H3V8"/><rect x="1" y="3" width="22" height="5" rx="1"/><line x1="10" y1="12" x2="14" y2="12"/></svg></span>包装管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
-   <li><div class="sm-link" onclick="go('../包装管理/租赁单列表.html')">租赁单</div></li>
    <li><div class="sm-link" onclick="go('../包装管理/退租申请列表.html')">退租申请</div></li>
    <li><div class="sm-link" onclick="go('../包装管理/在租台账.html')">在租台账</div></li>
    <li><div class="sm-link" onclick="go('../包装管理/丢损赔偿单.html')">丢损赔偿单</div></li>
@@ -395,7 +395,7 @@ th.td-num { text-align:right; }
           <th>出库仓库</th>
           <th>出库日期</th>
           <th>状态</th>
-          <th>操作</th>
+          <th class="sticky-op">操作</th>
         </tr>
       </thead>
       <tbody>
@@ -410,7 +410,7 @@ th.td-num { text-align:right; }
           <td>原料区 RA</td>
           <td>2026-09-02</td>
           <td><span class="tag tag-orange">待审核</span></td>
-          <td><span class="ops"><a onclick="openModal('auditModal')">审核</a><a onclick="openModal('detailModal')">详情</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('auditModal')">审核</a><a onclick="openModal('detailModal')">详情</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
@@ -423,7 +423,7 @@ th.td-num { text-align:right; }
           <td>原料区 RA</td>
           <td>2026-09-01</td>
           <td><span class="tag tag-green">已完成</span></td>
-          <td><span class="ops"><a onclick="openModal('detailModal')">详情</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
@@ -436,7 +436,7 @@ th.td-num { text-align:right; }
           <td>原料区 RA</td>
           <td>2026-08-29</td>
           <td><span class="tag tag-green">已完成</span></td>
-          <td><span class="ops"><a onclick="openModal('detailModal')">详情</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
@@ -449,7 +449,7 @@ th.td-num { text-align:right; }
           <td>原料区 RA</td>
           <td>2026-08-26</td>
           <td><span class="tag tag-green">已完成</span></td>
-          <td><span class="ops"><a onclick="openModal('detailModal')">详情</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
@@ -462,7 +462,7 @@ th.td-num { text-align:right; }
           <td>原料区 RA</td>
           <td>2026-08-22</td>
           <td><span class="tag tag-green">已完成</span></td>
-          <td><span class="ops"><a onclick="openModal('detailModal')">详情</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
@@ -475,7 +475,7 @@ th.td-num { text-align:right; }
           <td>原料区 RA</td>
           <td>2026-08-18</td>
           <td><span class="tag tag-green">已完成</span></td>
-          <td><span class="ops"><a onclick="openModal('detailModal')">详情</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a></span></td>
         </tr>
       </tbody>
     </table>
@@ -508,6 +508,9 @@ th.td-num { text-align:right; }
     <span class="form-label"></span>
     <div style="font-size:12px;color:#8c8c8c;line-height:1.7;">库存可用量：内衬 EPE 珍珠棉（LJ-F600）在库 <b style="color:#1677ff;">1,520</b> 件 · 原料区 RA —— 按库存可用量发货，超量需先入库</div>
   </div><div class="form-row">
+    <span class="form-label"></span>
+    <div style="font-size:12px;color:#fa8c16;line-height:1.7;font-weight:600;">库存可用量不足：本次申请 5,000 件 &gt; 可用 1,520 件，无法提交 —— 请先补货入库或调减出库数量</div>
+  </div><div class="form-row">
     <span class="form-label"><span class="req">*</span>出库仓库</span>
     <div class="input-box select-box" style="width:350px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>原料区 RA</option><option>华东中心仓（WH-01）</option><option>华南仓（WH-02）</option><option>西南仓（WH-03）</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
   </div><div class="form-row">
@@ -517,7 +520,7 @@ th.td-num { text-align:right; }
   <div class="table-wrap" style="border:1px solid var(--border);border-radius:6px;">
     <table class="edit-tbl">
       <thead><tr><th>物料编码</th><th>物料名称</th><th>单位</th><th>出库数量</th><th>备注</th></tr></thead>
-      <tbody><tr><td><input value="LJ-F600"></td><td><input value="内衬 EPE 珍珠棉"></td><td><input value="件"></td><td><input value="5,000"></td><td><input value="" placeholder="跳转页码"></td></tr></tbody>
+      <tbody><tr><td><input value="LJ-F600"></td><td><input value="内衬 EPE 珍珠棉"></td><td><input value="件"></td><td><input value="5,000"></td><td><input value="" placeholder="选填"></td></tr></tbody>
     </table>
   </div>
   <button class="btn btn-dashed btn-sm" style="width:100%;margin-top:8px;">+ 添加一行</button><div class="form-row">
@@ -528,7 +531,7 @@ th.td-num { text-align:right; }
     <div class="modal-footer">
       <button class="btn btn-default" onclick="closeModal('createModal')">取消</button>
       <button class="btn btn-default" onclick="closeModal('createModal')">保存草稿</button>
-      <button class="btn" onclick="closeModal('createModal')">提交审核</button>
+      <button class="btn" disabled title="库存可用量不足" style="opacity:.45;cursor:not-allowed;">提交审核</button>
     </div>
   </div>
 </div>
@@ -652,7 +655,7 @@ th.td-num { text-align:right; }
     </div>
     <div class="modal-body">
       <div class="dt-sec">单据信息</div>
-      <div class="dgrid c3"><div class="drow"><div class="dlabel">出库单号</div><div class="dval">XSCK-20260902-015</div></div><div class="drow"><div class="dlabel">状态</div><div class="dval"><span class="tag tag-orange">待审核</span></div></div><div class="drow"><div class="dlabel">关联销售订单</div><div class="dval"><span class="lk" onclick="go('../销售管理/销售订单列表.html')">SO-20260830-0043</span></div></div><div class="drow"><div class="dlabel">客户</div><div class="dval">一汽解放汽车有限公司</div></div><div class="drow"><div class="dlabel">所属项目</div><div class="dval">PRJ-2601</div></div><div class="drow"><div class="dlabel">出库物料</div><div class="dval">箱盖 ABS 吸塑（LJ-D400）</div></div><div class="drow"><div class="dlabel">数量</div><div class="dval">1,500 件</div></div><div class="drow"><div class="dlabel">出库库区</div><div class="dval">原料区 RA</div></div><div class="drow"><div class="dlabel">制单人</div><div class="dval">张伟</div></div><div class="drow"><div class="dlabel">制单时间</div><div class="dval">2026-09-02 11:30</div></div><div class="drow"><div class="dlabel">计价方式</div><div class="dval">销售价随订单（一进一出）</div></div></div>
+      <div class="dgrid c3"><div class="drow" style="grid-column:1/-1;"><div class="dlabel">出库单号</div><div class="dval">XSCK-20260902-015</div></div><div class="drow"><div class="dlabel">状态</div><div class="dval"><span class="tag tag-orange">待审核</span></div></div><div class="drow"><div class="dlabel">关联销售订单</div><div class="dval"><span class="lk" onclick="go('../销售管理/销售订单列表.html')">SO-20260830-0043</span></div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">客户</div><div class="dval">一汽解放汽车有限公司</div></div><div class="drow"><div class="dlabel">所属项目</div><div class="dval">PRJ-2601</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">出库物料</div><div class="dval">箱盖 ABS 吸塑（LJ-D400）</div></div><div class="drow"><div class="dlabel">数量</div><div class="dval">1,500 件</div></div><div class="drow"><div class="dlabel">出库库区</div><div class="dval">原料区 RA</div></div><div class="drow"><div class="dlabel">制单人</div><div class="dval">张伟</div></div><div class="drow"><div class="dlabel">制单时间</div><div class="dval">2026-09-02 11:30</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">计价方式</div><div class="dval">销售价随订单（一进一出）</div></div></div>
       <div class="dt-sec">出库明细</div>
       <div class="table-wrap"><table><thead><tr><th>序号</th><th>物料编码</th><th>名称规格</th><th>单位</th><th class="td-num">数量</th><th>库位</th></tr></thead>
 <tbody>

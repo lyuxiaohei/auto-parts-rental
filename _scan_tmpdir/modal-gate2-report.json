@@ -1,0 +1,137 @@
+[
+ {
+  "page": "仓储作业/弹窗/采购入库审核.html",
+  "width": 720,
+  "expect": 720,
+  "width_ok": true,
+  "dvals": 5,
+  "multiline_nonexempt": [],
+  "exempt_longtext": []
+ },
+ {
+  "page": "仓储作业/弹窗/其他入库审核.html",
+  "width": 640,
+  "expect": 640,
+  "width_ok": true,
+  "dvals": 4,
+  "multiline_nonexempt": [],
+  "exempt_longtext": []
+ },
+ {
+  "page": "仓储作业/弹窗/其他出库审核.html",
+  "width": 640,
+  "expect": 640,
+  "width_ok": true,
+  "dvals": 4,
+  "multiline_nonexempt": [],
+  "exempt_longtext": []
+ },
+ {
+  "page": "仓储作业/弹窗/拆卸审核.html",
+  "width": 640,
+  "expect": 640,
+  "width_ok": true,
+  "dvals": 4,
+  "multiline_nonexempt": [],
+  "exempt_longtext": []
+ },
+ {
+  "page": "仓储作业/弹窗/盘点审核.html",
+  "width": 720,
+  "expect": 720,
+  "width_ok": true,
+  "dvals": 5,
+  "multiline_nonexempt": [],
+  "exempt_longtext": []
+ },
+ {
+  "page": "仓储作业/弹窗/调拨审核.html",
+  "width": 640,
+  "expect": 640,
+  "width_ok": true,
+  "dvals": 4,
+  "multiline_nonexempt": [],
+  "exempt_longtext": []
+ },
+ {
+  "page": "仓储作业/弹窗/租入归还审核.html",
+  "width": 720,
+  "expect": 720,
+  "width_ok": true,
+  "dvals": 7,
+  "multiline_nonexempt": [],
+  "exempt_longtext": []
+ },
+ {
+  "page": "仓储作业/弹窗/退租入库审核.html",
+  "width": 720,
+  "expect": 720,
+  "width_ok": true,
+  "dvals": 5,
+  "multiline_nonexempt": [],
+  "exempt_longtext": []
+ },
+ {
+  "page": "仓储作业/弹窗/销售出库审核.html",
+  "width": 640,
+  "expect": 640,
+  "width_ok": true,
+  "dvals": 4,
+  "multiline_nonexempt": [],
+  "exempt_longtext": []
+ },
+ {
+  "page": "包装管理/弹窗/丢损赔偿审核.html",
+  "width": 720,
+  "expect": 720,
+  "width_ok": true,
+  "dvals": 4,
+  "multiline_nonexempt": [],
+  "exempt_longtext": []
+ },
+ {
+  "page": "包装管理/弹窗/租赁单审核.html",
+  "width": 640,
+  "expect": 640,
+  "width_ok": true,
+  "dvals": 4,
+  "multiline_nonexempt": [],
+  "exempt_longtext": []
+ },
+ {
+  "page": "包装管理/弹窗/退租申请审核.html",
+  "width": 720,
+  "expect": 720,
+  "width_ok": true,
+  "dvals": 5,
+  "multiline_nonexempt": [],
+  "exempt_longtext": []
+ },
+ {
+  "page": "采购管理/弹窗/租入单审核.html",
+  "width": 720,
+  "expect": 720,
+  "width_ok": true,
+  "dvals": 6,
+  "multiline_nonexempt": [],
+  "exempt_longtext": []
+ },
+ {
+  "page": "采购管理/弹窗/采购订单审核.html",
+  "width": 640,
+  "expect": 640,
+  "width_ok": true,
+  "dvals": 4,
+  "multiline_nonexempt": [],
+  "exempt_longtext": []
+ },
+ {
+  "page": "销售管理/弹窗/销售订单审核.html",
+  "width": 640,
+  "expect": 640,
+  "width_ok": true,
+  "dvals": 4,
+  "multiline_nonexempt": [],
+  "exempt_longtext": []
+ }
+]
