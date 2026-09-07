@@ -78,7 +78,7 @@
 - 每页独立单 HTML（内嵌 CSS/JS），file:// 直开；主色 #1677ff
 - **筛选栏统一 filter-card 新样式**（标签内嵌输入框 13px/32px、默认 collapsed 显 3 字段、按钮顺序：展开收起→重置→查询）；样板页=`仓储作业/采购入库列表.html`
 - **弹窗双层架构**：各列表页内嵌 modal（可点开）+ `弹窗/` 文件夹 **79 个**独立模板（已包壳可独立打开演示）；改弹窗直接改页面内 modal HTML，独立模板同步改。**详情弹窗（2026-09-04 新增 35 个）四段式**：单据头字段网格（dgrid c3）/物料明细表/关联单据互溯链（chain 节点，单号可点跳列表页）/流转时间线（tl）；样式注入块 `detail-modal-css`（每页至多 1 份），生成脚本 `detail_modal_lib.py`（锚点=绑定脚本所在 `<script>` 之前，R4 安全）
-- **应付/应收账单详情弹窗已数据驱动（2026-09-07 晚引入，全站仅此两类例外，改法≠双层同步）**：`财务协同/应付账单.html`、`应收账单.html` 内嵌与对应 `弹窗/` 详情模板均为骨架（`#detailTitle`/`#detailBody` 空容器），内容由 `_data/demo-data.js`（`window.DEMO_DATA`，单号即外键）＋`_data/payable-bill-detail.js` / `_data/receivable-bill-detail.js` 按单号渲染，行内详情按钮由脚本改 addEventListener 动态绑定（onclick 运行时剥离）——**改详情内容＝改 demo-data.js 的 `payableBills` / `receivableBills` 对应键，改页面 HTML 不显示**；建模/扩展约定（url 相对根目录不带 ./、金额存数字、新增实体加 keyed-map）见 demo-data.js 头注释；该动态绑定使 audit 报 modal-unreachable 属**已知误报**（工具待补 JS 触发器检测维度，连同标注层渲染盲区共两条，见第四节⑦）；其余弹窗仍走双层同步。**另：`_build/modals_build.py` 已停用（2026-09-07，弹窗模板已是整页，按片段注入会污染页面；无 --force 直接退出）**
+- **财务协同 6 页详情弹窗已数据驱动（2026-09-07 晚引入，全站仅此 6 页例外，改法≠双层同步）**：`财务协同/应付账单.html`、`应收账单.html`、`付款登记.html`、`回款登记.html`、`开票登记.html`、`银行水单核销.html` 内嵌与对应 `弹窗/` 详情模板均为骨架（`#detailTitle`/`#detailBody` 空容器），内容由 `_data/demo-data.js`（`window.DEMO_DATA`，单号即外键）＋`_data/` 渲染器按单号渲染——账单类用 `payable-bill-detail.js` / `receivable-bill-detail.js`，下游 4 单据用通用渲染器 `detail-generic.js`（页面一行 `wireDetailModal('entity')` 完成接线，行内单号文本匹配）；行内详情按钮由脚本改 addEventListener 动态绑定（onclick 运行时剥离）——**改详情内容＝改 demo-data.js 对应实体键，改页面 HTML 不显示**；建模/扩展约定（url 相对根目录不带 ./、账单实体金额存数字、通用实体存展示字符串、新增实体加 keyed-map）见 demo-data.js 头注释；该动态绑定使 audit 报 modal-unreachable 属**已知误报**（工具待补 JS 触发器检测维度，连同标注层渲染盲区共两条，见第四节⑦）；其余弹窗仍走双层同步。**另：`_build/modals_build.py` 已停用（2026-09-07，弹窗模板已是整页，按片段注入会污染页面；无 --force 直接退出）**
 - **我的待办**（`首页/我的待办.html`）：聚合 **18 类**待审核单据（含租入单/租入入库/租入归还/收款确认），JS 前端过滤（类型下拉+关键词+chips 速滤），"去审核"跳 `列表页?audit=1` 自动弹审核窗（**18 个列表页**已注入 auto-open 脚本，条件：页内有 auditModal）
 - **侧边栏**：首页组为 has-sub 分组；改菜单须批量改全部 45 页并跑一致性检查（菜单各出现 1 次/分组结构/selected 逐页核对）
 - **原型标注层**：紫色角标+便签（?notes=1 / Alt+N / 右下角按钮开关），已固化在页面内。**流程链标注（2026-09-04 新增）**：23 页 43 条数据行标注（所属流程 B1/L1/L2/L3/L4/S1~S7 + 步骤序号 + 链路上下文），数据源=`P3-R01-A04-流程链标注数据.json`（**唯一维护处**，改标注改此文件重跑注入）；旧 A03 数据已废弃（键名失配），旧 34 页死角标已清除重注
@@ -401,3 +401,22 @@
 **遗留**：
 - 全站其余 29 个详情弹窗（采购订单/租入单/租赁单/各入出库单等）仍为静态单份数据；推广模式已定型（demo-data.js 加 keyed-map + 渲染器 + 页面骨架接线），需要时按同模式批量
 - 根目录 zip 快照仍为 09-07 早版本，对外发版需重打
+
+---
+
+## 变更记录 · 2026-09-07 晚（三）（财务下游 4 单据详情数据驱动 + 通用渲染器）
+
+**改动**：
+1. `_data/demo-data.js` 新增 4 实体 20 条：`payments` 付款登记 5 / `receipts` 回款登记 5 / `invoices` 开票登记 6 / `writeoffs` 水单核销 4，与列表行一一对应；单号跨页互引（HK↔AR↔INV↔SD↔AP 与账单实体对齐，链路可互跳）
+2. 新增 `_data/detail-generic.js` 通用四段式渲染器：`renderGenericDetailHTML` / `openGenericDetail(entity, key)` / `wireDetailModal(entity)`（列表页一行接线：自动找 detailModal 触发的「详情」按钮，行文本匹配实体键改绑）；记录结构 = info 字段组（tag 走统一状态色）+ feeCols/fees 明细表 + chain + timeline；金额存展示字符串
+3. 财务协同 4 页 + 4 弹窗模板双层骨架化（付款/回款/开票/水单核销）；**水单核销特殊**：触发源是核销记录表（HX 单号行），弹窗按水单维度展示（记录 titleNo = SD 水单号），接线按行文本匹配 HX 键
+4. 列表行 HTML 全部零改动（接线脚本运行时绑定）
+
+**验证**：
+- 浏览器逐条实点：付款 5/5、回款 5/5、开票 6/6、水单核销 4/4 全部按行渲染正确；4 个弹窗模板预览页正常
+- **全量审计复跑 125 页**：死链 0 / JS 错 0；问题 16 条 = readonly 预填既有豁免 10（拆卸 5/采购订单 2/销售订单 2/项目档案 1）+ modal-unreachable 已知误报 6（数据驱动详情页增至 6 页，口径同第四节⑦）
+- 改前备份 `_scan_tmpdir/backup-findetail-20260907/`；zip 快照重打 `包装租赁管理后台原型-20260907-2.zip`（132 文件含 _data/）
+
+**遗留**：
+- 其余 25 个详情弹窗（采购订单/租入单/销售订单/租赁单/各入出库单/退租/丢损/盘点/调拨/组装拆卸/基础数据档案类）仍为静态单份数据；推广只需：demo-data.js 加实体 → 页面骨架+一行 wireDetailModal（通用四段式可直接复用，特殊表头加 feeCols 即可）
+- audit 工具的 modal-unreachable 检测维度待补（JS 动态绑定识别），未补前按已知误报口径处理

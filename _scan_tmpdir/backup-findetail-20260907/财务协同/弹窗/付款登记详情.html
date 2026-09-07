@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>开票登记详情 - 包装租赁管理后台</title>
+<title>付款登记详情 - 包装租赁管理后台</title>
 <style>
 :root {
   --primary: #1677ff;
@@ -272,16 +272,28 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 </style>
 </head>
 <body style="background:#f5f6f8;min-height:100vh;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif">
-<!-- 弹窗模板：开票登记详情（详情落地页补齐 2026-09-04） -->
-<!-- 注入标记：财务协同/开票登记.html -->
+<!-- 弹窗模板：付款登记详情（详情落地页补齐 2026-09-04） -->
+<!-- 注入标记：财务协同/付款登记.html -->
 <!-- 详情弹窗（四段式：单据头/明细/关联单据互溯链/流转时间线）· 详情落地页补齐 2026-09-04 -->
 <div class="modal-overlay" id="detailModal">
   <div class="modal modal-lg" style="width:780px;">
     <div class="modal-header">
-      <h3 class="modal-title" id="detailTitle">开票登记详情</h3>
+      <h3 class="modal-title">付款登记详情 · PAY-20260902-005</h3>
       <span class="modal-close" onclick="closeModal('detailModal')">×</span>
     </div>
-    <div class="modal-body" id="detailBody"><!-- 内容由 _data/detail-generic.js 按单号渲染 --></div>
+    <div class="modal-body">
+      <div class="dt-sec">单据信息</div>
+      <div class="dgrid c3"><div class="drow"><div class="dlabel">付款单号</div><div class="dval">PAY-20260902-005</div></div><div class="drow"><div class="dlabel">状态</div><div class="dval"><span class="tag tag-orange">待确认</span></div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">供应商</div><div class="dval">苏州联恒五金制品有限公司</div></div><div class="drow"><div class="dlabel">关联应付</div><div class="dval"><span class="lk" onclick="go('../../财务协同/应付账单.html')">AP-20260830-007</span></div></div><div class="drow"><div class="dlabel">付款金额</div><div class="dval">6,000.00 元</div></div><div class="drow"><div class="dlabel">付款日期</div><div class="dval">2026-09-02</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">付款账户</div><div class="dval">招商银行苏州分行 1109××××8821</div></div><div class="drow"><div class="dlabel">登记人</div><div class="dval">财务-周敏</div></div><div class="drow"><div class="dlabel">付款方式</div><div class="dval">银行转账</div></div><div class="drow"><div class="dlabel">凭证</div><div class="dval">已上传</div></div></div>
+      <div class="dt-sec">付款明细</div>
+      <div class="table-wrap"><table><thead><tr><th>关联账单</th><th>账单类型</th><th class="td-num">本次付款(元)</th></tr></thead>
+<tbody>
+<tr><td><span class="lk" onclick="go('../../财务协同/应付账单.html')">AP-20260830-007</span></td><td>采购应付</td><td class="td-num">6,000.00</td></tr>
+</tbody></table></div>
+      <div class="dt-sec">关联单据</div>
+      <div class="chain"><div class="node"><div class="n-role">应付账单</div><div class="n-name"><span class="lk" onclick="go('../../财务协同/应付账单.html')">AP-20260830-007</span></div></div><span class="link-arrow">→</span><div class="node" style="border-color:#1677ff;background:#e6f4ff;"><div class="n-role">付款登记（本单）</div><div class="n-name">PAY-20260902-005</div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">付款确认</div><div class="n-name">待确认（审核流）</div></div></div>
+      <div class="dt-sec">流转时间线</div>
+      <div class="tl"><div class="tl-i"><span class="tl-t">09-02 16:05</span>付款登记 · 上传付款凭证<span class="tl-who">财务-周敏</span></div><div class="tl-i off"><span class="tl-t">—</span>待确认 · 通过后账单转已付款</div></div>
+    </div>
     <div class="modal-footer">
       <button class="btn btn-default" onclick="closeModal('detailModal')">关 闭</button>
     </div>
@@ -304,12 +316,7 @@ document.querySelectorAll('.radio').forEach(function (r) {
 document.querySelectorAll('.checkbox').forEach(function (c) {
   c.addEventListener('click', function () { c.classList.toggle('checked'); });
 });
-</script>
-<script src="../../_data/demo-data.js"></script>
-<script src="../../_data/detail-generic.js"></script>
-<script>
-/* 模板预览：默认渲染一条记录（可换单号预览其他场景） */
-openGenericDetail('invoices', 'INV-20260830-012', '../../');
+document.querySelector('.modal-overlay').classList.add('show');
 </script>
 <script>/*ia-fix: tab-switch + btn-feedback (2026-09-04)*/
 /* R3 顶部页签切换（点击换 active；× 不做关闭跳转——原型不销毁页签） */

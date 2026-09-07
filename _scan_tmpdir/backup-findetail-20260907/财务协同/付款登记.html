@@ -614,19 +614,27 @@ th.td-num { text-align:right; }
 <div class="modal-overlay" id="detailModal">
   <div class="modal modal-lg" style="width:780px;">
     <div class="modal-header">
-      <h3 class="modal-title" id="detailTitle">付款登记详情</h3>
+      <h3 class="modal-title">付款登记详情 · PAY-20260902-005</h3>
       <span class="modal-close" onclick="closeModal('detailModal')">×</span>
     </div>
-    <div class="modal-body" id="detailBody"><!-- 内容由 _data/detail-generic.js 按单号渲染 --></div>
+    <div class="modal-body">
+      <div class="dt-sec">单据信息</div>
+      <div class="dgrid c3"><div class="drow"><div class="dlabel">付款单号</div><div class="dval">PAY-20260902-005</div></div><div class="drow"><div class="dlabel">状态</div><div class="dval"><span class="tag tag-orange">待确认</span></div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">供应商</div><div class="dval">苏州联恒五金制品有限公司</div></div><div class="drow"><div class="dlabel">关联应付</div><div class="dval"><span class="lk" onclick="go('../财务协同/应付账单.html')">AP-20260830-007</span></div></div><div class="drow"><div class="dlabel">付款金额</div><div class="dval">6,000.00 元</div></div><div class="drow"><div class="dlabel">付款日期</div><div class="dval">2026-09-02</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">付款账户</div><div class="dval">招商银行苏州分行 1109××××8821</div></div><div class="drow"><div class="dlabel">登记人</div><div class="dval">财务-周敏</div></div><div class="drow"><div class="dlabel">付款方式</div><div class="dval">银行转账</div></div><div class="drow"><div class="dlabel">凭证</div><div class="dval">已上传</div></div></div>
+      <div class="dt-sec">付款明细</div>
+      <div class="table-wrap"><table><thead><tr><th>关联账单</th><th>账单类型</th><th class="td-num">本次付款(元)</th></tr></thead>
+<tbody>
+<tr><td><span class="lk" onclick="go('../财务协同/应付账单.html')">AP-20260830-007</span></td><td>采购应付</td><td class="td-num">6,000.00</td></tr>
+</tbody></table></div>
+      <div class="dt-sec">关联单据</div>
+      <div class="chain"><div class="node"><div class="n-role">应付账单</div><div class="n-name"><span class="lk" onclick="go('../财务协同/应付账单.html')">AP-20260830-007</span></div></div><span class="link-arrow">→</span><div class="node" style="border-color:#1677ff;background:#e6f4ff;"><div class="n-role">付款登记（本单）</div><div class="n-name">PAY-20260902-005</div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">付款确认</div><div class="n-name">待确认（审核流）</div></div></div>
+      <div class="dt-sec">流转时间线</div>
+      <div class="tl"><div class="tl-i"><span class="tl-t">09-02 16:05</span>付款登记 · 上传付款凭证<span class="tl-who">财务-周敏</span></div><div class="tl-i off"><span class="tl-t">—</span>待确认 · 通过后账单转已付款</div></div>
+    </div>
     <div class="modal-footer">
       <button class="btn btn-default" onclick="closeModal('detailModal')">关 闭</button>
     </div>
   </div>
 </div>
-<script src="../_data/demo-data.js"></script>
-<script src="../_data/detail-generic.js"></script>
-<script>/* demo-data 接线：各行「详情」按行内单号渲染（2026-09-07 财务下游推广） */
-wireDetailModal('payments');</script>
 <script>
 /* ===== 菜单折叠 / 页签与表单视觉态（统一脚本） ===== */
 function go(url) { location.href = url; }

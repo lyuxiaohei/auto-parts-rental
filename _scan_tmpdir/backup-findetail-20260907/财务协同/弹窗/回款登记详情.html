@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>开票登记详情 - 包装租赁管理后台</title>
+<title>回款登记详情 - 包装租赁管理后台</title>
 <style>
 :root {
   --primary: #1677ff;
@@ -272,16 +272,28 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 </style>
 </head>
 <body style="background:#f5f6f8;min-height:100vh;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif">
-<!-- 弹窗模板：开票登记详情（详情落地页补齐 2026-09-04） -->
-<!-- 注入标记：财务协同/开票登记.html -->
+<!-- 弹窗模板：回款登记详情（详情落地页补齐 2026-09-04） -->
+<!-- 注入标记：财务协同/回款登记.html -->
 <!-- 详情弹窗（四段式：单据头/明细/关联单据互溯链/流转时间线）· 详情落地页补齐 2026-09-04 -->
 <div class="modal-overlay" id="detailModal">
   <div class="modal modal-lg" style="width:780px;">
     <div class="modal-header">
-      <h3 class="modal-title" id="detailTitle">开票登记详情</h3>
+      <h3 class="modal-title">回款登记详情 · HK-20260830-014</h3>
       <span class="modal-close" onclick="closeModal('detailModal')">×</span>
     </div>
-    <div class="modal-body" id="detailBody"><!-- 内容由 _data/detail-generic.js 按单号渲染 --></div>
+    <div class="modal-body">
+      <div class="dt-sec">单据信息</div>
+      <div class="dgrid c3"><div class="drow"><div class="dlabel">回款单号</div><div class="dval">HK-20260830-014</div></div><div class="drow"><div class="dlabel">水单状态</div><div class="dval"><span class="tag tag-green">已上传</span></div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">客户</div><div class="dval">一汽解放汽车有限公司</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">关联应收</div><div class="dval"><span class="lk" onclick="go('../../财务协同/应收账单.html')">AR-2026-08-PRJ2601</span></div></div><div class="drow"><div class="dlabel">回款金额</div><div class="dval">286,500.00 元</div></div><div class="drow"><div class="dlabel">回款日期</div><div class="dval">2026-08-30</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">收款账户</div><div class="dval">招行基本户 1209****8866</div></div><div class="drow"><div class="dlabel">核销状态</div><div class="dval"><span class="tag tag-orange">待核销</span></div></div><div class="drow"><div class="dlabel">登记人</div><div class="dval">财务-周敏</div></div><div class="drow"><div class="dlabel">发票关联</div><div class="dval"><span class="lk" onclick="go('../../财务协同/开票登记.html')">INV-20260830-012</span></div></div></div>
+      <div class="dt-sec">回款明细</div>
+      <div class="table-wrap"><table><thead><tr><th>关联账单</th><th>费用项</th><th class="td-num">本次回款(元)</th><th>核销去向</th></tr></thead>
+<tbody>
+<tr><td><span class="lk" onclick="go('../../财务协同/应收账单.html')">AR-2026-08-PRJ2601</span></td><td>租赁费 · 部分回款</td><td class="td-num">286,500.00</td><td>银行水单核销（待执行）</td></tr>
+</tbody></table></div>
+      <div class="dt-sec">关联单据</div>
+      <div class="chain"><div class="node"><div class="n-role">应收账单</div><div class="n-name"><span class="lk" onclick="go('../../财务协同/应收账单.html')">AR-2026-08-PRJ2601</span></div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">开票登记</div><div class="n-name"><span class="lk" onclick="go('../../财务协同/开票登记.html')">INV-20260830-012</span></div></div><span class="link-arrow">→</span><div class="node" style="border-color:#1677ff;background:#e6f4ff;"><div class="n-role">回款登记（本单）</div><div class="n-name">HK-20260830-014</div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">银行水单核销</div><div class="n-name"><span class="lk" onclick="go('../../财务协同/银行水单核销.html')">SD-20260830-011</span></div></div></div>
+      <div class="dt-sec">流转时间线</div>
+      <div class="tl"><div class="tl-i"><span class="tl-t">08-30 10:20</span>收款到账 · 招行基本户<span class="tl-who">财务-周敏</span></div><div class="tl-i"><span class="tl-t">08-30 10:35</span>水单上传 · 与应收账单关联<span class="tl-who">财务-周敏</span></div><div class="tl-i off"><span class="tl-t">—</span>待核销 → 银行水单核销勾对</div></div>
+    </div>
     <div class="modal-footer">
       <button class="btn btn-default" onclick="closeModal('detailModal')">关 闭</button>
     </div>
@@ -304,12 +316,7 @@ document.querySelectorAll('.radio').forEach(function (r) {
 document.querySelectorAll('.checkbox').forEach(function (c) {
   c.addEventListener('click', function () { c.classList.toggle('checked'); });
 });
-</script>
-<script src="../../_data/demo-data.js"></script>
-<script src="../../_data/detail-generic.js"></script>
-<script>
-/* 模板预览：默认渲染一条记录（可换单号预览其他场景） */
-openGenericDetail('invoices', 'INV-20260830-012', '../../');
+document.querySelector('.modal-overlay').classList.add('show');
 </script>
 <script>/*ia-fix: tab-switch + btn-feedback (2026-09-04)*/
 /* R3 顶部页签切换（点击换 active；× 不做关闭跳转——原型不销毁页签） */

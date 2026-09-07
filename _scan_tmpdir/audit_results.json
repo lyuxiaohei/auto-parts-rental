@@ -2086,16 +2086,25 @@
  {
   "page": "财务协同\\付款登记.html",
   "js_errors": [],
-  "problems": [],
+  "problems": [
+   {
+    "cat": "弹窗",
+    "type": "modal-unreachable",
+    "phase": "modal",
+    "where": {
+     "text": "付款登记详情 · PAY-2026081"
+    },
+    "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
+   }
+  ],
   "stats": {
    "buttons": 11,
    "links": 6,
-   "onclickEls": 57,
+   "onclickEls": 52,
    "modals": 3,
    "modalTitles": [
     "新建付款登记",
-    "确认付款",
-    "付款登记详情 · PAY-2026090"
+    "确认付款"
    ],
    "selects": 5,
    "fakeSelects": 0,
@@ -2112,16 +2121,25 @@
  {
   "page": "财务协同\\回款登记.html",
   "js_errors": [],
-  "problems": [],
+  "problems": [
+   {
+    "cat": "弹窗",
+    "type": "modal-unreachable",
+    "phase": "modal",
+    "where": {
+     "text": "回款登记详情 · HK-20260818"
+    },
+    "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
+   }
+  ],
   "stats": {
    "buttons": 10,
    "links": 16,
-   "onclickEls": 68,
+   "onclickEls": 61,
    "modals": 3,
    "modalTitles": [
     "新建收款登记",
-    "收款确认",
-    "回款登记详情 · HK-20260830"
+    "收款确认"
    ],
    "selects": 6,
    "fakeSelects": 0,
@@ -2208,16 +2226,25 @@
  {
   "page": "财务协同\\开票登记.html",
   "js_errors": [],
-  "problems": [],
+  "problems": [
+   {
+    "cat": "弹窗",
+    "type": "modal-unreachable",
+    "phase": "modal",
+    "where": {
+     "text": "开票登记详情 · INV-2026080"
+    },
+    "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
+   }
+  ],
   "stats": {
    "buttons": 10,
    "links": 22,
-   "onclickEls": 74,
+   "onclickEls": 67,
    "modals": 3,
    "modalTitles": [
     "新增开票登记",
-    "开票确认",
-    "开票登记详情 · INV-2026083"
+    "开票确认"
    ],
    "selects": 5,
    "fakeSelects": 0,
@@ -2505,13 +2532,13 @@
    "onclickEls": 6,
    "modals": 1,
    "modalTitles": [
-    "水单核销详情 · SD-20260830(演示页)"
+    "水单核销详情 · SD-20260825(演示页)"
    ],
    "selects": 0,
    "fakeSelects": 0,
    "radios": 0,
    "checkboxes": 0,
-   "inputs": 1,
+   "inputs": 0,
    "stabs": 0,
    "tabs": 0,
    "bgMut": 0
@@ -2544,21 +2571,30 @@
  {
   "page": "财务协同\\银行水单核销.html",
   "js_errors": [],
-  "problems": [],
+  "problems": [
+   {
+    "cat": "弹窗",
+    "type": "modal-unreachable",
+    "phase": "modal",
+    "where": {
+     "text": "水单核销详情 · SD-20260815"
+    },
+    "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
+   }
+  ],
   "stats": {
    "buttons": 8,
    "links": 8,
-   "onclickEls": 55,
+   "onclickEls": 49,
    "modals": 2,
    "modalTitles": [
-    "撤销核销确认",
-    "水单核销详情 · SD-20260830"
+    "撤销核销确认"
    ],
    "selects": 1,
    "fakeSelects": 0,
    "radios": 0,
    "checkboxes": 0,
-   "inputs": 14,
+   "inputs": 13,
    "stabs": 0,
    "tabs": 4,
    "bgMut": 0
