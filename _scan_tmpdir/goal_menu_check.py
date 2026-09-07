@@ -37,9 +37,9 @@ def main():
         sel = [(tgt, n) for s, tgt, n in seq if s]
         if len(sel) > 1:
             problems.append(f"{rel}: selected 多于 1 个 {sel}")
-    # 租赁单菜单目标核对
-    n_ok = sum(1 for p in biz if "go('../包装管理/租赁单列表.html')" in p.read_text(encoding="utf-8"))
-    sel_zl = menu_seq(ROOT / "包装管理" / "租赁单列表.html")
+    # 租赁单菜单目标核对（2026-09-07 菜单重组方案 B：租赁单列表已迁 销售管理/）
+    n_ok = sum(1 for p in biz if "go('../销售管理/租赁单列表.html')" in p.read_text(encoding="utf-8"))
+    sel_zl = menu_seq(ROOT / "销售管理" / "租赁单列表.html")
     print(f"标准租赁单菜单项: {n_ok} 页；租赁单列表页 selected={[n for s,t,n in sel_zl if s]}")
     if problems:
         print(f"\n发现 {len(problems)} 个问题:")

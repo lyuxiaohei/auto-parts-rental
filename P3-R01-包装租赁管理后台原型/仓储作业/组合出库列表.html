@@ -276,7 +276,7 @@ th.td-num { text-align:right; }
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></span>销售管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
    <li><div class="sm-link" onclick="go('../销售管理/销售订单列表.html')">销售订单</div></li>
-   <li><div class="sm-link" onclick="go('../包装管理/租赁单列表.html')">租赁单</div></li>
+   <li><div class="sm-link" onclick="go('../销售管理/租赁单列表.html')">租赁单</div></li>
    </ul>
    </li>
    <li class="sm-item has-sub open">
@@ -304,9 +304,9 @@ th.td-num { text-align:right; }
    <li class="sm-item has-sub">
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8V21H3V8"/><rect x="1" y="3" width="22" height="5" rx="1"/><line x1="10" y1="12" x2="14" y2="12"/></svg></span>包装管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
-   <li><div class="sm-link" onclick="go('../包装管理/退租申请列表.html')">退租申请</div></li>
-   <li><div class="sm-link" onclick="go('../包装管理/在租台账.html')">在租台账</div></li>
-   <li><div class="sm-link" onclick="go('../包装管理/丢损赔偿单.html')">丢损赔偿单</div></li>
+   <li><div class="sm-link" onclick="go('../租赁管理/退租申请列表.html')">退租申请</div></li>
+   <li><div class="sm-link" onclick="go('../租赁管理/在租台账.html')">在租台账</div></li>
+   <li><div class="sm-link" onclick="go('../租赁管理/丢损赔偿单.html')">丢损赔偿单</div></li>
    </ul>
    </li>
    <li class="sm-item has-sub">
@@ -641,14 +641,14 @@ th.td-num { text-align:right; }
     </div>
     <div class="modal-body">
       <div class="dt-sec">单据信息</div>
-      <div class="dgrid c3"><div class="drow"><div class="dlabel">出库单号</div><div class="dval">CK-20260830-015</div></div><div class="drow"><div class="dlabel">状态</div><div class="dval"><span class="tag tag-green">已出库</span></div></div><div class="drow"><div class="dlabel">关联租赁单</div><div class="dval"><span class="lk" onclick="go('../包装管理/租赁单列表.html')">ZL-20260610-015</span></div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">关联销售订单</div><div class="dval"><span class="lk" onclick="go('../销售管理/销售订单列表.html')">SO-20260830-0041</span>（双关联）</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">客户</div><div class="dval">一汽解放汽车有限公司</div></div><div class="drow"><div class="dlabel">所属项目</div><div class="dval">PRJ-2601</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">出库内容</div><div class="dval">ZH-2601-A × 180 套</div></div><div class="drow"><div class="dlabel">出库库区</div><div class="dval">成品区 RB</div></div><div class="drow"><div class="dlabel">送达地点</div><div class="dval">长春基地一号门</div></div><div class="drow"><div class="dlabel">制单人</div><div class="dval">张伟</div></div><div class="drow"><div class="dlabel">出库时间</div><div class="dval">2026-08-30 17:20</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">出库方式</div><div class="dval">一箱一件 · 逐件核对（扫码口预留）</div></div></div>
+      <div class="dgrid c3"><div class="drow"><div class="dlabel">出库单号</div><div class="dval">CK-20260830-015</div></div><div class="drow"><div class="dlabel">状态</div><div class="dval"><span class="tag tag-green">已出库</span></div></div><div class="drow"><div class="dlabel">关联租赁单</div><div class="dval"><span class="lk" onclick="go('../销售管理/租赁单列表.html')">ZL-20260610-015</span></div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">关联销售订单</div><div class="dval"><span class="lk" onclick="go('../销售管理/销售订单列表.html')">SO-20260830-0041</span>（双关联）</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">客户</div><div class="dval">一汽解放汽车有限公司</div></div><div class="drow"><div class="dlabel">所属项目</div><div class="dval">PRJ-2601</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">出库内容</div><div class="dval">ZH-2601-A × 180 套</div></div><div class="drow"><div class="dlabel">出库库区</div><div class="dval">成品区 RB</div></div><div class="drow"><div class="dlabel">送达地点</div><div class="dval">长春基地一号门</div></div><div class="drow"><div class="dlabel">制单人</div><div class="dval">张伟</div></div><div class="drow"><div class="dlabel">出库时间</div><div class="dval">2026-08-30 17:20</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">出库方式</div><div class="dval">一箱一件 · 逐件核对（扫码口预留）</div></div></div>
       <div class="dt-sec">器具 / 组合件清单</div>
       <div class="table-wrap"><table><thead><tr><th>序号</th><th>组合件编码</th><th>名称</th><th>单位</th><th class="td-num">数量</th><th>库位</th></tr></thead>
 <tbody>
 <tr><td>1</td><td>ZH-2601-A</td><td>驾驶室围板箱整箱套件</td><td>套</td><td class="td-num">180</td><td>RB-A-01-01</td></tr>
 </tbody></table></div>
       <div class="dt-sec">关联单据</div>
-      <div class="chain"><div class="node"><div class="n-role">租赁单</div><div class="n-name"><span class="lk" onclick="go('../包装管理/租赁单列表.html')">ZL-20260610-015</span></div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">销售订单（双关联）</div><div class="n-name"><span class="lk" onclick="go('../销售管理/销售订单列表.html')">SO-20260830-0041</span></div></div><span class="link-arrow">→</span><div class="node" style="border-color:#1677ff;background:#e6f4ff;"><div class="n-role">组合出库（本单）</div><div class="n-name">CK-20260830-015</div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">在租台账 / 应收</div><div class="n-name"><span class="lk" onclick="go('../包装管理/在租台账.html')">客户占用起租 · 租赁费应收</span></div></div></div>
+      <div class="chain"><div class="node"><div class="n-role">租赁单</div><div class="n-name"><span class="lk" onclick="go('../销售管理/租赁单列表.html')">ZL-20260610-015</span></div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">销售订单（双关联）</div><div class="n-name"><span class="lk" onclick="go('../销售管理/销售订单列表.html')">SO-20260830-0041</span></div></div><span class="link-arrow">→</span><div class="node" style="border-color:#1677ff;background:#e6f4ff;"><div class="n-role">组合出库（本单）</div><div class="n-name">CK-20260830-015</div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">在租台账 / 应收</div><div class="n-name"><span class="lk" onclick="go('../租赁管理/在租台账.html')">客户占用起租 · 租赁费应收</span></div></div></div>
       <div class="dt-sec">流转时间线</div>
       <div class="tl"><div class="tl-i"><span class="tl-t">08-30 14:00</span>拣货备货 · 成品区 RB（180 套）<span class="tl-who">张伟</span></div><div class="tl-i"><span class="tl-t">08-30 16:30</span>装车发运 · 长春基地一号门<span class="tl-who">张伟</span></div><div class="tl-i"><span class="tl-t">08-30 17:20</span>客户签收 · 出库确认<span class="tl-who">张伟</span></div></div>
     </div>
@@ -719,6 +719,9 @@ document.querySelectorAll('.tab').forEach(function (t) {
   }, true);
 })();
 </script>
+
+
+
 <style id="proto-notes-style">
 body.proto-notes-on [data-note]{position:relative}
 body.proto-notes-on [data-note]::after{content:attr(data-note);position:absolute;top:1px;right:1px;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600;box-shadow:0 0 0 1.5px #fff;cursor:pointer;opacity:.75;transition:opacity .15s}

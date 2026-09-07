@@ -1,0 +1,250 @@
+{
+ "pages_scanned": 125,
+ "备份基线": {
+  "专项": 75,
+  "形态1_含形态2内嵌": 243,
+  "形态2": 19,
+  "形态3": 10
+ },
+ "实际替换": {
+  "专项_包装管理租赁单列表→销售管理租赁单列表": {
+   "count": 75,
+   "files": 55
+  },
+  "形态1_../包装管理→../租赁管理": {
+   "count": 175,
+   "files": 50,
+   "note": "改前基线 243，其中 68 处被专项先行消耗（243-175=68，含 ../../ 前缀的租赁单引用）；形态2 的 19 处内嵌于形态1 尾段随其同步完成"
+  },
+  "形态3_href包装管理→href租赁管理": {
+   "count": 6,
+   "files": 1,
+   "note": "改前基线 10，其中 4 处（F01 泳道 L1-L4 租赁单节点）被专项先行消耗",
+   "per_file": {
+    "P3-R01-F01-业务流程导航图.html": 6
+   }
+  }
+ },
+ "残留包装管理字样": [
+  {
+   "page": "P3-R01-F01-业务流程导航图.html",
+   "ctx": "的零部件\"'],␤    ['落实计划 · 拍板 A1','\"第一期统一纳入循环包装管理，不严格区分权属，档案可标记来源\"'],␤    ['决策升级 · 2026-09-04 道"
+  },
+  {
+   "page": "仓储作业/其他入库列表.html",
+   "ctx": "\" y1=\"12\" x2=\"14\" y2=\"12\"/></svg></span>包装管理<span class=\"sm-arrow\"><svg width=\"12\" height="
+  },
+  {
+   "page": "仓储作业/其他出库列表.html",
+   "ctx": "\" y1=\"12\" x2=\"14\" y2=\"12\"/></svg></span>包装管理<span class=\"sm-arrow\"><svg width=\"12\" height="
+  },
+  {
+   "page": "仓储作业/库存查询.html",
+   "ctx": "\" y1=\"12\" x2=\"14\" y2=\"12\"/></svg></span>包装管理<span class=\"sm-arrow\"><svg width=\"12\" height="
+  },
+  {
+   "page": "仓储作业/库存调拨列表.html",
+   "ctx": "\" y1=\"12\" x2=\"14\" y2=\"12\"/></svg></span>包装管理<span class=\"sm-arrow\"><svg width=\"12\" height="
+  },
+  {
+   "page": "仓储作业/拆卸管理列表.html",
+   "ctx": "\" y1=\"12\" x2=\"14\" y2=\"12\"/></svg></span>包装管理<span class=\"sm-arrow\"><svg width=\"12\" height="
+  },
+  {
+   "page": "仓储作业/盘点列表.html",
+   "ctx": "\" y1=\"12\" x2=\"14\" y2=\"12\"/></svg></span>包装管理<span class=\"sm-arrow\"><svg width=\"12\" height="
+  },
+  {
+   "page": "仓储作业/盘点录入.html",
+   "ctx": "\" y1=\"12\" x2=\"14\" y2=\"12\"/></svg></span>包装管理<span class=\"sm-arrow\"><svg width=\"12\" height="
+  },
+  {
+   "page": "仓储作业/租入入库列表.html",
+   "ctx": "\" y1=\"12\" x2=\"14\" y2=\"12\"/></svg></span>包装管理<span class=\"sm-arrow\"><svg width=\"12\" height="
+  },
+  {
+   "page": "仓储作业/租入归还列表.html",
+   "ctx": "\" y1=\"12\" x2=\"14\" y2=\"12\"/></svg></span>包装管理<span class=\"sm-arrow\"><svg width=\"12\" height="
+  },
+  {
+   "page": "仓储作业/组合出库列表.html",
+   "ctx": "\" y1=\"12\" x2=\"14\" y2=\"12\"/></svg></span>包装管理<span class=\"sm-arrow\"><svg width=\"12\" height="
+  },
+  {
+   "page": "仓储作业/组合出库录单.html",
+   "ctx": "\" y1=\"12\" x2=\"14\" y2=\"12\"/></svg></span>包装管理<span class=\"sm-arrow\"><svg width=\"12\" height="
+  },
+  {
+   "page": "仓储作业/组装列表.html",
+   "ctx": "\" y1=\"12\" x2=\"14\" y2=\"12\"/></svg></span>包装管理<span class=\"sm-arrow\"><svg width=\"12\" height="
+  },
+  {
+   "page": "仓储作业/组装录单.html",
+   "ctx": "\" y1=\"12\" x2=\"14\" y2=\"12\"/></svg></span>包装管理<span class=\"sm-arrow\"><svg width=\"12\" height="
+  },
+  {
+   "page": "仓储作业/退租入库列表.html",
+   "ctx": "\" y1=\"12\" x2=\"14\" y2=\"12\"/></svg></span>包装管理<span class=\"sm-arrow\"><svg width=\"12\" height="
+  },
+  {
+   "page": "仓储作业/退租入库列表.html",
+   "ctx": "=\"pn-hint\" style=\"padding:0 4px;\">退租入库单由包装管理模块的「退租申请」审核通过后自动生成，按 BOM 配方将组合单元拆回散件入库；本页面不支持手"
+  },
+  {
+   "page": "仓储作业/采购入库列表.html",
+   "ctx": "\" y1=\"12\" x2=\"14\" y2=\"12\"/></svg></span>包装管理<span class=\"sm-arrow\"><svg width=\"12\" height="
+  },
+  {
+   "page": "仓储作业/采购入库录单.html",
+   "ctx": "\" y1=\"12\" x2=\"14\" y2=\"12\"/></svg></span>包装管理<span class=\"sm-arrow\"><svg width=\"12\" height="
+  },
+  {
+   "page": "仓储作业/销售出库列表.html",
+   "ctx": "\" y1=\"12\" x2=\"14\" y2=\"12\"/></svg></span>包装管理<span class=\"sm-arrow\"><svg width=\"12\" height="
+  },
+  {
+   "page": "基础数据/BOM.html",
+   "ctx": "\" y1=\"12\" x2=\"14\" y2=\"12\"/></svg></span>包装管理<span class=\"sm-arrow\"><svg width=\"12\" height="
+  },
+  {
+   "page": "基础数据/BOM维护.html",
+   "ctx": "\" y1=\"12\" x2=\"14\" y2=\"12\"/></svg></span>包装管理<span class=\"sm-arrow\"><svg width=\"12\" height="
+  },
+  {
+   "page": "基础数据/器具档案.html",
+   "ctx": "\" y1=\"12\" x2=\"14\" y2=\"12\"/></svg></span>包装管理<span class=\"sm-arrow\"><svg width=\"12\" height="
+  },
+  {
+   "page": "基础数据/客商管理.html",
+   "ctx": "\" y1=\"12\" x2=\"14\" y2=\"12\"/></svg></span>包装管理<span class=\"sm-arrow\"><svg width=\"12\" height="
+  },
+  {
+   "page": "基础数据/库位档案.html",
+   "ctx": "\" y1=\"12\" x2=\"14\" y2=\"12\"/></svg></span>包装管理<span class=\"sm-arrow\"><svg width=\"12\" height="
+  },
+  {
+   "page": "基础数据/零部件档案.html",
+   "ctx": "\" y1=\"12\" x2=\"14\" y2=\"12\"/></svg></span>包装管理<span class=\"sm-arrow\"><svg width=\"12\" height="
+  },
+  {
+   "page": "租赁管理/丢损赔偿单.html",
+   "ctx": "\" y1=\"12\" x2=\"14\" y2=\"12\"/></svg></span>包装管理<span class=\"sm-arrow\"><svg width=\"12\" height="
+  },
+  {
+   "page": "租赁管理/在租台账.html",
+   "ctx": "\" y1=\"12\" x2=\"14\" y2=\"12\"/></svg></span>包装管理<span class=\"sm-arrow\"><svg width=\"12\" height="
+  },
+  {
+   "page": "租赁管理/弹窗/丢损赔偿单详情.html",
+   "ctx": "赔偿单详情（详情落地页补齐 2026-09-04） -->␤<!-- 注入标记：包装管理/丢损赔偿单.html -->␤<!-- 详情弹窗（四段式：单据头/明细/关联单据互溯链/流"
+  },
+  {
+   "page": "租赁管理/弹窗/丢损赔偿审核.html",
+   "ctx": "!-- 弹窗模板：审核确认（auditModal） -->␤<!-- 注入标记：包装管理/丢损赔偿单.html -->␤<div class=\"modal-overlay\" id="
+  },
+  {
+   "page": "租赁管理/弹窗/器具出租履历.html",
+   "ctx": "具出租履历（详情落地页补齐 2026-09-04） -->␤<!-- 注入标记：包装管理/租出台账.html -->␤<!-- 详情弹窗（四段式：单据头/明细/关联单据互溯链/流转"
+  },
+  {
+   "page": "租赁管理/弹窗/报废确认.html",
+   "ctx": "：报废确认（详情落地页补齐 2026-09-04） -->␤<!-- 注入标记：包装管理/在租台账.html -->␤<!-- 操作确认弹窗 · 详情落地页补齐 2026-09-0"
+  },
+  {
+   "page": "租赁管理/弹窗/退租申请审核.html",
+   "ctx": "!-- 弹窗模板：审核确认（auditModal） -->␤<!-- 注入标记：包装管理/退租申请列表.html -->␤<div class=\"modal-overlay\" id"
+  },
+  {
+   "page": "租赁管理/弹窗/退租申请新建.html",
+   "ctx": " 弹窗模板：新建退租申请（createModal） -->␤<!-- 注入标记：包装管理/退租申请列表.html -->␤<div class=\"modal-overlay\" id"
+  },
+  {
+   "page": "租赁管理/弹窗/退租申请详情.html",
+   "ctx": "租申请详情（详情落地页补齐 2026-09-04） -->␤<!-- 注入标记：包装管理/退租申请列表.html -->␤<!-- 详情弹窗（四段式：单据头/明细/关联单据互溯链/"
+  },
+  {
+   "page": "租赁管理/租出台账.html",
+   "ctx": "\" y1=\"12\" x2=\"14\" y2=\"12\"/></svg></span>包装管理<span class=\"sm-arrow\"><svg width=\"12\" height="
+  },
+  {
+   "page": "租赁管理/退租申请列表.html",
+   "ctx": "\" y1=\"12\" x2=\"14\" y2=\"12\"/></svg></span>包装管理<span class=\"sm-arrow\"><svg width=\"12\" height="
+  },
+  {
+   "page": "系统管理/操作日志.html",
+   "ctx": "\" y1=\"12\" x2=\"14\" y2=\"12\"/></svg></span>包装管理<span class=\"sm-arrow\"><svg width=\"12\" height="
+  },
+  {
+   "page": "系统管理/操作日志.html",
+   "ctx": "资料</option><option>仓储作业</option><option>包装管理</option><option>财务应收</option></select>␤      "
+  },
+  {
+   "page": "系统管理/数据字典.html",
+   "ctx": "\" y1=\"12\" x2=\"14\" y2=\"12\"/></svg></span>包装管理<span class=\"sm-arrow\"><svg width=\"12\" height="
+  },
+  {
+   "page": "系统管理/用户权限.html",
+   "ctx": "\" y1=\"12\" x2=\"14\" y2=\"12\"/></svg></span>包装管理<span class=\"sm-arrow\"><svg width=\"12\" height="
+  },
+  {
+   "page": "财务协同/付款登记.html",
+   "ctx": "\" y1=\"12\" x2=\"14\" y2=\"12\"/></svg></span>包装管理<span class=\"sm-arrow\"><svg width=\"12\" height="
+  },
+  {
+   "page": "财务协同/回款登记.html",
+   "ctx": "\" y1=\"12\" x2=\"14\" y2=\"12\"/></svg></span>包装管理<span class=\"sm-arrow\"><svg width=\"12\" height="
+  },
+  {
+   "page": "财务协同/应付账单.html",
+   "ctx": "\" y1=\"12\" x2=\"14\" y2=\"12\"/></svg></span>包装管理<span class=\"sm-arrow\"><svg width=\"12\" height="
+  },
+  {
+   "page": "财务协同/应收账单.html",
+   "ctx": "\" y1=\"12\" x2=\"14\" y2=\"12\"/></svg></span>包装管理<span class=\"sm-arrow\"><svg width=\"12\" height="
+  },
+  {
+   "page": "财务协同/开票登记.html",
+   "ctx": "\" y1=\"12\" x2=\"14\" y2=\"12\"/></svg></span>包装管理<span class=\"sm-arrow\"><svg width=\"12\" height="
+  },
+  {
+   "page": "财务协同/盈亏报表.html",
+   "ctx": "\" y1=\"12\" x2=\"14\" y2=\"12\"/></svg></span>包装管理<span class=\"sm-arrow\"><svg width=\"12\" height="
+  },
+  {
+   "page": "财务协同/银行水单核销.html",
+   "ctx": "\" y1=\"12\" x2=\"14\" y2=\"12\"/></svg></span>包装管理<span class=\"sm-arrow\"><svg width=\"12\" height="
+  },
+  {
+   "page": "采购管理/租入单列表.html",
+   "ctx": "\" y1=\"12\" x2=\"14\" y2=\"12\"/></svg></span>包装管理<span class=\"sm-arrow\"><svg width=\"12\" height="
+  },
+  {
+   "page": "采购管理/采购订单列表.html",
+   "ctx": "\" y1=\"12\" x2=\"14\" y2=\"12\"/></svg></span>包装管理<span class=\"sm-arrow\"><svg width=\"12\" height="
+  },
+  {
+   "page": "销售管理/租赁单列表.html",
+   "ctx": "\" y1=\"12\" x2=\"14\" y2=\"12\"/></svg></span>包装管理<span class=\"sm-arrow\"><svg width=\"12\" height="
+  },
+  {
+   "page": "销售管理/销售订单列表.html",
+   "ctx": "\" y1=\"12\" x2=\"14\" y2=\"12\"/></svg></span>包装管理<span class=\"sm-arrow\"><svg width=\"12\" height="
+  },
+  {
+   "page": "项目管理/项目档案.html",
+   "ctx": "\" y1=\"12\" x2=\"14\" y2=\"12\"/></svg></span>包装管理<span class=\"sm-arrow\"><svg width=\"12\" height="
+  },
+  {
+   "page": "项目管理/项目详情.html",
+   "ctx": "\" y1=\"12\" x2=\"14\" y2=\"12\"/></svg></span>包装管理<span class=\"sm-arrow\"><svg width=\"12\" height="
+  },
+  {
+   "page": "首页/我的待办.html",
+   "ctx": "\" y1=\"12\" x2=\"14\" y2=\"12\"/></svg></span>包装管理<span class=\"sm-arrow\"><svg width=\"12\" height="
+  },
+  {
+   "page": "首页/项目看板.html",
+   "ctx": "\" y1=\"12\" x2=\"14\" y2=\"12\"/></svg></span>包装管理<span class=\"sm-arrow\"><svg width=\"12\" height="
+  }
+ ]
+}

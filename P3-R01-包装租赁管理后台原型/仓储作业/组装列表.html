@@ -275,7 +275,7 @@ th.td-num { text-align:right; }
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></span>销售管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
    <li><div class="sm-link" onclick="go('../销售管理/销售订单列表.html')">销售订单</div></li>
-   <li><div class="sm-link" onclick="go('../包装管理/租赁单列表.html')">租赁单</div></li>
+   <li><div class="sm-link" onclick="go('../销售管理/租赁单列表.html')">租赁单</div></li>
    </ul>
    </li>
    <li class="sm-item has-sub open">
@@ -303,9 +303,9 @@ th.td-num { text-align:right; }
    <li class="sm-item has-sub">
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8V21H3V8"/><rect x="1" y="3" width="22" height="5" rx="1"/><line x1="10" y1="12" x2="14" y2="12"/></svg></span>包装管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
-   <li><div class="sm-link" onclick="go('../包装管理/退租申请列表.html')">退租申请</div></li>
-   <li><div class="sm-link" onclick="go('../包装管理/在租台账.html')">在租台账</div></li>
-   <li><div class="sm-link" onclick="go('../包装管理/丢损赔偿单.html')">丢损赔偿单</div></li>
+   <li><div class="sm-link" onclick="go('../租赁管理/退租申请列表.html')">退租申请</div></li>
+   <li><div class="sm-link" onclick="go('../租赁管理/在租台账.html')">在租台账</div></li>
+   <li><div class="sm-link" onclick="go('../租赁管理/丢损赔偿单.html')">丢损赔偿单</div></li>
    </ul>
    </li>
    <li class="sm-item has-sub">
@@ -653,7 +653,7 @@ document.addEventListener('click',function(e){
 <tr><td>产出</td><td>ZH-2604-D 混合组合套件</td><td>混合配方</td><td>套</td><td class="td-num">40</td><td>组合件入库 · 成品区 RB</td></tr>
 </tbody></table></div>
       <div class="dt-sec">关联单据</div>
-      <div class="chain"><div class="node"><div class="n-role">自购侧入库</div><div class="n-name"><span class="lk" onclick="go('../仓储作业/采购入库列表.html')">CGRK-20260820-006 · 隔板×80</span></div></div><div class="node"><div class="n-role">租入侧</div><div class="n-name"><span class="lk" onclick="go('../采购管理/租入单列表.html')">RZD-20260815-005 · 大箱×10</span></div></div><span class="link-arrow">→</span><div class="node" style="border-color:#1677ff;background:#e6f4ff;"><div class="n-role">组装（本单）</div><div class="n-name">ZZ-20260822-006</div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">租赁单</div><div class="n-name"><span class="lk" onclick="go('../包装管理/租赁单列表.html')">ZL-20260823-033</span></div></div></div>
+      <div class="chain"><div class="node"><div class="n-role">自购侧入库</div><div class="n-name"><span class="lk" onclick="go('../仓储作业/采购入库列表.html')">CGRK-20260820-006 · 隔板×80</span></div></div><div class="node"><div class="n-role">租入侧</div><div class="n-name"><span class="lk" onclick="go('../采购管理/租入单列表.html')">RZD-20260815-005 · 大箱×10</span></div></div><span class="link-arrow">→</span><div class="node" style="border-color:#1677ff;background:#e6f4ff;"><div class="n-role">组装（本单）</div><div class="n-name">ZZ-20260822-006</div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">租赁单</div><div class="n-name"><span class="lk" onclick="go('../销售管理/租赁单列表.html')">ZL-20260823-033</span></div></div></div>
       <div class="dt-sec">流转时间线</div>
       <div class="tl"><div class="tl-i"><span class="tl-t">08-20 14:30</span>自购隔板入库 CGRK-20260820-006<span class="tl-who">张伟</span></div><div class="tl-i"><span class="tl-t">08-16</span>租入大箱入库 RZRK-20260816-022<span class="tl-who">李国栋</span></div><div class="tl-i"><span class="tl-t">08-22 09:00</span>组装开始 · 按混合配方投料<span class="tl-who">刘志强</span></div><div class="tl-i"><span class="tl-t">08-22 15:40</span>组装完成 40/40 · 散件库存转母件<span class="tl-who">刘志强</span></div></div>
     </div>
@@ -717,6 +717,9 @@ document.querySelectorAll('.tab').forEach(function (t) {
   }, true);
 })();
 </script>
+
+
+
 <style id="proto-notes-style">
 body.proto-notes-on [data-note]{position:relative}
 body.proto-notes-on [data-note]::after{content:attr(data-note);position:absolute;top:1px;right:1px;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600;box-shadow:0 0 0 1.5px #fff;cursor:pointer;opacity:.75;transition:opacity .15s}

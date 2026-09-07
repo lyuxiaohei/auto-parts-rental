@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>版本 × 业务能力 · 样式 C（时间轴泳道）</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{ --paper:#fff; --ink:#111827; --muted:#4f5d75; --soft:#7a8399; --rule:rgba(17,24,39,.12);
+         --accent:#2563eb;
+         --v10:#2f66a8; --v10bg:#DDEBF7; --v11:#4a7c3f; --v11bg:#E2EFDA; --v20:#b3652f; --v20bg:#FCE4D6; }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--paper);font-family:'Geist','Microsoft YaHei',sans-serif;color:var(--ink)}
+  .wrap{max-width:1320px;margin:0 auto;padding:44px 28px 28px}
+  .eyebrow{font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--soft);text-transform:uppercase;margin-bottom:10px}
+  h1{font-family:'Instrument Serif','Microsoft YaHei',serif;font-weight:400;font-size:30px}
+  .sub{color:var(--muted);font-size:13.5px;margin-top:6px}
+  svg{display:block;width:100%;height:auto;margin-top:22px}
+  .foot{margin-top:16px;border-top:1px solid var(--rule);padding-top:10px;font-family:'Geist Mono',monospace;
+        font-size:10px;color:var(--soft);letter-spacing:.06em;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="eyebrow">P1-R03-F01 · Style C — Timeline Lanes</p>
+  <h1>版本 × 业务能力泳道图</h1>
+  <p class="sub">每条能力带自上线日起持续有效（累积不失效）· 上线旗标 = 客户可感知的交付节点</p>
+
+  <svg viewBox="0 0 1280 620" xmlns="http://www.w3.org/2000/svg">
+    <!-- ===== 月份网格（时间诚实：09-07 起，每列一个月）===== -->
+    <g>
+      <rect x="90" y="60" width="280" height="440" fill="rgba(17,24,39,.015)"/>
+      <rect x="650" y="60" width="280" height="440" fill="rgba(17,24,39,.015)"/>
+      <g stroke="rgba(17,24,39,.10)" stroke-width="1">
+        <line x1="90" y1="60" x2="90" y2="500"/><line x1="370" y1="60" x2="370" y2="500"/>
+        <line x1="650" y1="60" x2="650" y2="500"/><line x1="930" y1="60" x2="930" y2="500"/>
+        <line x1="1190" y1="60" x2="1190" y2="500"/>
+      </g>
+      <g font-family="'Geist Mono',monospace" font-size="10" fill="var(--soft)" letter-spacing=".12em">
+        <text x="96" y="52">2026-09</text><text x="376" y="52">2026-10</text>
+        <text x="656" y="52">2026-11</text><text x="936" y="52">2026-12</text>
+      </g>
+      <text x="440" y="52" font-size="8.5" fill="rgba(79,93,117,.6)" font-family="'Geist Mono',monospace">国庆 -7d</text>
+    </g>
+
+    <!-- ===== 泳道 1：V1.0 买卖（上线 10-16 ≈ x=436）===== -->
+    <g>
+      <rect x="436" y="86" width="754" height="88" rx="4" fill="var(--v10bg)" stroke="var(--v10)" stroke-width="1"/>
+      <!-- 上线旗标 -->
+      <line x1="436" y1="70" x2="436" y2="500" stroke="var(--v10)" stroke-width="1.2" stroke-dasharray="4,3"/>
+      <path d="M 436 74 L 470 82 L 436 90 Z" fill="var(--v10)"/>
+      <text x="478" y="85" font-size="10" font-weight="600" fill="var(--v10)" font-family="'Geist','Microsoft YaHei',sans-serif">V1.0 买卖版 · 10-16 上线 · 17 页</text>
+      <text x="452" y="120" font-size="11.5" font-weight="600" fill="var(--ink)" font-family="'Microsoft YaHei',sans-serif">零部件买卖业务先线上化</text>
+      <g font-family="'Microsoft YaHei',sans-serif" font-size="9.5" fill="#1f2d3d">
+        <text x="452" y="142">买卖全链（采购→入库→销售→出库）· 库存实时准 · 应收账单+收款登记 · 权限分级</text>
+        <text x="452" y="160" fill="var(--muted)">告别吉客云手工开单</text>
+      </g>
+    </g>
+
+    <!-- ===== 泳道 2：V1.1 租赁（上线 11-17 ≈ x=716）===== -->
+    <g>
+      <rect x="716" y="190" width="474" height="104" rx="4" fill="var(--v11bg)" stroke="var(--v11)" stroke-width="1"/>
+      <line x1="716" y1="70" x2="716" y2="500" stroke="var(--v11)" stroke-width="1.2" stroke-dasharray="4,3"/>
+      <path d="M 716 74 L 750 82 L 716 90 Z" fill="var(--v11)"/>
+      <text x="758" y="85" font-size="10" font-weight="600" fill="var(--v11)" font-family="'Geist','Microsoft YaHei',sans-serif">V1.1 租赁版 · 11-17 上线 · +20 → 累计 37 页</text>
+      <text x="732" y="224" font-size="11.5" font-weight="600" fill="var(--ink)" font-family="'Microsoft YaHei',sans-serif">租赁循环闭环，替换路凯下单面</text>
+      <g font-family="'Microsoft YaHei',sans-serif" font-size="9.5" fill="#1f2d3d">
+        <text x="732" y="246">组装→租赁单→退租→散件回库→再出租 · 在租四态台账</text>
+        <text x="732" y="264">丢损赔偿自动转应收 · 应付登记+付款 · 我的待办（18 类）</text>
+        <text x="732" y="282" fill="var(--muted)">盘点 / 看板 / 项目详情同步补齐</text>
+      </g>
+    </g>
+
+    <!-- ===== 泳道 3：V2.0 深化（上线 12-07 ≈ x=940）===== -->
+    <g>
+      <rect x="940" y="310" width="250" height="104" rx="4" fill="var(--v20bg)" stroke="var(--v20)" stroke-width="1"/>
+      <line x1="940" y1="70" x2="940" y2="500" stroke="var(--v20)" stroke-width="1.2" stroke-dasharray="4,3"/>
+      <path d="M 940 74 L 974 82 L 940 90 Z" fill="var(--v20)"/>
+      <text x="982" y="85" font-size="10" font-weight="600" fill="var(--v20)" font-family="'Geist','Microsoft YaHei',sans-serif">V2.0 · 12-07 · 45 页全量</text>
+      <text x="956" y="344" font-size="11.5" font-weight="600" fill="var(--ink)" font-family="'Microsoft YaHei',sans-serif">两套旧系统全面停用</text>
+      <g font-family="'Microsoft YaHei',sans-serif" font-size="9.5" fill="#1f2d3d">
+        <text x="956" y="366">租入转租全链（L3/L4）</text>
+        <text x="956" y="384">路凯协同 · 开票 · 水单核销</text>
+        <text x="956" y="402">项目盈亏一目了然</text>
+      </g>
+    </g>
+
+    <!-- ===== 阶段前置注记（左侧开发进行区，非能力带）===== -->
+    <g font-family="'Microsoft YaHei',sans-serif" font-size="9" fill="var(--soft)">
+      <rect x="96" y="86" width="332" height="14" fill="none"/>
+      <text x="96" y="120">┈ 开发进行中 ┈</text>
+      <text x="96" y="138">09-07 前置周（PRD 冻结 09-11）</text>
+      <text x="96" y="156">09-10 ~ 09-30 V1.0 开发</text>
+      <text x="96" y="174">10-19 ~ 11-06 V1.1 开发</text>
+      <text x="96" y="192">11-17 ~ 11-23 V2.0 开发</text>
+    </g>
+
+    <!-- ===== 验收收口带（最底部横贯）===== -->
+    <rect x="1010" y="434" width="180" height="34" rx="4" fill="#fff" stroke="var(--accent)" stroke-width="1.4"/>
+    <text x="1022" y="448" font-size="10" font-weight="600" fill="var(--accent)" font-family="'Microsoft YaHei',sans-serif">试运行 2 周 · 12-25 前验收</text>
+    <text x="1022" y="462" font-size="8.5" fill="var(--muted)" font-family="'Microsoft YaHei',sans-serif">富余产能启动 2027 backlog</text>
+
+    <!-- ===== 各版轮次轨道（底部）===== -->
+    <g>
+      <text x="96" y="486" font-size="9" fill="var(--soft)" font-family="'Geist Mono',monospace" letter-spacing=".1em">轮次支撑</text>
+      <g font-family="'Geist Mono',monospace" font-size="8.5">
+        <rect x="380" y="472" width="120" height="20" rx="3" fill="#F2F2F2" stroke="#c8c8c8" stroke-width=".8"/>
+        <text x="440" y="485" text-anchor="middle" fill="var(--muted)">轮1 · 测试迁移</text>
+        <rect x="660" y="472" width="120" height="20" rx="3" fill="#F2F2F2" stroke="#c8c8c8" stroke-width=".8"/>
+        <text x="720" y="485" text-anchor="middle" fill="var(--muted)">轮2 · BOM在租</text>
+        <rect x="884" y="472" width="120" height="20" rx="3" fill="#F2F2F2" stroke="#c8c8c8" stroke-width=".8"/>
+        <text x="944" y="485" text-anchor="middle" fill="var(--muted)">轮3 · 租入部署</text>
+      </g>
+    </g>
+
+    <!-- ===== 时间主轴 ===== -->
+    <line x1="90" y1="500" x2="1190" y2="500" stroke="rgba(17,24,39,.35)" stroke-width="1.2"/>
+    <g font-family="'Geist Mono',monospace" font-size="9" fill="var(--soft)">
+      <line x1="436" y1="494" x2="436" y2="500" stroke="var(--v10)"/><circle cx="436" cy="500" r="4" fill="var(--v10)"/><text x="436" y="520" text-anchor="middle">10-16</text>
+      <line x1="716" y1="494" x2="716" y2="500" stroke="var(--v11)"/><circle cx="716" cy="500" r="4" fill="var(--v11)"/><text x="716" y="520" text-anchor="middle">11-17</text>
+      <line x1="940" y1="494" x2="940" y2="500" stroke="var(--v20)"/><circle cx="940" cy="500" r="4" fill="var(--v20)"/><text x="940" y="520" text-anchor="middle">12-07</text>
+      <line x1="1100" y1="494" x2="1100" y2="500" stroke="var(--accent)"/><circle cx="1100" cy="500" r="3.5" fill="var(--accent)" opacity=".6"/><text x="1100" y="520" text-anchor="middle">12-25 验收</text>
+      <circle cx="90" cy="500" r="3" fill="#8a8a8a"/><text x="90" y="520" text-anchor="middle">09-07</text>
+    </g>
+
+    <!-- ===== Legend ===== -->
+    <line x1="90" y1="548" x2="1190" y2="548" stroke="var(--rule)" stroke-width="0.8"/>
+    <g font-family="'Microsoft YaHei',sans-serif" font-size="9" fill="var(--muted)">
+      <text x="90" y="566" font-family="'Geist Mono',monospace" letter-spacing=".14em" fill="var(--soft)">LEGEND</text>
+      <rect x="160" y="557" width="14" height="10" fill="var(--v10bg)" stroke="var(--v10)" stroke-width=".8"/><text x="180" y="566">能力带（上线后持续有效）</text>
+      <path d="M 320 556 L 348 561 L 320 566 Z" fill="var(--v10)"/><text x="354" y="566">上线旗标（客户可感知节点）</text>
+      <line x1="510" y1="561" x2="534" y2="561" stroke="var(--v11)" stroke-width="1.2" stroke-dasharray="4,3"/><text x="540" y="566">上线日引导线</text>
+      <rect x="620" y="557" width="14" height="10" fill="#F2F2F2" stroke="#c8c8c8" stroke-width=".8"/><text x="640" y="566">测试/迁移轮次（每版一轮）</text>
+    </g>
+  </svg>
+
+  <div class="foot">
+    <span>SOURCE · P1-R03-工期评估表-20260906.xlsx（汇总 · 版本里程碑 / 按月负载区）</span>
+    <span>样式 C · 时间轴泳道 · 2026-09-07</span>
+  </div>
+</div>
+</body>
+</html>

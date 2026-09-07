@@ -276,7 +276,7 @@ th.td-num { text-align:right; }
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></span>销售管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
    <li><div class="sm-link" onclick="go('../销售管理/销售订单列表.html')">销售订单</div></li>
-   <li><div class="sm-link" onclick="go('../包装管理/租赁单列表.html')">租赁单</div></li>
+   <li><div class="sm-link" onclick="go('../销售管理/租赁单列表.html')">租赁单</div></li>
    </ul>
    </li>
    <li class="sm-item has-sub">
@@ -304,9 +304,9 @@ th.td-num { text-align:right; }
    <li class="sm-item has-sub">
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8V21H3V8"/><rect x="1" y="3" width="22" height="5" rx="1"/><line x1="10" y1="12" x2="14" y2="12"/></svg></span>包装管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
-   <li><div class="sm-link" onclick="go('../包装管理/退租申请列表.html')">退租申请</div></li>
-   <li><div class="sm-link" onclick="go('../包装管理/在租台账.html')">在租台账</div></li>
-   <li><div class="sm-link" onclick="go('../包装管理/丢损赔偿单.html')">丢损赔偿单</div></li>
+   <li><div class="sm-link" onclick="go('../租赁管理/退租申请列表.html')">退租申请</div></li>
+   <li><div class="sm-link" onclick="go('../租赁管理/在租台账.html')">在租台账</div></li>
+   <li><div class="sm-link" onclick="go('../租赁管理/丢损赔偿单.html')">丢损赔偿单</div></li>
    </ul>
    </li>
    <li class="sm-item has-sub open">
@@ -796,6 +796,9 @@ document.querySelectorAll('.tab').forEach(function (t) {
   }, true);
 })();
 </script>
+
+
+
 <style id="proto-notes-style">
 body.proto-notes-on [data-note]{position:relative}
 body.proto-notes-on [data-note]::after{content:attr(data-note);position:absolute;top:1px;right:1px;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600;box-shadow:0 0 0 1.5px #fff;cursor:pointer;opacity:.75;transition:opacity .15s}
@@ -819,7 +822,7 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 </style>
 <div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>B1 销售线 · 步骤 3/5 应收账单（销售费）</div><div class="pnp-d">按销售出库自动汇总，关联 XSCK-20260902-015 等 2 单。<br>下一步 → 开票登记 → 回款 → 水单核销。</div></div>
 <div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>L1/L2 · 租赁费应收（财务汇合点）</div><div class="pnp-d">按组合出库自动汇总——租赁线与买卖线在账单层汇合，共用同一条 开票→回款→核销 通道（袁丽晶 43:24）。</div></div>
-<div class="proto-pin" id="proto-pin-3"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">3</span>S5 · 赔偿转应收</div><div class="pnp-d">丢损赔偿按对象直接转单据（2026-09-04 拍板）：<br>自有器具 → 客户赔付进应收；租入器具 → 运营方赔付进应付（见应付账单）。</div></div>
+<div class="proto-pin" id="proto-pin-3"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">3</span>S4 · 赔偿转应收</div><div class="pnp-d">丢损赔偿按对象直接转单据（2026-09-04 拍板）：<br>自有器具 → 客户赔付进应收；租入器具 → 运营方赔付进应付（见应付账单）。</div></div>
 <div class="pn-fab" id="protoNotesFab">标注</div></div>
 <script id="proto-notes-js">
 (function(){

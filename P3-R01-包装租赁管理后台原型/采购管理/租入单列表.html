@@ -277,7 +277,7 @@ th.td-num { text-align:right; }
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></span>销售管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
    <li><div class="sm-link" onclick="go('../销售管理/销售订单列表.html')">销售订单</div></li>
-   <li><div class="sm-link" onclick="go('../包装管理/租赁单列表.html')">租赁单</div></li>
+   <li><div class="sm-link" onclick="go('../销售管理/租赁单列表.html')">租赁单</div></li>
    </ul>
    </li>
    <li class="sm-item has-sub">
@@ -305,9 +305,9 @@ th.td-num { text-align:right; }
    <li class="sm-item has-sub">
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8V21H3V8"/><rect x="1" y="3" width="22" height="5" rx="1"/><line x1="10" y1="12" x2="14" y2="12"/></svg></span>包装管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
-   <li><div class="sm-link" onclick="go('../包装管理/退租申请列表.html')">退租申请</div></li>
-   <li><div class="sm-link" onclick="go('../包装管理/在租台账.html')">在租台账</div></li>
-   <li><div class="sm-link" onclick="go('../包装管理/丢损赔偿单.html')">丢损赔偿单</div></li>
+   <li><div class="sm-link" onclick="go('../租赁管理/退租申请列表.html')">退租申请</div></li>
+   <li><div class="sm-link" onclick="go('../租赁管理/在租台账.html')">在租台账</div></li>
+   <li><div class="sm-link" onclick="go('../租赁管理/丢损赔偿单.html')">丢损赔偿单</div></li>
    </ul>
    </li>
    <li class="sm-item has-sub">
@@ -603,7 +603,7 @@ th.td-num { text-align:right; }
 <tr><td>日租金 400 元 × 30 只</td><td>按月生成应付</td><td class="td-num">36,000.00</td><td><span class="lk" onclick="go('../财务协同/应付账单.html')">AP-20260903-009</span></td><td>已生成</td></tr>
 </tbody></table></div>
       <div class="dt-sec">关联单据</div>
-      <div class="chain"><div class="node" style="border-color:#1677ff;background:#e6f4ff;"><div class="n-role">租入单（本单）</div><div class="n-name">RZD-20260815-003</div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">租入入库</div><div class="n-name"><span class="lk" onclick="go('../仓储作业/租入入库列表.html')">RZRK-20260816-021</span></div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">租赁单（转租）</div><div class="n-name"><span class="lk" onclick="go('../包装管理/租赁单列表.html')">ZL-20260816-029</span></div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">租入归还</div><div class="n-name"><span class="lk" onclick="go('../仓储作业/租入归还列表.html')">GHCK-20260903-001</span></div></div></div>
+      <div class="chain"><div class="node" style="border-color:#1677ff;background:#e6f4ff;"><div class="n-role">租入单（本单）</div><div class="n-name">RZD-20260815-003</div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">租入入库</div><div class="n-name"><span class="lk" onclick="go('../仓储作业/租入入库列表.html')">RZRK-20260816-021</span></div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">租赁单（转租）</div><div class="n-name"><span class="lk" onclick="go('../销售管理/租赁单列表.html')">ZL-20260816-029</span></div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">租入归还</div><div class="n-name"><span class="lk" onclick="go('../仓储作业/租入归还列表.html')">GHCK-20260903-001</span></div></div></div>
       <div class="dt-sec">流转时间线</div>
       <div class="tl"><div class="tl-i"><span class="tl-t">08-15</span>签订租入单 · 计租开始<span class="tl-who">王志远</span></div><div class="tl-i"><span class="tl-t">08-16</span>租入入库 · RZRK-20260816-021（30 只）<span class="tl-who">李国栋</span></div><div class="tl-i"><span class="tl-t">08-16</span>转租客户 · ZL-20260816-029<span class="tl-who">王琳</span></div><div class="tl-i"><span class="tl-t">09-03</span>整退归还 · GHCK-20260903-001<span class="tl-who">李国栋</span></div><div class="tl-i"><span class="tl-t">09-03</span>生成租金应付 · AP-20260903-009（36,000 元）<span class="tl-who">系统</span></div></div>
     </div>
@@ -739,6 +739,9 @@ document.querySelectorAll('.tab').forEach(function (t) {
   }, true);
 })();
 </script>
+
+
+
 <style id="proto-notes-style">
 body.proto-notes-on [data-note]{position:relative}
 body.proto-notes-on [data-note]::after{content:attr(data-note);position:absolute;top:1px;right:1px;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600;box-shadow:0 0 0 1.5px #fff;cursor:pointer;opacity:.75;transition:opacity .15s}

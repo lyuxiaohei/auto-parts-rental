@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>菜单重组方案 B · 失败清单与替换计数（2026-09-07 无人值守 /goal）</title>
+<style>
+body{font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;max-width:1080px;margin:24px auto;padding:0 20px;color:#262626;font-size:13px;line-height:1.8}
+h1{font-size:18px;border-bottom:2px solid #722ed1;padding-bottom:8px}
+h2{font-size:15px;margin-top:28px;color:#722ed1}
+table{border-collapse:collapse;width:100%;margin:8px 0}
+th,td{border:1px solid #e5e5e5;padding:6px 10px;text-align:left;vertical-align:top}
+th{background:#f9f0ff;color:#531dab}
+.ok{color:#237804;font-weight:600}.warn{color:#d46b08;font-weight:600}
+code{background:#fafafa;border:1px solid #eee;border-radius:3px;padding:0 4px;font-size:12px}
+</style>
+</head>
+<body>
+<h1>菜单重组方案 B · 执行留档（2026-09-07，道远 /goal 无人值守）</h1>
+<p><b>范围</b>：文件结构跟上演示菜单（09-05 方案 A 菜单排序的收尾）——<code>包装管理/租赁单列表.html</code> 及其新建/审核/详情 3 弹窗 git mv 入 <code>销售管理/</code>；<code>包装管理/</code> 整体改名 <code>租赁管理/</code>；全站引用替换 + A04 重注 + 三份台账同步。改前备份 <code>_scan_tmpdir/backup-menub-20260906/</code>（133 文件按原相对路径）。</p>
+
+<h2>① 失败清单（assert 失败 / 移动目标冲突 / 锚点计数异常 / 跳过项）</h2>
+<table>
+<tr><th style="width:60px">序号</th><th>页面/项目</th><th>原因</th><th>处置</th></tr>
+<tr><td colspan="4" class="ok">✅ 空清单——5 次 git mv 全成功、全部替换计数 assert 命中、A04 重注入 23 页零告警、审计与抽验全过，无任何跳过项。</td></tr>
+</table>
+
+<h2>② 三形态替换计数表（全站 125 页，二进制读-精确替换，计数留存 goal-menub-refs-counts.json）</h2>
+<table>
+<tr><th>形态</th><th>替换规则</th><th>处数</th><th>文件数</th><th>备注</th></tr>
+<tr><td>专项（先执行）</td><td><code>包装管理/租赁单列表.html</code> → <code>销售管理/租赁单列表.html</code></td><td>75</td><td>55</td><td>含 ../ 与 ../../ 与 href= 三前缀；F01 泳道 L1-L4 四租赁单节点、我的待办跳转（含 ?audit=1）、各详情弹窗互溯链、3 个移动弹窗自身的注入标记注释（顺带指向新路径，语义正确）</td></tr>
+<tr><td>形态1</td><td><code>../包装管理/</code> → <code>../租赁管理/</code></td><td>175</td><td>50</td><td>改前基线 243，其中 68 处被专项先行消耗（243−175=68）；同层页面菜单 go()/互溯链/跳转</td></tr>
+<tr><td>形态2</td><td><code>../../包装管理/</code> → <code>../../租赁管理/</code></td><td>19</td><td>10</td><td><b>内嵌于形态1 尾段</b>（<code>../../包装管理/</code> 含子串 <code>../包装管理/</code>），随形态1 替换同步完成；基线取自备份目录实测</td></tr>
+<tr><td>形态3（后执行）</td><td><code>href="包装管理/</code> → <code>href="租赁管理/</code></td><td>6</td><td>1</td><td>仅 F01（SVG 泳道节点）；改前基线 10，其中 4 处（L1-L4 租赁单节点）被专项先行消耗</td></tr>
+<tr><td>附加</td><td>注入标记注释 <code>注入标记：包装管理/</code> → <code>注入标记：租赁管理/</code></td><td>7</td><td>7</td><td>租赁管理/弹窗/ 独立模板头注释内的来源页路径文字（与 A04 pin note 路径文字同口径；范围未列明，按最简合理默认执行并在此注明）</td></tr>
+</table>
+
+<h2>③ 保留不动项（非路径引用，刻意保留）</h2>
+<table>
+<tr><th>项</th><th>数量</th><th>理由</th></tr>
+<tr><td>侧边栏菜单分组名「包装管理」</td><td>~45 页</td><td>UI 文案非路径；方案 B 口径=文件跟菜单，菜单（含分组名）是基准不动</td></tr>
+<tr><td>F01 SRC_DATA 会议引文内文字性「包装管理」</td><td>1 处</td><td>默认决策表明示：与路径无关的引文不动（"第一期统一纳入循环包装管理…"为会议原文）</td></tr>
+<tr><td>退租入库列表 pn-hint「包装管理模块」/ 操作日志模块筛选 option「包装管理」</td><td>各 1 处</td><td>业务叙述/UI 文案，与菜单分组名对齐，随分组名口径保留</td></tr>
+<tr><td>BOM.html 与 BOM维护.html</td><td>2 页</td><td>道远裁定一律不动</td></tr>
+</table>
+
+<h2>④ 默认决策记录（任务书未明列，按最简合理默认执行）</h2>
+<table>
+<tr><th>决策</th><th>内容</th></tr>
+<tr><td>器具出租履历/报废确认 两弹窗随目录改名迁移</td><td>属 包装管理/弹窗/ 既有成员，随整体改名入 租赁管理/弹窗/（任务书"剩…及各自弹窗"未穷举，按整目录改名语义处理）</td></tr>
+<tr><td>A02 对照表路径同步 15 处</td><td>任务四仅列 P1-R05/P1-R01/P3-R04；A02 是页面入口路径台账，失配违背"死链 0"精神，一并精确替换并在其修订记录登记（菜单树小节 09-02 口径维持原状）</td></tr>
+<tr><td>goal_menu_check.py 硬编码路径更新</td><td>复测工具指向旧路径已失效，按新路径维护（工具留档口径）</td></tr>
+<tr><td>同目录引用保持机械替换形态</td><td>销售管理 页面对租赁单的引用经 <code>../销售管理/租赁单列表.html</code> 形态解析正确（先升一级再入目录），浏览器规范化后等价同目录，不做改写</td></tr>
+</table>
+
+<h2>⑤ 验证门结果（全部满足）</h2>
+<table>
+<tr><th>门</th><th>结果</th></tr>
+<tr><td>全量审计 125 页 + compile_report</td><td class="ok">实际问题 0（10 条 readonly 预填豁免，与 09-05 基线一致）/ 死链 0 / JS 错 0；菜单一致（36 项序列全站一致、44 页租赁单菜单项指向新路径、selected 正确）</td></tr>
+<tr><td>Playwright 抽验</td><td class="ok">14/14 PASS：新路径直开 0 JS 错（12 数据行）/ 菜单点租赁单可达+selected / F01 四节点 4/4 / 互溯链反向跳退租申请 / ?audit=1 auto-open=1</td></tr>
+<tr><td>A04 重注入 + ?notes=1 抽验</td><td class="ok">23 页 43 条全命中零告警；抽 3 页（租赁单列表 5 / 退租申请 3 / 在租台账 1）角标便签全渲染</td></tr>
+<tr><td>P3-R04 P0 五条动线复走</td><td class="ok">ZL-20260901-032→审核弹窗 / ZL-20260816-029 L3 行 / 在租台账四态卡 / 退租申请新建弹窗 / 我的待办→租赁单新路径，全部为_new_ 路径</td></tr>
+<tr><td>台账同步</td><td class="ok">P1-R05（头部/最近完成/进度表/已拍板 4 处）、P1-R01（附录 10.2 三行+10.3 ⑬）、P3-R04（更新记录）、A02（路径+修订记录）</td></tr>
+</table>
+
+<h2>⑥ 执行插曲（非失败，留档防再犯）</h2>
+<ul>
+<li>备份脚本首跑两处脚本 bug（源-备份比对前缀不一致 / 幂等标记在断言后才写）：复制本体首跑即完整（133 文件 0 缺失复核通过），修复后仅重跑校验。</li>
+<li>引用替换首跑形态1 期望常数误写改前基线 243（实际后置口径 175 = 243 − 专项先行消耗 68）：替换本体已正确落盘，续跑脚本补齐幂等校验+形态3+终扫。教训：期望常数须区分「改前基线 / 被前序消耗后」两个口径。</li>
+<li>Playwright 门2b 菜单项位于折叠分组内不可见（可见性判定超时）——按审计工具同款做法改 evaluate 编程点击；门2d 互溯链链接文本是单号（TZSQ-…）非"退租申请"，改按 onclick 目标定位。</li>
+</ul>
+<p style="color:#8c8c8c">执行脚本：goal_menub_backup.py / goal_menub_move.py / goal_menub_refs.py / goal_menub_refs2.py / goal_menub_a04.py / goal_menub_verify.py（_scan_tmpdir/ 留档）；A04 注入 log：goal-menub-a04-inject.log；计数：goal-menub-refs-counts.json。</p>
+</body>
+</html>

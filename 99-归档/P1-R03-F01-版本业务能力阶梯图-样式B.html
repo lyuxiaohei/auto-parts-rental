@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>版本阶梯 · 样式 B（极简线框）</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{ --paper:#ffffff; --ink:#111827; --muted:#4f5d75; --soft:#7a8399;
+         --rule:rgba(17,24,39,.12); --accent:#2563eb; }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--paper);font-family:'Geist','Microsoft YaHei',sans-serif;color:var(--ink)}
+  .wrap{max-width:1280px;margin:0 auto;padding:44px 28px 28px}
+  .eyebrow{font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--soft);text-transform:uppercase;margin-bottom:10px}
+  h1{font-family:'Instrument Serif','Microsoft YaHei',serif;font-weight:400;font-size:30px}
+  .sub{color:var(--muted);font-size:13.5px;margin-top:6px}
+  svg{display:block;width:100%;height:auto;margin-top:24px}
+  .foot{margin-top:16px;border-top:1px solid var(--rule);padding-top:10px;font-family:'Geist Mono',monospace;
+        font-size:10px;color:var(--soft);letter-spacing:.06em;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="eyebrow">P1-R03-F01 · Style B — Minimal Editorial</p>
+  <h1>版本 × 业务能力阶梯图</h1>
+  <p class="sub">买卖先行 · 三级递进 · 2026 年内全量交付 —— 台阶以下能力全部保留</p>
+
+  <svg viewBox="0 0 1280 640" xmlns="http://www.w3.org/2000/svg">
+    <!-- 阶梯顶缘线（accent 唯一焦点用法：贯穿的蓝色阶梯线） -->
+    <path d="M 120 400 L 320 400 L 320 316 L 560 316 L 560 232 L 800 232 L 800 160 L 1140 160"
+          fill="none" stroke="var(--accent)" stroke-width="2.4"/>
+
+    <!-- 台阶块：白底细线框（无填充），顶部与蓝线相接 -->
+    <g stroke="var(--ink)" stroke-width="1" fill="#ffffff">
+      <rect x="320" y="400" width="240" height="130"/>
+      <rect x="560" y="316" width="240" height="214"/>
+      <rect x="800" y="232" width="240" height="298"/>
+    </g>
+    <!-- 前置小柱 -->
+    <rect x="120" y="400" width="200" height="130" fill="rgba(17,24,39,.03)" stroke="rgba(17,24,39,.35)" stroke-width="1"/>
+
+    <!-- 前置 -->
+    <text x="136" y="426" font-size="13" font-weight="600" fill="var(--muted)" font-family="'Geist','Microsoft YaHei',sans-serif">前置</text>
+    <text x="136" y="444" font-size="9" fill="var(--soft)" font-family="'Geist Mono',monospace">09-07 ~ 09-11</text>
+    <text x="136" y="466" font-size="10" fill="var(--muted)" font-family="'Microsoft YaHei',sans-serif">需求走查 · PRD 冻结</text>
+    <text x="136" y="484" font-size="10" fill="var(--muted)" font-family="'Microsoft YaHei',sans-serif">芋道底座 + 编码规范</text>
+
+    <!-- V1.0 -->
+    <text x="336" y="426" font-size="14" font-weight="600" fill="var(--ink)" font-family="'Geist','Microsoft YaHei',sans-serif">V1.0 买卖版</text>
+    <text x="336" y="442" font-size="9" fill="var(--soft)" font-family="'Geist Mono',monospace">10-16 · 17 PAGES</text>
+    <text x="336" y="464" font-family="'Instrument Serif','Microsoft YaHei',serif" font-style="italic" font-size="12" fill="var(--accent)">零部件买卖业务先线上化</text>
+    <g font-family="'Microsoft YaHei',sans-serif" font-size="10" fill="var(--muted)">
+      <text x="336" y="486">买卖全链系统内跑，告别吉客云开单</text>
+      <text x="336" y="504">库存实时准 · 应收账单 + 收款登记</text>
+    </g>
+
+    <!-- V1.1 -->
+    <text x="576" y="342" font-size="14" font-weight="600" fill="var(--ink)" font-family="'Geist','Microsoft YaHei',sans-serif">V1.1 租赁版</text>
+    <text x="576" y="358" font-size="9" fill="var(--soft)" font-family="'Geist Mono',monospace">11-17 · +20 → 37 PAGES</text>
+    <text x="576" y="380" font-family="'Instrument Serif','Microsoft YaHei',serif" font-style="italic" font-size="12" fill="var(--accent)">租赁循环闭环，替换路凯下单面</text>
+    <g font-family="'Microsoft YaHei',sans-serif" font-size="10" fill="var(--muted)">
+      <text x="576" y="402">组装 → 租赁单 → 退租 → 散件回库 → 再出租</text>
+      <text x="576" y="420">在租四态台账 · 丢损赔偿转应收</text>
+      <text x="576" y="438">应付登记 + 付款 · 我的待办一屏处理</text>
+    </g>
+
+    <!-- V2.0 -->
+    <text x="816" y="258" font-size="14" font-weight="600" fill="var(--ink)" font-family="'Geist','Microsoft YaHei',sans-serif">V2.0 深化版</text>
+    <text x="816" y="274" font-size="9" fill="var(--soft)" font-family="'Geist Mono',monospace">12-07 · +8 → 45 PAGES · FULL</text>
+    <text x="816" y="296" font-family="'Instrument Serif','Microsoft YaHei',serif" font-style="italic" font-size="12" fill="var(--accent)">两套旧系统全面停用</text>
+    <g font-family="'Microsoft YaHei',sans-serif" font-size="10" fill="var(--muted)">
+      <text x="816" y="318">租入转租全链（L3/L4）· 路凯订单协同</text>
+      <text x="816" y="336">开票登记 + 银行水单核销（逐笔勾对）</text>
+      <text x="816" y="354">项目盈亏报表 —— 赚不赚一目了然</text>
+    </g>
+
+    <!-- 收口注记（阶梯顶右端） -->
+    <text x="1064" y="156" font-size="10" fill="var(--muted)" font-family="'Microsoft YaHei',sans-serif">试运行 2 周 · 12-25 前验收收口</text>
+
+    <!-- 时间轴 -->
+    <line x1="120" y1="568" x2="1140" y2="568" stroke="rgba(17,24,39,.3)" stroke-width="1"/>
+    <g font-family="'Geist Mono',monospace" font-size="9" fill="var(--soft)">
+      <circle cx="120" cy="568" r="3.5" fill="#8a8a8a"/><text x="120" y="588" text-anchor="middle">09-07</text>
+      <circle cx="320" cy="568" r="4" fill="var(--accent)"/><text x="320" y="588" text-anchor="middle">10-16</text>
+      <circle cx="560" cy="568" r="4" fill="var(--accent)"/><text x="560" y="588" text-anchor="middle">11-17</text>
+      <circle cx="800" cy="568" r="4" fill="var(--accent)"/><text x="800" y="588" text-anchor="middle">12-07</text>
+      <circle cx="1100" cy="568" r="3.5" fill="var(--accent)" opacity=".5"/><text x="1100" y="588" text-anchor="middle">12-25</text>
+    </g>
+    <!-- 轮次刻度（各版支撑） -->
+    <g font-family="'Geist Mono',monospace" font-size="8" fill="rgba(79,93,117,.7)">
+      <text x="220" y="588" text-anchor="middle">轮1 10-08</text>
+      <text x="440" y="588" text-anchor="middle">轮2 11-09</text>
+      <text x="700" y="588" text-anchor="middle">轮3 12-01</text>
+    </g>
+
+    <!-- Legend -->
+    <line x1="120" y1="612" x2="1140" y2="612" stroke="var(--rule)" stroke-width="0.8"/>
+    <g font-family="'Microsoft YaHei',sans-serif" font-size="9" fill="var(--muted)">
+      <text x="120" y="630" font-family="'Geist Mono',monospace" letter-spacing=".14em" fill="var(--soft)">LEGEND</text>
+      <line x1="192" y1="626" x2="216" y2="626" stroke="var(--accent)" stroke-width="2.4"/><text x="222" y="630">阶梯顶线 = 能力递进</text>
+      <rect x="330" y="619" width="12" height="12" fill="#fff" stroke="var(--ink)" stroke-width="1"/><text x="348" y="630">版本台阶（能力累积）</text>
+      <circle cx="480" cy="625" r="4" fill="var(--accent)"/><text x="490" y="630">上线里程碑</text>
+    </g>
+  </svg>
+
+  <div class="foot">
+    <span>SOURCE · P1-R03-工期评估表-20260906.xlsx（汇总 · 版本里程碑 / 按月负载区）</span>
+    <span>样式 B · 极简线框 · 2026-09-07</span>
+  </div>
+</div>
+</body>
+</html>

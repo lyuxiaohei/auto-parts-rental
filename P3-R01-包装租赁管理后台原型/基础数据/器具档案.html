@@ -276,7 +276,7 @@ th.td-num { text-align:right; }
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></span>销售管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
    <li><div class="sm-link" onclick="go('../销售管理/销售订单列表.html')">销售订单</div></li>
-   <li><div class="sm-link" onclick="go('../包装管理/租赁单列表.html')">租赁单</div></li>
+   <li><div class="sm-link" onclick="go('../销售管理/租赁单列表.html')">租赁单</div></li>
    </ul>
    </li>
    <li class="sm-item has-sub">
@@ -304,9 +304,9 @@ th.td-num { text-align:right; }
    <li class="sm-item has-sub">
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8V21H3V8"/><rect x="1" y="3" width="22" height="5" rx="1"/><line x1="10" y1="12" x2="14" y2="12"/></svg></span>包装管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
-   <li><div class="sm-link" onclick="go('../包装管理/退租申请列表.html')">退租申请</div></li>
-   <li><div class="sm-link" onclick="go('../包装管理/在租台账.html')">在租台账</div></li>
-   <li><div class="sm-link" onclick="go('../包装管理/丢损赔偿单.html')">丢损赔偿单</div></li>
+   <li><div class="sm-link" onclick="go('../租赁管理/退租申请列表.html')">退租申请</div></li>
+   <li><div class="sm-link" onclick="go('../租赁管理/在租台账.html')">在租台账</div></li>
+   <li><div class="sm-link" onclick="go('../租赁管理/丢损赔偿单.html')">丢损赔偿单</div></li>
    </ul>
    </li>
    <li class="sm-item has-sub">
@@ -670,10 +670,10 @@ th.td-num { text-align:right; }
       <div class="dt-sec">在租状态（库存四态口径）</div>
       <div class="table-wrap"><table><thead><tr><th class="td-num">在租</th><th class="td-num">待归还（超期）</th><th class="td-num">平均循环</th><th class="td-num">平均租期</th><th>台账</th></tr></thead>
 <tbody>
-<tr><td class="td-num">3,120 只</td><td class="td-num">128 只</td><td class="td-num">21.6 次</td><td class="td-num">86 天</td><td><span class="lk" onclick="go('../包装管理/在租台账.html')">在租台账</span></td></tr>
+<tr><td class="td-num">3,120 只</td><td class="td-num">128 只</td><td class="td-num">21.6 次</td><td class="td-num">86 天</td><td><span class="lk" onclick="go('../租赁管理/在租台账.html')">在租台账</span></td></tr>
 </tbody></table></div>
       <div class="dt-sec">关联单据</div>
-      <div class="chain"><div class="node" style="border-color:#1677ff;background:#e6f4ff;"><div class="n-role">器具档案（本档）</div><div class="n-name">WBX-1210L</div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">租出台账</div><div class="n-name"><span class="lk" onclick="go('../包装管理/租出台账.html')">租出记录 · 按来源统计</span></div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">在租台账</div><div class="n-name"><span class="lk" onclick="go('../包装管理/在租台账.html')">四态统计 + 资产轨迹</span></div></div></div>
+      <div class="chain"><div class="node" style="border-color:#1677ff;background:#e6f4ff;"><div class="n-role">器具档案（本档）</div><div class="n-name">WBX-1210L</div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">租出台账</div><div class="n-name"><span class="lk" onclick="go('../租赁管理/租出台账.html')">租出记录 · 按来源统计</span></div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">在租台账</div><div class="n-name"><span class="lk" onclick="go('../租赁管理/在租台账.html')">四态统计 + 资产轨迹</span></div></div></div>
       <div class="dt-sec">流转时间线</div>
       <div class="tl"><div class="tl-i"><span class="tl-t">2026-01-06</span>建档 · 启用（器具采购入库）<span class="tl-who">张伟</span></div><div class="tl-i"><span class="tl-t">持续</span>循环出租 · 平均循环 21.6 次 / 平均租期 86 天</div><div class="tl-i"><span class="tl-t">当前</span>在租 3,120 只 · 超期 128 只待催还</div></div>
     </div>

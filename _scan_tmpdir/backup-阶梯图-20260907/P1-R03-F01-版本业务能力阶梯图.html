@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>版本 × 业务能力阶梯图 · 包装租赁系统</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#ffffff; --ink:#111827; --muted:#4f5d75; --soft:#7a8399;
+    --rule:rgba(17,24,39,.10); --accent:#2563eb; --navy:#1F4E79;
+    /* 蓝色三档：版本递进 = 明度递进 */
+    --b1:#DBEAFE; --b1d:#2E6BB0; --b2:#BFDBFE; --b2d:#1D4ED8; --b3:#93C5FD; --b3d:#16357F;
+    --pre:#EFF3F8; --pred:#595959;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--paper);color:var(--ink);font-family:'Geist','Microsoft YaHei',sans-serif;}
+  .wrap{max-width:1320px;margin:0 auto;padding:40px 28px 28px}
+  .eyebrow{font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.18em;color:var(--soft);text-transform:uppercase;margin-bottom:10px}
+  .hrow{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  h1{font-family:'Instrument Serif','Microsoft YaHei',serif;font-weight:400;font-size:30px;line-height:1.25}
+  .docno{font-family:'Geist Mono',monospace;font-size:10px;color:var(--soft);letter-spacing:.08em}
+  .sub{color:var(--muted);font-size:14px;margin-top:8px}
+  /* KPI 条 */
+  .kpis{display:grid;grid-template-columns:1.15fr 1.05fr 1.25fr 1.15fr;gap:14px;margin-top:22px}
+  .kpi{background:#fff;border:1px solid rgba(17,24,39,.12);border-top:3px solid var(--navy);
+       border-radius:6px;padding:14px 16px 12px}
+  .kpi .lab{font-family:'Geist Mono',monospace;font-size:9px;letter-spacing:.14em;color:var(--soft);text-transform:uppercase}
+  .kpi .val{font-size:26px;font-weight:600;color:var(--navy);margin-top:6px;font-family:'Geist','Microsoft YaHei',sans-serif}
+  .kpi .val small{font-size:13px;font-weight:500;color:var(--muted)}
+  .kpi .note{font-size:11px;color:var(--muted);margin-top:4px}
+  .fig{margin-top:24px;overflow-x:auto}
+  svg{display:block;width:100%;height:auto}
+  /* 前提与依赖区 */
+  .assump{margin-top:22px;display:grid;grid-template-columns:1.2fr 1.2fr 1.6fr;gap:14px}
+  .as-card{background:#F7FAFD;border:1px solid rgba(31,78,121,.18);border-radius:6px;padding:12px 14px}
+  .as-card .t{font-size:12px;font-weight:600;color:var(--navy);margin-bottom:6px}
+  .as-card .d{font-size:11.5px;color:var(--muted);line-height:1.65}
+  .foot{margin-top:18px;border-top:1px solid var(--rule);padding-top:12px;
+        font-family:'Geist Mono',monospace;font-size:10px;color:var(--soft);letter-spacing:.06em;
+        display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hrow">
+    <div>
+      <p class="eyebrow">P1-R03-F01 · Roadmap Step Chart · Business Blue</p>
+      <h1>版本 × 业务能力阶梯图</h1>
+    </div>
+    <span class="docno">DOC · 2026-09-07 · 对应工期表 20260906</span>
+  </div>
+  <p class="sub">方案 B · 买卖先行 ｜ 三级台阶逐级递进，下层能力全部保留 ｜ 2026 年内全量交付、两套旧系统停用</p>
+
+  <div class="kpis">
+    <div class="kpi"><div class="lab">评估工作量</div><div class="val">149 <small>人日</small></div><div class="note">3 全栈 + Claude Code 提速口径（无 AI 对照 212）</div></div>
+    <div class="kpi"><div class="lab">含缓冲总投入</div><div class="val">171.35 <small>人日</small></div><div class="note">缓冲 15% · 覆盖联调与管理裕度</div></div>
+    <div class="kpi"><div class="lab">交付周期</div><div class="val">09-07 → 12-25</div><div class="note">约 3.6 个月 · 80 个工作日 · 年内验收收口</div></div>
+    <div class="kpi"><div class="lab">交付节奏</div><div class="val">3 <small>版上线</small> + 验收</div><div class="note">10-16 买卖版 · 11-17 租赁版 · 12-07 全量</div></div>
+  </div>
+
+  <div class="fig">
+  <svg viewBox="0 0 1280 700" xmlns="http://www.w3.org/2000/svg">
+    <!-- ===== 台阶轮廓 ===== -->
+    <path d="M 76 448 L 140 448 L 140 368 L 396 368 L 396 288 L 652 288 L 652 208 L 908 208 L 908 168 L 1204 168"
+          fill="none" stroke="#111827" stroke-width="1.6"/>
+
+    <!-- ===== 前置地基柱 ===== -->
+    <rect x="40" y="448" width="72" height="112" rx="4" fill="var(--pre)" stroke="#8a8a8a" stroke-width="1"/>
+    <text x="76" y="470" text-anchor="middle" font-size="11" font-weight="600" fill="var(--pred)" font-family="'Geist','Microsoft YaHei',sans-serif">前置</text>
+    <text x="76" y="488" text-anchor="middle" font-size="9" fill="var(--pred)" font-family="'Geist Mono',monospace">09-07~09-11</text>
+    <text x="76" y="508" text-anchor="middle" font-size="9" fill="var(--pred)" font-family="'Microsoft YaHei',sans-serif">需求走查45页</text>
+    <text x="76" y="524" text-anchor="middle" font-size="9" fill="var(--pred)" font-family="'Microsoft YaHei',sans-serif">PRD 冻结</text>
+    <text x="76" y="540" text-anchor="middle" font-size="9" fill="var(--pred)" font-family="'Microsoft YaHei',sans-serif">芋道底座+规范</text>
+
+    <!-- ===== V1.0 台阶（蓝一档·最浅）===== -->
+    <rect x="140" y="368" width="244" height="192" rx="4" fill="var(--b1)" stroke="var(--b1d)" stroke-width="1"/>
+    <rect x="140" y="368" width="244" height="30" rx="4" fill="var(--b1d)"/>
+    <text x="152" y="388" font-size="12" font-weight="600" fill="#fff" font-family="'Geist','Microsoft YaHei',sans-serif">V1.0 买卖版</text>
+    <text x="372" y="388" font-size="9" fill="#fff" font-family="'Geist Mono',monospace" text-anchor="end">10-16 上线</text>
+    <text x="152" y="416" font-size="10.5" font-weight="600" fill="var(--b1d)" font-family="'Microsoft YaHei',sans-serif">零部件买卖业务先线上化</text>
+    <g font-family="'Microsoft YaHei',sans-serif" font-size="9.5" fill="#1f2d3d">
+      <text x="152" y="438">· 买进→入库→销售→出库，全链系统内跑</text>
+      <text x="152" y="456">· 库存实时准（查询/调拨/杂项出入库）</text>
+      <text x="152" y="474">· 钱收得回：应收账单自动生成 + 收款登记</text>
+      <text x="152" y="492">· 按项目归集，权限分级</text>
+    </g>
+    <text x="152" y="516" font-size="9.5" font-weight="600" fill="var(--b1d)" font-family="'Microsoft YaHei',sans-serif">↳ 替代效应：吉客云手工开单停用</text>
+    <text x="152" y="546" font-size="8.5" fill="var(--b1d)" font-family="'Geist Mono',monospace" letter-spacing=".04em">+17 页</text>
+
+    <!-- ===== V1.1 台阶（蓝二档）===== -->
+    <rect x="396" y="288" width="244" height="272" rx="4" fill="var(--b2)" stroke="var(--b2d)" stroke-width="1"/>
+    <rect x="396" y="288" width="244" height="30" rx="4" fill="var(--b2d)"/>
+    <text x="408" y="308" font-size="12" font-weight="600" fill="#fff" font-family="'Geist','Microsoft YaHei',sans-serif">V1.1 租赁版</text>
+    <text x="628" y="308" font-size="9" fill="#fff" font-family="'Geist Mono',monospace" text-anchor="end">11-17 上线</text>
+    <text x="408" y="336" font-size="10.5" font-weight="600" fill="var(--b2d)" font-family="'Microsoft YaHei',sans-serif">租赁循环闭环，替换路凯下单面</text>
+    <g font-family="'Microsoft YaHei',sans-serif" font-size="9.5" fill="#1f2d3d">
+      <text x="408" y="358">· 围板箱租赁全程入系统：</text>
+      <text x="408" y="376">组装→租赁单→退租→散件回库→再出租</text>
+      <text x="408" y="394">· 在租四态看得清（在库/在途/客户端/退租）</text>
+      <text x="408" y="412">· 丢损赔偿自动转应收 · 盘点补齐</text>
+      <text x="408" y="430">· 对供应商：应付登记 + 付款 · 我的待办</text>
+    </g>
+    <text x="408" y="454" font-size="9.5" font-weight="600" fill="var(--b2d)" font-family="'Microsoft YaHei',sans-serif">↳ 替代效应：路凯下单面替换为系统租赁单</text>
+    <text x="408" y="546" font-size="8.5" fill="var(--b2d)" font-family="'Geist Mono',monospace" letter-spacing=".04em">+20 页 · 累计 37</text>
+
+    <!-- ===== V2.0 台阶（蓝三档·最深）===== -->
+    <rect x="652" y="208" width="244" height="352" rx="4" fill="var(--b3)" stroke="var(--b3d)" stroke-width="1"/>
+    <rect x="652" y="208" width="244" height="30" rx="4" fill="var(--b3d)"/>
+    <text x="664" y="228" font-size="12" font-weight="600" fill="#fff" font-family="'Geist','Microsoft YaHei',sans-serif">V2.0 深化版</text>
+    <text x="884" y="228" font-size="9" fill="#fff" font-family="'Geist Mono',monospace" text-anchor="end">12-07 上线</text>
+    <text x="664" y="256" font-size="10.5" font-weight="600" fill="var(--b3d)" font-family="'Microsoft YaHei',sans-serif">两套旧系统全面停用</text>
+    <g font-family="'Microsoft YaHei',sans-serif" font-size="9.5" fill="#1f2d3d">
+      <text x="664" y="278">· 租入转租也能管（L3/L4）：</text>
+      <text x="664" y="296">租入单→租入入库→归还，租金应付自动算</text>
+      <text x="664" y="314">· 路凯协同：订单同步 + 结算数据传递</text>
+      <text x="664" y="332">· 财务收口：开票登记 + 银行水单核销</text>
+      <text x="664" y="350">（逐笔勾对、支持部分核销）</text>
+      <text x="664" y="368">· 项目盈亏报表：每个项目赚不赚，一目了然</text>
+    </g>
+    <text x="664" y="392" font-size="9.5" font-weight="600" fill="var(--b3d)" font-family="'Microsoft YaHei',sans-serif">↳ 替代效应：吉客云 + 路凯全面停用</text>
+    <text x="664" y="546" font-size="8.5" fill="var(--b3d)" font-family="'Geist Mono',monospace" letter-spacing=".04em">+8 页 · 45 页全量</text>
+
+    <!-- ===== 验收旗标（最高点）===== -->
+    <rect x="908" y="128" width="296" height="40" rx="4" fill="#fff" stroke="var(--accent)" stroke-width="1.4"/>
+    <text x="920" y="145" font-size="10.5" font-weight="600" fill="var(--accent)" font-family="'Microsoft YaHei',sans-serif">试运行 2 周（真实订单并行）</text>
+    <text x="920" y="161" font-size="9.5" fill="var(--muted)" font-family="'Microsoft YaHei',sans-serif">12-25 前项目验收 · 年内交付收口 · 富余产能启动 2027 增强</text>
+
+    <!-- ===== 时间轴 ===== -->
+    <line x1="40" y1="600" x2="1204" y2="600" stroke="rgba(17,24,39,.35)" stroke-width="1"/>
+    <g font-family="'Geist Mono',monospace" font-size="9" fill="var(--soft)">
+      <line x1="76"  y1="594" x2="76"  y2="600" stroke="rgba(17,24,39,.35)"/><text x="76"  y="616" text-anchor="middle">09-07</text>
+      <line x1="262" y1="594" x2="262" y2="600" stroke="rgba(17,24,39,.35)"/><text x="262" y="616" text-anchor="middle">10-16</text>
+      <line x1="518" y1="594" x2="518" y2="600" stroke="rgba(17,24,39,.35)"/><text x="518" y="616" text-anchor="middle">11-17</text>
+      <line x1="774" y1="594" x2="774" y2="600" stroke="rgba(17,24,39,.35)"/><text x="774" y="616" text-anchor="middle">12-07</text>
+      <line x1="1120" y1="594" x2="1120" y2="600" stroke="rgba(17,24,39,.35)"/><text x="1120" y="616" text-anchor="middle">12-25</text>
+    </g>
+    <line x1="262" y1="560" x2="262" y2="600" stroke="var(--accent)" stroke-width="1" stroke-dasharray="3,3"/>
+    <circle cx="262" cy="600" r="5" fill="var(--accent)"/>
+    <line x1="774" y1="560" x2="774" y2="600" stroke="var(--accent)" stroke-width="1" stroke-dasharray="3,3"/>
+    <circle cx="774" cy="600" r="5" fill="var(--accent)"/>
+    <circle cx="76" cy="600" r="3.5" fill="#8a8a8a"/>
+    <circle cx="518" cy="600" r="3.5" fill="var(--b2d)"/>
+    <circle cx="1120" cy="600" r="3.5" fill="var(--accent)" opacity=".55"/>
+    <g font-family="'Geist Mono',monospace" font-size="8" fill="var(--soft)">
+      <text x="262" y="588" text-anchor="middle" fill="var(--accent)">★ 首版上线</text>
+      <text x="774" y="588" text-anchor="middle" fill="var(--accent)">★ 45 页全量</text>
+    </g>
+
+    <!-- ===== 月份带 ===== -->
+    <g font-family="'Geist Mono',monospace" font-size="8" fill="rgba(79,93,117,.55)" letter-spacing=".14em">
+      <text x="76"  y="636">2026-09</text>
+      <text x="340" y="636">2026-10（国庆-7d）</text>
+      <text x="604" y="636">2026-11</text>
+      <text x="868" y="636">2026-12</text>
+    </g>
+
+    <!-- ===== Legend ===== -->
+    <line x1="40" y1="656" x2="1204" y2="656" stroke="var(--rule)" stroke-width="0.8"/>
+    <text x="40" y="676" font-family="'Geist Mono',monospace" font-size="8" fill="var(--soft)" letter-spacing=".14em">LEGEND</text>
+    <g font-family="'Microsoft YaHei',sans-serif" font-size="9" fill="var(--muted)">
+      <rect x="108" y="668" width="12" height="12" fill="var(--b1)" stroke="var(--b1d)" stroke-width=".8"/><text x="126" y="678">V1.0 买卖版</text>
+      <rect x="216" y="668" width="12" height="12" fill="var(--b2)" stroke="var(--b2d)" stroke-width=".8"/><text x="234" y="678">V1.1 租赁版</text>
+      <rect x="324" y="668" width="12" height="12" fill="var(--b3)" stroke="var(--b3d)" stroke-width=".8"/><text x="342" y="678">V2.0 深化版（蓝越深 = 能力越全）</text>
+      <rect x="510" y="668" width="12" height="12" fill="var(--pre)" stroke="#8a8a8a" stroke-width=".8"/><text x="528" y="678">前置（底座/PRD）</text>
+      <circle cx="644" cy="674" r="5" fill="var(--accent)"/><text x="656" y="678">关键上线里程碑</text>
+      <text x="762" y="678" fill="var(--soft)" font-size="8.5">↳ 替代效应 = 该版本上线后可停用的旧系统/手工环节</text>
+    </g>
+  </svg>
+  </div>
+
+  <div class="assump">
+    <div class="as-card">
+      <div class="t">执行口径</div>
+      <div class="d">3 名全栈 + Claude Code vibe coding；有 AI 149 人日 vs 无 AI 212 人日（工期表「方案 2.0 vs 方案 1」），已按月负载排定（9~11 月负载 0.96~1.0 满负荷）。</div>
+    </div>
+    <div class="as-card">
+      <div class="t">风险缓冲</div>
+      <div class="d">15% 缓冲已含在 171.35 人日内；AI 磨合不顺可回退无 AI 口径（工期上浮至 212 人日、里程碑顺延约 1.3 个月），已列 R1~R5 风险跟踪。</div>
+    </div>
+    <div class="as-card">
+      <div class="t">外部依赖（均已规划至 V2.0 前落实）</div>
+      <div class="d">#1 计费规则与合同/报价单 · #5 水单与台账样例 · #6 路凯对接方式（导出/接口两档评估）· #8 开票主体信息——到位前不阻塞 V1.0/V1.1 开发。</div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <span>SOURCE · P1-R03-工期评估表-20260906.xlsx（汇总 · 版本里程碑 / 按月负载区）</span>
+    <span>方案 B · 买卖先行 · 版本色 = 蓝色三档递进</span>
+    <span>P1-R03-F01 · 2026-09-07</span>
+  </div>
+</div>
+</body>
+</html>

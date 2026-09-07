@@ -276,7 +276,7 @@ th.td-num { text-align:right; }
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></span>销售管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
    <li><div class="sm-link" onclick="go('../销售管理/销售订单列表.html')">销售订单</div></li>
-   <li><div class="sm-link" onclick="go('../包装管理/租赁单列表.html')">租赁单</div></li>
+   <li><div class="sm-link" onclick="go('../销售管理/租赁单列表.html')">租赁单</div></li>
    </ul>
    </li>
    <li class="sm-item has-sub open">
@@ -304,9 +304,9 @@ th.td-num { text-align:right; }
    <li class="sm-item has-sub">
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8V21H3V8"/><rect x="1" y="3" width="22" height="5" rx="1"/><line x1="10" y1="12" x2="14" y2="12"/></svg></span>包装管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
-   <li><div class="sm-link" onclick="go('../包装管理/退租申请列表.html')">退租申请</div></li>
-   <li><div class="sm-link" onclick="go('../包装管理/在租台账.html')">在租台账</div></li>
-   <li><div class="sm-link" onclick="go('../包装管理/丢损赔偿单.html')">丢损赔偿单</div></li>
+   <li><div class="sm-link" onclick="go('../租赁管理/退租申请列表.html')">退租申请</div></li>
+   <li><div class="sm-link" onclick="go('../租赁管理/在租台账.html')">在租台账</div></li>
+   <li><div class="sm-link" onclick="go('../租赁管理/丢损赔偿单.html')">丢损赔偿单</div></li>
    </ul>
    </li>
    <li class="sm-item has-sub">
@@ -447,7 +447,7 @@ th.td-num { text-align:right; }
           <td>2026-09-02</td>
           <td><span class="tag tag-orange">缺损</span></td>
           <td><span class="tag tag-orange">待审核</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('auditModal')">审核</a><a onclick="go('../包装管理/丢损赔偿单.html')">生成赔偿单</a><a onclick="go('../仓储作业/拆卸管理列表.html')">创建拆卸单</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('auditModal')">审核</a><a onclick="go('../租赁管理/丢损赔偿单.html')">生成赔偿单</a><a onclick="go('../仓储作业/拆卸管理列表.html')">创建拆卸单</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
@@ -477,7 +477,7 @@ th.td-num { text-align:right; }
           <td>2026-08-31</td>
           <td><span class="tag tag-red">丢失</span></td>
           <td><span class="tag tag-green">已入库</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="go('../包装管理/丢损赔偿单.html')">生成赔偿单</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="go('../租赁管理/丢损赔偿单.html')">生成赔偿单</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
@@ -522,7 +522,7 @@ th.td-num { text-align:right; }
           <td>2026-08-20</td>
           <td><span class="tag tag-orange">缺损</span></td>
           <td><span class="tag tag-green">已入库</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="go('../包装管理/丢损赔偿单.html')">生成赔偿单</a><a onclick="go('../仓储作业/拆卸管理列表.html')">创建拆卸单</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="go('../租赁管理/丢损赔偿单.html')">生成赔偿单</a><a onclick="go('../仓储作业/拆卸管理列表.html')">创建拆卸单</a></span></td>
         </tr>
       </tbody>
     </table>
@@ -660,7 +660,7 @@ th.td-num { text-align:right; }
     </div>
     <div class="modal-body">
       <div class="dt-sec">单据信息</div>
-      <div class="dgrid c3"><div class="drow" style="grid-column:1/-1;"><div class="dlabel">入库单号</div><div class="dval">TZRK-20260902-010</div></div><div class="drow"><div class="dlabel">状态</div><div class="dval"><span class="tag tag-green">已入库</span></div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">关联退租申请</div><div class="dval"><span class="lk" onclick="go('../包装管理/退租申请列表.html')">TZSQ-20260902-008</span></div></div><div class="drow"><div class="dlabel">关联租赁单</div><div class="dval"><span class="lk" onclick="go('../包装管理/租赁单列表.html')">ZL-20260823-033</span></div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">客户</div><div class="dval">一汽解放汽车有限公司</div></div><div class="drow"><div class="dlabel">所属项目</div><div class="dval">PRJ-2604</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">退租内容</div><div class="dval">ZH-2604-D 混合组合套件 × 40 套</div></div><div class="drow"><div class="dlabel">拆散方式</div><div class="dval">按 BOM 拆散</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">拆散去向</div><div class="dval">自有回库 + 租入件转归还</div></div><div class="drow"><div class="dlabel">入库库区</div><div class="dval">成品区 RB</div></div><div class="drow"><div class="dlabel">入库时间</div><div class="dval">2026-09-02</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">缺损情况</div><div class="dval">大箱 4 只缺损 → 丢损赔偿 / 转归还</div></div></div>
+      <div class="dgrid c3"><div class="drow" style="grid-column:1/-1;"><div class="dlabel">入库单号</div><div class="dval">TZRK-20260902-010</div></div><div class="drow"><div class="dlabel">状态</div><div class="dval"><span class="tag tag-green">已入库</span></div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">关联退租申请</div><div class="dval"><span class="lk" onclick="go('../租赁管理/退租申请列表.html')">TZSQ-20260902-008</span></div></div><div class="drow"><div class="dlabel">关联租赁单</div><div class="dval"><span class="lk" onclick="go('../销售管理/租赁单列表.html')">ZL-20260823-033</span></div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">客户</div><div class="dval">一汽解放汽车有限公司</div></div><div class="drow"><div class="dlabel">所属项目</div><div class="dval">PRJ-2604</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">退租内容</div><div class="dval">ZH-2604-D 混合组合套件 × 40 套</div></div><div class="drow"><div class="dlabel">拆散方式</div><div class="dval">按 BOM 拆散</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">拆散去向</div><div class="dval">自有回库 + 租入件转归还</div></div><div class="drow"><div class="dlabel">入库库区</div><div class="dval">成品区 RB</div></div><div class="drow"><div class="dlabel">入库时间</div><div class="dval">2026-09-02</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">缺损情况</div><div class="dval">大箱 4 只缺损 → 丢损赔偿 / 转归还</div></div></div>
       <div class="dt-sec">拆散明细</div>
       <div class="table-wrap"><table><thead><tr><th>物料</th><th>来源</th><th>单位</th><th class="td-num">数量</th><th>去向</th></tr></thead>
 <tbody>
@@ -668,7 +668,7 @@ th.td-num { text-align:right; }
 <tr><td>围板箱大箱 1200×1000×970</td><td>租入 · 路凯</td><td>只</td><td class="td-num">10</td><td>租入件转归还（其中 4 只缺损 → 赔付）</td></tr>
 </tbody></table></div>
       <div class="dt-sec">关联单据</div>
-      <div class="chain"><div class="node"><div class="n-role">退租申请</div><div class="n-name"><span class="lk" onclick="go('../包装管理/退租申请列表.html')">TZSQ-20260902-008</span></div></div><span class="link-arrow">→</span><div class="node" style="border-color:#1677ff;background:#e6f4ff;"><div class="n-role">退租入库（本单）</div><div class="n-name">TZRK-20260902-010 · BOM 拆散</div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">租入归还（分流）</div><div class="n-name"><span class="lk" onclick="go('../仓储作业/租入归还列表.html')">GHCK-20260903-002</span></div></div></div>
+      <div class="chain"><div class="node"><div class="n-role">退租申请</div><div class="n-name"><span class="lk" onclick="go('../租赁管理/退租申请列表.html')">TZSQ-20260902-008</span></div></div><span class="link-arrow">→</span><div class="node" style="border-color:#1677ff;background:#e6f4ff;"><div class="n-role">退租入库（本单）</div><div class="n-name">TZRK-20260902-010 · BOM 拆散</div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">租入归还（分流）</div><div class="n-name"><span class="lk" onclick="go('../仓储作业/租入归还列表.html')">GHCK-20260903-002</span></div></div></div>
       <div class="dt-sec">流转时间线</div>
       <div class="tl"><div class="tl-i"><span class="tl-t">09-02 09:40</span>退租申请审核通过 · 等待到货<span class="tl-who">张伟</span></div><div class="tl-i"><span class="tl-t">09-02 14:20</span>到货验收 · 发现大箱 4 只缺损<span class="tl-who">张伟</span></div><div class="tl-i"><span class="tl-t">09-02 16:10</span>按 BOM 拆散 · 隔板 × 80 自有回库<span class="tl-who">张伟</span></div><div class="tl-i"><span class="tl-t">09-03 14:05</span>大箱分流归还 · GHCK-20260903-002（4 只缺损赔付）<span class="tl-who">李国栋</span></div></div>
     </div>
@@ -738,6 +738,9 @@ document.querySelectorAll('.tab').forEach(function (t) {
   }, true);
 })();
 </script>
+
+
+
 <style id="proto-notes-style">
 body.proto-notes-on [data-note]{position:relative}
 body.proto-notes-on [data-note]::after{content:attr(data-note);position:absolute;top:1px;right:1px;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600;box-shadow:0 0 0 1.5px #fff;cursor:pointer;opacity:.75;transition:opacity .15s}

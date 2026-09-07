@@ -277,7 +277,7 @@ th.td-num { text-align:right; }
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></span>销售管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
    <li><div class="sm-link" onclick="go('../销售管理/销售订单列表.html')">销售订单</div></li>
-   <li><div class="sm-link" onclick="go('../包装管理/租赁单列表.html')">租赁单</div></li>
+   <li><div class="sm-link" onclick="go('../销售管理/租赁单列表.html')">租赁单</div></li>
    </ul>
    </li>
    <li class="sm-item has-sub open">
@@ -305,9 +305,9 @@ th.td-num { text-align:right; }
    <li class="sm-item has-sub">
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8V21H3V8"/><rect x="1" y="3" width="22" height="5" rx="1"/><line x1="10" y1="12" x2="14" y2="12"/></svg></span>包装管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
-   <li><div class="sm-link" onclick="go('../包装管理/退租申请列表.html')">退租申请</div></li>
-   <li><div class="sm-link" onclick="go('../包装管理/在租台账.html')">在租台账</div></li>
-   <li><div class="sm-link" onclick="go('../包装管理/丢损赔偿单.html')">丢损赔偿单</div></li>
+   <li><div class="sm-link" onclick="go('../租赁管理/退租申请列表.html')">退租申请</div></li>
+   <li><div class="sm-link" onclick="go('../租赁管理/在租台账.html')">在租台账</div></li>
+   <li><div class="sm-link" onclick="go('../租赁管理/丢损赔偿单.html')">丢损赔偿单</div></li>
    </ul>
    </li>
    <li class="sm-item has-sub">
@@ -428,7 +428,7 @@ th.td-num { text-align:right; }
           <td>客户提交</td>
           <td>09-02 09:40</td>
           <td><span class="tag tag-orange">待审核</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="go('../包装管理/退租申请列表.html?audit=1')">去审核</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../租赁管理/退租申请列表.html?audit=1')">去审核</a></span></td>
         </tr>
         <tr data-type="退租入库">
           <td><span class="tag tag-blue">退租入库</span></td>
@@ -448,7 +448,7 @@ th.td-num { text-align:right; }
           <td>王琳</td>
           <td>09-01 15:10</td>
           <td><span class="tag tag-orange">待审核</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="go('../包装管理/租赁单列表.html?audit=1')">去审核</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../销售管理/租赁单列表.html?audit=1')">去审核</a></span></td>
         </tr>
         <tr data-type="丢损赔偿">
           <td><span class="tag tag-blue">丢损赔偿</span></td>
@@ -458,7 +458,7 @@ th.td-num { text-align:right; }
           <td>张伟</td>
           <td>09-02 17:20</td>
           <td><span class="tag tag-orange">待审核</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="go('../包装管理/丢损赔偿单.html?audit=1')">去审核</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../租赁管理/丢损赔偿单.html?audit=1')">去审核</a></span></td>
         </tr>
         <tr data-type="盘点">
           <td><span class="tag tag-blue">盘点</span></td>
@@ -708,6 +708,9 @@ document.querySelectorAll('.tab').forEach(function (t) {
   }, true);
 })();
 </script>
+
+
+
 <style id="proto-notes-style">
 body.proto-notes-on [data-note]{position:relative}
 body.proto-notes-on [data-note]::after{content:attr(data-note);position:absolute;top:1px;right:1px;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600;box-shadow:0 0 0 1.5px #fff;cursor:pointer;opacity:.75;transition:opacity .15s}
@@ -729,7 +732,7 @@ body.proto-notes-on .proto-pin.pn-open{display:block}
 body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 .pn-fab .pn-fab-n{font-family:Consolas,monospace;font-weight:600}
 </style>
-<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>S7 · 我的待办（审核聚合入口）</div><div class="pnp-d">S7 审核与待办支线：18 类单据统一进待办，搜索/类型速滤后「去审核」跳转列表页并自动弹出审核弹窗（?audit=1）。</div></div>
+<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>S6 · 我的待办（审核聚合入口）</div><div class="pnp-d">S6 审核与待办支线：18 类单据统一进待办，搜索/类型速滤后「去审核」跳转列表页并自动弹出审核弹窗（?audit=1）。</div></div>
 <div class="pn-fab" id="protoNotesFab">标注</div></div>
 <script id="proto-notes-js">
 (function(){

@@ -1,12 +1,7 @@
 [
  {
   "page": "P3-R01-F01-业务流程导航图.html",
-  "js_errors": [
-   {
-    "type": "error",
-    "text": "Failed to load resource: net::ERR_CONNECTION_RESET"
-   }
-  ],
+  "js_errors": [],
   "problems": [],
   "stats": {
    "buttons": 0,
@@ -1236,372 +1231,6 @@
   "nav_anomaly": null
  },
  {
-  "page": "包装管理\\丢损赔偿单.html",
-  "js_errors": [],
-  "problems": [],
-  "stats": {
-   "buttons": 8,
-   "links": 11,
-   "onclickEls": 59,
-   "modals": 2,
-   "modalTitles": [
-    "审核确认",
-    "丢损赔偿单详情 · BS-2026090"
-   ],
-   "selects": 3,
-   "fakeSelects": 0,
-   "radios": 2,
-   "checkboxes": 0,
-   "inputs": 11,
-   "stabs": 4,
-   "tabs": 4,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "包装管理\\在租台账.html",
-  "js_errors": [],
-  "problems": [],
-  "stats": {
-   "buttons": 8,
-   "links": 27,
-   "onclickEls": 79,
-   "modals": 2,
-   "modalTitles": [
-    "资产轨迹 · WBX-1210L",
-    "报废确认"
-   ],
-   "selects": 3,
-   "fakeSelects": 0,
-   "radios": 0,
-   "checkboxes": 0,
-   "inputs": 2,
-   "stabs": 0,
-   "tabs": 4,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "包装管理\\弹窗\\丢损赔偿单详情.html",
-  "js_errors": [],
-  "problems": [],
-  "stats": {
-   "buttons": 1,
-   "links": 0,
-   "onclickEls": 6,
-   "modals": 1,
-   "modalTitles": [
-    "丢损赔偿单详情 · BS-2026090(演示页)"
-   ],
-   "selects": 0,
-   "fakeSelects": 0,
-   "radios": 0,
-   "checkboxes": 0,
-   "inputs": 0,
-   "stabs": 0,
-   "tabs": 0,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "包装管理\\弹窗\\丢损赔偿审核.html",
-  "js_errors": [],
-  "problems": [],
-  "stats": {
-   "buttons": 2,
-   "links": 0,
-   "onclickEls": 3,
-   "modals": 1,
-   "modalTitles": [
-    "审核确认(演示页)"
-   ],
-   "selects": 0,
-   "fakeSelects": 0,
-   "radios": 2,
-   "checkboxes": 0,
-   "inputs": 1,
-   "stabs": 0,
-   "tabs": 0,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "包装管理\\弹窗\\器具出租履历.html",
-  "js_errors": [],
-  "problems": [],
-  "stats": {
-   "buttons": 1,
-   "links": 0,
-   "onclickEls": 7,
-   "modals": 1,
-   "modalTitles": [
-    "器具出租履历 · ZH-2604-D(演示页)"
-   ],
-   "selects": 0,
-   "fakeSelects": 0,
-   "radios": 0,
-   "checkboxes": 0,
-   "inputs": 0,
-   "stabs": 0,
-   "tabs": 0,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "包装管理\\弹窗\\报废确认.html",
-  "js_errors": [],
-  "problems": [],
-  "stats": {
-   "buttons": 2,
-   "links": 0,
-   "onclickEls": 3,
-   "modals": 1,
-   "modalTitles": [
-    "报废确认(演示页)"
-   ],
-   "selects": 0,
-   "fakeSelects": 0,
-   "radios": 0,
-   "checkboxes": 0,
-   "inputs": 0,
-   "stabs": 0,
-   "tabs": 0,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "包装管理\\弹窗\\租赁单审核.html",
-  "js_errors": [],
-  "problems": [],
-  "stats": {
-   "buttons": 2,
-   "links": 0,
-   "onclickEls": 3,
-   "modals": 1,
-   "modalTitles": [
-    "审核确认(演示页)"
-   ],
-   "selects": 0,
-   "fakeSelects": 0,
-   "radios": 2,
-   "checkboxes": 0,
-   "inputs": 1,
-   "stabs": 0,
-   "tabs": 0,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "包装管理\\弹窗\\租赁单新建.html",
-  "js_errors": [],
-  "problems": [],
-  "stats": {
-   "buttons": 4,
-   "links": 0,
-   "onclickEls": 4,
-   "modals": 1,
-   "modalTitles": [
-    "新建租赁单(演示页)"
-   ],
-   "selects": 2,
-   "fakeSelects": 0,
-   "radios": 0,
-   "checkboxes": 0,
-   "inputs": 16,
-   "stabs": 0,
-   "tabs": 0,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "包装管理\\弹窗\\租赁单详情.html",
-  "js_errors": [],
-  "problems": [],
-  "stats": {
-   "buttons": 1,
-   "links": 0,
-   "onclickEls": 6,
-   "modals": 1,
-   "modalTitles": [
-    "租赁单详情 · ZL-20260823-(演示页)"
-   ],
-   "selects": 0,
-   "fakeSelects": 0,
-   "radios": 0,
-   "checkboxes": 0,
-   "inputs": 0,
-   "stabs": 0,
-   "tabs": 0,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "包装管理\\弹窗\\退租申请审核.html",
-  "js_errors": [],
-  "problems": [],
-  "stats": {
-   "buttons": 2,
-   "links": 0,
-   "onclickEls": 3,
-   "modals": 1,
-   "modalTitles": [
-    "审核确认(演示页)"
-   ],
-   "selects": 0,
-   "fakeSelects": 0,
-   "radios": 2,
-   "checkboxes": 0,
-   "inputs": 1,
-   "stabs": 0,
-   "tabs": 0,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "包装管理\\弹窗\\退租申请新建.html",
-  "js_errors": [],
-  "problems": [],
-  "stats": {
-   "buttons": 4,
-   "links": 0,
-   "onclickEls": 4,
-   "modals": 1,
-   "modalTitles": [
-    "新建退租申请(演示页)"
-   ],
-   "selects": 3,
-   "fakeSelects": 0,
-   "radios": 0,
-   "checkboxes": 0,
-   "inputs": 8,
-   "stabs": 0,
-   "tabs": 0,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "包装管理\\弹窗\\退租申请详情.html",
-  "js_errors": [],
-  "problems": [],
-  "stats": {
-   "buttons": 1,
-   "links": 0,
-   "onclickEls": 6,
-   "modals": 1,
-   "modalTitles": [
-    "退租申请详情 · TZSQ-202609(演示页)"
-   ],
-   "selects": 0,
-   "fakeSelects": 0,
-   "radios": 0,
-   "checkboxes": 0,
-   "inputs": 0,
-   "stabs": 0,
-   "tabs": 0,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "包装管理\\租出台账.html",
-  "js_errors": [],
-  "problems": [],
-  "stats": {
-   "buttons": 6,
-   "links": 20,
-   "onclickEls": 66,
-   "modals": 1,
-   "modalTitles": [
-    "器具出租履历 · ZH-2604-D"
-   ],
-   "selects": 3,
-   "fakeSelects": 0,
-   "radios": 0,
-   "checkboxes": 0,
-   "inputs": 15,
-   "stabs": 5,
-   "tabs": 4,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "包装管理\\租赁单列表.html",
-  "js_errors": [],
-  "problems": [],
-  "stats": {
-   "buttons": 12,
-   "links": 22,
-   "onclickEls": 74,
-   "modals": 3,
-   "modalTitles": [
-    "新建租赁单",
-    "审核确认",
-    "租赁单详情 · ZL-20260823-"
-   ],
-   "selects": 5,
-   "fakeSelects": 0,
-   "radios": 2,
-   "checkboxes": 0,
-   "inputs": 30,
-   "stabs": 6,
-   "tabs": 3,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "包装管理\\退租申请列表.html",
-  "js_errors": [],
-  "problems": [],
-  "stats": {
-   "buttons": 12,
-   "links": 12,
-   "onclickEls": 64,
-   "modals": 3,
-   "modalTitles": [
-    "新建退租申请",
-    "审核确认",
-    "退租申请详情 · TZSQ-202609"
-   ],
-   "selects": 6,
-   "fakeSelects": 0,
-   "radios": 2,
-   "checkboxes": 0,
-   "inputs": 24,
-   "stabs": 5,
-   "tabs": 3,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
   "page": "基础数据\\BOM.html",
   "js_errors": [],
   "problems": [],
@@ -1987,6 +1616,274 @@
    "inputs": 16,
    "stabs": 0,
    "tabs": 4,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "租赁管理\\丢损赔偿单.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 8,
+   "links": 11,
+   "onclickEls": 59,
+   "modals": 2,
+   "modalTitles": [
+    "审核确认",
+    "丢损赔偿单详情 · BS-2026090"
+   ],
+   "selects": 3,
+   "fakeSelects": 0,
+   "radios": 2,
+   "checkboxes": 0,
+   "inputs": 11,
+   "stabs": 4,
+   "tabs": 4,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "租赁管理\\在租台账.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 8,
+   "links": 27,
+   "onclickEls": 79,
+   "modals": 2,
+   "modalTitles": [
+    "资产轨迹 · WBX-1210L",
+    "报废确认"
+   ],
+   "selects": 3,
+   "fakeSelects": 0,
+   "radios": 0,
+   "checkboxes": 0,
+   "inputs": 2,
+   "stabs": 0,
+   "tabs": 4,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "租赁管理\\弹窗\\丢损赔偿单详情.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 1,
+   "links": 0,
+   "onclickEls": 6,
+   "modals": 1,
+   "modalTitles": [
+    "丢损赔偿单详情 · BS-2026090(演示页)"
+   ],
+   "selects": 0,
+   "fakeSelects": 0,
+   "radios": 0,
+   "checkboxes": 0,
+   "inputs": 0,
+   "stabs": 0,
+   "tabs": 0,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "租赁管理\\弹窗\\丢损赔偿审核.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 2,
+   "links": 0,
+   "onclickEls": 3,
+   "modals": 1,
+   "modalTitles": [
+    "审核确认(演示页)"
+   ],
+   "selects": 0,
+   "fakeSelects": 0,
+   "radios": 2,
+   "checkboxes": 0,
+   "inputs": 1,
+   "stabs": 0,
+   "tabs": 0,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "租赁管理\\弹窗\\器具出租履历.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 1,
+   "links": 0,
+   "onclickEls": 7,
+   "modals": 1,
+   "modalTitles": [
+    "器具出租履历 · ZH-2604-D(演示页)"
+   ],
+   "selects": 0,
+   "fakeSelects": 0,
+   "radios": 0,
+   "checkboxes": 0,
+   "inputs": 0,
+   "stabs": 0,
+   "tabs": 0,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "租赁管理\\弹窗\\报废确认.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 2,
+   "links": 0,
+   "onclickEls": 3,
+   "modals": 1,
+   "modalTitles": [
+    "报废确认(演示页)"
+   ],
+   "selects": 0,
+   "fakeSelects": 0,
+   "radios": 0,
+   "checkboxes": 0,
+   "inputs": 0,
+   "stabs": 0,
+   "tabs": 0,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "租赁管理\\弹窗\\退租申请审核.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 2,
+   "links": 0,
+   "onclickEls": 3,
+   "modals": 1,
+   "modalTitles": [
+    "审核确认(演示页)"
+   ],
+   "selects": 0,
+   "fakeSelects": 0,
+   "radios": 2,
+   "checkboxes": 0,
+   "inputs": 1,
+   "stabs": 0,
+   "tabs": 0,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "租赁管理\\弹窗\\退租申请新建.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 4,
+   "links": 0,
+   "onclickEls": 4,
+   "modals": 1,
+   "modalTitles": [
+    "新建退租申请(演示页)"
+   ],
+   "selects": 3,
+   "fakeSelects": 0,
+   "radios": 0,
+   "checkboxes": 0,
+   "inputs": 8,
+   "stabs": 0,
+   "tabs": 0,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "租赁管理\\弹窗\\退租申请详情.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 1,
+   "links": 0,
+   "onclickEls": 6,
+   "modals": 1,
+   "modalTitles": [
+    "退租申请详情 · TZSQ-202609(演示页)"
+   ],
+   "selects": 0,
+   "fakeSelects": 0,
+   "radios": 0,
+   "checkboxes": 0,
+   "inputs": 0,
+   "stabs": 0,
+   "tabs": 0,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "租赁管理\\租出台账.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 6,
+   "links": 20,
+   "onclickEls": 66,
+   "modals": 1,
+   "modalTitles": [
+    "器具出租履历 · ZH-2604-D"
+   ],
+   "selects": 3,
+   "fakeSelects": 0,
+   "radios": 0,
+   "checkboxes": 0,
+   "inputs": 15,
+   "stabs": 5,
+   "tabs": 4,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "租赁管理\\退租申请列表.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 12,
+   "links": 12,
+   "onclickEls": 64,
+   "modals": 3,
+   "modalTitles": [
+    "新建退租申请",
+    "审核确认",
+    "退租申请详情 · TZSQ-202609"
+   ],
+   "selects": 6,
+   "fakeSelects": 0,
+   "radios": 2,
+   "checkboxes": 0,
+   "inputs": 24,
+   "stabs": 5,
+   "tabs": 3,
    "bgMut": 0
   },
   "dead_links": [],
@@ -2901,6 +2798,78 @@
   "nav_anomaly": null
  },
  {
+  "page": "销售管理\\弹窗\\租赁单审核.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 2,
+   "links": 0,
+   "onclickEls": 3,
+   "modals": 1,
+   "modalTitles": [
+    "审核确认(演示页)"
+   ],
+   "selects": 0,
+   "fakeSelects": 0,
+   "radios": 2,
+   "checkboxes": 0,
+   "inputs": 1,
+   "stabs": 0,
+   "tabs": 0,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "销售管理\\弹窗\\租赁单新建.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 4,
+   "links": 0,
+   "onclickEls": 4,
+   "modals": 1,
+   "modalTitles": [
+    "新建租赁单(演示页)"
+   ],
+   "selects": 2,
+   "fakeSelects": 0,
+   "radios": 0,
+   "checkboxes": 0,
+   "inputs": 16,
+   "stabs": 0,
+   "tabs": 0,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "销售管理\\弹窗\\租赁单详情.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 1,
+   "links": 0,
+   "onclickEls": 6,
+   "modals": 1,
+   "modalTitles": [
+    "租赁单详情 · ZL-20260823-(演示页)"
+   ],
+   "selects": 0,
+   "fakeSelects": 0,
+   "radios": 0,
+   "checkboxes": 0,
+   "inputs": 0,
+   "stabs": 0,
+   "tabs": 0,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
   "page": "销售管理\\弹窗\\销售订单审核.html",
   "js_errors": [],
   "problems": [],
@@ -2943,6 +2912,32 @@
    "inputs": 0,
    "stabs": 0,
    "tabs": 0,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "销售管理\\租赁单列表.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 12,
+   "links": 22,
+   "onclickEls": 74,
+   "modals": 3,
+   "modalTitles": [
+    "新建租赁单",
+    "审核确认",
+    "租赁单详情 · ZL-20260823-"
+   ],
+   "selects": 5,
+   "fakeSelects": 0,
+   "radios": 2,
+   "checkboxes": 0,
+   "inputs": 30,
+   "stabs": 6,
+   "tabs": 3,
    "bgMut": 0
   },
   "dead_links": [],
