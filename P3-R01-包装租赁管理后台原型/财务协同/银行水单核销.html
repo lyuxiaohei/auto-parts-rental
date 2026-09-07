@@ -429,7 +429,7 @@ th.td-num { text-align:right; }
   <div class="card">
     <div class="card-head">
       <h3 class="card-title">② 待核销单据</h3>
-      <div class="head-btns"><button class="btn btn-default btn-sm" onclick="go('../财务协同/应收账单.html')">应收台账</button></div>
+      <div class="head-btns"><select title="类型筛选" style="height:28px;border:1px solid var(--border);border-radius:4px;padding:0 8px;font-size:12px;color:var(--text-2);background:#fff;outline:none;"><option selected>类型：全部</option><option>应收账单</option><option>丢损赔偿单</option><option>预收款</option><option>预付款</option></select><button class="btn btn-default btn-sm" onclick="go('../财务协同/应收账单.html')">应收台账</button></div>
     </div>
   <div class="table-wrap">
     <table id="dzTable">
@@ -489,6 +489,15 @@ th.td-num { text-align:right; }
           <td><span class="td-num">442,800.00</span></td>
           <td><span class="td-num">404,800.00</span></td>
           <td><span class="td-num"><b>38,000.00</b></span></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" class="cb" data-amt="50000.0"></td>
+          <td><span class="lk">AR-2026-09-PRJ2601-YS</span></td>
+          <td><span class="tag tag-blue">预收款</span></td>
+          <td>安吉智行物流</td>
+          <td><span class="td-num">50,000.00</span></td>
+          <td><span class="td-num">0.00</span></td>
+          <td><span class="td-num"><b>50,000.00</b></span></td>
         </tr>
       </tbody>
     </table>

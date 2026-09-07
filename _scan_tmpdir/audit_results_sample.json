@@ -1,14 +1,75 @@
 [
  {
-  "page": "P3-R01-F01-业务流程导航图.html",
+  "page": "财务协同\\应付账单.html",
+  "js_errors": [],
+  "problems": [
+   {
+    "cat": "弹窗",
+    "type": "modal-unreachable",
+    "phase": "modal",
+    "where": {
+     "text": "应付账单详情 · AP-20260903"
+    },
+    "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
+   }
+  ],
+  "stats": {
+   "buttons": 11,
+   "links": 19,
+   "onclickEls": 63,
+   "modals": 3,
+   "modalTitles": [
+    "新建应付账单",
+    "账单确认"
+   ],
+   "selects": 3,
+   "fakeSelects": 0,
+   "radios": 0,
+   "checkboxes": 0,
+   "inputs": 21,
+   "stabs": 4,
+   "tabs": 3,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "财务协同\\弹窗\\应付账单新建.html",
   "js_errors": [],
   "problems": [],
   "stats": {
-   "buttons": 0,
-   "links": 86,
+   "buttons": 3,
+   "links": 0,
+   "onclickEls": 4,
+   "modals": 1,
+   "modalTitles": [
+    "新建应付账单(演示页)"
+   ],
+   "selects": 1,
+   "fakeSelects": 0,
+   "radios": 0,
+   "checkboxes": 0,
+   "inputs": 5,
+   "stabs": 0,
+   "tabs": 0,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "财务协同\\弹窗\\应付账单详情.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 1,
+   "links": 0,
    "onclickEls": 8,
-   "modals": 0,
-   "modalTitles": [],
+   "modals": 1,
+   "modalTitles": [
+    "应付账单详情 · AP-20260901(演示页)"
+   ],
    "selects": 0,
    "fakeSelects": 0,
    "radios": 0,

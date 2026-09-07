@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>业务场景补充+标注层修复 · 失败清单与执行留档（2026-09-07 晚 无人值守 /goal）</title>
+<style>
+body{font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;max-width:1080px;margin:24px auto;padding:0 20px;color:#262626;font-size:13px;line-height:1.8}
+h1{font-size:18px;border-bottom:2px solid #722ed1;padding-bottom:8px}
+h2{font-size:15px;margin-top:28px;color:#722ed1}
+table{border-collapse:collapse;width:100%;margin:8px 0}
+th,td{border:1px solid #e5e5e5;padding:6px 10px;text-align:left;vertical-align:top}
+th{background:#f9f0ff;color:#531dab}
+.ok{color:#237804;font-weight:600}.warn{color:#d46b08;font-weight:600}.info{color:#1677ff;font-weight:600}
+code{background:#fafafa;border:1px solid #eee;border-radius:3px;padding:0 4px;font-size:12px}
+</style>
+</head>
+<body>
+<h1>业务场景补充+标注层修复 · 执行留档（2026-09-07 晚，道远 /goal 无人值守）</h1>
+<p><b>范围</b>：任务〇 标注层 style 块缺失修复（8 页）＋任务一 在租台账「即将到期(7天)」页签＋任务二 预收/预付静态示例（应收/应付/水单核销/F01）＋任务三 P3-R04 +4 条＋任务四 口径归档。改前备份 <code>_scan_tmpdir/backup-biz-20260907/</code>（18 文件按原相对路径）；执行脚本 <code>goal_biz_t0_fix.py / goal_biz_t2.py / goal_biz_verify.py</code>。</p>
+
+<h2>① 失败清单（assert 失败 / 结构预期外 / 跳过项）</h2>
+<table>
+<tr><th style="width:60px">序号</th><th>页面/项目</th><th>原因</th><th>处置</th></tr>
+<tr><td>1</td><td>财务协同/应付账单.html（并行会话重构后）</td><td class="warn">结构预期外：本轮执行中（18:37~18:46）另一并行进程将应付详情弹窗重构为数据驱动（新增 <code>_data/demo-data.js</code>＋<code>_data/payable-bill-detail.js</code>，重写该页内嵌详情与 <code>弹窗/应付账单详情.html</code>），覆盖本轮 18:33 打入的静态预付时间线节点</td><td>未代修并行方代码。核实其<strong>协作式</strong>：预付行 AP-20260905-012 与预付冲抵节点已被完整迁入 DEMO_DATA（措辞一致、列表行保留），任务二应付侧最终形态=数据驱动，Playwright 按 <code>openPayableBillDetail('AP-20260905-012')</code> 口径复验通过（B3a/B3b/B4 PASS）。事实与口径已入 P1-R05 最近完成</td></tr>
+<tr><td>2</td><td>财务协同/应付账单.html · audit 补测 1 条 modal-unreachable</td><td class="warn">audit 误报：并行版行内详情按钮改 <code>removeAttribute('onclick')＋addEventListener</code> 动态绑定，audit 只识别 onclick 属性触发器，判"不可达弹窗"</td><td>不修页面（动态绑定为并行方刻意模式）；Playwright 实测点击详情弹窗正常打开（B3b PASS）。audit 工具后续需补「JS 绑定触发器」检测维度（已记 P1-R05 防复发）</td></tr>
+<tr><td>3</td><td>_scan_tmpdir/scenario_replay.py</td><td>不存在</td><td>按命令预案跳过（任务三第 4 点），已在 P3-R04 更新记录与 P1-R05 注明</td></tr>
+</table>
+<p class="ok">✅ 本轮自身改动无 assert 失败、无跳过项：任务〇 8/8、任务一 1/1、任务二 9 处替换 9 中、任务三 80 条复核一致、任务四 3 文档 6 处落盘。</p>
+
+<h2>② 任务〇 失效页清单与形态分类（全站 126 文件扫描）</h2>
+<table>
+<tr><th>形态</th><th>页数</th><th>明细</th><th>处置</th></tr>
+<tr><td>CSS 缺失（style 块整体丢失，pins/js/data-note 完好）→ 便签裸露页底/角标无 ::after/开关无视觉效果</td><td>8</td><td>基础数据/客商管理、器具档案、库位档案、零部件档案；系统管理/数据字典、用户权限；项目管理/项目档案；仓储作业/盘点列表</td><td class="ok">已修复 8/8（技能 annotate.py STYLE 常量为唯一基准，pins 容器前注入，随页面主导行尾；audit 0 JS 错）</td></tr>
+<tr><td>三块完整（A04 流程链标注页）</td><td>23</td><td>A04 json 全部键（方案 B 后新路径）</td><td>跳过（幂等保护）</td></tr>
+<tr><td>三块完整（A03 时代注释层，非 A04 键）</td><td>10</td><td>库存查询、盘点录入、组合出库录单、组装录单、采购入库录单、BOM维护、操作日志、盈亏报表、项目详情、项目看板</td><td>跳过（结构完整可正常工作，pin 数据未动）</td></tr>
+<tr><td>仅含 style 块（弹窗独立模板，无 pins/js/data-note 作用对象）</td><td>36</td><td>各模块 弹窗/ 目录详情/确认类模板（仓储 14＋基础 6＋租赁 4＋系统 2＋财务 6＋采购 2＋销售 2）</td><td>跳过（纯 CSS 无作用对象，无视觉影响）</td></tr>
+</table>
+<p><b>根因</b>：git 历史回溯——8 页 style 块缺失自初始提交（v2.7 快照）即存在，系 09-03 筛选栏改造期「空 script 坏块」事故（P1-R05 第四节第 2 条）的存量损伤；这 8 页均非 A04 键，09-04「旧 34 页死角标清除重注」与 09-07 方案 B A04 重注都只覆盖 A04 页，故带伤存活；audit_interaction.py 不检测标注层渲染，历轮 0/0/0 均无法发现。<b>防复发</b>（已入 P1-R05）：标注层改动后除 audit 外须专项 Playwright 验证（?notes=1 角标/便签/三通道开关）。</p>
+
+<h2>③ 验证门结果</h2>
+<table>
+<tr><th>门</th><th>结果</th><th>说明</th></tr>
+<tr><td>全站 audit（125 页）</td><td class="ok">实际问题 0（10 条 readonly 预填豁免，与 09-05/09-07 基线一致）/ 死链 0 / JS 错 0 / 菜单异常 0</td><td>读取时点 18:4x（应付账单.html 为静态修复版）；18:46 并行重构后补测应付 3 页=0+0+0＋1 条误报（见①-2）</td></tr>
+<tr><td>Playwright 抽验 34 项</td><td class="ok">34/34 PASS</td><td>A 在租台账页签渲染/切换/注记；B 预收预付行+双层时间线（应付侧按数据驱动口径）；C 水单类型选项+示例行；D F01 注记渲染+押金行下方+零新增 rect 交叠（差分断言）；E 标注层 3 页×（默认态便签隐藏/?notes=1 角标点开便签 300px/fab 关/Alt+N 开/0 JS 错）</td></tr>
+<tr><td>P3-R04 复核</td><td class="ok">80 条全 ✅、P0×32，与汇总区一致</td><td>组标题 22→23、12→15 同步；scenario_replay 未建跳过</td></tr>
+<tr><td>台账归档</td><td class="ok">P1-R05 已拍板+3 条/最近完成+本轮记录（含任务〇根因与并行会话事实）/头部更新行；P1-R01 附录 10.2 两行叙事；A02 在租台账构成+修订记录</td><td>—</td></tr>
+</table>
+
+<h2>④ 默认决策与口径适配（命令未明说，按最简合理默认执行）</h2>
+<table>
+<tr><th>#</th><th>决策点</th><th>默认处置</th></tr>
+<tr><td>1</td><td>在租台账原无 stabs 页签（命令预设"现有页签后"不存在）</td><td>按全站惯例新建 stabs 栏=全部(9·active)＋即将到期(7天)(6)，stab 切换 JS 全站预埋直接生效</td></tr>
+<tr><td>2</td><td>表无到期日/备注列，命令注记模板尾句"示例请看到期日列/备注"指向不存在的列</td><td>尾句适配为"本表未单列到期日/备注列，示例以页签计数示意"，前两句口径原文保留</td></tr>
+<tr><td>3</td><td>水单核销页原无任何 select（命令预设"类型筛选 select 加 option"无落点）</td><td>在 ② 待核销单据卡头加类型筛选 select（全部/应收账单/丢损赔偿单/预收款/预付款，含 dzTable 既有类型全集）</td></tr>
+<tr><td>4</td><td>预收行单号/预付行单号</td><td>AR-2026-09-PRJ2601-YS（沿用 AR-YYYY-MM-PRJxxxx 格式）；AP-20260905-012（既有最大号 -011 顺延）；预付关联 RZD-20260815-005（L4 大箱链，与"大箱租金"备注自洽）</td></tr>
+<tr><td>5</td><td>任务一 A02 同步（命令未列 A02）</td><td>在租台账构成描述与修订记录一并同步（入口构成台账失配违背死链 0 精神，沿方案 B 先例）</td></tr>
+</table>
+</body>
+</html>

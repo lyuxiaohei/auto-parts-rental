@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>应收账单详情 - 包装租赁管理后台</title>
+<title>应付账单详情 - 包装租赁管理后台</title>
 <style>
 :root {
   --primary: #1677ff;
@@ -272,27 +272,27 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 </style>
 </head>
 <body style="background:#f5f6f8;min-height:100vh;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif">
-<!-- 弹窗模板：应收账单详情（详情落地页补齐 2026-09-04） -->
-<!-- 注入标记：财务协同/应收账单.html -->
+<!-- 弹窗模板：应付账单详情（详情落地页补齐 2026-09-04） -->
+<!-- 注入标记：财务协同/应付账单.html -->
 <!-- 详情弹窗（四段式：单据头/明细/关联单据互溯链/流转时间线）· 详情落地页补齐 2026-09-04 -->
 <div class="modal-overlay" id="detailModal">
   <div class="modal modal-lg" style="width:780px;">
     <div class="modal-header">
-      <h3 class="modal-title">应收账单详情 · AR-2026-09-PRJ2601-S1</h3>
+      <h3 class="modal-title">应付账单详情 · AP-20260901-008</h3>
       <span class="modal-close" onclick="closeModal('detailModal')">×</span>
     </div>
     <div class="modal-body">
       <div class="dt-sec">单据信息</div>
-      <div class="dgrid c3"><div class="drow" style="grid-column:1/-1;"><div class="dlabel">账单号</div><div class="dval">AR-2026-09-PRJ2601-S1</div></div><div class="drow"><div class="dlabel">状态</div><div class="dval"><span class="tag tag-gray">未开票</span></div></div><div class="drow"><div class="dlabel">账期</div><div class="dval">2026-09</div></div><div class="drow"><div class="dlabel">所属项目</div><div class="dval">PRJ-2601</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">客户</div><div class="dval">一汽解放汽车有限公司</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">费用类型</div><div class="dval">销售费（按销售出库自动汇总）</div></div><div class="drow"><div class="dlabel">账单金额</div><div class="dval">10,200.00 元</div></div><div class="drow"><div class="dlabel">已核销</div><div class="dval">0.00 元</div></div><div class="drow"><div class="dlabel">生成方式</div><div class="dval">自动生成</div></div><div class="drow"><div class="dlabel">生成日期</div><div class="dval">2026-09-03</div></div></div>
+      <div class="dgrid c3"><div class="drow"><div class="dlabel">账单号</div><div class="dval">AP-20260901-008</div></div><div class="drow"><div class="dlabel">状态</div><div class="dval"><span class="tag tag-orange">待付款</span></div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">供应商</div><div class="dval">宁波华塑包装制品有限公司</div></div><div class="drow"><div class="dlabel">账单类型</div><div class="dval">采购应付</div></div><div class="drow"><div class="dlabel">所属项目</div><div class="dval">PRJ-2601</div></div><div class="drow"><div class="dlabel">账期</div><div class="dval">2026-09</div></div><div class="drow"><div class="dlabel">关联采购订单</div><div class="dval"><span class="lk" onclick="go('../../采购管理/采购订单列表.html')">PO-20260825-014</span></div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">关联采购入库</div><div class="dval"><span class="lk" onclick="go('../../仓储作业/采购入库列表.html')">CGRK-20260828-012</span></div></div><div class="drow"><div class="dlabel">账单金额</div><div class="dval">84,000.00 元</div></div><div class="drow"><div class="dlabel">已付款</div><div class="dval">0.00 元</div></div><div class="drow"><div class="dlabel">生成方式</div><div class="dval">验收通过自动生成</div></div></div>
       <div class="dt-sec">费用明细</div>
-      <div class="table-wrap"><table><thead><tr><th>来源单据</th><th>费用说明</th><th class="td-num">数量</th><th class="td-num">单价(元)</th><th class="td-num">金额(元)</th></tr></thead>
+      <div class="table-wrap"><table><thead><tr><th>来源单据</th><th>费用说明</th><th class="td-num">金额(元)</th></tr></thead>
 <tbody>
-<tr><td><span class="lk" onclick="go('../../仓储作业/销售出库列表.html')">XSCK-20260902-015</span></td><td>销售费 · 箱盖 ABS 吸塑</td><td class="td-num">1,500 件</td><td class="td-num">6.80</td><td class="td-num">10,200.00</td></tr>
+<tr><td><span class="lk" onclick="go('../../仓储作业/采购入库列表.html')">CGRK-20260828-012</span></td><td>采购入库验收 · 采购应付</td><td class="td-num">84,000.00</td></tr>
 </tbody></table></div>
       <div class="dt-sec">关联单据</div>
-      <div class="chain"><div class="node"><div class="n-role">销售出库</div><div class="n-name"><span class="lk" onclick="go('../../仓储作业/销售出库列表.html')">XSCK-20260902-015</span></div></div><span class="link-arrow">→</span><div class="node" style="border-color:#1677ff;background:#e6f4ff;"><div class="n-role">应收账单（本单）</div><div class="n-name">AR-2026-09-PRJ2601-S1 · 销售费</div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">开票登记</div><div class="n-name"><span class="lk" onclick="go('../../财务协同/开票登记.html')">待开票</span></div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">回款 / 核销</div><div class="n-name"><span class="lk" onclick="go('../../财务协同/银行水单核销.html')">回款登记 → 银行水单核销</span></div></div></div>
+      <div class="chain"><div class="node"><div class="n-role">采购订单</div><div class="n-name"><span class="lk" onclick="go('../../采购管理/采购订单列表.html')">PO-20260825-014</span></div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">采购入库</div><div class="n-name"><span class="lk" onclick="go('../../仓储作业/采购入库列表.html')">CGRK-20260828-012</span></div></div><span class="link-arrow">→</span><div class="node" style="border-color:#1677ff;background:#e6f4ff;"><div class="n-role">应付账单（本单）</div><div class="n-name">AP-20260901-008 · 采购应付</div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">付款登记</div><div class="n-name"><span class="lk" onclick="go('../../财务协同/付款登记.html')">待付款</span></div></div></div>
       <div class="dt-sec">流转时间线</div>
-      <div class="tl"><div class="tl-i"><span class="tl-t">09-02</span>销售出库 · XSCK-20260902-015（1,500 件）<span class="tl-who">张伟</span></div><div class="tl-i"><span class="tl-t">09-03</span>账单自动生成 · 销售费汇总<span class="tl-who">系统</span></div><div class="tl-i"><span class="tl-t">09-05</span>预收款到账 · 记预收（安吉智行 ¥50,000）<span class="tl-who">财务</span></div><div class="tl-i"><span class="tl-t">每月</span>租金自预收冲抵 · 月度账单生成后自动冲抵<span class="tl-who">系统</span></div><div class="tl-i off"><span class="tl-t">—</span>待开票 → 回款 → 水单核销</div></div>
+      <div class="tl"><div class="tl-i"><span class="tl-t">08-28</span>采购入库验收通过 · CGRK-20260828-012<span class="tl-who">张伟</span></div><div class="tl-i"><span class="tl-t">09-01</span>应付账单自动生成<span class="tl-who">系统</span></div><div class="tl-i"><span class="tl-t">09-05</span>预付款支付 · 记预付（路凯 ¥30,000）<span class="tl-who">财务</span></div><div class="tl-i"><span class="tl-t">每月</span>预付冲抵 · 租金应付生成后自预付冲抵<span class="tl-who">系统</span></div><div class="tl-i off"><span class="tl-t">—</span>待付款 → 付款登记确认</div></div>
     </div>
     <div class="modal-footer">
       <button class="btn btn-default" onclick="closeModal('detailModal')">关 闭</button>

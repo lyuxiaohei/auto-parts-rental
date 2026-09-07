@@ -214,13 +214,6 @@ th.td-num { text-align:right; }
 .hbar .hb-fill.red { background:var(--danger); }
 .hbar .hb-val { flex:none; width:76px; text-align:right; color:var(--text-2); font-variant-numeric:tabular-nums; }
 
-/* ===== 本页业务样式 ===== */
-
-.flow-chips { display:flex; align-items:center; gap:8px; flex-wrap:wrap; font-size:12px; }
-.flow-chips .fc { border:1px solid var(--border); border-radius:4px; padding:6px 12px; background:#fafafa; color:var(--text-2); }
-.flow-chips .fc.hot { background:var(--primary-bg); border-color:var(--primary); color:var(--primary); font-weight:600; }
-.flow-chips .fa { color:var(--text-3); }
-
 </style>
 <style id="modal-css">
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:1000;align-items:center;justify-content:center}
@@ -373,18 +366,13 @@ th.td-num { text-align:right; }
     <div class="st-num">260<span class="unit">件/套</span></div>
     <div class="st-foot">验收通过待入库 4 单</div>
   </div>
-  <div class="stat">
-    <div class="st-label"><span>其中租入资产（路凯）</span></div>
-    <div class="st-num">3,200<span class="unit">件/套</span></div>
-    <div class="st-foot">占客户端在租 <em>25.6%</em> · 租金按月入应付</div>
-  </div>
 </div>
 
 <div class="stat-grid">
   <div class="stat">
-    <div class="st-label"><span>在租资产总量</span></div>
-    <div class="st-num">12,480<span class="unit">只/套</span></div>
-    <div class="st-foot">较上月 <em>+3.2%</em></div>
+    <div class="st-label"><span>其中租入资产（路凯）</span></div>
+    <div class="st-num">3,200<span class="unit">件/套</span></div>
+    <div class="st-foot">占客户端在租 <em>25.6%</em> · 租金按月入应付</div>
   </div>
   <div class="stat">
     <div class="st-label"><span>平均循环次数</span></div>
@@ -402,19 +390,6 @@ th.td-num { text-align:right; }
     <div class="st-foot">超期 <em class='down'>240</em> 只待催收</div>
   </div>
 </div>
-
-<div class="card">
-  <h3 class="card-title">循环状态流转</h3>
-  <div class="flow-chips">
-    <span class="fc hot">在租</span><span class="fa">→</span>
-    <span class="fc">退租回收</span><span class="fa">→</span>
-    <span class="fc">验收合格 · 重新租出</span>
-    <span class="fa" style="margin:0 10px;">‖</span>
-    <span class="fc">验收缺损</span><span class="fa">→</span>
-    <span class="fc">缺损待赔</span><span class="fa">→</span>
-    <span class="fc">赔偿 / 报废</span>
-  </div>
-  </div>
 
 <div class="filter-card collapsed" id="filterCard">
   <div class="filter-grid">
@@ -443,6 +418,11 @@ th.td-num { text-align:right; }
     <h3 class="card-title">在租台账</h3>
     <div class="head-btns"><button class="btn btn-default btn-sm" onclick="go('../租赁管理/租出台账.html')">租出台账</button><button class="btn btn-default btn-sm">批量导出</button></div>
   </div>
+  <div class="stabs">
+    <span class="stab active">全部<span class="stab-count">9</span></span>
+    <span class="stab">即将到期(7天)<span class="stab-count">6</span></span>
+  </div>
+  <div class="pn-hint">即将到期＝租赁止期距今 ≤7 天，正式版按页签过滤；本表未单列到期日/备注列，示例以「即将到期(7天)」页签计数示意（09-06 补充口径）</div>
   <div class="table-wrap">
     <table>
       <thead>
@@ -454,7 +434,7 @@ th.td-num { text-align:right; }
           <th>平均循环次数</th>
           <th>平均租期(天)</th>
           <th>超期数量</th>
-          <th>循环状态</th>
+          <th data-note="2">循环状态</th>
           <th class="sticky-op">操作</th>
         </tr>
       </thead>
@@ -785,6 +765,7 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 .pn-fab .pn-fab-n{font-family:Consolas,monospace;font-weight:600}
 </style>
 <div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>L1/L2 · 在租台账（L1 8/8 · L2 10/10）</div><div class="pnp-d">租赁线数据亮点：四态统计（在库/在租/待归还/维修）+ 平均租期，可停留展示。<br>含租入资产统计卡（占比与月度租金）。</div></div>
+<div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>循环状态 · 器具生命周期流转</div><div class="pnp-d">状态机：在租 → 退租回收 → 验收合格·重新租出；分支：验收缺损 → 缺损待赔 → 赔偿/报废。<br>对应链路：退租申请列表 → 退租入库（验收）→ 缺损转丢损赔偿单 / 报废。<br>原页内「循环状态流转」图例卡已下沉为本标注（2026-09-07），页面只留业务内容。</div></div>
 <div class="pn-fab" id="protoNotesFab">标注</div></div>
 <script id="proto-notes-js">
 (function(){

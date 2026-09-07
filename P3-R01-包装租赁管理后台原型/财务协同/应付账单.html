@@ -402,6 +402,23 @@ th.td-num { text-align:right; }
       <tbody>
         <tr>
           <td><input type="checkbox" class="cb"></td>
+          <td><span class="lk">AP-20260905-012</span></td>
+          <td>路凯包装运营</td>
+          <td><span class="tag tag-blue">预付</span><div style="color:#8c8c8c;font-size:11px;">预付运营方大箱租金（9 月度）</div></td>
+          <td>PRJ-2604</td>
+          <td>2026-09</td>
+          <td><span class="lk">RZD-20260815-005</span></td>
+          <td>—</td>
+          <td><span class="td-num">30,000.00</span></td>
+          <td><span class="td-num">0.00</span></td>
+          <td><span class="td-num">30,000.00</span></td>
+          <td>2026-09-05</td>
+          <td>2026-09-30</td>
+          <td><span class="tag tag-green">已付款</span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a></span></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" class="cb"></td>
           <td data-note="3"><span class="lk">AP-20260901-008</span></td>
           <td>宁波华塑包装制品有限公司</td>
           <td><span class="tag tag-blue">采购应付</span></td>
@@ -696,27 +713,27 @@ th.td-num { text-align:right; }
 <div class="modal-overlay" id="detailModal">
   <div class="modal modal-lg" style="width:780px;">
     <div class="modal-header">
-      <h3 class="modal-title">应付账单详情 · AP-20260901-008</h3>
+      <h3 class="modal-title" id="detailTitle">应付账单详情</h3>
       <span class="modal-close" onclick="closeModal('detailModal')">×</span>
     </div>
-    <div class="modal-body">
-      <div class="dt-sec">单据信息</div>
-      <div class="dgrid c3"><div class="drow"><div class="dlabel">账单号</div><div class="dval">AP-20260901-008</div></div><div class="drow"><div class="dlabel">状态</div><div class="dval"><span class="tag tag-orange">待付款</span></div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">供应商</div><div class="dval">宁波华塑包装制品有限公司</div></div><div class="drow"><div class="dlabel">账单类型</div><div class="dval">采购应付</div></div><div class="drow"><div class="dlabel">所属项目</div><div class="dval">PRJ-2601</div></div><div class="drow"><div class="dlabel">账期</div><div class="dval">2026-09</div></div><div class="drow"><div class="dlabel">关联采购订单</div><div class="dval"><span class="lk" onclick="go('../采购管理/采购订单列表.html')">PO-20260825-014</span></div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">关联采购入库</div><div class="dval"><span class="lk" onclick="go('../仓储作业/采购入库列表.html')">CGRK-20260828-012</span></div></div><div class="drow"><div class="dlabel">账单金额</div><div class="dval">84,000.00 元</div></div><div class="drow"><div class="dlabel">已付款</div><div class="dval">0.00 元</div></div><div class="drow"><div class="dlabel">生成方式</div><div class="dval">验收通过自动生成</div></div></div>
-      <div class="dt-sec">费用明细</div>
-      <div class="table-wrap"><table><thead><tr><th>来源单据</th><th>费用说明</th><th class="td-num">金额(元)</th></tr></thead>
-<tbody>
-<tr><td><span class="lk" onclick="go('../仓储作业/采购入库列表.html')">CGRK-20260828-012</span></td><td>采购入库验收 · 采购应付</td><td class="td-num">84,000.00</td></tr>
-</tbody></table></div>
-      <div class="dt-sec">关联单据</div>
-      <div class="chain"><div class="node"><div class="n-role">采购订单</div><div class="n-name"><span class="lk" onclick="go('../采购管理/采购订单列表.html')">PO-20260825-014</span></div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">采购入库</div><div class="n-name"><span class="lk" onclick="go('../仓储作业/采购入库列表.html')">CGRK-20260828-012</span></div></div><span class="link-arrow">→</span><div class="node" style="border-color:#1677ff;background:#e6f4ff;"><div class="n-role">应付账单（本单）</div><div class="n-name">AP-20260901-008 · 采购应付</div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">付款登记</div><div class="n-name"><span class="lk" onclick="go('../财务协同/付款登记.html')">待付款</span></div></div></div>
-      <div class="dt-sec">流转时间线</div>
-      <div class="tl"><div class="tl-i"><span class="tl-t">08-28</span>采购入库验收通过 · CGRK-20260828-012<span class="tl-who">张伟</span></div><div class="tl-i"><span class="tl-t">09-01</span>应付账单自动生成<span class="tl-who">系统</span></div><div class="tl-i off"><span class="tl-t">—</span>待付款 → 付款登记确认</div></div>
-    </div>
+    <div class="modal-body" id="detailBody"><!-- 内容由 _data/payable-bill-detail.js 按账单号渲染 --></div>
     <div class="modal-footer">
       <button class="btn btn-default" onclick="closeModal('detailModal')">关 闭</button>
     </div>
   </div>
 </div>
+<script src="../_data/demo-data.js"></script>
+<script src="../_data/payable-bill-detail.js"></script>
+<script>
+/* demo-data 接线：各行「详情」按行内账单号渲染对应数据（2026-09-07 试点） */
+document.querySelectorAll('tbody .ops a').forEach(function (a) {
+  if (a.textContent.trim() !== '详情') return;
+  if ((a.getAttribute('onclick') || '').indexOf('detailModal') < 0) return;
+  var billNo = a.closest('tr').cells[1].textContent.trim();
+  a.removeAttribute('onclick');
+  a.addEventListener('click', function () { openPayableBillDetail(billNo); });
+});
+</script>
 <script>
 /* ===== 菜单折叠 / 页签与表单视觉态（统一脚本） ===== */
 function go(url) { location.href = url; }

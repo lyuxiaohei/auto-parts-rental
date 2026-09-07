@@ -409,6 +409,21 @@ th.td-num { text-align:right; }
       <tbody>
         <tr>
           <td><input type="checkbox" class="cb"></td>
+          <td><span class="lk">AR-2026-09-PRJ2601-YS</span></td>
+          <td>2026-09</td>
+          <td>PRJ-2601</td>
+          <td>安吉智行物流</td>
+          <td><span class="tag tag-blue">预收</span><div style="color:#8c8c8c;font-size:11px;">客户预付 9-10 月租金，后续按月冲抵</div></td>
+          <td>—</td>
+          <td><span class="td-num"><b>50,000.00</b></span></td>
+          <td><span class="td-num">0.00</span></td>
+          <td><span class="tag tag-green">已收</span></td>
+          <td><span class="tag tag-blue">手动登记</span></td>
+          <td>2026-09-05 10:20</td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a></span></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" class="cb"></td>
           <td data-note="1"><span class="lk">AR-2026-09-PRJ2601-S1</span></td>
           <td>2026-09</td>
           <td>PRJ-2601</td>
@@ -727,7 +742,7 @@ th.td-num { text-align:right; }
       <div class="dt-sec">关联单据</div>
       <div class="chain"><div class="node"><div class="n-role">销售出库</div><div class="n-name"><span class="lk" onclick="go('../仓储作业/销售出库列表.html')">XSCK-20260902-015</span></div></div><span class="link-arrow">→</span><div class="node" style="border-color:#1677ff;background:#e6f4ff;"><div class="n-role">应收账单（本单）</div><div class="n-name">AR-2026-09-PRJ2601-S1 · 销售费</div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">开票登记</div><div class="n-name"><span class="lk" onclick="go('../财务协同/开票登记.html')">待开票</span></div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">回款 / 核销</div><div class="n-name"><span class="lk" onclick="go('../财务协同/银行水单核销.html')">回款登记 → 银行水单核销</span></div></div></div>
       <div class="dt-sec">流转时间线</div>
-      <div class="tl"><div class="tl-i"><span class="tl-t">09-02</span>销售出库 · XSCK-20260902-015（1,500 件）<span class="tl-who">张伟</span></div><div class="tl-i"><span class="tl-t">09-03</span>账单自动生成 · 销售费汇总<span class="tl-who">系统</span></div><div class="tl-i off"><span class="tl-t">—</span>待开票 → 回款 → 水单核销</div></div>
+      <div class="tl"><div class="tl-i"><span class="tl-t">09-02</span>销售出库 · XSCK-20260902-015（1,500 件）<span class="tl-who">张伟</span></div><div class="tl-i"><span class="tl-t">09-03</span>账单自动生成 · 销售费汇总<span class="tl-who">系统</span></div><div class="tl-i"><span class="tl-t">09-05</span>预收款到账 · 记预收（安吉智行 ¥50,000）<span class="tl-who">财务</span></div><div class="tl-i"><span class="tl-t">每月</span>租金自预收冲抵 · 月度账单生成后自动冲抵<span class="tl-who">系统</span></div><div class="tl-i off"><span class="tl-t">—</span>待开票 → 回款 → 水单核销</div></div>
     </div>
     <div class="modal-footer">
       <button class="btn btn-default" onclick="closeModal('detailModal')">关 闭</button>

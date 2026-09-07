@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<title>客商管理 - 包装租赁管理后台</title>
+<title>应收账单 - 包装租赁管理后台</title>
 <style>
 :root {
   --primary: #1677ff;
@@ -255,10 +255,10 @@ th.td-num { text-align:right; }
    </ul>
    </li>
    <li class="sm-item"><div class="sm-link" onclick="go('../项目管理/项目档案.html')"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></span>项目管理</div></li>
-   <li class="sm-item has-sub open">
+   <li class="sm-item has-sub">
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></span>基础资料<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
-   <li><div class="sm-link selected">客商管理</div></li>
+   <li><div class="sm-link" onclick="go('../基础数据/客商管理.html')">客商管理</div></li>
    <li><div class="sm-link" onclick="go('../基础数据/器具档案.html')">器具档案</div></li>
    <li><div class="sm-link" onclick="go('../基础数据/零部件档案.html')">零部件档案</div></li>
    <li><div class="sm-link" onclick="go('../基础数据/BOM.html')">BOM</div></li>
@@ -309,10 +309,10 @@ th.td-num { text-align:right; }
    <li><div class="sm-link" onclick="go('../租赁管理/丢损赔偿单.html')">丢损赔偿单</div></li>
    </ul>
    </li>
-   <li class="sm-item has-sub">
+   <li class="sm-item has-sub open">
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></span>财务应收<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
-   <li><div class="sm-link" onclick="go('../财务协同/应收账单.html')">应收账单</div></li>
+   <li><div class="sm-link selected">应收账单</div></li>
    <li><div class="sm-link" onclick="go('../财务协同/开票登记.html')">开票登记</div></li>
    <li><div class="sm-link" onclick="go('../财务协同/回款登记.html')">收款登记</div></li>
    <li><div class="sm-link" onclick="go('../财务协同/银行水单核销.html')">收款核销</div></li>
@@ -342,26 +342,32 @@ th.td-num { text-align:right; }
   </div></aside>
   <div class="main-col">
 <div class="tabs">
-  <span class="tab active">客商管理 <span class="close">×</span></span>
-  <span class="tab">器具档案 <span class="close">×</span></span>
-  <span class="tab">零部件档案 <span class="close">×</span></span>
-  <span class="tab">项目档案 <span class="close">×</span></span>
+  <span class="tab active">应收账单 <span class="close">×</span></span>
+  <span class="tab">开票登记 <span class="close">×</span></span>
+  <span class="tab">收款登记 <span class="close">×</span></span>
+  <span class="tab">收款核销 <span class="close">×</span></span>
 </div>
     <div class="content">
 <div class="filter-card collapsed" id="filterCard">
   <div class="filter-grid">
-    <div class="ff"><span class="ff-label">客商名称：</span><input placeholder="请输入"></div>
-    <div class="ff"><span class="ff-label">客商类型：</span>
-      <select><option selected>全部</option><option>客户</option><option>供应商</option><option>运营方</option></select>
+    <div class="ff"><span class="ff-label">账单编号：</span><input placeholder="请输入"></div>
+    <div class="ff"><span class="ff-label">客户：</span>
+      <select><option selected>全部</option><option>一汽解放汽车有限公司</option><option>上汽大众汽车有限公司宁波分公司</option><option>小鹏汽车科技有限公司</option><option>东风本田汽车有限公司</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
-    <div class="ff"><span class="ff-label">联系人：</span><input placeholder="请输入"></div>
-    <div class="ff ff-row-extra"><span class="ff-label">合作状态：</span>
-      <select><option selected>全部</option><option>客户</option><option>供应商</option><option>运营方</option></select>
+    <div class="ff"><span class="ff-label">所属项目：</span>
+      <select><option selected>全部</option><option>PRJ-2601</option><option>PRJ-2602</option><option>PRJ-2603</option><option>PRJ-2604</option><option>PRJ-2605</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
-    <div class="ff ff-row-extra"><span class="ff-label">创建时间：</span><input placeholder="开始时间"><span class="ff-sep">→</span><input placeholder="结束时间"></div>
-    <div class="ff ff-row-extra"><span class="ff-label">企业编码：</span><input placeholder="请输入"></div>
+    <div class="ff ff-row-extra"><span class="ff-label">账单状态：</span>
+      <select><option selected>全部</option><option>未开票</option><option>已开票</option><option>部分收款</option><option>已结清</option></select>
+      <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+    <div class="ff ff-row-extra"><span class="ff-label">账期：</span>
+      <select><option selected>全部</option><option>2026-09</option><option>2026-08</option><option>2026-07</option></select>
+      <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+    <div class="ff ff-row-extra"><span class="ff-label">生成日期：</span><input placeholder="开始时间"><span class="ff-sep">→</span><input placeholder="结束时间"></div>
     <div class="filter-actions">
       <button class="link-collapse" onclick="var f=document.getElementById('filterCard');f.classList.toggle('collapsed');this.querySelector('span').textContent=f.classList.contains('collapsed')?'展开':'收起'"><span>展开</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
       <button class="btn btn-default">重置</button>
@@ -371,133 +377,191 @@ th.td-num { text-align:right; }
 </div>
 <div class="card">
   <div class="card-head">
-    <h3 class="card-title">客商管理</h3>
-    <div class="head-btns"><button class="btn btn-default btn-sm">批量导出</button><button class="btn btn-sm" onclick="openModal('createModal')" data-note="1">新建客商</button></div>
+    <h3 class="card-title">应收账单</h3>
+    <div class="head-btns"><button class="btn btn-default btn-sm">批量导出</button><button class="btn btn-sm" onclick="openModal('createModal')">手动生成账单</button></div>
   </div>
 <div class="stabs">
-  <span class="stab active">全部<span class="stab-count">42</span></span>
-  <span class="stab">客户<span class="stab-count">16</span></span>
-  <span class="stab">供应商<span class="stab-count">21</span></span>
-  <span class="stab">运营方<span class="stab-count">5</span></span>
+  <span class="stab active">全部<span class="stab-count">96</span></span>
+  <span class="stab">未开票<span class="stab-count">12</span></span>
+  <span class="stab">已开票<span class="stab-count">66</span></span>
+  <span class="stab">部分收款<span class="stab-count">14</span></span>
+  <span class="stab">已结清<span class="stab-count">4</span></span>
 </div>
   <div class="table-wrap">
     <table>
       <thead>
         <tr>
           <th></th>
-          <th>客商编码</th>
-          <th>客商名称</th>
-          <th>客商类型</th>
-          <th>联系人</th>
-          <th>联系电话</th>
-          <th>开票资料</th>
-          <th>合作状态</th>
-          <th>更新时间</th>
+          <th>账单编号</th>
+          <th>账期</th>
+          <th>所属项目</th>
+          <th>客户</th>
+          <th>账单类型</th>
+          <th>包含单据</th>
+          <th>账单金额(元)</th>
+          <th>已核销(元)</th>
+          <th>状态</th>
+          <th>生成方式</th>
+          <th>生成时间</th>
           <th class="sticky-op">操作</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td><input type="checkbox" class="cb"></td>
-          <td>DW-0001</td>
+          <td data-note="1"><span class="lk">AR-2026-09-PRJ2601-S1</span></td>
+          <td>2026-09</td>
+          <td>PRJ-2601</td>
           <td>一汽解放汽车有限公司</td>
-          <td><span class="tag tag-blue">客户</span></td>
-          <td>袁明</td>
-          <td>138****6621</td>
-          <td>增值税专票 13%</td>
-          <td><span class="tag tag-green">正常</span></td>
-          <td>2026-08-12</td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('createModal')">开票资料</a></span></td>
+          <td>销售费（按销售出库自动汇总）<div style="color:#8c8c8c;font-size:11px;">关联 XSCK-20260902-015 等 2 单</div></td>
+          <td>销售出库 XSCK-20260902-015 等</td>
+          <td><span class="td-num"><b>10,200.00</b></span></td>
+          <td><span class="td-num">0.00</span></td>
+          <td><span class="tag tag-red">未开票</span></td>
+          <td><span class="tag tag-blue">自动生成</span></td>
+          <td>2026-09-03 00:06</td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('auditModal')">账单确认</a><a onclick="openModal('detailModal')">详情</a><a onclick="go('../财务协同/开票登记.html')">开票</a><a onclick="go('../财务协同/银行水单核销.html')">核销</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
-          <td>DW-0002</td>
-          <td>上汽大众汽车有限公司宁波分公司</td>
-          <td><span class="tag tag-blue">客户</span></td>
-          <td>何静</td>
-          <td>139****0233</td>
-          <td>增值税专票 13%</td>
-          <td><span class="tag tag-green">正常</span></td>
-          <td>2026-08-05</td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('createModal')">开票资料</a></span></td>
-        </tr>
-        <tr>
-          <td><input type="checkbox" class="cb"></td>
-          <td>DW-0003</td>
-          <td>小鹏汽车科技有限公司</td>
-          <td><span class="tag tag-blue">客户</span></td>
-          <td>林芳</td>
-          <td>137****8845</td>
-          <td>增值税专票 13%</td>
-          <td><span class="tag tag-green">正常</span></td>
-          <td>2026-07-28</td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('createModal')">开票资料</a></span></td>
-        </tr>
-        <tr>
-          <td><input type="checkbox" class="cb"></td>
-          <td>DW-0004</td>
+          <td><span class="lk">AR-2026-09-PRJ2604-S1</span></td>
+          <td>2026-09</td>
+          <td>PRJ-2604</td>
           <td>东风本田汽车有限公司</td>
-          <td><span class="tag tag-blue">客户</span></td>
-          <td>赵磊</td>
-          <td>136****3312</td>
-          <td>增值税专票 13%</td>
-          <td><span class="tag tag-gray">停用</span></td>
-          <td>2026-06-30</td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('createModal')">开票资料</a></span></td>
+          <td>销售费（按销售出库自动汇总）<div style="color:#8c8c8c;font-size:11px;">关联 XSCK-20260901-014</div></td>
+          <td>销售出库 XSCK-20260901-014 等</td>
+          <td><span class="td-num"><b>1,280.00</b></span></td>
+          <td><span class="td-num">0.00</span></td>
+          <td><span class="tag tag-red">未开票</span></td>
+          <td><span class="tag tag-blue">自动生成</span></td>
+          <td>2026-09-02 00:06</td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('auditModal')">账单确认</a><a onclick="openModal('detailModal')">详情</a><a onclick="go('../财务协同/开票登记.html')">开票</a><a onclick="go('../财务协同/银行水单核销.html')">核销</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
-          <td>DW-0101</td>
-          <td>宁波华塑包装制品有限公司</td>
-          <td><span class="tag tag-green">供应商</span></td>
-          <td>孙建军</td>
-          <td>135****7790</td>
-          <td>增值税专票 13%</td>
-          <td><span class="tag tag-green">正常</span></td>
-          <td>2026-08-18</td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('createModal')">开票资料</a></span></td>
+          <td><span class="lk">AR-2026-08-PRJ2602-S1</span></td>
+          <td>2026-08</td>
+          <td>PRJ-2602</td>
+          <td>上汽大众宁波分公司</td>
+          <td>销售费（按销售出库自动汇总）<div style="color:#8c8c8c;font-size:11px;">关联 XSCK-20260826-012</div></td>
+          <td>销售出库 XSCK-20260826-012 等</td>
+          <td><span class="td-num"><b>6,050.00</b></span></td>
+          <td><span class="td-num">6,050.00</span></td>
+          <td><span class="tag tag-green">已结清</span></td>
+          <td><span class="tag tag-blue">自动生成</span></td>
+          <td>2026-08-31 00:06</td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('auditModal')">账单确认</a><a onclick="openModal('detailModal')">详情</a><a onclick="go('../财务协同/开票登记.html')">开票</a><a onclick="go('../财务协同/银行水单核销.html')">核销</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
-          <td>DW-0102</td>
-          <td>苏州联恒五金制品有限公司</td>
-          <td><span class="tag tag-green">供应商</span></td>
-          <td>吴海涛</td>
-          <td>133****5567</td>
-          <td>增值税专票 13%</td>
-          <td><span class="tag tag-green">正常</span></td>
-          <td>2026-08-18</td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('createModal')">开票资料</a></span></td>
+          <td data-note="2"><span class="lk">AR-2026-08-PRJ2601</span></td>
+          <td>2026-08</td>
+          <td>PRJ-2601</td>
+          <td>一汽解放汽车有限公司</td>
+          <td>租赁费（按组合出库自动汇总）</td>
+          <td>租赁出库 26 张</td>
+          <td><span class="td-num"><b>486,200.00</b></span></td>
+          <td><span class="td-num">186,200.00</span></td>
+          <td><span class="tag tag-orange">部分收款</span></td>
+          <td><span class="tag tag-blue">自动生成</span></td>
+          <td>2026-08-31 00:05</td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('auditModal')">账单确认</a><a onclick="openModal('detailModal')">详情</a><a onclick="go('../财务协同/开票登记.html')">开票</a><a onclick="go('../财务协同/银行水单核销.html')">核销</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
-          <td>DW-0103</td>
-          <td>常州正大塑料托盘厂</td>
-          <td><span class="tag tag-green">供应商</span></td>
-          <td>郑卫东</td>
-          <td>138****2245</td>
-          <td>增值税专票 13%</td>
-          <td><span class="tag tag-green">正常</span></td>
-          <td>2026-07-15</td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('createModal')">开票资料</a></span></td>
+          <td><span class="lk">AR-2026-08-PRJ2602</span></td>
+          <td>2026-08</td>
+          <td>PRJ-2602</td>
+          <td>上汽大众宁波分公司</td>
+          <td>租赁费（按组合出库自动汇总）</td>
+          <td>租赁出库 26 张</td>
+          <td><span class="td-num"><b>358,900.00</b></span></td>
+          <td><span class="td-num">0.00</span></td>
+          <td><span class="tag tag-orange">未开票</span></td>
+          <td><span class="tag tag-blue">自动生成</span></td>
+          <td>2026-08-31 00:05</td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('auditModal')">账单确认</a><a onclick="openModal('detailModal')">详情</a><a onclick="go('../财务协同/开票登记.html')">开票</a><a onclick="go('../财务协同/银行水单核销.html')">核销</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
-          <td>DW-0201</td>
-          <td>路凯包装运营（上海）有限公司</td>
-          <td><span class="tag tag-orange">运营方</span></td>
-          <td>路凯对接组</td>
-          <td>021-66****</td>
-          <td>结算对账专用</td>
-          <td><span class="tag tag-green">正常</span></td>
-          <td>2026-08-30</td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('createModal')">开票资料</a></span></td>
+          <td><span class="lk">AR-2026-08-PRJ2603</span></td>
+          <td>2026-08</td>
+          <td>PRJ-2603</td>
+          <td>小鹏汽车科技有限公司</td>
+          <td>租赁费（按组合出库自动汇总）</td>
+          <td>租赁出库 26 张</td>
+          <td><span class="td-num"><b>241,500.00</b></span></td>
+          <td><span class="td-num">0.00</span></td>
+          <td><span class="tag tag-orange">未开票</span></td>
+          <td><span class="tag tag-blue">自动生成</span></td>
+          <td>2026-08-31 00:05</td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('auditModal')">账单确认</a><a onclick="openModal('detailModal')">详情</a><a onclick="go('../财务协同/开票登记.html')">开票</a><a onclick="go('../财务协同/银行水单核销.html')">核销</a></span></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" class="cb"></td>
+          <td><span class="lk">AR-2026-07-PRJ2601</span></td>
+          <td>2026-07</td>
+          <td>PRJ-2601</td>
+          <td>一汽解放汽车有限公司</td>
+          <td>租赁费（按组合出库自动汇总）</td>
+          <td>租赁出库 26 张</td>
+          <td><span class="td-num"><b>442,800.00</b></span></td>
+          <td><span class="td-num">442,800.00</span></td>
+          <td><span class="tag tag-green">已结清</span></td>
+          <td><span class="tag tag-blue">自动生成</span></td>
+          <td>2026-07-31 00:05</td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('auditModal')">账单确认</a><a onclick="openModal('detailModal')">详情</a><a onclick="go('../财务协同/开票登记.html')">开票</a><a onclick="go('../财务协同/银行水单核销.html')">核销</a></span></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" class="cb"></td>
+          <td data-note="3"><span class="lk">BS-20260828-004</span></td>
+          <td>2026-08</td>
+          <td>PRJ-2601</td>
+          <td>一汽解放汽车有限公司</td>
+          <td>丢损赔偿单（退租联动）</td>
+          <td>丢损赔偿单 BS-20260828-004</td>
+          <td><span class="td-num"><b>3,690.00</b></span></td>
+          <td><span class="td-num">0.00</span></td>
+          <td><span class="tag tag-orange">未开票</span></td>
+          <td><span class="tag tag-blue">赔偿联动</span></td>
+          <td>2026-08-28 11:30</td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('auditModal')">账单确认</a><a onclick="openModal('detailModal')">详情</a><a onclick="go('../财务协同/开票登记.html')">开票</a><a onclick="go('../财务协同/银行水单核销.html')">核销</a></span></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" class="cb"></td>
+          <td><span class="lk">AR-2026-07-PRJ2602</span></td>
+          <td>2026-07</td>
+          <td>PRJ-2602</td>
+          <td>上汽大众宁波分公司</td>
+          <td>租赁费（按组合出库自动汇总）</td>
+          <td>租赁出库 26 张</td>
+          <td><span class="td-num"><b>366,200.00</b></span></td>
+          <td><span class="td-num">186,200.00</span></td>
+          <td><span class="tag tag-orange">部分收款</span></td>
+          <td><span class="tag tag-blue">自动生成</span></td>
+          <td>2026-07-31 00:05</td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('auditModal')">账单确认</a><a onclick="openModal('detailModal')">详情</a><a onclick="go('../财务协同/开票登记.html')">开票</a><a onclick="go('../财务协同/银行水单核销.html')">核销</a></span></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" class="cb"></td>
+          <td><span class="lk">AR-2026-06-PRJ2602</span></td>
+          <td>2026-06</td>
+          <td>PRJ-2602</td>
+          <td>上汽大众宁波分公司</td>
+          <td>租赁费（按组合出库自动汇总）</td>
+          <td>租赁出库 26 张</td>
+          <td><span class="td-num"><b>358,900.00</b></span></td>
+          <td><span class="td-num">358,900.00</span></td>
+          <td><span class="tag tag-green">已结清</span></td>
+          <td><span class="tag tag-blue">自动生成</span></td>
+          <td>2026-06-30 00:05</td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('auditModal')">账单确认</a><a onclick="openModal('detailModal')">详情</a><a onclick="go('../财务协同/开票登记.html')">开票</a><a onclick="go('../财务协同/银行水单核销.html')">核销</a></span></td>
         </tr>
       </tbody>
     </table>
   </div>
   <div style="display:flex;align-items:center;justify-content:space-between;margin-top:12px" id="pager-row"><div id="batch-btns-area"></div><div class="pager" style="margin:0">
-    <span class="pg-info">第 1-10 条/总共 42 条</span>
+    <span class="pg-info">第 1-10 条/总共 96 条</span>
     <span class="pg-btn">‹</span>
     <span class="pg-btn cur">1</span>
     <span class="pg-btn">2</span>
@@ -519,101 +583,32 @@ th.td-num { text-align:right; }
 
 
 
-<style id="proto-notes-style">
-body.proto-notes-on [data-note]{position:relative}
-body.proto-notes-on [data-note]::after{content:attr(data-note);position:absolute;top:1px;right:1px;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600;box-shadow:0 0 0 1.5px #fff;cursor:pointer;opacity:.75;transition:opacity .15s}
-body.proto-notes-on [data-note]:hover::after{opacity:1}
-@keyframes pn-blink{0%{box-shadow:0 0 0 2px #722ed1}25%{box-shadow:0 0 0 5px rgba(114,46,209,.35)}100%{box-shadow:0 0 0 2px transparent}}
-.proto-pin{display:none;position:absolute;width:300px;background:#fff;border:1px solid #f0f0f0;border-top:2px solid #722ed1;border-radius:6px;box-shadow:0 4px 14px rgba(0,0,0,.13);z-index:890;padding:10px 12px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;font-size:12px;color:#262626}
-body.proto-notes-on .proto-pin.pn-open{display:block}
-.proto-pin .pnp-close{position:absolute;top:6px;right:8px;cursor:pointer;color:#8c8c8c;font-size:14px;line-height:1;padding:2px}
-.proto-pin .pnp-close:hover{color:#262626}
-.proto-pin .pnp-t{display:flex;align-items:center;gap:6px;font-weight:600;font-size:13px;color:#262626;padding-right:16px}
-.proto-pin .pnp-n{flex:none;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600}
-.proto-pin .pnp-d{margin-top:5px;color:#595959;line-height:1.6}
-.proto-pin .pnp-b{margin-top:6px;display:flex;gap:4px;flex-wrap:wrap}
-.proto-pin .pnp-tag{background:#f9f0ff;color:#722ed1;border-radius:3px;padding:0 6px;font-size:11px;line-height:20px}
-.proto-pin .pnp-src{margin-top:8px;padding-top:7px;border-top:1px dashed #e5dff0;font-size:11px;color:#595959;line-height:1.65}
-.proto-pin .pnp-src b{color:#722ed1;font-weight:600}
-.pn-fab{position:fixed;right:12px;bottom:12px;z-index:880;display:flex;align-items:center;gap:5px;height:24px;padding:0 10px;border-radius:4px;background:#fff;border:1px solid #ddd0ec;color:#722ed1;font-size:11px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.06);opacity:.6;transition:opacity .15s}
-.pn-fab:hover{opacity:1;border-color:#722ed1}
-body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
-.pn-fab .pn-fab-n{font-family:Consolas,monospace;font-weight:600}
-</style>
-<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>新建客商</div><div class="pnp-d">客户/供应商/运营方三类主体，含开票资料（开票主体信息待确认）</div><div class="pnp-b"><span class="pnp-tag">FP1-02 · 客商管理</span><span class="pnp-tag">REQ-01 · 多项目统一管理</span></div><div class="pnp-src"><div class="src-item"><b>FP1-02 客商管理</b>：客户/供应商/运营方三类，联系人、开票资料</div><div class="src-item"><b>REQ-01 多项目统一管理</b>：所有项目整合进一个系统，按项目建立编码，绑定上下游关系</div></div></div>
-<div class="pn-fab" id="protoNotesFab">标注</div></div>
-<script id="proto-notes-js">
-(function(){
-  var KEY='proto-notes-on';
-  function on(){return location.search.indexOf('notes=1')>-1||localStorage.getItem(KEY)==='1'}
-  function apply(){
-    document.body.classList.toggle('proto-notes-on',on());
-    var fab=document.getElementById('protoNotesFab');
-    if(fab){fab.innerHTML=on()?'收起':'标注 <span class="pn-fab-n">'+(document.querySelectorAll('[data-note]').length)+'</span>';fab.title=on()?'收起标注（Alt+N）':'显示标注（Alt+N）'}
-  }
-  function toggle(){var v=!on();localStorage.setItem(KEY,v?'1':'0');apply()}
-  document.addEventListener('keydown',function(e){if(e.altKey&&(e.key==='n'||e.key==='N')){e.preventDefault();toggle()}});
-  function place(el,pin){
-    var r=el.getBoundingClientRect(),sx=window.scrollX||0,sy=window.scrollY||0;
-    var w=pin.offsetWidth||248,h=pin.offsetHeight||90,vw=document.documentElement.clientWidth;
-    var x=r.right+sx+12;
-    if(x+w>sx+vw-8){var xl=r.left+sx-w-12;x=xl>=sx+8?xl:(sx+vw-w-8)}
-    var y=r.top+sy;
-    if(y+h>sy+document.documentElement.clientHeight-8)y=Math.max(sy+52,r.bottom+sy-h);
-    pin.style.left=x+'px';pin.style.top=y+'px';
-  }
-  document.addEventListener('click',function(e){
-    if(!on())return;
-    var tgt=e.target.closest?e.target.closest('[data-note]'):null;
-    if(tgt){
-      var r=tgt.getBoundingClientRect();
-      if(e.clientX>r.right-24&&e.clientY<r.top+22){
-        e.stopPropagation();e.preventDefault();
-        var pin=document.getElementById('proto-pin-'+tgt.getAttribute('data-note'));
-        if(pin){
-          if(pin.classList.contains('pn-open')){pin.classList.remove('pn-open')}
-          else{pin.classList.add('pn-open');place(tgt,pin)}
-        }
-      }
-    }
-  },true);
-  document.addEventListener('click',function(e){
-    var t=e.target;
-    var fab=t.closest?t.closest('.pn-fab'):null;
-    if(fab){toggle();return}
-    var pc=t.closest?t.closest('.proto-pin'):null;
-    if(pc){
-      if(t.classList&&t.classList.contains('pnp-close'))pc.classList.remove('pn-open');
-      return;
-    }
-  });
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply);else apply();
-})();
-</script>
 
-<!-- 弹窗已提取到 弹窗/新建客商.html，构建时注入 -->
+
+
+<!-- 弹窗已提取到 弹窗/应收账单生成.html，构建时注入 -->
 <div class="modal-overlay" id="createModal">
   <div class="modal">
     <div class="modal-header">
-      <h3 class="modal-title">新建客商</h3>
+      <h3 class="modal-title">手动生成账单</h3>
       <span class="modal-close" onclick="closeModal('createModal')">×</span>
     </div>
     <div class="modal-body">
 <div class="form-row">
-    <span class="form-label"><span class="req">*</span>客商名称</span>
-    <div class="input-box"><input placeholder="企业全称"></div>
+    <span class="form-label"><span class="req">*</span>客户</span>
+    <div class="input-box select-box"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>一汽解放汽车有限公司</option><option>上汽大众汽车有限公司宁波分公司</option><option>小鹏汽车科技有限公司</option><option>东风本田汽车有限公司</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
   </div><div class="form-row">
-    <span class="form-label"><span class="req">*</span>客商类型</span>
-    <div class="input-box select-box"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>客户</option><option>供应商</option><option>客户兼供应商</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+    <span class="form-label"><span class="req">*</span>所属项目</span>
+    <div class="input-box select-box"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>PRJ-2601 一汽解放·长春基地</option><option>PRJ-2601 一汽解放</option><option>PRJ-2602 上汽大众</option><option>PRJ-2603 小鹏</option><option>PRJ-2604 东风本田</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
   </div><div class="form-row">
-    <span class="form-label">联系人</span>
-    <div class="input-box"><input value="张三" placeholder="请输入"></div>
+    <span class="form-label">账期</span>
+    <div class="input-box"><input value="2026-09" placeholder="请输入"></div>
   </div><div class="form-row">
-    <span class="form-label">联系电话</span>
-    <div class="input-box"><input value="138****0000" placeholder="请输入"></div>
-  </div><div class="form-row">
-    <span class="form-label">开票资料</span>
-    <div class="input-box select-box"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>增值税专票 13%</option><option>增值税专用发票（13%）</option><option>增值税普通发票</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+    <span class="form-label">账单类型</span>
+    <div class="input-box select-box"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>租赁费</option><option>全部</option><option>待定选项（演示数据）</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+  </div><div class="pn-hint" style="margin:-6px 0 12px 128px;">可选类型：租赁费（按组合出库自动汇总）/ 销售费（按销售出库自动汇总）/ 丢损赔偿（退租联动）</div><div class="form-row">
+    <span class="form-label"><span class="req">*</span>账单金额(元)</span>
+    <div class="input-box"><input value="126,800.00" placeholder="请输入"></div>
   </div><div class="form-row">
     <span class="form-label">备注</span>
     <div class="input-box"><input placeholder="选填"></div>
@@ -626,6 +621,26 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
   </div>
 </div>
 
+
+<div class="modal-overlay" id="auditModal">
+  <div class="modal">
+    <div class="modal-header"><h3 class="modal-title">账单确认</h3><span class="modal-close" onclick="closeModal('auditModal')">×</span></div>
+    <div class="modal-body">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px">
+        <div><span style="color:#8c8c8c;font-size:12px">应收单号</span><br><b>AR-2026-09-PRJ2601-S</b></div>
+        <div><span style="color:#8c8c8c;font-size:12px">对方单位</span><br><b>一汽解放汽车</b></div>
+        <div><span style="color:#8c8c8c;font-size:12px">金额</span><br><b style="color:#1677ff">¥10,200.00</b></div>
+        <div><span style="color:#8c8c8c;font-size:12px">审核结果</span><br><span style="color:#fa8c16">待确认</span></div>
+      </div>
+      <div style="margin-bottom:8px"><span style="color:#8c8c8c;font-size:12px">审核意见</span></div>
+      <textarea style="width:100%;height:60px;border:1px solid #d9d9d9;border-radius:4px;padding:8px;font-size:13px" placeholder="选填"></textarea>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-default" onclick="closeModal('auditModal')">取 消</button>
+      <button class="btn" onclick="closeModal('auditModal')">确认通过</button>
+    </div>
+  </div>
+</div>
 
 <script id="batch-btn-js">
 (function(){
@@ -671,6 +686,11 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
   }
 })();
 </script>
+
+
+
+
+
 <style id="detail-modal-css">
 /* 详情弹窗（四段式）专用样式：段落标题 / 关联链 / 流转时间线 */
 .dt-sec{font-size:13px;font-weight:600;color:#262626;margin:0 0 10px;padding-left:8px;border-left:3px solid #1677ff;line-height:1.3}
@@ -693,24 +713,21 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 <div class="modal-overlay" id="detailModal">
   <div class="modal modal-lg" style="width:780px;">
     <div class="modal-header">
-      <h3 class="modal-title">客商详情 · 一汽解放汽车有限公司</h3>
+      <h3 class="modal-title">应收账单详情 · AR-2026-09-PRJ2601-S1</h3>
       <span class="modal-close" onclick="closeModal('detailModal')">×</span>
     </div>
     <div class="modal-body">
       <div class="dt-sec">单据信息</div>
-      <div class="dgrid c3"><div class="drow"><div class="dlabel">客商编码</div><div class="dval">DW-0001</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">客商名称</div><div class="dval">一汽解放汽车有限公司</div></div><div class="drow"><div class="dlabel">客商类型</div><div class="dval">客户</div></div><div class="drow"><div class="dlabel">状态</div><div class="dval"><span class="tag tag-green">正常</span></div></div><div class="drow"><div class="dlabel">联系人</div><div class="dval">袁明 138****6621</div></div><div class="drow"><div class="dlabel">开票要求</div><div class="dval">增值税专票 13%</div></div><div class="drow"><div class="dlabel">更新时间</div><div class="dval">2026-08-12</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">关联项目</div><div class="dval"><span class="lk" onclick="go('../项目管理/项目档案.html')">PRJ-2601</span> 长春基地围板箱租赁</div></div></div>
-      <div class="dt-sec">联系人 / 往来统计</div>
-      <div class="table-wrap"><table><thead><tr><th>统计项</th><th class="td-num">数值</th><th>说明</th></tr></thead>
+      <div class="dgrid c3"><div class="drow" style="grid-column:1/-1;"><div class="dlabel">账单号</div><div class="dval">AR-2026-09-PRJ2601-S1</div></div><div class="drow"><div class="dlabel">状态</div><div class="dval"><span class="tag tag-gray">未开票</span></div></div><div class="drow"><div class="dlabel">账期</div><div class="dval">2026-09</div></div><div class="drow"><div class="dlabel">所属项目</div><div class="dval">PRJ-2601</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">客户</div><div class="dval">一汽解放汽车有限公司</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">费用类型</div><div class="dval">销售费（按销售出库自动汇总）</div></div><div class="drow"><div class="dlabel">账单金额</div><div class="dval">10,200.00 元</div></div><div class="drow"><div class="dlabel">已核销</div><div class="dval">0.00 元</div></div><div class="drow"><div class="dlabel">生成方式</div><div class="dval">自动生成</div></div><div class="drow"><div class="dlabel">生成日期</div><div class="dval">2026-09-03</div></div></div>
+      <div class="dt-sec">费用明细</div>
+      <div class="table-wrap"><table><thead><tr><th>来源单据</th><th>费用说明</th><th class="td-num">数量</th><th class="td-num">单价(元)</th><th class="td-num">金额(元)</th></tr></thead>
 <tbody>
-<tr><td>本月营收（PRJ-2601）</td><td class="td-num">486,200 元</td><td>租赁 + 销售费</td></tr>
-<tr><td>累计开票</td><td class="td-num">312,000 元</td><td>INV-20260830-012 等</td></tr>
-<tr><td>在租器具</td><td class="td-num">3,860 只</td><td>围板箱 3,120 / 托盘 740</td></tr>
-<tr><td>联系人</td><td>袁明 · 业务对接</td><td>138****6621</td></tr>
+<tr><td><span class="lk" onclick="go('../仓储作业/销售出库列表.html')">XSCK-20260902-015</span></td><td>销售费 · 箱盖 ABS 吸塑</td><td class="td-num">1,500 件</td><td class="td-num">6.80</td><td class="td-num">10,200.00</td></tr>
 </tbody></table></div>
       <div class="dt-sec">关联单据</div>
-      <div class="chain"><div class="node" style="border-color:#1677ff;background:#e6f4ff;"><div class="n-role">客商（本档）</div><div class="n-name">DW-0001 一汽解放</div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">关联项目</div><div class="n-name"><span class="lk" onclick="go('../项目管理/项目档案.html')">PRJ-2601</span></div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">销售订单</div><div class="n-name"><span class="lk" onclick="go('../销售管理/销售订单列表.html')">SO-20260827-0036</span></div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">应收账单</div><div class="n-name"><span class="lk" onclick="go('../财务协同/应收账单.html')">租赁费 / 销售费</span></div></div></div>
+      <div class="chain"><div class="node"><div class="n-role">销售出库</div><div class="n-name"><span class="lk" onclick="go('../仓储作业/销售出库列表.html')">XSCK-20260902-015</span></div></div><span class="link-arrow">→</span><div class="node" style="border-color:#1677ff;background:#e6f4ff;"><div class="n-role">应收账单（本单）</div><div class="n-name">AR-2026-09-PRJ2601-S1 · 销售费</div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">开票登记</div><div class="n-name"><span class="lk" onclick="go('../财务协同/开票登记.html')">待开票</span></div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">回款 / 核销</div><div class="n-name"><span class="lk" onclick="go('../财务协同/银行水单核销.html')">回款登记 → 银行水单核销</span></div></div></div>
       <div class="dt-sec">流转时间线</div>
-      <div class="tl"><div class="tl-i"><span class="tl-t">2026-01</span>建档 · 客户<span class="tl-who">系统</span></div><div class="tl-i"><span class="tl-t">2026-08-12</span>资质与开票信息更新<span class="tl-who">财务-周敏</span></div><div class="tl-i"><span class="tl-t">至今</span>持续合作 · PRJ-2601 在租 3,860 只</div></div>
+      <div class="tl"><div class="tl-i"><span class="tl-t">09-02</span>销售出库 · XSCK-20260902-015（1,500 件）<span class="tl-who">张伟</span></div><div class="tl-i"><span class="tl-t">09-03</span>账单自动生成 · 销售费汇总<span class="tl-who">系统</span></div><div class="tl-i off"><span class="tl-t">—</span>待开票 → 回款 → 水单核销</div></div>
     </div>
     <div class="modal-footer">
       <button class="btn btn-default" onclick="closeModal('detailModal')">关 闭</button>
@@ -777,6 +794,82 @@ document.querySelectorAll('.tab').forEach(function (t) {
     el.style.transform = 'scale(.96)';
     setTimeout(function () { el.style.transform = ''; }, 160);
   }, true);
+})();
+</script>
+
+
+
+<style id="proto-notes-style">
+body.proto-notes-on [data-note]{position:relative}
+body.proto-notes-on [data-note]::after{content:attr(data-note);position:absolute;top:1px;right:1px;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600;box-shadow:0 0 0 1.5px #fff;cursor:pointer;opacity:.75;transition:opacity .15s}
+body.proto-notes-on [data-note]:hover::after{opacity:1}
+@keyframes pn-blink{0%{box-shadow:0 0 0 2px #722ed1}25%{box-shadow:0 0 0 5px rgba(114,46,209,.35)}100%{box-shadow:0 0 0 2px transparent}}
+.proto-pin{display:none;position:absolute;width:300px;background:#fff;border:1px solid #f0f0f0;border-top:2px solid #722ed1;border-radius:6px;box-shadow:0 4px 14px rgba(0,0,0,.13);z-index:890;padding:10px 12px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;font-size:12px;color:#262626}
+body.proto-notes-on .proto-pin.pn-open{display:block}
+.proto-pin .pnp-close{position:absolute;top:6px;right:8px;cursor:pointer;color:#8c8c8c;font-size:14px;line-height:1;padding:2px}
+.proto-pin .pnp-close:hover{color:#262626}
+.proto-pin .pnp-t{display:flex;align-items:center;gap:6px;font-weight:600;font-size:13px;color:#262626;padding-right:16px}
+.proto-pin .pnp-n{flex:none;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600}
+.proto-pin .pnp-d{margin-top:5px;color:#595959;line-height:1.6}
+.proto-pin .pnp-b{margin-top:6px;display:flex;gap:4px;flex-wrap:wrap}
+.proto-pin .pnp-tag{background:#f9f0ff;color:#722ed1;border-radius:3px;padding:0 6px;font-size:11px;line-height:20px}
+.proto-pin .pnp-src{margin-top:8px;padding-top:7px;border-top:1px dashed #e5dff0;font-size:11px;color:#595959;line-height:1.65}
+.proto-pin .pnp-src b{color:#722ed1;font-weight:600}
+.pn-fab{position:fixed;right:12px;bottom:12px;z-index:880;display:flex;align-items:center;gap:5px;height:24px;padding:0 10px;border-radius:4px;background:#fff;border:1px solid #ddd0ec;color:#722ed1;font-size:11px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.06);opacity:.6;transition:opacity .15s}
+.pn-fab:hover{opacity:1;border-color:#722ed1}
+body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
+.pn-fab .pn-fab-n{font-family:Consolas,monospace;font-weight:600}
+</style>
+<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>B1 销售线 · 步骤 3/5 应收账单（销售费）</div><div class="pnp-d">按销售出库自动汇总，关联 XSCK-20260902-015 等 2 单。<br>下一步 → 开票登记 → 回款 → 水单核销。</div></div>
+<div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>L1/L2 · 租赁费应收（财务汇合点）</div><div class="pnp-d">按组合出库自动汇总——租赁线与买卖线在账单层汇合，共用同一条 开票→回款→核销 通道（袁丽晶 43:24）。</div></div>
+<div class="proto-pin" id="proto-pin-3"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">3</span>S4 · 赔偿转应收</div><div class="pnp-d">丢损赔偿按对象直接转单据（2026-09-04 拍板）：<br>自有器具 → 客户赔付进应收；租入器具 → 运营方赔付进应付（见应付账单）。</div></div>
+<div class="pn-fab" id="protoNotesFab">标注</div></div>
+<script id="proto-notes-js">
+(function(){
+  var KEY='proto-notes-on';
+  function on(){return location.search.indexOf('notes=1')>-1||localStorage.getItem(KEY)==='1'}
+  function apply(){
+    document.body.classList.toggle('proto-notes-on',on());
+    var fab=document.getElementById('protoNotesFab');
+    if(fab){fab.innerHTML=on()?'收起':'标注 <span class="pn-fab-n">'+(document.querySelectorAll('[data-note]').length)+'</span>';fab.title=on()?'收起标注（Alt+N）':'显示标注（Alt+N）'}
+  }
+  function toggle(){var v=!on();localStorage.setItem(KEY,v?'1':'0');apply()}
+  document.addEventListener('keydown',function(e){if(e.altKey&&(e.key==='n'||e.key==='N')){e.preventDefault();toggle()}});
+  function place(el,pin){
+    var r=el.getBoundingClientRect(),sx=window.scrollX||0,sy=window.scrollY||0;
+    var w=pin.offsetWidth||248,h=pin.offsetHeight||90,vw=document.documentElement.clientWidth;
+    var x=r.right+sx+12;
+    if(x+w>sx+vw-8){var xl=r.left+sx-w-12;x=xl>=sx+8?xl:(sx+vw-w-8)}
+    var y=r.top+sy;
+    if(y+h>sy+document.documentElement.clientHeight-8)y=Math.max(sy+52,r.bottom+sy-h);
+    pin.style.left=x+'px';pin.style.top=y+'px';
+  }
+  document.addEventListener('click',function(e){
+    if(!on())return;
+    var tgt=e.target.closest?e.target.closest('[data-note]'):null;
+    if(tgt){
+      var r=tgt.getBoundingClientRect();
+      if(e.clientX>r.right-24&&e.clientY<r.top+22){
+        e.stopPropagation();e.preventDefault();
+        var pin=document.getElementById('proto-pin-'+tgt.getAttribute('data-note'));
+        if(pin){
+          if(pin.classList.contains('pn-open')){pin.classList.remove('pn-open')}
+          else{pin.classList.add('pn-open');place(tgt,pin)}
+        }
+      }
+    }
+  },true);
+  document.addEventListener('click',function(e){
+    var t=e.target;
+    var fab=t.closest?t.closest('.pn-fab'):null;
+    if(fab){toggle();return}
+    var pc=t.closest?t.closest('.proto-pin'):null;
+    if(pc){
+      if(t.classList&&t.classList.contains('pnp-close'))pc.classList.remove('pn-open');
+      return;
+    }
+  });
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply);else apply();
 })();
 </script>
 </body>

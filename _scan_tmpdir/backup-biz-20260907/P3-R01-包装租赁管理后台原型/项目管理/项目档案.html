@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<title>客商管理 - 包装租赁管理后台</title>
+<title>项目档案 - 包装租赁管理后台</title>
 <style>
 :root {
   --primary: #1677ff;
@@ -254,11 +254,11 @@ th.td-num { text-align:right; }
    <li><div class="sm-link" onclick="go('../首页/我的待办.html')">我的待办</div></li>
    </ul>
    </li>
-   <li class="sm-item"><div class="sm-link" onclick="go('../项目管理/项目档案.html')"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></span>项目管理</div></li>
-   <li class="sm-item has-sub open">
+   <li class="sm-item"><div class="sm-link selected"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></span>项目管理</div></li>
+   <li class="sm-item has-sub">
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></span>基础资料<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
-   <li><div class="sm-link selected">客商管理</div></li>
+   <li><div class="sm-link" onclick="go('../基础数据/客商管理.html')">客商管理</div></li>
    <li><div class="sm-link" onclick="go('../基础数据/器具档案.html')">器具档案</div></li>
    <li><div class="sm-link" onclick="go('../基础数据/零部件档案.html')">零部件档案</div></li>
    <li><div class="sm-link" onclick="go('../基础数据/BOM.html')">BOM</div></li>
@@ -342,26 +342,26 @@ th.td-num { text-align:right; }
   </div></aside>
   <div class="main-col">
 <div class="tabs">
-  <span class="tab active">客商管理 <span class="close">×</span></span>
-  <span class="tab">器具档案 <span class="close">×</span></span>
-  <span class="tab">零部件档案 <span class="close">×</span></span>
-  <span class="tab">项目档案 <span class="close">×</span></span>
+  <span class="tab active">项目档案 <span class="close">×</span></span>
+  <span class="tab">项目详情 <span class="close">×</span></span>
+  <span class="tab">客商管理 <span class="close">×</span></span>
+  <span class="tab">库存查询 <span class="close">×</span></span>
 </div>
     <div class="content">
 <div class="filter-card collapsed" id="filterCard">
   <div class="filter-grid">
-    <div class="ff"><span class="ff-label">客商名称：</span><input placeholder="请输入"></div>
-    <div class="ff"><span class="ff-label">客商类型：</span>
-      <select><option selected>全部</option><option>客户</option><option>供应商</option><option>运营方</option></select>
+    <div class="ff"><span class="ff-label">项目编码 <span style="font-size:11px;color:#8c8c8c">（自动生成：前缀+日期+序号）</span>：</span><input placeholder="请输入"></div>
+    <div class="ff"><span class="ff-label">项目名称：</span><input placeholder="请输入"></div>
+    <div class="ff"><span class="ff-label">客户名称：</span><input placeholder="请输入"></div>
+    <div class="ff ff-row-extra"><span class="ff-label">项目状态：</span>
+      <select><option selected>全部</option><option>待审核</option><option>已审核</option><option>已完成</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
-    <div class="ff"><span class="ff-label">联系人：</span><input placeholder="请输入"></div>
-    <div class="ff ff-row-extra"><span class="ff-label">合作状态：</span>
-      <select><option selected>全部</option><option>客户</option><option>供应商</option><option>运营方</option></select>
+    <div class="ff ff-row-extra"><span class="ff-label">立项时间：</span><input placeholder="开始时间"><span class="ff-sep">→</span><input placeholder="结束时间"></div>
+    <div class="ff ff-row-extra"><span class="ff-label">项目负责人：</span>
+      <select><option selected>全部</option><option>王强</option><option>陈金</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
-    <div class="ff ff-row-extra"><span class="ff-label">创建时间：</span><input placeholder="开始时间"><span class="ff-sep">→</span><input placeholder="结束时间"></div>
-    <div class="ff ff-row-extra"><span class="ff-label">企业编码：</span><input placeholder="请输入"></div>
     <div class="filter-actions">
       <button class="link-collapse" onclick="var f=document.getElementById('filterCard');f.classList.toggle('collapsed');this.querySelector('span').textContent=f.classList.contains('collapsed')?'展开':'收起'"><span>展开</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
       <button class="btn btn-default">重置</button>
@@ -371,132 +371,106 @@ th.td-num { text-align:right; }
 </div>
 <div class="card">
   <div class="card-head">
-    <h3 class="card-title">客商管理</h3>
-    <div class="head-btns"><button class="btn btn-default btn-sm">批量导出</button><button class="btn btn-sm" onclick="openModal('createModal')" data-note="1">新建客商</button></div>
+    <h3 class="card-title">项目档案列表</h3>
+    <div class="head-btns"><button class="btn btn-default btn-sm" onclick="openModal('bindModal')" data-note="3">上下游绑定</button><button class="btn btn-sm" onclick="openModal('createModal')" data-note="1">新建项目</button></div>
   </div>
-<div class="stabs">
-  <span class="stab active">全部<span class="stab-count">42</span></span>
-  <span class="stab">客户<span class="stab-count">16</span></span>
-  <span class="stab">供应商<span class="stab-count">21</span></span>
-  <span class="stab">运营方<span class="stab-count">5</span></span>
-</div>
   <div class="table-wrap">
     <table>
       <thead>
         <tr>
           <th></th>
-          <th>客商编码</th>
-          <th>客商名称</th>
-          <th>客商类型</th>
-          <th>联系人</th>
-          <th>联系电话</th>
-          <th>开票资料</th>
-          <th>合作状态</th>
-          <th>更新时间</th>
+          <th>项目编码</th>
+          <th>项目名称</th>
+          <th>客户</th>
+          <th>运营方</th>
+          <th>项目状态</th>
+          <th>项目起止</th>
+          <th>项目负责人</th>
           <th class="sticky-op">操作</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td><input type="checkbox" class="cb"></td>
-          <td>DW-0001</td>
+          <td><span class="lk" onclick="go('../项目管理/项目详情.html')">PRJ-2601</span></td>
+          <td>一汽解放·长春基地 驾驶室围板箱租赁</td>
           <td>一汽解放汽车有限公司</td>
-          <td><span class="tag tag-blue">客户</span></td>
-          <td>袁明</td>
-          <td>138****6621</td>
-          <td>增值税专票 13%</td>
-          <td><span class="tag tag-green">正常</span></td>
-          <td>2026-08-12</td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('createModal')">开票资料</a></span></td>
+          <td>路凯包装运营（上海）</td>
+          <td><span class="tag tag-blue">进行中</span></td>
+          <td>2026-01-01 ~ 2027-12-31</td>
+          <td>王强</td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../项目管理/项目详情.html')">详情</a><a onclick="openModal('bindModal')">上下游绑定</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
-          <td>DW-0002</td>
-          <td>上汽大众汽车有限公司宁波分公司</td>
-          <td><span class="tag tag-blue">客户</span></td>
-          <td>何静</td>
-          <td>139****0233</td>
-          <td>增值税专票 13%</td>
-          <td><span class="tag tag-green">正常</span></td>
-          <td>2026-08-05</td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('createModal')">开票资料</a></span></td>
+          <td><span class="lk" onclick="go('../项目管理/项目详情.html')">PRJ-2602</span></td>
+          <td>上汽大众·宁波工厂 冲压件料箱项目</td>
+          <td>上汽大众宁波分公司</td>
+          <td>路凯包装运营（上海）</td>
+          <td><span class="tag tag-blue">进行中</span></td>
+          <td>2026-03-01 ~ 2027-06-30</td>
+          <td>王强</td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../项目管理/项目详情.html')">详情</a><a onclick="openModal('bindModal')">上下游绑定</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
-          <td>DW-0003</td>
+          <td><span class="lk" onclick="go('../项目管理/项目详情.html')">PRJ-2603</span></td>
+          <td>小鹏汽车·广州工厂 电池托盘护角套件</td>
           <td>小鹏汽车科技有限公司</td>
-          <td><span class="tag tag-blue">客户</span></td>
-          <td>林芳</td>
-          <td>137****8845</td>
-          <td>增值税专票 13%</td>
-          <td><span class="tag tag-green">正常</span></td>
-          <td>2026-07-28</td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('createModal')">开票资料</a></span></td>
+          <td>自营运营</td>
+          <td><span class="tag tag-blue">进行中</span></td>
+          <td>2026-05-10 ~ 2027-05-09</td>
+          <td>陈金</td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../项目管理/项目详情.html')">详情</a><a onclick="openModal('bindModal')">上下游绑定</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
-          <td>DW-0004</td>
+          <td><span class="lk" onclick="go('../项目管理/项目详情.html')">PRJ-2604</span></td>
+          <td>东风本田·武汉工厂 保险杠围板箱项目</td>
           <td>东风本田汽车有限公司</td>
-          <td><span class="tag tag-blue">客户</span></td>
-          <td>赵磊</td>
-          <td>136****3312</td>
-          <td>增值税专票 13%</td>
-          <td><span class="tag tag-gray">停用</span></td>
-          <td>2026-06-30</td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('createModal')">开票资料</a></span></td>
+          <td>路凯包装运营（上海）</td>
+          <td><span class="tag tag-gray">已暂停</span></td>
+          <td>2026-02-15 ~ 2027-02-14</td>
+          <td>王强</td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../项目管理/项目详情.html')">详情</a><a onclick="openModal('bindModal')">上下游绑定</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
-          <td>DW-0101</td>
-          <td>宁波华塑包装制品有限公司</td>
-          <td><span class="tag tag-green">供应商</span></td>
-          <td>孙建军</td>
-          <td>135****7790</td>
-          <td>增值税专票 13%</td>
-          <td><span class="tag tag-green">正常</span></td>
-          <td>2026-08-18</td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('createModal')">开票资料</a></span></td>
+          <td><span class="lk" onclick="go('../项目管理/项目详情.html')">PRJ-2605</span></td>
+          <td>天津丰田·座椅滑轨组合供货项目</td>
+          <td>天津丰田汽车零部件有限公司</td>
+          <td>自营运营</td>
+          <td><span class="tag tag-orange">筹备中</span></td>
+          <td>2026-09-01 ~ 2028-08-31</td>
+          <td>陈金</td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../项目管理/项目详情.html')">详情</a><a onclick="openModal('bindModal')">上下游绑定</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
-          <td>DW-0102</td>
-          <td>苏州联恒五金制品有限公司</td>
-          <td><span class="tag tag-green">供应商</span></td>
-          <td>吴海涛</td>
-          <td>133****5567</td>
-          <td>增值税专票 13%</td>
-          <td><span class="tag tag-green">正常</span></td>
-          <td>2026-08-18</td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('createModal')">开票资料</a></span></td>
+          <td><span class="lk" onclick="go('../项目管理/项目详情.html')">PRJ-2512</span></td>
+          <td>一汽大众·成都工厂 座椅头枕围板箱项目</td>
+          <td>一汽大众汽车有限公司</td>
+          <td>路凯包装运营（上海）</td>
+          <td><span class="tag tag-green">已完成</span></td>
+          <td>2025-01-01 ~ 2025-12-31</td>
+          <td>王强</td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../项目管理/项目详情.html')">详情</a><a onclick="openModal('bindModal')">上下游绑定</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
-          <td>DW-0103</td>
-          <td>常州正大塑料托盘厂</td>
-          <td><span class="tag tag-green">供应商</span></td>
-          <td>郑卫东</td>
-          <td>138****2245</td>
-          <td>增值税专票 13%</td>
-          <td><span class="tag tag-green">正常</span></td>
-          <td>2026-07-15</td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('createModal')">开票资料</a></span></td>
-        </tr>
-        <tr>
-          <td><input type="checkbox" class="cb"></td>
-          <td>DW-0201</td>
-          <td>路凯包装运营（上海）有限公司</td>
-          <td><span class="tag tag-orange">运营方</span></td>
-          <td>路凯对接组</td>
-          <td>021-66****</td>
-          <td>结算对账专用</td>
-          <td><span class="tag tag-green">正常</span></td>
-          <td>2026-08-30</td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('createModal')">开票资料</a></span></td>
+          <td><span class="lk" onclick="go('../项目管理/项目详情.html')">PRJ-2518</span></td>
+          <td>吉利汽车·杭州湾工厂 内饰件料箱项目</td>
+          <td>吉利汽车集团有限公司</td>
+          <td>自营运营</td>
+          <td><span class="tag tag-green">已完成</span></td>
+          <td>2025-04-01 ~ 2026-03-31</td>
+          <td>陈金</td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../项目管理/项目详情.html')">详情</a><a onclick="openModal('bindModal')">上下游绑定</a></span></td>
         </tr>
       </tbody>
     </table>
   </div>
-  <div style="display:flex;align-items:center;justify-content:space-between;margin-top:12px" id="pager-row"><div id="batch-btns-area"></div><div class="pager" style="margin:0">
+  <div class="pager">
     <span class="pg-info">第 1-10 条/总共 42 条</span>
     <span class="pg-btn">‹</span>
     <span class="pg-btn cur">1</span>
@@ -512,35 +486,106 @@ th.td-num { text-align:right; }
     </span>
     <span class="pg-jump">跳至 <input value="" placeholder="跳转页码"> 页</span>
   </div>
-</div></div>
+</div>
+<!-- 弹窗已提取到 弹窗/编码规则.html，构建时注入 -->
+
     </div>
   </div>
 </div>
 
 
+<div class="modal-overlay" id="bindModal">
+  <div class="modal modal-lg">
+    <div class="modal-header">
+      <h3 class="modal-title">项目上下游绑定</h3>
+      <span class="modal-close" onclick="closeModal('bindModal')">×</span>
+    </div>
+    <div class="modal-body">
+  <div class="form-row" style="margin-bottom:14px;">
+    <div class="form-label"><span class="req">*</span>项目：</div>
+      <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>PRJ-2601 一汽解放·长春基地 驾驶室围板箱租赁</option><option>PRJ-2601 一汽解放·长春基地 驾驶室围板箱租赁·其他</option></select><span class="caret">▾</span></div>
+  </div>
+  <div class="form-row" style="margin-bottom:14px;">
+    <div class="form-label"><span class="req">*</span>客户：</div>
+      <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>一汽解放汽车有限公司</option><option>一汽解放汽车有限公司·其他</option></select><span class="caret">▾</span></div>
+  </div>
+  <div class="form-row" style="margin-bottom:14px;">
+    <div class="form-label"><span class="req">*</span>运营方：</div>
+      <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>路凯包装运营（上海）有限公司</option><option>路凯包装运营（上海）有限公司·其他</option></select><span class="caret">▾</span></div>
+  </div>
+  <div class="form-row" style="margin-bottom:14px;">
+    <div class="form-label">供应商：</div>
+    <div style="width:380px;border:1px solid #d9d9d9;border-radius:4px;padding:8px 12px;background:#fff;max-height:180px;overflow-y:auto">
+      <label style="display:flex;align-items:center;gap:8px;padding:4px 0;cursor:pointer;font-size:13px;color:#262626">
+        <input type="checkbox" checked style="accent-color:#1677ff;width:16px;height:16px"> 宁波华塑包装制品有限公司
+      </label>
+      <label style="display:flex;align-items:center;gap:8px;padding:4px 0;cursor:pointer;font-size:13px;color:#262626">
+        <input type="checkbox" checked style="accent-color:#1677ff;width:16px;height:16px"> 苏州联恒五金制品有限公司
+      </label>
+      <label style="display:flex;align-items:center;gap:8px;padding:4px 0;cursor:pointer;font-size:13px;color:#262626">
+        <input type="checkbox" checked style="accent-color:#1677ff;width:16px;height:16px"> 常州正大塑料托盘厂
+      </label>
+      <label style="display:flex;align-items:center;gap:8px;padding:4px 0;cursor:pointer;font-size:13px;color:#262626">
+        <input type="checkbox" style="accent-color:#1677ff;width:16px;height:16px"> 上海喜悦智行科技股份有限公司
+      </label>
+      <label style="display:flex;align-items:center;gap:8px;padding:4px 0;cursor:pointer;font-size:13px;color:#262626">
+        <input type="checkbox" style="accent-color:#1677ff;width:16px;height:16px"> 中集良才循环包装科技有限公司
+      </label>
+    </div>
+  </div>
+  <div class="form-row" style="margin-bottom:0;">
+    <div class="form-label">默认库房：</div>
+      <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>华东中心仓（WH-01）</option><option>华南仓（WH-02）</option><option>西南仓（WH-03）</option></select><span class="caret">▾</span></div>
+    </div>
+    </div>
+    <div class="modal-footer">
+<button class="btn btn-default" onclick="closeModal('bindModal')">取 消</button><button class="btn" onclick="closeModal('bindModal')">保存绑定</button>
+    </div>
+  </div>
+</div>
 
-<style id="proto-notes-style">
-body.proto-notes-on [data-note]{position:relative}
-body.proto-notes-on [data-note]::after{content:attr(data-note);position:absolute;top:1px;right:1px;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600;box-shadow:0 0 0 1.5px #fff;cursor:pointer;opacity:.75;transition:opacity .15s}
-body.proto-notes-on [data-note]:hover::after{opacity:1}
-@keyframes pn-blink{0%{box-shadow:0 0 0 2px #722ed1}25%{box-shadow:0 0 0 5px rgba(114,46,209,.35)}100%{box-shadow:0 0 0 2px transparent}}
-.proto-pin{display:none;position:absolute;width:300px;background:#fff;border:1px solid #f0f0f0;border-top:2px solid #722ed1;border-radius:6px;box-shadow:0 4px 14px rgba(0,0,0,.13);z-index:890;padding:10px 12px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;font-size:12px;color:#262626}
-body.proto-notes-on .proto-pin.pn-open{display:block}
-.proto-pin .pnp-close{position:absolute;top:6px;right:8px;cursor:pointer;color:#8c8c8c;font-size:14px;line-height:1;padding:2px}
-.proto-pin .pnp-close:hover{color:#262626}
-.proto-pin .pnp-t{display:flex;align-items:center;gap:6px;font-weight:600;font-size:13px;color:#262626;padding-right:16px}
-.proto-pin .pnp-n{flex:none;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600}
-.proto-pin .pnp-d{margin-top:5px;color:#595959;line-height:1.6}
-.proto-pin .pnp-b{margin-top:6px;display:flex;gap:4px;flex-wrap:wrap}
-.proto-pin .pnp-tag{background:#f9f0ff;color:#722ed1;border-radius:3px;padding:0 6px;font-size:11px;line-height:20px}
-.proto-pin .pnp-src{margin-top:8px;padding-top:7px;border-top:1px dashed #e5dff0;font-size:11px;color:#595959;line-height:1.65}
-.proto-pin .pnp-src b{color:#722ed1;font-weight:600}
-.pn-fab{position:fixed;right:12px;bottom:12px;z-index:880;display:flex;align-items:center;gap:5px;height:24px;padding:0 10px;border-radius:4px;background:#fff;border:1px solid #ddd0ec;color:#722ed1;font-size:11px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.06);opacity:.6;transition:opacity .15s}
-.pn-fab:hover{opacity:1;border-color:#722ed1}
-body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
-.pn-fab .pn-fab-n{font-family:Consolas,monospace;font-weight:600}
-</style>
-<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>新建客商</div><div class="pnp-d">客户/供应商/运营方三类主体，含开票资料（开票主体信息待确认）</div><div class="pnp-b"><span class="pnp-tag">FP1-02 · 客商管理</span><span class="pnp-tag">REQ-01 · 多项目统一管理</span></div><div class="pnp-src"><div class="src-item"><b>FP1-02 客商管理</b>：客户/供应商/运营方三类，联系人、开票资料</div><div class="src-item"><b>REQ-01 多项目统一管理</b>：所有项目整合进一个系统，按项目建立编码，绑定上下游关系</div></div></div>
+<div class="modal-overlay" id="createModal">
+  <div class="modal modal-lg">
+    <div class="modal-header">
+      <h3 class="modal-title">新建项目</h3>
+      <span class="modal-close" onclick="closeModal('createModal')">×</span>
+    </div>
+    <div class="modal-body">
+  <div class="form-row" style="margin-bottom:14px;">
+    <div class="form-label">项目编码：</div>
+    <div>
+      <div class="input-box" style="width:380px;background:#fafafa;"><input type="text" value="PRJ-2606" readonly class="auto" style="color:var(--text-3);"></div>
+      </div>
+  </div>
+  <div class="form-row" style="margin-bottom:14px;">
+    <div class="form-label"><span class="req">*</span>项目名称：</div>
+      <div class="input-box" style="width:380px;"><input type="text" value="" placeholder="请输入项目名称"></div>
+  </div>
+  <div class="form-row" style="margin-bottom:14px;">
+    <div class="form-label"><span class="req">*</span>客户：</div>
+      <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option>一汽解放汽车有限公司</option><option>上汽大众汽车有限公司宁波分公司</option><option>小鹏汽车科技有限公司</option><option>东风本田汽车有限公司</option></select><span class="caret">▾</span></div>
+  </div>
+  <div class="form-row" style="margin-bottom:14px;">
+    <div class="form-label"><span class="req">*</span>运营方：</div>
+      <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option>路凯包装运营（上海）有限公司</option><option>其他（演示）</option></select><span class="caret">▾</span></div>
+  </div>
+  <div class="form-row" style="margin-bottom:14px;">
+    <div class="form-label"><span class="req">*</span>项目起止：</div>
+      <div class="input-box" style="width:380px;gap:8px;"><input type="text" placeholder="开始日期" style="text-align:center;"><span style="color:var(--text-3)">~</span><input type="text" placeholder="结束日期" style="text-align:center;"></div>
+  </div>
+  <div class="form-row" style="margin-bottom:0;">
+    <div class="form-label">项目负责人：</div>
+      <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>王强</option><option>王强·其他</option></select><span class="caret">▾</span></div>
+  </div>
+    </div>
+    <div class="modal-footer">
+<button class="btn btn-default" onclick="closeModal('createModal')">取 消</button><button class="btn" onclick="closeModal('createModal')">保 存</button>
+    </div>
+  </div>
+</div>
+<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>新建项目（弹窗）</div><div class="pnp-d">项目档案创建：编码/客户/运营方/起止日期；编码由规则自动生成</div><div class="pnp-b"><span class="pnp-tag">FP1-01 · 项目档案</span><span class="pnp-tag">REQ-01 · 多项目统一管理</span></div><div class="pnp-src"><div class="src-item"><b>FP1-01 项目档案</b>：项目编码、名称、状态、起止日期</div><div class="src-item"><b>REQ-01 多项目统一管理</b>：所有项目整合进一个系统，按项目建立编码，绑定上下游关系</div></div></div>
+<div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>编码规则（弹窗）</div><div class="pnp-d">前缀 PRJ- + 年份 + 流水号，规则可自行调整</div><div class="pnp-b"><span class="pnp-tag">FP2-01 · 项目编码规则</span><span class="pnp-tag">REQ-01 · 多项目统一管理</span></div><div class="pnp-src"><div class="src-item"><b>FP2-01 项目编码规则</b>：自动编码、规则可配置</div><div class="src-item"><b>REQ-01 多项目统一管理</b>：所有项目整合进一个系统，按项目建立编码，绑定上下游关系</div></div></div>
+<div class="proto-pin" id="proto-pin-3"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">3</span>上下游绑定（弹窗）</div><div class="pnp-d">项目↔客户↔运营方↔供应商关系维护，项目数据按此自动汇总</div><div class="pnp-b"><span class="pnp-tag">FP2-02 · 上下游绑定</span><span class="pnp-tag">REQ-01 · 多项目统一管理</span></div><div class="pnp-src"><div class="src-item"><b>FP2-02 上下游绑定</b>：项目↔客户↔运营方↔供应商关系维护</div><div class="src-item"><b>REQ-01 多项目统一管理</b>：所有项目整合进一个系统，按项目建立编码，绑定上下游关系</div></div></div>
 <div class="pn-fab" id="protoNotesFab">标注</div></div>
 <script id="proto-notes-js">
 (function(){
@@ -591,139 +636,18 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 })();
 </script>
 
-<!-- 弹窗已提取到 弹窗/新建客商.html，构建时注入 -->
-<div class="modal-overlay" id="createModal">
-  <div class="modal">
-    <div class="modal-header">
-      <h3 class="modal-title">新建客商</h3>
-      <span class="modal-close" onclick="closeModal('createModal')">×</span>
-    </div>
-    <div class="modal-body">
-<div class="form-row">
-    <span class="form-label"><span class="req">*</span>客商名称</span>
-    <div class="input-box"><input placeholder="企业全称"></div>
-  </div><div class="form-row">
-    <span class="form-label"><span class="req">*</span>客商类型</span>
-    <div class="input-box select-box"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>客户</option><option>供应商</option><option>客户兼供应商</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
-  </div><div class="form-row">
-    <span class="form-label">联系人</span>
-    <div class="input-box"><input value="张三" placeholder="请输入"></div>
-  </div><div class="form-row">
-    <span class="form-label">联系电话</span>
-    <div class="input-box"><input value="138****0000" placeholder="请输入"></div>
-  </div><div class="form-row">
-    <span class="form-label">开票资料</span>
-    <div class="input-box select-box"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>增值税专票 13%</option><option>增值税专用发票（13%）</option><option>增值税普通发票</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
-  </div><div class="form-row">
-    <span class="form-label">备注</span>
-    <div class="input-box"><input placeholder="选填"></div>
-  </div>
-    </div>
-    <div class="modal-footer">
-      <button class="btn btn-default" onclick="closeModal('createModal')">取消</button>
-      <button class="btn" onclick="closeModal('createModal')">保存</button>
-    </div>
-  </div>
-</div>
 
 
-<script id="batch-btn-js">
-(function(){
-  // 找到所有批量按钮，初始禁用
-  var batchBtns = document.querySelectorAll('button[class*="btn"]');
-  var batchKeywords = ['批量'];
-  batchBtns.forEach(function(btn){
-    var txt = btn.textContent.trim();
-    if(batchKeywords.some(function(k){return txt.indexOf(k)>-1})){
-      btn.style.opacity = '.45';
-      btn.style.cursor = 'not-allowed';
-      btn.setAttribute('data-batch','true');
-      btn.addEventListener('click',function(e){
-        if(btn.style.opacity==='.45')e.preventDefault();
-      });
-    }
-  });
-  // 监听表格复选框
-  var checkboxes = document.querySelectorAll('tbody input[type="checkbox"]');
-  checkboxes.forEach(function(cb){
-    cb.addEventListener('change',function(){
-      var anyChecked = document.querySelectorAll('tbody input[type="checkbox"]:checked').length > 0;
-      batchBtns.forEach(function(btn){
-        if(btn.getAttribute('data-batch')){
-          btn.style.opacity = anyChecked ? '1' : '.45';
-          btn.style.cursor = anyChecked ? 'pointer' : 'not-allowed';
-        }
-      });
-    });
-  });
-  // 全选复选框
-  var selectAll = document.querySelector('thead input[type="checkbox"]');
-  if(selectAll){
-    selectAll.addEventListener('change',function(){
-      var anyChecked = selectAll.checked;
-      batchBtns.forEach(function(btn){
-        if(btn.getAttribute('data-batch')){
-          btn.style.opacity = anyChecked ? '1' : '.45';
-          btn.style.cursor = anyChecked ? 'pointer' : 'not-allowed';
-        }
-      });
-    });
-  }
-})();
-</script>
-<style id="detail-modal-css">
-/* 详情弹窗（四段式）专用样式：段落标题 / 关联链 / 流转时间线 */
-.dt-sec{font-size:13px;font-weight:600;color:#262626;margin:0 0 10px;padding-left:8px;border-left:3px solid #1677ff;line-height:1.3}
-.modal-body .dt-sec:not(:first-child){margin-top:18px}
-.chain{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.chain .node{border:1px solid #f0f0f0;border-radius:6px;padding:8px 12px;background:#fafafa;min-width:126px}
-.chain .node .n-role{font-size:11px;color:#8c8c8c}
-.chain .node .n-name{font-size:12.5px;font-weight:600;margin-top:2px;word-break:break-all}
-.chain .link-arrow{color:#8c8c8c}
-.tl{position:relative;padding-left:16px}
-.tl::before{content:'';position:absolute;left:4px;top:6px;bottom:6px;width:2px;background:#e6f4ff}
-.tl-i{position:relative;padding:0 0 12px 6px;font-size:12.5px;color:#262626}
-.tl-i:last-child{padding-bottom:0}
-.tl-i::before{content:'';position:absolute;left:-16px;top:5px;width:7px;height:7px;border-radius:50%;background:#fff;border:2px solid #1677ff}
-.tl-i.off::before{border-color:#d9d9d9}
-.tl-i .tl-t{color:#8c8c8c;font-size:12px;margin-right:8px;font-variant-numeric:tabular-nums}
-.tl-i .tl-who{color:#8c8c8c;font-size:12px;margin-left:8px}
-</style>
-<!-- 详情弹窗（四段式：单据头/明细/关联单据互溯链/流转时间线）· 详情落地页补齐 2026-09-04 -->
-<div class="modal-overlay" id="detailModal">
-  <div class="modal modal-lg" style="width:780px;">
-    <div class="modal-header">
-      <h3 class="modal-title">客商详情 · 一汽解放汽车有限公司</h3>
-      <span class="modal-close" onclick="closeModal('detailModal')">×</span>
-    </div>
-    <div class="modal-body">
-      <div class="dt-sec">单据信息</div>
-      <div class="dgrid c3"><div class="drow"><div class="dlabel">客商编码</div><div class="dval">DW-0001</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">客商名称</div><div class="dval">一汽解放汽车有限公司</div></div><div class="drow"><div class="dlabel">客商类型</div><div class="dval">客户</div></div><div class="drow"><div class="dlabel">状态</div><div class="dval"><span class="tag tag-green">正常</span></div></div><div class="drow"><div class="dlabel">联系人</div><div class="dval">袁明 138****6621</div></div><div class="drow"><div class="dlabel">开票要求</div><div class="dval">增值税专票 13%</div></div><div class="drow"><div class="dlabel">更新时间</div><div class="dval">2026-08-12</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">关联项目</div><div class="dval"><span class="lk" onclick="go('../项目管理/项目档案.html')">PRJ-2601</span> 长春基地围板箱租赁</div></div></div>
-      <div class="dt-sec">联系人 / 往来统计</div>
-      <div class="table-wrap"><table><thead><tr><th>统计项</th><th class="td-num">数值</th><th>说明</th></tr></thead>
-<tbody>
-<tr><td>本月营收（PRJ-2601）</td><td class="td-num">486,200 元</td><td>租赁 + 销售费</td></tr>
-<tr><td>累计开票</td><td class="td-num">312,000 元</td><td>INV-20260830-012 等</td></tr>
-<tr><td>在租器具</td><td class="td-num">3,860 只</td><td>围板箱 3,120 / 托盘 740</td></tr>
-<tr><td>联系人</td><td>袁明 · 业务对接</td><td>138****6621</td></tr>
-</tbody></table></div>
-      <div class="dt-sec">关联单据</div>
-      <div class="chain"><div class="node" style="border-color:#1677ff;background:#e6f4ff;"><div class="n-role">客商（本档）</div><div class="n-name">DW-0001 一汽解放</div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">关联项目</div><div class="n-name"><span class="lk" onclick="go('../项目管理/项目档案.html')">PRJ-2601</span></div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">销售订单</div><div class="n-name"><span class="lk" onclick="go('../销售管理/销售订单列表.html')">SO-20260827-0036</span></div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">应收账单</div><div class="n-name"><span class="lk" onclick="go('../财务协同/应收账单.html')">租赁费 / 销售费</span></div></div></div>
-      <div class="dt-sec">流转时间线</div>
-      <div class="tl"><div class="tl-i"><span class="tl-t">2026-01</span>建档 · 客户<span class="tl-who">系统</span></div><div class="tl-i"><span class="tl-t">2026-08-12</span>资质与开票信息更新<span class="tl-who">财务-周敏</span></div><div class="tl-i"><span class="tl-t">至今</span>持续合作 · PRJ-2601 在租 3,860 只</div></div>
-    </div>
-    <div class="modal-footer">
-      <button class="btn btn-default" onclick="closeModal('detailModal')">关 闭</button>
-    </div>
-  </div>
-</div>
-<script>
-function openModal(id) { document.getElementById(id).classList.add('show'); }
+
+
+
+
+
+<script>function openModal(id) { document.getElementById(id).classList.add('show'); }
 function closeModal(id) { document.getElementById(id).classList.remove('show'); }
 document.querySelectorAll('.modal-overlay').forEach(function (ov) {
   ov.addEventListener('click', function (e) { if (e.target === ov) ov.classList.remove('show'); });
-});
-</script>
+});</script>
 <script>
 /* ===== 菜单折叠 / 页签与表单视觉态（统一脚本） ===== */
 function go(url) { location.href = url; }

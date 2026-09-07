@@ -1664,7 +1664,7 @@
    "radios": 0,
    "checkboxes": 0,
    "inputs": 2,
-   "stabs": 0,
+   "stabs": 2,
    "tabs": 4,
    "bgMut": 0
   },
@@ -2141,8 +2141,8 @@
   "problems": [],
   "stats": {
    "buttons": 11,
-   "links": 18,
-   "onclickEls": 74,
+   "links": 19,
+   "onclickEls": 75,
    "modals": 3,
    "modalTitles": [
     "新建应付账单",
@@ -2153,7 +2153,7 @@
    "fakeSelects": 0,
    "radios": 0,
    "checkboxes": 0,
-   "inputs": 20,
+   "inputs": 21,
    "stabs": 4,
    "tabs": 3,
    "bgMut": 0
@@ -2167,8 +2167,8 @@
   "problems": [],
   "stats": {
    "buttons": 10,
-   "links": 40,
-   "onclickEls": 91,
+   "links": 41,
+   "onclickEls": 92,
    "modals": 3,
    "modalTitles": [
     "手动生成账单",
@@ -2179,7 +2179,7 @@
    "fakeSelects": 0,
    "radios": 0,
    "checkboxes": 0,
-   "inputs": 18,
+   "inputs": 19,
    "stabs": 5,
    "tabs": 4,
    "bgMut": 0
@@ -2536,11 +2536,11 @@
     "撤销核销确认",
     "水单核销详情 · SD-20260830"
    ],
-   "selects": 0,
+   "selects": 1,
    "fakeSelects": 0,
    "radios": 0,
    "checkboxes": 0,
-   "inputs": 13,
+   "inputs": 14,
    "stabs": 0,
    "tabs": 4,
    "bgMut": 0
