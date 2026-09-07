@@ -278,10 +278,22 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 <div class="modal-overlay" id="detailModal">
   <div class="modal modal-lg" style="width:780px;">
     <div class="modal-header">
-      <h3 class="modal-title" id="detailTitle">应收账单详情</h3>
+      <h3 class="modal-title">应收账单详情 · AR-2026-09-PRJ2601-S1</h3>
       <span class="modal-close" onclick="closeModal('detailModal')">×</span>
     </div>
-    <div class="modal-body" id="detailBody"><!-- 内容由 _data/receivable-bill-detail.js 按账单号渲染 --></div>
+    <div class="modal-body">
+      <div class="dt-sec">单据信息</div>
+      <div class="dgrid c3"><div class="drow" style="grid-column:1/-1;"><div class="dlabel">账单号</div><div class="dval">AR-2026-09-PRJ2601-S1</div></div><div class="drow"><div class="dlabel">状态</div><div class="dval"><span class="tag tag-gray">未开票</span></div></div><div class="drow"><div class="dlabel">账期</div><div class="dval">2026-09</div></div><div class="drow"><div class="dlabel">所属项目</div><div class="dval">PRJ-2601</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">客户</div><div class="dval">一汽解放汽车有限公司</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">费用类型</div><div class="dval">销售费（按销售出库自动汇总）</div></div><div class="drow"><div class="dlabel">账单金额</div><div class="dval">10,200.00 元</div></div><div class="drow"><div class="dlabel">已核销</div><div class="dval">0.00 元</div></div><div class="drow"><div class="dlabel">生成方式</div><div class="dval">自动生成</div></div><div class="drow"><div class="dlabel">生成日期</div><div class="dval">2026-09-03</div></div></div>
+      <div class="dt-sec">费用明细</div>
+      <div class="table-wrap"><table><thead><tr><th>来源单据</th><th>费用说明</th><th class="td-num">数量</th><th class="td-num">单价(元)</th><th class="td-num">金额(元)</th></tr></thead>
+<tbody>
+<tr><td><span class="lk" onclick="go('../../仓储作业/销售出库列表.html')">XSCK-20260902-015</span></td><td>销售费 · 箱盖 ABS 吸塑</td><td class="td-num">1,500 件</td><td class="td-num">6.80</td><td class="td-num">10,200.00</td></tr>
+</tbody></table></div>
+      <div class="dt-sec">关联单据</div>
+      <div class="chain"><div class="node"><div class="n-role">销售出库</div><div class="n-name"><span class="lk" onclick="go('../../仓储作业/销售出库列表.html')">XSCK-20260902-015</span></div></div><span class="link-arrow">→</span><div class="node" style="border-color:#1677ff;background:#e6f4ff;"><div class="n-role">应收账单（本单）</div><div class="n-name">AR-2026-09-PRJ2601-S1 · 销售费</div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">开票登记</div><div class="n-name"><span class="lk" onclick="go('../../财务协同/开票登记.html')">待开票</span></div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">回款 / 核销</div><div class="n-name"><span class="lk" onclick="go('../../财务协同/银行水单核销.html')">回款登记 → 银行水单核销</span></div></div></div>
+      <div class="dt-sec">流转时间线</div>
+      <div class="tl"><div class="tl-i"><span class="tl-t">09-02</span>销售出库 · XSCK-20260902-015（1,500 件）<span class="tl-who">张伟</span></div><div class="tl-i"><span class="tl-t">09-03</span>账单自动生成 · 销售费汇总<span class="tl-who">系统</span></div><div class="tl-i"><span class="tl-t">09-05</span>预收款到账 · 记预收（安吉智行 ¥50,000）<span class="tl-who">财务</span></div><div class="tl-i"><span class="tl-t">每月</span>租金自预收冲抵 · 月度账单生成后自动冲抵<span class="tl-who">系统</span></div><div class="tl-i off"><span class="tl-t">—</span>待开票 → 回款 → 水单核销</div></div>
+    </div>
     <div class="modal-footer">
       <button class="btn btn-default" onclick="closeModal('detailModal')">关 闭</button>
     </div>
@@ -304,12 +316,7 @@ document.querySelectorAll('.radio').forEach(function (r) {
 document.querySelectorAll('.checkbox').forEach(function (c) {
   c.addEventListener('click', function () { c.classList.toggle('checked'); });
 });
-</script>
-<script src="../../_data/demo-data.js"></script>
-<script src="../../_data/receivable-bill-detail.js"></script>
-<script>
-/* 模板预览：默认渲染一条销售费应收（可换账单号预览其他场景） */
-openReceivableBillDetail('AR-2026-09-PRJ2601-S1', '../../');
+document.querySelector('.modal-overlay').classList.add('show');
 </script>
 <script>/*ia-fix: tab-switch + btn-feedback (2026-09-04)*/
 /* R3 顶部页签切换（点击换 active；× 不做关闭跳转——原型不销毁页签） */

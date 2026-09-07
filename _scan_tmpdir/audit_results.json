@@ -2138,16 +2138,25 @@
  {
   "page": "财务协同\\应付账单.html",
   "js_errors": [],
-  "problems": [],
+  "problems": [
+   {
+    "cat": "弹窗",
+    "type": "modal-unreachable",
+    "phase": "modal",
+    "where": {
+     "text": "应付账单详情 · AP-20260903"
+    },
+    "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
+   }
+  ],
   "stats": {
    "buttons": 11,
    "links": 19,
-   "onclickEls": 75,
+   "onclickEls": 63,
    "modals": 3,
    "modalTitles": [
     "新建应付账单",
-    "账单确认",
-    "应付账单详情 · AP-20260901"
+    "账单确认"
    ],
    "selects": 3,
    "fakeSelects": 0,
@@ -2164,16 +2173,25 @@
  {
   "page": "财务协同\\应收账单.html",
   "js_errors": [],
-  "problems": [],
+  "problems": [
+   {
+    "cat": "弹窗",
+    "type": "modal-unreachable",
+    "phase": "modal",
+    "where": {
+     "text": "应收账单详情 · AR-2026-06-"
+    },
+    "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
+   }
+  ],
   "stats": {
    "buttons": 10,
    "links": 41,
-   "onclickEls": 92,
+   "onclickEls": 81,
    "modals": 3,
    "modalTitles": [
     "手动生成账单",
-    "账单确认",
-    "应收账单详情 · AR-2026-09-"
+    "账单确认"
    ],
    "selects": 7,
    "fakeSelects": 0,

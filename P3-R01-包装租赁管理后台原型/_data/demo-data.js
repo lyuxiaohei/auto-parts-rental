@@ -339,5 +339,335 @@ window.DEMO_DATA = {
         { t: '—', text: '待付款 → 付款登记确认', off: true }
       ]
     }
+  },
+
+  /* --------------------------------------------------------------------------
+   * 应收账单 receivableBills：键 = 账单号（赔偿联动行键 = 赔偿单号）
+   *   billType: 销售费 / 租赁费 / 预收 / 丢损赔偿
+   *   status:   未开票 / 部分收款 / 已结清 / 已收（预收）
+   *   fees[]:   qty/price 为展示字符串（汇总行用 '—'），amount 为数字
+   *   下游链统一为：本单 → 开票登记 → 回款/水单核销
+   * ------------------------------------------------------------------------ */
+  receivableBills: {
+
+    /* ===== 预收（安吉智行 · 预付 9-10 月租金 · 已收） ===== */
+    'AR-2026-09-PRJ2601-YS': {
+      billNo: 'AR-2026-09-PRJ2601-YS',
+      billType: '预收',
+      status: '已收',
+      customer: '安吉智行物流',
+      project: 'PRJ-2601',
+      period: '2026-09',
+      amount: 50000,
+      verified: 0,
+      genMode: '手动登记',
+      genDate: '2026-09-05',
+      feeType: '预收（客户预付 9-10 月租金，后续按月冲抵）',
+      scenario: '预收冲抵 · 客户预付租金',
+      fees: [
+        { src: '—', desc: '预收客户预付 9-10 月租金，后续按月冲抵', qty: '—', price: '—', amount: 50000 }
+      ],
+      chain: [
+        { role: '应收账单（本单）', name: 'AR-2026-09-PRJ2601-YS · 预收', self: true },
+        { role: '月度账单冲抵', name: '后续租金账单生成后自动冲抵' }
+      ],
+      timeline: [
+        { t: '09-05', text: '预收款到账 · 记预收（安吉智行 ¥50,000）', who: '财务' },
+        { t: '每月', text: '租金自预收冲抵 · 月度账单生成后自动冲抵', who: '系统', off: true }
+      ]
+    },
+
+    /* ===== 销售费（一汽解放 · 未开票 · B1 销售线） ===== */
+    'AR-2026-09-PRJ2601-S1': {
+      billNo: 'AR-2026-09-PRJ2601-S1',
+      billType: '销售费',
+      status: '未开票',
+      customer: '一汽解放汽车有限公司',
+      project: 'PRJ-2601',
+      period: '2026-09',
+      amount: 10200,
+      verified: 0,
+      genMode: '自动生成',
+      genDate: '2026-09-03',
+      feeType: '销售费（按销售出库自动汇总）',
+      scenario: '财务通道 · 销售费应收',
+      fees: [
+        { src: 'XSCK-20260902-015', desc: '销售费 · 箱盖 ABS 吸塑', qty: '1,500 件', price: '6.80', amount: 10200, url: '仓储作业/销售出库列表.html' }
+      ],
+      chain: [
+        { role: '销售出库', name: 'XSCK-20260902-015', url: '仓储作业/销售出库列表.html' },
+        { role: '应收账单（本单）', name: 'AR-2026-09-PRJ2601-S1 · 销售费', self: true },
+        { role: '开票登记', name: '待开票', url: '财务协同/开票登记.html' },
+        { role: '回款 / 核销', name: '回款登记 → 银行水单核销', url: '财务协同/银行水单核销.html' }
+      ],
+      timeline: [
+        { t: '09-02', text: '销售出库 · XSCK-20260902-015（1,500 件）', who: '张伟' },
+        { t: '09-03', text: '账单自动生成 · 销售费汇总', who: '系统' },
+        { t: '—', text: '待开票 → 回款 → 水单核销', off: true }
+      ]
+    },
+
+    /* ===== 销售费（东风本田 · 未开票） ===== */
+    'AR-2026-09-PRJ2604-S1': {
+      billNo: 'AR-2026-09-PRJ2604-S1',
+      billType: '销售费',
+      status: '未开票',
+      customer: '东风本田汽车有限公司',
+      project: 'PRJ-2604',
+      period: '2026-09',
+      amount: 1280,
+      verified: 0,
+      genMode: '自动生成',
+      genDate: '2026-09-02',
+      feeType: '销售费（按销售出库自动汇总）',
+      fees: [
+        { src: 'XSCK-20260901-014', desc: '销售费 · 零部件销售', qty: '160 件', price: '8.00', amount: 1280, url: '仓储作业/销售出库列表.html' }
+      ],
+      chain: [
+        { role: '销售出库', name: 'XSCK-20260901-014', url: '仓储作业/销售出库列表.html' },
+        { role: '应收账单（本单）', name: 'AR-2026-09-PRJ2604-S1 · 销售费', self: true },
+        { role: '开票登记', name: '待开票', url: '财务协同/开票登记.html' },
+        { role: '回款 / 核销', name: '回款登记 → 银行水单核销', url: '财务协同/银行水单核销.html' }
+      ],
+      timeline: [
+        { t: '09-01', text: '销售出库 · XSCK-20260901-014（160 件）', who: '张伟' },
+        { t: '09-02', text: '账单自动生成 · 销售费汇总', who: '系统' },
+        { t: '—', text: '待开票 → 回款 → 水单核销', off: true }
+      ]
+    },
+
+    /* ===== 销售费（上汽大众宁波 · 已结清） ===== */
+    'AR-2026-08-PRJ2602-S1': {
+      billNo: 'AR-2026-08-PRJ2602-S1',
+      billType: '销售费',
+      status: '已结清',
+      customer: '上汽大众宁波分公司',
+      project: 'PRJ-2602',
+      period: '2026-08',
+      amount: 6050,
+      verified: 6050,
+      genMode: '自动生成',
+      genDate: '2026-08-31',
+      feeType: '销售费（按销售出库自动汇总）',
+      fees: [
+        { src: 'XSCK-20260826-012', desc: '销售费 · 零部件销售', qty: '605 件', price: '10.00', amount: 6050, url: '仓储作业/销售出库列表.html' }
+      ],
+      chain: [
+        { role: '销售出库', name: 'XSCK-20260826-012', url: '仓储作业/销售出库列表.html' },
+        { role: '应收账单（本单）', name: 'AR-2026-08-PRJ2602-S1 · 销售费', self: true },
+        { role: '开票登记', name: '已开票', url: '财务协同/开票登记.html' },
+        { role: '回款 / 核销', name: '已核销结清', url: '财务协同/银行水单核销.html' }
+      ],
+      timeline: [
+        { t: '08-26', text: '销售出库 · XSCK-20260826-012（605 件）', who: '张伟' },
+        { t: '08-31', text: '账单自动生成 · 销售费汇总', who: '系统' },
+        { t: '09-02', text: '开票登记', who: '王芳' },
+        { t: '09-05', text: '回款核销 6,050.00 元 · 结清', who: '财务' }
+      ]
+    },
+
+    /* ===== 租赁费（一汽解放 · 部分收款） ===== */
+    'AR-2026-08-PRJ2601': {
+      billNo: 'AR-2026-08-PRJ2601',
+      billType: '租赁费',
+      status: '部分收款',
+      customer: '一汽解放汽车有限公司',
+      project: 'PRJ-2601',
+      period: '2026-08',
+      amount: 486200,
+      verified: 186200,
+      genMode: '自动生成',
+      genDate: '2026-08-31',
+      feeType: '租赁费（按组合出库自动汇总）',
+      fees: [
+        { src: '组合出库单 ×26', desc: '租赁费 · 2026-08 账期（按组合出库自动汇总）', qty: '—', price: '—', amount: 486200, url: '仓储作业/组合出库列表.html' }
+      ],
+      chain: [
+        { role: '组合出库', name: '组合出库 ×26 张', url: '仓储作业/组合出库列表.html' },
+        { role: '应收账单（本单）', name: 'AR-2026-08-PRJ2601 · 租赁费', self: true },
+        { role: '开票登记', name: '已开票', url: '财务协同/开票登记.html' },
+        { role: '回款 / 核销', name: '部分核销 186,200.00', url: '财务协同/银行水单核销.html' }
+      ],
+      timeline: [
+        { t: '08-31', text: '账单自动生成 · 组合出库汇总 26 张', who: '系统' },
+        { t: '09-02', text: '开票登记', who: '王芳' },
+        { t: '09-05', text: '回款 186,200.00 元 · 水单核销', who: '财务' },
+        { t: '—', text: '待收尾款 300,000.00 元', off: true }
+      ]
+    },
+
+    /* ===== 租赁费（上汽大众宁波 · 未开票） ===== */
+    'AR-2026-08-PRJ2602': {
+      billNo: 'AR-2026-08-PRJ2602',
+      billType: '租赁费',
+      status: '未开票',
+      customer: '上汽大众宁波分公司',
+      project: 'PRJ-2602',
+      period: '2026-08',
+      amount: 358900,
+      verified: 0,
+      genMode: '自动生成',
+      genDate: '2026-08-31',
+      feeType: '租赁费（按组合出库自动汇总）',
+      fees: [
+        { src: '组合出库单 ×26', desc: '租赁费 · 2026-08 账期（按组合出库自动汇总）', qty: '—', price: '—', amount: 358900, url: '仓储作业/组合出库列表.html' }
+      ],
+      chain: [
+        { role: '组合出库', name: '组合出库 ×26 张', url: '仓储作业/组合出库列表.html' },
+        { role: '应收账单（本单）', name: 'AR-2026-08-PRJ2602 · 租赁费', self: true },
+        { role: '开票登记', name: '待开票', url: '财务协同/开票登记.html' },
+        { role: '回款 / 核销', name: '回款登记 → 银行水单核销', url: '财务协同/银行水单核销.html' }
+      ],
+      timeline: [
+        { t: '08-31', text: '账单自动生成 · 组合出库汇总 26 张', who: '系统' },
+        { t: '—', text: '待开票 → 回款 → 水单核销', off: true }
+      ]
+    },
+
+    /* ===== 租赁费（小鹏汽车 · 未开票） ===== */
+    'AR-2026-08-PRJ2603': {
+      billNo: 'AR-2026-08-PRJ2603',
+      billType: '租赁费',
+      status: '未开票',
+      customer: '小鹏汽车科技有限公司',
+      project: 'PRJ-2603',
+      period: '2026-08',
+      amount: 241500,
+      verified: 0,
+      genMode: '自动生成',
+      genDate: '2026-08-31',
+      feeType: '租赁费（按组合出库自动汇总）',
+      fees: [
+        { src: '组合出库单 ×26', desc: '租赁费 · 2026-08 账期（按组合出库自动汇总）', qty: '—', price: '—', amount: 241500, url: '仓储作业/组合出库列表.html' }
+      ],
+      chain: [
+        { role: '组合出库', name: '组合出库 ×26 张', url: '仓储作业/组合出库列表.html' },
+        { role: '应收账单（本单）', name: 'AR-2026-08-PRJ2603 · 租赁费', self: true },
+        { role: '开票登记', name: '待开票', url: '财务协同/开票登记.html' },
+        { role: '回款 / 核销', name: '回款登记 → 银行水单核销', url: '财务协同/银行水单核销.html' }
+      ],
+      timeline: [
+        { t: '08-31', text: '账单自动生成 · 组合出库汇总 26 张', who: '系统' },
+        { t: '—', text: '待开票 → 回款 → 水单核销', off: true }
+      ]
+    },
+
+    /* ===== 租赁费（一汽解放 · 已结清） ===== */
+    'AR-2026-07-PRJ2601': {
+      billNo: 'AR-2026-07-PRJ2601',
+      billType: '租赁费',
+      status: '已结清',
+      customer: '一汽解放汽车有限公司',
+      project: 'PRJ-2601',
+      period: '2026-07',
+      amount: 442800,
+      verified: 442800,
+      genMode: '自动生成',
+      genDate: '2026-07-31',
+      feeType: '租赁费（按组合出库自动汇总）',
+      fees: [
+        { src: '组合出库单 ×26', desc: '租赁费 · 2026-07 账期（按组合出库自动汇总）', qty: '—', price: '—', amount: 442800, url: '仓储作业/组合出库列表.html' }
+      ],
+      chain: [
+        { role: '组合出库', name: '组合出库 ×26 张', url: '仓储作业/组合出库列表.html' },
+        { role: '应收账单（本单）', name: 'AR-2026-07-PRJ2601 · 租赁费', self: true },
+        { role: '开票登记', name: '已开票', url: '财务协同/开票登记.html' },
+        { role: '回款 / 核销', name: '已核销结清', url: '财务协同/银行水单核销.html' }
+      ],
+      timeline: [
+        { t: '07-31', text: '账单自动生成 · 组合出库汇总 26 张', who: '系统' },
+        { t: '08-05', text: '开票登记', who: '王芳' },
+        { t: '08-20', text: '回款核销 442,800.00 元 · 结清', who: '财务' }
+      ]
+    },
+
+    /* ===== 丢损赔偿（一汽解放 · 未开票 · 退租联动转应收） ===== */
+    'BS-20260828-004': {
+      billNo: 'BS-20260828-004',
+      billType: '丢损赔偿',
+      status: '未开票',
+      customer: '一汽解放汽车有限公司',
+      project: 'PRJ-2601',
+      period: '2026-08',
+      amount: 3690,
+      verified: 0,
+      genMode: '赔偿联动',
+      genDate: '2026-08-28',
+      feeType: '丢损赔偿（退租联动转应收）',
+      scenario: 'S5 · 丢损赔偿转应收',
+      fees: [
+        { src: 'BS-20260828-004', desc: '退租丢损赔偿 · 客户承担', qty: '—', price: '—', amount: 3690, url: '租赁管理/丢损赔偿单.html' }
+      ],
+      chain: [
+        { role: '丢损赔偿单', name: 'BS-20260828-004', url: '租赁管理/丢损赔偿单.html' },
+        { role: '应收账单（本单）', name: 'BS-20260828-004 · 丢损赔偿', self: true },
+        { role: '开票登记', name: '待开票', url: '财务协同/开票登记.html' },
+        { role: '回款 / 核销', name: '回款登记 → 银行水单核销', url: '财务协同/银行水单核销.html' }
+      ],
+      timeline: [
+        { t: '08-28', text: '丢损赔偿审核通过 · BS-20260828-004 转应收', who: '王芳' },
+        { t: '08-28', text: '应收账单自动生成', who: '系统' },
+        { t: '—', text: '待开票 → 回款 → 水单核销', off: true }
+      ]
+    },
+
+    /* ===== 租赁费（上汽大众宁波 · 部分收款） ===== */
+    'AR-2026-07-PRJ2602': {
+      billNo: 'AR-2026-07-PRJ2602',
+      billType: '租赁费',
+      status: '部分收款',
+      customer: '上汽大众宁波分公司',
+      project: 'PRJ-2602',
+      period: '2026-07',
+      amount: 366200,
+      verified: 186200,
+      genMode: '自动生成',
+      genDate: '2026-07-31',
+      feeType: '租赁费（按组合出库自动汇总）',
+      fees: [
+        { src: '组合出库单 ×26', desc: '租赁费 · 2026-07 账期（按组合出库自动汇总）', qty: '—', price: '—', amount: 366200, url: '仓储作业/组合出库列表.html' }
+      ],
+      chain: [
+        { role: '组合出库', name: '组合出库 ×26 张', url: '仓储作业/组合出库列表.html' },
+        { role: '应收账单（本单）', name: 'AR-2026-07-PRJ2602 · 租赁费', self: true },
+        { role: '开票登记', name: '已开票', url: '财务协同/开票登记.html' },
+        { role: '回款 / 核销', name: '部分核销 186,200.00', url: '财务协同/银行水单核销.html' }
+      ],
+      timeline: [
+        { t: '07-31', text: '账单自动生成 · 组合出库汇总 26 张', who: '系统' },
+        { t: '08-05', text: '开票登记', who: '王芳' },
+        { t: '08-25', text: '回款 186,200.00 元 · 水单核销', who: '财务' },
+        { t: '—', text: '待收尾款 180,000.00 元', off: true }
+      ]
+    },
+
+    /* ===== 租赁费（上汽大众宁波 · 已结清） ===== */
+    'AR-2026-06-PRJ2602': {
+      billNo: 'AR-2026-06-PRJ2602',
+      billType: '租赁费',
+      status: '已结清',
+      customer: '上汽大众宁波分公司',
+      project: 'PRJ-2602',
+      period: '2026-06',
+      amount: 358900,
+      verified: 358900,
+      genMode: '自动生成',
+      genDate: '2026-06-30',
+      feeType: '租赁费（按组合出库自动汇总）',
+      fees: [
+        { src: '组合出库单 ×26', desc: '租赁费 · 2026-06 账期（按组合出库自动汇总）', qty: '—', price: '—', amount: 358900, url: '仓储作业/组合出库列表.html' }
+      ],
+      chain: [
+        { role: '组合出库', name: '组合出库 ×26 张', url: '仓储作业/组合出库列表.html' },
+        { role: '应收账单（本单）', name: 'AR-2026-06-PRJ2602 · 租赁费', self: true },
+        { role: '开票登记', name: '已开票', url: '财务协同/开票登记.html' },
+        { role: '回款 / 核销', name: '已核销结清', url: '财务协同/银行水单核销.html' }
+      ],
+      timeline: [
+        { t: '06-30', text: '账单自动生成 · 组合出库汇总 26 张', who: '系统' },
+        { t: '07-05', text: '开票登记', who: '王芳' },
+        { t: '07-18', text: '回款核销 358,900.00 元 · 结清', who: '财务' }
+      ]
+    }
   }
 };
