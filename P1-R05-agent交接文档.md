@@ -627,3 +627,10 @@
 
 **遗留**：audit modal-unreachable 检测维度待补 JS 动态绑定识别（第四节⑦既有遗留）；stab 点击仍仅切视觉态不过滤（如需联动另行拍板）；根目录 zip 快照未重打（对外发版需重打，必须含 _data/）。
 
+
+## 变更记录 · 2026-09-08（四）（全站滚动条浅色改造 · 道远 goal 三任务之三）
+
+**改动**：原型目录 124 个 HTML（45 业务页+79 弹窗独立页+F01，**BOM.html 按道远既有裁定不动**、99-归档不涉及）每页首个 `<style>` 块末尾注入四行固定规范——`::-webkit-scrollbar{width:6px;height:6px}` / thumb `#d9d9d9`+圆角 3px / hover `#c4c4c4` / track 透明（菜单/列表/弹窗滚动条统一浅色细条）；Python 二进制读写保行尾、style 标签配平逐页自检、幂等（页内已有 -webkit-scrollbar 跳过，本轮 0 页触发）。
+
+**验证**：Playwright 遍历全站 `document.styleSheets` 断言 `-webkit-scrollbar-thumb` 规则存在且 background=`#d9d9d9`——**PASS 124/124**；三类 15 页截图（菜单溢出×5 / 宽表列表×5 / 长内容弹窗×5）+横向滚动条放大图存 `_scan_tmpdir/scrollbar-check/`；全量 audit 死链 0 / JS 错 0 / 相对基线新增 0（41 条=31 误报+10 豁免口径不变）。改前备份 `_scan_tmpdir/backup-scrollbar-20260908/`（124 文件按原相对路径）；执行脚本 `scrollbar_inject.py`/`scrollbar_verify.py` 留档。
+
