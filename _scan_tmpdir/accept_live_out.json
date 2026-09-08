@@ -1,0 +1,257 @@
+[
+ [
+  "#1 leaseOrders 销售管理/租赁单列表.html 锚「详情」",
+  true,
+  "7/7 实点过"
+ ],
+ [
+  "#2 rentInOrders 采购管理/租入单列表.html 锚「详情」",
+  true,
+  "5/5 实点过"
+ ],
+ [
+  "#3 comboOutbounds 仓储作业/组合出库列表.html 锚「详情」",
+  true,
+  "8/8 实点过"
+ ],
+ [
+  "#4 returnInbounds 仓储作业/退租入库列表.html 锚「详情」",
+  true,
+  "7/7 实点过"
+ ],
+ [
+  "#5 returnApplies 租赁管理/退租申请列表.html 锚「详情」",
+  true,
+  "2/2 实点过"
+ ],
+ [
+  "#6 damageOrders 租赁管理/丢损赔偿单.html 锚「详情」",
+  true,
+  "5/5 实点过"
+ ],
+ [
+  "#7 rentInReturns 仓储作业/租入归还列表.html 锚「详情」",
+  true,
+  "3/3 实点过"
+ ],
+ [
+  "#8 rentInbounds 仓储作业/租入入库列表.html 锚「详情」",
+  true,
+  "3/3 实点过"
+ ],
+ [
+  "#9 purchaseOrders 采购管理/采购订单列表.html 锚「详情」",
+  true,
+  "3/3 实点过"
+ ],
+ [
+  "#10 salesOrders 销售管理/销售订单列表.html 锚「详情」",
+  true,
+  "3/3 实点过"
+ ],
+ [
+  "#11 purchaseInbounds 仓储作业/采购入库列表.html 锚「详情」",
+  true,
+  "8/8 实点过"
+ ],
+ [
+  "#12 salesOutbounds 仓储作业/销售出库列表.html 锚「详情」",
+  true,
+  "6/6 实点过"
+ ],
+ [
+  "#13 otherInbounds 仓储作业/其他入库列表.html 锚「详情」",
+  true,
+  "3/3 实点过"
+ ],
+ [
+  "#14 otherOutbounds 仓储作业/其他出库列表.html 锚「详情」",
+  true,
+  "5/5 实点过"
+ ],
+ [
+  "#15 assemblyOrders 仓储作业/组装列表.html 锚「详情」",
+  true,
+  "7/7 实点过"
+ ],
+ [
+  "#16 disassemblyOrders 仓储作业/拆卸管理列表.html 锚「详情」",
+  true,
+  "4/4 实点过"
+ ],
+ [
+  "#17 stocktakes 仓储作业/盘点列表.html 锚「详情」",
+  true,
+  "5/5 实点过"
+ ],
+ [
+  "#18 transfers 仓储作业/库存调拨列表.html 锚「详情」",
+  true,
+  "3/3 实点过"
+ ],
+ [
+  "#19 stockFlows 仓储作业/库存查询.html 锚「库存流水」",
+  true,
+  "12/12 实点过"
+ ],
+ [
+  "#20 rentTracks 租赁管理/租出台账.html 锚「详情」",
+  true,
+  "10/10 实点过"
+ ],
+ [
+  "#20b assetTracks 租赁管理/在租台账.html 锚「资产轨迹」",
+  true,
+  "9/9 实点过"
+ ],
+ [
+  "#21 partners 基础数据/客商管理.html 锚「详情」",
+  true,
+  "8/8 实点过"
+ ],
+ [
+  "#22 appliances 基础数据/器具档案.html 锚「详情」",
+  true,
+  "6/6 实点过"
+ ],
+ [
+  "#23 parts 基础数据/零部件档案.html 锚「详情」",
+  true,
+  "6/6 实点过"
+ ],
+ [
+  "#24 locations 基础数据/库位档案.html 锚「详情」",
+  true,
+  "10/10 实点过"
+ ],
+ [
+  "#25 bomVersions 基础数据/BOM维护.html 锚「查看」",
+  true,
+  "3/3 实点过"
+ ],
+ [
+  "模板 销售管理/弹窗/租赁单详情.html",
+  true,
+  "title='租赁单详情 · ZL-20260823-033' 段数=8 show=True"
+ ],
+ [
+  "模板 采购管理/弹窗/租入单详情.html",
+  true,
+  "title='租入单详情 · RZD-20260815-003' 段数=8 show=True"
+ ],
+ [
+  "模板 仓储作业/弹窗/组合出库单详情.html",
+  true,
+  "title='组合出库单详情 · CK-20260830-015' 段数=8 show=True"
+ ],
+ [
+  "模板 仓储作业/弹窗/退租入库单详情.html",
+  true,
+  "title='退租入库单详情 · TZRK-20260902-010' 段数=8 show=True"
+ ],
+ [
+  "模板 租赁管理/弹窗/退租申请详情.html",
+  true,
+  "title='退租申请详情 · TZSQ-20260903-005' 段数=8 show=True"
+ ],
+ [
+  "模板 租赁管理/弹窗/丢损赔偿单详情.html",
+  true,
+  "title='丢损赔偿单详情 · BS-20260902-010' 段数=8 show=True"
+ ],
+ [
+  "模板 仓储作业/弹窗/租入归还单详情.html",
+  true,
+  "title='租入归还单详情 · GHCK-20260903-001' 段数=8 show=True"
+ ],
+ [
+  "模板 仓储作业/弹窗/租入入库单详情.html",
+  true,
+  "title='租入入库单详情 · RZRK-20260816-021' 段数=8 show=True"
+ ],
+ [
+  "模板 采购管理/弹窗/采购订单详情.html",
+  true,
+  "title='采购订单详情 · PO-20260902-018' 段数=8 show=True"
+ ],
+ [
+  "模板 销售管理/弹窗/销售订单详情.html",
+  true,
+  "title='销售订单详情 · SO-20260903-0047' 段数=8 show=True"
+ ],
+ [
+  "模板 仓储作业/弹窗/采购入库单详情.html",
+  true,
+  "title='采购入库单详情 · CGRK-20260828-012' 段数=8 show=True"
+ ],
+ [
+  "模板 仓储作业/弹窗/销售出库单详情.html",
+  true,
+  "title='销售出库单详情 · XSCK-20260902-015' 段数=8 show=True"
+ ],
+ [
+  "模板 仓储作业/弹窗/其他入库单详情.html",
+  true,
+  "title='其他入库单详情 · QTRK-20260901-003' 段数=8 show=True"
+ ],
+ [
+  "模板 仓储作业/弹窗/其他出库单详情.html",
+  true,
+  "title='其他出库单详情 · QTCK-20260901-004' 段数=8 show=True"
+ ],
+ [
+  "模板 仓储作业/弹窗/组装单详情.html",
+  true,
+  "title='组装单详情 · ZZ-20260822-006' 段数=8 show=True"
+ ],
+ [
+  "模板 仓储作业/弹窗/拆卸单详情.html",
+  true,
+  "title='拆卸单详情 · CX-20260902-006' 段数=8 show=True"
+ ],
+ [
+  "模板 仓储作业/弹窗/盘点单详情.html",
+  true,
+  "title='盘点单详情 · PD-202608-03' 段数=8 show=True"
+ ],
+ [
+  "模板 仓储作业/弹窗/调拨单详情.html",
+  true,
+  "title='调拨单详情 · DB-20260901-003' 段数=8 show=True"
+ ],
+ [
+  "模板 仓储作业/弹窗/库存流水.html",
+  true,
+  "title='库存流水 · LJ-A100 锁扣组件 不锈钢 304' 段数=8 show=True"
+ ],
+ [
+  "模板 租赁管理/弹窗/器具出租履历.html",
+  true,
+  "title='器具出租履历 · ZL-20260823-033' 段数=8 show=True"
+ ],
+ [
+  "模板 基础数据/弹窗/客商详情.html",
+  true,
+  "title='客商详情 · 一汽解放汽车有限公司' 段数=8 show=True"
+ ],
+ [
+  "模板 基础数据/弹窗/器具详情.html",
+  true,
+  "title='器具详情 · WBX-1210L' 段数=8 show=True"
+ ],
+ [
+  "模板 基础数据/弹窗/零部件详情.html",
+  true,
+  "title='零部件详情 · LJ-A100' 段数=8 show=True"
+ ],
+ [
+  "模板 基础数据/弹窗/库位详情.html",
+  true,
+  "title='库位详情 · RA-A-01-01' 段数=8 show=True"
+ ],
+ [
+  "模板 基础数据/弹窗/BOM版本查看.html",
+  true,
+  "title='BOM 版本查看 · ZH-2601-A V2.1' 段数=8 show=True"
+ ]
+]

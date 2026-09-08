@@ -1,0 +1,79 @@
+{
+ "results": [
+  [
+   "1a demo-data.js node 语法通过",
+   true,
+   ""
+  ],
+  [
+   "1b 实体数=33",
+   true,
+   "33 实体: _meta, payableBills, receivableBills, payments, receipts, invoices..."
+  ],
+  [
+   "1c 每实体内单号键唯一",
+   true,
+   "33 实体全部唯一"
+  ],
+  [
+   "1d 记录总数=212",
+   true,
+   "实际 212"
+  ],
+  [
+   "1e L3/L4 链 10 单号反查命中",
+   true,
+   "10/10 实体键+列表页 HTML 双命中"
+  ],
+  [
+   "2 25 弹窗三要素在位（接线+骨架+模板）",
+   true,
+   "26/26（含20b在租台账分页）"
+  ],
+  [
+   "3 09-07 业务补充行实体建全",
+   true,
+   "6/6 全在"
+  ],
+  [
+   "3b 驳回重提 ZL-20260905-035 口径",
+   true,
+   "页面行=False 实体键=False（页面无此行则不强求实体）"
+  ]
+ ],
+ "ents": {
+  "_meta": 0,
+  "payableBills": 10,
+  "receivableBills": 11,
+  "payments": 5,
+  "receipts": 5,
+  "invoices": 6,
+  "writeoffs": 4,
+  "leaseOrders": 9,
+  "rentInOrders": 5,
+  "comboOutbounds": 8,
+  "returnInbounds": 8,
+  "returnApplies": 10,
+  "damageOrders": 5,
+  "rentInReturns": 3,
+  "rentInbounds": 3,
+  "purchaseOrders": 7,
+  "salesOrders": 8,
+  "purchaseInbounds": 8,
+  "salesOutbounds": 6,
+  "otherInbounds": 3,
+  "otherOutbounds": 5,
+  "assemblyOrders": 7,
+  "disassemblyOrders": 4,
+  "stocktakes": 5,
+  "transfers": 3,
+  "stockFlows": 12,
+  "rentTracks": 10,
+  "assetTracks": 9,
+  "partners": 8,
+  "appliances": 6,
+  "parts": 6,
+  "locations": 10,
+  "bomVersions": 3
+ }
+}
