@@ -465,7 +465,7 @@ th.td-num { text-align:right; }
 <div class="card">
   <h3 class="card-title">版本记录</h3>
   <div class="table-wrap">
-    <table id="bomVerTable">
+    <table>
       <thead>
         <tr>
           <th>版本</th>
@@ -541,18 +541,10 @@ th.td-num { text-align:right; }
   </div>
 </div>
 <script src="../_data/demo-data.js"></script>
-<script src="../_data/detail-generic.js"></script><script src="../_data/list-generic.js"></script>
-
+<script src="../_data/detail-generic.js"></script>
 <script>
 /* demo-data 接线：各行「查看」按行内键渲染对应数据（2026-09-08 数据驱动） */
-renderListPage({
-  entity: 'bomVersions',
-  stabs: false,
-  filters: [],
-  noCheckbox: true,
-  tbodySel: '#bomVerTable tbody',
-  modalId: 'bomViewModal'
-});
+wireDetailModal('bomVersions', { anchorText: '查看', modalId: 'bomViewModal' });
 </script>
 <script>
 /* ===== 详情弹窗开关（详情落地页补齐注入） ===== */

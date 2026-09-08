@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<title>零部件档案 - 包装租赁管理后台</title>
+<title>库位档案 - 包装租赁管理后台</title>
 <style>
 :root {
   --primary: #1677ff;
@@ -260,9 +260,9 @@ th.td-num { text-align:right; }
    <ul class="sm-sub">
    <li><div class="sm-link" onclick="go('../基础数据/客商管理.html')">客商管理</div></li>
    <li><div class="sm-link" onclick="go('../基础数据/器具档案.html')">器具档案</div></li>
-   <li><div class="sm-link selected">零部件档案</div></li>
+   <li><div class="sm-link" onclick="go('../基础数据/零部件档案.html')">零部件档案</div></li>
    <li><div class="sm-link" onclick="go('../基础数据/BOM.html')">BOM</div></li>
-   <li><div class="sm-link" onclick="go('../基础数据/库位档案.html')">库位档案</div></li>
+   <li><div class="sm-link selected">库位档案</div></li>
    </ul>
    </li>
    <li class="sm-item has-sub">
@@ -342,29 +342,31 @@ th.td-num { text-align:right; }
   </div></aside>
   <div class="main-col">
 <div class="tabs">
-  <span class="tab active">零部件档案 <span class="close">×</span></span>
-  <span class="tab">BOM <span class="close">×</span></span>
-  <span class="tab">器具档案 <span class="close">×</span></span>
+  <span class="tab active">库位档案 <span class="close">×</span></span>
   <span class="tab">库存查询 <span class="close">×</span></span>
+  <span class="tab">器具档案 <span class="close">×</span></span>
+  <span class="tab">零部件档案 <span class="close">×</span></span>
 </div>
     <div class="content">
 <div class="filter-card collapsed" id="filterCard">
   <div class="filter-grid">
-    <div class="ff"><span class="ff-label">零件号：</span><input placeholder="请输入"></div>
-    <div class="ff"><span class="ff-label">零件名称：</span><input placeholder="请输入"></div>
-    <div class="ff"><span class="ff-label">供应商：</span>
-      <select><option selected>全部</option><option>苏州联恒五金制品有限公司</option><option>宁波华塑包装制品有限公司</option><option>常州正大塑料托盘厂</option><option>路凯包装运营（上海）有限公司</option></select>
+    <div class="ff"><span class="ff-label">仓库：</span>
+      <select><option selected>全部</option><option>原料区 RA</option><option>成品区 RB</option><option>外协周转区 RC</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
-    <div class="ff ff-row-extra"><span class="ff-label">多项目共用：</span>
-      <select><option selected>全部</option><option>是</option><option>否</option></select>
+    <div class="ff"><span class="ff-label">库区：</span>
+      <select><option selected>全部</option><option>原料区 RA</option><option>成品区 RB</option><option>外协周转区 RC</option></select>
+      <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+    <div class="ff"><span class="ff-label">库位编码：</span><input placeholder="请输入"></div>
+    <div class="ff ff-row-extra"><span class="ff-label">库位类型：</span>
+      <select><option selected>全部</option><option>平面库位</option><option>立体库位</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
     <div class="ff ff-row-extra"><span class="ff-label">状态：</span>
       <select><option selected>全部</option><option>待审核</option><option>已审核</option><option>已完成</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
-    <div class="ff ff-row-extra"><span class="ff-label">建档时间：</span><input placeholder="开始时间"><span class="ff-sep">→</span><input placeholder="结束时间"></div>
     <div class="filter-actions">
       <button class="link-collapse" onclick="var f=document.getElementById('filterCard');f.classList.toggle('collapsed');this.querySelector('span').textContent=f.classList.contains('collapsed')?'展开':'收起'"><span>展开</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
       <button class="btn btn-default">重置</button>
@@ -374,21 +376,20 @@ th.td-num { text-align:right; }
 </div>
 <div class="card">
   <div class="card-head">
-    <h3 class="card-title" data-note="1">零部件档案</h3>
-    <div class="head-btns"><button class="btn btn-default btn-sm">批量导出</button><button class="btn btn-sm" onclick="openModal('createModal')">新建零部件</button></div>
+    <h3 class="card-title" data-note="1">库位档案</h3>
+    <div class="head-btns"><button class="btn btn-default btn-sm">批量导出</button><button class="btn btn-sm" onclick="openModal('createModal')">新建库位</button></div>
   </div>
   <div class="table-wrap">
     <table>
       <thead>
         <tr>
           <th></th>
-          <th>零件号</th>
-          <th>零件名称</th>
-          <th>规格 / 材质</th>
-          <th>供应商</th>
-          <th>采购单价(元)</th>
-          <th data-note="2">多项目共用</th>
-          <th>适用项目</th>
+          <th>仓库</th>
+          <th>库区</th>
+          <th>库位编码</th>
+          <th>库位类型</th>
+          <th>规格 / 承载</th>
+          <th>占用情况</th>
           <th>状态</th>
           <th class="sticky-op">操作</th>
         </tr>
@@ -396,81 +397,119 @@ th.td-num { text-align:right; }
       <tbody>
         <tr>
           <td><input type="checkbox" class="cb"></td>
-          <td>LJ-A100</td>
-          <td>锁扣组件</td>
-          <td>不锈钢 304 · M8</td>
-          <td>苏州联恒五金制品有限公司</td>
-          <td><span class="td-num">6.80</span></td>
-          <td><span class="tag tag-green">正常</span></td>
-          <td>PRJ-2601/2602/2604</td>
+          <td>华东中心仓（WH-01）</td>
+          <td>原料区 RA</td>
+          <td><span class="lk">RA-A-01-01</span></td>
+          <td>存储位</td>
+          <td>1.2m×1.0m / 2t</td>
+          <td>68%</td>
           <td><span class="tag tag-green">启用</span></td>
           <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
-          <td>LJ-B200</td>
-          <td>铰链</td>
-          <td>锌合金 · 65mm</td>
-          <td>苏州联恒五金制品有限公司</td>
-          <td><span class="td-num">4.20</span></td>
-          <td><span class="tag tag-green">正常</span></td>
-          <td>PRJ-2601/2602</td>
+          <td>华东中心仓（WH-01）</td>
+          <td>原料区 RA</td>
+          <td><span class="lk">RA-A-01-02</span></td>
+          <td>存储位</td>
+          <td>1.2m×1.0m / 2t</td>
+          <td>45%</td>
           <td><span class="tag tag-green">启用</span></td>
           <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
-          <td>LJ-C300</td>
-          <td>围板</td>
-          <td>HDPE 波纹板 · 970 高</td>
-          <td>宁波华塑包装制品有限公司</td>
-          <td><span class="td-num">52.00</span></td>
-          <td><span class="tag tag-gray">否</span></td>
-          <td>PRJ-2601</td>
+          <td>华东中心仓（WH-01）</td>
+          <td>原料区 RA</td>
+          <td><span class="lk">RA-B-02-01</span></td>
+          <td>存储位</td>
+          <td>1.2m×1.0m / 2t</td>
+          <td>0%</td>
           <td><span class="tag tag-green">启用</span></td>
           <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
-          <td>LJ-D400</td>
-          <td>箱盖</td>
-          <td>ABS 吸塑 · 1200×1000</td>
-          <td>宁波华塑包装制品有限公司</td>
-          <td><span class="td-num">36.00</span></td>
-          <td><span class="tag tag-green">正常</span></td>
-          <td>PRJ-2601/2604</td>
+          <td>华东中心仓（WH-01）</td>
+          <td>成品区 RB</td>
+          <td><span class="lk">RB-A-01-01</span></td>
+          <td>存储位</td>
+          <td>1.2m×1.0m / 2t</td>
+          <td>82%</td>
           <td><span class="tag tag-green">启用</span></td>
           <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
-          <td>LJ-E500</td>
-          <td>底托架</td>
-          <td>钢制喷塑 · 1200×1000</td>
-          <td>常州正大塑料托盘厂</td>
-          <td><span class="td-num">78.00</span></td>
-          <td><span class="tag tag-gray">否</span></td>
-          <td>PRJ-2603</td>
+          <td>华东中心仓（WH-01）</td>
+          <td>成品区 RB</td>
+          <td><span class="lk">RB-A-01-02</span></td>
+          <td>存储位</td>
+          <td>1.2m×1.0m / 2t</td>
+          <td>74%</td>
           <td><span class="tag tag-green">启用</span></td>
           <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
-          <td>LJ-F600</td>
-          <td>内衬</td>
-          <td>EPE 珍珠棉 · 定制</td>
-          <td>宁波华塑包装制品有限公司</td>
-          <td><span class="td-num">15.50</span></td>
-          <td><span class="tag tag-green">正常</span></td>
-          <td>PRJ-2603/2605</td>
+          <td>华东中心仓（WH-01）</td>
+          <td>成品区 RB</td>
+          <td><span class="lk">RB-B-01-01</span></td>
+          <td>拣选位</td>
+          <td>1.2m×1.0m / 1.5t</td>
+          <td>60%</td>
           <td><span class="tag tag-green">启用</span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" class="cb"></td>
+          <td>华东中心仓（WH-01）</td>
+          <td>组装区 RD</td>
+          <td><span class="lk">RD-01</span></td>
+          <td>组装暂存</td>
+          <td>工位 1</td>
+          <td>组装中</td>
+          <td><span class="tag tag-green">启用</span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" class="cb"></td>
+          <td>华东中心仓（WH-01）</td>
+          <td>组装区 RD</td>
+          <td><span class="lk">RD-02</span></td>
+          <td>组装暂存</td>
+          <td>工位 2</td>
+          <td>空闲</td>
+          <td><span class="tag tag-green">启用</span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" class="cb"></td>
+          <td>华东中心仓（WH-01）</td>
+          <td>退货区 RC</td>
+          <td><span class="lk">RC-01</span></td>
+          <td>退货暂存</td>
+          <td>1.2m×1.0m / 2t</td>
+          <td>36%</td>
+          <td><span class="tag tag-green">启用</span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" class="cb"></td>
+          <td>华东中心仓（WH-01）</td>
+          <td>退货区 RC</td>
+          <td><span class="lk">RC-02</span></td>
+          <td>退货暂存</td>
+          <td>1.2m×1.0m / 2t</td>
+          <td>0%</td>
+          <td><span class="tag tag-gray">停用</span></td>
           <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
         </tr>
       </tbody>
     </table>
   </div>
   <div style="display:flex;align-items:center;justify-content:space-between;margin-top:12px" id="pager-row"><div id="batch-btns-area"></div><div class="pager" style="margin:0">
-    <span class="pg-info">第 1-10 条/总共 18 条</span>
+    <span class="pg-info">第 1-10 条/总共 86 条</span>
     <span class="pg-btn">‹</span>
     <span class="pg-btn cur">1</span>
     <span class="pg-btn">2</span>
@@ -513,8 +552,7 @@ body.proto-notes-on .proto-pin.pn-open{display:block}
 body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 .pn-fab .pn-fab-n{font-family:Consolas,monospace;font-weight:600}
 </style>
-<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>零部件档案</div><div class="pnp-d">库存精确到零配件级；配件可多项目共用</div><div class="pnp-b"><span class="pnp-tag">FP1-04 · 零部件档案</span><span class="pnp-tag">REQ-04 · 零部件级库存</span></div><div class="pnp-src"><div class="src-item"><b>FP1-04 零部件档案</b>：零件号、名称、供应商来源、多项目共用标记</div><div class="src-item"><b>REQ-04 零部件级库存</b>：库存精确到零配件；配件多项目共用</div></div></div>
-<div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>多项目共用标记</div><div class="pnp-d">共用零件的库存归属与分摊口径开发前需确认</div><div class="pnp-b"><span class="pnp-tag">FP1-04 · 零部件档案</span><span class="pnp-tag">REQ-04 · 零部件级库存</span></div><div class="pnp-src"><div class="src-item"><b>FP1-04 零部件档案</b>：零件号、名称、供应商来源、多项目共用标记</div><div class="src-item"><b>REQ-04 零部件级库存</b>：库存精确到零配件；配件多项目共用</div></div></div>
+<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>库位档案</div><div class="pnp-d">仓库/库区/库位三级，支撑入库定位与盘点范围</div><div class="pnp-b"><span class="pnp-tag">FP1-06 · 库位档案</span><span class="pnp-tag">REQ-04 · 零部件级库存</span></div><div class="pnp-src"><div class="src-item"><b>FP1-06 库位档案</b>：仓库/库区/库位三级</div><div class="src-item"><b>REQ-04 零部件级库存</b>：库存精确到零配件；配件多项目共用</div></div></div>
 <div class="pn-fab" id="protoNotesFab">标注</div></div>
 <script id="proto-notes-js">
 (function(){
@@ -565,32 +603,29 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 })();
 </script>
 
-<!-- 弹窗已提取到 弹窗/新建零部件.html，构建时注入 -->
+<!-- 弹窗已提取到 弹窗/新建库位.html，构建时注入 -->
 <div class="modal-overlay" id="createModal">
   <div class="modal">
     <div class="modal-header">
-      <h3 class="modal-title">新建零部件</h3>
+      <h3 class="modal-title">新建库位</h3>
       <span class="modal-close" onclick="closeModal('createModal')">×</span>
     </div>
     <div class="modal-body">
 <div class="form-row">
-    <span class="form-label"><span class="req">*</span>零件号</span>
-    <div class="input-box"><input placeholder="如 LJ-A100"></div>
+    <span class="form-label"><span class="req">*</span>仓库</span>
+    <div class="input-box select-box"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>一号仓</option><option>华东中心仓（WH-01）</option><option>华南仓（WH-02）</option><option>西南仓（WH-03）</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
   </div><div class="form-row">
-    <span class="form-label"><span class="req">*</span>零件名称</span>
-    <div class="input-box"><input placeholder="如 锁扣组件"></div>
+    <span class="form-label">库区</span>
+    <div class="input-box select-box"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>原料区 RA</option><option>成品区 RB</option><option>外购区 RW</option><option>器具区 JC</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
   </div><div class="form-row">
-    <span class="form-label">规格 / 材质</span>
-    <div class="input-box"><input value="不锈钢 304" placeholder="请输入"></div>
+    <span class="form-label"><span class="req">*</span>库位编码</span>
+    <div class="input-box"><input placeholder="如 RA-A01"></div>
   </div><div class="form-row">
-    <span class="form-label">供应商</span>
-    <div class="input-box select-box"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option>路凯包装运营（上海）有限公司</option><option selected>苏州联恒五金制品有限公司</option><option>宁波华塑包装制品有限公司</option><option>常州正大塑料托盘厂</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+    <span class="form-label">库位类型</span>
+    <div class="input-box select-box"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>平面库位</option><option>全部</option><option>待定选项（演示数据）</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
   </div><div class="form-row">
-    <span class="form-label">采购单价(元)</span>
-    <div class="input-box"><input value="1.28" placeholder="请输入"></div>
-  </div><div class="form-row">
-    <span class="form-label">适用项目</span>
-    <div class="input-box select-box"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>多项目共用</option><option>PRJ-2601 一汽解放</option><option>PRJ-2602 上汽大众</option><option>PRJ-2603 小鹏</option><option>PRJ-2604 东风本田</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+    <span class="form-label">规格 / 承载</span>
+    <div class="input-box"><input value="1200×1000 · ≤800kg" placeholder="请输入"></div>
   </div><div class="form-row">
     <span class="form-label">备注</span>
     <div class="input-box"><input placeholder="选填"></div>
@@ -670,7 +705,7 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 <div class="modal-overlay" id="detailModal">
   <div class="modal modal-lg" style="width:780px;">
     <div class="modal-header">
-      <h3 class="modal-title" id="detailTitle">零部件详情</h3>
+      <h3 class="modal-title" id="detailTitle">库位详情</h3>
       <span class="modal-close" onclick="closeModal('detailModal')">×</span>
     </div>
     <div class="modal-body" id="detailBody"><!-- 内容由 _data/detail-generic.js 按单号渲染 --></div>
@@ -680,20 +715,10 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
   </div>
 </div>
 <script src="../_data/demo-data.js"></script>
-<script src="../_data/detail-generic.js"></script><script src="../_data/list-generic.js"></script>
-
+<script src="../_data/detail-generic.js"></script>
 <script>
 /* demo-data 接线：各行「详情」按行内键渲染对应数据（2026-09-08 数据驱动） */
-renderListPage({
-  entity: 'parts',
-  filters: [
-    { label: '零件号', field: '_key' },
-    { label: '零件名称', field: 'name' },
-    { label: '供应商', field: 'supplier' },
-    { label: '多项目共用', field: 'shared' },
-    { label: '状态', field: 'status' }
-  ]
-});
+wireDetailModal('locations');
 </script>
 <!-- 操作确认弹窗 · 详情落地页补齐 2026-09-04 -->
 <div class="modal-overlay" id="stopModal">
@@ -703,9 +728,9 @@ renderListPage({
       <span class="modal-close" onclick="closeModal('stopModal')">×</span>
     </div>
     <div class="modal-body">
-      <div class="dgrid"><div class="drow"><div class="dlabel">零件号</div><div class="dval">LJ-A100</div></div><div class="drow"><div class="dlabel">名称</div><div class="dval">锁扣组件</div></div><div class="drow"><div class="dlabel">规格</div><div class="dval">不锈钢 304 · M8</div></div><div class="drow"><div class="dlabel">当前状态</div><div class="dval"><span class="tag tag-green">启用</span></div></div></div>
+      <div class="dgrid"><div class="drow"><div class="dlabel">库位编码</div><div class="dval">RA-A-01-01</div></div><div class="drow"><div class="dlabel">库区</div><div class="dval">原料区 RA · 华东中心仓</div></div><div class="drow"><div class="dlabel">容量占用</div><div class="dval">68%</div></div><div class="drow"><div class="dlabel">当前状态</div><div class="dval"><span class="tag tag-green">启用</span></div></div></div>
       <div style="height:14px;"></div>
-      <p style="font-size:13px;color:#262626;line-height:1.7;">确认停用该零部件（LJ-A100）？<br>停用后不可再用于新 BOM 配方与新采购订单；历史单据不受影响。</p></div>
+      <p style="font-size:13px;color:#262626;line-height:1.7;">确认停用该库位（RA-A-01-01）？<br>停用后不可再存放物料；在库物料请先调拨至其他库位。</p></div>
     <div class="modal-footer">
       <button class="btn btn-default" onclick="closeModal('stopModal')">取 消</button>
       <button class="btn" style="background:#ff4d4f;" onclick="closeModal('stopModal')">确认停用</button>

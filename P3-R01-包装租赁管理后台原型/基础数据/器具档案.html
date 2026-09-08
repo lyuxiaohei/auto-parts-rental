@@ -692,10 +692,21 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
   </div>
 </div>
 <script src="../_data/demo-data.js"></script>
-<script src="../_data/detail-generic.js"></script>
+<script src="../_data/detail-generic.js"></script><script src="../_data/list-generic.js"></script>
+
 <script>
 /* demo-data 接线：各行「详情」按行内键渲染对应数据（2026-09-08 数据驱动） */
-wireDetailModal('appliances');
+renderListPage({
+  entity: 'appliances',
+  filters: [
+    { label: '器具编码', field: '_key' },
+    { label: '器具名称', field: 'name' },
+    { label: '器具类别', field: 'cls' },
+    { label: '资产来源', field: 'src' },
+    { label: '状态', field: 'status' },
+    { label: '建档时间', field: 'date', range: true }
+  ]
+});
 </script>
 <!-- 操作确认弹窗 · 详情落地页补齐 2026-09-04 -->
 <div class="modal-overlay" id="stopModal">

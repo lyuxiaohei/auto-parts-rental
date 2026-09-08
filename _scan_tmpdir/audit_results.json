@@ -1402,7 +1402,7 @@
     "type": "modal-unreachable",
     "phase": "modal",
     "where": {
-     "text": "器具详情 · BTC-6040S"
+     "text": "器具详情"
     },
     "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
    }
@@ -1410,7 +1410,7 @@
   "stats": {
    "buttons": 10,
    "links": 18,
-   "onclickEls": 60,
+   "onclickEls": 59,
    "modals": 3,
    "modalTitles": [
     "新建器具",
@@ -1437,7 +1437,7 @@
     "type": "modal-unreachable",
     "phase": "modal",
     "where": {
-     "text": "客商详情 · 路凯包装运营（上海）有限公"
+     "text": "客商详情"
     },
     "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
    }
@@ -1445,7 +1445,7 @@
   "stats": {
    "buttons": 8,
    "links": 24,
-   "onclickEls": 64,
+   "onclickEls": 60,
    "modals": 2,
    "modalTitles": [
     "新建客商"
@@ -1471,7 +1471,7 @@
     "type": "modal-unreachable",
     "phase": "modal",
     "where": {
-     "text": "库位详情 · RC-02"
+     "text": "库位详情"
     },
     "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
    }
@@ -1746,7 +1746,7 @@
     "type": "modal-unreachable",
     "phase": "modal",
     "where": {
-     "text": "零部件详情 · LJ-F600"
+     "text": "零部件详情"
     },
     "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
    }
@@ -1754,7 +1754,7 @@
   "stats": {
    "buttons": 10,
    "links": 18,
-   "onclickEls": 61,
+   "onclickEls": 59,
    "modals": 3,
    "modalTitles": [
     "新建零部件",
@@ -1781,7 +1781,7 @@
     "type": "modal-unreachable",
     "phase": "modal",
     "where": {
-     "text": "丢损赔偿单详情 · BS-2026081"
+     "text": "丢损赔偿单详情"
     },
     "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
    }
@@ -1789,7 +1789,7 @@
   "stats": {
    "buttons": 8,
    "links": 11,
-   "onclickEls": 53,
+   "onclickEls": 50,
    "modals": 2,
    "modalTitles": [
     "审核确认"
@@ -1815,7 +1815,7 @@
     "type": "modal-unreachable",
     "phase": "modal",
     "where": {
-     "text": "资产轨迹 · WBX-1210L(旧)"
+     "text": "资产轨迹"
     },
     "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
    }
@@ -1823,7 +1823,7 @@
   "stats": {
    "buttons": 8,
    "links": 27,
-   "onclickEls": 66,
+   "onclickEls": 62,
    "modals": 2,
    "modalTitles": [
     "报废确认"
@@ -2017,7 +2017,7 @@
     "type": "modal-unreachable",
     "phase": "modal",
     "where": {
-     "text": "器具出租履历 · ZL-20260506"
+     "text": "器具出租履历"
     },
     "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
    }
@@ -2025,7 +2025,7 @@
   "stats": {
    "buttons": 6,
    "links": 20,
-   "onclickEls": 53,
+   "onclickEls": 51,
    "modals": 1,
    "modalTitles": [],
    "selects": 3,
@@ -2049,7 +2049,7 @@
     "type": "modal-unreachable",
     "phase": "modal",
     "where": {
-     "text": "退租申请详情 · TZSQ-202609"
+     "text": "退租申请详情"
     },
     "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
    }
@@ -2057,7 +2057,7 @@
   "stats": {
    "buttons": 12,
    "links": 12,
-   "onclickEls": 62,
+   "onclickEls": 58,
    "modals": 3,
    "modalTitles": [
     "新建退租申请",

@@ -594,10 +594,21 @@ th.td-num { text-align:right; }
   </div>
 </div>
 <script src="../_data/demo-data.js"></script>
-<script src="../_data/detail-generic.js"></script>
+<script src="../_data/detail-generic.js"></script><script src="../_data/list-generic.js"></script>
+
 <script>
 /* demo-data 接线：各行「资产轨迹」按行内键渲染对应数据（2026-09-08 数据驱动） */
-wireDetailModal('assetTracks', { anchorText: '资产轨迹', modalId: 'trackModal' });
+renderListPage({
+  entity: 'assetTracks',
+  stabs: true,
+  filters: [
+    { label: '器具编码', field: '_key' },
+    { label: '所属项目', field: 'project' },
+    { label: '循环状态', field: 'status' }
+  ],
+  noCheckbox: true,
+  modalId: 'trackModal'
+});
 </script>
 <!-- 操作确认弹窗 · 详情落地页补齐 2026-09-04 -->
 <div class="modal-overlay" id="scrapModal">

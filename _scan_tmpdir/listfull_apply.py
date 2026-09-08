@@ -62,6 +62,35 @@ BATCH1 = [
          filters=[], stabs=False),
 ]
 BATCHES = dict(batch1=BATCH1)
+BATCHES['batch3'] = [
+    dict(page='租赁管理/退租申请列表.html', entity='returnApplies', modalId='detailModal', tbodyIndex=0,
+         fields=dict(ref='关联租赁单号', customer='客户名称', project='所属项目', appliance='退租器具', date='申请日期', result='验收结果', status='状态'),
+         filters=[('退租申请单号', '_key'), ('关联租赁单号', 'ref'), ('客户名称', 'customer'), ('状态', 'status'), ('申请日期', 'date', 'r'), ('所属项目', 'project')], stabs=True),
+    dict(page='租赁管理/丢损赔偿单.html', entity='damageOrders', modalId='detailModal',
+         fields=dict(ref='关联退租申请单号', customer='客户名称', project='所属项目', appliance='赔偿器具', src='资产来源', status='状态'),
+         filters=[('赔偿单号', '_key'), ('所属项目', 'project'), ('客户', 'customer'), ('赔偿状态', 'status'), ('关联退租单', 'ref')], stabs=True),
+    dict(page='租赁管理/租出台账.html', entity='rentTracks', modalId='trackModal',
+         fields=dict(project='所属项目', customer='客户', combo='租出内容 × 数量', src='来源', date='租出日期', back='约定归还', status='状态'),
+         filters=[('台账编号', '_key'), ('所属项目', 'project'), ('客户', 'customer'), ('租赁状态', 'status'), ('租出日期', 'date', 'r'), ('组合件 / 器具', 'combo')], stabs=True),
+    dict(page='租赁管理/在租台账.html', entity='assetTracks', modalId='trackModal', noCheckbox=True,
+         fields=dict(name='名称', project='所属项目', status='循环状态'),
+         filters=[('器具编码', '_key'), ('所属项目', 'project'), ('循环状态', 'status')], stabs=True),
+    dict(page='基础数据/客商管理.html', entity='partners', modalId='detailModal', stab_field='type',
+         fields=dict(name='客商名称', type='客商类型', contact='联系人', status='合作状态', date='更新时间'),
+         filters=[('客商名称', 'name'), ('客商类型', 'type'), ('联系人', 'contact'), ('合作状态', 'status'), ('创建时间', 'date', 'r'), ('企业编码', '_key')], stabs=True),
+    dict(page='基础数据/器具档案.html', entity='appliances', modalId='detailModal',
+         fields=dict(name='器具名称', cls='类别', spec='规格', src='资产来源', status=8, date=9),  # 行内缺「租金单价」格（页面既有），状态/时间按行位 8/9
+         filters=[('器具编码', '_key'), ('器具名称', 'name'), ('器具类别', 'cls'), ('资产来源', 'src'), ('状态', 'status'), ('建档时间', 'date', 'r')], stabs=None),
+    dict(page='基础数据/零部件档案.html', entity='parts', modalId='detailModal',
+         fields=dict(name='零件名称', spec='规格 / 材质', supplier='供应商', shared='多项目共用', project='适用项目', status='状态'),
+         filters=[('零件号', '_key'), ('零件名称', 'name'), ('供应商', 'supplier'), ('多项目共用', 'shared'), ('状态', 'status')], stabs=None),
+    dict(page='基础数据/库位档案.html', entity='locations', modalId='detailModal',
+         fields=dict(wh='仓库', area='库区', ltype='库位类型', spec='规格 / 承载', usage='占用情况', status='状态'),
+         filters=[('仓库', 'wh'), ('库区', 'area'), ('库位编码', '_key'), ('库位类型', 'ltype'), ('状态', 'status')], stabs=None),
+    dict(page='基础数据/BOM维护.html', entity='bomVersions', modalId='bomViewModal',
+         noCheckbox=True, table_id='bomVerTable', table_index=2, key_html=True,
+         fields={}, filters=[], stabs=False),
+]
 
 # 批次2 · 财务+买卖 9 页（2026-09-08）
 BATCHES['batch2'] = [
@@ -124,10 +153,10 @@ def extract_rows(cfg, ent_keys):
     tb = tbodys[cfg.get('tbodyIndex', 0)]
     rows = re.findall(r'<tr>(.*?)</tr>', tb, re.S)
     keys = ent_keys[cfg['entity']]
-    thead_cols = re.findall(r'<th[^>]*>([^<]*)</th>', re.findall(r'<thead>(.*?)</thead>', tbl, re.S)[0])
+    thead_cols = re.findall(r'<th[^>]*>([^<]*)</th>', re.findall(r'<thead>(.*?)</thead>', tbl, re.S)[0]) if cfg['fields'] else []
     col_idx = {}
     for f, cname in cfg['fields'].items():
-        col_idx[f] = thead_cols.index(cname)  # 断言列名存在
+        col_idx[f] = thead_cols.index(cname) if isinstance(cname, str) else cname  # int=直接行格索引（表头/行错位页，如器具档案缺格）
     rows_out, notes_out = [], []
     for row in rows:
         tds = re.findall(r'<td[^>]*>.*?</td>', row, re.S)
@@ -140,10 +169,11 @@ def extract_rows(cfg, ent_keys):
         key_td_i = 1 if not no_cb else 0
         ops_td = tds[-1]
         cells = tds[key_td_i + 1:-1]
-        # note：键列 td 的 data-note
+        # note：键列 td 的 data-note；keyHtml：键列整格富 HTML（BOM维护 ver-tag 版本+状态格）
         note = None
         m = re.search(r'data-note="(\d+)"', tds[key_td_i])
         if m: note = m.group(1)
+        key_html = re.sub(r'^<td[^>]*>|</td>$', '', tds[key_td_i].strip()) if cfg.get('key_html') else None  # 剥外层 td 壳取 innerHTML
         # ops 解析
         ops = []
         for am in re.finditer(r'<a([^>]*)>([^<]*)</a>', ops_td):
@@ -162,7 +192,7 @@ def extract_rows(cfg, ent_keys):
         for f, ci in col_idx.items():
             v = plain[ci] if ci < len(plain) else ''
             fields[f] = re.sub(r'\s*\(.*?$', '', v).strip() if f != 'date' else v[:10]
-        rows_out.append(dict(key=key, cells=cells, ops=ops, note=note, fields=fields))
+        rows_out.append(dict(key=key, cells=cells, ops=ops, note=note, fields=fields, key_html=key_html))
     return rows_out, thead_cols
 
 # ---------------- 主流程 ----------------
@@ -206,16 +236,26 @@ def main():
         print('--dry 结束'); return
 
     # 3 注入 demo-data.js（每键行后插 'row' 行；已有 row 的键跳过）
+    #    锚必须在目标实体段内查找——跨实体同名键（BS-/ZL-/ZH- 编码等）全文 find 会错误命中他实体
+    ent_re2 = re.compile(r'^  ([A-Za-z_][A-Za-z0-9_]*): \{$', re.M)
+    spans2 = [(m.group(1), m.start()) for m in ent_re2.finditer(dd_bytes)]
+    ent_span = {}
+    for i, (n2, p2) in enumerate(spans2):
+        ent_span[n2] = (p2, spans2[i + 1][1] if i + 1 < len(spans2) else len(dd_bytes))
     n_inj = 0
-    for entity, rows in all_rows.items():
-        for r in rows:
+    # 按实体在文件中的位置倒序、实体内键倒序注入——每次注入点总在后续目标锚之后，
+    # 后续锚的绝对位置不受影响，静态 span 恒有效（正序注入会使前置实体的注入平移后续段）
+    for entity in sorted(all_rows, key=lambda e: ent_span[e][0], reverse=True):
+        lo, hi = ent_span[entity]
+        for r in reversed(all_rows[entity]):
             anchor = f"    '{r['key']}': {{\n"
-            i = dd_bytes.find(anchor)
-            assert i > -1, f"未找到键锚 {entity}:{r['key']}"
+            i = dd_bytes.find(anchor, lo, hi)
+            assert i > -1, f"实体段内未找到键锚 {entity}:{r['key']}"
             after = i + len(anchor)
             if dd_bytes[after:after + 12].startswith("      'row'"):
                 continue  # 已有 row（试点）
             row_js = json.dumps(dict(fields=r['fields'], **({'note': r['note']} if r['note'] else {}),
+                                     **({'keyHtml': r['key_html']} if r.get('key_html') else {}),
                                      cells=r['cells'], ops=r['ops']), ensure_ascii=False)
             dd_bytes = dd_bytes[:after] + f"      'row': {row_js},\n" + dd_bytes[after:]
             n_inj += 1
@@ -254,6 +294,7 @@ def main():
         if c.get('table_id'): extra += f",\n  tbodySel: '#{c['table_id']} tbody'"
         elif c.get('tbodyIndex'): extra += f",\n  tbodySel: 'tbody:nth-of-type({c.get('tbodyIndex') + 1})'"
         if c.get('detail_fn'): extra += f",\n  detailFn: function (entity, key) {{ {c['detail_fn']}(key); }}"
+        if c.get('stab_field'): extra += f",\n  stabField: '{c['stab_field']}'"
         if c['modalId'] != 'detailModal': extra += f",\n  modalId: '{c['modalId']}'"
         cfg_js = (f"renderListPage({{\n  entity: '{c['entity']}',\n"
                   + (f"  stabs: {'true' if c.get('stabs') else 'false'},\n" if c.get('stabs') is not None else '')

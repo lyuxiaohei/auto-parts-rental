@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<title>零部件档案 - 包装租赁管理后台</title>
+<title>在租台账 - 包装租赁管理后台</title>
 <style>
 :root {
   --primary: #1677ff;
@@ -214,10 +214,7 @@ th.td-num { text-align:right; }
 .hbar .hb-fill.red { background:var(--danger); }
 .hbar .hb-val { flex:none; width:76px; text-align:right; color:var(--text-2); font-variant-numeric:tabular-nums; }
 
-/* ===== 本页业务样式 ===== */
-
 </style>
-
 <style id="modal-css">
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:1000;align-items:center;justify-content:center}
 .modal-overlay.show{display:flex}
@@ -255,12 +252,12 @@ th.td-num { text-align:right; }
    </ul>
    </li>
    <li class="sm-item"><div class="sm-link" onclick="go('../项目管理/项目档案.html')"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></span>项目管理</div></li>
-   <li class="sm-item has-sub open">
+   <li class="sm-item has-sub">
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></span>基础资料<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
    <li><div class="sm-link" onclick="go('../基础数据/客商管理.html')">客商管理</div></li>
    <li><div class="sm-link" onclick="go('../基础数据/器具档案.html')">器具档案</div></li>
-   <li><div class="sm-link selected">零部件档案</div></li>
+   <li><div class="sm-link" onclick="go('../基础数据/零部件档案.html')">零部件档案</div></li>
    <li><div class="sm-link" onclick="go('../基础数据/BOM.html')">BOM</div></li>
    <li><div class="sm-link" onclick="go('../基础数据/库位档案.html')">库位档案</div></li>
    </ul>
@@ -301,11 +298,11 @@ th.td-num { text-align:right; }
    <li><div class="sm-link" onclick="go('../仓储作业/库存调拨列表.html')">库存调拨</div></li>
    </ul>
    </li>
-   <li class="sm-item has-sub">
+   <li class="sm-item has-sub open">
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8V21H3V8"/><rect x="1" y="3" width="22" height="5" rx="1"/><line x1="10" y1="12" x2="14" y2="12"/></svg></span>包装管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
    <li><div class="sm-link" onclick="go('../租赁管理/退租申请列表.html')">退租申请</div></li>
-   <li><div class="sm-link" onclick="go('../租赁管理/在租台账.html')">在租台账</div></li>
+   <li><div class="sm-link selected">在租台账</div></li>
    <li><div class="sm-link" onclick="go('../租赁管理/丢损赔偿单.html')">丢损赔偿单</div></li>
    </ul>
    </li>
@@ -342,29 +339,73 @@ th.td-num { text-align:right; }
   </div></aside>
   <div class="main-col">
 <div class="tabs">
-  <span class="tab active">零部件档案 <span class="close">×</span></span>
-  <span class="tab">BOM <span class="close">×</span></span>
-  <span class="tab">器具档案 <span class="close">×</span></span>
+  <span class="tab active">在租台账 <span class="close">×</span></span>
+  <span class="tab">租出台账 <span class="close">×</span></span>
+  <span class="tab">丢损赔偿单 <span class="close">×</span></span>
   <span class="tab">库存查询 <span class="close">×</span></span>
 </div>
     <div class="content">
+<div class="stat-grid">
+  <div class="stat">
+    <div class="st-label"><span>在库（仓库内可用）</span></div>
+    <div class="st-num">42,860<span class="unit">件/套</span></div>
+    <div class="st-foot">含已组装组合单元 1,610 套</div>
+  </div>
+  <div class="stat">
+    <div class="st-label"><span>在途（退租未审核）</span></div>
+    <div class="st-num">240<span class="unit">件/套</span></div>
+    <div class="st-foot">退租申请待审核 3 单</div>
+  </div>
+  <div class="stat">
+    <div class="st-label"><span>客户端（租出在外）</span></div>
+    <div class="st-num">12,480<span class="unit">只/套</span></div>
+    <div class="st-foot">较上月 <em>+3.2%</em></div>
+  </div>
+  <div class="stat">
+    <div class="st-label"><span>退租库存（待入库）</span></div>
+    <div class="st-num">260<span class="unit">件/套</span></div>
+    <div class="st-foot">验收通过待入库 4 单</div>
+  </div>
+</div>
+
+<div class="stat-grid">
+  <div class="stat">
+    <div class="st-label"><span>其中租入资产（路凯）</span></div>
+    <div class="st-num">3,200<span class="unit">件/套</span></div>
+    <div class="st-foot">占客户端在租 <em>25.6%</em> · 租金按月入应付</div>
+  </div>
+  <div class="stat">
+    <div class="st-label"><span>平均循环次数</span></div>
+    <div class="st-num">21.6<span class="unit">次</span></div>
+    <div class="st-foot">围板箱设计寿命 100 次</div>
+  </div>
+  <div class="stat">
+    <div class="st-label"><span>平均租期</span></div>
+    <div class="st-num">86<span class="unit">天</span></div>
+    <div class="st-foot">长期循环占比 <em>91%</em></div>
+  </div>
+  <div class="stat">
+    <div class="st-label"><span>即将到期 / 超期</span></div>
+    <div class="st-num">326<span class="unit">只</span></div>
+    <div class="st-foot">超期 <em class='down'>240</em> 只待催收</div>
+  </div>
+</div>
+
 <div class="filter-card collapsed" id="filterCard">
   <div class="filter-grid">
-    <div class="ff"><span class="ff-label">零件号：</span><input placeholder="请输入"></div>
-    <div class="ff"><span class="ff-label">零件名称：</span><input placeholder="请输入"></div>
-    <div class="ff"><span class="ff-label">供应商：</span>
-      <select><option selected>全部</option><option>苏州联恒五金制品有限公司</option><option>宁波华塑包装制品有限公司</option><option>常州正大塑料托盘厂</option><option>路凯包装运营（上海）有限公司</option></select>
+    <div class="ff"><span class="ff-label">器具编码：</span><input placeholder="请输入"></div>
+    <div class="ff"><span class="ff-label">所属项目：</span>
+      <select><option selected>全部</option><option>PRJ-2601</option><option>PRJ-2602</option><option>PRJ-2603</option><option>PRJ-2604</option><option>PRJ-2605</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
-    <div class="ff ff-row-extra"><span class="ff-label">多项目共用：</span>
-      <select><option selected>全部</option><option>是</option><option>否</option></select>
-      <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-    </div>
-    <div class="ff ff-row-extra"><span class="ff-label">状态：</span>
+    <div class="ff"><span class="ff-label">循环状态：</span>
       <select><option selected>全部</option><option>待审核</option><option>已审核</option><option>已完成</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
-    <div class="ff ff-row-extra"><span class="ff-label">建档时间：</span><input placeholder="开始时间"><span class="ff-sep">→</span><input placeholder="结束时间"></div>
+    <div class="ff ff-row-extra"><span class="ff-label">是否超期：</span>
+      <select><option selected>全部</option><option>是</option><option>否</option></select>
+      <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
     <div class="filter-actions">
       <button class="link-collapse" onclick="var f=document.getElementById('filterCard');f.classList.toggle('collapsed');this.querySelector('span').textContent=f.classList.contains('collapsed')?'展开':'收起'"><span>展开</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
       <button class="btn btn-default">重置</button>
@@ -374,103 +415,134 @@ th.td-num { text-align:right; }
 </div>
 <div class="card">
   <div class="card-head">
-    <h3 class="card-title" data-note="1">零部件档案</h3>
-    <div class="head-btns"><button class="btn btn-default btn-sm">批量导出</button><button class="btn btn-sm" onclick="openModal('createModal')">新建零部件</button></div>
+    <h3 class="card-title">在租台账</h3>
+    <div class="head-btns"><button class="btn btn-default btn-sm" onclick="go('../租赁管理/租出台账.html')">租出台账</button><button class="btn btn-default btn-sm">批量导出</button></div>
   </div>
+  <div class="stabs">
+    <span class="stab active">全部<span class="stab-count">9</span></span>
+    <span class="stab">即将到期(7天)<span class="stab-count">6</span></span>
+  </div>
+  <div class="pn-hint">即将到期＝租赁止期距今 ≤7 天，正式版按页签过滤；本表未单列到期日/备注列，示例以「即将到期(7天)」页签计数示意（09-06 补充口径）</div>
   <div class="table-wrap">
     <table>
       <thead>
         <tr>
-          <th></th>
-          <th>零件号</th>
-          <th>零件名称</th>
-          <th>规格 / 材质</th>
-          <th>供应商</th>
-          <th>采购单价(元)</th>
-          <th data-note="2">多项目共用</th>
-          <th>适用项目</th>
-          <th>状态</th>
+          <th>器具 / 组合件编码</th>
+          <th>名称</th>
+          <th>所属项目</th>
+          <th>在租数量</th>
+          <th>平均循环次数</th>
+          <th>平均租期(天)</th>
+          <th>超期数量</th>
+          <th data-note="2">循环状态</th>
           <th class="sticky-op">操作</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td><input type="checkbox" class="cb"></td>
-          <td>LJ-A100</td>
-          <td>锁扣组件</td>
-          <td>不锈钢 304 · M8</td>
-          <td>苏州联恒五金制品有限公司</td>
-          <td><span class="td-num">6.80</span></td>
-          <td><span class="tag tag-green">正常</span></td>
-          <td>PRJ-2601/2602/2604</td>
-          <td><span class="tag tag-green">启用</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
-        </tr>
-        <tr>
-          <td><input type="checkbox" class="cb"></td>
-          <td>LJ-B200</td>
-          <td>铰链</td>
-          <td>锌合金 · 65mm</td>
-          <td>苏州联恒五金制品有限公司</td>
-          <td><span class="td-num">4.20</span></td>
-          <td><span class="tag tag-green">正常</span></td>
-          <td>PRJ-2601/2602</td>
-          <td><span class="tag tag-green">启用</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
-        </tr>
-        <tr>
-          <td><input type="checkbox" class="cb"></td>
-          <td>LJ-C300</td>
-          <td>围板</td>
-          <td>HDPE 波纹板 · 970 高</td>
-          <td>宁波华塑包装制品有限公司</td>
-          <td><span class="td-num">52.00</span></td>
-          <td><span class="tag tag-gray">否</span></td>
-          <td>PRJ-2601</td>
-          <td><span class="tag tag-green">启用</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
-        </tr>
-        <tr>
-          <td><input type="checkbox" class="cb"></td>
-          <td>LJ-D400</td>
-          <td>箱盖</td>
-          <td>ABS 吸塑 · 1200×1000</td>
-          <td>宁波华塑包装制品有限公司</td>
-          <td><span class="td-num">36.00</span></td>
-          <td><span class="tag tag-green">正常</span></td>
+          <td data-note="1"><span class="lk">WBX-1210L</span></td>
+          <td>围板箱 1200×1000×970</td>
           <td>PRJ-2601/2604</td>
-          <td><span class="tag tag-green">启用</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
+          <td><span class="td-num"><b>3,120</b></span></td>
+          <td>21.6</td>
+          <td>86</td>
+          <td><span class="td-num" style="color:var(--danger)">128</span></td>
+          <td><span class="tag tag-blue">在租</span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('trackModal')">资产轨迹</a><a onclick="go('../租赁管理/退租申请列表.html')">退租</a><a onclick="openModal('scrapModal')">报废</a></span></td>
         </tr>
         <tr>
-          <td><input type="checkbox" class="cb"></td>
-          <td>LJ-E500</td>
-          <td>底托架</td>
-          <td>钢制喷塑 · 1200×1000</td>
-          <td>常州正大塑料托盘厂</td>
-          <td><span class="td-num">78.00</span></td>
-          <td><span class="tag tag-gray">否</span></td>
+          <td><span class="lk">WBX-1210M</span></td>
+          <td>围板箱 1200×1000×590</td>
+          <td>PRJ-2602</td>
+          <td><span class="td-num"><b>1,020</b></span></td>
+          <td>14.2</td>
+          <td>64</td>
+          <td><span class="td-num">0</span></td>
+          <td><span class="tag tag-blue">在租</span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('trackModal')">资产轨迹</a><a onclick="go('../租赁管理/退租申请列表.html')">退租</a><a onclick="openModal('scrapModal')">报废</a></span></td>
+        </tr>
+        <tr>
+          <td><span class="lk">PLT-1210P</span></td>
+          <td>塑料托盘 1200×1000</td>
+          <td>PRJ-2602/2603</td>
+          <td><span class="td-num"><b>1,860</b></span></td>
+          <td>26.4</td>
+          <td>102</td>
+          <td><span class="td-num" style="color:var(--danger)">36</span></td>
+          <td><span class="tag tag-blue">在租</span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('trackModal')">资产轨迹</a><a onclick="go('../租赁管理/退租申请列表.html')">退租</a><a onclick="openModal('scrapModal')">报废</a></span></td>
+        </tr>
+        <tr>
+          <td><span class="lk">PLT-1210W</span></td>
+          <td>木托盘 1200×1000</td>
+          <td>PRJ-2605</td>
+          <td><span class="td-num"><b>0</b></span></td>
+          <td>—</td>
+          <td>—</td>
+          <td><span class="td-num">0</span></td>
+          <td><span class="tag tag-green">已退回</span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('trackModal')">资产轨迹</a><a onclick="go('../租赁管理/退租申请列表.html')">退租</a><a onclick="openModal('scrapModal')">报废</a></span></td>
+        </tr>
+        <tr>
+          <td><span class="lk">BTC-6040</span></td>
+          <td>料箱 600×400×340</td>
+          <td>PRJ-2602</td>
+          <td><span class="td-num"><b>2,480</b></span></td>
+          <td>31.8</td>
+          <td>118</td>
+          <td><span class="td-num">0</span></td>
+          <td><span class="tag tag-blue">在租</span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('trackModal')">资产轨迹</a><a onclick="go('../租赁管理/退租申请列表.html')">退租</a><a onclick="openModal('scrapModal')">报废</a></span></td>
+        </tr>
+        <tr>
+          <td><span class="lk">ZH-2601-A</span></td>
+          <td>驾驶室围板箱整箱套件</td>
+          <td>PRJ-2601</td>
+          <td><span class="td-num"><b>3,120</b></span></td>
+          <td>18.9</td>
+          <td>92</td>
+          <td><span class="td-num" style="color:var(--danger)">64</span></td>
+          <td><span class="tag tag-blue">在租</span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('trackModal')">资产轨迹</a><a onclick="go('../租赁管理/退租申请列表.html')">退租</a><a onclick="openModal('scrapModal')">报废</a></span></td>
+        </tr>
+        <tr>
+          <td><span class="lk">ZH-2602-B</span></td>
+          <td>冲压件料箱组套</td>
+          <td>PRJ-2602</td>
+          <td><span class="td-num"><b>4,120</b></span></td>
+          <td>22.7</td>
+          <td>110</td>
+          <td><span class="td-num">0</span></td>
+          <td><span class="tag tag-blue">在租</span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('trackModal')">资产轨迹</a><a onclick="go('../租赁管理/退租申请列表.html')">退租</a><a onclick="openModal('scrapModal')">报废</a></span></td>
+        </tr>
+        <tr>
+          <td><span class="lk">ZH-2603-C</span></td>
+          <td>电池托盘护角套件</td>
           <td>PRJ-2603</td>
-          <td><span class="tag tag-green">启用</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
+          <td><span class="td-num"><b>1,020</b></span></td>
+          <td>9.6</td>
+          <td>58</td>
+          <td><span class="td-num" style="color:var(--danger)">12</span></td>
+          <td><span class="tag tag-red">缺损待赔</span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('trackModal')">资产轨迹</a><a onclick="go('../租赁管理/退租申请列表.html')">退租</a><a onclick="openModal('scrapModal')">报废</a></span></td>
         </tr>
         <tr>
-          <td><input type="checkbox" class="cb"></td>
-          <td>LJ-F600</td>
-          <td>内衬</td>
-          <td>EPE 珍珠棉 · 定制</td>
-          <td>宁波华塑包装制品有限公司</td>
-          <td><span class="td-num">15.50</span></td>
-          <td><span class="tag tag-green">正常</span></td>
-          <td>PRJ-2603/2605</td>
-          <td><span class="tag tag-green">启用</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
+          <td><span class="lk">WBX-1210L(旧)</span></td>
+          <td>围板箱 旧箱体批次</td>
+          <td>—</td>
+          <td><span class="td-num"><b>0</b></span></td>
+          <td>48.0</td>
+          <td>—</td>
+          <td><span class="td-num">0</span></td>
+          <td><span class="tag tag-gray">已报废</span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('trackModal')">资产轨迹</a><a onclick="go('../租赁管理/退租申请列表.html')">退租</a><a onclick="openModal('scrapModal')">报废</a></span></td>
         </tr>
       </tbody>
     </table>
   </div>
   <div style="display:flex;align-items:center;justify-content:space-between;margin-top:12px" id="pager-row"><div id="batch-btns-area"></div><div class="pager" style="margin:0">
-    <span class="pg-info">第 1-10 条/总共 18 条</span>
+    <span class="pg-info">第 1-10 条/总共 9 条</span>
     <span class="pg-btn">‹</span>
     <span class="pg-btn cur">1</span>
     <span class="pg-btn">2</span>
@@ -489,6 +561,176 @@ th.td-num { text-align:right; }
     </div>
   </div>
 </div>
+
+<style id="detail-modal-css">
+/* 详情弹窗（四段式）专用样式：段落标题 / 关联链 / 流转时间线 */
+.dt-sec{font-size:13px;font-weight:600;color:#262626;margin:0 0 10px;padding-left:8px;border-left:3px solid #1677ff;line-height:1.3}
+.modal-body .dt-sec:not(:first-child){margin-top:18px}
+.chain{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.chain .node{border:1px solid #f0f0f0;border-radius:6px;padding:8px 12px;background:#fafafa;min-width:126px}
+.chain .node .n-role{font-size:11px;color:#8c8c8c}
+.chain .node .n-name{font-size:12.5px;font-weight:600;margin-top:2px;word-break:break-all}
+.chain .link-arrow{color:#8c8c8c}
+.tl{position:relative;padding-left:16px}
+.tl::before{content:'';position:absolute;left:4px;top:6px;bottom:6px;width:2px;background:#e6f4ff}
+.tl-i{position:relative;padding:0 0 12px 6px;font-size:12.5px;color:#262626}
+.tl-i:last-child{padding-bottom:0}
+.tl-i::before{content:'';position:absolute;left:-16px;top:5px;width:7px;height:7px;border-radius:50%;background:#fff;border:2px solid #1677ff}
+.tl-i.off::before{border-color:#d9d9d9}
+.tl-i .tl-t{color:#8c8c8c;font-size:12px;margin-right:8px;font-variant-numeric:tabular-nums}
+.tl-i .tl-who{color:#8c8c8c;font-size:12px;margin-left:8px}
+</style>
+<!-- 弹窗骨架化 · 详情弹窗数据驱动 2026-09-08 -->
+<div class="modal-overlay" id="trackModal">
+  <div class="modal modal-lg" style="width:780px;">
+    <div class="modal-header">
+      <h3 class="modal-title" id="detailTitle">资产轨迹</h3>
+      <span class="modal-close" onclick="closeModal('trackModal')">×</span>
+    </div>
+    <div class="modal-body" id="detailBody"><!-- 内容由 _data/detail-generic.js 按单号渲染 --></div>
+    <div class="modal-footer">
+      <button class="btn btn-default" onclick="closeModal('trackModal')">关 闭</button>
+    </div>
+  </div>
+</div>
+<script src="../_data/demo-data.js"></script>
+<script src="../_data/detail-generic.js"></script>
+<script>
+/* demo-data 接线：各行「资产轨迹」按行内键渲染对应数据（2026-09-08 数据驱动） */
+wireDetailModal('assetTracks', { anchorText: '资产轨迹', modalId: 'trackModal' });
+</script>
+<!-- 操作确认弹窗 · 详情落地页补齐 2026-09-04 -->
+<div class="modal-overlay" id="scrapModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3 class="modal-title">报废确认</h3>
+      <span class="modal-close" onclick="closeModal('scrapModal')">×</span>
+    </div>
+    <div class="modal-body">
+      <div class="dgrid"><div class="drow"><div class="dlabel">器具编码</div><div class="dval">WBX-1210L</div></div><div class="drow"><div class="dlabel">名称</div><div class="dval">围板箱 1200×1000×970</div></div><div class="drow"><div class="dlabel">在租数量</div><div class="dval">3,120 只</div></div><div class="drow"><div class="dlabel">循环状态</div><div class="dval"><span class="tag tag-green">在租</span></div></div></div>
+      <div style="height:14px;"></div>
+      <p style="font-size:13px;color:#262626;line-height:1.7;">确认报废该器具（WBX-1210L 围板箱）？<br>报废后资产出库、不可再出租；如器具仍在租，请先办理退租。</p></div>
+    <div class="modal-footer">
+      <button class="btn btn-default" onclick="closeModal('scrapModal')">取 消</button>
+      <button class="btn" style="background:#ff4d4f;" onclick="closeModal('scrapModal')">确认报废</button>
+    </div>
+  </div>
+</div>
+<script>
+/* ===== 详情弹窗开关（详情落地页补齐注入） ===== */
+function openModal(id) { document.getElementById(id).classList.add('show'); }
+function closeModal(id) { document.getElementById(id).classList.remove('show'); }
+document.querySelectorAll('.modal-overlay').forEach(function (ov) {
+  ov.addEventListener('click', function (e) { if (e.target === ov) ov.classList.remove('show'); });
+});
+</script>
+
+<script>
+/* ===== 菜单折叠 / 页签与表单视觉态（统一脚本） ===== */
+function go(url) { location.href = url; }
+document.querySelectorAll('.sm-item.has-sub > .sm-link').forEach(function (link) {
+  link.addEventListener('click', function () { link.parentElement.classList.toggle('open'); });
+});
+/* 状态页签切换（视觉选中态） */
+document.querySelectorAll('.stabs .stab').forEach(function (tab) {
+  tab.addEventListener('click', function () {
+    tab.parentElement.querySelectorAll('.stab').forEach(function (t) { t.classList.remove('active'); });
+    tab.classList.add('active');
+  });
+});
+/* 表单单选/复选视觉态切换 */
+document.querySelectorAll('.radio').forEach(function (r) {
+  r.addEventListener('click', function () {
+    r.parentElement.querySelectorAll('.radio').forEach(function (x) { x.classList.remove('checked'); });
+    r.classList.add('checked');
+  });
+});
+document.querySelectorAll('.checkbox').forEach(function (c) {
+  c.addEventListener('click', function () { c.classList.toggle('checked'); });
+});
+</script>
+
+
+
+
+<script id="batch-btn-js">
+(function(){
+  // 找到所有批量按钮，初始禁用
+  var batchBtns = document.querySelectorAll('button[class*="btn"]');
+  var batchKeywords = ['批量'];
+  batchBtns.forEach(function(btn){
+    var txt = btn.textContent.trim();
+    if(batchKeywords.some(function(k){return txt.indexOf(k)>-1})){
+      btn.style.opacity = '.45';
+      btn.style.cursor = 'not-allowed';
+      btn.setAttribute('data-batch','true');
+      btn.addEventListener('click',function(e){
+        if(btn.style.opacity==='.45')e.preventDefault();
+      });
+    }
+  });
+  // 监听表格复选框
+  var checkboxes = document.querySelectorAll('tbody input[type="checkbox"]');
+  checkboxes.forEach(function(cb){
+    cb.addEventListener('change',function(){
+      var anyChecked = document.querySelectorAll('tbody input[type="checkbox"]:checked').length > 0;
+      batchBtns.forEach(function(btn){
+        if(btn.getAttribute('data-batch')){
+          btn.style.opacity = anyChecked ? '1' : '.45';
+          btn.style.cursor = anyChecked ? 'pointer' : 'not-allowed';
+        }
+      });
+    });
+  });
+  // 全选复选框
+  var selectAll = document.querySelector('thead input[type="checkbox"]');
+  if(selectAll){
+    selectAll.addEventListener('change',function(){
+      var anyChecked = selectAll.checked;
+      batchBtns.forEach(function(btn){
+        if(btn.getAttribute('data-batch')){
+          btn.style.opacity = anyChecked ? '1' : '.45';
+          btn.style.cursor = anyChecked ? 'pointer' : 'not-allowed';
+        }
+      });
+    });
+  }
+})();
+</script>
+
+
+
+<script>/*ia-fix: tab-switch + btn-feedback (2026-09-04)*/
+/* R3 顶部页签切换（点击换 active；× 不做关闭跳转——原型不销毁页签） */
+document.querySelectorAll('.tab').forEach(function (t) {
+  t.addEventListener('click', function () {
+    document.querySelectorAll('.tab').forEach(function (x) { x.classList.remove('active'); });
+    t.classList.add('active');
+  });
+});
+/* R1 死按钮全局反馈：无 onclick 的 button/a 给按压视觉态；「重置」清空所在筛选卡 */
+(function () {
+  document.addEventListener('click', function (e) {
+    var el = e.target.closest ? e.target.closest('button, a, .sm-link') : null;
+    if (!el) return;
+    if (el.getAttribute('onclick')) return;
+    var h = el.getAttribute('href');
+    if (el.tagName === 'A' && h && h !== '#' && !/^javascript:/i.test(h)) return;
+    if (el.disabled) return;
+    var txt = (el.textContent || '').trim();
+    if (txt === '重置') {
+      var card = el.closest('.filter-card') || el.closest('.card');
+      if (card) {
+        card.querySelectorAll('input:not([type=checkbox]):not([type=radio])').forEach(function (i) { if (!i.readOnly && !i.disabled) i.value = ''; });
+        card.querySelectorAll('select').forEach(function (s) { if (!s.disabled) s.selectedIndex = 0; });
+      }
+    }
+    el.style.transition = 'transform .08s';
+    el.style.transform = 'scale(.96)';
+    setTimeout(function () { el.style.transform = ''; }, 160);
+  }, true);
+})();
+</script>
 
 
 
@@ -513,8 +755,8 @@ body.proto-notes-on .proto-pin.pn-open{display:block}
 body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 .pn-fab .pn-fab-n{font-family:Consolas,monospace;font-weight:600}
 </style>
-<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>零部件档案</div><div class="pnp-d">库存精确到零配件级；配件可多项目共用</div><div class="pnp-b"><span class="pnp-tag">FP1-04 · 零部件档案</span><span class="pnp-tag">REQ-04 · 零部件级库存</span></div><div class="pnp-src"><div class="src-item"><b>FP1-04 零部件档案</b>：零件号、名称、供应商来源、多项目共用标记</div><div class="src-item"><b>REQ-04 零部件级库存</b>：库存精确到零配件；配件多项目共用</div></div></div>
-<div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>多项目共用标记</div><div class="pnp-d">共用零件的库存归属与分摊口径开发前需确认</div><div class="pnp-b"><span class="pnp-tag">FP1-04 · 零部件档案</span><span class="pnp-tag">REQ-04 · 零部件级库存</span></div><div class="pnp-src"><div class="src-item"><b>FP1-04 零部件档案</b>：零件号、名称、供应商来源、多项目共用标记</div><div class="src-item"><b>REQ-04 零部件级库存</b>：库存精确到零配件；配件多项目共用</div></div></div>
+<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>L1/L2 · 在租台账（L1 8/8 · L2 10/10）</div><div class="pnp-d">租赁线数据亮点：四态统计（在库/在租/待归还/维修）+ 平均租期，可停留展示。<br>含租入资产统计卡（占比与月度租金）。</div></div>
+<div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>循环状态 · 器具生命周期流转</div><div class="pnp-d">状态机：在租 → 退租回收 → 验收合格·重新租出；分支：验收缺损 → 缺损待赔 → 赔偿/报废。<br>对应链路：退租申请列表 → 退租入库（验收）→ 缺损转丢损赔偿单 / 报废。<br>原页内「循环状态流转」图例卡已下沉为本标注（2026-09-07），页面只留业务内容。</div></div>
 <div class="pn-fab" id="protoNotesFab">标注</div></div>
 <script id="proto-notes-js">
 (function(){
@@ -562,216 +804,6 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
     }
   });
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply);else apply();
-})();
-</script>
-
-<!-- 弹窗已提取到 弹窗/新建零部件.html，构建时注入 -->
-<div class="modal-overlay" id="createModal">
-  <div class="modal">
-    <div class="modal-header">
-      <h3 class="modal-title">新建零部件</h3>
-      <span class="modal-close" onclick="closeModal('createModal')">×</span>
-    </div>
-    <div class="modal-body">
-<div class="form-row">
-    <span class="form-label"><span class="req">*</span>零件号</span>
-    <div class="input-box"><input placeholder="如 LJ-A100"></div>
-  </div><div class="form-row">
-    <span class="form-label"><span class="req">*</span>零件名称</span>
-    <div class="input-box"><input placeholder="如 锁扣组件"></div>
-  </div><div class="form-row">
-    <span class="form-label">规格 / 材质</span>
-    <div class="input-box"><input value="不锈钢 304" placeholder="请输入"></div>
-  </div><div class="form-row">
-    <span class="form-label">供应商</span>
-    <div class="input-box select-box"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option>路凯包装运营（上海）有限公司</option><option selected>苏州联恒五金制品有限公司</option><option>宁波华塑包装制品有限公司</option><option>常州正大塑料托盘厂</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
-  </div><div class="form-row">
-    <span class="form-label">采购单价(元)</span>
-    <div class="input-box"><input value="1.28" placeholder="请输入"></div>
-  </div><div class="form-row">
-    <span class="form-label">适用项目</span>
-    <div class="input-box select-box"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>多项目共用</option><option>PRJ-2601 一汽解放</option><option>PRJ-2602 上汽大众</option><option>PRJ-2603 小鹏</option><option>PRJ-2604 东风本田</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
-  </div><div class="form-row">
-    <span class="form-label">备注</span>
-    <div class="input-box"><input placeholder="选填"></div>
-  </div>
-    </div>
-    <div class="modal-footer">
-      <button class="btn btn-default" onclick="closeModal('createModal')">取消</button>
-      <button class="btn" onclick="closeModal('createModal')">保存</button>
-    </div>
-  </div>
-</div>
-
-
-<script id="batch-btn-js">
-(function(){
-  // 找到所有批量按钮，初始禁用
-  var batchBtns = document.querySelectorAll('button[class*="btn"]');
-  var batchKeywords = ['批量'];
-  batchBtns.forEach(function(btn){
-    var txt = btn.textContent.trim();
-    if(batchKeywords.some(function(k){return txt.indexOf(k)>-1})){
-      btn.style.opacity = '.45';
-      btn.style.cursor = 'not-allowed';
-      btn.setAttribute('data-batch','true');
-      btn.addEventListener('click',function(e){
-        if(btn.style.opacity==='.45')e.preventDefault();
-      });
-    }
-  });
-  // 监听表格复选框
-  var checkboxes = document.querySelectorAll('tbody input[type="checkbox"]');
-  checkboxes.forEach(function(cb){
-    cb.addEventListener('change',function(){
-      var anyChecked = document.querySelectorAll('tbody input[type="checkbox"]:checked').length > 0;
-      batchBtns.forEach(function(btn){
-        if(btn.getAttribute('data-batch')){
-          btn.style.opacity = anyChecked ? '1' : '.45';
-          btn.style.cursor = anyChecked ? 'pointer' : 'not-allowed';
-        }
-      });
-    });
-  });
-  // 全选复选框
-  var selectAll = document.querySelector('thead input[type="checkbox"]');
-  if(selectAll){
-    selectAll.addEventListener('change',function(){
-      var anyChecked = selectAll.checked;
-      batchBtns.forEach(function(btn){
-        if(btn.getAttribute('data-batch')){
-          btn.style.opacity = anyChecked ? '1' : '.45';
-          btn.style.cursor = anyChecked ? 'pointer' : 'not-allowed';
-        }
-      });
-    });
-  }
-})();
-</script>
-<style id="detail-modal-css">
-/* 详情弹窗（四段式）专用样式：段落标题 / 关联链 / 流转时间线 */
-.dt-sec{font-size:13px;font-weight:600;color:#262626;margin:0 0 10px;padding-left:8px;border-left:3px solid #1677ff;line-height:1.3}
-.modal-body .dt-sec:not(:first-child){margin-top:18px}
-.chain{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.chain .node{border:1px solid #f0f0f0;border-radius:6px;padding:8px 12px;background:#fafafa;min-width:126px}
-.chain .node .n-role{font-size:11px;color:#8c8c8c}
-.chain .node .n-name{font-size:12.5px;font-weight:600;margin-top:2px;word-break:break-all}
-.chain .link-arrow{color:#8c8c8c}
-.tl{position:relative;padding-left:16px}
-.tl::before{content:'';position:absolute;left:4px;top:6px;bottom:6px;width:2px;background:#e6f4ff}
-.tl-i{position:relative;padding:0 0 12px 6px;font-size:12.5px;color:#262626}
-.tl-i:last-child{padding-bottom:0}
-.tl-i::before{content:'';position:absolute;left:-16px;top:5px;width:7px;height:7px;border-radius:50%;background:#fff;border:2px solid #1677ff}
-.tl-i.off::before{border-color:#d9d9d9}
-.tl-i .tl-t{color:#8c8c8c;font-size:12px;margin-right:8px;font-variant-numeric:tabular-nums}
-.tl-i .tl-who{color:#8c8c8c;font-size:12px;margin-left:8px}
-</style>
-<!-- 弹窗骨架化 · 详情弹窗数据驱动 2026-09-08 -->
-<div class="modal-overlay" id="detailModal">
-  <div class="modal modal-lg" style="width:780px;">
-    <div class="modal-header">
-      <h3 class="modal-title" id="detailTitle">零部件详情</h3>
-      <span class="modal-close" onclick="closeModal('detailModal')">×</span>
-    </div>
-    <div class="modal-body" id="detailBody"><!-- 内容由 _data/detail-generic.js 按单号渲染 --></div>
-    <div class="modal-footer">
-      <button class="btn btn-default" onclick="closeModal('detailModal')">关 闭</button>
-    </div>
-  </div>
-</div>
-<script src="../_data/demo-data.js"></script>
-<script src="../_data/detail-generic.js"></script><script src="../_data/list-generic.js"></script>
-
-<script>
-/* demo-data 接线：各行「详情」按行内键渲染对应数据（2026-09-08 数据驱动） */
-renderListPage({
-  entity: 'parts',
-  filters: [
-    { label: '零件号', field: '_key' },
-    { label: '零件名称', field: 'name' },
-    { label: '供应商', field: 'supplier' },
-    { label: '多项目共用', field: 'shared' },
-    { label: '状态', field: 'status' }
-  ]
-});
-</script>
-<!-- 操作确认弹窗 · 详情落地页补齐 2026-09-04 -->
-<div class="modal-overlay" id="stopModal">
-  <div class="modal">
-    <div class="modal-header">
-      <h3 class="modal-title">停用确认</h3>
-      <span class="modal-close" onclick="closeModal('stopModal')">×</span>
-    </div>
-    <div class="modal-body">
-      <div class="dgrid"><div class="drow"><div class="dlabel">零件号</div><div class="dval">LJ-A100</div></div><div class="drow"><div class="dlabel">名称</div><div class="dval">锁扣组件</div></div><div class="drow"><div class="dlabel">规格</div><div class="dval">不锈钢 304 · M8</div></div><div class="drow"><div class="dlabel">当前状态</div><div class="dval"><span class="tag tag-green">启用</span></div></div></div>
-      <div style="height:14px;"></div>
-      <p style="font-size:13px;color:#262626;line-height:1.7;">确认停用该零部件（LJ-A100）？<br>停用后不可再用于新 BOM 配方与新采购订单；历史单据不受影响。</p></div>
-    <div class="modal-footer">
-      <button class="btn btn-default" onclick="closeModal('stopModal')">取 消</button>
-      <button class="btn" style="background:#ff4d4f;" onclick="closeModal('stopModal')">确认停用</button>
-    </div>
-  </div>
-</div>
-<script>
-function openModal(id) { document.getElementById(id).classList.add('show'); }
-function closeModal(id) { document.getElementById(id).classList.remove('show'); }
-document.querySelectorAll('.modal-overlay').forEach(function (ov) {
-  ov.addEventListener('click', function (e) { if (e.target === ov) ov.classList.remove('show'); });
-});
-</script>
-<script>
-/* ===== 菜单折叠 / 页签与表单视觉态（统一脚本） ===== */
-function go(url) { location.href = url; }
-document.querySelectorAll('.sm-item.has-sub > .sm-link').forEach(function (link) {
-  link.addEventListener('click', function () { link.parentElement.classList.toggle('open'); });
-});
-/* 状态页签切换（视觉选中态） */
-document.querySelectorAll('.stabs .stab').forEach(function (tab) {
-  tab.addEventListener('click', function () {
-    tab.parentElement.querySelectorAll('.stab').forEach(function (t) { t.classList.remove('active'); });
-    tab.classList.add('active');
-  });
-});
-/* 表单单选/复选视觉态切换 */
-document.querySelectorAll('.radio').forEach(function (r) {
-  r.addEventListener('click', function () {
-    r.parentElement.querySelectorAll('.radio').forEach(function (x) { x.classList.remove('checked'); });
-    r.classList.add('checked');
-  });
-});
-document.querySelectorAll('.checkbox').forEach(function (c) {
-  c.addEventListener('click', function () { c.classList.toggle('checked'); });
-});
-</script>
-<script>/*ia-fix: tab-switch + btn-feedback (2026-09-04)*/
-/* R3 顶部页签切换（点击换 active；× 不做关闭跳转——原型不销毁页签） */
-document.querySelectorAll('.tab').forEach(function (t) {
-  t.addEventListener('click', function () {
-    document.querySelectorAll('.tab').forEach(function (x) { x.classList.remove('active'); });
-    t.classList.add('active');
-  });
-});
-/* R1 死按钮全局反馈：无 onclick 的 button/a 给按压视觉态；「重置」清空所在筛选卡 */
-(function () {
-  document.addEventListener('click', function (e) {
-    var el = e.target.closest ? e.target.closest('button, a, .sm-link') : null;
-    if (!el) return;
-    if (el.getAttribute('onclick')) return;
-    var h = el.getAttribute('href');
-    if (el.tagName === 'A' && h && h !== '#' && !/^javascript:/i.test(h)) return;
-    if (el.disabled) return;
-    var txt = (el.textContent || '').trim();
-    if (txt === '重置') {
-      var card = el.closest('.filter-card') || el.closest('.card');
-      if (card) {
-        card.querySelectorAll('input:not([type=checkbox]):not([type=radio])').forEach(function (i) { if (!i.readOnly && !i.disabled) i.value = ''; });
-        card.querySelectorAll('select').forEach(function (s) { if (!s.disabled) s.selectedIndex = 0; });
-      }
-    }
-    el.style.transition = 'transform .08s';
-    el.style.transform = 'scale(.96)';
-    setTimeout(function () { el.style.transform = ''; }, 160);
-  }, true);
 })();
 </script>
 </body>

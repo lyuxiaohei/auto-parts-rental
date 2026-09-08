@@ -590,10 +590,23 @@ th.td-num { text-align:right; }
   </div>
 </div>
 <script src="../_data/demo-data.js"></script>
-<script src="../_data/detail-generic.js"></script>
+<script src="../_data/detail-generic.js"></script><script src="../_data/list-generic.js"></script>
+
 <script>
 /* demo-data 接线：各行「详情」按行内键渲染对应数据（2026-09-08 数据驱动） */
-wireDetailModal('rentTracks', { modalId: 'trackModal' });
+renderListPage({
+  entity: 'rentTracks',
+  stabs: true,
+  filters: [
+    { label: '台账编号', field: '_key' },
+    { label: '所属项目', field: 'project' },
+    { label: '客户', field: 'customer' },
+    { label: '租赁状态', field: 'status' },
+    { label: '租出日期', field: 'date', range: true },
+    { label: '组合件 / 器具', field: 'combo' }
+  ],
+  modalId: 'trackModal'
+});
 </script>
 <script>
 /* ===== 详情弹窗开关（详情落地页补齐注入） ===== */

@@ -2,7 +2,7 @@
 """任务二·列表数据驱动全量推广验证门（2026-09-08）· 逐页断言组（照 verify_listpilot.py 结构）
 用法：python verify_listfull.py batch1|batch2|batch3
 """
-import sys, io, argparse
+import sys, io, argparse, re
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 from pathlib import Path
 from playwright.sync_api import sync_playwright
@@ -59,7 +59,29 @@ B2 = [
          stabs={'全部': 8, '待审核': 2, '已审核': 1, '待发货': 2, '已完成': 2, '已关闭': 1}, pin=None),
 ]
 BATCHES['batch2'] = B2
-# 注：应收「已开票」/开票「已作废」期望值=渲染器 fallback 全量（该状态无匹配行，试点定型口径，F 节注明）
+B3 = [
+    dict(name='退租申请', file='租赁管理/退租申请列表.html', entity='returnApplies', modalId='detailModal',
+         stabs={'全部': 10, '待审核': 2, '已审核': 1, '待入库': 1, '已入库': 6}, pin=3),
+    dict(name='丢损赔偿单', file='租赁管理/丢损赔偿单.html', entity='damageOrders', modalId='detailModal',
+         stabs={'全部': 5, '赔偿中': 1, '已转应收': 1, '已赔偿': 2}, pin=2),
+    dict(name='租出台账', file='租赁管理/租出台账.html', entity='rentTracks', modalId='trackModal',
+         stabs={'已退回': 2, '超期未还': 1, '缺损待赔': 1}, pin=1),
+    dict(name='在租台账', file='租赁管理/在租台账.html', entity='assetTracks', modalId='trackModal',
+         stabs={'全部': 9, '即将到期(7天)': 9}, pin=None, noCheckbox=True),
+    dict(name='客商管理', file='基础数据/客商管理.html', entity='partners', modalId='detailModal',
+         stabs={'全部': 8, '客户': 4, '供应商': 3, '运营方': 1}, pin=None),
+    dict(name='器具档案', file='基础数据/器具档案.html', entity='appliances', modalId='detailModal',
+         stabs=None, pin=None),
+    dict(name='零部件档案', file='基础数据/零部件档案.html', entity='parts', modalId='detailModal',
+         stabs=None, pin=None),
+    dict(name='库位档案', file='基础数据/库位档案.html', entity='locations', modalId='detailModal',
+         stabs=None, pin=None),
+    dict(name='BOM维护', file='基础数据/BOM维护.html', entity='bomVersions', modalId='bomViewModal',
+         stabs=None, pin=None, noCheckbox=True, tsel='#bomVerTable tbody', key_contains=True),
+]
+BATCHES['batch3'] = B3
+# 注：在租台账「即将到期(7天)」期望=渲染器 fallback 全量（表无到期日列，默认决策表口径）；
+#     BOM维护键列为 ver-tag 富格（V2.1+已生效），断言用 contains
 results, fails = [], []
 
 def check(page_name, item, ok, detail=''):
@@ -85,10 +107,14 @@ with sync_playwright() as pw:
         n_rows = rows.count()
         check(P['name'], '1 行数=实体条数', n_rows == len(keys), f'{n_rows}=={len(keys)}')
 
-        # 2 行单号=实体键
+        # 2 行单号=实体键（BOM维护 ver-tag 富键列用 contains）
         key_col = 0 if P.get('noCheckbox') else 1
         row_keys = [rows.nth(i).locator('td').nth(key_col).text_content().strip() for i in range(n_rows)]
-        check(P['name'], '2 行单号=实体键', row_keys == keys, f'{row_keys == keys}')
+        if P.get('key_contains'):
+            ok2 = all(any(k in rk for rk in row_keys) for k in keys) and len(row_keys) == len(keys)
+        else:
+            ok2 = row_keys == keys
+        check(P['name'], '2 行单号=实体键', ok2, f'{ok2}')
 
         # 3 详情弹窗标题=行单号（逐行实点；水单核销等 titleNo 设计=标题含行键或记录 titleNo）
         ok3, tried = True, 0
@@ -140,11 +166,12 @@ with sync_playwright() as pw:
                     check(P['name'], f'4 select 过滤（{label[:6]}={val[:14]}）', okf, f'{got} 行（全量 {len(keys)}，字段最优匹配 {expect}）')
                     page.locator('.filter-actions button', has_text='重置').click()
                     page.wait_for_timeout(120)
-            # input：单号尾 3 位
+            # input：单号类控件（label 含 单号/编号/编码/台账编号）填首行键尾 3 位
             tail = keys[0][-3:]
-            inp_ff = page.locator('.filter-card .ff').filter(has=page.locator('input')).first
-            if inp_ff.count() > 0:
-                inp_ff.locator('input').first.fill(tail)
+            key_ff = page.locator('.filter-card .ff').filter(
+                has=page.locator('.ff-label', has_text=re.compile('单号|编号|编码'))).first
+            if key_ff.count() > 0 and key_ff.locator('input').count() > 0:
+                key_ff.locator('input').first.evaluate("(el, v) => { el.value = v; }", tail)  # 折叠区控件不可见，直接赋值
                 page.locator('.filter-actions button', has_text='查询').click()
                 page.wait_for_timeout(80)
                 got = rows.count()

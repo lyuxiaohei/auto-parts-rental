@@ -715,10 +715,20 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
   </div>
 </div>
 <script src="../_data/demo-data.js"></script>
-<script src="../_data/detail-generic.js"></script>
+<script src="../_data/detail-generic.js"></script><script src="../_data/list-generic.js"></script>
+
 <script>
 /* demo-data 接线：各行「详情」按行内键渲染对应数据（2026-09-08 数据驱动） */
-wireDetailModal('locations');
+renderListPage({
+  entity: 'locations',
+  filters: [
+    { label: '仓库', field: 'wh' },
+    { label: '库区', field: 'area' },
+    { label: '库位编码', field: '_key' },
+    { label: '库位类型', field: 'ltype' },
+    { label: '状态', field: 'status' }
+  ]
+});
 </script>
 <!-- 操作确认弹窗 · 详情落地页补齐 2026-09-04 -->
 <div class="modal-overlay" id="stopModal">
