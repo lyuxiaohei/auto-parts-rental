@@ -63,6 +63,40 @@ BATCH1 = [
 ]
 BATCHES = dict(batch1=BATCH1)
 
+# 批次2 · 财务+买卖 9 页（2026-09-08）
+BATCHES['batch2'] = [
+    dict(page='财务协同/应付账单.html', entity='payableBills', modalId='detailModal', wire='custom',
+         detail_fn='openPayableBillDetail',
+         fields=dict(supplier='供应商名称', btype='账单类型', project='所属项目', period='账期', ref='关联订单/租入单号', inbound='关联采购入库单号', date='账单日期', status='状态'),
+         filters=[('应付账单号', '_key'), ('供应商名称', 'supplier'), ('关联采购订单号', 'ref'), ('状态', 'status'), ('账单日期', 'date', 'r')], stabs=True),
+    dict(page='财务协同/应收账单.html', entity='receivableBills', modalId='detailModal', wire='custom',
+         detail_fn='openReceivableBillDetail',
+         fields=dict(period='账期', project='所属项目', customer='客户', btype='账单类型', docs='包含单据', gen='生成方式', date='生成时间', status='状态'),
+         filters=[('账单编号', '_key'), ('客户', 'customer'), ('所属项目', 'project'), ('账单状态', 'status'), ('账期', 'period'), ('生成日期', 'date', 'r')], stabs=True),
+    dict(page='财务协同/付款登记.html', entity='payments', modalId='detailModal',
+         fields=dict(supplier='供应商名称', ref='关联应付账单号', bank='付款银行', date='付款日期', status='状态'),
+         filters=[('付款编号', '_key'), ('供应商名称', 'supplier'), ('关联应付账单号', 'ref'), ('状态', 'status'), ('付款日期', 'date', 'r')], stabs=True),
+    dict(page='财务协同/回款登记.html', entity='receipts', modalId='detailModal',
+         fields=dict(customer='客户', ref='关联账单', bank='银行账户', receipt='银行回单', date='收款日期', status='核销状态'),
+         filters=[('收款编号', '_key'), ('客户', 'customer'), ('收款日期', 'date', 'r'), ('核销状态', 'status'), ('银行账户', 'bank')], stabs=True),
+    dict(page='财务协同/开票登记.html', entity='invoices', modalId='detailModal',
+         fields=dict(no='发票号码', itype='类型', buyer='购方名称', ref='关联应收账单', date='开票日期', status='状态'),
+         filters=[('发票登记号', '_key'), ('发票号码', 'no'), ('购方名称', 'buyer'), ('发票类型', 'itype'), ('开票日期', 'date', 'r'), ('开票状态', 'status')], stabs=True),
+    dict(page='财务协同/银行水单核销.html', entity='writeoffs', modalId='detailModal',
+         noCheckbox=True, table_id='hxTable', table_index=3,
+         fields=dict(sd='银行回单', ref='冲抵单据', status='核销状态', time='核销时间', who='核销人'),
+         filters=[], stabs=False),
+    dict(page='采购管理/采购订单列表.html', entity='purchaseOrders', modalId='detailModal', tbodyIndex=0,
+         fields=dict(supplier='供应商名称', mtype='物料类型', summary='采购明细摘要', date='预计到货日期', so='关联销售订单号', status='订单状态'),
+         filters=[('采购订单号', '_key'), ('供应商', 'supplier'), ('物料类型', 'mtype'), ('订单状态', 'status'), ('下单日期', 'date', 'r')], stabs=True),
+    dict(page='采购管理/租入单列表.html', entity='rentInOrders', modalId='detailModal',
+         fields=dict(operator='运营方', appliance='器具', period='租期起止', status='状态', agent='经办人', date='租期起止'),
+         filters=[('租入单号', '_key'), ('运营方', 'operator'), ('器具', 'appliance'), ('状态', 'status'), ('租期开始', 'date', 'r'), ('经办人', 'agent')], stabs=True),
+    dict(page='销售管理/销售订单列表.html', entity='salesOrders', modalId='detailModal', tbodyIndex=0,
+         fields=dict(customer='客户名称', project='所属项目', summary='订单明细摘要', mode='是否代下单', status='订单状态', agent='下单人', date='下单时间', po='关联采购订单号'),
+         filters=[('销售订单号', '_key'), ('客户名称', 'customer'), ('所属项目', 'project'), ('订单状态', 'status'), ('下单日期', 'date', 'r'), ('下单方式', 'mode')], stabs=True),
+]
+
 # ---------------- 工具 ----------------
 def strip_tags(h):
     return re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', '', h)).strip()
@@ -81,11 +115,16 @@ def load_entities():
 def extract_rows(cfg, ent_keys):
     """从页面 tbody 提取每行：键匹配（照 wireDetailModal：键插入序 indexOf）、cells、ops、note、fields"""
     txt = (PROTO / cfg['page']).read_text(encoding='utf-8')
-    tbodys = re.findall(r'<tbody[^>]*>(.*?)</tbody>', txt, re.S)
+    if cfg.get('table_index'):
+        tables = re.findall(r'<table[^>]*>.*?</table>', txt, re.S)
+        tbl = tables[cfg['table_index'] - 1]
+    else:
+        tbl = txt
+    tbodys = re.findall(r'<tbody[^>]*>(.*?)</tbody>', tbl, re.S)
     tb = tbodys[cfg.get('tbodyIndex', 0)]
     rows = re.findall(r'<tr>(.*?)</tr>', tb, re.S)
     keys = ent_keys[cfg['entity']]
-    thead_cols = re.findall(r'<th[^>]*>([^<]*)</th>', re.findall(r'<thead>(.*?)</thead>', txt, re.S)[0])
+    thead_cols = re.findall(r'<th[^>]*>([^<]*)</th>', re.findall(r'<thead>(.*?)</thead>', tbl, re.S)[0])
     col_idx = {}
     for f, cname in cfg['fields'].items():
         col_idx[f] = thead_cols.index(cname)  # 断言列名存在
@@ -188,31 +227,51 @@ def main():
         p = PROTO / c['page']
         raw = p.read_bytes()
         crlf = raw.count(b'\r\n') * 2 > raw.count(b'\n')
+        nl = '\r\n' if crlf else '\n'
         txt = raw.decode('utf-8')
-        # 4a includes：detail-generic.js 行后加 list-generic.js（若无）
-        inc = '../_data/list-generic.js'
-        if inc not in txt:
-            m = re.search(r'<script src="\.\./_data/detail-generic\.js"></script>\n?', txt)
-            assert m, f"{c['page']} 无 detail-generic include"
-            nl = '\r\n' if crlf else '\n'
-            txt = txt[:m.end()] + f'<script src="{inc}"></script>' + nl + txt[m.end():]
-        # 4b wireDetailModal(...) → renderListPage({...})
-        pat = re.compile(r"wireDetailModal\('[^']+'(?:,\s*\{[^}]*\})?\);")
-        m = pat.search(txt)
-        assert m, f"{c['page']} 无 wireDetailModal 调用"
+        # 4a includes：三个 _data 渲染器任一后加 list-generic.js（若无）
+        if '../_data/list-generic.js' not in txt:
+            m = re.search(r'<script src="\.\./_data/(?:detail-generic|payable-bill-detail|receivable-bill-detail)\.js"></script>\n?', txt)
+            assert m, f"{c['page']} 无 _data 渲染器 include"
+            txt = txt[:m.end()] + f'<script src="../_data/list-generic.js"></script>' + nl + txt[m.end():]
+        # 4a2 表 id 注入（多表页面：水单核销表③）
+        if c.get('table_id'):
+            tid = c['table_id']
+            if f'id="{tid}"' not in txt:
+                idx = int(c.get('table_index', 3))  # 第 N 个 <table 开标签
+                hits = list(re.finditer(r'<table\b[^>]*>', txt))
+                assert len(hits) >= idx, f"{c['page']} 找不到第 {idx} 个 <table"
+                tag = hits[idx - 1].group(0)
+                assert 'id=' not in tag, f"{c['page']} 第 {idx} 个 table 已有 id: {tag}"
+                txt = txt[:hits[idx - 1].start()] + tag[:-1] + f' id="{tid}">' + txt[hits[idx - 1].end():]
+        # 4b 生成 renderListPage 配置体
         fl = ',\n'.join(
             '    { label: \'%s\', field: \'%s\'%s }' % (
                 lab, f, ', range: true' if (kr[0] if kr else None) == 'r' else '')
             for lab, f, *kr in c['filters'])
         extra = ''
         if c.get('noCheckbox'): extra += ',\n  noCheckbox: true'
-        if c.get('tbodyIndex'): extra += f",\n  tbodySel: 'tbody:nth-of-type({c.get('tbodyIndex') + 1})'"
+        if c.get('table_id'): extra += f",\n  tbodySel: '#{c['table_id']} tbody'"
+        elif c.get('tbodyIndex'): extra += f",\n  tbodySel: 'tbody:nth-of-type({c.get('tbodyIndex') + 1})'"
+        if c.get('detail_fn'): extra += f",\n  detailFn: function (entity, key) {{ {c['detail_fn']}(key); }}"
         if c['modalId'] != 'detailModal': extra += f",\n  modalId: '{c['modalId']}'"
         cfg_js = (f"renderListPage({{\n  entity: '{c['entity']}',\n"
                   + (f"  stabs: {'true' if c.get('stabs') else 'false'},\n" if c.get('stabs') is not None else '')
                   + (('  filters: [\n' + fl + '\n  ]') if c['filters'] else '  filters: []')
                   + extra + '\n});')
-        txt = txt[:m.start()] + cfg_js + txt[m.end():]
+        # 4c 替换接线：custom=整块 demo-data 接线 script；默认=wireDetailModal 行
+        if c.get('wire') == 'custom':
+            pat = re.compile(r"<script>\s*/\* demo-data 接线：[^*]*?\*/.*?</script>", re.S)
+            m = pat.search(txt)
+            assert m, f"{c['page']} 无 custom 接线块"
+            block = ('<script>' + nl + f"/* demo-data 列表驱动：tbody 数据集渲染 + 真筛选 + stab 统计（2026-09-08 全量推广批2） */" + nl
+                     + cfg_js + nl + '</script>')
+            txt = txt[:m.start()] + block + txt[m.end():]
+        else:
+            pat = re.compile(r"wireDetailModal\('[^']+'(?:,\s*\{[^}]*\})?\);")
+            m = pat.search(txt)
+            assert m, f"{c['page']} 无 wireDetailModal 调用"
+            txt = txt[:m.start()] + cfg_js + txt[m.end():]
         p.write_bytes(txt.encode('utf-8'))
         print(f'接线 {c["page"]}')
     print('批次完成')

@@ -623,9 +623,20 @@ th.td-num { text-align:right; }
   </div>
 </div>
 <script src="../_data/demo-data.js"></script>
-<script src="../_data/detail-generic.js"></script>
+<script src="../_data/detail-generic.js"></script><script src="../_data/list-generic.js"></script>
+
 <script>/* demo-data 接线：各行「详情」按行内单号渲染（2026-09-07 财务下游推广） */
-wireDetailModal('receipts');</script>
+renderListPage({
+  entity: 'receipts',
+  stabs: true,
+  filters: [
+    { label: '收款编号', field: '_key' },
+    { label: '客户', field: 'customer' },
+    { label: '收款日期', field: 'date', range: true },
+    { label: '核销状态', field: 'status' },
+    { label: '银行账户', field: 'bank' }
+  ]
+});</script>
 <script>
 function openModal(id) { document.getElementById(id).classList.add('show'); }
 function closeModal(id) { document.getElementById(id).classList.remove('show'); }

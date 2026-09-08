@@ -624,20 +624,9 @@ th.td-num { text-align:right; }
   </div>
 </div>
 <script src="../_data/demo-data.js"></script>
-<script src="../_data/detail-generic.js"></script><script src="../_data/list-generic.js"></script>
-
+<script src="../_data/detail-generic.js"></script>
 <script>/* demo-data 接线：各行「详情」按行内单号渲染（2026-09-07 财务下游推广） */
-renderListPage({
-  entity: 'payments',
-  stabs: true,
-  filters: [
-    { label: '付款编号', field: '_key' },
-    { label: '供应商名称', field: 'supplier' },
-    { label: '关联应付账单号', field: 'ref' },
-    { label: '状态', field: 'status' },
-    { label: '付款日期', field: 'date', range: true }
-  ]
-});</script>
+wireDetailModal('payments');</script>
 <script>
 /* ===== 菜单折叠 / 页签与表单视觉态（统一脚本） ===== */
 function go(url) { location.href = url; }

@@ -738,15 +738,22 @@ th.td-num { text-align:right; }
   </div>
 </div>
 <script src="../_data/demo-data.js"></script>
-<script src="../_data/receivable-bill-detail.js"></script>
+<script src="../_data/receivable-bill-detail.js"></script><script src="../_data/list-generic.js"></script>
+
 <script>
-/* demo-data 接线：各行「详情」按行内账单号渲染对应数据（2026-09-07 应收侧推广） */
-document.querySelectorAll('tbody .ops a').forEach(function (a) {
-  if (a.textContent.trim() !== '详情') return;
-  if ((a.getAttribute('onclick') || '').indexOf('detailModal') < 0) return;
-  var billNo = a.closest('tr').cells[1].textContent.trim();
-  a.removeAttribute('onclick');
-  a.addEventListener('click', function () { openReceivableBillDetail(billNo); });
+/* demo-data 列表驱动：tbody 数据集渲染 + 真筛选 + stab 统计（2026-09-08 全量推广批2） */
+renderListPage({
+  entity: 'receivableBills',
+  stabs: true,
+  filters: [
+    { label: '账单编号', field: '_key' },
+    { label: '客户', field: 'customer' },
+    { label: '所属项目', field: 'project' },
+    { label: '账单状态', field: 'status' },
+    { label: '账期', field: 'period' },
+    { label: '生成日期', field: 'date', range: true }
+  ],
+  detailFn: function (entity, key) { openReceivableBillDetail(key); }
 });
 </script>
 <script>

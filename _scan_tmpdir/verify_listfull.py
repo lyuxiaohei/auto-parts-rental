@@ -38,6 +38,28 @@ B1 = [
          stabs=None, pin=None, noCheckbox=True, tbody_index=0),
 ]
 BATCHES = dict(batch1=B1)
+B2 = [
+    dict(name='应付账单', file='财务协同/应付账单.html', entity='payableBills', modalId='detailModal',
+         stabs={'全部': 10, '未付款': 5, '部分付款': 1, '已付款': 4}, pin=3),
+    dict(name='应收账单', file='财务协同/应收账单.html', entity='receivableBills', modalId='detailModal',
+         stabs={'全部': 11, '未开票': 5, '已开票': 11, '部分收款': 2, '已结清': 3}, pin=3),
+    dict(name='付款登记', file='财务协同/付款登记.html', entity='payments', modalId='detailModal',
+         stabs={'全部': 5, '待确认': 1, '已确认': 4}, pin=None),
+    dict(name='回款登记', file='财务协同/回款登记.html', entity='receipts', modalId='detailModal',
+         stabs={'全部': 5, '待核销': 2, '部分核销': 1, '已核销': 2}, pin=None),
+    dict(name='开票登记', file='财务协同/开票登记.html', entity='invoices', modalId='detailModal',
+         stabs={'全部': 6, '已登记': 4, '已作废': 6}, pin=None),
+    dict(name='水单核销', file='财务协同/银行水单核销.html', entity='writeoffs', modalId='detailModal',
+         stabs=None, pin=None, noCheckbox=True, tsel='#hxTable tbody'),
+    dict(name='采购订单', file='采购管理/采购订单列表.html', entity='purchaseOrders', modalId='detailModal',
+         stabs={'全部': 7, '待审核': 2, '已审核': 2, '已完成': 2, '已关闭': 1}, pin=None),
+    dict(name='租入单', file='采购管理/租入单列表.html', entity='rentInOrders', modalId='detailModal',
+         stabs={'全部': 5, '待审核': 1, '履行中': 1, '部分归还': 1, '已归还': 1, '已终止': 1}, pin=2),
+    dict(name='销售订单', file='销售管理/销售订单列表.html', entity='salesOrders', modalId='detailModal',
+         stabs={'全部': 8, '待审核': 2, '已审核': 1, '待发货': 2, '已完成': 2, '已关闭': 1}, pin=None),
+]
+BATCHES['batch2'] = B2
+# 注：应收「已开票」/开票「已作废」期望值=渲染器 fallback 全量（该状态无匹配行，试点定型口径，F 节注明）
 results, fails = [], []
 
 def check(page_name, item, ok, detail=''):
@@ -54,7 +76,7 @@ with sync_playwright() as pw:
         page.goto((PROTO / P['file']).as_uri(), wait_until='load')
         page.wait_for_selector('tbody tr', timeout=5000)
         page.wait_for_timeout(300)
-        tsel = 'tbody' if P.get('tbody_index') is None else f"tbody:nth-of-type({P['tbody_index'] + 1})"
+        tsel = P.get('tsel') or ('tbody' if P.get('tbody_index') is None else f"tbody:nth-of-type({P['tbody_index'] + 1})")
         tbody_loc = page.locator(tsel).first
         rows = tbody_loc.locator('tr')
 
@@ -68,20 +90,21 @@ with sync_playwright() as pw:
         row_keys = [rows.nth(i).locator('td').nth(key_col).text_content().strip() for i in range(n_rows)]
         check(P['name'], '2 行单号=实体键', row_keys == keys, f'{row_keys == keys}')
 
-        # 3 详情弹窗标题=行单号（逐行实点）
+        # 3 详情弹窗标题=行单号（逐行实点；水单核销等 titleNo 设计=标题含行键或记录 titleNo）
         ok3, tried = True, 0
         for i in range(n_rows):
             a = rows.nth(i).locator('a[data-detail-key]')
             if a.count() == 0: continue
             tried += 1
             key = a.first.get_attribute('data-detail-key')
+            tno = page.evaluate("(args) => { const r = window.DEMO_DATA[args[0]][args[1]] || {}; return r.titleNo || ''; }", [P['entity'], key])
             a.first.click()
             page.wait_for_timeout(80)
-            title = page.locator('#detailTitle').text_content()
+            title = page.locator('#detailTitle').text_content() or ''
             shown = page.locator('#' + P['modalId']).evaluate("el => el.classList.contains('show')")
-            if not (key in (title or '') and shown):
+            if not ((key in title or tno in title) and shown):
                 ok3 = False
-                check(P['name'], f'3 详情标题·{key}', False, f'title={title!r} shown={shown}')
+                check(P['name'], f'3 详情标题·{key}', False, f'title={title!r} tno={tno!r} shown={shown}')
             page.evaluate("closeModal('%s')" % P['modalId'])
         check(P['name'], '3 详情弹窗标题=行单号', ok3, f'逐行实点 {tried} 行全过' if ok3 else '见上')
 
@@ -95,7 +118,7 @@ with sync_playwright() as pw:
                 label = page.locator('.filter-card .ff').first.locator('.ff-label').text_content().rstrip('：:')
                 val = next((o for o in opts[1:] if o.strip() and o.strip() != '全部'), None)
                 if val:
-                    sel_ff.select_option(label=val)
+                    sel_ff.evaluate("(el, v) => { el.value = v; }", val)  # 折叠区控件不可见，直接赋值（readFilters 遍历含隐藏控件）
                     page.locator('.filter-actions button', has_text='查询').click()
                     page.wait_for_timeout(80)
                     got = rows.count()

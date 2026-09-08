@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<title>付款登记 - 包装租赁管理后台</title>
+<title>销售订单 - 包装租赁管理后台</title>
 <style>
 :root {
   --primary: #1677ff;
@@ -272,10 +272,10 @@ th.td-num { text-align:right; }
    <li><div class="sm-link" onclick="go('../采购管理/租入单列表.html')">租入单</div></li>
    </ul>
    </li>
-   <li class="sm-item has-sub">
+   <li class="sm-item has-sub open">
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></span>销售管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
-   <li><div class="sm-link" onclick="go('../销售管理/销售订单列表.html')">销售订单</div></li>
+   <li><div class="sm-link selected">销售订单</div></li>
    <li><div class="sm-link" onclick="go('../销售管理/租赁单列表.html')">租赁单</div></li>
    </ul>
    </li>
@@ -318,11 +318,11 @@ th.td-num { text-align:right; }
    <li><div class="sm-link" onclick="go('../财务协同/银行水单核销.html')">收款核销</div></li>
    </ul>
    </li>
-   <li class="sm-item has-sub open">
+   <li class="sm-item has-sub">
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>财务应付<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
    <li><div class="sm-link" onclick="go('../财务协同/应付账单.html')">应付账单</div></li>
-   <li><div class="sm-link selected">付款登记</div></li>
+   <li><div class="sm-link" onclick="go('../财务协同/付款登记.html')">付款登记</div></li>
    </ul>
    </li>
    <li class="sm-item"><div class="sm-link" onclick="go('../财务协同/盈亏报表.html')"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span>项目损益</div></li>
@@ -342,24 +342,31 @@ th.td-num { text-align:right; }
   </div></aside>
   <div class="main-col">
 <div class="tabs">
-  <span class="tab active">付款登记 <span class="close">×</span></span>
-  <span class="tab">应付账单 <span class="close">×</span></span>
-  <span class="tab">收款登记 <span class="close">×</span></span>
+  <span class="tab active">销售订单 <span class="close">×</span></span>
+  <span class="tab">销售出库 <span class="close">×</span></span>
+  <span class="tab">订单审核 <span class="close">×</span></span>
 </div>
     <div class="content">
 <div class="filter-card collapsed" id="filterCard">
   <div class="filter-grid">
-    <div class="ff"><span class="ff-label">付款编号：</span><input placeholder="请输入"></div>
-    <div class="ff"><span class="ff-label">供应商名称：</span>
-      <select><option selected>全部</option><option>苏州联恒五金制品有限公司</option><option>宁波华塑包装制品有限公司</option><option>常州正大塑料托盘厂</option><option>路凯包装运营（上海）有限公司</option></select>
+    <div class="ff"><span class="ff-label">销售订单号：</span><input placeholder="请输入"></div>
+    <div class="ff"><span class="ff-label">客户名称：</span>
+      <select><option selected>全部</option><option>一汽解放汽车有限公司</option><option>上汽大众汽车有限公司宁波分公司</option><option>小鹏汽车科技有限公司</option><option>东风本田汽车有限公司</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
-    <div class="ff"><span class="ff-label">关联应付账单号：</span><input placeholder="请输入"></div>
-    <div class="ff ff-row-extra"><span class="ff-label">状态：</span>
-      <select><option selected>全部</option><option>待确认</option><option>已确认</option></select>
+    <div class="ff"><span class="ff-label">所属项目：</span>
+      <select><option selected>全部</option><option>PRJ-2601</option><option>PRJ-2602</option><option>PRJ-2603</option><option>PRJ-2604</option><option>PRJ-2605</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
-    <div class="ff ff-row-extra"><span class="ff-label">付款日期：</span><input placeholder="开始日期"><span class="ff-sep">→</span><input placeholder="结束日期"></div>
+    <div class="ff ff-row-extra"><span class="ff-label">订单状态：</span>
+      <select><option selected>全部</option><option>待审核</option><option>已审核</option><option>待发货</option><option>已完成</option><option>已关闭</option></select>
+      <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+    <div class="ff ff-row-extra"><span class="ff-label">下单日期：</span><input placeholder="开始日期"><span class="ff-sep">→</span><input placeholder="结束日期"></div>
+    <div class="ff ff-row-extra"><span class="ff-label">下单方式：</span>
+      <select><option selected>全部</option><option>客户自助</option><option>项目经理代下</option></select>
+      <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
     <div class="filter-actions">
       <button class="link-collapse" onclick="var f=document.getElementById('filterCard');f.classList.toggle('collapsed');this.querySelector('span').textContent=f.classList.contains('collapsed')?'展开':'收起'"><span>展开</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
       <button class="btn btn-default">重置</button>
@@ -369,91 +376,163 @@ th.td-num { text-align:right; }
 </div>
 <div class="card">
   <div class="card-head">
-    <h3 class="card-title">付款登记</h3>
-    <div class="head-btns"><button class="btn btn-default btn-sm">批量导出</button><button class="btn btn-sm" onclick="openModal('createModal')">新建付款登记</button></div>
+    <h3 class="card-title">销售订单</h3>
+    <div class="head-btns"><button class="btn btn-default btn-sm">批量导出</button><button class="btn btn-sm" onclick="openModal('createModal')">新建销售订单</button></div>
   </div>
 <div class="stabs">
-  <span class="stab active">全部<span class="stab-count">11</span></span>
-  <span class="stab">待确认<span class="stab-count">3</span></span>
-  <span class="stab">已确认<span class="stab-count">8</span></span>
+  <span class="stab active">全部<span class="stab-count">26</span></span>
+  <span class="stab">待审核<span class="stab-count">4</span></span>
+  <span class="stab">已审核<span class="stab-count">8</span></span>
+  <span class="stab">待发货<span class="stab-count">5</span></span>
+  <span class="stab">已完成<span class="stab-count">7</span></span>
+  <span class="stab">已关闭<span class="stab-count">2</span></span>
 </div>
 <div class="table-wrap">
     <table>
       <thead>
         <tr>
           <th></th>
-          <th>付款编号</th>
-          <th>供应商名称</th>
-          <th>关联应付账单号</th>
-          <th>付款金额(元)</th>
-          <th>付款日期</th>
-          <th>付款银行</th>
-          <th>状态</th>
+          <th>销售订单号</th>
+          <th>客户名称</th>
+          <th>所属项目</th>
+          <th>订单明细摘要</th>
+          <th>数量</th>
+          <th>金额(元)</th>
+          <th>是否代下单</th>
+          <th>订单状态</th>
+          <th>下单人</th>
+          <th>下单时间</th>
+          <th>关联采购订单号</th>
           <th class="sticky-op">操作</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td><input type="checkbox" class="cb"></td>
-          <td data-note="1"><span class="lk">PAY-20260902-005</span></td>
-          <td>苏州联恒五金制品有限公司</td>
-          <td><span class="lk">AP-20260830-007</span></td>
-          <td><span class="td-num">6,000.00</span></td>
-          <td>2026-09-02</td>
-          <td>招商银行苏州分行 1109××××8821</td>
-          <td><span class="tag tag-orange">待确认</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('auditModal')">确认</a><a onclick="openModal('detailModal')">详情</a></span></td>
+          <td data-note="1"><span class="lk">SO-20260903-0047</span></td>
+          <td>上汽大众汽车有限公司宁波分公司</td>
+          <td>PRJ-2602</td>
+          <td>冲压件隔板×2,400（先采后销 · 采购在途）</td>
+          <td><span class="td-num">2,400</span></td>
+          <td><span class="td-num">28,800.00</span></td>
+          <td><span class="tag tag-blue">项目经理代下</span></td>
+          <td><span class="tag tag-blue">待发货</span></td>
+          <td>王强</td>
+          <td>2026-09-03 11:20</td>
+          <td><span class="lk">PO-20260903-019</span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('auditModal')">审核</a><a>关闭</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
-          <td><span class="lk">PAY-20260831-004</span></td>
-          <td>常州正大塑料托盘厂</td>
-          <td><span class="lk">AP-20260828-006</span></td>
-          <td><span class="td-num">42,500.00</span></td>
-          <td>2026-08-31</td>
-          <td>中国银行常州分行 3325××××0067</td>
-          <td><span class="tag tag-green">已确认</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a></span></td>
+          <td><span class="lk">SO-20260902-0046</span></td>
+          <td>一汽解放汽车有限公司</td>
+          <td>PRJ-2601</td>
+          <td>锁扣组件×3,000</td>
+          <td><span class="td-num">3,000</span></td>
+          <td><span class="td-num">4,800.00</span></td>
+          <td><span class="tag tag-blue">项目经理代下</span></td>
+          <td><span class="tag tag-orange">待审核</span></td>
+          <td>王强</td>
+          <td>2026-09-02 10:24</td>
+          <td><span class="lk">PO-20260902-018</span></td>
+                    <td class="sticky-op"><span class="ops"><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('auditModal')">审核</a><a>关闭</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
-          <td><span class="lk">PAY-20260828-003</span></td>
-          <td>宁波华塑包装制品有限公司</td>
-          <td><span class="lk">AP-20260815-003</span></td>
-          <td><span class="td-num">35,200.00</span></td>
-          <td>2026-08-28</td>
-          <td>工商银行宁波分行 4402××××5531</td>
-          <td><span class="tag tag-green">已确认</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a></span></td>
+          <td><span class="lk">SO-20260901-0045</span></td>
+          <td>上汽大众汽车有限公司宁波分公司</td>
+          <td>PRJ-2602</td>
+          <td>铰链×1,200 / 箱盖×800</td>
+          <td><span class="td-num">2,000</span></td>
+          <td><span class="td-num">6,050.00</span></td>
+          <td><span class="tag tag-gray">客户自助</span></td>
+          <td><span class="tag tag-orange">待审核</span></td>
+          <td>何静</td>
+          <td>2026-09-01 16:40</td>
+          <td>—</td>
+                    <td class="sticky-op"><span class="ops"><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('auditModal')">审核</a><a>关闭</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
-          <td><span class="lk">PAY-20260825-002</span></td>
-          <td>苏州联恒五金制品有限公司</td>
-          <td><span class="lk">AP-20260820-004</span></td>
-          <td><span class="td-num">6,300.00</span></td>
-          <td>2026-08-25</td>
-          <td>招商银行苏州分行 1109××××8821</td>
-          <td><span class="tag tag-green">已确认</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a></span></td>
+          <td><span class="lk">SO-20260831-0044</span></td>
+          <td>小鹏汽车科技有限公司</td>
+          <td>PRJ-2603</td>
+          <td>内衬 EPE 珍珠棉×5,000</td>
+          <td><span class="td-num">5,000</span></td>
+          <td><span class="td-num">9,000.00</span></td>
+          <td><span class="tag tag-blue">项目经理代下</span></td>
+          <td><span class="tag tag-blue">已审核</span></td>
+          <td>陈金</td>
+          <td>2026-08-31 11:05</td>
+          <td>—</td>
+                    <td class="sticky-op"><span class="ops"><a onclick="go('../仓储作业/销售出库列表.html')">发货</a><a>关闭</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
-          <td><span class="lk">PAY-20260818-001</span></td>
-          <td>路凯包装运营（上海）有限公司</td>
-          <td><span class="lk">AP-20260810-002</span></td>
-          <td><span class="td-num">58,000.00</span></td>
-          <td>2026-08-18</td>
-          <td>建设银行上海分行 6217××××9045</td>
-          <td><span class="tag tag-green">已确认</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a></span></td>
+          <td><span class="lk">SO-20260830-0043</span></td>
+          <td>一汽解放汽车有限公司</td>
+          <td>PRJ-2601</td>
+          <td>箱盖 ABS 吸塑×1,500</td>
+          <td><span class="td-num">1,500</span></td>
+          <td><span class="td-num">5,400.00</span></td>
+          <td><span class="tag tag-gray">客户自助</span></td>
+          <td><span class="tag tag-blue">待发货</span></td>
+          <td>袁明</td>
+          <td>2026-08-30 09:18</td>
+          <td>—</td>
+                    <td class="sticky-op"><span class="ops"><a onclick="go('../仓储作业/销售出库列表.html')">发货</a><a>关闭</a></span></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" class="cb"></td>
+          <td><span class="lk">SO-20260828-0041</span></td>
+          <td>东风本田汽车有限公司</td>
+          <td>PRJ-2604</td>
+          <td>锁扣组件×800</td>
+          <td><span class="td-num">800</span></td>
+          <td><span class="td-num">1,280.00</span></td>
+          <td><span class="tag tag-blue">项目经理代下</span></td>
+          <td><span class="tag tag-green">已完成</span></td>
+          <td>王强</td>
+          <td>2026-08-28 15:52</td>
+          <td><span class="lk">PO-20260828-015</span></td>
+                    <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a></span></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" class="cb"></td>
+          <td><span class="lk">SO-20260827-0039</span></td>
+          <td>一汽解放汽车有限公司</td>
+          <td>PRJ-2601</td>
+          <td>箱盖 ABS 吸塑×2,000</td>
+          <td><span class="td-num">2,000</span></td>
+          <td><span class="td-num">7,200.00</span></td>
+          <td><span class="tag tag-gray">客户自助</span></td>
+          <td><span class="tag tag-green">已完成</span></td>
+          <td>袁明</td>
+          <td>2026-08-27 14:03</td>
+          <td><span class="lk">PO-20260828-015</span></td>
+                    <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a></span></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" class="cb"></td>
+          <td><span class="lk">SO-20260820-0036</span></td>
+          <td>上汽大众汽车有限公司宁波分公司</td>
+          <td>PRJ-2602</td>
+          <td>铰链×600</td>
+          <td><span class="td-num">600</span></td>
+          <td><span class="td-num">1,890.00</span></td>
+          <td><span class="tag tag-blue">项目经理代下</span></td>
+          <td><span class="tag tag-gray">已关闭</span></td>
+          <td>王强</td>
+          <td>2026-08-20 10:44</td>
+          <td>—</td>
+                    <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a></span></td>
         </tr>
       </tbody>
     </table>
   </div>
 <div style="display:flex;align-items:center;justify-content:space-between;margin-top:12px" id="pager-row"><div id="batch-btns-area"></div><div class="pager" style="margin:0">
-    <span class="pg-info">第 1-10 条/总共 11 条</span>
-    <span class="pg-btn">‹</span> <span class="pg-btn cur">1</span> <span class="pg-btn">2</span> <span class="pg-btn">›</span>
+    <span class="pg-info">第 1-10 条/总共 26 条</span>
+    <span class="pg-btn">‹</span> <span class="pg-btn cur">1</span> <span class="pg-btn">2</span> <span class="pg-btn">3</span> <span class="pg-btn">›</span>
     <span class="pg-size">10 条/页
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
     </span>
@@ -464,30 +543,34 @@ th.td-num { text-align:right; }
   </div>
 </div>
 
-<!-- 弹窗已提取到 弹窗/付款登记新建.html，构建时注入 -->
+<!-- 弹窗已提取到 弹窗/新建销售订单.html，构建时注入 -->
 <div class="modal-overlay" id="createModal">
-  <div class="modal">
+  <div class="modal modal-lg">
     <div class="modal-header">
-      <h3 class="modal-title">新建付款登记</h3>
+      <h3 class="modal-title">新建销售订单</h3>
       <span class="modal-close" onclick="closeModal('createModal')">×</span>
     </div>
     <div class="modal-body">
 <div class="form-row">
-    <span class="form-label"><span class="req">*</span>供应商</span>
-    <div class="input-box select-box" style="width:350px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option>路凯包装运营（上海）有限公司</option><option selected>苏州联恒五金制品有限公司</option><option>宁波华塑包装制品有限公司</option><option>常州正大塑料托盘厂</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+    <span class="form-label"><span class="req">*</span>客户</span>
+    <div class="input-box select-box" style="width:350px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>一汽解放汽车有限公司</option><option>上汽大众汽车有限公司宁波分公司</option><option>小鹏汽车科技有限公司</option><option>东风本田汽车有限公司</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
   </div><div class="form-row">
-    <span class="form-label"><span class="req">*</span>关联应付账单</span>
-    <div class="input-box select-box" style="width:350px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>AP-20260830-007（未付 6,700.00）</option><option>AP-20260903-009（租金应付）</option><option>AP-20260901-008（采购应付）</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+    <span class="form-label"><span class="req">*</span>所属项目</span>
+    <div class="input-box select-box" style="width:350px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>PRJ-2601 一汽解放·长春基地</option><option>PRJ-2601 一汽解放</option><option>PRJ-2602 上汽大众</option><option>PRJ-2603 小鹏</option><option>PRJ-2604 东风本田</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
   </div><div class="form-row">
-    <span class="form-label"><span class="req">*</span>付款金额(元)</span>
-    <div class="input-box" style="width:350px;"><input value="6,700.00" placeholder="请输入"></div>
+    <span class="form-label">下单方式</span>
+    <div><span class="radio"><span class="dot"></span>客户自助下单</span><span class="radio checked"><span class="dot"></span>项目经理代下单</span></div>
   </div><div class="form-row">
-    <span class="form-label">付款日期</span>
-    <div class="input-box" style="width:350px;"><input value="2026-09-03" placeholder="请输入"></div>
-  </div><div class="form-row">
-    <span class="form-label">付款银行</span>
-    <div class="input-box select-box" style="width:350px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>招商银行苏州分行 1109××××8821</option><option>全部</option><option>待定选项（演示数据）</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
-  </div><div class="form-row">
+    <span class="form-label">要求交货日期</span>
+    <div class="input-box" style="width:350px;"><input value="2026-09-12" placeholder="请输入"></div>
+  </div><div style="margin:4px 0 8px;font-size:13px;font-weight:600;color:#1a1a1a;">订单明细</div>
+  <div class="table-wrap" style="border:1px solid var(--border);border-radius:6px;">
+    <table class="edit-tbl">
+      <thead><tr><th>物料编码</th><th>物料名称</th><th>规格</th><th>单位</th><th>数量</th><th>单价(元)</th><th>金额(元)</th></tr></thead>
+      <tbody><tr><td><input value="LJ-A100"></td><td><input value="锁扣组件"></td><td><input value="不锈钢 304"></td><td><input value="件"></td><td><input value="3,000"></td><td><input value="1.60"></td><td><input class="auto" value="4,800.00" readonly></td></tr><tr><td><input value="LJ-D400"></td><td><input value="箱盖"></td><td><input value="ABS 吸塑"></td><td><input value="件"></td><td><input value="1,500"></td><td><input value="3.60"></td><td><input class="auto" value="5,400.00" readonly></td></tr></tbody>
+    </table>
+  </div>
+  <button class="btn btn-dashed btn-sm" style="width:100%;margin-top:8px;">+ 添加一行</button><div class="form-row">
     <span class="form-label">备注</span>
     <div class="input-box" style="width:350px;"><input placeholder="选填"></div>
   </div>
@@ -501,19 +584,19 @@ th.td-num { text-align:right; }
 </div>
 
 
-<!-- 弹窗已提取到 弹窗/付款确认.html，构建时注入 -->
+<!-- 弹窗已提取到 弹窗/销售订单审核.html，构建时注入 -->
 <div class="modal-overlay" id="auditModal">
   <div class="modal">
     <div class="modal-header">
-      <h3 class="modal-title">确认付款</h3>
+      <h3 class="modal-title">审核确认</h3>
       <span class="modal-close" onclick="closeModal('auditModal')">×</span>
     </div>
     <div class="modal-body">
       <div class="dgrid" style="margin-bottom:16px;">
-        <div class="drow"><div class="dlabel">单据编号</div><div class="dval">PAY-20260902-005</div></div>
-        <div class="drow"><div class="dlabel">单据类型</div><div class="dval">付款登记</div></div>
-        <div class="drow"><div class="dlabel">付款金额</div><div class="dval">6,000.00 元</div></div>
-        <div class="drow"><div class="dlabel">提交人 / 时间</div><div class="dval">财务·周敏 / 2026-09-02 13:26</div></div>
+        <div class="drow"><div class="dlabel">单据编号</div><div class="dval">SO-20260902-0046</div></div>
+        <div class="drow"><div class="dlabel">单据类型</div><div class="dval">销售订单</div></div>
+        <div class="drow"><div class="dlabel">销售金额</div><div class="dval">4,800.00 元</div></div>
+        <div class="drow"><div class="dlabel">提交人 / 时间</div><div class="dval">王强 / 2026-09-02 10:24</div></div>
         
       </div>
       <div class="form-row">
@@ -610,11 +693,11 @@ th.td-num { text-align:right; }
 .tl-i .tl-t{color:#8c8c8c;font-size:12px;margin-right:8px;font-variant-numeric:tabular-nums}
 .tl-i .tl-who{color:#8c8c8c;font-size:12px;margin-left:8px}
 </style>
-<!-- 详情弹窗（四段式：单据头/明细/关联单据互溯链/流转时间线）· 详情落地页补齐 2026-09-04 -->
+<!-- 详情弹窗（四段式）· 骨架化 · 详情弹窗数据驱动 2026-09-08 -->
 <div class="modal-overlay" id="detailModal">
   <div class="modal modal-lg" style="width:780px;">
     <div class="modal-header">
-      <h3 class="modal-title" id="detailTitle">付款登记详情</h3>
+      <h3 class="modal-title" id="detailTitle">销售订单详情</h3>
       <span class="modal-close" onclick="closeModal('detailModal')">×</span>
     </div>
     <div class="modal-body" id="detailBody"><!-- 内容由 _data/detail-generic.js 按单号渲染 --></div>
@@ -624,20 +707,11 @@ th.td-num { text-align:right; }
   </div>
 </div>
 <script src="../_data/demo-data.js"></script>
-<script src="../_data/detail-generic.js"></script><script src="../_data/list-generic.js"></script>
-
-<script>/* demo-data 接线：各行「详情」按行内单号渲染（2026-09-07 财务下游推广） */
-renderListPage({
-  entity: 'payments',
-  stabs: true,
-  filters: [
-    { label: '付款编号', field: '_key' },
-    { label: '供应商名称', field: 'supplier' },
-    { label: '关联应付账单号', field: 'ref' },
-    { label: '状态', field: 'status' },
-    { label: '付款日期', field: 'date', range: true }
-  ]
-});</script>
+<script src="../_data/detail-generic.js"></script>
+<script>
+/* demo-data 接线：各行「详情」按行内单号渲染对应数据（2026-09-08 数据驱动） */
+wireDetailModal('salesOrders');
+</script>
 <script>
 /* ===== 菜单折叠 / 页签与表单视觉态（统一脚本） ===== */
 function go(url) { location.href = url; }
@@ -723,7 +797,7 @@ body.proto-notes-on .proto-pin.pn-open{display:block}
 body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 .pn-fab .pn-fab-n{font-family:Consolas,monospace;font-weight:600}
 </style>
-<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>财务通道 · 付款登记</div><div class="pnp-d">应付付款通道：关联应付账单 AP-20260830-007，付款确认弹窗。</div></div>
+<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>B1 销售线 · 步骤 1/5 销售订单</div><div class="pnp-d">B1 销售线起点：客户 PO 由项目经理代下（订单唯一来源）。<br>销售/采购两条独立线、库存缓冲、不以销定采（2026-09-04 王琳总拍板，取代原"互通"口径）。<br>下一步 → 销售出库（按库存可用量发货）。</div></div>
 <div class="pn-fab" id="protoNotesFab">标注</div></div>
 <script id="proto-notes-js">
 (function(){

@@ -2278,7 +2278,7 @@
     "type": "modal-unreachable",
     "phase": "modal",
     "where": {
-     "text": "付款登记详情 · PAY-2026081"
+     "text": "付款登记详情"
     },
     "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
    }
@@ -2286,7 +2286,7 @@
   "stats": {
    "buttons": 11,
    "links": 6,
-   "onclickEls": 52,
+   "onclickEls": 49,
    "modals": 3,
    "modalTitles": [
     "新建付款登记",
@@ -2313,7 +2313,7 @@
     "type": "modal-unreachable",
     "phase": "modal",
     "where": {
-     "text": "回款登记详情 · HK-20260818"
+     "text": "回款登记详情"
     },
     "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
    }
@@ -2321,7 +2321,7 @@
   "stats": {
    "buttons": 10,
    "links": 16,
-   "onclickEls": 61,
+   "onclickEls": 57,
    "modals": 3,
    "modalTitles": [
     "新建收款登记",
@@ -2348,7 +2348,7 @@
     "type": "modal-unreachable",
     "phase": "modal",
     "where": {
-     "text": "应付账单详情 · AP-20260903"
+     "text": "应付账单详情"
     },
     "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
    }
@@ -2356,7 +2356,7 @@
   "stats": {
    "buttons": 11,
    "links": 19,
-   "onclickEls": 63,
+   "onclickEls": 59,
    "modals": 3,
    "modalTitles": [
     "新建应付账单",
@@ -2383,7 +2383,7 @@
     "type": "modal-unreachable",
     "phase": "modal",
     "where": {
-     "text": "应收账单详情 · AR-2026-06-"
+     "text": "应收账单详情"
     },
     "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
    }
@@ -2391,7 +2391,7 @@
   "stats": {
    "buttons": 10,
    "links": 41,
-   "onclickEls": 81,
+   "onclickEls": 77,
    "modals": 3,
    "modalTitles": [
     "手动生成账单",
@@ -2418,7 +2418,7 @@
     "type": "modal-unreachable",
     "phase": "modal",
     "where": {
-     "text": "开票登记详情 · INV-2026080"
+     "text": "开票登记详情"
     },
     "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
    }
@@ -2426,7 +2426,7 @@
   "stats": {
    "buttons": 10,
    "links": 22,
-   "onclickEls": 67,
+   "onclickEls": 63,
    "modals": 3,
    "modalTitles": [
     "新增开票登记",
@@ -2941,7 +2941,7 @@
     "type": "modal-unreachable",
     "phase": "modal",
     "where": {
-     "text": "租入单详情 · RZD-20260615"
+     "text": "租入单详情"
     },
     "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
    }
@@ -3004,7 +3004,7 @@
     "type": "modal-unreachable",
     "phase": "modal",
     "where": {
-     "text": "采购订单详情 · PO-20260815"
+     "text": "采购订单详情"
     },
     "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
    }
@@ -3246,7 +3246,7 @@
     "type": "modal-unreachable",
     "phase": "modal",
     "where": {
-     "text": "销售订单详情 · SO-20260820"
+     "text": "销售订单详情"
     },
     "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
    }

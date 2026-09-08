@@ -686,10 +686,21 @@ th.td-num { text-align:right; }
   </div>
 </div>
 <script src="../_data/demo-data.js"></script>
-<script src="../_data/detail-generic.js"></script>
+<script src="../_data/detail-generic.js"></script><script src="../_data/list-generic.js"></script>
+
 <script>
 /* demo-data 接线：各行「详情」按行内单号渲染对应数据（2026-09-08 数据驱动） */
-wireDetailModal('purchaseOrders');
+renderListPage({
+  entity: 'purchaseOrders',
+  stabs: true,
+  filters: [
+    { label: '采购订单号', field: '_key' },
+    { label: '供应商', field: 'supplier' },
+    { label: '物料类型', field: 'mtype' },
+    { label: '订单状态', field: 'status' },
+    { label: '下单日期', field: 'date', range: true }
+  ]
+});
 </script>
 <script>
 /* ===== 菜单折叠 / 页签与表单视觉态（统一脚本） ===== */

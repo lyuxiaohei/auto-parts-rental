@@ -639,9 +639,21 @@ th.td-num { text-align:right; }
   </div>
 </div>
 <script src="../_data/demo-data.js"></script>
-<script src="../_data/detail-generic.js"></script>
+<script src="../_data/detail-generic.js"></script><script src="../_data/list-generic.js"></script>
+
 <script>/* demo-data 接线：各行「详情」按行内单号渲染（2026-09-07 财务下游推广） */
-wireDetailModal('invoices');</script>
+renderListPage({
+  entity: 'invoices',
+  stabs: true,
+  filters: [
+    { label: '发票登记号', field: '_key' },
+    { label: '发票号码', field: 'no' },
+    { label: '购方名称', field: 'buyer' },
+    { label: '发票类型', field: 'itype' },
+    { label: '开票日期', field: 'date', range: true },
+    { label: '开票状态', field: 'status' }
+  ]
+});</script>
 <script>
 function openModal(id) { document.getElementById(id).classList.add('show'); }
 function closeModal(id) { document.getElementById(id).classList.remove('show'); }
