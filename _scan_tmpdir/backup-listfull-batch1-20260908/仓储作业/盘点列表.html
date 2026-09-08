@@ -681,22 +681,10 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
   </div>
 </div>
 <script src="../_data/demo-data.js"></script>
-<script src="../_data/detail-generic.js"></script><script src="../_data/list-generic.js"></script>
-
+<script src="../_data/detail-generic.js"></script>
 <script>
 /* demo-data 接线：各行「详情」按行内键渲染对应数据（2026-09-08 数据驱动） */
-renderListPage({
-  entity: 'stocktakes',
-  stabs: true,
-  filters: [
-    { label: '盘点单号', field: '_key' },
-    { label: '盘点范围', field: 'scope' },
-    { label: '盘点口径', field: 'caliber' },
-    { label: '盘点状态', field: 'status' },
-    { label: '盘点日期', field: 'date', range: true },
-    { label: '盘点人', field: 'checker' }
-  ]
-});
+wireDetailModal('stocktakes');
 </script>
 <script>
 function openModal(id) { document.getElementById(id).classList.add('show'); }

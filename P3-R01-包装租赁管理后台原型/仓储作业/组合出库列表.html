@@ -646,10 +646,22 @@ th.td-num { text-align:right; }
   </div>
 </div>
 <script src="../_data/demo-data.js"></script>
-<script src="../_data/detail-generic.js"></script>
+<script src="../_data/detail-generic.js"></script><script src="../_data/list-generic.js"></script>
+
 <script>
 /* demo-data 接线：各行「详情」按行内单号渲染对应数据（2026-09-08 数据驱动） */
-wireDetailModal('comboOutbounds');
+renderListPage({
+  entity: 'comboOutbounds',
+  stabs: true,
+  filters: [
+    { label: '出库单号', field: '_key' },
+    { label: '所属项目', field: 'project' },
+    { label: '客户', field: 'customer' },
+    { label: '出库状态', field: 'status' },
+    { label: '出库时间', field: 'date', range: true },
+    { label: '组合件编码', field: 'combo' }
+  ]
+});
 </script>
 <script>
 function openModal(id) { document.getElementById(id).classList.add('show'); }

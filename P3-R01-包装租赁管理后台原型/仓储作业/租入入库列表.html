@@ -518,10 +518,22 @@ th.td-num { text-align:right; }
   </div>
 </div>
 <script src="../_data/demo-data.js"></script>
-<script src="../_data/detail-generic.js"></script>
+<script src="../_data/detail-generic.js"></script><script src="../_data/list-generic.js"></script>
+
 <script>
 /* demo-data 接线：各行「详情」按行内单号渲染对应数据（2026-09-08 数据驱动） */
-wireDetailModal('rentInbounds');
+renderListPage({
+  entity: 'rentInbounds',
+  stabs: true,
+  filters: [
+    { label: '入库单号', field: '_key' },
+    { label: '关联租入单', field: 'ref' },
+    { label: '运营方', field: 'operator' },
+    { label: '器具', field: 'appliance' },
+    { label: '状态', field: 'status' },
+    { label: '入库时间', field: 'date', range: true }
+  ]
+});
 </script>
 <script>
 /* ===== 菜单折叠 / 页签与表单视觉态（统一脚本） ===== */

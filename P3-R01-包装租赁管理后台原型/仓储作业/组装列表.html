@@ -649,10 +649,22 @@ document.addEventListener('click',function(e){
   </div>
 </div>
 <script src="../_data/demo-data.js"></script>
-<script src="../_data/detail-generic.js"></script>
+<script src="../_data/detail-generic.js"></script><script src="../_data/list-generic.js"></script>
+
 <script>
 /* demo-data 接线：各行「详情」按行内单号渲染对应数据（2026-09-08 数据驱动） */
-wireDetailModal('assemblyOrders');
+renderListPage({
+  entity: 'assemblyOrders',
+  stabs: true,
+  filters: [
+    { label: '组装单号', field: '_key' },
+    { label: '所属项目', field: 'project' },
+    { label: '父项（组合件）', field: 'parent' },
+    { label: '组装状态', field: 'status' },
+    { label: '组装时间', field: 'date', range: true },
+    { label: '运营方', field: 'operator' }
+  ]
+});
 </script>
 <script>
 /* ===== 菜单折叠 / 页签与表单视觉态（统一脚本） ===== */

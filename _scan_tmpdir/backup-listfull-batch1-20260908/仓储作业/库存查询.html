@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<title>盘点管理 - 包装租赁管理后台</title>
+<title>库存查询 - 包装租赁管理后台</title>
 <style>
 :root {
   --primary: #1677ff;
@@ -72,22 +72,6 @@ svg { display:inline-block; vertical-align:middle; }
 .card-head .card-title { margin-bottom:0; }
 .card-head .head-btns { display:flex; align-items:center; gap:8px; }
 
-/* ===== 筛选区（13px 控件，样板：仓储作业/采购入库列表） ===== */
-.filter-card { background:#fff; border-radius:8px; padding:16px 18px; margin:0 0 12px; box-shadow:0 1px 3px rgba(0,0,0,0.05); }
-.filter-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; }
-.ff { display:flex; align-items:center; border:1px solid #d9d9d9; border-radius:6px; padding:0 10px; height:32px; background:#fff; transition:border-color .2s; }
-.ff:focus-within { border-color:#1677ff; }
-.ff .ff-label { flex-shrink:0; font-size:13px; color:#262626; margin-right:6px; white-space:nowrap; }
-.ff input, .ff select { flex:1; min-width:0; border:none; outline:none; height:100%; font-size:13px; color:#262626; background:transparent; font-family:inherit; }
-.ff input::placeholder { color:#bfbfbf; }
-.ff select { appearance:none; -webkit-appearance:none; color:#8c8c8c; cursor:pointer; }
-.ff .ff-chev { width:12px; height:12px; color:#8c8c8c; flex-shrink:0; pointer-events:none; }
-.ff .ff-sep { margin:0 6px; color:#8c8c8c; flex-shrink:0; }
-.filter-actions { display:flex; align-items:center; justify-content:flex-end; gap:10px; height:32px; }
-.link-collapse { display:flex; align-items:center; gap:4px; font-size:13px; color:#1677ff; cursor:pointer; background:none; border:none; font-family:inherit; }
-.link-collapse svg { width:12px; height:12px; transition:transform .2s; }
-.filter-card.collapsed .filter-grid .ff-row-extra { display:none; }
-.filter-card:not(.collapsed) .link-collapse svg { transform:rotate(180deg); }
 /* ===== 按钮（13px 体系，表单/卡片头/弹窗用；筛选区 12px 另按作用域覆盖） ===== */
 .btn { display:inline-flex; align-items:center; justify-content:center; height:30px; padding:0 14px; border-radius:6px; border:none; cursor:pointer; font-size:13px; background:var(--primary); color:#fff; white-space:nowrap; font-family:inherit; }
 .btn:hover { background:#4096ff; }
@@ -198,7 +182,7 @@ th.td-num { text-align:right; }
 .dval { flex:1; min-width:0; color:var(--text); overflow-wrap:break-word; }
 
 /* ===== 统计卡 / 进度条 ===== */
-.stat-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:16px; }
+.stat-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:16px; margin-bottom:16px; }
 .stat { background:#fff; border-radius:8px; padding:18px 20px; box-shadow:0 1px 2px rgba(0,0,0,.03); }
 .stat .st-label { font-size:13px; color:var(--text-2); display:flex; align-items:center; justify-content:space-between; }
 .stat .st-num { font-size:26px; font-weight:700; color:var(--text); margin-top:8px; font-variant-numeric:tabular-nums; }
@@ -216,8 +200,12 @@ th.td-num { text-align:right; }
 
 /* ===== 本页业务样式 ===== */
 
-</style>
+.view-toggle { display:flex; gap:0; border:1px solid var(--input-border); border-radius:6px; overflow:hidden; width:260px; }
+.view-toggle .vt { flex:1; height:30px; display:flex; align-items:center; justify-content:center; font-size:13px; cursor:pointer; background:#fff; color:var(--text-2); user-select:none; }
+.view-toggle .vt.active { background:var(--primary); color:#fff; }
+#comboView { display:none; }
 
+</style>
 <style id="modal-css">
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:1000;align-items:center;justify-content:center}
 .modal-overlay.show{display:flex}
@@ -296,8 +284,8 @@ th.td-num { text-align:right; }
    <li><div class="sm-link" onclick="go('../仓储作业/组装列表.html')">组装</div></li>
    <li><div class="sm-link" onclick="go('../仓储作业/拆卸管理列表.html')">拆卸管理</div></li>
    <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">库存管理</li>
-   <li><div class="sm-link selected">库存盘点</div></li>
-   <li><div class="sm-link" onclick="go('../仓储作业/库存查询.html')">库存查询</div></li>
+   <li><div class="sm-link" onclick="go('../仓储作业/盘点列表.html')">库存盘点</div></li>
+   <li><div class="sm-link selected">库存查询</div></li>
    <li><div class="sm-link" onclick="go('../仓储作业/库存调拨列表.html')">库存调拨</div></li>
    </ul>
    </li>
@@ -342,132 +330,198 @@ th.td-num { text-align:right; }
   </div></aside>
   <div class="main-col">
 <div class="tabs">
-  <span class="tab active">盘点管理 <span class="close">×</span></span>
-  <span class="tab">盘点录入 <span class="close">×</span></span>
-  <span class="tab">库存查询 <span class="close">×</span></span>
-  <span class="tab">采购入库 <span class="close">×</span></span>
+  <span class="tab active">库存查询 <span class="close">×</span></span>
+  <span class="tab">组装 <span class="close">×</span></span>
+  <span class="tab">租赁出库 <span class="close">×</span></span>
+  <span class="tab">盘点管理 <span class="close">×</span></span>
 </div>
     <div class="content">
-<div class="filter-card collapsed" id="filterCard">
-  <div class="filter-grid">
-    <div class="ff"><span class="ff-label">盘点单号：</span><input placeholder="请输入"></div>
-    <div class="ff"><span class="ff-label">盘点范围：</span>
-      <select><option selected>全部</option><option>原料区 RA</option><option>成品区 RB</option><option>外协周转区 RC</option><option>全仓</option></select>
-      <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-    </div>
-    <div class="ff"><span class="ff-label">盘点口径：</span>
-      <select><option selected>全部</option><option>按物料</option><option>按库位</option></select>
-      <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-    </div>
-    <div class="ff ff-row-extra"><span class="ff-label">盘点状态：</span>
-      <select><option selected>全部</option><option>盘点中</option><option>待审核</option><option>已完成</option></select>
-      <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-    </div>
-    <div class="ff ff-row-extra"><span class="ff-label">盘点日期：</span><input placeholder="开始时间"><span class="ff-sep">→</span><input placeholder="结束时间"></div>
-    <div class="ff ff-row-extra"><span class="ff-label">盘点人：</span>
-      <select><option selected>全部</option><option>张伟</option><option>李国栋</option></select>
-      <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-    </div>
-    <div class="filter-actions">
-      <button class="link-collapse" onclick="var f=document.getElementById('filterCard');f.classList.toggle('collapsed');this.querySelector('span').textContent=f.classList.contains('collapsed')?'展开':'收起'"><span>展开</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
-      <button class="btn btn-default">重置</button>
-      <button class="btn btn-primary">查询</button>
-    </div>
+<div class="stat-grid">
+  <div class="stat">
+    <div class="st-label"><span>在库（仓库内可用）</span></div>
+    <div class="st-num">42,860<span class="unit">件/套</span></div>
+    <div class="st-foot">其中组装占用 <em>3,920</em> 件</div>
+  </div>
+  <div class="stat">
+    <div class="st-label"><span>在途（退租未审核）</span></div>
+    <div class="st-num">240<span class="unit">件/套</span></div>
+    <div class="st-foot">退租申请待审核 3 单</div>
+  </div>
+  <div class="stat">
+    <div class="st-label"><span>客户端（租出在外）</span></div>
+    <div class="st-num">12,480<span class="unit">只/套</span></div>
+    <div class="st-foot">对应在租租赁单 40 张</div>
+  </div>
+  <div class="stat">
+    <div class="st-label"><span>退租库存（待入库）</span></div>
+    <div class="st-num">260<span class="unit">件/套</span></div>
+    <div class="st-foot">验收通过待入库 4 单</div>
+  </div>
+  <div class="stat">
+    <div class="st-label"><span>租入在库</span></div>
+    <div class="st-num">40<span class="unit">只</span></div>
+    <div class="st-foot">关联租入单 2 张 · 按月生成租金应付</div>
   </div>
 </div>
+
+<div style="margin:-4px 0 12px;font-size:12px;color:#8c8c8c;line-height:1.7;">在途＝应入库未入库（退租待入库 / 采购到货待入库 / 租入到货待入库 / 调拨在途）；租入＝租入在库未转租，转租后计入客户态（来源标记区分）</div>
+
 <div class="card">
   <div class="card-head">
-    <h3 class="card-title" data-note="1">盘点单</h3>
-    <div class="head-btns"><button class="btn btn-default btn-sm">批量导出</button><button class="btn btn-sm" onclick="go('../仓储作业/盘点录入.html')">新建盘点</button></div>
+    <h3 class="card-title" data-note="1">库存四态查询</h3>
+    <div class="head-btns"><div class="view-toggle" id="viewToggle"><span class="vt active" onclick="switchView('part')">散件视角</span><span class="vt" onclick="switchView('combo')">组合视角</span></div><button class="btn btn-default btn-sm">导出库存</button></div>
   </div>
-<div class="stabs">
-  <span class="stab active">全部<span class="stab-count">42</span></span>
-  <span class="stab">盘点中<span class="stab-count">1</span></span>
-  <span class="stab">待审核<span class="stab-count">1</span></span>
-  <span class="stab">已完成<span class="stab-count">40</span></span>
-</div>
+  <div id="partView">
   <div class="table-wrap">
     <table>
       <thead>
         <tr>
-          <th></th>
-          <th>盘点单号</th>
-          <th>盘点范围</th>
-          <th>盘点口径</th>
-          <th>盘点项数</th>
-          <th>盈亏合计</th>
-          <th>状态</th>
-          <th>盘点人</th>
-          <th>盘点日期</th>
+          <th>编码</th>
+          <th>名称</th>
+          <th>物料类别</th>
+          <th>适用项目</th>
+          <th>在库</th>
+          <th>在途(退租未审核)</th>
+          <th data-note="2">客户端(租出)</th>
+          <th>退租待入库</th>
+          <th>总量</th>
+          <th>单位</th>
+          <th>库区</th>
           <th class="sticky-op">操作</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td><input type="checkbox" class="cb"></td>
-          <td><span class="lk">PD-202608-03</span></td>
-          <td>华东中心仓 / 全库区</td>
-          <td><span class="tag tag-green">正常</span></td>
-          <td><span class="td-num">1,286</span></td>
-          <td>—</td>
-          <td><span class="tag tag-blue">盘点中</span></td>
-          <td>张伟</td>
-          <td>2026-08-30</td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="go('../仓储作业/盘点录入.html')">录入</a><a onclick="openModal('auditModal')">审核</a></span></td>
+          <td><span class="lk">LJ-A100</span></td>
+          <td>锁扣组件 不锈钢 304</td>
+          <td><span class="tag tag-blue">零部件</span></td>
+          <td>PRJ-2601/02/04</td>
+          <td><span class="td-num">5,260</span></td>
+          <td><span class="td-num">1,200</span></td>
+          <td><span class="td-num">800</span></td>
+          <td><span class="td-num">2,400</span></td>
+          <td><span class="td-num"><b>7,260</b></span></td>
+          <td>件</td>
+          <td>原料区 RA</td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('flowModal')">库存流水</a></span></td>
         </tr>
         <tr>
-          <td><input type="checkbox" class="cb"></td>
-          <td><span class="lk">PD-202608-02</span></td>
-          <td>华东中心仓 / 组装区 RD</td>
-          <td><span class="tag tag-green">正常</span></td>
-          <td><span class="td-num">36</span></td>
-          <td><span class="td-num" style="color:var(--primary)">+18</span></td>
-          <td><span class="tag tag-orange">待审核</span></td>
-          <td>李国栋</td>
-          <td>2026-08-15</td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="go('../仓储作业/盘点录入.html')">录入</a><a onclick="openModal('auditModal')">审核</a></span></td>
-        </tr>
-        <tr>
-          <td><input type="checkbox" class="cb"></td>
-          <td><span class="lk">PD-202607-02</span></td>
-          <td>华东中心仓 / 成品区 RB</td>
-          <td><span class="tag tag-blue">在租</span></td>
-          <td><span class="td-num">86</span></td>
-          <td><span class="td-num" style="color:var(--danger)">-2</span></td>
-          <td><span class="tag tag-green">已完成</span></td>
-          <td>李国栋</td>
-          <td>2026-07-31</td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="go('../仓储作业/盘点录入.html')">录入</a><a onclick="openModal('auditModal')">审核</a></span></td>
-        </tr>
-        <tr>
-          <td><input type="checkbox" class="cb"></td>
-          <td><span class="lk">PD-202607-01</span></td>
-          <td>华东中心仓 / 原料区 RA</td>
-          <td><span class="tag tag-green">正常</span></td>
-          <td><span class="td-num">642</span></td>
+          <td><span class="lk">LJ-B200</span></td>
+          <td>铰链 锌合金 65mm</td>
+          <td><span class="tag tag-blue">零部件</span></td>
+          <td>PRJ-2601/02</td>
+          <td><span class="td-num">2,640</span></td>
+          <td><span class="td-num">400</span></td>
+          <td><span class="td-num">1,600</span></td>
           <td><span class="td-num">0</span></td>
-          <td><span class="tag tag-green">已完成</span></td>
-          <td>张伟</td>
-          <td>2026-07-31</td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="go('../仓储作业/盘点录入.html')">录入</a><a onclick="openModal('auditModal')">审核</a></span></td>
+          <td><span class="td-num"><b>4,640</b></span></td>
+          <td>件</td>
+          <td>原料区 RA</td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('flowModal')">库存流水</a></span></td>
         </tr>
         <tr>
-          <td><input type="checkbox" class="cb"></td>
-          <td><span class="lk">PD-202606-01</span></td>
-          <td>华东中心仓 / 退货区 RC</td>
-          <td><span class="tag tag-green">正常</span></td>
-          <td><span class="td-num">128</span></td>
-          <td><span class="td-num" style="color:var(--primary)">+3</span></td>
-          <td><span class="tag tag-green">已完成</span></td>
-          <td>张伟</td>
-          <td>2026-06-30</td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="go('../仓储作业/盘点录入.html')">录入</a><a onclick="openModal('auditModal')">审核</a></span></td>
+          <td><span class="lk">LJ-C300</span></td>
+          <td>围板 HDPE 波纹板</td>
+          <td><span class="tag tag-blue">零部件</span></td>
+          <td>PRJ-2601</td>
+          <td><span class="td-num">1,860</span></td>
+          <td><span class="td-num">0</span></td>
+          <td><span class="td-num">1,600</span></td>
+          <td><span class="td-num">0</span></td>
+          <td><span class="td-num"><b>3,460</b></span></td>
+          <td>件</td>
+          <td>原料区 RA</td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('flowModal')">库存流水</a></span></td>
+        </tr>
+        <tr>
+          <td><span class="lk">LJ-D400</span></td>
+          <td>箱盖 ABS 吸塑</td>
+          <td><span class="tag tag-blue">零部件</span></td>
+          <td>PRJ-2601/04</td>
+          <td><span class="td-num">980</span></td>
+          <td><span class="td-num">480</span></td>
+          <td><span class="td-num">400</span></td>
+          <td><span class="td-num">1,000</span></td>
+          <td><span class="td-num"><b>1,860</b></span></td>
+          <td>件</td>
+          <td>原料区 RA</td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('flowModal')">库存流水</a></span></td>
+        </tr>
+        <tr>
+          <td><span class="lk">LJ-F600</span></td>
+          <td>内衬 EPE 珍珠棉</td>
+          <td><span class="tag tag-blue">零部件</span></td>
+          <td>PRJ-2603/05</td>
+          <td><span class="td-num">1,520</span></td>
+          <td><span class="td-num">120</span></td>
+          <td><span class="td-num">0</span></td>
+          <td><span class="td-num">0</span></td>
+          <td><span class="td-num"><b>1,640</b></span></td>
+          <td>件</td>
+          <td>原料区 RA</td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('flowModal')">库存流水</a></span></td>
+        </tr>
+        <tr>
+          <td><span class="lk">WBX-1210L</span></td>
+          <td>围板箱 1200×1000×970</td>
+          <td><span class="tag tag-green">租赁器具</span></td>
+          <td>PRJ-2601/04</td>
+          <td><span class="td-num">2,120</span></td>
+          <td><span class="td-num">160</span></td>
+          <td><span class="td-num">3,120</span></td>
+          <td><span class="td-num">80</span></td>
+          <td><span class="td-num"><b>2,480</b></span></td>
+          <td>只</td>
+          <td>成品区 RB</td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('flowModal')">库存流水</a></span></td>
+        </tr>
+        <tr>
+          <td><span class="lk">WBX-1210M</span></td>
+          <td>围板箱 1200×1000×590</td>
+          <td><span class="tag tag-green">租赁器具</span></td>
+          <td>PRJ-2602</td>
+          <td><span class="td-num">860</span></td>
+          <td><span class="td-num">40</span></td>
+          <td><span class="td-num">1,020</span></td>
+          <td><span class="td-num">0</span></td>
+          <td><span class="td-num"><b>1,000</b></span></td>
+          <td>只</td>
+          <td>成品区 RB</td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('flowModal')">库存流水</a></span></td>
+        </tr>
+        <tr>
+          <td><span class="lk">PLT-1210P</span></td>
+          <td>塑料托盘 1200×1000</td>
+          <td><span class="tag tag-green">租赁器具</span></td>
+          <td>PRJ-2602/03</td>
+          <td><span class="td-num">1,410</span></td>
+          <td><span class="td-num">0</span></td>
+          <td><span class="td-num">1,860</span></td>
+          <td><span class="td-num">60</span></td>
+          <td><span class="td-num"><b>1,700</b></span></td>
+          <td>块</td>
+          <td>成品区 RB</td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('flowModal')">库存流水</a></span></td>
+        </tr>
+        <tr>
+          <td><span class="lk">BTC-6040</span></td>
+          <td>料箱 600×400×340</td>
+          <td><span class="tag tag-green">租赁器具</span></td>
+          <td>PRJ-2602</td>
+          <td><span class="td-num">3,300</span></td>
+          <td><span class="td-num">40</span></td>
+          <td><span class="td-num">2,480</span></td>
+          <td><span class="td-num">120</span></td>
+          <td><span class="td-num"><b>3,940</b></span></td>
+          <td>只</td>
+          <td>成品区 RB</td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('flowModal')">库存流水</a></span></td>
         </tr>
       </tbody>
     </table>
   </div>
-  <div style="display:flex;align-items:center;justify-content:space-between;margin-top:12px" id="pager-row"><div id="batch-btns-area"></div><div class="pager" style="margin:0">
-    <span class="pg-info">第 1-10 条/总共 42 条</span>
+  <div class="pager">
+    <span class="pg-info">第 1-10 条/总共 128 条</span>
     <span class="pg-btn">‹</span>
     <span class="pg-btn cur">1</span>
     <span class="pg-btn">2</span>
@@ -482,13 +536,167 @@ th.td-num { text-align:right; }
     </span>
     <span class="pg-jump">跳至 <input value="" placeholder="跳转页码"> 页</span>
   </div>
-</div></div>
+  </div>
+  <div id="comboView">
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>父项编码</th>
+          <th>组合单元名称</th>
+          <th>BOM版本</th>
+          <th>所属项目</th>
+          <th>在库(已组装)</th>
+          <th>在途(退租未审核)</th>
+          <th>客户端(在租)</th>
+          <th>退租待入库</th>
+          <th>累计出库</th>
+          <th>单位</th>
+          <th class="sticky-op">操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="lk">ZH-2601-A</span></td>
+          <td>驾驶室围板箱整箱套件</td>
+          <td>V2.1</td>
+          <td>PRJ-2601</td>
+          <td><span class="td-num">640</span></td>
+          <td><span class="td-num">60</span></td>
+          <td><span class="td-num"><b>3,120</b></span></td>
+          <td><span class="td-num">80</span></td>
+          <td><span class="td-num">18,420</span></td>
+          <td>套</td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('flowModal')">库存流水</a><a onclick="go('../基础数据/BOM.html')">查看BOM</a></span></td>
+        </tr>
+        <tr>
+          <td><span class="lk">ZH-2602-B</span></td>
+          <td>冲压件料箱组套</td>
+          <td>V1.3</td>
+          <td>PRJ-2602</td>
+          <td><span class="td-num">820</span></td>
+          <td><span class="td-num">45</span></td>
+          <td><span class="td-num"><b>4,120</b></span></td>
+          <td><span class="td-num">0</span></td>
+          <td><span class="td-num">22,650</span></td>
+          <td>套</td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('flowModal')">库存流水</a><a onclick="go('../基础数据/BOM.html')">查看BOM</a></span></td>
+        </tr>
+        <tr>
+          <td><span class="lk">ZH-2603-C</span></td>
+          <td>电池托盘护角套件</td>
+          <td>V1.0</td>
+          <td>PRJ-2603</td>
+          <td><span class="td-num">150</span></td>
+          <td><span class="td-num">0</span></td>
+          <td><span class="td-num"><b>1,020</b></span></td>
+          <td><span class="td-num">20</span></td>
+          <td><span class="td-num">6,830</span></td>
+          <td>套</td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('flowModal')">库存流水</a><a onclick="go('../基础数据/BOM.html')">查看BOM</a></span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="pager">
+    <span class="pg-info">第 1-10 条/总共 9 条</span>
+    <span class="pg-btn">‹</span>
+    <span class="pg-btn cur">1</span>
+    <span class="pg-btn">2</span>
+    <span class="pg-btn">3</span>
+    <span class="pg-btn">4</span>
+    <span class="pg-btn">5</span>
+    <span class="pg-ellipsis">…</span>
+    <span class="pg-btn">8</span>
+    <span class="pg-btn">›</span>
+    <span class="pg-size">10 条/页
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </span>
+    <span class="pg-jump">跳至 <input value="" placeholder="跳转页码"> 页</span>
+  </div>
+  </div>
+</div>
     </div>
   </div>
 </div>
+<script>function switchView(v) {
+  var part = document.getElementById('partView');
+  var combo = document.getElementById('comboView');
+  var vts = document.querySelectorAll('#viewToggle .vt');
+  vts.forEach(function (t) { t.classList.remove('active'); });
+  if (v === 'part') { part.style.display = 'block'; combo.style.display = 'none'; vts[0].classList.add('active'); }
+  else { part.style.display = 'none'; combo.style.display = 'block'; vts[1].classList.add('active'); }
+}</script>
+<style id="detail-modal-css">
+/* 详情弹窗（四段式）专用样式：段落标题 / 关联链 / 流转时间线 */
+.dt-sec{font-size:13px;font-weight:600;color:#262626;margin:0 0 10px;padding-left:8px;border-left:3px solid #1677ff;line-height:1.3}
+.modal-body .dt-sec:not(:first-child){margin-top:18px}
+.chain{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.chain .node{border:1px solid #f0f0f0;border-radius:6px;padding:8px 12px;background:#fafafa;min-width:126px}
+.chain .node .n-role{font-size:11px;color:#8c8c8c}
+.chain .node .n-name{font-size:12.5px;font-weight:600;margin-top:2px;word-break:break-all}
+.chain .link-arrow{color:#8c8c8c}
+.tl{position:relative;padding-left:16px}
+.tl::before{content:'';position:absolute;left:4px;top:6px;bottom:6px;width:2px;background:#e6f4ff}
+.tl-i{position:relative;padding:0 0 12px 6px;font-size:12.5px;color:#262626}
+.tl-i:last-child{padding-bottom:0}
+.tl-i::before{content:'';position:absolute;left:-16px;top:5px;width:7px;height:7px;border-radius:50%;background:#fff;border:2px solid #1677ff}
+.tl-i.off::before{border-color:#d9d9d9}
+.tl-i .tl-t{color:#8c8c8c;font-size:12px;margin-right:8px;font-variant-numeric:tabular-nums}
+.tl-i .tl-who{color:#8c8c8c;font-size:12px;margin-left:8px}
+</style>
+<!-- 弹窗骨架化 · 详情弹窗数据驱动 2026-09-08 -->
+<div class="modal-overlay" id="flowModal">
+  <div class="modal modal-lg" style="width:720px;">
+    <div class="modal-header">
+      <h3 class="modal-title" id="detailTitle">库存流水</h3>
+      <span class="modal-close" onclick="closeModal('flowModal')">×</span>
+    </div>
+    <div class="modal-body" id="detailBody"><!-- 内容由 _data/detail-generic.js 按单号渲染 --></div>
+    <div class="modal-footer">
+      <button class="btn btn-default" onclick="closeModal('flowModal')">关 闭</button>
+    </div>
+  </div>
+</div>
+<script src="../_data/demo-data.js"></script>
+<script src="../_data/detail-generic.js"></script>
+<script>
+/* demo-data 接线：各行「库存流水」按行内键渲染对应数据（2026-09-08 数据驱动） */
+wireDetailModal('stockFlows', { anchorText: '库存流水', modalId: 'flowModal' });
+</script>
+<script>
+/* ===== 详情弹窗开关（详情落地页补齐注入） ===== */
+function openModal(id) { document.getElementById(id).classList.add('show'); }
+function closeModal(id) { document.getElementById(id).classList.remove('show'); }
+document.querySelectorAll('.modal-overlay').forEach(function (ov) {
+  ov.addEventListener('click', function (e) { if (e.target === ov) ov.classList.remove('show'); });
+});
+</script>
 
-
-
+<script>
+/* ===== 菜单折叠 / 页签与表单视觉态（统一脚本） ===== */
+function go(url) { location.href = url; }
+document.querySelectorAll('.sm-item.has-sub > .sm-link').forEach(function (link) {
+  link.addEventListener('click', function () { link.parentElement.classList.toggle('open'); });
+});
+/* 状态页签切换（视觉选中态） */
+document.querySelectorAll('.stabs .stab').forEach(function (tab) {
+  tab.addEventListener('click', function () {
+    tab.parentElement.querySelectorAll('.stab').forEach(function (t) { t.classList.remove('active'); });
+    tab.classList.add('active');
+  });
+});
+/* 表单单选/复选视觉态切换 */
+document.querySelectorAll('.radio').forEach(function (r) {
+  r.addEventListener('click', function () {
+    r.parentElement.querySelectorAll('.radio').forEach(function (x) { x.classList.remove('checked'); });
+    r.classList.add('checked');
+  });
+});
+document.querySelectorAll('.checkbox').forEach(function (c) {
+  c.addEventListener('click', function () { c.classList.toggle('checked'); });
+});
+</script>
 <style id="proto-notes-style">
 body.proto-notes-on [data-note]{position:relative}
 body.proto-notes-on [data-note]::after{content:attr(data-note);position:absolute;top:1px;right:1px;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600;box-shadow:0 0 0 1.5px #fff;cursor:pointer;opacity:.75;transition:opacity .15s}
@@ -510,7 +718,8 @@ body.proto-notes-on .proto-pin.pn-open{display:block}
 body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 .pn-fab .pn-fab-n{font-family:Consolas,monospace;font-weight:600}
 </style>
-<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>盘点单（两种方式）</div><div class="pnp-d">可按零件或组合两种方式盘点</div><div class="pnp-b"><span class="pnp-tag">FP3-05 · 盘点单</span><span class="pnp-tag">REQ-12 · 盘点</span></div><div class="pnp-src"><div class="src-item"><b>FP3-05 盘点单</b>：零件/组合两种方式盘点、盘盈亏调整</div><div class="src-item"><b>REQ-12 盘点</b>：支持零件/组合双视角盘点</div></div></div>
+<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>库存四态查询</div><div class="pnp-d">在库/在途/客户端/退租库存四态 + 散件/组合双视角切换</div><div class="pnp-b"><span class="pnp-tag">FP3-06 · 库存查询</span><span class="pnp-tag">REQ-06 · 组装管理节点</span></div><div class="pnp-src"><div class="src-item"><b>FP3-06 库存查询</b>：零件/组合双视角实时库存，按项目/库位过滤</div><div class="src-item"><b>REQ-06 组装管理节点</b>：记录 A+B→C 的组装时间与数量；库存双视角（零件/组合）</div></div></div>
+<div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>库存四态说明</div><div class="pnp-d">在库（仓库内可用）、在途（退租未审核）、客户端（租出在外）、退租库存（待入库）</div><div class="pnp-b"><span class="pnp-tag">FP3-06 · 库存查询</span><span class="pnp-tag">REQ-06 · 组装管理节点</span></div><div class="pnp-src"><div class="src-item"><b>FP3-06 库存查询</b>：零件/组合双视角实时库存，按项目/库位过滤</div><div class="src-item"><b>REQ-06 组装管理节点</b>：记录 A+B→C 的组装时间与数量；库存双视角（零件/组合）</div></div></div>
 <div class="pn-fab" id="protoNotesFab">标注</div></div>
 <script id="proto-notes-js">
 (function(){
@@ -559,175 +768,6 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
   });
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply);else apply();
 })();
-</script>
-
-<!-- 弹窗已提取到 弹窗/盘点审核.html，构建时注入 -->
-<div class="modal-overlay" id="auditModal">
-  <div class="modal" style="width:720px">
-    <div class="modal-header">
-      <h3 class="modal-title">审核确认</h3>
-      <span class="modal-close" onclick="closeModal('auditModal')">×</span>
-    </div>
-    <div class="modal-body">
-      <div class="dgrid" style="margin-bottom:16px;">
-        <div class="drow"><div class="dlabel">单据编号</div><div class="dval">PD-20260830-004</div></div>
-        <div class="drow"><div class="dlabel">单据类型</div><div class="dval">库存盘点单</div></div>
-        <div class="drow"><div class="dlabel">盘点项数 / 盈亏</div><div class="dval">86 项 / 盘盈 320 元</div></div>
-        <div class="drow"><div class="dlabel">提交人 / 时间</div><div class="dval">李国栋 / 2026-08-30 17:20</div></div>
-        <div class="drow"><div class="dlabel">备注</div><div class="dval">审核通过后按盈亏生成其他出入库单</div></div>
-      </div>
-      <div class="form-row">
-        <span class="form-label"><span class="req">*</span>审核结论</span>
-        <div><span class="radio checked"><span class="dot"></span>通过</span><span class="radio"><span class="dot"></span>驳回</span></div>
-      </div>
-      <div class="form-row">
-        <span class="form-label">审核意见</span>
-        <div class="input-box"><input placeholder="选填，驳回时建议填写原因"></div>
-      </div>
-    </div>
-    <div class="modal-footer">
-      <button class="btn btn-default" onclick="closeModal('auditModal')">取消</button>
-      <button class="btn" onclick="closeModal('auditModal')">确认提交</button>
-    </div>
-  </div>
-</div>
-
-
-<script id="batch-btn-js">
-(function(){
-  // 找到所有批量按钮，初始禁用
-  var batchBtns = document.querySelectorAll('button[class*="btn"]');
-  var batchKeywords = ['批量'];
-  batchBtns.forEach(function(btn){
-    var txt = btn.textContent.trim();
-    if(batchKeywords.some(function(k){return txt.indexOf(k)>-1})){
-      btn.style.opacity = '.45';
-      btn.style.cursor = 'not-allowed';
-      btn.setAttribute('data-batch','true');
-      btn.addEventListener('click',function(e){
-        if(btn.style.opacity==='.45')e.preventDefault();
-      });
-    }
-  });
-  // 监听表格复选框
-  var checkboxes = document.querySelectorAll('tbody input[type="checkbox"]');
-  checkboxes.forEach(function(cb){
-    cb.addEventListener('change',function(){
-      var anyChecked = document.querySelectorAll('tbody input[type="checkbox"]:checked').length > 0;
-      batchBtns.forEach(function(btn){
-        if(btn.getAttribute('data-batch')){
-          btn.style.opacity = anyChecked ? '1' : '.45';
-          btn.style.cursor = anyChecked ? 'pointer' : 'not-allowed';
-        }
-      });
-    });
-  });
-  // 全选复选框
-  var selectAll = document.querySelector('thead input[type="checkbox"]');
-  if(selectAll){
-    selectAll.addEventListener('change',function(){
-      var anyChecked = selectAll.checked;
-      batchBtns.forEach(function(btn){
-        if(btn.getAttribute('data-batch')){
-          btn.style.opacity = anyChecked ? '1' : '.45';
-          btn.style.cursor = anyChecked ? 'pointer' : 'not-allowed';
-        }
-      });
-    });
-  }
-})();
-</script>
-<script>
-/* ?audit=1 自动打开审核弹窗（我的待办跳转支持） */
-(function(){
-  if (location.search.indexOf("audit=1") < 0) return;
-  var t = setInterval(function(){
-    if (typeof openModal === "function" && document.getElementById("auditModal")) {
-      clearInterval(t); openModal("auditModal");
-    }
-  }, 120);
-  setTimeout(function(){ clearInterval(t); }, 4000);
-})();
-</script>
-<style id="detail-modal-css">
-/* 详情弹窗（四段式）专用样式：段落标题 / 关联链 / 流转时间线 */
-.dt-sec{font-size:13px;font-weight:600;color:#262626;margin:0 0 10px;padding-left:8px;border-left:3px solid #1677ff;line-height:1.3}
-.modal-body .dt-sec:not(:first-child){margin-top:18px}
-.chain{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.chain .node{border:1px solid #f0f0f0;border-radius:6px;padding:8px 12px;background:#fafafa;min-width:126px}
-.chain .node .n-role{font-size:11px;color:#8c8c8c}
-.chain .node .n-name{font-size:12.5px;font-weight:600;margin-top:2px;word-break:break-all}
-.chain .link-arrow{color:#8c8c8c}
-.tl{position:relative;padding-left:16px}
-.tl::before{content:'';position:absolute;left:4px;top:6px;bottom:6px;width:2px;background:#e6f4ff}
-.tl-i{position:relative;padding:0 0 12px 6px;font-size:12.5px;color:#262626}
-.tl-i:last-child{padding-bottom:0}
-.tl-i::before{content:'';position:absolute;left:-16px;top:5px;width:7px;height:7px;border-radius:50%;background:#fff;border:2px solid #1677ff}
-.tl-i.off::before{border-color:#d9d9d9}
-.tl-i .tl-t{color:#8c8c8c;font-size:12px;margin-right:8px;font-variant-numeric:tabular-nums}
-.tl-i .tl-who{color:#8c8c8c;font-size:12px;margin-left:8px}
-</style>
-<!-- 弹窗骨架化 · 详情弹窗数据驱动 2026-09-08 -->
-<div class="modal-overlay" id="detailModal">
-  <div class="modal modal-lg" style="width:780px;">
-    <div class="modal-header">
-      <h3 class="modal-title" id="detailTitle">盘点单详情</h3>
-      <span class="modal-close" onclick="closeModal('detailModal')">×</span>
-    </div>
-    <div class="modal-body" id="detailBody"><!-- 内容由 _data/detail-generic.js 按单号渲染 --></div>
-    <div class="modal-footer">
-      <button class="btn btn-default" onclick="closeModal('detailModal')">关 闭</button>
-    </div>
-  </div>
-</div>
-<script src="../_data/demo-data.js"></script>
-<script src="../_data/detail-generic.js"></script><script src="../_data/list-generic.js"></script>
-
-<script>
-/* demo-data 接线：各行「详情」按行内键渲染对应数据（2026-09-08 数据驱动） */
-renderListPage({
-  entity: 'stocktakes',
-  stabs: true,
-  filters: [
-    { label: '盘点单号', field: '_key' },
-    { label: '盘点范围', field: 'scope' },
-    { label: '盘点口径', field: 'caliber' },
-    { label: '盘点状态', field: 'status' },
-    { label: '盘点日期', field: 'date', range: true },
-    { label: '盘点人', field: 'checker' }
-  ]
-});
-</script>
-<script>
-function openModal(id) { document.getElementById(id).classList.add('show'); }
-function closeModal(id) { document.getElementById(id).classList.remove('show'); }
-document.querySelectorAll('.modal-overlay').forEach(function (ov) {
-  ov.addEventListener('click', function (e) { if (e.target === ov) ov.classList.remove('show'); });
-});
-</script>
-<script>
-/* ===== 菜单折叠 / 页签与表单视觉态（统一脚本） ===== */
-function go(url) { location.href = url; }
-document.querySelectorAll('.sm-item.has-sub > .sm-link').forEach(function (link) {
-  link.addEventListener('click', function () { link.parentElement.classList.toggle('open'); });
-});
-/* 状态页签切换（视觉选中态） */
-document.querySelectorAll('.stabs .stab').forEach(function (tab) {
-  tab.addEventListener('click', function () {
-    tab.parentElement.querySelectorAll('.stab').forEach(function (t) { t.classList.remove('active'); });
-    tab.classList.add('active');
-  });
-});
-/* 表单单选/复选视觉态切换 */
-document.querySelectorAll('.radio').forEach(function (r) {
-  r.addEventListener('click', function () {
-    r.parentElement.querySelectorAll('.radio').forEach(function (x) { x.classList.remove('checked'); });
-    r.classList.add('checked');
-  });
-});
-document.querySelectorAll('.checkbox').forEach(function (c) {
-  c.addEventListener('click', function () { c.classList.toggle('checked'); });
-});
 </script>
 <script>/*ia-fix: tab-switch + btn-feedback (2026-09-04)*/
 /* R3 顶部页签切换（点击换 active；× 不做关闭跳转——原型不销毁页签） */
