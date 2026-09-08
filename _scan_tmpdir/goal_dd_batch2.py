@@ -22,7 +22,10 @@ U = {
     'cgrk2': '仓储作业/采购入库列表.html', 'ap': '财务协同/应付账单.html',
     'ar': '财务协同/应收账单.html', 'bs': '租赁管理/丢损赔偿单.html',
 }
-def zn(role, name, url): return {'role': role, 'name': name, 'url': url}
+def zn(role, name, url=None):
+    if url:
+        return {'role': role, 'name': name, 'url': url}
+    return {'role': role, 'name': name}
 
 # 物料编码/单价映射（来自列表行金额反推 + 既有实体）
 PO_ITEM = {
@@ -60,9 +63,12 @@ def po_items(content, total=None):
     return rows
 
 POV = []
-def po(no, sup, mtype, content, qty, amount, ddate, so, status, chain_tail, timeline):
-    items = po_items(content, amount)
-    unit = '件' if mtype == '零部件' else '只/块'
+def po(no, sup, mtype, content, qty, amount, ddate, so, status, items, chain_tail, timeline):
+    """items = [[零件号,名称规格,单位,数量,单价,金额],...]（不含合计，函数补）"""
+    sum_qty = sum(int(r[3].replace(',', '')) for r in items)
+    sum_amt = sum(float(r[5].replace(',', '')) for r in items)
+    rows = [r for r in items]
+    rows.append(['', '合计', '', format(sum_qty, ','), '', format(sum_amt, ',.2f')])
     info = [
         {'label': '订单号', 'text': no, 'full': True},
         {'label': '状态', 'tag': status},
@@ -78,26 +84,31 @@ def po(no, sup, mtype, content, qty, amount, ddate, so, status, chain_tail, time
     ]
     POV.append((no, {'title': '采购订单详情', 'info': info, 'feeSecTitle': '物料行',
         'feeCols': ['零件号', '名称规格', '单位', '数量', '单价(元)', '金额(元)'],
-        'fees': [{'cells': r} for r in items], 'chain': chain_tail, 'timeline': timeline}))
+        'fees': [{'cells': r} for r in rows], 'chain': chain_tail, 'timeline': timeline}))
 
 po('PO-20260902-018', '苏州联恒五金制品有限公司', '零部件', '锁扣组件×5,000 / 铰链×2,000', '7,000', '12,700.00', '2026-09-10', 'SO-20260831-0042', '待审核',
+   [['LJ-A100', '锁扣组件 不锈钢 304', '件', '5,000', '1.90', '9,500.00'],
+    ['LJ-B200', '铰链 锌合金 65mm', '件', '2,000', '1.60', '3,200.00']],
    [zn('销售订单（参考）', 'SO-20260831-0042', U['so']),
     {'role': '采购订单（本单）', 'name': 'PO-20260902-018 · 独立采购线', 'self': True},
     zn('采购入库', '凭单到货验收', U['cgrk']), zn('应付账单', '采购应付', U['ap'])],
    [{'t': '09-02 14:20', 'text': '制单 · 零部件采购（锁扣 / 铰链）', 'who': '李国栋'},
     {'t': '—', 'text': '待审核 · 通过后按交期 09-10 到货验收', 'off': True}])
 po('PO-20260901-017', '宁波华塑包装制品有限公司', '器具', '围板箱 1200×1000×970×300', '300', '84,000.00', '2026-09-15', '—', '待审核',
+   [['WBX-1210L', '围板箱 1200×1000×970', '只', '300', '280.00', '84,000.00']],
    [{'role': '采购订单（本单）', 'name': 'PO-20260901-017 · 独立采购线', 'self': True},
     zn('采购入库', '凭单到货验收', U['cgrk']), zn('应付账单', '采购应付', U['ap'])],
    [{'t': '09-01 10:40', 'text': '制单 · 器具采购（围板箱 300 只）', 'who': '李国栋'},
     {'t': '—', 'text': '待审核 · 通过后按交期 09-15 到货验收', 'off': True}])
 po('PO-20260830-016', '常州正大塑料托盘厂', '器具', '塑料托盘 1200×1000×500', '500', '42,500.00', '2026-09-08', '—', '已审核',
+   [['PLT-1210P', '塑料托盘 1200×1000×500', '块', '500', '85.00', '42,500.00']],
    [{'role': '采购订单（本单）', 'name': 'PO-20260830-016', 'self': True},
     zn('采购入库', 'CGRK-20260825-006 · 已入库', U['cgrk']), zn('应付账单', '采购应付', U['ap'])],
    [{'t': '08-30 09:20', 'text': '制单 · 器具采购（塑料托盘 500 块）', 'who': '李国栋'},
     {'t': '08-31 14:10', 'text': '审核通过', 'who': '张伟'},
     {'t': '—', 'text': '在途 · 按交期 09-08 到货验收', 'off': True}])
 po('PO-20260828-015', '苏州联恒五金制品有限公司', '零部件', '箱盖 ABS 吸塑×2,000', '2,000', '6,300.00', '2026-09-05', 'SO-20260827-0039', '已审核',
+   [['LJ-D400', '箱盖 ABS 吸塑', '件', '2,000', '3.15', '6,300.00']],
    [zn('销售订单（参考）', 'SO-20260827-0039', U['so']),
     {'role': '采购订单（本单）', 'name': 'PO-20260828-015 · 独立采购线', 'self': True},
     zn('采购入库', 'CGRK-20260828-012 · 已入库', U['cgrk']), zn('应付账单', 'AP-20260901-008 · 采购应付', U['ap'])],
@@ -105,6 +116,7 @@ po('PO-20260828-015', '苏州联恒五金制品有限公司', '零部件', '箱�
     {'t': '08-29 09:30', 'text': '审核通过', 'who': '张伟'},
     {'t': '—', 'text': '在途 · 按交期 09-05 到货验收', 'off': True}])
 po('PO-20260825-014', '宁波华塑包装制品有限公司', '器具', '料箱 600×400×340×800', '800', '35,200.00', '2026-09-02', '—', '已完成',
+   [['BTC-6040', '料箱 600×400×340', '只', '800', '44.00', '35,200.00']],
    [{'role': '采购订单（本单）', 'name': 'PO-20260825-014', 'self': True},
     zn('采购入库', 'CGRK-20260826-008', U['cgrk']), zn('应付账单', 'AP-20260901-008 · 采购应付', U['ap'])],
    [{'t': '08-25 10:15', 'text': '制单 · 器具采购（料箱 800 只）', 'who': '李国栋'},
@@ -112,6 +124,7 @@ po('PO-20260825-014', '宁波华塑包装制品有限公司', '器具', '料箱 
     {'t': '08-26', 'text': '采购入库 · CGRK-20260826-008 验收通过', 'who': '张伟'},
     {'t': '09-01', 'text': '应付账单自动生成 · AP-20260901-008', 'who': '系统'}])
 po('PO-20260820-013', '常州正大塑料托盘厂', '器具', '木托盘 1200×1000×400', '400', '19,600.00', '2026-08-30', '—', '已完成',
+   [['PLT-1210W', '木托盘 1200×1000×400', '块', '400', '49.00', '19,600.00']],
    [{'role': '采购订单（本单）', 'name': 'PO-20260820-013', 'self': True},
     zn('采购入库', 'CGRK-20260827-010', U['cgrk']), zn('应付账单', 'AP-20260830-007 · 采购应付', U['ap'])],
    [{'t': '08-20 13:30', 'text': '制单 · 器具采购（木托盘 400 块）', 'who': '李国栋'},
@@ -119,6 +132,7 @@ po('PO-20260820-013', '常州正大塑料托盘厂', '器具', '木托盘 1200×
     {'t': '08-27', 'text': '采购入库 · CGRK-20260827-010 验收通过', 'who': '李国栋'},
     {'t': '08-30', 'text': '应付账单自动生成 · AP-20260830-007', 'who': '系统'}])
 po('PO-20260815-012', '苏州联恒五金制品有限公司', '零部件', '内衬 EPE 珍珠棉×3,000', '3,000', '4,500.00', '2026-08-25', '—', '已关闭',
+   [['LJ-F600', '内衬 EPE 珍珠棉', '件', '3,000', '1.50', '4,500.00']],
    [{'role': '采购订单（本单）', 'name': 'PO-20260815-012 · 已关闭', 'self': True}],
    [{'t': '08-15 15:10', 'text': '制单 · 零部件采购（内衬 3,000 件）', 'who': '李国栋'},
     {'t': '08-18 09:40', 'text': '审核通过', 'who': '张伟'},
@@ -311,25 +325,27 @@ cgrk('CGRK-20260820-006', '苏州联恒五金制品有限公司', 'PO-20260815-0
 
 # ---------------- 销售出库 salesOutbounds（6 行） ----------------
 XSCKV = []
-def xsck(no, so_no, cust, prj, content, qty, area, date, status, chain_tail, timeline, plan_note):
+def xsck(no, so_no, cust, prj, content, qty, area, date, status, chain_tail, timeline, extra_fees=None, mat_disp=None):
     m = re.match(r'(.+?)×([\d,]+)', content.split('/')[0].strip())
     code, spec, unit, _ = SO_ITEM[m.group(1).strip()]
     num = qty
     unit = '件'
+    fees = [fr(['1', code, spec, unit, num, 'RA-A-02-01'])]
+    if extra_fees:
+        fees.extend(extra_fees)
     info = [
         {'label': '出库单号', 'text': no, 'full': True},
         {'label': '状态', 'tag': status},
         {'label': '关联销售订单', 'text': so_no, 'url': U['so']},
         {'label': '客户', 'text': cust, 'full': True},
         {'label': '所属项目', 'text': prj},
-        {'label': '出库物料', 'text': m.group(1).strip() + '（' + code + '）', 'full': True},
+        {'label': '出库物料', 'text': mat_disp or (m.group(1).strip() + '（' + code + '）'), 'full': True},
         {'label': '数量', 'text': num + ' 件'},
         {'label': '出库库区', 'text': area},
         {'label': '制单人', 'text': '张伟'},
         {'label': '制单时间', 'text': date + ' 11:30' if status == '待审核' else date},
         {'label': '计价方式', 'text': '销售价随订单（一进一出）', 'full': True},
     ]
-    fees = [fr(['1', code, spec, unit, num, 'RA-A-02-01'])]
     XSCKV.append((no, {'title': '销售出库单详情', 'info': info, 'feeSecTitle': '出库明细',
         'feeCols': ['序号', '物料编码', '名称规格', '单位', '数量', '库位'],
         'fees': fees, 'chain': chain_tail, 'timeline': timeline}))
@@ -356,7 +372,9 @@ xsck('XSCK-20260826-012', 'SO-20260822-0038', '上汽大众汽车有限公司宁
       zn('应收账单', 'AR-2026-08-PRJ2602-S1 · 销售费', U['ar'])],
      [{'t': '08-26 10:10', 'text': '备货 · 原料区 RA 铰链 900 / 内衬 400', 'who': '张伟'},
       {'t': '08-26 15:30', 'text': '出库确认 · 客户签收', 'who': '张伟'},
-      {'t': '08-31', 'text': '销售费应收生成 · AR-2026-08-PRJ2602-S1（6,050 元）', 'who': '系统'}])
+      {'t': '08-31', 'text': '销售费应收生成 · AR-2026-08-PRJ2602-S1（6,050 元）', 'who': '系统'}],
+     extra_fees=[fr(['2', 'LJ-F600', '内衬 EPE 珍珠棉', '件', '400', 'RA-A-03-01'])],
+     mat_disp='铰链（LJ-B200）× 900 / 内衬（LJ-F600）× 400')
 xsck('XSCK-20260822-011', 'SO-20260819-0035', '小鹏汽车科技有限公司', 'PRJ-2603', '锁扣组件×1,200', '1,200', '原料区 RA', '2026-08-22', '已完成',
      [zn('销售订单', 'SO-20260819-0035', U['so']), {'role': '销售出库（本单）', 'name': 'XSCK-20260822-011', 'self': True},
       zn('应收账单', '销售费 · 按出库自动汇总', U['ar'])],
@@ -567,34 +585,30 @@ ZZV = []
 def zz(no, prj, parent, src, prog, oper, cdate, status, chain_tail, timeline):
     n = int(prog.split('/')[1])
     done = int(prog.split('/')[0])
-    if '混合' in src:
+    code = parent.split(' ')[0]
+    if code == 'ZH-2604-D':
         fees = [fr(['消耗', '折叠隔板', '自购 · 苏州联恒', '件', '80', '散件核减']),
                 fr(['消耗', '围板箱大箱 1200×1000×970', '租入 · 路凯', '只', '10', '租入在库核减']),
                 fr(['产出', 'ZH-2604-D 混合组合套件', '混合配方', '套', str(n), '组合件入库 · 成品区 RB'])]
         buy_side = {'label': '自购侧来源', 'text': 'CGRK-20260820-006（折叠隔板 × 80）', 'url': U['cgrk2'], 'full': True}
         rent_side = {'label': '租入侧来源', 'text': 'RZD-20260815-005（租入大箱 × 10）', 'url': U['rzd'], 'full': True}
     else:
-        name = parent.split(' ')[1] if ' ' in parent else parent
-        qty_map = {'ZH-2601-A': (2, 1, 4), 'ZH-2602-B': (2, 1, 0), 'ZH-2603-C': (1, 4, 0)}
-        a, b, c = qty_map[parent.split(' ')[0]]
-        fees = [fr(['消耗', parent, '自有散件 · BOM 配方', '套', str(n), '散件库存核减'])]
-        if parent.startswith('ZH-2601-A'):
-            fees.append(fr(['产出', parent, 'BOM 配方', '套', str(n), '组合件入库 · 成品区 RB']))
-        elif parent.startswith('ZH-2602-B'):
-            fees = [fr(['消耗', 'BTC-6040 料箱 600×400×340', '自有散件', '只', str(n), '散件库存核减']),
-                    fr(['消耗', 'GB-800 隔板', '自有散件', '件', str(n * a), '散件库存核减']),
-                    fr(['产出', parent, 'BOM 配方', '套', str(n), '组合件入库 · 成品区 RB'])]
-        else:
-            fees = [fr(['消耗', 'PLT-1210P 塑料托盘', '自有散件', '块', str(n), '散件库存核减']),
-                    fr(['消耗', '护角', '自有散件', '件', str(n * b), '散件库存核减']),
-                    fr(['产出', parent, 'BOM 配方', '套', str(n), '组合件入库 · 成品区 RB'])]
+        # BOM 反拆口径的逆运算：消耗散件 / 产出组合件
+        BOM = {
+            'ZH-2601-A': [('LJ-C300', '围板 HDPE 波纹板', '件', 2), ('WBX-1210L', '围板箱 1200×1000×970', '只', 1), ('LJ-A100', '锁扣组件 不锈钢 304', '件', 4)],
+            'ZH-2602-B': [('BTC-6040', '料箱 600×400×340', '只', 1), ('GB-800', '隔板', '件', 2)],
+            'ZH-2603-C': [('PLT-1210P', '塑料托盘 1200×1000', '块', 1), ('—', '护角', '件', 4)],
+        }
+        spec = {'ZH-2601-A': '驾驶室围板箱整箱套件', 'ZH-2602-B': '冲压件料箱组套', 'ZH-2603-C': '电池托盘护角套件'}[code]
+        fees = [fr(['消耗', c, s, u, str(n * k), '散件库存核减']) for c, s, u, k in BOM[code]]
+        fees.append(fr(['产出', code + ' ' + spec, 'BOM 配方', '套', str(n), '组合件入库 · 成品区 RB']))
         buy_side = {'label': '自购侧来源', 'text': '自有散件库（历史采购）', 'full': True}
         rent_side = {'label': '租入侧来源', 'text': '—（纯自有配方）', 'full': True}
     info = [
         {'label': '组装单号', 'text': no, 'full': True},
         {'label': '状态', 'tag': status},
         {'label': '所属项目', 'text': prj},
-        {'label': '母件（产出）', 'text': parent, 'full': True},
+        {'label': '母件（产出）', 'text': parent.split('（')[0], 'full': True},
         {'label': '配方来源', 'text': src, 'full': True},
         {'label': '计划 / 完成', 'text': str(n) + ' 套 / ' + str(done) + ' 套'},
         {'label': '组装人', 'text': oper},
@@ -669,7 +683,7 @@ def cx(no, code, name, split_desc, qty, area, date, status, reason, chain_tail, 
         elif '托盘' in nm:
             rows.append(fr(['产出', 'PLT-1210P', '塑料托盘 1200×1000', '块', q, '散件回库 · ' + area]))
         elif '护角' in nm:
-            rows.append(fr(['产出', 'HJ-300', '电池托盘护角', '件', q, '散件回库 · ' + area]))
+            rows.append(fr(['产出', '—', '电池托盘护角', '件', q, '散件回库 · ' + area]))
     info = [
         {'label': '拆卸单号', 'text': no, 'full': True},
         {'label': '状态', 'tag': status},

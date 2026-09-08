@@ -589,31 +589,25 @@ th.td-num { text-align:right; }
 .tl-i .tl-t{color:#8c8c8c;font-size:12px;margin-right:8px;font-variant-numeric:tabular-nums}
 .tl-i .tl-who{color:#8c8c8c;font-size:12px;margin-left:8px}
 </style>
-<!-- 详情弹窗（四段式：单据头/明细/关联单据互溯链/流转时间线）· 详情落地页补齐 2026-09-04 -->
+<!-- 详情弹窗（四段式）· 骨架化 · 详情弹窗数据驱动 2026-09-08 -->
 <div class="modal-overlay" id="detailModal">
   <div class="modal modal-lg" style="width:780px;">
     <div class="modal-header">
-      <h3 class="modal-title">其他入库单详情 · QTRK-20260901-003</h3>
+      <h3 class="modal-title" id="detailTitle">其他入库单详情</h3>
       <span class="modal-close" onclick="closeModal('detailModal')">×</span>
     </div>
-    <div class="modal-body">
-      <div class="dt-sec">单据信息</div>
-      <div class="dgrid c3"><div class="drow" style="grid-column:1/-1;"><div class="dlabel">入库单号</div><div class="dval">QTRK-20260901-003</div></div><div class="drow"><div class="dlabel">单据类型</div><div class="dval">其他入库单 · 盘盈</div></div><div class="drow"><div class="dlabel">状态</div><div class="dval"><span class="tag tag-orange">待审核</span></div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">物料</div><div class="dval">LJ-B200 铰链 锌合金 65mm</div></div><div class="drow"><div class="dlabel">数量</div><div class="dval">120 件</div></div><div class="drow"><div class="dlabel">入库库区</div><div class="dval">原料区 RA</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">入库类型</div><div class="dval">盘盈入库（盘点差异处理）</div></div><div class="drow"><div class="dlabel">关联盘点单</div><div class="dval"><span class="lk" onclick="go('../仓储作业/盘点列表.html')">PD-202608-02</span></div></div><div class="drow"><div class="dlabel">入库日期</div><div class="dval">2026-09-01</div></div><div class="drow"><div class="dlabel">制单人</div><div class="dval">赵芳</div></div><div class="drow"><div class="dlabel">审核人</div><div class="dval">—</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">备注</div><div class="dval">账外实物，盘点确认后补录库存</div></div></div>
-      <div class="dt-sec">入库明细</div>
-      <div class="table-wrap"><table><thead><tr><th>序号</th><th>物料编码</th><th>名称规格</th><th>单位</th><th class="td-num">数量</th><th>处理方式</th></tr></thead>
-<tbody>
-<tr><td>1</td><td>LJ-B200</td><td>铰链 锌合金 65mm</td><td>件</td><td class="td-num">120</td><td>盘盈补录 · 原料区 RA</td></tr>
-</tbody></table></div>
-      <div class="dt-sec">关联单据</div>
-      <div class="chain"><div class="node"><div class="n-role">库存盘点</div><div class="n-name"><span class="lk" onclick="go('../仓储作业/盘点列表.html')">PD-202608-02 · 差异 12 项</span></div></div><span class="link-arrow">→</span><div class="node" style="border-color:#1677ff;background:#e6f4ff;"><div class="n-role">其他入库（本单）</div><div class="n-name">QTRK-20260901-003</div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">库存台账</div><div class="n-name"><span class="lk" onclick="go('../仓储作业/库存查询.html')">LJ-B200 在库 +120</span></div></div></div>
-      <div class="dt-sec">流转时间线</div>
-      <div class="tl"><div class="tl-i"><span class="tl-t">08-31 18:00</span>盘点完成 · 发现 LJ-B200 账实差异（盘盈 120 件）<span class="tl-who">陈金</span></div><div class="tl-i"><span class="tl-t">09-01 14:30</span>制单 · 盘盈入库申请<span class="tl-who">赵芳</span></div><div class="tl-i off"><span class="tl-t">—</span>待审核 · 通过后库存入账</div></div>
-    </div>
+    <div class="modal-body" id="detailBody"><!-- 内容由 _data/detail-generic.js 按单号渲染 --></div>
     <div class="modal-footer">
       <button class="btn btn-default" onclick="closeModal('detailModal')">关 闭</button>
     </div>
   </div>
 </div>
+<script src="../_data/demo-data.js"></script>
+<script src="../_data/detail-generic.js"></script>
+<script>
+/* demo-data 接线：各行「详情」按行内单号渲染对应数据（2026-09-08 数据驱动） */
+wireDetailModal('otherInbounds');
+</script>
 <script>
 /* ===== 菜单折叠 / 页签与表单视觉态（统一脚本） ===== */
 function go(url) { location.href = url; }

@@ -1,0 +1,10 @@
+[
+ {"page": "采购管理/采购订单列表.html", "entity": "purchaseOrders", "title": "采购订单详情", "tpl": "采购管理/弹窗/采购订单详情.html", "preview": "PO-20260902-018"},
+ {"page": "销售管理/销售订单列表.html", "entity": "salesOrders", "title": "销售订单详情", "tpl": "销售管理/弹窗/销售订单详情.html", "preview": "SO-20260903-0047"},
+ {"page": "仓储作业/采购入库列表.html", "entity": "purchaseInbounds", "title": "采购入库单详情", "tpl": "仓储作业/弹窗/采购入库单详情.html", "preview": "CGRK-20260828-012"},
+ {"page": "仓储作业/销售出库列表.html", "entity": "salesOutbounds", "title": "销售出库单详情", "tpl": "仓储作业/弹窗/销售出库单详情.html", "preview": "XSCK-20260902-015"},
+ {"page": "仓储作业/其他入库列表.html", "entity": "otherInbounds", "title": "其他入库单详情", "tpl": "仓储作业/弹窗/其他入库单详情.html", "preview": "QTRK-20260901-003"},
+ {"page": "仓储作业/其他出库列表.html", "entity": "otherOutbounds", "title": "其他出库单详情", "tpl": "仓储作业/弹窗/其他出库单详情.html", "preview": "QTCK-20260901-004"},
+ {"page": "仓储作业/组装列表.html", "entity": "assemblyOrders", "title": "组装单详情", "tpl": "仓储作业/弹窗/组装单详情.html", "preview": "ZZ-20260822-006"},
+ {"page": "仓储作业/拆卸管理列表.html", "entity": "disassemblyOrders", "title": "拆卸单详情", "tpl": "仓储作业/弹窗/拆卸单详情.html", "preview": "CX-20260902-006"}
+]

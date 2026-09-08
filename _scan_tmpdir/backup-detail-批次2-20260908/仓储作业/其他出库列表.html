@@ -603,25 +603,31 @@ th.td-num { text-align:right; }
 .tl-i .tl-t{color:#8c8c8c;font-size:12px;margin-right:8px;font-variant-numeric:tabular-nums}
 .tl-i .tl-who{color:#8c8c8c;font-size:12px;margin-left:8px}
 </style>
-<!-- 详情弹窗（四段式）· 骨架化 · 详情弹窗数据驱动 2026-09-08 -->
+<!-- 详情弹窗（四段式：单据头/明细/关联单据互溯链/流转时间线）· 详情落地页补齐 2026-09-04 -->
 <div class="modal-overlay" id="detailModal">
   <div class="modal modal-lg" style="width:780px;">
     <div class="modal-header">
-      <h3 class="modal-title" id="detailTitle">其他出库单详情</h3>
+      <h3 class="modal-title">其他出库单详情 · QTCK-20260901-004</h3>
       <span class="modal-close" onclick="closeModal('detailModal')">×</span>
     </div>
-    <div class="modal-body" id="detailBody"><!-- 内容由 _data/detail-generic.js 按单号渲染 --></div>
+    <div class="modal-body">
+      <div class="dt-sec">单据信息</div>
+      <div class="dgrid c3"><div class="drow" style="grid-column:1/-1;"><div class="dlabel">出库单号</div><div class="dval">QTCK-20260901-004</div></div><div class="drow"><div class="dlabel">单据类型</div><div class="dval">其他出库单 · 报废</div></div><div class="drow"><div class="dlabel">状态</div><div class="dval"><span class="tag tag-orange">待审核</span></div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">器具</div><div class="dval">WBX-1210L（旧） 围板箱 1200×1000×970</div></div><div class="drow"><div class="dlabel">数量</div><div class="dval">35 只</div></div><div class="drow"><div class="dlabel">出库库区</div><div class="dval">成品区 RB</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">出库类型</div><div class="dval">报废出库（手工例外）</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">报废原因</div><div class="dval">破损不可维修（字典：破损 PS）</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">处置方式</div><div class="dval">资产出库 · 不可再出租</div></div><div class="drow"><div class="dlabel">出库日期</div><div class="dval">2026-09-01</div></div><div class="drow"><div class="dlabel">制单人</div><div class="dval">赵芳</div></div><div class="drow"><div class="dlabel">审核人</div><div class="dval">—</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">备注</div><div class="dval">旧箱体批次，维修判定不可修复</div></div></div>
+      <div class="dt-sec">出库明细</div>
+      <div class="table-wrap"><table><thead><tr><th>序号</th><th>器具编码</th><th>名称规格</th><th>单位</th><th class="td-num">数量</th><th>处置去向</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>WBX-1210L（旧）</td><td>围板箱 1200×1000×970 · 旧箱体批次</td><td>只</td><td class="td-num">35</td><td>资产报废出库</td></tr>
+</tbody></table></div>
+      <div class="dt-sec">关联单据</div>
+      <div class="chain"><div class="node"><div class="n-role">库存台账</div><div class="n-name"><span class="lk" onclick="go('../仓储作业/库存查询.html')">成品区 RB · 旧箱体批次</span></div></div><span class="link-arrow">→</span><div class="node" style="border-color:#1677ff;background:#e6f4ff;"><div class="n-role">其他出库（本单）</div><div class="n-name">QTCK-20260901-004</div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">资产处置</div><div class="n-name">报废出库 · 账面核减</div></div></div>
+      <div class="dt-sec">流转时间线</div>
+      <div class="tl"><div class="tl-i"><span class="tl-t">08-30 16:20</span>维修判定 · 旧批次围板箱不可修复<span class="tl-who">张伟</span></div><div class="tl-i"><span class="tl-t">09-01 15:50</span>制单 · 报废出库申请<span class="tl-who">赵芳</span></div><div class="tl-i off"><span class="tl-t">—</span>待审核 · 通过后资产出库核减</div></div>
+    </div>
     <div class="modal-footer">
       <button class="btn btn-default" onclick="closeModal('detailModal')">关 闭</button>
     </div>
   </div>
 </div>
-<script src="../_data/demo-data.js"></script>
-<script src="../_data/detail-generic.js"></script>
-<script>
-/* demo-data 接线：各行「详情」按行内单号渲染对应数据（2026-09-08 数据驱动） */
-wireDetailModal('otherOutbounds');
-</script>
 <script>
 /* ===== 菜单折叠 / 页签与表单视觉态（统一脚本） ===== */
 function go(url) { location.href = url; }

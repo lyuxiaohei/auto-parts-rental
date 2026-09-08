@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<title>其他出库 - 包装租赁管理后台</title>
+<title>采购订单 - 包装租赁管理后台</title>
 <style>
 :root {
   --primary: #1677ff;
@@ -265,10 +265,10 @@ th.td-num { text-align:right; }
    <li><div class="sm-link" onclick="go('../基础数据/库位档案.html')">库位档案</div></li>
    </ul>
    </li>
-   <li class="sm-item has-sub">
+   <li class="sm-item has-sub open">
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></span>采购管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
-   <li><div class="sm-link" onclick="go('../采购管理/采购订单列表.html')">采购订单</div></li>
+   <li><div class="sm-link selected">采购订单</div></li>
    <li><div class="sm-link" onclick="go('../采购管理/租入单列表.html')">租入单</div></li>
    </ul>
    </li>
@@ -279,7 +279,7 @@ th.td-num { text-align:right; }
    <li><div class="sm-link" onclick="go('../销售管理/租赁单列表.html')">租赁单</div></li>
    </ul>
    </li>
-   <li class="sm-item has-sub open">
+   <li class="sm-item has-sub">
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/><line x1="10" y1="12" x2="14" y2="12"/></svg></span>仓储作业<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
    <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">入库类</li>
@@ -290,7 +290,7 @@ th.td-num { text-align:right; }
    <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">出库类</li>
    <li><div class="sm-link" onclick="go('../仓储作业/组合出库列表.html')">租赁出库</div></li>
    <li><div class="sm-link" onclick="go('../仓储作业/销售出库列表.html')">销售出库</div></li>
-   <li><div class="sm-link selected">其他出库</div></li>
+   <li><div class="sm-link" onclick="go('../仓储作业/其他出库列表.html')">其他出库</div></li>
    <li><div class="sm-link" onclick="go('../仓储作业/租入归还列表.html')">租入归还</div></li>
    <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">组装拆卸</li>
    <li><div class="sm-link" onclick="go('../仓储作业/组装列表.html')">组装</div></li>
@@ -342,26 +342,29 @@ th.td-num { text-align:right; }
   </div></aside>
   <div class="main-col">
 <div class="tabs">
-  <span class="tab active">其他出库 <span class="close">×</span></span>
-  <span class="tab">销售出库 <span class="close">×</span></span>
-  <span class="tab">租赁出库 <span class="close">×</span></span>
+  <span class="tab active">采购订单 <span class="close">×</span></span>
+  <span class="tab">采购入库 <span class="close">×</span></span>
+  <span class="tab">应付账单 <span class="close">×</span></span>
 </div>
     <div class="content">
 <div class="filter-card collapsed" id="filterCard">
   <div class="filter-grid">
-    <div class="ff"><span class="ff-label">单号：</span><input placeholder="请输入"></div>
-    <div class="ff"><span class="ff-label">出库类型：</span>
-      <select><option selected>全部</option><option>报废</option><option>盘亏</option><option>赔偿核销</option><option>其他</option></select>
+    <div class="ff"><span class="ff-label">采购订单号：</span><input placeholder="请输入"></div>
+    <div class="ff"><span class="ff-label">供应商：</span>
+      <select><option selected>全部</option><option>苏州联恒五金制品有限公司</option><option>宁波华塑包装制品有限公司</option><option>常州正大塑料托盘厂</option><option>路凯包装运营（上海）有限公司</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
-    <div class="ff"><span class="ff-label">物料名称：</span><input placeholder="请输入"></div>
-    <div class="ff ff-row-extra"><span class="ff-label">状态：</span>
-      <select><option selected>全部</option><option>待审核</option><option>已完成</option></select>
+    <div class="ff"><span class="ff-label">物料类型：</span>
+      <select><option selected>全部</option><option>零部件</option><option>器具</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
-    <div class="ff ff-row-extra"><span class="ff-label">出库日期：</span><input placeholder="开始日期"><span class="ff-sep">→</span><input placeholder="结束日期"></div>
-    <div class="ff ff-row-extra"><span class="ff-label">出库仓库：</span>
-      <select><option selected>全部</option><option>原料区 RA</option><option>成品区 RB</option><option>外协周转区 RC</option></select>
+    <div class="ff ff-row-extra"><span class="ff-label">订单状态：</span>
+      <select><option selected>全部</option><option>待审核</option><option>已审核</option><option>已完成</option><option>已关闭</option></select>
+      <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+    <div class="ff ff-row-extra"><span class="ff-label">下单日期：</span><input placeholder="开始日期"><span class="ff-sep">→</span><input placeholder="结束日期"></div>
+    <div class="ff ff-row-extra"><span class="ff-label">所属项目：</span>
+      <select><option selected>全部</option><option>PRJ-2601</option><option>PRJ-2602</option><option>PRJ-2603</option><option>PRJ-2604</option><option>PRJ-2605</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
     <div class="filter-actions">
@@ -373,83 +376,139 @@ th.td-num { text-align:right; }
 </div>
 <div class="card">
   <div class="card-head">
-    <h3 class="card-title">其他出库单</h3>
-    <div class="head-btns"><button class="btn btn-default btn-sm">批量导出</button><button class="btn btn-sm" onclick="openModal('createModal')">新增出库单</button></div>
+    <h3 class="card-title">采购订单</h3>
+    <div class="head-btns"><button class="btn btn-default btn-sm">批量导出</button><button class="btn btn-sm" onclick="openModal('createModal')">新建采购订单</button></div>
   </div>
 <div class="stabs">
-  <span class="stab active">全部<span class="stab-count">9</span></span>
-  <span class="stab">待审核<span class="stab-count">2</span></span>
+  <span class="stab active">全部<span class="stab-count">18</span></span>
+  <span class="stab">待审核<span class="stab-count">3</span></span>
+  <span class="stab">已审核<span class="stab-count">6</span></span>
   <span class="stab">已完成<span class="stab-count">7</span></span>
+  <span class="stab">已关闭<span class="stab-count">2</span></span>
 </div>
 <div class="table-wrap">
     <table>
       <thead>
         <tr>
           <th></th>
-          <th>单号</th>
-          <th>出库类型</th>
-          <th>物料名称</th>
+          <th>采购订单号</th>
+          <th>供应商名称</th>
+          <th>物料类型</th>
+          <th>采购明细摘要</th>
           <th>数量</th>
-          <th>出库仓库</th>
-          <th>出库日期</th>
-          <th>状态</th>
+          <th>金额(元)</th>
+          <th>币种</th>
+          <th>预计到货日期</th>
+          <th>关联销售订单号</th>
+          <th>订单状态</th>
           <th class="sticky-op">操作</th>
         </tr>
       </thead>
       <tbody>
-      <tr> <td><input type="checkbox" class="cb"></td> <td><span class="lk">QTCK-20260905-005</span></td> <td><span class="tag tag-blue">赔偿核销</span></td> <td>GB-800 隔板 · 关联赔偿单 <span class="lk">BS-20260902-010</span>（丢失 1 套自客户态出账）</td> <td><span class="td-num">1 套</span></td> <td>—</td> <td>2026-09-05</td> <td><span class="tag tag-green">已出库</span></td> <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a></span></td> </tr>
-        
-
         <tr>
           <td><input type="checkbox" class="cb"></td>
-          <td><span class="lk">QTCK-20260901-004</span></td>
-          <td><span class="tag tag-red">报废</span></td>
-          <td>WBX-1210L(旧) 围板箱 旧箱体批次</td>
-          <td><span class="td-num">35 只</span></td>
-          <td>成品区 RB</td>
-          <td>2026-09-01</td>
+          <td data-note="1"><span class="lk">PO-20260902-018</span></td>
+          <td>苏州联恒五金制品有限公司</td>
+          <td><span class="tag tag-blue">零部件</span></td>
+          <td>锁扣组件×5,000 / 铰链×2,000</td>
+          <td><span class="td-num">7,000</span></td>
+          <td><span class="td-num">12,700.00</span></td>
+          <td>CNY</td>
+          <td>2026-09-10</td>
+          <td><span class="lk">SO-20260831-0042</span></td>
           <td><span class="tag tag-orange">待审核</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('auditModal')">审核</a><a onclick="openModal('detailModal')">详情</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('auditModal')">审核</a><a>关闭</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
-          <td><span class="lk">QTCK-20260829-003</span></td>
-          <td><span class="tag tag-orange">盘亏</span></td>
-          <td>LJ-F600 内衬 EPE 珍珠棉</td>
-          <td><span class="td-num">80 件</span></td>
-          <td>原料区 RA</td>
-          <td>2026-08-29</td>
+          <td><span class="lk">PO-20260901-017</span></td>
+          <td>宁波华塑包装制品有限公司</td>
+          <td><span class="tag tag-green">器具</span></td>
+          <td>围板箱 1200×1000×970×300</td>
+          <td><span class="td-num">300</span></td>
+          <td><span class="td-num">84,000.00</span></td>
+          <td>CNY</td>
+          <td>2026-09-15</td>
+          <td>—</td>
+          <td><span class="tag tag-orange">待审核</span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('auditModal')">审核</a><a>关闭</a></span></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" class="cb"></td>
+          <td><span class="lk">PO-20260830-016</span></td>
+          <td>常州正大塑料托盘厂</td>
+          <td><span class="tag tag-green">器具</span></td>
+          <td>塑料托盘 1200×1000×500</td>
+          <td><span class="td-num">500</span></td>
+          <td><span class="td-num">42,500.00</span></td>
+          <td>CNY</td>
+          <td>2026-09-08</td>
+          <td>—</td>
+          <td><span class="tag tag-blue">已审核</span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../仓储作业/采购入库列表.html')">生成入库单</a><a>关闭</a></span></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" class="cb"></td>
+          <td><span class="lk">PO-20260828-015</span></td>
+          <td>苏州联恒五金制品有限公司</td>
+          <td><span class="tag tag-blue">零部件</span></td>
+          <td>箱盖 ABS 吸塑×2,000</td>
+          <td><span class="td-num">2,000</span></td>
+          <td><span class="td-num">6,300.00</span></td>
+          <td>CNY</td>
+          <td>2026-09-05</td>
+          <td><span class="lk">SO-20260827-0039</span></td>
+          <td><span class="tag tag-blue">已审核</span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../仓储作业/采购入库列表.html')">生成入库单</a><a>关闭</a></span></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" class="cb"></td>
+          <td><span class="lk">PO-20260825-014</span></td>
+          <td>宁波华塑包装制品有限公司</td>
+          <td><span class="tag tag-green">器具</span></td>
+          <td>料箱 600×400×340×800</td>
+          <td><span class="td-num">800</span></td>
+          <td><span class="td-num">35,200.00</span></td>
+          <td>CNY</td>
+          <td>2026-09-02</td>
+          <td>—</td>
           <td><span class="tag tag-green">已完成</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="go('../仓储作业/采购入库列表.html')">入库记录</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
-          <td><span class="lk">QTCK-20260825-002</span></td>
-          <td><span class="tag tag-red">报废</span></td>
-          <td>PLT-1210W 木托盘 1200×1000</td>
-          <td><span class="td-num">22 块</span></td>
-          <td>成品区 RB</td>
+          <td><span class="lk">PO-20260820-013</span></td>
+          <td>常州正大塑料托盘厂</td>
+          <td><span class="tag tag-green">器具</span></td>
+          <td>木托盘 1200×1000×400</td>
+          <td><span class="td-num">400</span></td>
+          <td><span class="td-num">19,600.00</span></td>
+          <td>CNY</td>
+          <td>2026-08-30</td>
+          <td>—</td>
+          <td><span class="tag tag-green">已完成</span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="go('../仓储作业/采购入库列表.html')">入库记录</a></span></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" class="cb"></td>
+          <td><span class="lk">PO-20260815-012</span></td>
+          <td>苏州联恒五金制品有限公司</td>
+          <td><span class="tag tag-blue">零部件</span></td>
+          <td>内衬 EPE 珍珠棉×3,000</td>
+          <td><span class="td-num">3,000</span></td>
+          <td><span class="td-num">4,500.00</span></td>
+          <td>CNY</td>
           <td>2026-08-25</td>
-          <td><span class="tag tag-green">已完成</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a></span></td>
-        </tr>
-        <tr>
-          <td><input type="checkbox" class="cb"></td>
-          <td><span class="lk">QTCK-20260815-001</span></td>
-          <td><span class="tag tag-gray">其他</span></td>
-          <td>LJ-A100 锁扣组件 不锈钢 304</td>
-          <td><span class="td-num">50 件</span></td>
-          <td>原料区 RA</td>
-          <td>2026-08-15</td>
-          <td><span class="tag tag-green">已完成</span></td>
+          <td>—</td>
+          <td><span class="tag tag-gray">已关闭</span></td>
           <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a></span></td>
         </tr>
       </tbody>
     </table>
   </div>
 <div style="display:flex;align-items:center;justify-content:space-between;margin-top:12px" id="pager-row"><div id="batch-btns-area"></div><div class="pager" style="margin:0">
-    <span class="pg-info">第 1-9 条/总共 9 条</span>
-    <span class="pg-btn">‹</span> <span class="pg-btn cur">1</span> <span class="pg-btn">›</span>
+    <span class="pg-info">第 1-10 条/总共 18 条</span>
+    <span class="pg-btn">‹</span> <span class="pg-btn cur">1</span> <span class="pg-btn">2</span> <span class="pg-btn">›</span>
     <span class="pg-size">10 条/页
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
     </span>
@@ -460,30 +519,37 @@ th.td-num { text-align:right; }
   </div>
 </div>
 
-<!-- 弹窗已提取到 弹窗/其他出库新建.html，构建时注入 -->
+<!-- 弹窗已提取到 弹窗/新建采购订单.html，构建时注入 -->
 <div class="modal-overlay" id="createModal">
-  <div class="modal">
+  <div class="modal modal-lg">
     <div class="modal-header">
-      <h3 class="modal-title">新增其他出库单</h3>
+      <h3 class="modal-title">新建采购订单</h3>
       <span class="modal-close" onclick="closeModal('createModal')">×</span>
     </div>
     <div class="modal-body">
 <div class="form-row">
-    <span class="form-label">出库类型</span>
-    <div><span class="radio checked"><span class="dot"></span>报废</span><span class="radio"><span class="dot"></span>盘亏</span><span class="radio"><span class="dot"></span>其他</span></div>
+    <span class="form-label"><span class="req">*</span>供应商</span>
+    <div class="input-box select-box" style="width:350px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option>路凯包装运营（上海）有限公司</option><option selected>苏州联恒五金制品有限公司</option><option>宁波华塑包装制品有限公司</option><option>常州正大塑料托盘厂</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
   </div><div class="form-row">
-    <span class="form-label"><span class="req">*</span>物料</span>
-    <div class="input-box select-box" style="width:350px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>WBX-1210L(旧) 围板箱 旧箱体批次</option><option>WBX-1210L 围板箱</option><option>PLT-1210P 塑料托盘</option><option>BTC-6040 料箱</option><option>LJ-A100 护角</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+    <span class="form-label"><span class="req">*</span>物料类型</span>
+    <div class="input-box select-box" style="width:350px;"><select onchange="var r=document.getElementById('poQjRow');if(r)r.style.display=(this.options[this.selectedIndex].text=='器具')?'flex':'none'" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>零部件</option><option>器具</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+  </div><div class="form-row" id="poQjRow" style="display:none;">
+    <span class="form-label"><span class="req">*</span>器具档案</span>
+    <div class="input-box select-box" style="width:350px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>WBX-1210L 围板箱</option><option>PLT-1210P 塑料托盘</option><option>BTC-6040 料箱</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
   </div><div class="form-row">
-    <span class="form-label">数量</span>
-    <div class="input-box" style="width:350px;"><input value="35" placeholder="请输入"></div>
+    <span class="form-label">关联销售订单号</span>
+    <div class="input-box" style="width:350px;"><input placeholder="选填 · 仅参考关联（非以销定采）"></div>
   </div><div class="form-row">
-    <span class="form-label"><span class="req">*</span>出库仓库</span>
-    <div class="input-box select-box" style="width:350px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>成品区 RB</option><option>华东中心仓（WH-01）</option><option>华南仓（WH-02）</option><option>西南仓（WH-03）</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
-  </div><div class="form-row">
-    <span class="form-label">出库日期</span>
-    <div class="input-box" style="width:350px;"><input value="2026-09-03" placeholder="请输入"></div>
-  </div><div class="form-row">
+    <span class="form-label">预计到货日期</span>
+    <div class="input-box" style="width:350px;"><input value="2026-09-15" placeholder="请输入"></div>
+  </div><div style="margin:4px 0 8px;font-size:13px;font-weight:600;color:#1a1a1a;">采购明细</div>
+  <div class="table-wrap" style="border:1px solid var(--border);border-radius:6px;">
+    <table class="edit-tbl">
+      <thead><tr><th>物料编码</th><th>物料名称</th><th>规格</th><th>单位</th><th>数量</th><th>单价(元)</th><th>金额(元)</th></tr></thead>
+      <tbody><tr><td><input value="LJ-A100"></td><td><input value="锁扣组件"></td><td><input value="不锈钢 304"></td><td><input value="件"></td><td><input value="5,000"></td><td><input value="1.28"></td><td><input class="auto" value="6,400.00" readonly></td></tr><tr><td><input value="LJ-B200"></td><td><input value="铰链"></td><td><input value="锌合金 65mm"></td><td><input value="件"></td><td><input value="2,000"></td><td><input value="1.65"></td><td><input class="auto" value="3,300.00" readonly></td></tr></tbody>
+    </table>
+  </div>
+  <button class="btn btn-dashed btn-sm" style="width:100%;margin-top:8px;">+ 添加一行</button><div class="form-row">
     <span class="form-label">备注</span>
     <div class="input-box" style="width:350px;"><input placeholder="选填"></div>
   </div>
@@ -497,7 +563,7 @@ th.td-num { text-align:right; }
 </div>
 
 
-<!-- 弹窗已提取到 弹窗/其他出库审核.html，构建时注入 -->
+<!-- 弹窗已提取到 弹窗/采购订单审核.html，构建时注入 -->
 <div class="modal-overlay" id="auditModal">
   <div class="modal">
     <div class="modal-header">
@@ -506,10 +572,10 @@ th.td-num { text-align:right; }
     </div>
     <div class="modal-body">
       <div class="dgrid" style="margin-bottom:16px;">
-        <div class="drow"><div class="dlabel">单据编号</div><div class="dval">QTCK-20260901-004</div></div>
-        <div class="drow"><div class="dlabel">单据类型</div><div class="dval">其他出库单（报废）</div></div>
-        <div class="drow"><div class="dlabel">出库数量</div><div class="dval">35 只</div></div>
-        <div class="drow"><div class="dlabel">提交人 / 时间</div><div class="dval">李国栋 / 2026-09-01 15:20</div></div>
+        <div class="drow"><div class="dlabel">单据编号</div><div class="dval">PO-20260902-018</div></div>
+        <div class="drow"><div class="dlabel">单据类型</div><div class="dval">采购订单</div></div>
+        <div class="drow"><div class="dlabel">采购金额</div><div class="dval">12,700.00 元</div></div>
+        <div class="drow"><div class="dlabel">提交人 / 时间</div><div class="dval">王强 / 2026-09-02 10:24</div></div>
         
       </div>
       <div class="form-row">
@@ -585,6 +651,9 @@ th.td-num { text-align:right; }
   setTimeout(function(){ clearInterval(t); }, 4000);
 })();
 </script>
+
+
+
 <style id="detail-modal-css">
 /* 详情弹窗（四段式）专用样式：段落标题 / 关联链 / 流转时间线 */
 .dt-sec{font-size:13px;font-weight:600;color:#262626;margin:0 0 10px;padding-left:8px;border-left:3px solid #1677ff;line-height:1.3}
@@ -603,25 +672,33 @@ th.td-num { text-align:right; }
 .tl-i .tl-t{color:#8c8c8c;font-size:12px;margin-right:8px;font-variant-numeric:tabular-nums}
 .tl-i .tl-who{color:#8c8c8c;font-size:12px;margin-left:8px}
 </style>
-<!-- 详情弹窗（四段式）· 骨架化 · 详情弹窗数据驱动 2026-09-08 -->
+<!-- 详情弹窗（四段式：单据头/明细/关联单据互溯链/流转时间线）· 详情落地页补齐 2026-09-04 -->
 <div class="modal-overlay" id="detailModal">
   <div class="modal modal-lg" style="width:780px;">
     <div class="modal-header">
-      <h3 class="modal-title" id="detailTitle">其他出库单详情</h3>
+      <h3 class="modal-title">采购订单详情 · PO-20260902-018</h3>
       <span class="modal-close" onclick="closeModal('detailModal')">×</span>
     </div>
-    <div class="modal-body" id="detailBody"><!-- 内容由 _data/detail-generic.js 按单号渲染 --></div>
+    <div class="modal-body">
+      <div class="dt-sec">单据信息</div>
+      <div class="dgrid c3"><div class="drow"><div class="dlabel">订单号</div><div class="dval">PO-20260902-018</div></div><div class="drow"><div class="dlabel">状态</div><div class="dval"><span class="tag tag-orange">待审核</span></div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">供应商</div><div class="dval">苏州联恒五金制品有限公司</div></div><div class="drow"><div class="dlabel">物料类型</div><div class="dval">零部件</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">采购内容</div><div class="dval">锁扣组件 × 5,000 / 铰链 × 2,000</div></div><div class="drow"><div class="dlabel">数量合计</div><div class="dval">7,000 件</div></div><div class="drow"><div class="dlabel">订单金额</div><div class="dval">12,700.00 CNY</div></div><div class="drow"><div class="dlabel">交货日期</div><div class="dval">2026-09-10</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">参考关联销售订单</div><div class="dval"><span class="lk" onclick="go('../销售管理/销售订单列表.html')">SO-20260831-0042</span>（参考 · 不以销定采）</div></div><div class="drow"><div class="dlabel">制单人</div><div class="dval">李国栋</div></div><div class="drow"><div class="dlabel">审核人</div><div class="dval">—</div></div></div>
+      <div class="dt-sec">物料行</div>
+      <div class="table-wrap"><table><thead><tr><th>零件号</th><th>名称规格</th><th>单位</th><th class="td-num">数量</th><th class="td-num">单价(元)</th><th class="td-num">金额(元)</th></tr></thead>
+<tbody>
+<tr><td>LJ-A100</td><td>锁扣组件 不锈钢 304</td><td>件</td><td class="td-num">5,000</td><td class="td-num">1.90</td><td class="td-num">9,500.00</td></tr>
+<tr><td>LJ-B200</td><td>铰链 锌合金 65mm</td><td>件</td><td class="td-num">2,000</td><td class="td-num">1.60</td><td class="td-num">3,200.00</td></tr>
+<tr><td></td><td>合计</td><td></td><td class="td-num">7,000</td><td></td><td class="td-num">12,700.00</td></tr>
+</tbody></table></div>
+      <div class="dt-sec">关联单据</div>
+      <div class="chain"><div class="node"><div class="n-role">销售订单（参考）</div><div class="n-name"><span class="lk" onclick="go('../销售管理/销售订单列表.html')">SO-20260831-0042</span></div></div><span class="link-arrow">→</span><div class="node" style="border-color:#1677ff;background:#e6f4ff;"><div class="n-role">采购订单（本单）</div><div class="n-name">PO-20260902-018 · 独立采购线</div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">采购入库</div><div class="n-name"><span class="lk" onclick="go('../仓储作业/采购入库列表.html')">凭单到货验收</span></div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">应付账单</div><div class="n-name"><span class="lk" onclick="go('../财务协同/应付账单.html')">采购应付</span></div></div></div>
+      <div class="dt-sec">流转时间线</div>
+      <div class="tl"><div class="tl-i"><span class="tl-t">09-02 14:20</span>制单 · 零部件采购（锁扣 / 铰链）<span class="tl-who">李国栋</span></div><div class="tl-i off"><span class="tl-t">—</span>待审核 · 通过后按交期 09-10 到货验收</div></div>
+    </div>
     <div class="modal-footer">
       <button class="btn btn-default" onclick="closeModal('detailModal')">关 闭</button>
     </div>
   </div>
 </div>
-<script src="../_data/demo-data.js"></script>
-<script src="../_data/detail-generic.js"></script>
-<script>
-/* demo-data 接线：各行「详情」按行内单号渲染对应数据（2026-09-08 数据驱动） */
-wireDetailModal('otherOutbounds');
-</script>
 <script>
 /* ===== 菜单折叠 / 页签与表单视觉态（统一脚本） ===== */
 function go(url) { location.href = url; }
@@ -681,6 +758,80 @@ document.querySelectorAll('.tab').forEach(function (t) {
     el.style.transform = 'scale(.96)';
     setTimeout(function () { el.style.transform = ''; }, 160);
   }, true);
+})();
+</script>
+
+
+
+<style id="proto-notes-style">
+body.proto-notes-on [data-note]{position:relative}
+body.proto-notes-on [data-note]::after{content:attr(data-note);position:absolute;top:1px;right:1px;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600;box-shadow:0 0 0 1.5px #fff;cursor:pointer;opacity:.75;transition:opacity .15s}
+body.proto-notes-on [data-note]:hover::after{opacity:1}
+@keyframes pn-blink{0%{box-shadow:0 0 0 2px #722ed1}25%{box-shadow:0 0 0 5px rgba(114,46,209,.35)}100%{box-shadow:0 0 0 2px transparent}}
+.proto-pin{display:none;position:absolute;width:300px;background:#fff;border:1px solid #f0f0f0;border-top:2px solid #722ed1;border-radius:6px;box-shadow:0 4px 14px rgba(0,0,0,.13);z-index:890;padding:10px 12px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;font-size:12px;color:#262626}
+body.proto-notes-on .proto-pin.pn-open{display:block}
+.proto-pin .pnp-close{position:absolute;top:6px;right:8px;cursor:pointer;color:#8c8c8c;font-size:14px;line-height:1;padding:2px}
+.proto-pin .pnp-close:hover{color:#262626}
+.proto-pin .pnp-t{display:flex;align-items:center;gap:6px;font-weight:600;font-size:13px;color:#262626;padding-right:16px}
+.proto-pin .pnp-n{flex:none;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600}
+.proto-pin .pnp-d{margin-top:5px;color:#595959;line-height:1.6}
+.proto-pin .pnp-b{margin-top:6px;display:flex;gap:4px;flex-wrap:wrap}
+.proto-pin .pnp-tag{background:#f9f0ff;color:#722ed1;border-radius:3px;padding:0 6px;font-size:11px;line-height:20px}
+.proto-pin .pnp-src{margin-top:8px;padding-top:7px;border-top:1px dashed #e5dff0;font-size:11px;color:#595959;line-height:1.65}
+.proto-pin .pnp-src b{color:#722ed1;font-weight:600}
+.pn-fab{position:fixed;right:12px;bottom:12px;z-index:880;display:flex;align-items:center;gap:5px;height:24px;padding:0 10px;border-radius:4px;background:#fff;border:1px solid #ddd0ec;color:#722ed1;font-size:11px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.06);opacity:.6;transition:opacity .15s}
+.pn-fab:hover{opacity:1;border-color:#722ed1}
+body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
+.pn-fab .pn-fab-n{font-family:Consolas,monospace;font-weight:600}
+</style>
+<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>B1 采购线 · 步骤 1/3 采购订单</div><div class="pnp-d">零部件/器具两类公用一个采购订单模块（王琳总 0:40）；独立采购线，不以销定采（王琳总 2:36）。<br>锁定供应商与价格。下一步 → 采购入库 CGRK-20260824-005（凭订单到货验收）。</div></div>
+<div class="pn-fab" id="protoNotesFab">标注</div></div>
+<script id="proto-notes-js">
+(function(){
+  var KEY='proto-notes-on';
+  function on(){return location.search.indexOf('notes=1')>-1||localStorage.getItem(KEY)==='1'}
+  function apply(){
+    document.body.classList.toggle('proto-notes-on',on());
+    var fab=document.getElementById('protoNotesFab');
+    if(fab){fab.innerHTML=on()?'收起':'标注 <span class="pn-fab-n">'+(document.querySelectorAll('[data-note]').length)+'</span>';fab.title=on()?'收起标注（Alt+N）':'显示标注（Alt+N）'}
+  }
+  function toggle(){var v=!on();localStorage.setItem(KEY,v?'1':'0');apply()}
+  document.addEventListener('keydown',function(e){if(e.altKey&&(e.key==='n'||e.key==='N')){e.preventDefault();toggle()}});
+  function place(el,pin){
+    var r=el.getBoundingClientRect(),sx=window.scrollX||0,sy=window.scrollY||0;
+    var w=pin.offsetWidth||248,h=pin.offsetHeight||90,vw=document.documentElement.clientWidth;
+    var x=r.right+sx+12;
+    if(x+w>sx+vw-8){var xl=r.left+sx-w-12;x=xl>=sx+8?xl:(sx+vw-w-8)}
+    var y=r.top+sy;
+    if(y+h>sy+document.documentElement.clientHeight-8)y=Math.max(sy+52,r.bottom+sy-h);
+    pin.style.left=x+'px';pin.style.top=y+'px';
+  }
+  document.addEventListener('click',function(e){
+    if(!on())return;
+    var tgt=e.target.closest?e.target.closest('[data-note]'):null;
+    if(tgt){
+      var r=tgt.getBoundingClientRect();
+      if(e.clientX>r.right-24&&e.clientY<r.top+22){
+        e.stopPropagation();e.preventDefault();
+        var pin=document.getElementById('proto-pin-'+tgt.getAttribute('data-note'));
+        if(pin){
+          if(pin.classList.contains('pn-open')){pin.classList.remove('pn-open')}
+          else{pin.classList.add('pn-open');place(tgt,pin)}
+        }
+      }
+    }
+  },true);
+  document.addEventListener('click',function(e){
+    var t=e.target;
+    var fab=t.closest?t.closest('.pn-fab'):null;
+    if(fab){toggle();return}
+    var pc=t.closest?t.closest('.proto-pin'):null;
+    if(pc){
+      if(t.classList&&t.classList.contains('pnp-close'))pc.classList.remove('pn-open');
+      return;
+    }
+  });
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply);else apply();
 })();
 </script>
 </body>

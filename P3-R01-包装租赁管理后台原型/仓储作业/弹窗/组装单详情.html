@@ -274,28 +274,14 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 <body style="background:#f5f6f8;min-height:100vh;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif">
 <!-- 弹窗模板：组装单详情（详情落地页补齐 2026-09-04） -->
 <!-- 注入标记：仓储作业/组装列表.html -->
-<!-- 详情弹窗（四段式：单据头/明细/关联单据互溯链/流转时间线）· 详情落地页补齐 2026-09-04 -->
+<!-- 详情弹窗（四段式）· 骨架化 · 详情弹窗数据驱动 2026-09-08 -->
 <div class="modal-overlay" id="detailModal">
   <div class="modal modal-lg" style="width:780px;">
     <div class="modal-header">
-      <h3 class="modal-title">组装单详情 · ZZ-20260822-006</h3>
+      <h3 class="modal-title" id="detailTitle">组装单详情</h3>
       <span class="modal-close" onclick="closeModal('detailModal')">×</span>
     </div>
-    <div class="modal-body">
-      <div class="dt-sec">单据信息</div>
-      <div class="dgrid c3"><div class="drow"><div class="dlabel">组装单号</div><div class="dval">ZZ-20260822-006</div></div><div class="drow"><div class="dlabel">状态</div><div class="dval"><span class="tag tag-green">已完成</span></div></div><div class="drow"><div class="dlabel">所属项目</div><div class="dval">PRJ-2604</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">母件（产出）</div><div class="dval">ZH-2604-D 混合组合套件</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">配方来源</div><div class="dval">混合（自购隔板 + 租入大箱 × 10）</div></div><div class="drow"><div class="dlabel">计划 / 完成</div><div class="dval">40 套 / 40 套</div></div><div class="drow"><div class="dlabel">组装人</div><div class="dval">刘志强</div></div><div class="drow"><div class="dlabel">组装日期</div><div class="dval">2026-08-22 09:00</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">自购侧来源</div><div class="dval"><span class="lk" onclick="go('../../仓储作业/采购入库列表.html')">CGRK-20260820-006</span>（折叠隔板 × 80）</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">租入侧来源</div><div class="dval"><span class="lk" onclick="go('../../采购管理/租入单列表.html')">RZD-20260815-005</span>（租入大箱 × 10）</div></div></div>
-      <div class="dt-sec">投入 / 产出明细</div>
-      <div class="table-wrap"><table><thead><tr><th>类型</th><th>物料</th><th>来源</th><th>单位</th><th class="td-num">数量</th><th>去向</th></tr></thead>
-<tbody>
-<tr><td>消耗</td><td>折叠隔板</td><td>自购 · 苏州联恒</td><td>件</td><td class="td-num">80</td><td>散件核减</td></tr>
-<tr><td>消耗</td><td>围板箱大箱 1200×1000×970</td><td>租入 · 路凯</td><td>只</td><td class="td-num">10</td><td>租入在库核减</td></tr>
-<tr><td>产出</td><td>ZH-2604-D 混合组合套件</td><td>混合配方</td><td>套</td><td class="td-num">40</td><td>组合件入库 · 成品区 RB</td></tr>
-</tbody></table></div>
-      <div class="dt-sec">关联单据</div>
-      <div class="chain"><div class="node"><div class="n-role">自购侧入库</div><div class="n-name"><span class="lk" onclick="go('../../仓储作业/采购入库列表.html')">CGRK-20260820-006 · 隔板×80</span></div></div><div class="node"><div class="n-role">租入侧</div><div class="n-name"><span class="lk" onclick="go('../../采购管理/租入单列表.html')">RZD-20260815-005 · 大箱×10</span></div></div><span class="link-arrow">→</span><div class="node" style="border-color:#1677ff;background:#e6f4ff;"><div class="n-role">组装（本单）</div><div class="n-name">ZZ-20260822-006</div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">租赁单</div><div class="n-name"><span class="lk" onclick="go('../../销售管理/租赁单列表.html')">ZL-20260823-033</span></div></div></div>
-      <div class="dt-sec">流转时间线</div>
-      <div class="tl"><div class="tl-i"><span class="tl-t">08-20 14:30</span>自购隔板入库 CGRK-20260820-006<span class="tl-who">张伟</span></div><div class="tl-i"><span class="tl-t">08-16</span>租入大箱入库 RZRK-20260816-022<span class="tl-who">李国栋</span></div><div class="tl-i"><span class="tl-t">08-22 09:00</span>组装开始 · 按混合配方投料<span class="tl-who">刘志强</span></div><div class="tl-i"><span class="tl-t">08-22 15:40</span>组装完成 40/40 · 散件库存转母件<span class="tl-who">刘志强</span></div></div>
-    </div>
+    <div class="modal-body" id="detailBody"><!-- 内容由 _data/detail-generic.js 按单号渲染 --></div>
     <div class="modal-footer">
       <button class="btn btn-default" onclick="closeModal('detailModal')">关 闭</button>
     </div>
@@ -319,6 +305,12 @@ document.querySelectorAll('.checkbox').forEach(function (c) {
   c.addEventListener('click', function () { c.classList.toggle('checked'); });
 });
 document.querySelector('.modal-overlay').classList.add('show');
+</script>
+<script src="../../_data/demo-data.js"></script>
+<script src="../../_data/detail-generic.js"></script>
+<script>
+/* 模板预览：默认渲染一条（可换单号预览其他场景）· 2026-09-08 数据驱动 */
+openGenericDetail('assemblyOrders', 'ZZ-20260822-006', '../../');
 </script>
 <script>/*ia-fix: tab-switch + btn-feedback (2026-09-04)*/
 /* R3 顶部页签切换（点击换 active；× 不做关闭跳转——原型不销毁页签） */

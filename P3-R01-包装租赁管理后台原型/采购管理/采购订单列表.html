@@ -672,33 +672,25 @@ th.td-num { text-align:right; }
 .tl-i .tl-t{color:#8c8c8c;font-size:12px;margin-right:8px;font-variant-numeric:tabular-nums}
 .tl-i .tl-who{color:#8c8c8c;font-size:12px;margin-left:8px}
 </style>
-<!-- 详情弹窗（四段式：单据头/明细/关联单据互溯链/流转时间线）· 详情落地页补齐 2026-09-04 -->
+<!-- 详情弹窗（四段式）· 骨架化 · 详情弹窗数据驱动 2026-09-08 -->
 <div class="modal-overlay" id="detailModal">
   <div class="modal modal-lg" style="width:780px;">
     <div class="modal-header">
-      <h3 class="modal-title">采购订单详情 · PO-20260902-018</h3>
+      <h3 class="modal-title" id="detailTitle">采购订单详情</h3>
       <span class="modal-close" onclick="closeModal('detailModal')">×</span>
     </div>
-    <div class="modal-body">
-      <div class="dt-sec">单据信息</div>
-      <div class="dgrid c3"><div class="drow"><div class="dlabel">订单号</div><div class="dval">PO-20260902-018</div></div><div class="drow"><div class="dlabel">状态</div><div class="dval"><span class="tag tag-orange">待审核</span></div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">供应商</div><div class="dval">苏州联恒五金制品有限公司</div></div><div class="drow"><div class="dlabel">物料类型</div><div class="dval">零部件</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">采购内容</div><div class="dval">锁扣组件 × 5,000 / 铰链 × 2,000</div></div><div class="drow"><div class="dlabel">数量合计</div><div class="dval">7,000 件</div></div><div class="drow"><div class="dlabel">订单金额</div><div class="dval">12,700.00 CNY</div></div><div class="drow"><div class="dlabel">交货日期</div><div class="dval">2026-09-10</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">参考关联销售订单</div><div class="dval"><span class="lk" onclick="go('../销售管理/销售订单列表.html')">SO-20260831-0042</span>（参考 · 不以销定采）</div></div><div class="drow"><div class="dlabel">制单人</div><div class="dval">李国栋</div></div><div class="drow"><div class="dlabel">审核人</div><div class="dval">—</div></div></div>
-      <div class="dt-sec">物料行</div>
-      <div class="table-wrap"><table><thead><tr><th>零件号</th><th>名称规格</th><th>单位</th><th class="td-num">数量</th><th class="td-num">单价(元)</th><th class="td-num">金额(元)</th></tr></thead>
-<tbody>
-<tr><td>LJ-A100</td><td>锁扣组件 不锈钢 304</td><td>件</td><td class="td-num">5,000</td><td class="td-num">1.90</td><td class="td-num">9,500.00</td></tr>
-<tr><td>LJ-B200</td><td>铰链 锌合金 65mm</td><td>件</td><td class="td-num">2,000</td><td class="td-num">1.60</td><td class="td-num">3,200.00</td></tr>
-<tr><td></td><td>合计</td><td></td><td class="td-num">7,000</td><td></td><td class="td-num">12,700.00</td></tr>
-</tbody></table></div>
-      <div class="dt-sec">关联单据</div>
-      <div class="chain"><div class="node"><div class="n-role">销售订单（参考）</div><div class="n-name"><span class="lk" onclick="go('../销售管理/销售订单列表.html')">SO-20260831-0042</span></div></div><span class="link-arrow">→</span><div class="node" style="border-color:#1677ff;background:#e6f4ff;"><div class="n-role">采购订单（本单）</div><div class="n-name">PO-20260902-018 · 独立采购线</div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">采购入库</div><div class="n-name"><span class="lk" onclick="go('../仓储作业/采购入库列表.html')">凭单到货验收</span></div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">应付账单</div><div class="n-name"><span class="lk" onclick="go('../财务协同/应付账单.html')">采购应付</span></div></div></div>
-      <div class="dt-sec">流转时间线</div>
-      <div class="tl"><div class="tl-i"><span class="tl-t">09-02 14:20</span>制单 · 零部件采购（锁扣 / 铰链）<span class="tl-who">李国栋</span></div><div class="tl-i off"><span class="tl-t">—</span>待审核 · 通过后按交期 09-10 到货验收</div></div>
-    </div>
+    <div class="modal-body" id="detailBody"><!-- 内容由 _data/detail-generic.js 按单号渲染 --></div>
     <div class="modal-footer">
       <button class="btn btn-default" onclick="closeModal('detailModal')">关 闭</button>
     </div>
   </div>
 </div>
+<script src="../_data/demo-data.js"></script>
+<script src="../_data/detail-generic.js"></script>
+<script>
+/* demo-data 接线：各行「详情」按行内单号渲染对应数据（2026-09-08 数据驱动） */
+wireDetailModal('purchaseOrders');
+</script>
 <script>
 /* ===== 菜单折叠 / 页签与表单视觉态（统一脚本） ===== */
 function go(url) { location.href = url; }

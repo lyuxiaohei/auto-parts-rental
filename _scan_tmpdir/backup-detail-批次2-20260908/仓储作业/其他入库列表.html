@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<title>其他出库 - 包装租赁管理后台</title>
+<title>其他入库 - 包装租赁管理后台</title>
 <style>
 :root {
   --primary: #1677ff;
@@ -285,12 +285,12 @@ th.td-num { text-align:right; }
    <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">入库类</li>
    <li><div class="sm-link" onclick="go('../仓储作业/采购入库列表.html')">采购入库</div></li>
    <li><div class="sm-link" onclick="go('../仓储作业/退租入库列表.html')">退租入库</div></li>
-   <li><div class="sm-link" onclick="go('../仓储作业/其他入库列表.html')">其他入库</div></li>
+   <li><div class="sm-link selected">其他入库</div></li>
    <li><div class="sm-link" onclick="go('../仓储作业/租入入库列表.html')">租入入库</div></li>
    <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">出库类</li>
    <li><div class="sm-link" onclick="go('../仓储作业/组合出库列表.html')">租赁出库</div></li>
    <li><div class="sm-link" onclick="go('../仓储作业/销售出库列表.html')">销售出库</div></li>
-   <li><div class="sm-link selected">其他出库</div></li>
+   <li><div class="sm-link" onclick="go('../仓储作业/其他出库列表.html')">其他出库</div></li>
    <li><div class="sm-link" onclick="go('../仓储作业/租入归还列表.html')">租入归还</div></li>
    <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">组装拆卸</li>
    <li><div class="sm-link" onclick="go('../仓储作业/组装列表.html')">组装</div></li>
@@ -342,25 +342,25 @@ th.td-num { text-align:right; }
   </div></aside>
   <div class="main-col">
 <div class="tabs">
-  <span class="tab active">其他出库 <span class="close">×</span></span>
-  <span class="tab">销售出库 <span class="close">×</span></span>
-  <span class="tab">租赁出库 <span class="close">×</span></span>
+  <span class="tab active">其他入库 <span class="close">×</span></span>
+  <span class="tab">采购入库 <span class="close">×</span></span>
+  <span class="tab">退租入库 <span class="close">×</span></span>
 </div>
     <div class="content">
 <div class="filter-card collapsed" id="filterCard">
   <div class="filter-grid">
     <div class="ff"><span class="ff-label">单号：</span><input placeholder="请输入"></div>
-    <div class="ff"><span class="ff-label">出库类型：</span>
-      <select><option selected>全部</option><option>报废</option><option>盘亏</option><option>赔偿核销</option><option>其他</option></select>
+    <div class="ff"><span class="ff-label">入库类型：</span>
+      <select><option selected>全部</option><option>盘盈</option><option>退货</option><option>其他</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
     <div class="ff"><span class="ff-label">物料名称：</span><input placeholder="请输入"></div>
     <div class="ff ff-row-extra"><span class="ff-label">状态：</span>
-      <select><option selected>全部</option><option>待审核</option><option>已完成</option></select>
+      <select><option selected>全部</option><option>待审核</option><option>已入库</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
-    <div class="ff ff-row-extra"><span class="ff-label">出库日期：</span><input placeholder="开始日期"><span class="ff-sep">→</span><input placeholder="结束日期"></div>
-    <div class="ff ff-row-extra"><span class="ff-label">出库仓库：</span>
+    <div class="ff ff-row-extra"><span class="ff-label">入库日期：</span><input placeholder="开始日期"><span class="ff-sep">→</span><input placeholder="结束日期"></div>
+    <div class="ff ff-row-extra"><span class="ff-label">入库仓库：</span>
       <select><option selected>全部</option><option>原料区 RA</option><option>成品区 RB</option><option>外协周转区 RC</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
@@ -373,13 +373,13 @@ th.td-num { text-align:right; }
 </div>
 <div class="card">
   <div class="card-head">
-    <h3 class="card-title">其他出库单</h3>
-    <div class="head-btns"><button class="btn btn-default btn-sm">批量导出</button><button class="btn btn-sm" onclick="openModal('createModal')">新增出库单</button></div>
+    <h3 class="card-title">其他入库单</h3>
+    <div class="head-btns"><button class="btn btn-default btn-sm">批量导出</button><button class="btn btn-sm" onclick="openModal('createModal')">新增入库单</button></div>
   </div>
 <div class="stabs">
-  <span class="stab active">全部<span class="stab-count">9</span></span>
+  <span class="stab active">全部<span class="stab-count">12</span></span>
   <span class="stab">待审核<span class="stab-count">2</span></span>
-  <span class="stab">已完成<span class="stab-count">7</span></span>
+  <span class="stab">已入库<span class="stab-count">10</span></span>
 </div>
 <div class="table-wrap">
     <table>
@@ -387,69 +387,55 @@ th.td-num { text-align:right; }
         <tr>
           <th></th>
           <th>单号</th>
-          <th>出库类型</th>
+          <th>入库类型</th>
           <th>物料名称</th>
           <th>数量</th>
-          <th>出库仓库</th>
-          <th>出库日期</th>
+          <th>入库仓库</th>
+          <th>入库日期</th>
           <th>状态</th>
           <th class="sticky-op">操作</th>
         </tr>
       </thead>
       <tbody>
-      <tr> <td><input type="checkbox" class="cb"></td> <td><span class="lk">QTCK-20260905-005</span></td> <td><span class="tag tag-blue">赔偿核销</span></td> <td>GB-800 隔板 · 关联赔偿单 <span class="lk">BS-20260902-010</span>（丢失 1 套自客户态出账）</td> <td><span class="td-num">1 套</span></td> <td>—</td> <td>2026-09-05</td> <td><span class="tag tag-green">已出库</span></td> <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a></span></td> </tr>
-        
-
         <tr>
           <td><input type="checkbox" class="cb"></td>
-          <td><span class="lk">QTCK-20260901-004</span></td>
-          <td><span class="tag tag-red">报废</span></td>
-          <td>WBX-1210L(旧) 围板箱 旧箱体批次</td>
-          <td><span class="td-num">35 只</span></td>
-          <td>成品区 RB</td>
+          <td><span class="lk">QTRK-20260901-003</span></td>
+          <td><span class="tag tag-blue">盘盈</span></td>
+          <td>LJ-B200 铰链 锌合金 65mm</td>
+          <td><span class="td-num">120 件</span></td>
+          <td>原料区 RA</td>
           <td>2026-09-01</td>
           <td><span class="tag tag-orange">待审核</span></td>
           <td class="sticky-op"><span class="ops"><a onclick="openModal('auditModal')">审核</a><a onclick="openModal('detailModal')">详情</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
-          <td><span class="lk">QTCK-20260829-003</span></td>
-          <td><span class="tag tag-orange">盘亏</span></td>
-          <td>LJ-F600 内衬 EPE 珍珠棉</td>
-          <td><span class="td-num">80 件</span></td>
+          <td><span class="lk">QTRK-20260828-002</span></td>
+          <td><span class="tag tag-orange">退货</span></td>
+          <td>LJ-D400 箱盖 ABS 吸塑</td>
+          <td><span class="td-num">300 件</span></td>
           <td>原料区 RA</td>
-          <td>2026-08-29</td>
-          <td><span class="tag tag-green">已完成</span></td>
+          <td>2026-08-28</td>
+          <td><span class="tag tag-green">已入库</span></td>
           <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
-          <td><span class="lk">QTCK-20260825-002</span></td>
-          <td><span class="tag tag-red">报废</span></td>
-          <td>PLT-1210W 木托盘 1200×1000</td>
-          <td><span class="td-num">22 块</span></td>
-          <td>成品区 RB</td>
-          <td>2026-08-25</td>
-          <td><span class="tag tag-green">已完成</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a></span></td>
-        </tr>
-        <tr>
-          <td><input type="checkbox" class="cb"></td>
-          <td><span class="lk">QTCK-20260815-001</span></td>
+          <td><span class="lk">QTRK-20260820-001</span></td>
           <td><span class="tag tag-gray">其他</span></td>
-          <td>LJ-A100 锁扣组件 不锈钢 304</td>
-          <td><span class="td-num">50 件</span></td>
-          <td>原料区 RA</td>
-          <td>2026-08-15</td>
-          <td><span class="tag tag-green">已完成</span></td>
+          <td>WBX-1210M 围板箱 1200×1000×590</td>
+          <td><span class="td-num">15 只</span></td>
+          <td>成品区 RB</td>
+          <td>2026-08-20</td>
+          <td><span class="tag tag-green">已入库</span></td>
           <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a></span></td>
         </tr>
       </tbody>
     </table>
   </div>
 <div style="display:flex;align-items:center;justify-content:space-between;margin-top:12px" id="pager-row"><div id="batch-btns-area"></div><div class="pager" style="margin:0">
-    <span class="pg-info">第 1-9 条/总共 9 条</span>
-    <span class="pg-btn">‹</span> <span class="pg-btn cur">1</span> <span class="pg-btn">›</span>
+    <span class="pg-info">第 1-10 条/总共 12 条</span>
+    <span class="pg-btn">‹</span> <span class="pg-btn cur">1</span> <span class="pg-btn">2</span> <span class="pg-btn">›</span>
     <span class="pg-size">10 条/页
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
     </span>
@@ -460,28 +446,28 @@ th.td-num { text-align:right; }
   </div>
 </div>
 
-<!-- 弹窗已提取到 弹窗/其他出库新建.html，构建时注入 -->
+<!-- 弹窗已提取到 弹窗/其他入库新建.html，构建时注入 -->
 <div class="modal-overlay" id="createModal">
   <div class="modal">
     <div class="modal-header">
-      <h3 class="modal-title">新增其他出库单</h3>
+      <h3 class="modal-title">新增其他入库单</h3>
       <span class="modal-close" onclick="closeModal('createModal')">×</span>
     </div>
     <div class="modal-body">
 <div class="form-row">
-    <span class="form-label">出库类型</span>
-    <div><span class="radio checked"><span class="dot"></span>报废</span><span class="radio"><span class="dot"></span>盘亏</span><span class="radio"><span class="dot"></span>其他</span></div>
+    <span class="form-label">入库类型</span>
+    <div><span class="radio checked"><span class="dot"></span>盘盈</span><span class="radio"><span class="dot"></span>退货</span><span class="radio"><span class="dot"></span>其他</span></div>
   </div><div class="form-row">
     <span class="form-label"><span class="req">*</span>物料</span>
-    <div class="input-box select-box" style="width:350px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>WBX-1210L(旧) 围板箱 旧箱体批次</option><option>WBX-1210L 围板箱</option><option>PLT-1210P 塑料托盘</option><option>BTC-6040 料箱</option><option>LJ-A100 护角</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+    <div class="input-box select-box" style="width:350px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>LJ-B200 铰链 锌合金 65mm</option><option>WBX-1210L 围板箱</option><option>PLT-1210P 塑料托盘</option><option>BTC-6040 料箱</option><option>LJ-A100 护角</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
   </div><div class="form-row">
     <span class="form-label">数量</span>
-    <div class="input-box" style="width:350px;"><input value="35" placeholder="请输入"></div>
+    <div class="input-box" style="width:350px;"><input value="120" placeholder="请输入"></div>
   </div><div class="form-row">
-    <span class="form-label"><span class="req">*</span>出库仓库</span>
-    <div class="input-box select-box" style="width:350px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>成品区 RB</option><option>华东中心仓（WH-01）</option><option>华南仓（WH-02）</option><option>西南仓（WH-03）</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+    <span class="form-label"><span class="req">*</span>入库仓库</span>
+    <div class="input-box select-box" style="width:350px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>原料区 RA</option><option>华东中心仓（WH-01）</option><option>华南仓（WH-02）</option><option>西南仓（WH-03）</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
   </div><div class="form-row">
-    <span class="form-label">出库日期</span>
+    <span class="form-label">入库日期</span>
     <div class="input-box" style="width:350px;"><input value="2026-09-03" placeholder="请输入"></div>
   </div><div class="form-row">
     <span class="form-label">备注</span>
@@ -497,7 +483,7 @@ th.td-num { text-align:right; }
 </div>
 
 
-<!-- 弹窗已提取到 弹窗/其他出库审核.html，构建时注入 -->
+<!-- 弹窗已提取到 弹窗/其他入库审核.html，构建时注入 -->
 <div class="modal-overlay" id="auditModal">
   <div class="modal">
     <div class="modal-header">
@@ -506,10 +492,10 @@ th.td-num { text-align:right; }
     </div>
     <div class="modal-body">
       <div class="dgrid" style="margin-bottom:16px;">
-        <div class="drow"><div class="dlabel">单据编号</div><div class="dval">QTCK-20260901-004</div></div>
-        <div class="drow"><div class="dlabel">单据类型</div><div class="dval">其他出库单（报废）</div></div>
-        <div class="drow"><div class="dlabel">出库数量</div><div class="dval">35 只</div></div>
-        <div class="drow"><div class="dlabel">提交人 / 时间</div><div class="dval">李国栋 / 2026-09-01 15:20</div></div>
+        <div class="drow"><div class="dlabel">单据编号</div><div class="dval">QTRK-20260901-003</div></div>
+        <div class="drow"><div class="dlabel">单据类型</div><div class="dval">其他入库单（盘盈）</div></div>
+        <div class="drow"><div class="dlabel">入库数量</div><div class="dval">120 件</div></div>
+        <div class="drow"><div class="dlabel">提交人 / 时间</div><div class="dval">李国栋 / 2026-09-01 09:30</div></div>
         
       </div>
       <div class="form-row">
@@ -603,25 +589,31 @@ th.td-num { text-align:right; }
 .tl-i .tl-t{color:#8c8c8c;font-size:12px;margin-right:8px;font-variant-numeric:tabular-nums}
 .tl-i .tl-who{color:#8c8c8c;font-size:12px;margin-left:8px}
 </style>
-<!-- 详情弹窗（四段式）· 骨架化 · 详情弹窗数据驱动 2026-09-08 -->
+<!-- 详情弹窗（四段式：单据头/明细/关联单据互溯链/流转时间线）· 详情落地页补齐 2026-09-04 -->
 <div class="modal-overlay" id="detailModal">
   <div class="modal modal-lg" style="width:780px;">
     <div class="modal-header">
-      <h3 class="modal-title" id="detailTitle">其他出库单详情</h3>
+      <h3 class="modal-title">其他入库单详情 · QTRK-20260901-003</h3>
       <span class="modal-close" onclick="closeModal('detailModal')">×</span>
     </div>
-    <div class="modal-body" id="detailBody"><!-- 内容由 _data/detail-generic.js 按单号渲染 --></div>
+    <div class="modal-body">
+      <div class="dt-sec">单据信息</div>
+      <div class="dgrid c3"><div class="drow" style="grid-column:1/-1;"><div class="dlabel">入库单号</div><div class="dval">QTRK-20260901-003</div></div><div class="drow"><div class="dlabel">单据类型</div><div class="dval">其他入库单 · 盘盈</div></div><div class="drow"><div class="dlabel">状态</div><div class="dval"><span class="tag tag-orange">待审核</span></div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">物料</div><div class="dval">LJ-B200 铰链 锌合金 65mm</div></div><div class="drow"><div class="dlabel">数量</div><div class="dval">120 件</div></div><div class="drow"><div class="dlabel">入库库区</div><div class="dval">原料区 RA</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">入库类型</div><div class="dval">盘盈入库（盘点差异处理）</div></div><div class="drow"><div class="dlabel">关联盘点单</div><div class="dval"><span class="lk" onclick="go('../仓储作业/盘点列表.html')">PD-202608-02</span></div></div><div class="drow"><div class="dlabel">入库日期</div><div class="dval">2026-09-01</div></div><div class="drow"><div class="dlabel">制单人</div><div class="dval">赵芳</div></div><div class="drow"><div class="dlabel">审核人</div><div class="dval">—</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">备注</div><div class="dval">账外实物，盘点确认后补录库存</div></div></div>
+      <div class="dt-sec">入库明细</div>
+      <div class="table-wrap"><table><thead><tr><th>序号</th><th>物料编码</th><th>名称规格</th><th>单位</th><th class="td-num">数量</th><th>处理方式</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>LJ-B200</td><td>铰链 锌合金 65mm</td><td>件</td><td class="td-num">120</td><td>盘盈补录 · 原料区 RA</td></tr>
+</tbody></table></div>
+      <div class="dt-sec">关联单据</div>
+      <div class="chain"><div class="node"><div class="n-role">库存盘点</div><div class="n-name"><span class="lk" onclick="go('../仓储作业/盘点列表.html')">PD-202608-02 · 差异 12 项</span></div></div><span class="link-arrow">→</span><div class="node" style="border-color:#1677ff;background:#e6f4ff;"><div class="n-role">其他入库（本单）</div><div class="n-name">QTRK-20260901-003</div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">库存台账</div><div class="n-name"><span class="lk" onclick="go('../仓储作业/库存查询.html')">LJ-B200 在库 +120</span></div></div></div>
+      <div class="dt-sec">流转时间线</div>
+      <div class="tl"><div class="tl-i"><span class="tl-t">08-31 18:00</span>盘点完成 · 发现 LJ-B200 账实差异（盘盈 120 件）<span class="tl-who">陈金</span></div><div class="tl-i"><span class="tl-t">09-01 14:30</span>制单 · 盘盈入库申请<span class="tl-who">赵芳</span></div><div class="tl-i off"><span class="tl-t">—</span>待审核 · 通过后库存入账</div></div>
+    </div>
     <div class="modal-footer">
       <button class="btn btn-default" onclick="closeModal('detailModal')">关 闭</button>
     </div>
   </div>
 </div>
-<script src="../_data/demo-data.js"></script>
-<script src="../_data/detail-generic.js"></script>
-<script>
-/* demo-data 接线：各行「详情」按行内单号渲染对应数据（2026-09-08 数据驱动） */
-wireDetailModal('otherOutbounds');
-</script>
 <script>
 /* ===== 菜单折叠 / 页签与表单视觉态（统一脚本） ===== */
 function go(url) { location.href = url; }

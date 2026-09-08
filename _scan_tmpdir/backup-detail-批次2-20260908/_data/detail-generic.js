@@ -28,9 +28,7 @@
     '已关闭': 'tag-gray', '已出库': 'tag-green', '拣货中': 'tag-orange', '待出库': 'tag-orange',
     '履行中': 'tag-blue', '部分归还': 'tag-orange', '已归还': 'tag-green', '已终止': 'tag-gray',
     '待入库': 'tag-orange', '已入库': 'tag-green', '赔偿中': 'tag-orange', '已转应收': 'tag-blue',
-    '已赔偿': 'tag-green', '部分退租': 'tag-blue',
-    '已完成': 'tag-green', '待发货': 'tag-orange', '待验收': 'tag-orange', '已验收': 'tag-green',
-    '组装中': 'tag-blue', '待组装': 'tag-orange', '待结算': 'tag-orange', '进行中': 'tag-blue'
+    '已赔偿': 'tag-green', '部分退租': 'tag-blue'
   };
 
   function lk(text, url, base) {

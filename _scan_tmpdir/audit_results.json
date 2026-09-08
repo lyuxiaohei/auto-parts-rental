@@ -24,16 +24,25 @@
  {
   "page": "仓储作业\\其他入库列表.html",
   "js_errors": [],
-  "problems": [],
+  "problems": [
+   {
+    "cat": "弹窗",
+    "type": "modal-unreachable",
+    "phase": "modal",
+    "where": {
+     "text": "其他入库单详情 · QTRK-20260"
+    },
+    "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
+   }
+  ],
   "stats": {
    "buttons": 11,
    "links": 4,
-   "onclickEls": 55,
+   "onclickEls": 50,
    "modals": 3,
    "modalTitles": [
     "新增其他入库单",
-    "审核确认",
-    "其他入库单详情 · QTRK-20260"
+    "审核确认"
    ],
    "selects": 5,
    "fakeSelects": 0,
@@ -50,16 +59,25 @@
  {
   "page": "仓储作业\\其他出库列表.html",
   "js_errors": [],
-  "problems": [],
+  "problems": [
+   {
+    "cat": "弹窗",
+    "type": "modal-unreachable",
+    "phase": "modal",
+    "where": {
+     "text": "其他出库单详情 · QTCK-20260"
+    },
+    "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
+   }
+  ],
   "stats": {
    "buttons": 11,
    "links": 6,
-   "onclickEls": 55,
+   "onclickEls": 50,
    "modals": 3,
    "modalTitles": [
     "新增其他出库单",
-    "审核确认",
-    "其他出库单详情 · QTCK-20260"
+    "审核确认"
    ],
    "selects": 5,
    "fakeSelects": 0,
@@ -916,17 +934,25 @@
      "inModal": "createModal"
     },
     "detail": "readonly 不可输入（预填:100）"
+   },
+   {
+    "cat": "弹窗",
+    "type": "modal-unreachable",
+    "phase": "modal",
+    "where": {
+     "text": "拆卸单详情 · CX-20260818-"
+    },
+    "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
    }
   ],
   "stats": {
    "buttons": 12,
    "links": 5,
-   "onclickEls": 55,
+   "onclickEls": 51,
    "modals": 3,
    "modalTitles": [
     "新建拆卸单",
-    "审核确认",
-    "拆卸单详情 · CX-20260902-"
+    "审核确认"
    ],
    "selects": 4,
    "fakeSelects": 0,
@@ -1115,15 +1141,24 @@
  {
   "page": "仓储作业\\组装列表.html",
   "js_errors": [],
-  "problems": [],
+  "problems": [
+   {
+    "cat": "弹窗",
+    "type": "modal-unreachable",
+    "phase": "modal",
+    "where": {
+     "text": "组装单详情 · ZZ-20260826-"
+    },
+    "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
+   }
+  ],
   "stats": {
    "buttons": 8,
    "links": 21,
-   "onclickEls": 70,
+   "onclickEls": 59,
    "modals": 2,
    "modalTitles": [
-    "组装确认",
-    "组装单详情 · ZZ-20260822-"
+    "组装确认"
    ],
    "selects": 4,
    "fakeSelects": 0,
@@ -1196,15 +1231,24 @@
  {
   "page": "仓储作业\\采购入库列表.html",
   "js_errors": [],
-  "problems": [],
+  "problems": [
+   {
+    "cat": "弹窗",
+    "type": "modal-unreachable",
+    "phase": "modal",
+    "where": {
+     "text": "采购入库单详情 · CGRK-20260"
+    },
+    "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
+   }
+  ],
   "stats": {
    "buttons": 8,
    "links": 31,
-   "onclickEls": 79,
+   "onclickEls": 70,
    "modals": 2,
    "modalTitles": [
-    "审核确认",
-    "采购入库单详情 · CGRK-20260"
+    "审核确认"
    ],
    "selects": 4,
    "fakeSelects": 0,
@@ -1243,16 +1287,25 @@
  {
   "page": "仓储作业\\销售出库列表.html",
   "js_errors": [],
-  "problems": [],
+  "problems": [
+   {
+    "cat": "弹窗",
+    "type": "modal-unreachable",
+    "phase": "modal",
+    "where": {
+     "text": "销售出库单详情 · XSCK-20260"
+    },
+    "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
+   }
+  ],
   "stats": {
    "buttons": 12,
    "links": 7,
-   "onclickEls": 57,
+   "onclickEls": 51,
    "modals": 3,
    "modalTitles": [
     "新增销售出库单",
-    "审核确认",
-    "销售出库单详情 · XSCK-20260"
+    "审核确认"
    ],
    "selects": 5,
    "fakeSelects": 0,
@@ -2866,17 +2919,25 @@
      "inModal": "createModal"
     },
     "detail": "readonly 不可输入（预填:3,300.00）"
+   },
+   {
+    "cat": "弹窗",
+    "type": "modal-unreachable",
+    "phase": "modal",
+    "where": {
+     "text": "采购订单详情 · PO-20260815"
+    },
+    "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
    }
   ],
   "stats": {
    "buttons": 12,
    "links": 15,
-   "onclickEls": 63,
+   "onclickEls": 56,
    "modals": 3,
    "modalTitles": [
     "新建采购订单",
-    "审核确认",
-    "采购订单详情 · PO-20260902"
+    "审核确认"
    ],
    "selects": 7,
    "fakeSelects": 0,
@@ -3100,17 +3161,25 @@
      "inModal": "createModal"
     },
     "detail": "readonly 不可输入（预填:5,400.00）"
+   },
+   {
+    "cat": "弹窗",
+    "type": "modal-unreachable",
+    "phase": "modal",
+    "where": {
+     "text": "销售订单详情 · SO-20260820"
+    },
+    "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
    }
   ],
   "stats": {
    "buttons": 12,
    "links": 16,
-   "onclickEls": 61,
+   "onclickEls": 56,
    "modals": 3,
    "modalTitles": [
     "新建销售订单",
-    "审核确认",
-    "销售订单详情 · SO-20260903"
+    "审核确认"
    ],
    "selects": 6,
    "fakeSelects": 0,

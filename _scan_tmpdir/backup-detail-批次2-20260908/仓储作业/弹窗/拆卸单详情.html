@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>其他入库单详情 - 包装租赁管理后台</title>
+<title>拆卸单详情 - 包装租赁管理后台</title>
 <style>
 :root {
   --primary: #1677ff;
@@ -272,16 +272,31 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 </style>
 </head>
 <body style="background:#f5f6f8;min-height:100vh;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif">
-<!-- 弹窗模板：其他入库单详情（详情落地页补齐 2026-09-04） -->
-<!-- 注入标记：仓储作业/其他入库列表.html -->
-<!-- 详情弹窗（四段式）· 骨架化 · 详情弹窗数据驱动 2026-09-08 -->
+<!-- 弹窗模板：拆卸单详情（详情落地页补齐 2026-09-04） -->
+<!-- 注入标记：仓储作业/拆卸管理列表.html -->
+<!-- 详情弹窗（四段式：单据头/明细/关联单据互溯链/流转时间线）· 详情落地页补齐 2026-09-04 -->
 <div class="modal-overlay" id="detailModal">
   <div class="modal modal-lg" style="width:780px;">
     <div class="modal-header">
-      <h3 class="modal-title" id="detailTitle">其他入库单详情</h3>
+      <h3 class="modal-title">拆卸单详情 · CX-20260902-006</h3>
       <span class="modal-close" onclick="closeModal('detailModal')">×</span>
     </div>
-    <div class="modal-body" id="detailBody"><!-- 内容由 _data/detail-generic.js 按单号渲染 --></div>
+    <div class="modal-body">
+      <div class="dt-sec">单据信息</div>
+      <div class="dgrid c3"><div class="drow"><div class="dlabel">拆卸单号</div><div class="dval">CX-20260902-006</div></div><div class="drow"><div class="dlabel">状态</div><div class="dval"><span class="tag tag-orange">待审核</span></div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">母件（消耗）</div><div class="dval">ZH-2601-A 驾驶室围板箱整箱套件</div></div><div class="drow"><div class="dlabel">拆卸数量</div><div class="dval">50 套</div></div><div class="drow"><div class="dlabel">拆散方式</div><div class="dval">按 BOM 反拆</div></div><div class="drow"><div class="dlabel">拆散库区</div><div class="dval">成品区 RB</div></div><div class="drow"><div class="dlabel">拆散日期</div><div class="dval">2026-09-02</div></div><div class="drow"><div class="dlabel">制单人</div><div class="dval">张伟</div></div><div class="drow"><div class="dlabel">审核人</div><div class="dval">—</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">拆散原因</div><div class="dval">客户改组合需拆件（整箱需求转散件）</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">循环去向</div><div class="dval">散件回库 · 可循环再组装</div></div></div>
+      <div class="dt-sec">拆散明细（BOM 反拆）</div>
+      <div class="table-wrap"><table><thead><tr><th>类型</th><th>编码</th><th>名称</th><th>单位</th><th class="td-num">数量</th><th>去向</th></tr></thead>
+<tbody>
+<tr><td>消耗</td><td>ZH-2601-A</td><td>驾驶室围板箱整箱套件</td><td>套</td><td class="td-num">50</td><td>组合件库存核减</td></tr>
+<tr><td>产出</td><td>LJ-C300</td><td>围板 HDPE 波纹板</td><td>件</td><td class="td-num">100</td><td>散件回库 · 成品区 RB</td></tr>
+<tr><td>产出</td><td>WBX-1210L</td><td>围板箱 1200×1000×970</td><td>只</td><td class="td-num">50</td><td>散件回库 · 成品区 RB</td></tr>
+<tr><td>产出</td><td>LJ-A100</td><td>锁扣组件 不锈钢 304</td><td>件</td><td class="td-num">200</td><td>散件回库 · 原料区 RA</td></tr>
+</tbody></table></div>
+      <div class="dt-sec">关联单据</div>
+      <div class="chain"><div class="node"><div class="n-role">库存（组合件）</div><div class="n-name"><span class="lk" onclick="go('../../仓储作业/库存查询.html')">ZH-2601-A × 50 套</span></div></div><span class="link-arrow">→</span><div class="node" style="border-color:#1677ff;background:#e6f4ff;"><div class="n-role">拆卸（本单）</div><div class="n-name">CX-20260902-006</div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">库存（散件）</div><div class="n-name"><span class="lk" onclick="go('../../仓储作业/组装列表.html')">可循环再组装</span></div></div></div>
+      <div class="dt-sec">流转时间线</div>
+      <div class="tl"><div class="tl-i"><span class="tl-t">09-02 13:25</span>制单 · 拆卸申请（客户改组合需拆件）<span class="tl-who">张伟</span></div><div class="tl-i off"><span class="tl-t">—</span>待审核 · 通过后按 BOM 反拆、散件回库</div></div>
+    </div>
     <div class="modal-footer">
       <button class="btn btn-default" onclick="closeModal('detailModal')">关 闭</button>
     </div>
@@ -305,12 +320,6 @@ document.querySelectorAll('.checkbox').forEach(function (c) {
   c.addEventListener('click', function () { c.classList.toggle('checked'); });
 });
 document.querySelector('.modal-overlay').classList.add('show');
-</script>
-<script src="../../_data/demo-data.js"></script>
-<script src="../../_data/detail-generic.js"></script>
-<script>
-/* 模板预览：默认渲染一条（可换单号预览其他场景）· 2026-09-08 数据驱动 */
-openGenericDetail('otherInbounds', 'QTRK-20260901-003', '../../');
 </script>
 <script>/*ia-fix: tab-switch + btn-feedback (2026-09-04)*/
 /* R3 顶部页签切换（点击换 active；× 不做关闭跳转——原型不销毁页签） */

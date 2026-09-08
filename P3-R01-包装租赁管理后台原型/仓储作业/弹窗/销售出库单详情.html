@@ -274,26 +274,14 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 <body style="background:#f5f6f8;min-height:100vh;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif">
 <!-- 弹窗模板：销售出库单详情（详情落地页补齐 2026-09-04） -->
 <!-- 注入标记：仓储作业/销售出库列表.html -->
-<!-- 详情弹窗（四段式：单据头/明细/关联单据互溯链/流转时间线）· 详情落地页补齐 2026-09-04 -->
+<!-- 详情弹窗（四段式）· 骨架化 · 详情弹窗数据驱动 2026-09-08 -->
 <div class="modal-overlay" id="detailModal">
   <div class="modal modal-lg" style="width:780px;">
     <div class="modal-header">
-      <h3 class="modal-title">销售出库单详情 · XSCK-20260902-015</h3>
+      <h3 class="modal-title" id="detailTitle">销售出库单详情</h3>
       <span class="modal-close" onclick="closeModal('detailModal')">×</span>
     </div>
-    <div class="modal-body">
-      <div class="dt-sec">单据信息</div>
-      <div class="dgrid c3"><div class="drow" style="grid-column:1/-1;"><div class="dlabel">出库单号</div><div class="dval">XSCK-20260902-015</div></div><div class="drow"><div class="dlabel">状态</div><div class="dval"><span class="tag tag-orange">待审核</span></div></div><div class="drow"><div class="dlabel">关联销售订单</div><div class="dval"><span class="lk" onclick="go('../../销售管理/销售订单列表.html')">SO-20260830-0043</span></div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">客户</div><div class="dval">一汽解放汽车有限公司</div></div><div class="drow"><div class="dlabel">所属项目</div><div class="dval">PRJ-2601</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">出库物料</div><div class="dval">箱盖 ABS 吸塑（LJ-D400）</div></div><div class="drow"><div class="dlabel">数量</div><div class="dval">1,500 件</div></div><div class="drow"><div class="dlabel">出库库区</div><div class="dval">原料区 RA</div></div><div class="drow"><div class="dlabel">制单人</div><div class="dval">张伟</div></div><div class="drow"><div class="dlabel">制单时间</div><div class="dval">2026-09-02 11:30</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">计价方式</div><div class="dval">销售价随订单（一进一出）</div></div></div>
-      <div class="dt-sec">出库明细</div>
-      <div class="table-wrap"><table><thead><tr><th>序号</th><th>物料编码</th><th>名称规格</th><th>单位</th><th class="td-num">数量</th><th>库位</th></tr></thead>
-<tbody>
-<tr><td>1</td><td>LJ-D400</td><td>箱盖 ABS 吸塑</td><td>件</td><td class="td-num">1,500</td><td>RA-A-02-01</td></tr>
-</tbody></table></div>
-      <div class="dt-sec">关联单据</div>
-      <div class="chain"><div class="node"><div class="n-role">销售订单</div><div class="n-name"><span class="lk" onclick="go('../../销售管理/销售订单列表.html')">SO-20260830-0043</span></div></div><span class="link-arrow">→</span><div class="node" style="border-color:#1677ff;background:#e6f4ff;"><div class="n-role">销售出库（本单）</div><div class="n-name">XSCK-20260902-015</div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">应收账单</div><div class="n-name"><span class="lk" onclick="go('../../财务协同/应收账单.html')">销售费 · 按出库自动汇总</span></div></div></div>
-      <div class="dt-sec">流转时间线</div>
-      <div class="tl"><div class="tl-i"><span class="tl-t">09-02 11:30</span>制单 · 按订单可用量备货（LJ-D400 在库 980 + 在途补充）<span class="tl-who">张伟</span></div><div class="tl-i off"><span class="tl-t">—</span>待审核 · 通过后出库并生成销售费应收</div></div>
-    </div>
+    <div class="modal-body" id="detailBody"><!-- 内容由 _data/detail-generic.js 按单号渲染 --></div>
     <div class="modal-footer">
       <button class="btn btn-default" onclick="closeModal('detailModal')">关 闭</button>
     </div>
@@ -317,6 +305,12 @@ document.querySelectorAll('.checkbox').forEach(function (c) {
   c.addEventListener('click', function () { c.classList.toggle('checked'); });
 });
 document.querySelector('.modal-overlay').classList.add('show');
+</script>
+<script src="../../_data/demo-data.js"></script>
+<script src="../../_data/detail-generic.js"></script>
+<script>
+/* 模板预览：默认渲染一条（可换单号预览其他场景）· 2026-09-08 数据驱动 */
+openGenericDetail('salesOutbounds', 'XSCK-20260902-015', '../../');
 </script>
 <script>/*ia-fix: tab-switch + btn-feedback (2026-09-04)*/
 /* R3 顶部页签切换（点击换 active；× 不做关闭跳转——原型不销毁页签） */

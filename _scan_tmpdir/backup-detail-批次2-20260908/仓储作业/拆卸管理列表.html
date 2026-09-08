@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<title>其他出库 - 包装租赁管理后台</title>
+<title>拆卸管理 - 包装租赁管理后台</title>
 <style>
 :root {
   --primary: #1677ff;
@@ -290,11 +290,11 @@ th.td-num { text-align:right; }
    <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">出库类</li>
    <li><div class="sm-link" onclick="go('../仓储作业/组合出库列表.html')">租赁出库</div></li>
    <li><div class="sm-link" onclick="go('../仓储作业/销售出库列表.html')">销售出库</div></li>
-   <li><div class="sm-link selected">其他出库</div></li>
+   <li><div class="sm-link" onclick="go('../仓储作业/其他出库列表.html')">其他出库</div></li>
    <li><div class="sm-link" onclick="go('../仓储作业/租入归还列表.html')">租入归还</div></li>
    <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">组装拆卸</li>
    <li><div class="sm-link" onclick="go('../仓储作业/组装列表.html')">组装</div></li>
-   <li><div class="sm-link" onclick="go('../仓储作业/拆卸管理列表.html')">拆卸管理</div></li>
+   <li><div class="sm-link selected">拆卸管理</div></li>
    <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">库存管理</li>
    <li><div class="sm-link" onclick="go('../仓储作业/盘点列表.html')">库存盘点</div></li>
    <li><div class="sm-link" onclick="go('../仓储作业/库存查询.html')">库存查询</div></li>
@@ -342,28 +342,24 @@ th.td-num { text-align:right; }
   </div></aside>
   <div class="main-col">
 <div class="tabs">
-  <span class="tab active">其他出库 <span class="close">×</span></span>
-  <span class="tab">销售出库 <span class="close">×</span></span>
-  <span class="tab">租赁出库 <span class="close">×</span></span>
+  <span class="tab active">拆卸管理 <span class="close">×</span></span>
+  <span class="tab">组装 <span class="close">×</span></span>
+  <span class="tab">退租入库 <span class="close">×</span></span>
 </div>
     <div class="content">
 <div class="filter-card collapsed" id="filterCard">
   <div class="filter-grid">
-    <div class="ff"><span class="ff-label">单号：</span><input placeholder="请输入"></div>
-    <div class="ff"><span class="ff-label">出库类型：</span>
-      <select><option selected>全部</option><option>报废</option><option>盘亏</option><option>赔偿核销</option><option>其他</option></select>
+    <div class="ff"><span class="ff-label">拆卸单号：</span><input placeholder="请输入"></div>
+    <div class="ff"><span class="ff-label">组合单元编码：</span><input placeholder="请输入"></div>
+    <div class="ff"><span class="ff-label">拆卸仓库：</span>
+      <select><option selected>全部</option><option>原料区 RA</option><option>成品区 RB</option><option>外协周转区 RC</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
-    <div class="ff"><span class="ff-label">物料名称：</span><input placeholder="请输入"></div>
     <div class="ff ff-row-extra"><span class="ff-label">状态：</span>
       <select><option selected>全部</option><option>待审核</option><option>已完成</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
-    <div class="ff ff-row-extra"><span class="ff-label">出库日期：</span><input placeholder="开始日期"><span class="ff-sep">→</span><input placeholder="结束日期"></div>
-    <div class="ff ff-row-extra"><span class="ff-label">出库仓库：</span>
-      <select><option selected>全部</option><option>原料区 RA</option><option>成品区 RB</option><option>外协周转区 RC</option></select>
-      <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-    </div>
+    <div class="ff ff-row-extra"><span class="ff-label">拆卸日期：</span><input placeholder="开始日期"><span class="ff-sep">→</span><input placeholder="结束日期"></div>
     <div class="filter-actions">
       <button class="link-collapse" onclick="var f=document.getElementById('filterCard');f.classList.toggle('collapsed');this.querySelector('span').textContent=f.classList.contains('collapsed')?'展开':'收起'"><span>展开</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
       <button class="btn btn-default">重置</button>
@@ -373,74 +369,76 @@ th.td-num { text-align:right; }
 </div>
 <div class="card">
   <div class="card-head">
-    <h3 class="card-title">其他出库单</h3>
-    <div class="head-btns"><button class="btn btn-default btn-sm">批量导出</button><button class="btn btn-sm" onclick="openModal('createModal')">新增出库单</button></div>
+    <h3 class="card-title">拆卸单</h3>
+    <div class="head-btns"><button class="btn btn-default btn-sm">批量导出</button><button class="btn btn-sm" onclick="openModal('createModal')">新建拆卸单</button></div>
   </div>
 <div class="stabs">
-  <span class="stab active">全部<span class="stab-count">9</span></span>
-  <span class="stab">待审核<span class="stab-count">2</span></span>
-  <span class="stab">已完成<span class="stab-count">7</span></span>
+  <span class="stab active">全部<span class="stab-count">15</span></span>
+  <span class="stab">待审核<span class="stab-count">3</span></span>
+  <span class="stab">已完成<span class="stab-count">12</span></span>
 </div>
 <div class="table-wrap">
     <table>
       <thead>
         <tr>
           <th></th>
-          <th>单号</th>
-          <th>出库类型</th>
-          <th>物料名称</th>
-          <th>数量</th>
-          <th>出库仓库</th>
-          <th>出库日期</th>
+          <th>拆卸单号</th>
+          <th>组合单元编码</th>
+          <th>组合单元名称</th>
+          <th>按BOM拆出散件明细摘要</th>
+          <th>拆卸数量</th>
+          <th>拆卸仓库</th>
+          <th>拆卸日期</th>
           <th>状态</th>
           <th class="sticky-op">操作</th>
         </tr>
       </thead>
       <tbody>
-      <tr> <td><input type="checkbox" class="cb"></td> <td><span class="lk">QTCK-20260905-005</span></td> <td><span class="tag tag-blue">赔偿核销</span></td> <td>GB-800 隔板 · 关联赔偿单 <span class="lk">BS-20260902-010</span>（丢失 1 套自客户态出账）</td> <td><span class="td-num">1 套</span></td> <td>—</td> <td>2026-09-05</td> <td><span class="tag tag-green">已出库</span></td> <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a></span></td> </tr>
-        
-
         <tr>
           <td><input type="checkbox" class="cb"></td>
-          <td><span class="lk">QTCK-20260901-004</span></td>
-          <td><span class="tag tag-red">报废</span></td>
-          <td>WBX-1210L(旧) 围板箱 旧箱体批次</td>
-          <td><span class="td-num">35 只</span></td>
+          <td><span class="lk">CX-20260902-006</span></td>
+          <td><span class="lk">ZH-2601-A</span></td>
+          <td>驾驶室围板箱整箱套件</td>
+          <td>围板×100 / 箱体×50 / 锁扣组件×200</td>
+          <td><span class="td-num">50 套</span></td>
           <td>成品区 RB</td>
-          <td>2026-09-01</td>
+          <td>2026-09-02</td>
           <td><span class="tag tag-orange">待审核</span></td>
           <td class="sticky-op"><span class="ops"><a onclick="openModal('auditModal')">审核</a><a onclick="openModal('detailModal')">详情</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
-          <td><span class="lk">QTCK-20260829-003</span></td>
-          <td><span class="tag tag-orange">盘亏</span></td>
-          <td>LJ-F600 内衬 EPE 珍珠棉</td>
-          <td><span class="td-num">80 件</span></td>
-          <td>原料区 RA</td>
-          <td>2026-08-29</td>
-          <td><span class="tag tag-green">已完成</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a></span></td>
-        </tr>
-        <tr>
-          <td><input type="checkbox" class="cb"></td>
-          <td><span class="lk">QTCK-20260825-002</span></td>
-          <td><span class="tag tag-red">报废</span></td>
-          <td>PLT-1210W 木托盘 1200×1000</td>
-          <td><span class="td-num">22 块</span></td>
+          <td><span class="lk">CX-20260830-005</span></td>
+          <td><span class="lk">ZH-2602-B</span></td>
+          <td>冲压件料箱组套</td>
+          <td>料箱×40 / 隔板×80</td>
+          <td><span class="td-num">40 套</span></td>
           <td>成品区 RB</td>
-          <td>2026-08-25</td>
+          <td>2026-08-30</td>
           <td><span class="tag tag-green">已完成</span></td>
           <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
-          <td><span class="lk">QTCK-20260815-001</span></td>
-          <td><span class="tag tag-gray">其他</span></td>
-          <td>LJ-A100 锁扣组件 不锈钢 304</td>
-          <td><span class="td-num">50 件</span></td>
-          <td>原料区 RA</td>
-          <td>2026-08-15</td>
+          <td><span class="lk">CX-20260826-004</span></td>
+          <td><span class="lk">ZH-2603-C</span></td>
+          <td>电池托盘护角套件</td>
+          <td>托盘×30 / 护角×120</td>
+          <td><span class="td-num">30 套</span></td>
+          <td>成品区 RB</td>
+          <td>2026-08-26</td>
+          <td><span class="tag tag-green">已完成</span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a></span></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" class="cb"></td>
+          <td><span class="lk">CX-20260818-003</span></td>
+          <td><span class="lk">ZH-2601-A</span></td>
+          <td>驾驶室围板箱整箱套件</td>
+          <td>围板×60 / 箱体×30 / 锁扣组件×120</td>
+          <td><span class="td-num">30 套</span></td>
+          <td>成品区 RB</td>
+          <td>2026-08-18</td>
           <td><span class="tag tag-green">已完成</span></td>
           <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a></span></td>
         </tr>
@@ -448,8 +446,8 @@ th.td-num { text-align:right; }
     </table>
   </div>
 <div style="display:flex;align-items:center;justify-content:space-between;margin-top:12px" id="pager-row"><div id="batch-btns-area"></div><div class="pager" style="margin:0">
-    <span class="pg-info">第 1-9 条/总共 9 条</span>
-    <span class="pg-btn">‹</span> <span class="pg-btn cur">1</span> <span class="pg-btn">›</span>
+    <span class="pg-info">第 1-10 条/总共 15 条</span>
+    <span class="pg-btn">‹</span> <span class="pg-btn cur">1</span> <span class="pg-btn">2</span> <span class="pg-btn">›</span>
     <span class="pg-size">10 条/页
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
     </span>
@@ -460,30 +458,31 @@ th.td-num { text-align:right; }
   </div>
 </div>
 
-<!-- 弹窗已提取到 弹窗/其他出库新建.html，构建时注入 -->
+<!-- 弹窗已提取到 弹窗/拆卸新建.html，构建时注入 -->
 <div class="modal-overlay" id="createModal">
-  <div class="modal">
+  <div class="modal modal-lg">
     <div class="modal-header">
-      <h3 class="modal-title">新增其他出库单</h3>
+      <h3 class="modal-title">新建拆卸单</h3>
       <span class="modal-close" onclick="closeModal('createModal')">×</span>
     </div>
     <div class="modal-body">
 <div class="form-row">
-    <span class="form-label">出库类型</span>
-    <div><span class="radio checked"><span class="dot"></span>报废</span><span class="radio"><span class="dot"></span>盘亏</span><span class="radio"><span class="dot"></span>其他</span></div>
+    <span class="form-label"><span class="req">*</span>组合单元</span>
+    <div class="input-box select-box" style="width:350px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>ZH-2601-A 驾驶室围板箱整箱套件</option><option>ZH-2602-B 冲压件料箱组套</option><option>ZH-2603-C 电池托盘护角套件</option><option>ZH-2604-D 混合组合套件</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
   </div><div class="form-row">
-    <span class="form-label"><span class="req">*</span>物料</span>
-    <div class="input-box select-box" style="width:350px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>WBX-1210L(旧) 围板箱 旧箱体批次</option><option>WBX-1210L 围板箱</option><option>PLT-1210P 塑料托盘</option><option>BTC-6040 料箱</option><option>LJ-A100 护角</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+    <span class="form-label"><span class="req">*</span>拆卸数量</span>
+    <div class="input-box" style="width:350px;"><input value="50" placeholder="请输入"></div>
   </div><div class="form-row">
-    <span class="form-label">数量</span>
-    <div class="input-box" style="width:350px;"><input value="35" placeholder="请输入"></div>
-  </div><div class="form-row">
-    <span class="form-label"><span class="req">*</span>出库仓库</span>
+    <span class="form-label"><span class="req">*</span>拆卸仓库</span>
     <div class="input-box select-box" style="width:350px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>成品区 RB</option><option>华东中心仓（WH-01）</option><option>华南仓（WH-02）</option><option>西南仓（WH-03）</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
-  </div><div class="form-row">
-    <span class="form-label">出库日期</span>
-    <div class="input-box" style="width:350px;"><input value="2026-09-03" placeholder="请输入"></div>
-  </div><div class="form-row">
+  </div><div class="pn-hint" style="margin:4px 0 12px;">按 BOM V2.1 自动拆出以下散件，确认后散件库存增加、组合件库存减少：</div><div style="margin:4px 0 8px;font-size:13px;font-weight:600;color:#1a1a1a;">拆出散件明细（按 BOM 自动带出）</div>
+  <div class="table-wrap" style="border:1px solid var(--border);border-radius:6px;">
+    <table class="edit-tbl">
+      <thead><tr><th>散件编码</th><th>散件名称</th><th>单位</th><th>单套用量</th><th>拆出数量</th></tr></thead>
+      <tbody><tr><td><span class="auto-cell">WBX-1210L</span></td><td><span class="auto-cell">围板箱 1200×1000×970</span></td><td><span class="auto-cell">只</span></td><td><span class="auto-cell">1</span></td><td><input class="auto" value="50" readonly></td></tr><tr><td><span class="auto-cell">LJ-C300</span></td><td><span class="auto-cell">围板 HDPE 波纹板</span></td><td><span class="auto-cell">件</span></td><td><span class="auto-cell">4</span></td><td><input class="auto" value="200" readonly></td></tr><tr><td><span class="auto-cell">LJ-D400</span></td><td><span class="auto-cell">箱盖 ABS 吸塑</span></td><td><span class="auto-cell">件</span></td><td><span class="auto-cell">1</span></td><td><input class="auto" value="50" readonly></td></tr><tr><td><span class="auto-cell">LJ-A100</span></td><td><span class="auto-cell">锁扣组件 不锈钢 304</span></td><td><span class="auto-cell">件</span></td><td><span class="auto-cell">4</span></td><td><input class="auto" value="200" readonly></td></tr><tr><td><span class="auto-cell">LJ-B200</span></td><td><span class="auto-cell">铰链 锌合金 65mm</span></td><td><span class="auto-cell">件</span></td><td><span class="auto-cell">2</span></td><td><input class="auto" value="100" readonly></td></tr></tbody>
+    </table>
+  </div>
+  <button class="btn btn-dashed btn-sm" style="width:100%;margin-top:8px;">+ 添加一行</button><div class="form-row">
     <span class="form-label">备注</span>
     <div class="input-box" style="width:350px;"><input placeholder="选填"></div>
   </div>
@@ -497,7 +496,7 @@ th.td-num { text-align:right; }
 </div>
 
 
-<!-- 弹窗已提取到 弹窗/其他出库审核.html，构建时注入 -->
+<!-- 弹窗已提取到 弹窗/拆卸审核.html，构建时注入 -->
 <div class="modal-overlay" id="auditModal">
   <div class="modal">
     <div class="modal-header">
@@ -506,10 +505,10 @@ th.td-num { text-align:right; }
     </div>
     <div class="modal-body">
       <div class="dgrid" style="margin-bottom:16px;">
-        <div class="drow"><div class="dlabel">单据编号</div><div class="dval">QTCK-20260901-004</div></div>
-        <div class="drow"><div class="dlabel">单据类型</div><div class="dval">其他出库单（报废）</div></div>
-        <div class="drow"><div class="dlabel">出库数量</div><div class="dval">35 只</div></div>
-        <div class="drow"><div class="dlabel">提交人 / 时间</div><div class="dval">李国栋 / 2026-09-01 15:20</div></div>
+        <div class="drow"><div class="dlabel">单据编号</div><div class="dval">CX-20260902-006</div></div>
+        <div class="drow"><div class="dlabel">单据类型</div><div class="dval">拆卸单</div></div>
+        <div class="drow"><div class="dlabel">拆卸数量</div><div class="dval">50 套</div></div>
+        <div class="drow"><div class="dlabel">提交人 / 时间</div><div class="dval">张伟 / 2026-09-02 11:05</div></div>
         
       </div>
       <div class="form-row">
@@ -603,25 +602,34 @@ th.td-num { text-align:right; }
 .tl-i .tl-t{color:#8c8c8c;font-size:12px;margin-right:8px;font-variant-numeric:tabular-nums}
 .tl-i .tl-who{color:#8c8c8c;font-size:12px;margin-left:8px}
 </style>
-<!-- 详情弹窗（四段式）· 骨架化 · 详情弹窗数据驱动 2026-09-08 -->
+<!-- 详情弹窗（四段式：单据头/明细/关联单据互溯链/流转时间线）· 详情落地页补齐 2026-09-04 -->
 <div class="modal-overlay" id="detailModal">
   <div class="modal modal-lg" style="width:780px;">
     <div class="modal-header">
-      <h3 class="modal-title" id="detailTitle">其他出库单详情</h3>
+      <h3 class="modal-title">拆卸单详情 · CX-20260902-006</h3>
       <span class="modal-close" onclick="closeModal('detailModal')">×</span>
     </div>
-    <div class="modal-body" id="detailBody"><!-- 内容由 _data/detail-generic.js 按单号渲染 --></div>
+    <div class="modal-body">
+      <div class="dt-sec">单据信息</div>
+      <div class="dgrid c3"><div class="drow"><div class="dlabel">拆卸单号</div><div class="dval">CX-20260902-006</div></div><div class="drow"><div class="dlabel">状态</div><div class="dval"><span class="tag tag-orange">待审核</span></div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">母件（消耗）</div><div class="dval">ZH-2601-A 驾驶室围板箱整箱套件</div></div><div class="drow"><div class="dlabel">拆卸数量</div><div class="dval">50 套</div></div><div class="drow"><div class="dlabel">拆散方式</div><div class="dval">按 BOM 反拆</div></div><div class="drow"><div class="dlabel">拆散库区</div><div class="dval">成品区 RB</div></div><div class="drow"><div class="dlabel">拆散日期</div><div class="dval">2026-09-02</div></div><div class="drow"><div class="dlabel">制单人</div><div class="dval">张伟</div></div><div class="drow"><div class="dlabel">审核人</div><div class="dval">—</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">拆散原因</div><div class="dval">客户改组合需拆件（整箱需求转散件）</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">循环去向</div><div class="dval">散件回库 · 可循环再组装</div></div></div>
+      <div class="dt-sec">拆散明细（BOM 反拆）</div>
+      <div class="table-wrap"><table><thead><tr><th>类型</th><th>编码</th><th>名称</th><th>单位</th><th class="td-num">数量</th><th>去向</th></tr></thead>
+<tbody>
+<tr><td>消耗</td><td>ZH-2601-A</td><td>驾驶室围板箱整箱套件</td><td>套</td><td class="td-num">50</td><td>组合件库存核减</td></tr>
+<tr><td>产出</td><td>LJ-C300</td><td>围板 HDPE 波纹板</td><td>件</td><td class="td-num">100</td><td>散件回库 · 成品区 RB</td></tr>
+<tr><td>产出</td><td>WBX-1210L</td><td>围板箱 1200×1000×970</td><td>只</td><td class="td-num">50</td><td>散件回库 · 成品区 RB</td></tr>
+<tr><td>产出</td><td>LJ-A100</td><td>锁扣组件 不锈钢 304</td><td>件</td><td class="td-num">200</td><td>散件回库 · 原料区 RA</td></tr>
+</tbody></table></div>
+      <div class="dt-sec">关联单据</div>
+      <div class="chain"><div class="node"><div class="n-role">库存（组合件）</div><div class="n-name"><span class="lk" onclick="go('../仓储作业/库存查询.html')">ZH-2601-A × 50 套</span></div></div><span class="link-arrow">→</span><div class="node" style="border-color:#1677ff;background:#e6f4ff;"><div class="n-role">拆卸（本单）</div><div class="n-name">CX-20260902-006</div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">库存（散件）</div><div class="n-name"><span class="lk" onclick="go('../仓储作业/组装列表.html')">可循环再组装</span></div></div></div>
+      <div class="dt-sec">流转时间线</div>
+      <div class="tl"><div class="tl-i"><span class="tl-t">09-02 13:25</span>制单 · 拆卸申请（客户改组合需拆件）<span class="tl-who">张伟</span></div><div class="tl-i off"><span class="tl-t">—</span>待审核 · 通过后按 BOM 反拆、散件回库</div></div>
+    </div>
     <div class="modal-footer">
       <button class="btn btn-default" onclick="closeModal('detailModal')">关 闭</button>
     </div>
   </div>
 </div>
-<script src="../_data/demo-data.js"></script>
-<script src="../_data/detail-generic.js"></script>
-<script>
-/* demo-data 接线：各行「详情」按行内单号渲染对应数据（2026-09-08 数据驱动） */
-wireDetailModal('otherOutbounds');
-</script>
 <script>
 /* ===== 菜单折叠 / 页签与表单视觉态（统一脚本） ===== */
 function go(url) { location.href = url; }
