@@ -94,15 +94,23 @@
  {
   "page": "仓储作业\\库存查询.html",
   "js_errors": [],
-  "problems": [],
+  "problems": [
+   {
+    "cat": "弹窗",
+    "type": "modal-unreachable",
+    "phase": "modal",
+    "where": {
+     "text": "库存流水 · ZH-2603-C 电池托"
+    },
+    "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
+   }
+  ],
   "stats": {
    "buttons": 2,
    "links": 15,
-   "onclickEls": 63,
+   "onclickEls": 49,
    "modals": 1,
-   "modalTitles": [
-    "库存流水 · LJ-A100 锁扣组件"
-   ],
+   "modalTitles": [],
    "selects": 0,
    "fakeSelects": 0,
    "radios": 0,
@@ -118,16 +126,25 @@
  {
   "page": "仓储作业\\库存调拨列表.html",
   "js_errors": [],
-  "problems": [],
+  "problems": [
+   {
+    "cat": "弹窗",
+    "type": "modal-unreachable",
+    "phase": "modal",
+    "where": {
+     "text": "调拨单详情 · DB-20260812-"
+    },
+    "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
+   }
+  ],
   "stats": {
    "buttons": 11,
    "links": 4,
-   "onclickEls": 54,
+   "onclickEls": 51,
    "modals": 3,
    "modalTitles": [
     "新建调拨单",
-    "审核确认",
-    "调拨单详情 · DB-20260901-"
+    "审核确认"
    ],
    "selects": 6,
    "fakeSelects": 0,
@@ -292,10 +309,10 @@
   "stats": {
    "buttons": 1,
    "links": 0,
-   "onclickEls": 8,
+   "onclickEls": 9,
    "modals": 1,
    "modalTitles": [
-    "库存流水 · LJ-A100 锁扣组件(演示页)"
+    "库存流水 · LJ-A100 锁扣组件 (演示页)"
    ],
    "selects": 0,
    "fakeSelects": 0,
@@ -969,15 +986,24 @@
  {
   "page": "仓储作业\\盘点列表.html",
   "js_errors": [],
-  "problems": [],
+  "problems": [
+   {
+    "cat": "弹窗",
+    "type": "modal-unreachable",
+    "phase": "modal",
+    "where": {
+     "text": "盘点单详情 · PD-202606-01"
+    },
+    "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
+   }
+  ],
   "stats": {
    "buttons": 8,
    "links": 15,
-   "onclickEls": 64,
+   "onclickEls": 56,
    "modals": 2,
    "modalTitles": [
-    "审核确认",
-    "盘点单详情 · PD-202608-03"
+    "审核确认"
    ],
    "selects": 4,
    "fakeSelects": 0,
@@ -1346,15 +1372,23 @@
  {
   "page": "基础数据\\BOM维护.html",
   "js_errors": [],
-  "problems": [],
+  "problems": [
+   {
+    "cat": "弹窗",
+    "type": "modal-unreachable",
+    "phase": "modal",
+    "where": {
+     "text": "BOM 版本查看 · ZH-2601-A"
+    },
+    "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
+   }
+  ],
   "stats": {
    "buttons": 6,
    "links": 11,
-   "onclickEls": 46,
+   "onclickEls": 42,
    "modals": 1,
-   "modalTitles": [
-    "BOM 版本查看 · ZH-2601-A"
-   ],
+   "modalTitles": [],
    "selects": 1,
    "fakeSelects": 0,
    "radios": 2,
@@ -1370,15 +1404,24 @@
  {
   "page": "基础数据\\器具档案.html",
   "js_errors": [],
-  "problems": [],
+  "problems": [
+   {
+    "cat": "弹窗",
+    "type": "modal-unreachable",
+    "phase": "modal",
+    "where": {
+     "text": "器具详情 · BTC-6040S"
+    },
+    "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
+   }
+  ],
   "stats": {
    "buttons": 10,
    "links": 18,
-   "onclickEls": 68,
+   "onclickEls": 60,
    "modals": 3,
    "modalTitles": [
     "新建器具",
-    "器具详情 · WBX-1210L",
     "停用确认"
    ],
    "selects": 5,
@@ -1396,15 +1439,24 @@
  {
   "page": "基础数据\\客商管理.html",
   "js_errors": [],
-  "problems": [],
+  "problems": [
+   {
+    "cat": "弹窗",
+    "type": "modal-unreachable",
+    "phase": "modal",
+    "where": {
+     "text": "客商详情 · 路凯包装运营（上海）有限公"
+    },
+    "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
+   }
+  ],
   "stats": {
    "buttons": 8,
    "links": 24,
-   "onclickEls": 72,
+   "onclickEls": 64,
    "modals": 2,
    "modalTitles": [
-    "新建客商",
-    "客商详情 · 一汽解放汽车有限公司"
+    "新建客商"
    ],
    "selects": 4,
    "fakeSelects": 0,
@@ -1421,15 +1473,24 @@
  {
   "page": "基础数据\\库位档案.html",
   "js_errors": [],
-  "problems": [],
+  "problems": [
+   {
+    "cat": "弹窗",
+    "type": "modal-unreachable",
+    "phase": "modal",
+    "where": {
+     "text": "库位详情 · RC-02"
+    },
+    "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
+   }
+  ],
   "stats": {
    "buttons": 10,
    "links": 30,
-   "onclickEls": 78,
+   "onclickEls": 67,
    "modals": 3,
    "modalTitles": [
     "新建库位",
-    "库位详情 · RA-A-01-01",
     "停用确认"
    ],
    "selects": 7,
@@ -1687,15 +1748,24 @@
  {
   "page": "基础数据\\零部件档案.html",
   "js_errors": [],
-  "problems": [],
+  "problems": [
+   {
+    "cat": "弹窗",
+    "type": "modal-unreachable",
+    "phase": "modal",
+    "where": {
+     "text": "零部件详情 · LJ-F600"
+    },
+    "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
+   }
+  ],
   "stats": {
    "buttons": 10,
    "links": 18,
-   "onclickEls": 67,
+   "onclickEls": 61,
    "modals": 3,
    "modalTitles": [
     "新建零部件",
-    "零部件详情 · LJ-A100",
     "停用确认"
    ],
    "selects": 5,
@@ -1747,14 +1817,23 @@
  {
   "page": "租赁管理\\在租台账.html",
   "js_errors": [],
-  "problems": [],
+  "problems": [
+   {
+    "cat": "弹窗",
+    "type": "modal-unreachable",
+    "phase": "modal",
+    "where": {
+     "text": "资产轨迹 · WBX-1210L(旧)"
+    },
+    "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
+   }
+  ],
   "stats": {
    "buttons": 8,
    "links": 27,
-   "onclickEls": 79,
+   "onclickEls": 66,
    "modals": 2,
    "modalTitles": [
-    "资产轨迹 · WBX-1210L",
     "报废确认"
    ],
    "selects": 3,
@@ -1824,10 +1903,10 @@
   "stats": {
    "buttons": 1,
    "links": 0,
-   "onclickEls": 7,
+   "onclickEls": 5,
    "modals": 1,
    "modalTitles": [
-    "器具出租履历 · ZH-2604-D(演示页)"
+    "器具出租履历 · ZL-20260823(演示页)"
    ],
    "selects": 0,
    "fakeSelects": 0,
@@ -1940,15 +2019,23 @@
  {
   "page": "租赁管理\\租出台账.html",
   "js_errors": [],
-  "problems": [],
+  "problems": [
+   {
+    "cat": "弹窗",
+    "type": "modal-unreachable",
+    "phase": "modal",
+    "where": {
+     "text": "器具出租履历 · ZL-20260506"
+    },
+    "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
+   }
+  ],
   "stats": {
    "buttons": 6,
    "links": 20,
-   "onclickEls": 66,
+   "onclickEls": 53,
    "modals": 1,
-   "modalTitles": [
-    "器具出租履历 · ZH-2604-D"
-   ],
+   "modalTitles": [],
    "selects": 3,
    "fakeSelects": 0,
    "radios": 0,

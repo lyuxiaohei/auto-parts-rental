@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>goal 失败清单 · 详情弹窗数据驱动全量推广（2026-09-08）</title>
+<style>
+body{font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f6f8;margin:0;padding:32px;color:#262626}
+.card{max-width:860px;margin:0 auto;background:#fff;border-radius:8px;padding:24px 28px;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+h1{font-size:18px;margin:0 0 6px}
+.meta{color:#8c8c8c;font-size:12.5px;margin-bottom:16px}
+.ok{background:#f6ffed;border:1px solid #b7eb6f;border-radius:6px;padding:10px 14px;color:#389e0d;font-size:13.5px;margin:14px 0}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{border:1px solid #f0f0f0;padding:8px 10px;text-align:left}
+th{background:#fafafa}
+.note{font-size:12.5px;color:#595959;line-height:1.8;margin-top:14px}
+</style>
+</head>
+<body>
+<div class="card">
+  <h1>goal 失败清单 · 详情弹窗数据驱动全量推广</h1>
+  <div class="meta">执行日期：2026-09-08 · 任务书：P1-R05 第十一节（A/B/C/E 四节 · E 节连跑版） · 执行方式：三批连跑（批次1 租赁主线 8 弹窗 / 批次2 买卖+仓储 8 弹窗 / 批次3 库存与档案 9 弹窗）</div>
+  <div class="ok">✅ <b>失败 0 项</b> —— A 表 25 个弹窗全部改造完成，无单弹窗失败、无批末硬门失败、无回滚恢复。</div>
+  <table>
+    <thead><tr><th>#</th><th>弹窗</th><th>触发页</th><th>批次</th><th>结果</th><th>失败原因 / 处置</th></tr></thead>
+    <tbody>
+      <tr><td colspan="6" style="text-align:center;color:#8c8c8c">（无失败项 —— 25/25 全部通过批末硬门：全量 audit 死链 0 / JS 错 0 / 新增 0 + Playwright 逐行实点断言全绿）</td></tr>
+    </tbody>
+  </table>
+  <div class="note">
+    <b>口径说明</b>：单弹窗失败＝audit 新增问题或实点断言不过 → 修复一次 → 仍败恢复改前备份并记本清单（本次未触发）；批末硬门＝每批全量 audit + 实点全绿 + git 一批一提交（三批均过：bdcbf78 / dac267b / 批次3 见 git log）。<br>
+    <b>已知误报口径</b>（非失败）：modal-unreachable 随数据驱动页增至 32 条，全部为已有 wireDetailModal 接线页的动态绑定误报（P1-R05 第四节⑦）；readonly 预填 10 条为既有豁免。<br>
+    <b>备份</b>：改前文件按原相对路径存 <code>_scan_tmpdir/backup-detail-批次1|2|3-20260908/</code>（本清单为空清单，未发生还原）。
+  </div>
+</div>
+</body>
+</html>

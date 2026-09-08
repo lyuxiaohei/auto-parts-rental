@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>器具详情 - 包装租赁管理后台</title>
+<title>盘点单详情 - 包装租赁管理后台</title>
 <style>
 :root {
   --primary: #1677ff;
@@ -272,16 +272,29 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 </style>
 </head>
 <body style="background:#f5f6f8;min-height:100vh;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif">
-<!-- 弹窗模板：器具详情（详情落地页补齐 2026-09-04） -->
-<!-- 注入标记：基础数据/器具档案.html -->
-<!-- 弹窗骨架化 · 详情弹窗数据驱动 2026-09-08 -->
+<!-- 弹窗模板：盘点单详情（详情落地页补齐 2026-09-04） -->
+<!-- 注入标记：仓储作业/盘点列表.html -->
+<!-- 详情弹窗（四段式：单据头/明细/关联单据互溯链/流转时间线）· 详情落地页补齐 2026-09-04 -->
 <div class="modal-overlay" id="detailModal">
   <div class="modal modal-lg" style="width:780px;">
     <div class="modal-header">
-      <h3 class="modal-title" id="detailTitle">器具详情</h3>
+      <h3 class="modal-title">盘点单详情 · PD-202608-03</h3>
       <span class="modal-close" onclick="closeModal('detailModal')">×</span>
     </div>
-    <div class="modal-body" id="detailBody"><!-- 内容由 _data/detail-generic.js 按单号渲染 --></div>
+    <div class="modal-body">
+      <div class="dt-sec">单据信息</div>
+      <div class="dgrid c3"><div class="drow"><div class="dlabel">盘点单号</div><div class="dval">PD-202608-03</div></div><div class="drow"><div class="dlabel">状态</div><div class="dval"><span class="tag tag-blue">盘点中</span></div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">盘点范围</div><div class="dval">华东中心仓 · 全库区</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">盘点方式</div><div class="dval">全面盘点（静态盘点）</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">盘点基准</div><div class="dval">2026-08-30 账面库存</div></div><div class="drow"><div class="dlabel">账面项数</div><div class="dval">1,286 项</div></div><div class="drow"><div class="dlabel">差异项数</div><div class="dval">—（盘点中）</div></div><div class="drow"><div class="dlabel">盘点人</div><div class="dval">张伟</div></div><div class="drow"><div class="dlabel">创建日期</div><div class="dval">2026-08-30</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">上期盘点</div><div class="dval"><span class="lk" onclick="go('../../仓储作业/盘点列表.html')">PD-202608-02</span> · 差异 12 项已处理</div></div></div>
+      <div class="dt-sec">差异明细（上期 PD-202608-02 示例 · 本单待生成）</div>
+      <div class="table-wrap"><table><thead><tr><th>物料</th><th>账面</th><th class="td-num">实盘</th><th class="td-num">差异</th><th>处理单据</th></tr></thead>
+<tbody>
+<tr><td>LJ-B200 铰链 锌合金 65mm</td><td>2,520</td><td class="td-num">2,640</td><td class="td-num">+120</td><td><span class="lk" onclick="go('../../仓储作业/其他入库列表.html')">QTRK-20260901-003 盘盈入库</span></td></tr>
+<tr><td>WBX-1210L（旧）围板箱 · 旧箱体批次</td><td>35</td><td class="td-num">0</td><td class="td-num">-35</td><td><span class="lk" onclick="go('../../仓储作业/其他出库列表.html')">QTCK-20260901-004 报废出库</span></td></tr>
+</tbody></table></div>
+      <div class="dt-sec">关联单据</div>
+      <div class="chain"><div class="node"><div class="n-role">库存台账</div><div class="n-name"><span class="lk" onclick="go('../../仓储作业/库存查询.html')">账面 1,286 项</span></div></div><span class="link-arrow">→</span><div class="node" style="border-color:#1677ff;background:#e6f4ff;"><div class="n-role">库存盘点（本单）</div><div class="n-name">PD-202608-03 · 盘点中</div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">差异处理</div><div class="n-name"><span class="lk" onclick="go('../../仓储作业/其他入库列表.html')">盘盈 → 其他入库 / 盘亏报废 → 其他出库</span></div></div></div>
+      <div class="dt-sec">流转时间线</div>
+      <div class="tl"><div class="tl-i"><span class="tl-t">08-30 09:00</span>创建盘点任务 · 全库区静态盘点<span class="tl-who">张伟</span></div><div class="tl-i"><span class="tl-t">08-30 至今</span>库区实物清点 · 录入中<span class="tl-who">张伟</span></div><div class="tl-i off"><span class="tl-t">—</span>待录入完成 → 提交审核 → 差异转处理单据</div></div>
+    </div>
     <div class="modal-footer">
       <button class="btn btn-default" onclick="closeModal('detailModal')">关 闭</button>
     </div>
@@ -305,12 +318,6 @@ document.querySelectorAll('.checkbox').forEach(function (c) {
   c.addEventListener('click', function () { c.classList.toggle('checked'); });
 });
 document.querySelector('.modal-overlay').classList.add('show');
-</script>
-<script src="../../_data/demo-data.js"></script>
-<script src="../../_data/detail-generic.js"></script>
-<script>
-/* 模板预览：默认渲染一条（可换键预览其他场景）· 2026-09-08 数据驱动 */
-openGenericDetail('appliances', 'WBX-1210L', '../../', 'detailModal');
 </script>
 <script>/*ia-fix: tab-switch + btn-feedback (2026-09-04)*/
 /* R3 顶部页签切换（点击换 active；× 不做关闭跳转——原型不销毁页签） */

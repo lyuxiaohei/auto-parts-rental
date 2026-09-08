@@ -645,35 +645,25 @@ th.td-num { text-align:right; }
 .tl-i .tl-t{color:#8c8c8c;font-size:12px;margin-right:8px;font-variant-numeric:tabular-nums}
 .tl-i .tl-who{color:#8c8c8c;font-size:12px;margin-left:8px}
 </style>
-<!-- 详情弹窗（四段式：单据头/明细/关联单据互溯链/流转时间线）· 详情落地页补齐 2026-09-04 -->
+<!-- 弹窗骨架化 · 详情弹窗数据驱动 2026-09-08 -->
 <div class="modal-overlay" id="flowModal">
   <div class="modal modal-lg" style="width:720px;">
     <div class="modal-header">
-      <h3 class="modal-title">库存流水 · LJ-A100 锁扣组件</h3>
+      <h3 class="modal-title" id="detailTitle">库存流水</h3>
       <span class="modal-close" onclick="closeModal('flowModal')">×</span>
     </div>
-    <div class="modal-body">
-      <div class="dt-sec">单据信息</div>
-      <div class="dgrid c3"><div class="drow"><div class="dlabel">物料编码</div><div class="dval">LJ-A100</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">名称规格</div><div class="dval">锁扣组件 不锈钢 304</div></div><div class="drow"><div class="dlabel">物料类别</div><div class="dval">零部件</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">适用项目</div><div class="dval">PRJ-2601 / 2602 / 2604</div></div><div class="drow"><div class="dlabel">在库</div><div class="dval">5,260 件</div></div><div class="drow"><div class="dlabel">在途（退租未审核）</div><div class="dval">1,200 件</div></div><div class="drow"><div class="dlabel">客户端（租出）</div><div class="dval">800 件</div></div><div class="drow"><div class="dlabel">退租待入库</div><div class="dval">2,400 件</div></div><div class="drow"><div class="dlabel">库区</div><div class="dval">原料区 RA</div></div></div>
-      <div class="dt-sec">进出流水（时间倒序）</div>
-      <div class="table-wrap"><table><thead><tr><th class="td-num">日期</th><th>类型</th><th>单据号</th><th class="td-num">方向数量</th><th class="td-num">结存</th></tr></thead>
-<tbody>
-<tr><td class="td-num">09-02</td><td>退租入库</td><td><span class="lk" onclick="go('../仓储作业/退租入库列表.html')">TZRK-20260902-008</span></td><td class="td-num">+60</td><td class="td-num">5,260</td></tr>
-        <tr><td class="td-num">09-01</td><td>调拨出库</td><td><span class="lk" onclick="go('../仓储作业/库存调拨列表.html')">DB-20260901-003</span></td><td class="td-num">-1,000</td><td class="td-num">4,260</td></tr>
-<tr><td class="td-num">08-28</td><td>采购入库</td><td><span class="lk" onclick="go('../仓储作业/采购入库列表.html')">CGRK-20260828-012</span></td><td class="td-num">+2,400</td><td class="td-num">5,260</td></tr>
-<tr><td class="td-num">08-24</td><td>采购入库</td><td><span class="lk" onclick="go('../仓储作业/采购入库列表.html')">CGRK-20260824-005</span></td><td class="td-num">+1,600</td><td class="td-num">2,860</td></tr>
-<tr><td class="td-num">08-22</td><td>组装领料</td><td><span class="lk" onclick="go('../仓储作业/组装列表.html')">ZZ-20260822-006</span></td><td class="td-num">-640</td><td class="td-num">1,260</td></tr>
-</tbody></table></div>
-      <div class="dt-sec">关联单据</div>
-      <div class="chain"><div class="node"><div class="n-role">采购入库</div><div class="n-name"><span class="lk" onclick="go('../仓储作业/采购入库列表.html')">来源 · 两单 +4,000</span></div></div><span class="link-arrow">→</span><div class="node" style="border-color:#1677ff;background:#e6f4ff;"><div class="n-role">库存台账（本物料）</div><div class="n-name">LJ-A100 · 原料区 RA</div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">组装 / 调拨</div><div class="n-name"><span class="lk" onclick="go('../仓储作业/组装列表.html')">去向 · 领料与备料</span></div></div></div>
-      <div class="dt-sec">流转时间线</div>
-      <div class="tl"><div class="tl-i"><span class="tl-t">08-24</span>最近大批入库 · CGRK-20260824-005（+1,600）<span class="tl-who">张伟</span></div><div class="tl-i"><span class="tl-t">08-22</span>组装领料 · ZZ-20260822-006（-640，V2.1 配比 4 只/套 × 160 套）<span class="tl-who">刘志强</span></div><div class="tl-i"><span class="tl-t">09-01</span>调拨出库 · DB-20260901-003（-1,000 → 成品区 RB 备料）<span class="tl-who">赵芳</span></div></div>
-    </div>
+    <div class="modal-body" id="detailBody"><!-- 内容由 _data/detail-generic.js 按单号渲染 --></div>
     <div class="modal-footer">
       <button class="btn btn-default" onclick="closeModal('flowModal')">关 闭</button>
     </div>
   </div>
 </div>
+<script src="../_data/demo-data.js"></script>
+<script src="../_data/detail-generic.js"></script>
+<script>
+/* demo-data 接线：各行「库存流水」按行内键渲染对应数据（2026-09-08 数据驱动） */
+wireDetailModal('stockFlows', { anchorText: '库存流水', modalId: 'flowModal' });
+</script>
 <script>
 /* ===== 详情弹窗开关（详情落地页补齐注入） ===== */
 function openModal(id) { document.getElementById(id).classList.add('show'); }

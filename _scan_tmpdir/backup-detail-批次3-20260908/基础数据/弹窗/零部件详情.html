@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>器具详情 - 包装租赁管理后台</title>
+<title>零部件详情 - 包装租赁管理后台</title>
 <style>
 :root {
   --primary: #1677ff;
@@ -272,16 +272,28 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 </style>
 </head>
 <body style="background:#f5f6f8;min-height:100vh;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif">
-<!-- 弹窗模板：器具详情（详情落地页补齐 2026-09-04） -->
-<!-- 注入标记：基础数据/器具档案.html -->
-<!-- 弹窗骨架化 · 详情弹窗数据驱动 2026-09-08 -->
+<!-- 弹窗模板：零部件详情（详情落地页补齐 2026-09-04） -->
+<!-- 注入标记：基础数据/零部件档案.html -->
+<!-- 详情弹窗（四段式：单据头/明细/关联单据互溯链/流转时间线）· 详情落地页补齐 2026-09-04 -->
 <div class="modal-overlay" id="detailModal">
   <div class="modal modal-lg" style="width:780px;">
     <div class="modal-header">
-      <h3 class="modal-title" id="detailTitle">器具详情</h3>
+      <h3 class="modal-title">零部件详情 · LJ-A100</h3>
       <span class="modal-close" onclick="closeModal('detailModal')">×</span>
     </div>
-    <div class="modal-body" id="detailBody"><!-- 内容由 _data/detail-generic.js 按单号渲染 --></div>
+    <div class="modal-body">
+      <div class="dt-sec">单据信息</div>
+      <div class="dgrid c3"><div class="drow"><div class="dlabel">零件号</div><div class="dval">LJ-A100</div></div><div class="drow"><div class="dlabel">名称</div><div class="dval">锁扣组件</div></div><div class="drow"><div class="dlabel">规格</div><div class="dval">不锈钢 304 · M8</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">供应商（带出）</div><div class="dval">苏州联恒五金制品有限公司</div></div><div class="drow"><div class="dlabel">参考单价</div><div class="dval">6.80 元</div></div><div class="drow"><div class="dlabel">状态</div><div class="dval"><span class="tag tag-green">正常</span></div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">适用项目</div><div class="dval">PRJ-2601 / 2602 / 2604</div></div><div class="drow"><div class="dlabel">档案状态</div><div class="dval">启用</div></div></div>
+      <div class="dt-sec">库存与用途</div>
+      <div class="table-wrap"><table><thead><tr><th class="td-num">在库</th><th class="td-num">在途</th><th class="td-num">客户端</th><th>用途</th></tr></thead>
+<tbody>
+<tr><td class="td-num">5,260 件（原料区 RA）</td><td class="td-num">1,200 件</td><td class="td-num">800 件</td><td>BOM 子件 · ZH-2601-A（V2.1 配比 4 只/套）</td></tr>
+</tbody></table></div>
+      <div class="dt-sec">关联单据</div>
+      <div class="chain"><div class="node"><div class="n-role">供应商</div><div class="n-name">苏州联恒</div></div><span class="link-arrow">→</span><div class="node" style="border-color:#1677ff;background:#e6f4ff;"><div class="n-role">零部件（本档）</div><div class="n-name">LJ-A100 锁扣组件</div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">采购入库</div><div class="n-name"><span class="lk" onclick="go('../../仓储作业/采购入库列表.html')">CGRK-20260828-012 · +2,400</span></div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">组装</div><div class="n-name"><span class="lk" onclick="go('../../仓储作业/组装列表.html')">ZH-2601-A 配方子件</span></div></div></div>
+      <div class="dt-sec">流转时间线</div>
+      <div class="tl"><div class="tl-i"><span class="tl-t">2026-01</span>建档 · 启用<span class="tl-who">系统</span></div><div class="tl-i"><span class="tl-t">08-28</span>最近入库 · CGRK-20260828-012（+2,400 件）<span class="tl-who">张伟</span></div><div class="tl-i"><span class="tl-t">09-01</span>调拨备料 · DB-20260901-003（-1,000 件 → 成品区 RB）<span class="tl-who">赵芳</span></div></div>
+    </div>
     <div class="modal-footer">
       <button class="btn btn-default" onclick="closeModal('detailModal')">关 闭</button>
     </div>
@@ -305,12 +317,6 @@ document.querySelectorAll('.checkbox').forEach(function (c) {
   c.addEventListener('click', function () { c.classList.toggle('checked'); });
 });
 document.querySelector('.modal-overlay').classList.add('show');
-</script>
-<script src="../../_data/demo-data.js"></script>
-<script src="../../_data/detail-generic.js"></script>
-<script>
-/* 模板预览：默认渲染一条（可换键预览其他场景）· 2026-09-08 数据驱动 */
-openGenericDetail('appliances', 'WBX-1210L', '../../', 'detailModal');
 </script>
 <script>/*ia-fix: tab-switch + btn-feedback (2026-09-04)*/
 /* R3 顶部页签切换（点击换 active；× 不做关闭跳转——原型不销毁页签） */

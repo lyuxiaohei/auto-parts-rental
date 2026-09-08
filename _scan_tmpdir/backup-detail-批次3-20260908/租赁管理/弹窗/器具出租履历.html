@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>器具详情 - 包装租赁管理后台</title>
+<title>器具出租履历 - 包装租赁管理后台</title>
 <style>
 :root {
   --primary: #1677ff;
@@ -272,18 +272,30 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 </style>
 </head>
 <body style="background:#f5f6f8;min-height:100vh;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif">
-<!-- 弹窗模板：器具详情（详情落地页补齐 2026-09-04） -->
-<!-- 注入标记：基础数据/器具档案.html -->
-<!-- 弹窗骨架化 · 详情弹窗数据驱动 2026-09-08 -->
-<div class="modal-overlay" id="detailModal">
+<!-- 弹窗模板：器具出租履历（详情落地页补齐 2026-09-04） -->
+<!-- 注入标记：租赁管理/租出台账.html -->
+<!-- 详情弹窗（四段式：单据头/明细/关联单据互溯链/流转时间线）· 详情落地页补齐 2026-09-04 -->
+<div class="modal-overlay" id="trackModal">
   <div class="modal modal-lg" style="width:780px;">
     <div class="modal-header">
-      <h3 class="modal-title" id="detailTitle">器具详情</h3>
-      <span class="modal-close" onclick="closeModal('detailModal')">×</span>
+      <h3 class="modal-title">器具出租履历 · ZH-2604-D</h3>
+      <span class="modal-close" onclick="closeModal('trackModal')">×</span>
     </div>
-    <div class="modal-body" id="detailBody"><!-- 内容由 _data/detail-generic.js 按单号渲染 --></div>
+    <div class="modal-body">
+      <div class="dt-sec">单据信息</div>
+      <div class="dgrid c3"><div class="drow" style="grid-column:1/-1;"><div class="dlabel">器具 / 组合件</div><div class="dval">ZH-2604-D 混合组合套件</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">资产来源</div><div class="dval">混合（自购隔板 + 租入大箱）</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">产出日期</div><div class="dval">2026-08-22（组装 ZZ-20260822-006）</div></div><div class="drow"><div class="dlabel">累计租出</div><div class="dval">1 次（首圈循环）</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">当前状态</div><div class="dval"><span class="tag tag-gray">已退租 · 待循环再组装</span></div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">在租 / 待归还</div><div class="dval">0 / 0（已拆散回库）</div></div></div>
+      <div class="dt-sec">出租记录</div>
+      <div class="table-wrap"><table><thead><tr><th class="td-num">#</th><th>租赁单号</th><th>客户</th><th>起租</th><th class="td-num">退租</th><th class="td-num">数量</th><th>状态</th></tr></thead>
+<tbody>
+<tr><td class="td-num">1</td><td><span class="lk" onclick="go('../../销售管理/租赁单列表.html')">ZL-20260823-033</span></td><td>一汽解放汽车有限公司</td><td>2026-08-23</td><td class="td-num">2026-09-02</td><td class="td-num">40 套</td><td>已退租</td></tr>
+</tbody></table></div>
+      <div class="dt-sec">关联单据</div>
+      <div class="chain"><div class="node"><div class="n-role">组装</div><div class="n-name"><span class="lk" onclick="go('../../仓储作业/组装列表.html')">ZZ-20260822-006</span></div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">租赁单</div><div class="n-name"><span class="lk" onclick="go('../../销售管理/租赁单列表.html')">ZL-20260823-033</span></div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">组合出库</div><div class="n-name"><span class="lk" onclick="go('../../仓储作业/组合出库列表.html')">CK-20260824-009</span></div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">退租入库</div><div class="n-name"><span class="lk" onclick="go('../../仓储作业/退租入库列表.html')">TZRK-20260902-010 · 拆散回库</span></div></div></div>
+      <div class="dt-sec">流转时间线</div>
+      <div class="tl"><div class="tl-i"><span class="tl-t">08-22</span>组装产出 · 混合配方 40 套<span class="tl-who">刘志强</span></div><div class="tl-i"><span class="tl-t">08-23</span>起租 · ZL-20260823-033（一汽解放）<span class="tl-who">王琳</span></div><div class="tl-i"><span class="tl-t">08-24</span>组合出库 · CK-20260824-009<span class="tl-who">张伟</span></div><div class="tl-i"><span class="tl-t">09-02</span>退租 · TZRK-20260902-010 按 BOM 拆散回库<span class="tl-who">张伟</span></div><div class="tl-i off"><span class="tl-t">—</span>待循环 · 隔板可再组装（散件在库）</div></div>
+    </div>
     <div class="modal-footer">
-      <button class="btn btn-default" onclick="closeModal('detailModal')">关 闭</button>
+      <button class="btn btn-default" onclick="closeModal('trackModal')">关 闭</button>
     </div>
   </div>
 </div>
@@ -305,12 +317,6 @@ document.querySelectorAll('.checkbox').forEach(function (c) {
   c.addEventListener('click', function () { c.classList.toggle('checked'); });
 });
 document.querySelector('.modal-overlay').classList.add('show');
-</script>
-<script src="../../_data/demo-data.js"></script>
-<script src="../../_data/detail-generic.js"></script>
-<script>
-/* 模板预览：默认渲染一条（可换键预览其他场景）· 2026-09-08 数据驱动 */
-openGenericDetail('appliances', 'WBX-1210L', '../../', 'detailModal');
 </script>
 <script>/*ia-fix: tab-switch + btn-feedback (2026-09-04)*/
 /* R3 顶部页签切换（点击换 active；× 不做关闭跳转——原型不销毁页签） */

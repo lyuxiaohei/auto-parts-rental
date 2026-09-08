@@ -1,0 +1,15 @@
+[
+ {"page": "仓储作业/盘点列表.html", "entity": "stocktakes", "title": "盘点单详情", "tpl": "仓储作业/弹窗/盘点单详情.html", "preview": "PD-202608-03"},
+ {"page": "仓储作业/库存调拨列表.html", "entity": "transfers", "title": "调拨单详情", "tpl": "仓储作业/弹窗/调拨单详情.html", "preview": "DB-20260901-003"},
+ {"page": "仓储作业/库存查询.html", "entity": "stockFlows", "title": "库存流水", "tpl": "仓储作业/弹窗/库存流水.html", "preview": "LJ-A100", "modalId": "flowModal", "anchor": "库存流水",
+  "titleNoMap": {"LJ-A100": "LJ-A100 锁扣组件 不锈钢 304", "LJ-B200": "LJ-B200 铰链 锌合金 65mm", "LJ-C300": "LJ-C300 围板 HDPE 波纹板", "LJ-D400": "LJ-D400 箱盖 ABS 吸塑", "LJ-F600": "LJ-F600 内衬 EPE 珍珠棉", "WBX-1210L": "WBX-1210L 围板箱 1200×1000×970", "WBX-1210M": "WBX-1210M 围板箱 1200×1000×590", "PLT-1210P": "PLT-1210P 塑料托盘 1200×1000", "BTC-6040": "BTC-6040 料箱 600×400×340", "ZH-2601-A": "ZH-2601-A 驾驶室围板箱整箱套件", "ZH-2602-B": "ZH-2602-B 冲压件料箱组套", "ZH-2603-C": "ZH-2603-C 电池托盘护角套件"}},
+ {"page": "租赁管理/租出台账.html", "entity": "rentTracks", "title": "器具出租履历", "tpl": "租赁管理/弹窗/器具出租履历.html", "preview": "ZL-20260823-033", "modalId": "trackModal"},
+ {"page": "租赁管理/在租台账.html", "entity": "assetTracks", "title": "资产轨迹", "tpl": null, "preview": "WBX-1210L", "modalId": "trackModal", "anchor": "资产轨迹"},
+ {"page": "基础数据/客商管理.html", "entity": "partners", "title": "客商详情", "tpl": "基础数据/弹窗/客商详情.html", "preview": "DW-0001",
+  "titleNoMap": {"DW-0001": "一汽解放汽车有限公司", "DW-0002": "上汽大众汽车有限公司宁波分公司", "DW-0003": "小鹏汽车科技有限公司", "DW-0004": "东风本田汽车有限公司", "DW-0101": "宁波华塑包装制品有限公司", "DW-0102": "苏州联恒五金制品有限公司", "DW-0103": "常州正大塑料托盘厂", "DW-0201": "路凯包装运营（上海）有限公司"}},
+ {"page": "基础数据/器具档案.html", "entity": "appliances", "title": "器具详情", "tpl": "基础数据/弹窗/器具详情.html", "preview": "WBX-1210L"},
+ {"page": "基础数据/零部件档案.html", "entity": "parts", "title": "零部件详情", "tpl": "基础数据/弹窗/零部件详情.html", "preview": "LJ-A100"},
+ {"page": "基础数据/库位档案.html", "entity": "locations", "title": "库位详情", "tpl": "基础数据/弹窗/库位详情.html", "preview": "RA-A-01-01"},
+ {"page": "基础数据/BOM维护.html", "entity": "bomVersions", "title": "BOM 版本查看", "tpl": "基础数据/弹窗/BOM版本查看.html", "preview": "V2.1", "modalId": "bomViewModal", "anchor": "查看",
+  "titleNoMap": {"V2.1": "ZH-2601-A V2.1", "V2.0": "ZH-2601-A V2.0", "V1.0": "ZH-2601-A V1.0"}}
+]

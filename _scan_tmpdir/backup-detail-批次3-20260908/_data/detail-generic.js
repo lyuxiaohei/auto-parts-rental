@@ -30,9 +30,7 @@
     '待入库': 'tag-orange', '已入库': 'tag-green', '赔偿中': 'tag-orange', '已转应收': 'tag-blue',
     '已赔偿': 'tag-green', '部分退租': 'tag-blue',
     '已完成': 'tag-green', '待发货': 'tag-orange', '待验收': 'tag-orange', '已验收': 'tag-green',
-    '组装中': 'tag-blue', '待组装': 'tag-orange', '待结算': 'tag-orange', '进行中': 'tag-blue',
-    '盘点中': 'tag-blue', '生效': 'tag-green', '超期未还': 'tag-red', '已退回': 'tag-gray',
-    '缺损待赔': 'tag-orange', '已报废': 'tag-gray', '正常': 'tag-green', '空闲': 'tag-gray', '启用': 'tag-green', '已停用': 'tag-gray'
+    '组装中': 'tag-blue', '待组装': 'tag-orange', '待结算': 'tag-orange', '进行中': 'tag-blue'
   };
 
   function lk(text, url, base) {
@@ -96,25 +94,21 @@
     return h;
   };
 
-  window.openGenericDetail = function (entity, key, base, modalId) {
+  window.openGenericDetail = function (entity, key, base) {
     var rec = window.DEMO_DATA && window.DEMO_DATA[entity] ? window.DEMO_DATA[entity][key] : null;
     if (!rec) { console.warn('[demo-data] ' + entity + ' 无数据: ' + key); return; }
     document.getElementById('detailTitle').textContent = rec.title + ' · ' + (rec.titleNo || key);
     document.getElementById('detailBody').innerHTML = window.renderGenericDetailHTML(rec, base);
-    openModal(modalId || 'detailModal');
+    openModal('detailModal');
   };
 
-  /* 列表页接线：把指向指定弹窗的触发锚改绑为按行数据渲染。
-     opts 可选：{ anchorText: '详情'|其他, modalId: 'detailModal'|其他 }（2026-09-08 批3扩展） */
-  window.wireDetailModal = function (entity, opts) {
-    opts = opts || {};
-    var anchorText = opts.anchorText || '详情';
-    var modalId = opts.modalId || 'detailModal';
+  /* 列表页接线：把指向 detailModal 的「详情」按钮改绑为按行数据渲染 */
+  window.wireDetailModal = function (entity) {
     var keys = Object.keys(window.DEMO_DATA && window.DEMO_DATA[entity] ? window.DEMO_DATA[entity] : {});
     if (!keys.length) { console.warn('[demo-data] 无实体: ' + entity); return; }
     document.querySelectorAll('tbody .ops a').forEach(function (a) {
-      if (a.textContent.trim() !== anchorText) return;
-      if ((a.getAttribute('onclick') || '').indexOf(modalId) < 0) return;
+      if (a.textContent.trim() !== '详情') return;
+      if ((a.getAttribute('onclick') || '').indexOf('detailModal') < 0) return;
       var text = a.closest('tr').textContent;
       var key = null;
       for (var i = 0; i < keys.length; i++) {
@@ -122,7 +116,7 @@
       }
       if (!key) return;
       a.removeAttribute('onclick');
-      a.addEventListener('click', function () { openGenericDetail(entity, key, undefined, modalId); });
+      a.addEventListener('click', function () { openGenericDetail(entity, key); });
     });
   };
 })();

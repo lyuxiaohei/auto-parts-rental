@@ -689,34 +689,25 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 .tl-i .tl-t{color:#8c8c8c;font-size:12px;margin-right:8px;font-variant-numeric:tabular-nums}
 .tl-i .tl-who{color:#8c8c8c;font-size:12px;margin-left:8px}
 </style>
-<!-- 详情弹窗（四段式：单据头/明细/关联单据互溯链/流转时间线）· 详情落地页补齐 2026-09-04 -->
+<!-- 弹窗骨架化 · 详情弹窗数据驱动 2026-09-08 -->
 <div class="modal-overlay" id="detailModal">
   <div class="modal modal-lg" style="width:780px;">
     <div class="modal-header">
-      <h3 class="modal-title">客商详情 · 一汽解放汽车有限公司</h3>
+      <h3 class="modal-title" id="detailTitle">客商详情</h3>
       <span class="modal-close" onclick="closeModal('detailModal')">×</span>
     </div>
-    <div class="modal-body">
-      <div class="dt-sec">单据信息</div>
-      <div class="dgrid c3"><div class="drow"><div class="dlabel">客商编码</div><div class="dval">DW-0001</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">客商名称</div><div class="dval">一汽解放汽车有限公司</div></div><div class="drow"><div class="dlabel">客商类型</div><div class="dval">客户</div></div><div class="drow"><div class="dlabel">状态</div><div class="dval"><span class="tag tag-green">正常</span></div></div><div class="drow"><div class="dlabel">联系人</div><div class="dval">袁明 138****6621</div></div><div class="drow"><div class="dlabel">开票要求</div><div class="dval">增值税专票 13%</div></div><div class="drow"><div class="dlabel">更新时间</div><div class="dval">2026-08-12</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">关联项目</div><div class="dval"><span class="lk" onclick="go('../项目管理/项目档案.html')">PRJ-2601</span> 长春基地围板箱租赁</div></div></div>
-      <div class="dt-sec">联系人 / 往来统计</div>
-      <div class="table-wrap"><table><thead><tr><th>统计项</th><th class="td-num">数值</th><th>说明</th></tr></thead>
-<tbody>
-<tr><td>本月营收（PRJ-2601）</td><td class="td-num">486,200 元</td><td>租赁 + 销售费</td></tr>
-<tr><td>累计开票</td><td class="td-num">312,000 元</td><td>INV-20260830-012 等</td></tr>
-<tr><td>在租器具</td><td class="td-num">3,860 只</td><td>围板箱 3,120 / 托盘 740</td></tr>
-<tr><td>联系人</td><td>袁明 · 业务对接</td><td>138****6621</td></tr>
-</tbody></table></div>
-      <div class="dt-sec">关联单据</div>
-      <div class="chain"><div class="node" style="border-color:#1677ff;background:#e6f4ff;"><div class="n-role">客商（本档）</div><div class="n-name">DW-0001 一汽解放</div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">关联项目</div><div class="n-name"><span class="lk" onclick="go('../项目管理/项目档案.html')">PRJ-2601</span></div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">销售订单</div><div class="n-name"><span class="lk" onclick="go('../销售管理/销售订单列表.html')">SO-20260827-0036</span></div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">应收账单</div><div class="n-name"><span class="lk" onclick="go('../财务协同/应收账单.html')">租赁费 / 销售费</span></div></div></div>
-      <div class="dt-sec">流转时间线</div>
-      <div class="tl"><div class="tl-i"><span class="tl-t">2026-01</span>建档 · 客户<span class="tl-who">系统</span></div><div class="tl-i"><span class="tl-t">2026-08-12</span>资质与开票信息更新<span class="tl-who">财务-周敏</span></div><div class="tl-i"><span class="tl-t">至今</span>持续合作 · PRJ-2601 在租 3,860 只</div></div>
-    </div>
+    <div class="modal-body" id="detailBody"><!-- 内容由 _data/detail-generic.js 按单号渲染 --></div>
     <div class="modal-footer">
       <button class="btn btn-default" onclick="closeModal('detailModal')">关 闭</button>
     </div>
   </div>
 </div>
+<script src="../_data/demo-data.js"></script>
+<script src="../_data/detail-generic.js"></script>
+<script>
+/* demo-data 接线：各行「详情」按行内键渲染对应数据（2026-09-08 数据驱动） */
+wireDetailModal('partners');
+</script>
 <script>
 function openModal(id) { document.getElementById(id).classList.add('show'); }
 function closeModal(id) { document.getElementById(id).classList.remove('show'); }

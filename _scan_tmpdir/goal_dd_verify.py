@@ -25,6 +25,9 @@ def run(batch):
 
         for item in batch:
             ent, title = item['entity'], item['title']
+            mid = item.get('modalId', 'detailModal')
+            anchor = item.get('anchor', '详情')
+            tno = item.get('titleNo')  # 缺省 = 键本身
             # ---- 列表页逐行实点 ----
             url = BASE + quote(item['page'])
             page.goto(url)
@@ -34,17 +37,17 @@ def run(batch):
                 results.append((item['page'], '页面加载', 'FAIL', 'JS错误: ' + '; '.join(errs[:2])))
                 continue
             keys = page.evaluate("() => Object.keys(window.DEMO_DATA && window.DEMO_DATA.%s || {})" % ent)
-            anchors = page.evaluate("""() => {
+            anchors = page.evaluate("""(anchor) => {
                 const out = [];
                 document.querySelectorAll('tbody .ops a').forEach(a => {
-                    if (a.textContent.trim() !== '详情') return;
+                    if (a.textContent.trim() !== anchor) return;
                     const tr = a.closest('tr');
                     out.push({onclick: a.getAttribute('onclick'), row: tr.textContent.replace(/\\s+/g,' ')});
                 });
                 return out;
-            }""")
+            }""", anchor)
             if not anchors:
-                results.append((item['page'], '—', 'FAIL', '无详情锚'))
+                results.append((item['page'], '—', 'FAIL', '无 %s 锚' % anchor))
                 continue
             wired = 0
             for a in anchors:
@@ -53,22 +56,22 @@ def run(batch):
                 if not key:
                     results.append((item['page'], row[:26], 'FAIL', '行未匹配实体键'))
                     continue
-                ok = page.evaluate("""(key) => {
+                ok = page.evaluate("""([key, anchor, mid]) => {
                     const a = [...document.querySelectorAll('tbody .ops a')]
-                        .find(x => x.textContent.trim() === '详情' && x.closest('tr').textContent.replace(/\\s+/g,' ').indexOf(key) > -1);
+                        .find(x => x.textContent.trim() === anchor && x.closest('tr').textContent.replace(/\\s+/g,' ').indexOf(key) > -1);
                     if (!a) return '锚未找到';
                     a.click();
-                    const ov = document.getElementById('detailModal');
+                    const ov = document.getElementById(mid);
                     if (!ov.classList.contains('show')) return '弹窗未打开';
                     const t = document.getElementById('detailTitle').textContent.trim();
                     const body = document.getElementById('detailBody').textContent.replace(/\\s+/g,' ');
-                    document.querySelector('#detailModal .modal-close').click();
+                    ov.querySelector('.modal-close').click();
                     return {t, body, len: body.length};
-                }""", key)
+                }""", [key, anchor, mid])
                 if isinstance(ok, str):
                     results.append((item['page'], key, 'FAIL', ok))
                     continue
-                want = title + ' · ' + key
+                want = title + ' · ' + (tno(key) if callable(tno) else (tno or key)) if False else title + ' · ' + (item.get('titleNoMap', {}).get(key, None) or key)
                 if ok['t'] != want:
                     results.append((item['page'], key, 'FAIL', '标题[%s]≠[%s]' % (ok['t'], want)))
                     continue
@@ -81,6 +84,8 @@ def run(batch):
             if wired and all(a['onclick'] for a in anchors):
                 results.append((item['page'], '接线', 'FAIL', 'onclick 未剥离'))
             # ---- 模板预览页 ----
+            if not item.get('tpl'):
+                continue
             turl = BASE + quote(item['tpl'])
             page.goto(turl)
             page.wait_for_load_state('networkidle')
@@ -88,15 +93,15 @@ def run(batch):
             if terrs:
                 results.append((item['tpl'], '预览', 'FAIL', 'JS错误: ' + '; '.join(terrs[:2])))
                 continue
-            tp = page.evaluate("""() => {
-                const ov = document.getElementById('detailModal');
+            tp = page.evaluate("""(mid) => {
+                const ov = document.getElementById(mid);
                 const t = document.getElementById('detailTitle').textContent.trim();
                 const body = document.getElementById('detailBody').textContent.replace(/\\s+/g,' ');
                 return {shown: ov.classList.contains('show'), t, len: body.length};
-            }""")
-            want = title + ' · ' + item['preview']
+            }""", mid)
+            want = title + ' · ' + (item.get('titleNoMap', {}).get(item['preview'], None) or item['preview'])
             if not tp['shown'] or tp['t'] != want or tp['len'] < 120:
-                results.append((item['tpl'], '预览', 'FAIL', 'shown=%s t=[%s] len=%d' % (tp['shown'], tp['t'], tp['len'])))
+                results.append((item['tpl'], '预览', 'FAIL', 'shown=%s t=[%s] want=[%s] len=%d' % (tp['shown'], tp['t'], want, tp['len'])))
             else:
                 results.append((item['tpl'], '预览', 'PASS', '标题/正文OK'))
         browser.close()

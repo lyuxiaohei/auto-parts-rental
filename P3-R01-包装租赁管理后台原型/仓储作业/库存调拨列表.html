@@ -589,31 +589,25 @@ th.td-num { text-align:right; }
 .tl-i .tl-t{color:#8c8c8c;font-size:12px;margin-right:8px;font-variant-numeric:tabular-nums}
 .tl-i .tl-who{color:#8c8c8c;font-size:12px;margin-left:8px}
 </style>
-<!-- 详情弹窗（四段式：单据头/明细/关联单据互溯链/流转时间线）· 详情落地页补齐 2026-09-04 -->
+<!-- 弹窗骨架化 · 详情弹窗数据驱动 2026-09-08 -->
 <div class="modal-overlay" id="detailModal">
   <div class="modal modal-lg" style="width:780px;">
     <div class="modal-header">
-      <h3 class="modal-title">调拨单详情 · DB-20260901-003</h3>
+      <h3 class="modal-title" id="detailTitle">调拨单详情</h3>
       <span class="modal-close" onclick="closeModal('detailModal')">×</span>
     </div>
-    <div class="modal-body">
-      <div class="dt-sec">单据信息</div>
-      <div class="dgrid c3"><div class="drow"><div class="dlabel">调拨单号</div><div class="dval">DB-20260901-003</div></div><div class="drow"><div class="dlabel">状态</div><div class="dval"><span class="tag tag-orange">待审核</span></div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">物料</div><div class="dval">LJ-A100 锁扣组件 不锈钢 304</div></div><div class="drow"><div class="dlabel">数量</div><div class="dval">1,000 件</div></div><div class="drow"><div class="dlabel">调出库区</div><div class="dval">原料区 RA</div></div><div class="drow"><div class="dlabel">调入库区</div><div class="dval">成品区 RB</div></div><div class="drow"><div class="dlabel">调拨类型</div><div class="dval">库区内调拨</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">调拨原因</div><div class="dval">组装备料（ZH-2601-A 组装线需求）</div></div><div class="drow"><div class="dlabel">调拨日期</div><div class="dval">2026-09-01</div></div><div class="drow"><div class="dlabel">制单人</div><div class="dval">赵芳</div></div><div class="drow"><div class="dlabel">审核人</div><div class="dval">—</div></div><div class="drow" style="grid-column:1/-1;"><div class="dlabel">备注</div><div class="dval">调拨不影响库存总量，仅变动库区分布</div></div></div>
-      <div class="dt-sec">调拨明细</div>
-      <div class="table-wrap"><table><thead><tr><th>序号</th><th>物料编码</th><th>名称规格</th><th>单位</th><th class="td-num">数量</th><th>调出 → 调入</th></tr></thead>
-<tbody>
-<tr><td>1</td><td>LJ-A100</td><td>锁扣组件 不锈钢 304</td><td>件</td><td class="td-num">1,000</td><td>原料区 RA → 成品区 RB</td></tr>
-</tbody></table></div>
-      <div class="dt-sec">关联单据</div>
-      <div class="chain"><div class="node"><div class="n-role">原料区 RA 库存</div><div class="n-name"><span class="lk" onclick="go('../仓储作业/库存查询.html')">LJ-A100 · 调出 1,000</span></div></div><span class="link-arrow">→</span><div class="node" style="border-color:#1677ff;background:#e6f4ff;"><div class="n-role">库存调拨（本单）</div><div class="n-name">DB-20260901-003</div></div><span class="link-arrow">→</span><div class="node"><div class="n-role">成品区 RB 库存</div><div class="n-name"><span class="lk" onclick="go('../仓储作业/组装列表.html')">组装线备料</span></div></div></div>
-      <div class="dt-sec">流转时间线</div>
-      <div class="tl"><div class="tl-i"><span class="tl-t">09-01 10:50</span>组装线提出备料需求 · ZH-2601-A<span class="tl-who">刘志强</span></div><div class="tl-i"><span class="tl-t">09-01 11:00</span>制单 · 调拨申请<span class="tl-who">赵芳</span></div><div class="tl-i off"><span class="tl-t">—</span>待审核 · 通过后两库区库存同步变动</div></div>
-    </div>
+    <div class="modal-body" id="detailBody"><!-- 内容由 _data/detail-generic.js 按单号渲染 --></div>
     <div class="modal-footer">
       <button class="btn btn-default" onclick="closeModal('detailModal')">关 闭</button>
     </div>
   </div>
 </div>
+<script src="../_data/demo-data.js"></script>
+<script src="../_data/detail-generic.js"></script>
+<script>
+/* demo-data 接线：各行「详情」按行内键渲染对应数据（2026-09-08 数据驱动） */
+wireDetailModal('transfers');
+</script>
 <script>
 /* ===== 菜单折叠 / 页签与表单视觉态（统一脚本） ===== */
 function go(url) { location.href = url; }
