@@ -107,6 +107,33 @@ with sync_playwright() as pw:
         n_rows = rows.count()
         check(P['name'], '1 行数=实体条数', n_rows == len(keys), f'{n_rows}=={len(keys)}')
 
+        # 1b 列结构：每行 td 数 = 表头 th 数（嵌套 td/缺格回归防线，2026-09-08 修复后新增）
+        st = page.evaluate("""(sel) => {
+          const tb = document.querySelector(sel);
+          const table = tb.closest('table');
+          const nTh = table ? table.querySelectorAll('thead th').length : -1;
+          const counts = Array.from(tb.querySelectorAll('tr')).map(tr => tr.cells.length);
+          return {nTh, counts: [...new Set(counts)]};
+        }""", tsel)
+        ok1b = st['nTh'] > 0 and st['counts'] == [st['nTh']]
+        check(P['name'], '1b 列结构=表头列数', ok1b, f"th={st['nTh']} 行td集={st['counts']}")
+
+        # 1c 首行内容逐格=实体 cells 文本（cells 误带外层标签/内容丢失防线；跳过键列与 ops 列）
+        key_col = 0 if P.get('noCheckbox') else 1
+        first_cells = page.evaluate("""(args) => {
+          const tb = document.querySelector(args[0]);
+          const tr = tb.querySelector('tr');
+          const rec = window.DEMO_DATA[args[1]][args[2]];
+          return {rendered: Array.from(tr.cells).map(td => td.textContent.trim().replace(/\\s+/g, ' ')),
+                  want: rec.row.cells.map(c => c.replace(/<[^>]+>/g, '').replace(/\\s+/g, ' ').trim())};
+        }""", [tsel, P['entity'], keys[0]])
+        rc = first_cells['rendered'][key_col + 1:]
+        wc = first_cells['want']
+        ok1c = len(rc) >= len(wc) and rc[:len(wc)] == wc
+        check(P['name'], '1c 首行逐格=实体 cells', ok1c,
+              f"数据格 {len(rc)} vs 期望 {len(wc)}"
+              + ('' if ok1c else f" 渲染={rc[:5]} 期望={wc[:5]}"))
+
         # 2 行单号=实体键（BOM维护 ver-tag 富键列用 contains）
         key_col = 0 if P.get('noCheckbox') else 1
         row_keys = [rows.nth(i).locator('td').nth(key_col).text_content().strip() for i in range(n_rows)]
