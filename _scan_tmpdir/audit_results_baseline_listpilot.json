@@ -1263,7 +1263,7 @@
     "type": "modal-unreachable",
     "phase": "modal",
     "where": {
-     "text": "采购入库单详情"
+     "text": "采购入库单详情 · CGRK-20260"
     },
     "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
    }
@@ -1271,7 +1271,7 @@
   "stats": {
    "buttons": 8,
    "links": 31,
-   "onclickEls": 67,
+   "onclickEls": 70,
    "modals": 2,
    "modalTitles": [
     "审核确认"

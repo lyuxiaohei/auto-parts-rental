@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<title>采购入库 - 包装租赁管理后台</title>
+<title>租赁单 - 包装租赁管理后台</title>
 <style>
 :root {
   --primary: #1677ff;
@@ -72,6 +72,22 @@ svg { display:inline-block; vertical-align:middle; }
 .card-head .card-title { margin-bottom:0; }
 .card-head .head-btns { display:flex; align-items:center; gap:8px; }
 
+/* ===== 筛选区（13px 控件，样板：仓储作业/采购入库列表） ===== */
+.filter-card { background:#fff; border-radius:8px; padding:16px 18px; margin:0 0 12px; box-shadow:0 1px 3px rgba(0,0,0,0.05); }
+.filter-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; }
+.ff { display:flex; align-items:center; border:1px solid #d9d9d9; border-radius:6px; padding:0 10px; height:32px; background:#fff; transition:border-color .2s; }
+.ff:focus-within { border-color:#1677ff; }
+.ff .ff-label { flex-shrink:0; font-size:13px; color:#262626; margin-right:6px; white-space:nowrap; }
+.ff input, .ff select { flex:1; min-width:0; border:none; outline:none; height:100%; font-size:13px; color:#262626; background:transparent; font-family:inherit; }
+.ff input::placeholder { color:#bfbfbf; }
+.ff select { appearance:none; -webkit-appearance:none; color:#8c8c8c; cursor:pointer; }
+.ff .ff-chev { width:12px; height:12px; color:#8c8c8c; flex-shrink:0; pointer-events:none; }
+.ff .ff-sep { margin:0 6px; color:#8c8c8c; flex-shrink:0; }
+.filter-actions { display:flex; align-items:center; justify-content:flex-end; gap:10px; height:32px; }
+.link-collapse { display:flex; align-items:center; gap:4px; font-size:13px; color:#1677ff; cursor:pointer; background:none; border:none; font-family:inherit; }
+.link-collapse svg { width:12px; height:12px; transition:transform .2s; }
+.filter-card.collapsed .filter-grid .ff-row-extra { display:none; }
+.filter-card:not(.collapsed) .link-collapse svg { transform:rotate(180deg); }
 /* ===== 按钮（13px 体系，表单/卡片头/弹窗用；筛选区 12px 另按作用域覆盖） ===== */
 .btn { display:inline-flex; align-items:center; justify-content:center; height:30px; padding:0 14px; border-radius:6px; border:none; cursor:pointer; font-size:13px; background:var(--primary); color:#fff; white-space:nowrap; font-family:inherit; }
 .btn:hover { background:#4096ff; }
@@ -200,23 +216,6 @@ th.td-num { text-align:right; }
 
 /* ===== 本页业务样式 ===== */
 
-
-/* ===== 参考页筛选区样式 ===== */
-.filter-card { background:#fff; border-radius:8px; padding:16px 18px; margin:0 0 12px; box-shadow:0 1px 3px rgba(0,0,0,0.05); }
-.filter-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; }
-.ff { display:flex; align-items:center; border:1px solid #d9d9d9; border-radius:6px; padding:0 10px; height:32px; background:#fff; transition:border-color .2s; }
-.ff:focus-within { border-color:#1677ff; }
-.ff .ff-label { flex-shrink:0; font-size:13px; color:#262626; margin-right:6px; white-space:nowrap; }
-.ff input, .ff select { flex:1; min-width:0; border:none; outline:none; height:100%; font-size:13px; color:#262626; background:transparent; font-family:inherit; }
-.ff input::placeholder { color:#bfbfbf; }
-.ff select { appearance:none; -webkit-appearance:none; color:#8c8c8c; cursor:pointer; }
-.ff .ff-chev { width:12px; height:12px; color:#8c8c8c; flex-shrink:0; pointer-events:none; }
-.ff .ff-sep { margin:0 6px; color:#8c8c8c; flex-shrink:0; }
-.filter-actions { display:flex; align-items:center; justify-content:flex-end; gap:10px; height:32px; }
-.link-collapse { display:flex; align-items:center; gap:4px; font-size:13px; color:#1677ff; cursor:pointer; background:none; border:none; font-family:inherit; }
-.link-collapse svg { width:12px; height:12px; transition:transform .2s; }
-.filter-card.collapsed .filter-grid .ff-row-extra { display:none; }
-.filter-card:not(.collapsed) .link-collapse svg { transform:rotate(180deg); }
 </style>
 
 <style id="modal-css">
@@ -277,14 +276,14 @@ th.td-num { text-align:right; }
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></span>销售管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
    <li><div class="sm-link" onclick="go('../销售管理/销售订单列表.html')">销售订单</div></li>
-   <li><div class="sm-link" onclick="go('../销售管理/租赁单列表.html')">租赁单</div></li>
+   <li><div class="sm-link selected">租赁单</div></li>
    </ul>
    </li>
-   <li class="sm-item has-sub open">
+   <li class="sm-item has-sub">
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/><line x1="10" y1="12" x2="14" y2="12"/></svg></span>仓储作业<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
    <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">入库类</li>
-   <li><div class="sm-link selected">采购入库</div></li>
+   <li><div class="sm-link" onclick="go('../仓储作业/采购入库列表.html')">采购入库</div></li>
    <li><div class="sm-link" onclick="go('../仓储作业/退租入库列表.html')">退租入库</div></li>
    <li><div class="sm-link" onclick="go('../仓储作业/其他入库列表.html')">其他入库</div></li>
    <li><div class="sm-link" onclick="go('../仓储作业/租入入库列表.html')">租入入库</div></li>
@@ -302,7 +301,7 @@ th.td-num { text-align:right; }
    <li><div class="sm-link" onclick="go('../仓储作业/库存调拨列表.html')">库存调拨</div></li>
    </ul>
    </li>
-   <li class="sm-item has-sub">
+   <li class="sm-item has-sub open">
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8V21H3V8"/><rect x="1" y="3" width="22" height="5" rx="1"/><line x1="10" y1="12" x2="14" y2="12"/></svg></span>包装管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
    <li><div class="sm-link" onclick="go('../租赁管理/退租申请列表.html')">退租申请</div></li>
@@ -343,32 +342,27 @@ th.td-num { text-align:right; }
   </div></aside>
   <div class="main-col">
 <div class="tabs">
-  <span class="tab active">采购入库 <span class="close">×</span></span>
-  <span class="tab">组装 <span class="close">×</span></span>
-  <span class="tab">租赁出库 <span class="close">×</span></span>
-  <span class="tab">库存查询 <span class="close">×</span></span>
+  <span class="tab active">租赁单 <span class="close">×</span></span>
+  <span class="tab">退租申请 <span class="close">×</span></span>
+  <span class="tab">在租台账 <span class="close">×</span></span>
 </div>
     <div class="content">
 <div class="filter-card collapsed" id="filterCard">
   <div class="filter-grid">
-    <div class="ff"><span class="ff-label">入库单号：</span><input placeholder="请输入入库单号"></div>
-    <div class="ff"><span class="ff-label">供应商：</span>
-      <select><option value="">全部</option><option>宁波华塑包装制品有限公司</option><option>苏州联恒五金制品有限公司</option><option>常州正大塑料托盘厂</option><option>路凯包装运营（上海）有限公司</option></select>
+    <div class="ff"><span class="ff-label">租赁单号：</span><input placeholder="请输入"></div>
+    <div class="ff"><span class="ff-label">客户名称：</span>
+      <select><option selected>全部</option><option>一汽解放汽车有限公司</option><option>上汽大众汽车有限公司宁波分公司</option><option>小鹏汽车科技有限公司</option><option>东风本田汽车有限公司</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
     <div class="ff"><span class="ff-label">所属项目：</span>
-      <select><option value="">全部</option><option>PRJ-2601</option><option>PRJ-2602</option><option>PRJ-2603</option><option>PRJ-2604</option><option>PRJ-2605</option></select>
+      <select><option selected>全部</option><option>PRJ-2601</option><option>PRJ-2602</option><option>PRJ-2603</option><option>PRJ-2604</option><option>PRJ-2605</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
-    <div class="ff ff-row-extra"><span class="ff-label">入库状态：</span>
-      <select><option value="">全部</option><option>待验收</option><option>已入库</option></select>
+    <div class="ff ff-row-extra"><span class="ff-label">状态：</span>
+      <select><option selected>全部</option><option>待审核</option><option>已审核</option><option>在租</option><option>已退租</option><option>已关闭</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
-    <div class="ff ff-row-extra"><span class="ff-label">入库时间：</span><input placeholder="开始日期"><span class="ff-sep">→</span><input placeholder="结束日期"></div>
-    <div class="ff ff-row-extra"><span class="ff-label">业务类型：</span>
-      <select><option value="">全部</option><option>零部件采购</option><option>器具采购</option></select>
-      <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-    </div>
+    <div class="ff ff-row-extra"><span class="ff-label">起租日期：</span><input placeholder="开始日期"><span class="ff-sep">→</span><input placeholder="结束日期"></div>
     <div class="filter-actions">
       <button class="link-collapse" onclick="var f=document.getElementById('filterCard');f.classList.toggle('collapsed');this.querySelector('span').textContent=f.classList.contains('collapsed')?'展开':'收起'"><span>展开</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
       <button class="btn btn-default">重置</button>
@@ -376,188 +370,235 @@ th.td-num { text-align:right; }
     </div>
   </div>
 </div>
-
 <div class="card">
   <div class="card-head">
-    <h3 class="card-title">采购入库单</h3>
-    <div class="head-btns"><button class="btn btn-default btn-sm">批量导出</button><button class="btn btn-sm" onclick="go('../仓储作业/采购入库录单.html')">新增入库单</button></div>
+    <h3 class="card-title">租赁单</h3>
+    <div class="head-btns"><button class="btn btn-default btn-sm">批量导出</button><button class="btn btn-sm" onclick="openModal('createModal')">新建租赁单</button></div>
   </div>
 <div class="stabs">
-  <span class="stab active">全部<span class="stab-count">325</span></span>
-  <span class="stab">待验收<span class="stab-count">4</span></span>
-  <span class="stab">已入库<span class="stab-count">321</span></span>
+  <span class="stab active">全部<span class="stab-count">56</span></span>
+  <span class="stab">待审核<span class="stab-count">3</span></span>
+  <span class="stab">已审核<span class="stab-count">8</span></span>
+  <span class="stab">在租<span class="stab-count">40</span></span>
+  <span class="stab">已退租<span class="stab-count">4</span></span>
+  <span class="stab">已关闭<span class="stab-count">1</span></span>
 </div>
-  <div class="table-wrap">
+<div class="table-wrap">
     <table>
       <thead>
         <tr>
           <th></th>
-          <th>入库单号</th>
-          <th>供应商</th>
-          <th>关联采购订单号</th>
+          <th>租赁单号</th>
+          <th>客户名称</th>
           <th>所属项目</th>
-          <th>业务类型</th>
-          <th>到货托数</th>
-          <th>入库库区</th>
+          <th>租赁器具</th>
+          <th>资产来源</th>
+          <th>数量</th>
+          <th>起租日期</th>
+          <th>约定归还日期</th>
+          <th>租赁天数</th>
           <th>状态</th>
-          <th>制单人</th>
-          <th>入库时间</th>
           <th class="sticky-op">操作</th>
         </tr>
       </thead>
       <tbody>
-        
-
         <tr>
           <td><input type="checkbox" class="cb"></td>
-          <td><span class="lk">CGRK-20260828-012</span></td>
-          <td>苏州联恒五金制品有限公司</td>
-          <td><span class="lk">PO-20260828-015</span></td>
-          <td>PRJ-2601</td>
-          <td>零部件采购</td>
-          <td><span class="td-num">40 托</span></td>
-          <td>原料区 RA</td>
-          <td><span class="tag tag-green">已入库</span></td>
-          <td>张伟</td>
-          <td>2026-08-28 14:32</td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('auditModal')">验收</a><a onclick="window.print();this.classList.toggle('printed')">打印</a><a onclick="go('../财务协同/应付账单.html')">应付账单</a></span></td>
-        </tr>
-        <tr>
-          <td><input type="checkbox" class="cb"></td>
-          <td data-note="2"><span class="lk">CGRK-20260828-011</span></td>
-          <td>宁波华塑包装制品有限公司</td>
-          <td><span class="lk">PO-20260901-017</span></td>
-          <td>PRJ-2601</td>
-          <td>器具采购</td>
-          <td><span class="td-num">25 托</span></td>
-          <td>原料区 RA</td>
-          <td><span class="tag tag-green">已入库</span></td>
-          <td>张伟</td>
-          <td>2026-08-28 10:05</td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('auditModal')">验收</a><a onclick="window.print();this.classList.toggle('printed')">打印</a><a onclick="go('../财务协同/应付账单.html')">应付账单</a></span></td>
-        </tr>
-        <tr>
-          <td><input type="checkbox" class="cb"></td>
-          <td><span class="lk">CGRK-20260827-010</span></td>
-          <td>常州正大塑料托盘厂</td>
-          <td><span class="lk">PO-20260820-013</span></td>
-          <td>PRJ-2602</td>
-          <td>器具采购</td>
-          <td><span class="td-num">18 托</span></td>
-          <td>成品区 RB</td>
-          <td><span class="tag tag-green">已入库</span></td>
-          <td>李国栋</td>
-          <td>2026-08-27 16:44</td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('auditModal')">验收</a><a onclick="window.print();this.classList.toggle('printed')">打印</a><a onclick="go('../财务协同/应付账单.html')">应付账单</a></span></td>
-        </tr>
-        <tr>
-          <td><input type="checkbox" class="cb"></td>
-          <td><span class="lk">CGRK-20260827-009</span></td>
-          <td>苏州联恒五金制品有限公司</td>
-          <td><span class="lk">PO-20260902-018</span></td>
-          <td>PRJ-2602</td>
-          <td>零部件采购</td>
-          <td><span class="td-num">12 托</span></td>
-          <td>原料区 RA</td>
-          <td><span class="tag tag-orange">待验收</span></td>
-          <td>李国栋</td>
-          <td>2026-08-27 09:20</td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('auditModal')">验收</a><a onclick="window.print();this.classList.toggle('printed')">打印</a><a onclick="go('../财务协同/应付账单.html')">应付账单</a></span></td>
-        </tr>
-        <tr>
-          <td><input type="checkbox" class="cb"></td>
-          <td><span class="lk">CGRK-20260826-008</span></td>
-          <td>宁波华塑包装制品有限公司</td>
-          <td><span class="lk">PO-20260825-014</span></td>
-          <td>PRJ-2603</td>
-          <td>器具采购</td>
-          <td><span class="td-num">9 托</span></td>
-          <td>原料区 RA</td>
-          <td><span class="tag tag-green">已入库</span></td>
-          <td>张伟</td>
-          <td>2026-08-26 15:10</td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('auditModal')">验收</a><a onclick="window.print();this.classList.toggle('printed')">打印</a><a onclick="go('../财务协同/应付账单.html')">应付账单</a></span></td>
-        </tr>
-        <tr>
-          <td><input type="checkbox" class="cb"></td>
-          <td><span class="lk">CGRK-20260825-006</span></td>
-          <td>常州正大塑料托盘厂</td>
-          <td><span class="lk">PO-20260830-016</span></td>
-          <td>PRJ-2603</td>
-          <td>器具采购</td>
-          <td><span class="td-num">22 托</span></td>
-          <td>成品区 RB</td>
-          <td><span class="tag tag-green">已入库</span></td>
-          <td>张伟</td>
-          <td>2026-08-25 11:02</td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('auditModal')">验收</a><a onclick="window.print();this.classList.toggle('printed')">打印</a><a onclick="go('../财务协同/应付账单.html')">应付账单</a></span></td>
-        </tr>
-        <tr>
-          <td><input type="checkbox" class="cb"></td>
-          <td data-note="1"><span class="lk">CGRK-20260824-005</span></td>
-          <td>苏州联恒五金制品有限公司</td>
-          <td><span class="lk">PO-20260815-012</span></td>
+          <td data-note="1"><span class="lk">ZL-20260823-033</span></td>
+          <td>一汽解放汽车有限公司</td>
           <td>PRJ-2604</td>
-          <td>零部件采购</td>
-          <td><span class="td-num">6 托</span></td>
-          <td>原料区 RA</td>
-          <td><span class="tag tag-green">已入库</span></td>
-          <td>李国栋</td>
-          <td>2026-08-24 14:18</td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('auditModal')">验收</a><a onclick="window.print();this.classList.toggle('printed')">打印</a><a onclick="go('../财务协同/应付账单.html')">应付账单</a></span></td>
+          <td>ZH-2604-D 混合组合套件</td>
+          <td><span class="tag tag-orange">混合（自购 + 租入-路凯）</span> <span class="lk" onclick="go('../采购管理/租入单列表.html')">RZD-20260815-005</span></td>
+          <td><span class="td-num">40 套</span></td>
+          <td>2026-08-23</td>
+          <td>2026-11-23</td>
+          <td><span class="td-num">92</span></td>
+          <td><span class="tag tag-green">已退租</span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('auditModal')">审核</a><a>关闭</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
-          <td data-note="3"><span class="lk">CGRK-20260820-006</span></td>
-          <td>苏州联恒五金制品有限公司</td>
-          <td><span class="lk">PO-20260815-012</span></td>
+          <td><span class="lk">ZL-20260901-032</span></td>
+          <td>一汽解放汽车有限公司</td>
+          <td>PRJ-2601</td>
+          <td>ZH-2601-A 驾驶室围板箱整箱套件</td><td><span class="tag tag-gray">自有</span></td>
+          <td><span class="td-num">180 套</span></td>
+          <td>2026-09-05</td>
+          <td>2026-12-05</td>
+          <td><span class="td-num">91</span></td>
+          <td><span class="tag tag-orange">待审核</span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('auditModal')">审核</a><a>关闭</a></span></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" class="cb"></td>
+          <td data-note="3"><span class="lk">ZL-20260828-031</span></td>
+          <td>上汽大众汽车有限公司宁波分公司</td>
+          <td>PRJ-2602</td>
+          <td>ZH-2602-B 冲压件料箱组套</td><td><span class="tag tag-gray">自有</span></td>
+          <td><span class="td-num">120 套</span></td>
+          <td>2026-09-01</td>
+          <td>2026-11-30</td>
+          <td><span class="td-num">90</span></td>
+          <td><span class="tag tag-blue">已审核</span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../仓储作业/组合出库列表.html')">出库</a><a onclick="openModal('detailModal')">详情</a><a>关闭</a></span></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" class="cb"></td>
+          <td data-note="2"><span class="lk">ZL-20260816-029</span></td>
+          <td>上汽大众汽车有限公司宁波分公司</td>
+          <td>PRJ-2603</td>
+          <td>WBX-1210L 围板箱 1200×1000×970</td>
+          <td><span class="tag tag-orange">租入-路凯</span> <span class="lk" onclick="go('../采购管理/租入单列表.html')">RZD-20260815-003</span></td>
+          <td><span class="td-num">30 只</span></td>
+          <td>2026-08-16</td>
+          <td>2026-11-16</td>
+          <td><span class="td-num">92</span></td>
+          <td><span class="tag tag-green">已退租</span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="go('../仓储作业/退租入库列表.html')">退租入库</a></span></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" class="cb"></td>
+          <td data-note="5"><span class="lk">ZL-20260815-028</span></td>
+          <td>一汽解放汽车有限公司</td>
+          <td>PRJ-2601</td>
+          <td>WBX-1210L 围板箱 1200×1000×970</td><td><span class="tag tag-orange">租入-路凯</span> <span class="lk" onclick="go('../采购管理/租入单列表.html')">RZD-20260815-003</span></td>
+          <td><span class="td-num">300 只</span></td>
+          <td>2026-08-20</td>
+          <td>2026-11-20</td>
+          <td><span class="td-num">92</span></td>
+          <td><span class="tag tag-blue">在租</span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../仓储作业/组合出库列表.html')">出库</a><a onclick="openModal('detailModal')">详情</a><a onclick="go('../租赁管理/退租申请列表.html')">创建退租申请</a></span></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" class="cb"></td>
+          <td><span class="lk">ZL-20260720-022</span></td>
+          <td>小鹏汽车科技有限公司</td>
+          <td>PRJ-2603</td>
+          <td>ZH-2603-C 电池托盘护角套件</td><td><span class="tag tag-gray">自有</span></td>
+          <td><span class="td-num">60 套</span></td>
+          <td>2026-07-25</td>
+          <td>2026-10-25</td>
+          <td><span class="td-num">92</span></td>
+          <td><span class="tag tag-blue">在租</span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../仓储作业/组合出库列表.html')">出库</a><a onclick="openModal('detailModal')">详情</a><a onclick="go('../租赁管理/退租申请列表.html')">创建退租申请</a></span></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" class="cb"></td>
+          <td><span class="lk">ZL-20260610-015</span></td>
+          <td>一汽解放汽车有限公司</td>
+          <td>PRJ-2601</td>
+          <td>BTC-6040 料箱 600×400×340</td><td><span class="tag tag-gray">自有</span></td>
+          <td><span class="td-num">500 只</span></td>
+          <td>2026-06-15</td>
+          <td>2026-09-15</td>
+          <td><span class="td-num">92</span></td>
+          <td><span class="tag tag-blue">在租</span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../仓储作业/组合出库列表.html')">出库</a><a onclick="openModal('detailModal')">详情</a><a onclick="go('../租赁管理/退租申请列表.html')">创建退租申请</a></span></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" class="cb"></td>
+          <td data-note="4"><span class="lk">ZL-20260301-006</span></td>
+          <td>上汽大众汽车有限公司宁波分公司</td>
+          <td>PRJ-2602</td>
+          <td>PLT-1210P 塑料托盘 1200×1000</td><td><span class="tag tag-gray">自有（单一器具直接出租）</span></td>
+          <td><span class="td-num">400 块</span></td>
+          <td>2026-03-05</td>
+          <td>2026-06-05</td>
+          <td><span class="td-num">92</span></td>
+          <td><span class="tag tag-green">已退租</span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a></span></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" class="cb"></td>
+          <td><span class="lk">ZL-20260115-002</span></td>
+          <td>东风本田汽车有限公司</td>
           <td>PRJ-2604</td>
-          <td>器具采购</td>
-          <td><span class="td-num">80 件（折叠隔板）</span></td>
-          <td>原料区 RA</td>
-          <td><span class="tag tag-green">已入库</span></td>
-          <td>张伟</td>
-          <td>2026-08-20 14:30</td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('auditModal')">验收</a><a onclick="window.print();this.classList.toggle('printed')">打印</a></span></td>
+          <td>WBX-1210M 围板箱 1200×1000×590</td><td><span class="tag tag-gray">自有</span></td>
+          <td><span class="td-num">150 只</span></td>
+          <td>2026-01-20</td>
+          <td>2026-04-20</td>
+          <td><span class="td-num">90</span></td>
+          <td><span class="tag tag-gray">已关闭</span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a></span></td>
         </tr>
       </tbody>
     </table>
   </div>
-  <div style="display:flex;align-items:center;justify-content:space-between;margin-top:12px" id="pager-row"><div id="batch-btns-area"></div><div class="pager" style="margin:0">
-    <span class="pg-info">第 1-10 条/总共 326 条</span>
-    <span class="pg-btn">‹</span>
-    <span class="pg-btn cur">1</span>
-    <span class="pg-btn">2</span>
-    <span class="pg-btn">3</span>
-    <span class="pg-btn">4</span>
-    <span class="pg-btn">5</span>
-    <span class="pg-ellipsis">…</span>
-    <span class="pg-btn">8</span>
-    <span class="pg-btn">›</span>
+<div style="display:flex;align-items:center;justify-content:space-between;margin-top:12px" id="pager-row"><div id="batch-btns-area"></div><div class="pager" style="margin:0">
+    <span class="pg-info">第 1-10 条/总共 56 条</span>
+    <span class="pg-btn">‹</span> <span class="pg-btn cur">1</span> <span class="pg-btn">2</span> <span class="pg-btn">3</span> <span class="pg-btn">4</span> <span class="pg-btn">5</span> <span class="pg-ellipsis">…</span> <span class="pg-btn">6</span> <span class="pg-btn">›</span>
     <span class="pg-size">10 条/页
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
     </span>
     <span class="pg-jump">跳至 <input value="" placeholder="跳转页码"> 页</span>
   </div>
-</div></div>
+</div>
     </div>
   </div>
 </div>
 
-<!-- 弹窗已提取到 弹窗/采购入库审核.html，构建时注入 -->
+<!-- 弹窗已提取到 弹窗/租赁单新建.html，构建时注入 -->
+<div class="modal-overlay" id="createModal">
+  <div class="modal modal-lg">
+    <div class="modal-header">
+      <h3 class="modal-title">新建租赁单</h3>
+      <span class="modal-close" onclick="closeModal('createModal')">×</span>
+    </div>
+    <div class="modal-body">
+<div class="form-row">
+    <span class="form-label"><span class="req">*</span>客户</span>
+    <div class="input-box select-box" style="width:350px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>一汽解放汽车有限公司</option><option>上汽大众汽车有限公司宁波分公司</option><option>小鹏汽车科技有限公司</option><option>东风本田汽车有限公司</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+  </div><div class="form-row">
+    <span class="form-label"><span class="req">*</span>所属项目</span>
+    <div class="input-box select-box" style="width:350px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>PRJ-2601 一汽解放·长春基地</option><option>PRJ-2601 一汽解放</option><option>PRJ-2602 上汽大众</option><option>PRJ-2603 小鹏</option><option>PRJ-2604 东风本田</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+  </div><div class="form-row">
+    <span class="form-label"><span class="req">*</span>起租日期</span>
+    <div class="input-box" style="width:350px;"><input value="2026-09-05" placeholder="请输入"></div>
+  </div><div class="form-row">
+    <span class="form-label"><span class="req">*</span>约定归还日期</span>
+    <div class="input-box" style="width:350px;"><input value="2026-12-05" placeholder="请输入"></div>
+  </div><div class="form-row">
+    <span class="form-label">押金(元)</span>
+    <div class="input-box" style="width:350px;"><input value="50,000.00" placeholder="请输入"></div>
+  </div>
+  <div class="form-row">
+    <span class="form-label"></span>
+    <div style="font-size:12px;color:#8c8c8c;line-height:1.7;">押金为设计预留字段——两次会议均未涉及，收退与计价商务口径待客户确认（F01 财务通道注记同步）</div>
+  </div><div style="margin:4px 0 8px;font-size:13px;font-weight:600;color:#1a1a1a;">租赁器具明细</div>
+  <div class="table-wrap" style="border:1px solid var(--border);border-radius:6px;">
+    <table class="edit-tbl">
+      <thead><tr><th>器具编码</th><th>器具名称</th><th>类型</th><th>单位</th><th>数量</th><th>日租金(元)</th></tr></thead>
+      <tbody><tr><td><input value="ZH-2601-A"></td><td><input value="驾驶室围板箱整箱套件"></td><td><input value="组合单元"></td><td><input value="套"></td><td><input value="180"></td><td><input value="2.40"></td></tr><tr><td><input value="PLT-1210P"></td><td><input value="塑料托盘 1200×1000"></td><td><input value="散件"></td><td><input value="块"></td><td><input value="180"></td><td><input value="0.15"></td></tr></tbody>
+    </table>
+  </div>
+  <button class="btn btn-dashed btn-sm" style="width:100%;margin-top:8px;">+ 添加一行</button><div class="form-row">
+    <span class="form-label">备注</span>
+    <div class="input-box" style="width:350px;"><input placeholder="选填"></div>
+  </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-default" onclick="closeModal('createModal')">取消</button>
+      <button class="btn btn-default" onclick="closeModal('createModal')">保存草稿</button>
+      <button class="btn" onclick="closeModal('createModal')">提交审核</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- 弹窗已提取到 弹窗/租赁单审核.html，构建时注入 -->
 <div class="modal-overlay" id="auditModal">
-  <div class="modal" style="width:720px">
+  <div class="modal">
     <div class="modal-header">
       <h3 class="modal-title">审核确认</h3>
       <span class="modal-close" onclick="closeModal('auditModal')">×</span>
     </div>
     <div class="modal-body">
       <div class="dgrid" style="margin-bottom:16px;">
-        <div class="drow"><div class="dlabel">单据编号</div><div class="dval">CGRK-20260827-009</div></div>
-        <div class="drow"><div class="dlabel">单据类型</div><div class="dval">采购入库单</div></div>
-        <div class="drow"><div class="dlabel">到货数量</div><div class="dval">12 托（零部件）</div></div>
-        <div class="drow"><div class="dlabel">提交人 / 时间</div><div class="dval">李国栋 / 2026-08-27 09:20</div></div>
-        <div class="drow" style="grid-column:1/-1;"><div class="dlabel">备注</div><div class="dval">验收通过后库存入账，并可生成应付账单</div></div>
+        <div class="drow"><div class="dlabel">单据编号</div><div class="dval">ZL-20260901-032</div></div>
+        <div class="drow"><div class="dlabel">单据类型</div><div class="dval">租赁单</div></div>
+        <div class="drow"><div class="dlabel">租赁数量</div><div class="dval">180 套 · 租期 91 天</div></div>
+        <div class="drow"><div class="dlabel">提交人 / 时间</div><div class="dval">王强 / 2026-09-01 09:18</div></div>
+        
       </div>
       <div class="form-row">
         <span class="form-label"><span class="req">*</span>审核结论</span>
@@ -575,90 +616,6 @@ th.td-num { text-align:right; }
   </div>
 </div>
 
-<style id="detail-modal-css">
-/* 详情弹窗（四段式）专用样式：段落标题 / 关联链 / 流转时间线 */
-.dt-sec{font-size:13px;font-weight:600;color:#262626;margin:0 0 10px;padding-left:8px;border-left:3px solid #1677ff;line-height:1.3}
-.modal-body .dt-sec:not(:first-child){margin-top:18px}
-.chain{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.chain .node{border:1px solid #f0f0f0;border-radius:6px;padding:8px 12px;background:#fafafa;min-width:126px}
-.chain .node .n-role{font-size:11px;color:#8c8c8c}
-.chain .node .n-name{font-size:12.5px;font-weight:600;margin-top:2px;word-break:break-all}
-.chain .link-arrow{color:#8c8c8c}
-.tl{position:relative;padding-left:16px}
-.tl::before{content:'';position:absolute;left:4px;top:6px;bottom:6px;width:2px;background:#e6f4ff}
-.tl-i{position:relative;padding:0 0 12px 6px;font-size:12.5px;color:#262626}
-.tl-i:last-child{padding-bottom:0}
-.tl-i::before{content:'';position:absolute;left:-16px;top:5px;width:7px;height:7px;border-radius:50%;background:#fff;border:2px solid #1677ff}
-.tl-i.off::before{border-color:#d9d9d9}
-.tl-i .tl-t{color:#8c8c8c;font-size:12px;margin-right:8px;font-variant-numeric:tabular-nums}
-.tl-i .tl-who{color:#8c8c8c;font-size:12px;margin-left:8px}
-</style>
-<!-- 详情弹窗（四段式）· 骨架化 · 详情弹窗数据驱动 2026-09-08 -->
-<div class="modal-overlay" id="detailModal">
-  <div class="modal modal-lg" style="width:780px;">
-    <div class="modal-header">
-      <h3 class="modal-title" id="detailTitle">采购入库单详情</h3>
-      <span class="modal-close" onclick="closeModal('detailModal')">×</span>
-    </div>
-    <div class="modal-body" id="detailBody"><!-- 内容由 _data/detail-generic.js 按单号渲染 --></div>
-    <div class="modal-footer">
-      <button class="btn btn-default" onclick="closeModal('detailModal')">关 闭</button>
-    </div>
-  </div>
-</div>
-<script src="../_data/demo-data.js"></script>
-<script src="../_data/detail-generic.js"></script>
-<script src="../_data/list-generic.js"></script>
-<script>
-/* demo-data 列表驱动试点：tbody 数据集渲染 + 真筛选 + stab 统计（2026-09-08） */
-renderListPage({
-  entity: 'purchaseInbounds',
-  stabs: true,
-  filters: [
-    { label: '入库单号', field: '_key', match: 'contains' },
-    { label: '供应商', field: 'supplier' },
-    { label: '所属项目', field: 'project' },
-    { label: '入库状态', field: 'status' },
-    { label: '入库时间', field: 'inTime', range: true },
-    { label: '业务类型', field: 'bizType' }
-  ]
-});
-</script>
-<script>
-/* ===== 菜单折叠 / 页签与表单视觉态（统一脚本） ===== */
-function go(url) { location.href = url; }
-document.querySelectorAll('.sm-item.has-sub > .sm-link').forEach(function (link) {
-  link.addEventListener('click', function () { link.parentElement.classList.toggle('open'); });
-});
-/* 状态页签切换（视觉选中态） */
-document.querySelectorAll('.stabs .stab').forEach(function (tab) {
-  tab.addEventListener('click', function () {
-    tab.parentElement.querySelectorAll('.stab').forEach(function (t) { t.classList.remove('active'); });
-    tab.classList.add('active');
-  });
-});
-/* 表单单选/复选视觉态切换 */
-document.querySelectorAll('.radio').forEach(function (r) {
-  r.addEventListener('click', function () {
-    r.parentElement.querySelectorAll('.radio').forEach(function (x) { x.classList.remove('checked'); });
-    r.classList.add('checked');
-  });
-});
-document.querySelectorAll('.checkbox').forEach(function (c) {
-  c.addEventListener('click', function () { c.classList.toggle('checked'); });
-});
-</script>
-
-
-
-<script>
-/* ===== 弹窗开关（构建注入） ===== */
-function openModal(id) { document.getElementById(id).classList.add('show'); }
-function closeModal(id) { document.getElementById(id).classList.remove('show'); }
-document.querySelectorAll('.modal-overlay').forEach(function (ov) {
-  ov.addEventListener('click', function (e) { if (e.target === ov) ov.classList.remove('show'); });
-});
-</script>
 
 <script id="batch-btn-js">
 (function(){
@@ -719,6 +676,73 @@ document.querySelectorAll('.modal-overlay').forEach(function (ov) {
 
 
 
+<style id="detail-modal-css">
+/* 详情弹窗（四段式）专用样式：段落标题 / 关联链 / 流转时间线 */
+.dt-sec{font-size:13px;font-weight:600;color:#262626;margin:0 0 10px;padding-left:8px;border-left:3px solid #1677ff;line-height:1.3}
+.modal-body .dt-sec:not(:first-child){margin-top:18px}
+.chain{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.chain .node{border:1px solid #f0f0f0;border-radius:6px;padding:8px 12px;background:#fafafa;min-width:126px}
+.chain .node .n-role{font-size:11px;color:#8c8c8c}
+.chain .node .n-name{font-size:12.5px;font-weight:600;margin-top:2px;word-break:break-all}
+.chain .link-arrow{color:#8c8c8c}
+.tl{position:relative;padding-left:16px}
+.tl::before{content:'';position:absolute;left:4px;top:6px;bottom:6px;width:2px;background:#e6f4ff}
+.tl-i{position:relative;padding:0 0 12px 6px;font-size:12.5px;color:#262626}
+.tl-i:last-child{padding-bottom:0}
+.tl-i::before{content:'';position:absolute;left:-16px;top:5px;width:7px;height:7px;border-radius:50%;background:#fff;border:2px solid #1677ff}
+.tl-i.off::before{border-color:#d9d9d9}
+.tl-i .tl-t{color:#8c8c8c;font-size:12px;margin-right:8px;font-variant-numeric:tabular-nums}
+.tl-i .tl-who{color:#8c8c8c;font-size:12px;margin-left:8px}
+</style>
+<!-- 详情弹窗（四段式）· 骨架化 · 详情弹窗数据驱动 2026-09-08 -->
+<div class="modal-overlay" id="detailModal">
+  <div class="modal modal-lg" style="width:780px;">
+    <div class="modal-header">
+      <h3 class="modal-title" id="detailTitle">租赁单详情</h3>
+      <span class="modal-close" onclick="closeModal('detailModal')">×</span>
+    </div>
+    <div class="modal-body" id="detailBody"><!-- 内容由 _data/detail-generic.js 按单号渲染 --></div>
+    <div class="modal-footer">
+      <button class="btn btn-default" onclick="closeModal('detailModal')">关 闭</button>
+    </div>
+  </div>
+</div>
+<script src="../_data/demo-data.js"></script>
+<script src="../_data/detail-generic.js"></script>
+<script>
+/* demo-data 接线：各行「详情」按行内单号渲染对应数据（2026-09-08 数据驱动） */
+wireDetailModal('leaseOrders');
+</script>
+<script>
+/* ===== 菜单折叠 / 页签与表单视觉态（统一脚本） ===== */
+function go(url) { location.href = url; }
+document.querySelectorAll('.sm-item.has-sub > .sm-link').forEach(function (link) {
+  link.addEventListener('click', function () { link.parentElement.classList.toggle('open'); });
+});
+/* 状态页签切换（视觉选中态） */
+document.querySelectorAll('.stabs .stab').forEach(function (tab) {
+  tab.addEventListener('click', function () {
+    tab.parentElement.querySelectorAll('.stab').forEach(function (t) { t.classList.remove('active'); });
+    tab.classList.add('active');
+  });
+});
+/* 表单单选/复选视觉态切换 */
+document.querySelectorAll('.radio').forEach(function (r) {
+  r.addEventListener('click', function () {
+    r.parentElement.querySelectorAll('.radio').forEach(function (x) { x.classList.remove('checked'); });
+    r.classList.add('checked');
+  });
+});
+document.querySelectorAll('.checkbox').forEach(function (c) {
+  c.addEventListener('click', function (c2) { c.classList.toggle('checked'); });
+});
+/* ===== 弹窗 ===== */
+function openModal(id) { document.getElementById(id).classList.add('show'); }
+function closeModal(id) { document.getElementById(id).classList.remove('show'); }
+document.querySelectorAll('.modal-overlay').forEach(function (ov) {
+  ov.addEventListener('click', function (e) { if (e.target === ov) ov.classList.remove('show'); });
+});
+</script>
 <script>/*ia-fix: tab-switch + btn-feedback (2026-09-04)*/
 /* R3 顶部页签切换（点击换 active；× 不做关闭跳转——原型不销毁页签） */
 document.querySelectorAll('.tab').forEach(function (t) {
@@ -750,6 +774,9 @@ document.querySelectorAll('.tab').forEach(function (t) {
   }, true);
 })();
 </script>
+
+
+
 <style id="proto-notes-style">
 body.proto-notes-on [data-note]{position:relative}
 body.proto-notes-on [data-note]::after{content:attr(data-note);position:absolute;top:1px;right:1px;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600;box-shadow:0 0 0 1.5px #fff;cursor:pointer;opacity:.75;transition:opacity .15s}
@@ -771,9 +798,11 @@ body.proto-notes-on .proto-pin.pn-open{display:block}
 body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 .pn-fab .pn-fab-n{font-family:Consolas,monospace;font-weight:600}
 </style>
-<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>B1 采购线 · 步骤 2/3 采购入库（零部件）</div><div class="pnp-d">凭采购订单到货验收——信息与物资匹配才闭环（王琳总 1:35）。进什么出什么，不参与组装（A+B 组合是租的）。<br>下一步 → 库存缓冲（五态）→ 销售线按可用量发货。</div></div>
-<div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>L1/L2 · 步骤 2 资产入库（器具采购）</div><div class="pnp-d">上一步 ← 采购订单（器具类，凭订单验收）。「采购入库是属于我的资产的一个入库」（袁丽晶 24:50）。<br>器具买断成自有资产，服务 L1 单一出租与 L2 组合出租。</div></div>
-<div class="proto-pin" id="proto-pin-3"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">3</span>L4 · 步骤 2/10 自购隔板入库</div><div class="pnp-d">混合转租的自购侧：折叠隔板×80（苏州联恒），凭采购订单 PO-20260815-012 验收入库。<br>与 RZD-20260815-005（租入大箱×10）共同组成混合配方 → 组装 ZZ-20260822-006。</div></div>
+<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>L4 · 步骤 5/10 租赁单（混合来源）</div><div class="pnp-d">混合组合套件出租：资产来源=自购+租入-路凯，来源列可点跳租入单 RZD-20260815-005。<br>下一步 → 组合出库 CK-20260824-009。</div></div>
+<div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>L3 · 步骤 3/8 租赁单（转租）</div><div class="pnp-d">租入资产转租客户：RZD-20260815-003（路凯围板箱×30）入库后直接转租。<br>退租后整箱归还运营方。</div></div>
+<div class="proto-pin" id="proto-pin-3"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">3</span>L2 · 步骤 5/10 租赁单（组合件 C）</div><div class="pnp-d">A+B→C 组合出租，租金按套计费。<br>下一步 → 组合出库。</div></div>
+<div class="proto-pin" id="proto-pin-4"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">4</span>L1 · 步骤 3/8 租赁单（单一器具）</div><div class="pnp-d">L1 单一出租：采购 A → 出租 A，不经组装（会后补充口径）。<br>塑料托盘 400 块直接出租。</div></div>
+<div class="proto-pin" id="proto-pin-5"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">5</span>L3 · 转租（批量示例）</div><div class="pnp-d">租入-路凯围板箱×300 批量转租，来源列可点跳租入单 RZD-20260815-003。</div></div>
 <div class="pn-fab" id="protoNotesFab">标注</div></div>
 <script id="proto-notes-js">
 (function(){

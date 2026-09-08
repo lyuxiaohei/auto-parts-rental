@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>列表数据驱动试点 · 失败清单与执行留档（2026-09-08 无人值守 /goal）</title>
+<style>
+body{font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;max-width:1080px;margin:24px auto;padding:0 20px;color:#262626;font-size:13px;line-height:1.8}
+h1{font-size:18px;border-bottom:2px solid #722ed1;padding-bottom:8px}
+h2{font-size:15px;margin-top:28px;color:#722ed1}
+table{border-collapse:collapse;width:100%;margin:8px 0}
+th,td{border:1px solid #e5e5e5;padding:6px 10px;text-align:left;vertical-align:top}
+th{background:#f9f0ff;color:#531dab}
+.ok{color:#237804;font-weight:600}.warn{color:#d46b08;font-weight:600}.info{color:#1677ff;font-weight:600}
+code{background:#fafafa;border:1px solid #eee;border-radius:3px;padding:0 4px;font-size:12px}
+</style>
+</head>
+<body>
+<h1>列表数据驱动试点 · 执行留档（2026-09-08，道远 /goal 无人值守）</h1>
+<p><b>范围</b>：试点 2 页 = <code>销售管理/租赁单列表.html</code>（9 行，L1-L4 主链）＋ <code>仓储作业/采购入库列表.html</code>（8 行，B1 线）。新建 <code>_data/list-generic.js</code> 列表渲染器；<code>demo-data.js</code> 17 条既有实体补 <code>row</code> 字段；<code>detail-generic.js</code> 导出 STATUS_CLS；<code>audit_interaction.py</code> 加渲染等待。改前备份 <code>_scan_tmpdir/backup-listpilot-20260908/</code>（5 文件按原相对路径）；验证脚本 <code>_scan_tmpdir/verify_listpilot.py</code>。</p>
+
+<h2>① 失败清单（assert 失败 / 结构预期外 / 跳过项）</h2>
+<table>
+<tr><th style="width:60px">序号</th><th>页面/项目</th><th>原因</th><th>处置</th></tr>
+<tr><td>1</td><td>行数口径</td><td class="warn">命令称租赁单 13 行 / 采购入库 9 行，实际页面为 9 / 8 行（与 demo-data.js 既有实体条数一致，命令口径滞后于 09-08 三批推广后的现状）</td><td>按现状执行（9/8），无需补实体；已注明于 P1-R05 十二节</td></tr>
+<tr><td>2</td><td>_scan_tmpdir/scenario_replay.py</td><td>不存在</td><td>按命令预案跳过（"若存在则联动"），已注明</td></tr>
+<tr><td>3</td><td>admin-ui-spec 技能 / 原型标注技能 SKILL.md</td><td>当前环境未安装（仅存于 .prompts 历史会话存档）</td><td>按"最简合理默认"：筛选/重置 JS 复用页面现成 ia-fix 块，pin 机制以页面内标注层现状（data-note 角标+点击时定位）为准适配，未盲改标注层</td></tr>
+</table>
+<p class="ok">✅ 结论行：失败 0 项（上表 3 条均为口径/环境注明类，非执行失败）；无 assert 失败、无恢复备份、无跳过任务项。</p>
+
+<h2>② 试点验证门（Playwright 实测输出，全绿）</h2>
+<table>
+<tr><th>页面</th><th>断言</th><th>结果</th></tr>
+<tr><td rowspan="2">租赁单列表</td><td>1 行数=实体条数 9==9｜2 行单号=实体键｜3 详情弹窗标题=行单号（逐行实点 7 行）｜4 真过滤（客户名称=一汽解放 4==4；租赁单号含"032" 1==1）｜5 重置恢复全量 9==9｜6 stab 计数=统计值（全部9/待审核1/已审核1/在租3/已退租3/已关闭1）｜7 ?notes=1 pin 全在（data-note 5/5、pin弹层 5、实点角标打开 1）｜0 JS 错 0</td><td class="ok">8/8 ✅</td></tr>
+<tr><td colspan="2" class="info">浏览器复测：渲染 9 行、pager 真实化（第 1-9 条/总共 9 条）、stab 计数真实</td></tr>
+<tr><td rowspan="2">采购入库列表</td><td>1 行数 8==8｜2 行单号=实体键｜3 详情标题=行单号（逐行实点 8 行）｜4 真过滤（供应商=苏州联恒 4==4；入库单号含"009" 1==1）｜5 重置恢复 8==8｜6 stab（全部8/待验收1/已入库7）｜7 pin 全在（3/3、弹层 3、实点打开 1）｜0 JS 错 0</td><td class="ok">8/8 ✅</td></tr>
+<tr><td colspan="2" class="info">浏览器复测：全量 8 → 供应商=宁波华塑过滤 2 → 详情标题 CGRK-20260828-011 正确</td></tr>
+</table>
+<p>断言合计 18 项，失败 0 项（<code>verify_listpilot.py</code> 退出码 0）。弹窗模板预览回归：租赁单详情/采购入库单详情正常渲染、JS 错 0。</p>
+
+<h2>③ 全量审计（验证门第 2 条）</h2>
+<table>
+<tr><th>轮次</th><th>页数</th><th>死链</th><th>JS 错</th><th>问题</th></tr>
+<tr><td>基线（改前，audit_results_baseline_listpilot.json）</td><td>125</td><td>0</td><td>0</td><td>42（32 modal-unreachable 已知误报 + 10 readonly 既有豁免）</td></tr>
+<tr><td>试点后复跑</td><td>125</td><td>0</td><td>0</td><td>42 —— <b>逐页 diff 与基线完全一致，新增 0、无波及</b></td></tr>
+</table>
+<p class="info">口径变化记录：audit_interaction.py 页面加载后新增 <code>wait_for_selector('tbody tr')</code> 渲染等待（只加等待，判定逻辑未动）。两试点页 modal-unreachable 各 1 条维持已知误报口径（动态绑定，第四节⑦）。</p>
+
+<h2>④ 默认决策执行与偏差注明</h2>
+<table>
+<tr><th>项</th><th>决策</th></tr>
+<tr><td>ops 按钮行为</td><td>原样迁入 row.ops（编辑/审核/出库/退租入库/创建退租申请/验收/打印/应付账单/关闭均不变）；详情钮改 <code>data-detail-key</code> 委托绑定</td></tr>
+<tr><td>stab 点击行为</td><td>维持现状（仅切 active 视觉态），仅计数真实化；点击不过滤——偏差注明，如需联动过滤另行拍板</td></tr>
+<tr><td>分页信息 pg-info</td><td>由渲染器真实化（第 1-N 条/总共 N 条，原"总共 56/326 条"为虚构静态值）——命令未点名，按最简合理默认执行并注明</td></tr>
+<tr><td>pin 重挂</td><td>row.note 随行渲染挂到单号列 td；pinsRefresh() 刷新标注 FAB 计数并收起已开便签；A04 JSON 未改（pins 内容不变）</td></tr>
+<tr><td>筛选字段映射</td><td>两页 11 个控件全部映射上（单号 contains / 客户/供应商/项目/状态/业务类型 select 精确 / 日期区间）；无"映射不上"控件</td></tr>
+<tr><td>双层同步</td><td>两弹窗模板本轮未改动（批次推广已数据驱动，预览回归通过）；列表页为单层改动</td></tr>
+</table>
+</body>
+</html>

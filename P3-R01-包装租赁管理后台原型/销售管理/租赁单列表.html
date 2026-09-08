@@ -709,9 +709,20 @@ th.td-num { text-align:right; }
 </div>
 <script src="../_data/demo-data.js"></script>
 <script src="../_data/detail-generic.js"></script>
+<script src="../_data/list-generic.js"></script>
 <script>
-/* demo-data 接线：各行「详情」按行内单号渲染对应数据（2026-09-08 数据驱动） */
-wireDetailModal('leaseOrders');
+/* demo-data 列表驱动试点：tbody 数据集渲染 + 真筛选 + stab 统计（2026-09-08） */
+renderListPage({
+  entity: 'leaseOrders',
+  stabs: true,
+  filters: [
+    { label: '租赁单号', field: '_key', match: 'contains' },
+    { label: '客户名称', field: 'customer' },
+    { label: '所属项目', field: 'project' },
+    { label: '状态', field: 'status' },
+    { label: '起租日期', field: 'start', range: true }
+  ]
+});
 </script>
 <script>
 /* ===== 菜单折叠 / 页签与表单视觉态（统一脚本） ===== */

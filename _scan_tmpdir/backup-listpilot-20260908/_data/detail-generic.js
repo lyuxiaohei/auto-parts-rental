@@ -35,9 +35,6 @@
     '缺损待赔': 'tag-orange', '已报废': 'tag-gray', '正常': 'tag-green', '空闲': 'tag-gray', '启用': 'tag-green', '已停用': 'tag-gray'
   };
 
-  /* 导出给 list-generic.js 列表行 tag 复用（2026-09-08 列表试点） */
-  window.DEMO_STATUS_CLS = STATUS_CLS;
-
   function lk(text, url, base) {
     return url ? '<span class="lk" onclick="go(\'' + base + url + '\')">' + text + '</span>' : text;
   }

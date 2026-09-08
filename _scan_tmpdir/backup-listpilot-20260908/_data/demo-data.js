@@ -1282,7 +1282,6 @@ window.DEMO_DATA = {
   /* 租金标准 8.00 元/套/日为默认决策待确认；押金口径待客户 */
   leaseOrders: {
     'ZL-20260823-033': {
-      'row': {"fields": {"customer": "一汽解放汽车有限公司", "project": "PRJ-2604", "status": "已退租", "start": "2026-08-23"}, "note": "1", "cells": ["一汽解放汽车有限公司", "PRJ-2604", "ZH-2604-D 混合组合套件", "<span class=\"tag tag-orange\">混合（自购 + 租入-路凯）</span> <span class=\"lk\" onclick=\"go('../采购管理/租入单列表.html')\">RZD-20260815-005</span>", "<span class=\"td-num\">40 套</span>", "2026-08-23", "2026-11-23", "<span class=\"td-num\">92</span>", "<span class=\"tag tag-green\">已退租</span>"], "ops": [{"t": "编辑", "act": "openModal('createModal')"}, {"t": "审核", "act": "openModal('auditModal')"}, {"t": "关闭"}]},
       'title': '租赁单详情',
       'info': [
         {
@@ -1400,7 +1399,6 @@ window.DEMO_DATA = {
       ]
     },
     'ZL-20260901-032': {
-      'row': {"fields": {"customer": "一汽解放汽车有限公司", "project": "PRJ-2601", "status": "待审核", "start": "2026-09-05"}, "cells": ["一汽解放汽车有限公司", "PRJ-2601", "ZH-2601-A 驾驶室围板箱整箱套件", "<span class=\"tag tag-gray\">自有</span>", "<span class=\"td-num\">180 套</span>", "2026-09-05", "2026-12-05", "<span class=\"td-num\">91</span>", "<span class=\"tag tag-orange\">待审核</span>"], "ops": [{"t": "编辑", "act": "openModal('createModal')"}, {"t": "审核", "act": "openModal('auditModal')"}, {"t": "关闭"}]},
       'title': '租赁单详情',
       'info': [
         {
@@ -1493,7 +1491,6 @@ window.DEMO_DATA = {
       ]
     },
     'ZL-20260828-031': {
-      'row': {"fields": {"customer": "上汽大众汽车有限公司宁波分公司", "project": "PRJ-2602", "status": "已审核", "start": "2026-09-01"}, "note": "3", "cells": ["上汽大众汽车有限公司宁波分公司", "PRJ-2602", "ZH-2602-B 冲压件料箱组套", "<span class=\"tag tag-gray\">自有</span>", "<span class=\"td-num\">120 套</span>", "2026-09-01", "2026-11-30", "<span class=\"td-num\">90</span>", "<span class=\"tag tag-blue\">已审核</span>"], "ops": [{"t": "出库", "act": "go('../仓储作业/组合出库列表.html')"}, {"t": "详情", "detail": true}, {"t": "关闭"}]},
       'title': '租赁单详情',
       'info': [
         {
@@ -1591,7 +1588,6 @@ window.DEMO_DATA = {
       ]
     },
     'ZL-20260816-029': {
-      'row': {"fields": {"customer": "上汽大众汽车有限公司宁波分公司", "project": "PRJ-2603", "status": "已退租", "start": "2026-08-16"}, "note": "2", "cells": ["上汽大众汽车有限公司宁波分公司", "PRJ-2603", "WBX-1210L 围板箱 1200×1000×970", "<span class=\"tag tag-orange\">租入-路凯</span> <span class=\"lk\" onclick=\"go('../采购管理/租入单列表.html')\">RZD-20260815-003</span>", "<span class=\"td-num\">30 只</span>", "2026-08-16", "2026-11-16", "<span class=\"td-num\">92</span>", "<span class=\"tag tag-green\">已退租</span>"], "ops": [{"t": "详情", "detail": true}, {"t": "退租入库", "act": "go('../仓储作业/退租入库列表.html')"}]},
       'title': '租赁单详情',
       'info': [
         {
@@ -1709,7 +1705,6 @@ window.DEMO_DATA = {
       ]
     },
     'ZL-20260815-028': {
-      'row': {"fields": {"customer": "一汽解放汽车有限公司", "project": "PRJ-2601", "status": "在租", "start": "2026-08-20"}, "note": "5", "cells": ["一汽解放汽车有限公司", "PRJ-2601", "WBX-1210L 围板箱 1200×1000×970", "<span class=\"tag tag-orange\">租入-路凯</span> <span class=\"lk\" onclick=\"go('../采购管理/租入单列表.html')\">RZD-20260815-003</span>", "<span class=\"td-num\">300 只</span>", "2026-08-20", "2026-11-20", "<span class=\"td-num\">92</span>", "<span class=\"tag tag-blue\">在租</span>"], "ops": [{"t": "出库", "act": "go('../仓储作业/组合出库列表.html')"}, {"t": "详情", "detail": true}, {"t": "创建退租申请", "act": "go('../租赁管理/退租申请列表.html')"}]},
       'title': '租赁单详情',
       'info': [
         {
@@ -1823,7 +1818,6 @@ window.DEMO_DATA = {
       ]
     },
     'ZL-20260720-022': {
-      'row': {"fields": {"customer": "小鹏汽车科技有限公司", "project": "PRJ-2603", "status": "在租", "start": "2026-07-25"}, "cells": ["小鹏汽车科技有限公司", "PRJ-2603", "ZH-2603-C 电池托盘护角套件", "<span class=\"tag tag-gray\">自有</span>", "<span class=\"td-num\">60 套</span>", "2026-07-25", "2026-10-25", "<span class=\"td-num\">92</span>", "<span class=\"tag tag-blue\">在租</span>"], "ops": [{"t": "出库", "act": "go('../仓储作业/组合出库列表.html')"}, {"t": "详情", "detail": true}, {"t": "创建退租申请", "act": "go('../租赁管理/退租申请列表.html')"}]},
       'title': '租赁单详情',
       'info': [
         {
@@ -1921,7 +1915,6 @@ window.DEMO_DATA = {
       ]
     },
     'ZL-20260610-015': {
-      'row': {"fields": {"customer": "一汽解放汽车有限公司", "project": "PRJ-2601", "status": "在租", "start": "2026-06-15"}, "cells": ["一汽解放汽车有限公司", "PRJ-2601", "BTC-6040 料箱 600×400×340", "<span class=\"tag tag-gray\">自有</span>", "<span class=\"td-num\">500 只</span>", "2026-06-15", "2026-09-15", "<span class=\"td-num\">92</span>", "<span class=\"tag tag-blue\">在租</span>"], "ops": [{"t": "出库", "act": "go('../仓储作业/组合出库列表.html')"}, {"t": "详情", "detail": true}, {"t": "创建退租申请", "act": "go('../租赁管理/退租申请列表.html')"}]},
       'title': '租赁单详情',
       'info': [
         {
@@ -2029,7 +2022,6 @@ window.DEMO_DATA = {
       ]
     },
     'ZL-20260301-006': {
-      'row': {"fields": {"customer": "上汽大众汽车有限公司宁波分公司", "project": "PRJ-2602", "status": "已退租", "start": "2026-03-05"}, "note": "4", "cells": ["上汽大众汽车有限公司宁波分公司", "PRJ-2602", "PLT-1210P 塑料托盘 1200×1000", "<span class=\"tag tag-gray\">自有（单一器具直接出租）</span>", "<span class=\"td-num\">400 块</span>", "2026-03-05", "2026-06-05", "<span class=\"td-num\">92</span>", "<span class=\"tag tag-green\">已退租</span>"], "ops": [{"t": "详情", "detail": true}]},
       'title': '租赁单详情',
       'info': [
         {
@@ -2131,7 +2123,6 @@ window.DEMO_DATA = {
       ]
     },
     'ZL-20260115-002': {
-      'row': {"fields": {"customer": "东风本田汽车有限公司", "project": "PRJ-2604", "status": "已关闭", "start": "2026-01-20"}, "cells": ["东风本田汽车有限公司", "PRJ-2604", "WBX-1210M 围板箱 1200×1000×590", "<span class=\"tag tag-gray\">自有</span>", "<span class=\"td-num\">150 只</span>", "2026-01-20", "2026-04-20", "<span class=\"td-num\">90</span>", "<span class=\"tag tag-gray\">已关闭</span>"], "ops": [{"t": "详情", "detail": true}]},
       'title': '租赁单详情',
       'info': [
         {
@@ -8077,7 +8068,6 @@ window.DEMO_DATA = {
   /* 凭采购订单到货验收；验收通过生成采购应付 */
   purchaseInbounds: {
     'CGRK-20260828-012': {
-      'row': {"fields": {"supplier": "苏州联恒五金制品有限公司", "project": "PRJ-2601", "bizType": "零部件采购", "status": "已入库", "inTime": "2026-08-28 14:32"}, "cells": ["苏州联恒五金制品有限公司", "<span class=\"lk\">PO-20260828-015</span>", "PRJ-2601", "零部件采购", "<span class=\"td-num\">40 托</span>", "原料区 RA", "<span class=\"tag tag-green\">已入库</span>", "张伟", "2026-08-28 14:32"], "ops": [{"t": "详情", "detail": true}, {"t": "验收", "act": "openModal('auditModal')"}, {"t": "打印", "act": "window.print();this.classList.toggle('printed')"}, {"t": "应付账单", "act": "go('../财务协同/应付账单.html')"}]},
       'title': '采购入库单详情',
       'info': [
         {
@@ -8197,7 +8187,6 @@ window.DEMO_DATA = {
       ]
     },
     'CGRK-20260828-011': {
-      'row': {"fields": {"supplier": "宁波华塑包装制品有限公司", "project": "PRJ-2601", "bizType": "器具采购", "status": "已入库", "inTime": "2026-08-28 10:05"}, "note": "2", "cells": ["宁波华塑包装制品有限公司", "<span class=\"lk\">PO-20260901-017</span>", "PRJ-2601", "器具采购", "<span class=\"td-num\">25 托</span>", "原料区 RA", "<span class=\"tag tag-green\">已入库</span>", "张伟", "2026-08-28 10:05"], "ops": [{"t": "详情", "detail": true}, {"t": "验收", "act": "openModal('auditModal')"}, {"t": "打印", "act": "window.print();this.classList.toggle('printed')"}, {"t": "应付账单", "act": "go('../财务协同/应付账单.html')"}]},
       'title': '采购入库单详情',
       'info': [
         {
@@ -8309,7 +8298,6 @@ window.DEMO_DATA = {
       ]
     },
     'CGRK-20260827-010': {
-      'row': {"fields": {"supplier": "常州正大塑料托盘厂", "project": "PRJ-2602", "bizType": "器具采购", "status": "已入库", "inTime": "2026-08-27 16:44"}, "cells": ["常州正大塑料托盘厂", "<span class=\"lk\">PO-20260820-013</span>", "PRJ-2602", "器具采购", "<span class=\"td-num\">18 托</span>", "成品区 RB", "<span class=\"tag tag-green\">已入库</span>", "李国栋", "2026-08-27 16:44"], "ops": [{"t": "详情", "detail": true}, {"t": "验收", "act": "openModal('auditModal')"}, {"t": "打印", "act": "window.print();this.classList.toggle('printed')"}, {"t": "应付账单", "act": "go('../财务协同/应付账单.html')"}]},
       'title': '采购入库单详情',
       'info': [
         {
@@ -8420,7 +8408,6 @@ window.DEMO_DATA = {
       ]
     },
     'CGRK-20260827-009': {
-      'row': {"fields": {"supplier": "苏州联恒五金制品有限公司", "project": "PRJ-2602", "bizType": "零部件采购", "status": "待验收", "inTime": "2026-08-27 09:20"}, "cells": ["苏州联恒五金制品有限公司", "<span class=\"lk\">PO-20260902-018</span>", "PRJ-2602", "零部件采购", "<span class=\"td-num\">12 托</span>", "原料区 RA", "<span class=\"tag tag-orange\">待验收</span>", "李国栋", "2026-08-27 09:20"], "ops": [{"t": "详情", "detail": true}, {"t": "验收", "act": "openModal('auditModal')"}, {"t": "打印", "act": "window.print();this.classList.toggle('printed')"}, {"t": "应付账单", "act": "go('../财务协同/应付账单.html')"}]},
       'title': '采购入库单详情',
       'info': [
         {
@@ -8519,7 +8506,6 @@ window.DEMO_DATA = {
       ]
     },
     'CGRK-20260826-008': {
-      'row': {"fields": {"supplier": "宁波华塑包装制品有限公司", "project": "PRJ-2603", "bizType": "器具采购", "status": "已入库", "inTime": "2026-08-26 15:10"}, "cells": ["宁波华塑包装制品有限公司", "<span class=\"lk\">PO-20260825-014</span>", "PRJ-2603", "器具采购", "<span class=\"td-num\">9 托</span>", "原料区 RA", "<span class=\"tag tag-green\">已入库</span>", "张伟", "2026-08-26 15:10"], "ops": [{"t": "详情", "detail": true}, {"t": "验收", "act": "openModal('auditModal')"}, {"t": "打印", "act": "window.print();this.classList.toggle('printed')"}, {"t": "应付账单", "act": "go('../财务协同/应付账单.html')"}]},
       'title': '采购入库单详情',
       'info': [
         {
@@ -8630,7 +8616,6 @@ window.DEMO_DATA = {
       ]
     },
     'CGRK-20260825-006': {
-      'row': {"fields": {"supplier": "常州正大塑料托盘厂", "project": "PRJ-2603", "bizType": "器具采购", "status": "已入库", "inTime": "2026-08-25 11:02"}, "cells": ["常州正大塑料托盘厂", "<span class=\"lk\">PO-20260830-016</span>", "PRJ-2603", "器具采购", "<span class=\"td-num\">22 托</span>", "成品区 RB", "<span class=\"tag tag-green\">已入库</span>", "张伟", "2026-08-25 11:02"], "ops": [{"t": "详情", "detail": true}, {"t": "验收", "act": "openModal('auditModal')"}, {"t": "打印", "act": "window.print();this.classList.toggle('printed')"}, {"t": "应付账单", "act": "go('../财务协同/应付账单.html')"}]},
       'title': '采购入库单详情',
       'info': [
         {
@@ -8742,7 +8727,6 @@ window.DEMO_DATA = {
       ]
     },
     'CGRK-20260824-005': {
-      'row': {"fields": {"supplier": "苏州联恒五金制品有限公司", "project": "PRJ-2604", "bizType": "零部件采购", "status": "已入库", "inTime": "2026-08-24 14:18"}, "note": "1", "cells": ["苏州联恒五金制品有限公司", "<span class=\"lk\">PO-20260815-012</span>", "PRJ-2604", "零部件采购", "<span class=\"td-num\">6 托</span>", "原料区 RA", "<span class=\"tag tag-green\">已入库</span>", "李国栋", "2026-08-24 14:18"], "ops": [{"t": "详情", "detail": true}, {"t": "验收", "act": "openModal('auditModal')"}, {"t": "打印", "act": "window.print();this.classList.toggle('printed')"}, {"t": "应付账单", "act": "go('../财务协同/应付账单.html')"}]},
       'title': '采购入库单详情',
       'info': [
         {
@@ -8843,7 +8827,6 @@ window.DEMO_DATA = {
       ]
     },
     'CGRK-20260820-006': {
-      'row': {"fields": {"supplier": "苏州联恒五金制品有限公司", "project": "PRJ-2604", "bizType": "器具采购", "status": "已入库", "inTime": "2026-08-20 14:30"}, "note": "3", "cells": ["苏州联恒五金制品有限公司", "<span class=\"lk\">PO-20260815-012</span>", "PRJ-2604", "器具采购", "<span class=\"td-num\">80 件（折叠隔板）</span>", "原料区 RA", "<span class=\"tag tag-green\">已入库</span>", "张伟", "2026-08-20 14:30"], "ops": [{"t": "详情", "detail": true}, {"t": "验收", "act": "openModal('auditModal')"}, {"t": "打印", "act": "window.print();this.classList.toggle('printed')"}]},
       'title': '采购入库单详情',
       'info': [
         {

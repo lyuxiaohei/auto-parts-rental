@@ -373,11 +373,6 @@ def audit_page(browser, path: Path):
     page.on("framenavigated", lambda f: url_before.__setitem__(0, f.url) if f == page.main_frame else None)
     try:
         page.goto(path.as_uri(), wait_until="load", timeout=15000)
-        # 列表数据驱动适配（2026-09-08 试点）：动态渲染行需等待 tbody 出现；无 tbody 页静默跳过
-        try:
-            page.wait_for_selector('tbody tr', timeout=3000)
-        except Exception:
-            pass
         page.wait_for_timeout(300)
         res = page.evaluate(HARNESS)
         r["problems"] = res["problems"]
