@@ -990,15 +990,24 @@
  {
   "page": "仓储作业\\租入入库列表.html",
   "js_errors": [],
-  "problems": [],
+  "problems": [
+   {
+    "cat": "弹窗",
+    "type": "modal-unreachable",
+    "phase": "modal",
+    "where": {
+     "text": "租入入库单详情 · RZRK-20260"
+    },
+    "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
+   }
+  ],
   "stats": {
    "buttons": 7,
    "links": 6,
-   "onclickEls": 56,
+   "onclickEls": 51,
    "modals": 2,
    "modalTitles": [
-    "入库确认",
-    "租入入库单详情 · RZRK-20260"
+    "入库确认"
    ],
    "selects": 3,
    "fakeSelects": 0,
@@ -1015,16 +1024,25 @@
  {
   "page": "仓储作业\\租入归还列表.html",
   "js_errors": [],
-  "problems": [],
+  "problems": [
+   {
+    "cat": "弹窗",
+    "type": "modal-unreachable",
+    "phase": "modal",
+    "where": {
+     "text": "租入归还单详情 · GHCK-20260"
+    },
+    "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
+   }
+  ],
   "stats": {
    "buttons": 10,
    "links": 5,
-   "onclickEls": 59,
+   "onclickEls": 55,
    "modals": 3,
    "modalTitles": [
     "新建归还单",
-    "审核确认",
-    "租入归还单详情 · GHCK-20260"
+    "审核确认"
    ],
    "selects": 5,
    "fakeSelects": 0,
@@ -1041,15 +1059,24 @@
  {
   "page": "仓储作业\\组合出库列表.html",
   "js_errors": [],
-  "problems": [],
+  "problems": [
+   {
+    "cat": "弹窗",
+    "type": "modal-unreachable",
+    "phase": "modal",
+    "where": {
+     "text": "组合出库单详情 · CK-2026082"
+    },
+    "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
+   }
+  ],
   "stats": {
    "buttons": 8,
    "links": 24,
-   "onclickEls": 73,
+   "onclickEls": 65,
    "modals": 2,
    "modalTitles": [
-    "出库确认",
-    "组合出库单详情 · CK-2026083"
+    "出库确认"
    ],
    "selects": 3,
    "fakeSelects": 0,
@@ -1135,15 +1162,24 @@
  {
   "page": "仓储作业\\退租入库列表.html",
   "js_errors": [],
-  "problems": [],
+  "problems": [
+   {
+    "cat": "弹窗",
+    "type": "modal-unreachable",
+    "phase": "modal",
+    "where": {
+     "text": "退租入库单详情 · TZRK-20260"
+    },
+    "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
+   }
+  ],
   "stats": {
    "buttons": 7,
    "links": 16,
-   "onclickEls": 65,
+   "onclickEls": 59,
    "modals": 2,
    "modalTitles": [
-    "审核确认",
-    "退租入库单详情 · TZRK-20260"
+    "审核确认"
    ],
    "selects": 3,
    "fakeSelects": 0,
@@ -1624,15 +1660,24 @@
  {
   "page": "租赁管理\\丢损赔偿单.html",
   "js_errors": [],
-  "problems": [],
+  "problems": [
+   {
+    "cat": "弹窗",
+    "type": "modal-unreachable",
+    "phase": "modal",
+    "where": {
+     "text": "丢损赔偿单详情 · BS-2026081"
+    },
+    "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
+   }
+  ],
   "stats": {
    "buttons": 8,
    "links": 11,
-   "onclickEls": 59,
+   "onclickEls": 53,
    "modals": 2,
    "modalTitles": [
-    "审核确认",
-    "丢损赔偿单详情 · BS-2026090"
+    "审核确认"
    ],
    "selects": 3,
    "fakeSelects": 0,
@@ -1866,16 +1911,25 @@
  {
   "page": "租赁管理\\退租申请列表.html",
   "js_errors": [],
-  "problems": [],
+  "problems": [
+   {
+    "cat": "弹窗",
+    "type": "modal-unreachable",
+    "phase": "modal",
+    "where": {
+     "text": "退租申请详情 · TZSQ-202609"
+    },
+    "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
+   }
+  ],
   "stats": {
    "buttons": 12,
    "links": 12,
-   "onclickEls": 64,
+   "onclickEls": 62,
    "modals": 3,
    "modalTitles": [
     "新建退租申请",
-    "审核确认",
-    "退租申请详情 · TZSQ-202609"
+    "审核确认"
    ],
    "selects": 6,
    "fakeSelects": 0,
@@ -2749,16 +2803,25 @@
  {
   "page": "采购管理\\租入单列表.html",
   "js_errors": [],
-  "problems": [],
+  "problems": [
+   {
+    "cat": "弹窗",
+    "type": "modal-unreachable",
+    "phase": "modal",
+    "where": {
+     "text": "租入单详情 · RZD-20260615"
+    },
+    "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
+   }
+  ],
   "stats": {
    "buttons": 10,
    "links": 11,
-   "onclickEls": 63,
+   "onclickEls": 53,
    "modals": 3,
    "modalTitles": [
     "新建租入单",
-    "审核确认",
-    "租入单详情 · RZD-20260815"
+    "审核确认"
    ],
    "selects": 5,
    "fakeSelects": 0,
@@ -2974,16 +3037,25 @@
  {
   "page": "销售管理\\租赁单列表.html",
   "js_errors": [],
-  "problems": [],
+  "problems": [
+   {
+    "cat": "弹窗",
+    "type": "modal-unreachable",
+    "phase": "modal",
+    "where": {
+     "text": "租赁单详情 · ZL-20260115-"
+    },
+    "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
+   }
+  ],
   "stats": {
    "buttons": 12,
    "links": 22,
-   "onclickEls": 74,
+   "onclickEls": 63,
    "modals": 3,
    "modalTitles": [
     "新建租赁单",
-    "审核确认",
-    "租赁单详情 · ZL-20260823-"
+    "审核确认"
    ],
    "selects": 5,
    "fakeSelects": 0,

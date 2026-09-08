@@ -1,0 +1,10 @@
+[
+ {"page": "销售管理/租赁单列表.html", "entity": "leaseOrders", "title": "租赁单详情", "tpl": "销售管理/弹窗/租赁单详情.html", "preview": "ZL-20260823-033"},
+ {"page": "采购管理/租入单列表.html", "entity": "rentInOrders", "title": "租入单详情", "tpl": "采购管理/弹窗/租入单详情.html", "preview": "RZD-20260815-003"},
+ {"page": "仓储作业/组合出库列表.html", "entity": "comboOutbounds", "title": "组合出库单详情", "tpl": "仓储作业/弹窗/组合出库单详情.html", "preview": "CK-20260830-015"},
+ {"page": "仓储作业/退租入库列表.html", "entity": "returnInbounds", "title": "退租入库单详情", "tpl": "仓储作业/弹窗/退租入库单详情.html", "preview": "TZRK-20260902-010"},
+ {"page": "租赁管理/退租申请列表.html", "entity": "returnApplies", "title": "退租申请详情", "tpl": "租赁管理/弹窗/退租申请详情.html", "preview": "TZSQ-20260903-005"},
+ {"page": "租赁管理/丢损赔偿单.html", "entity": "damageOrders", "title": "丢损赔偿单详情", "tpl": "租赁管理/弹窗/丢损赔偿单详情.html", "preview": "BS-20260902-010"},
+ {"page": "仓储作业/租入归还列表.html", "entity": "rentInReturns", "title": "租入归还单详情", "tpl": "仓储作业/弹窗/租入归还单详情.html", "preview": "GHCK-20260903-001"},
+ {"page": "仓储作业/租入入库列表.html", "entity": "rentInbounds", "title": "租入入库单详情", "tpl": "仓储作业/弹窗/租入入库单详情.html", "preview": "RZRK-20260816-021"}
+]
