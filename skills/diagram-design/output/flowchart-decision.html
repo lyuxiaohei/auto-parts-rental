@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>流程图生成决策流程</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --color-paper:   #f5f5f5;
+      --color-ink:     #1a1a1a;
+      --color-muted:   #666666;
+      --font-sans:     'Geist', system-ui, sans-serif;
+      --font-serif:    'Instrument Serif', serif;
+      --font-mono:     'Geist Mono', ui-monospace, monospace;
+    }
+    body {
+      font-family: var(--font-sans);
+      background: var(--color-paper);
+      color: var(--color-ink);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 2rem;
+    }
+    .frame { max-width: 1000px; width: 100%; }
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      margin-bottom: 0.5rem;
+    }
+    h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.5rem, 2.4vw + 0.75rem, 2rem);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      color: var(--color-ink);
+      margin-bottom: 1.5rem;
+    }
+    svg { width: 100%; min-width: 800px; display: block; }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <p class="eyebrow">Flowchart · 技能链集成</p>
+    <h1>流程图生成决策流程</h1>
+
+    <svg viewBox="0 0 800 620" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1a1a1a"/></marker>
+          <marker id="arrow-muted" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#666666"/></marker>
+        </defs>
+
+        <rect width="100%" height="100%" fill="#f5f5f5"/>
+
+        <!-- ===== ARROWS (behind nodes) ===== -->
+
+        <!-- 开始 → 需要生成流程图 -->
+        <line x1="280" y1="48" x2="280" y2="68" stroke="#1a1a1a" stroke-width="1" marker-end="url(#arrow)"/>
+
+        <!-- 需要生成流程图 → Diamond -->
+        <line x1="280" y1="116" x2="280" y2="144" stroke="#1a1a1a" stroke-width="1" marker-end="url(#arrow)"/>
+
+        <!-- Diamond "是" → /diagram-design -->
+        <line x1="280" y1="228" x2="280" y2="268" stroke="#1a1a1a" stroke-width="1" marker-end="url(#arrow)"/>
+
+        <!-- Diamond "否" → 提示安装 -->
+        <line x1="380" y1="188" x2="508" y2="188" stroke="#1a1a1a" stroke-width="1" marker-end="url(#arrow)"/>
+
+        <!-- /diagram-design → merge dot -->
+        <line x1="280" y1="316" x2="280" y2="348" stroke="#1a1a1a" stroke-width="1"/>
+
+        <!-- merge dot → 输出完成 -->
+        <line x1="280" y1="356" x2="280" y2="432" stroke="#1a1a1a" stroke-width="1" marker-end="url(#arrow)"/>
+
+        <!-- 输出完成 → 结束 -->
+        <line x1="280" y1="480" x2="280" y2="500" stroke="#1a1a1a" stroke-width="1" marker-end="url(#arrow)"/>
+
+        <!-- 提示安装 → 安装成功? -->
+        <line x1="620" y1="212" x2="620" y2="248" stroke="#666666" stroke-width="1" marker-end="url(#arrow-muted)"/>
+
+        <!-- 安装成功 "是" → left to merge dot -->
+        <polyline points="620,332 620,352 288,352" fill="none" stroke="#666666" stroke-width="1" stroke-dasharray="5,4"/>
+
+        <!-- 安装成功 "否" → Mermaid -->
+        <line x1="720" y1="292" x2="720" y2="388" stroke="#666666" stroke-width="1" stroke-dasharray="5,4" marker-end="url(#arrow-muted)"/>
+
+        <!-- Mermaid → left to 输出完成 -->
+        <polyline points="720,436 720,456 520,456" fill="none" stroke="#666666" stroke-width="1" stroke-dasharray="5,4" marker-end="url(#arrow-muted)"/>
+
+        <!-- ===== ARROW LABELS ===== -->
+
+        <rect x="284" y="236" width="20" height="12" rx="2" fill="#f5f5f5"/>
+        <text x="294" y="245" fill="#1a1a1a" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">是</text>
+
+        <rect x="432" y="172" width="20" height="12" rx="2" fill="#f5f5f5"/>
+        <text x="442" y="181" fill="#1a1a1a" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">否</text>
+
+        <rect x="524" y="338" width="20" height="12" rx="2" fill="#f5f5f5"/>
+        <text x="534" y="347" fill="#666666" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">是</text>
+
+        <rect x="724" y="336" width="36" height="12" rx="2" fill="#f5f5f5"/>
+        <text x="742" y="345" fill="#666666" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">失败</text>
+
+        <!-- ===== NODES ===== -->
+
+        <!-- 开始 (oval, black fill) -->
+        <rect x="240" y="8" width="80" height="40" rx="20" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="1"/>
+        <text x="280" y="32" fill="#f5f5f5" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">开始</text>
+
+        <!-- 需要生成流程图 (oval) -->
+        <rect x="200" y="68" width="160" height="48" rx="24" fill="rgba(26,26,26,0.03)" stroke="rgba(26,26,26,0.30)" stroke-width="1"/>
+        <text x="280" y="96" fill="#1a1a1a" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">需要生成流程图</text>
+
+        <!-- Diamond: diagram-design 是否已安装? -->
+        <polygon points="280,144 380,188 280,232 180,188" fill="#ffffff" stroke="#1a1a1a" stroke-width="1"/>
+        <text x="280" y="184" fill="#1a1a1a" font-size="11" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">diagram-design</text>
+        <text x="280" y="198" fill="#1a1a1a" font-size="11" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">是否已安装?</text>
+
+        <!-- /diagram-design (focal — black fill) -->
+        <rect x="180" y="268" width="200" height="48" rx="6" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="1"/>
+        <text x="280" y="288" fill="#f5f5f5" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">/diagram-design</text>
+        <text x="280" y="304" fill="#999999" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">生成自包含 HTML</text>
+
+        <!-- Merge dot -->
+        <circle cx="280" cy="352" r="4" fill="#1a1a1a"/>
+
+        <!-- 提示安装 -->
+        <rect x="520" y="164" width="200" height="48" rx="6" fill="#ffffff" stroke="#1a1a1a" stroke-width="1"/>
+        <text x="620" y="184" fill="#1a1a1a" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">提示安装</text>
+        <text x="620" y="200" fill="#666666" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">~/.claude/skills/</text>
+
+        <!-- Diamond: 安装成功? -->
+        <polygon points="620,248 720,292 620,336 520,292" fill="#ffffff" stroke="#666666" stroke-width="1"/>
+        <text x="620" y="296" fill="#1a1a1a" font-size="11" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">安装成功?</text>
+
+        <!-- Mermaid 回退 (dashed) -->
+        <rect x="620" y="388" width="200" height="48" rx="6" fill="#ffffff" stroke="#666666" stroke-width="1" stroke-dasharray="5,4"/>
+        <text x="720" y="408" fill="#666666" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Mermaid 代码块</text>
+        <text x="720" y="424" fill="#999999" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">mmdc / kroki → SVG</text>
+
+        <!-- 输出完成 (oval) -->
+        <rect x="200" y="432" width="320" height="48" rx="24" fill="rgba(26,26,26,0.03)" stroke="rgba(26,26,26,0.30)" stroke-width="1"/>
+        <text x="360" y="454" fill="#1a1a1a" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">输出完成</text>
+        <text x="360" y="470" fill="#666666" font-size="9" font-family="'Geist Mono', monospace" text-anchor="middle">&lt;details&gt; Mermaid 源码备份</text>
+
+        <!-- 结束 (oval, black fill) -->
+        <rect x="240" y="500" width="80" height="40" rx="20" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="1"/>
+        <text x="280" y="524" fill="#f5f5f5" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">结束</text>
+
+        <!-- ===== LEGEND ===== -->
+        <line x1="40" y1="560" x2="760" y2="560" stroke="rgba(26,26,26,0.10)" stroke-width="0.8"/>
+        <text x="40" y="576" fill="#666666" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.18em">LEGEND · 形状即类型</text>
+
+        <rect x="40" y="592" width="24" height="12" rx="6" fill="rgba(26,26,26,0.03)" stroke="rgba(26,26,26,0.30)" stroke-width="1"/>
+        <text x="72" y="602" fill="#666666" font-size="8.5" font-family="'Geist', sans-serif">起止</text>
+
+        <rect x="120" y="592" width="24" height="12" rx="2" fill="#ffffff" stroke="#1a1a1a" stroke-width="1"/>
+        <text x="152" y="602" fill="#666666" font-size="8.5" font-family="'Geist', sans-serif">步骤</text>
+
+        <polygon points="228,598 240,592 252,598 240,604" fill="#ffffff" stroke="#1a1a1a" stroke-width="1"/>
+        <text x="264" y="602" fill="#666666" font-size="8.5" font-family="'Geist', sans-serif">判断</text>
+
+        <circle cx="336" cy="598" r="4" fill="#1a1a1a"/>
+        <text x="352" y="602" fill="#666666" font-size="8.5" font-family="'Geist', sans-serif">合并</text>
+
+        <rect x="412" y="592" width="24" height="12" rx="2" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="1"/>
+        <text x="444" y="602" fill="#666666" font-size="8.5" font-family="'Geist', sans-serif">首选路径</text>
+
+        <rect x="536" y="592" width="24" height="12" rx="2" fill="#ffffff" stroke="#666666" stroke-width="1" stroke-dasharray="4,3"/>
+        <text x="568" y="602" fill="#666666" font-size="8.5" font-family="'Geist', sans-serif">回退路径</text>
+
+        <line x1="664" y1="598" x2="692" y2="598" stroke="#1a1a1a" stroke-width="1" marker-end="url(#arrow)"/>
+        <text x="704" y="602" fill="#666666" font-size="8.5" font-family="'Geist', sans-serif">分支</text>
+      </svg>
+  </div>
+</body>
+</html>
