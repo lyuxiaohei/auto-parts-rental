@@ -258,8 +258,7 @@ th.td-num { text-align:right; }
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></span>基础资料<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
    <li><div class="sm-link" onclick="go('../基础数据/客商管理.html')">客商管理</div></li>
-   <li><div class="sm-link" onclick="go('../基础数据/器具档案.html')">器具档案</div></li>
-   <li><div class="sm-link" onclick="go('../基础数据/零部件档案.html')">零部件档案</div></li>
+   <li><div class="sm-link" onclick="go('../基础数据/产品档案.html')">产品档案</div></li>
    <li><div class="sm-link" onclick="go('../基础数据/BOM.html')">BOM</div></li>
    <li><div class="sm-link selected">库位档案</div></li>
    </ul>
@@ -337,8 +336,7 @@ th.td-num { text-align:right; }
 <div class="tabs">
   <span class="tab active">库位档案 <span class="close">×</span></span>
   <span class="tab">库存查询 <span class="close">×</span></span>
-  <span class="tab">器具档案 <span class="close">×</span></span>
-  <span class="tab">零部件档案 <span class="close">×</span></span>
+  <span class="tab">产品档案 <span class="close">×</span></span>
 </div>
     <div class="content">
 <div class="filter-card collapsed" id="filterCard">
@@ -388,6 +386,18 @@ th.td-num { text-align:right; }
         </tr>
       </thead>
       <tbody>
+        <tr>
+          <td><input type="checkbox" class="cb"></td>
+          <td>华东中心仓（WH-01）</td>
+          <td>客户虚拟仓</td>
+          <td><span class="lk">XNC-AJZX</span></td>
+          <td>虚拟仓</td>
+          <td>按客户归集 · on-hire</td>
+          <td>安吉智行 640 只</td>
+          <td><span class="tag tag-blue">启用</span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('createModal')">编辑</a></span></td>
+        </tr>
+
         <tr>
           <td><input type="checkbox" class="cb"></td>
           <td>华东中心仓（WH-01）</td>

@@ -258,8 +258,7 @@ th.td-num { text-align:right; }
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></span>基础资料<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
    <li><div class="sm-link selected">客商管理</div></li>
-   <li><div class="sm-link" onclick="go('../基础数据/器具档案.html')">器具档案</div></li>
-   <li><div class="sm-link" onclick="go('../基础数据/零部件档案.html')">零部件档案</div></li>
+   <li><div class="sm-link" onclick="go('../基础数据/产品档案.html')">产品档案</div></li>
    <li><div class="sm-link" onclick="go('../基础数据/BOM.html')">BOM</div></li>
    <li><div class="sm-link" onclick="go('../基础数据/库位档案.html')">库位档案</div></li>
    </ul>
@@ -336,8 +335,7 @@ th.td-num { text-align:right; }
   <div class="main-col">
 <div class="tabs">
   <span class="tab active">客商管理 <span class="close">×</span></span>
-  <span class="tab">器具档案 <span class="close">×</span></span>
-  <span class="tab">零部件档案 <span class="close">×</span></span>
+  <span class="tab">产品档案 <span class="close">×</span></span>
   <span class="tab">项目档案 <span class="close">×</span></span>
 </div>
     <div class="content">
@@ -345,12 +343,12 @@ th.td-num { text-align:right; }
   <div class="filter-grid">
     <div class="ff"><span class="ff-label">客商名称：</span><input placeholder="请输入"></div>
     <div class="ff"><span class="ff-label">客商类型：</span>
-      <select><option selected>全部</option><option>客户</option><option>供应商</option><option>运营方</option></select>
+      <select><option selected>全部</option><option>客户</option><option>供应商</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
     <div class="ff"><span class="ff-label">联系人：</span><input placeholder="请输入"></div>
     <div class="ff ff-row-extra"><span class="ff-label">合作状态：</span>
-      <select><option selected>全部</option><option>客户</option><option>供应商</option><option>运营方</option></select>
+      <select><option selected>全部</option><option>客户</option><option>供应商</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
     <div class="ff ff-row-extra"><span class="ff-label">创建时间：</span><input placeholder="开始时间"><span class="ff-sep">→</span><input placeholder="结束时间"></div>
@@ -370,8 +368,7 @@ th.td-num { text-align:right; }
 <div class="stabs">
   <span class="stab active">全部<span class="stab-count">42</span></span>
   <span class="stab">客户<span class="stab-count">16</span></span>
-  <span class="stab">供应商<span class="stab-count">21</span></span>
-  <span class="stab">运营方<span class="stab-count">5</span></span>
+  <span class="stab">供应商<span class="stab-count">22</span></span>
 </div>
   <div class="table-wrap">
     <table>
@@ -478,7 +475,7 @@ th.td-num { text-align:right; }
           <td><input type="checkbox" class="cb"></td>
           <td>DW-0201</td>
           <td>路凯包装运营（上海）有限公司</td>
-          <td><span class="tag tag-orange">运营方</span></td>
+          <td><span class="tag tag-blue">供应商</span></td>
           <td>路凯对接组</td>
           <td>021-66****</td>
           <td>结算对账专用</td>
@@ -533,7 +530,7 @@ body.proto-notes-on .proto-pin.pn-open{display:block}
 body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 .pn-fab .pn-fab-n{font-family:Consolas,monospace;font-weight:600}
 </style>
-<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>新建客商</div><div class="pnp-d">客户/供应商/运营方三类主体，含开票资料（开票主体信息待确认）</div><div class="pnp-b"><span class="pnp-tag">FP1-02 · 客商管理</span><span class="pnp-tag">REQ-01 · 多项目统一管理</span></div><div class="pnp-src"><div class="src-item"><b>FP1-02 客商管理</b>：客户/供应商/运营方三类，联系人、开票资料</div><div class="src-item"><b>REQ-01 多项目统一管理</b>：所有项目整合进一个系统，按项目建立编码，绑定上下游关系</div></div></div>
+<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>新建客商</div><div class="pnp-d">客户/供应商两类主体（运营方角色已去掉，2026-09-08 会议 L6），含开票资料</div><div class="pnp-b"><span class="pnp-tag">FP1-02 · 客商管理</span><span class="pnp-tag">REQ-01 · 多项目统一管理</span></div><div class="pnp-src"><div class="src-item"><b>FP1-02 客商管理</b>：客户/供应商两类（原三类·运营方去掉），联系人、开票资料</div><div class="src-item"><b>REQ-01 多项目统一管理</b>：所有项目整合进一个系统，按项目建立编码，绑定上下游关系</div></div></div>
 <div class="pn-fab" id="protoNotesFab">标注</div></div>
 <script id="proto-notes-js">
 (function(){

@@ -251,8 +251,7 @@ th.td-num { text-align:right; }
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></span>基础资料<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
    <li><div class="sm-link" onclick="go('../基础数据/客商管理.html')">客商管理</div></li>
-   <li><div class="sm-link" onclick="go('../基础数据/器具档案.html')">器具档案</div></li>
-   <li><div class="sm-link" onclick="go('../基础数据/零部件档案.html')">零部件档案</div></li>
+   <li><div class="sm-link" onclick="go('../基础数据/产品档案.html')">产品档案</div></li>
    <li><div class="sm-link" onclick="go('../基础数据/BOM.html')">BOM</div></li>
    <li><div class="sm-link" onclick="go('../基础数据/库位档案.html')">库位档案</div></li>
    </ul>
@@ -356,7 +355,7 @@ th.td-num { text-align:right; }
       <span class="link-arrow">→</span>
       <div class="node"><div class="n-role">我方（系统运营）</div><div class="n-name">包装租赁管理后台</div></div>
       <span class="link-arrow">→</span>
-      <div class="node"><div class="n-role">运营方（资产方）</div><div class="n-name">路凯包装运营（上海）</div></div>
+      <div class="node"><div class="n-role">供应商（资产方）</div><div class="n-name">路凯包装运营（上海）</div></div>
       <span class="link-arrow">→</span>
       <div class="node"><div class="n-role">供应商</div><div class="n-name">宁波华塑 / 苏州联恒</div></div>
     </div>
@@ -505,7 +504,7 @@ th.td-num { text-align:right; }
       <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>一汽解放汽车有限公司</option><option>一汽解放汽车有限公司·其他</option></select><span class="caret">▾</span></div>
   </div>
   <div class="form-row" style="margin-bottom:14px;">
-    <div class="form-label"><span class="req">*</span>运营方：</div>
+    <div class="form-label"><span class="req">*</span>供应商：</div>
       <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>路凯包装运营（上海）有限公司</option><option>路凯包装运营（上海）有限公司·其他</option></select><span class="caret">▾</span></div>
   </div>
   <div class="form-row" style="margin-bottom:14px;">
@@ -590,7 +589,7 @@ body.proto-notes-on .proto-pin.pn-open{display:block}
 body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 .pn-fab .pn-fab-n{font-family:Consolas,monospace;font-weight:600}
 </style>
-<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>上下游关系（详情维护）</div><div class="pnp-d">在单个项目页内维护上下游，与项目档案共用同一份数据</div><div class="pnp-b"><span class="pnp-tag">FP2-02 · 上下游绑定</span><span class="pnp-tag">REQ-01 · 多项目统一管理</span></div><div class="pnp-src"><div class="src-item"><b>FP2-02 上下游绑定</b>：项目↔客户↔运营方↔供应商关系维护</div><div class="src-item"><b>REQ-01 多项目统一管理</b>：所有项目整合进一个系统，按项目建立编码，绑定上下游关系</div></div></div>
+<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>上下游关系（详情维护）</div><div class="pnp-d">在单个项目页内维护上下游，与项目档案共用同一份数据</div><div class="pnp-b"><span class="pnp-tag">FP2-02 · 上下游绑定</span><span class="pnp-tag">REQ-01 · 多项目统一管理</span></div><div class="pnp-src"><div class="src-item"><b>FP2-02 上下游绑定</b>：项目↔客户↔供应商↔供应商关系维护</div><div class="src-item"><b>REQ-01 多项目统一管理</b>：所有项目整合进一个系统，按项目建立编码，绑定上下游关系</div></div></div>
 <div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>项目单据查询</div><div class="pnp-d">查看本项目全部出入库、租出、账单单据</div><div class="pnp-b"><span class="pnp-tag">FP2-04 · 项目明细查看明细</span><span class="pnp-tag">REQ-02 · 项目维度经营分析</span></div><div class="pnp-src"><div class="src-item"><b>FP2-04 项目明细查看明细</b>：从看板点开查看到单据</div><div class="src-item"><b>REQ-02 项目维度经营分析</b>：按项目看出入库、营收、盈利情况</div></div></div>
 <div class="pn-fab" id="protoNotesFab">标注</div></div>
 <script id="proto-notes-js">

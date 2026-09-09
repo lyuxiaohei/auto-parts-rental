@@ -258,8 +258,7 @@ th.td-num { text-align:right; }
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></span>基础资料<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
    <li><div class="sm-link" onclick="go('../基础数据/客商管理.html')">客商管理</div></li>
-   <li><div class="sm-link" onclick="go('../基础数据/器具档案.html')">器具档案</div></li>
-   <li><div class="sm-link" onclick="go('../基础数据/零部件档案.html')">零部件档案</div></li>
+   <li><div class="sm-link" onclick="go('../基础数据/产品档案.html')">产品档案</div></li>
    <li><div class="sm-link" onclick="go('../基础数据/BOM.html')">BOM</div></li>
    <li><div class="sm-link" onclick="go('../基础数据/库位档案.html')">库位档案</div></li>
    </ul>
@@ -837,7 +836,7 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 </style>
 <div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>B1 销售线 · 步骤 3/5 应收账单（销售费）</div><div class="pnp-d">按销售出库自动汇总，关联 XSCK-20260902-015 等 2 单。<br>下一步 → 开票登记 → 回款 → 水单核销。</div></div>
 <div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>L1/L2 · 租赁费应收（财务汇合点）</div><div class="pnp-d">按组合出库自动汇总——租赁线与买卖线在账单层汇合，共用同一条 开票→回款→核销 通道（袁丽晶 43:24）。</div></div>
-<div class="proto-pin" id="proto-pin-3"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">3</span>S4 · 赔偿转应收</div><div class="pnp-d">丢损赔偿按对象直接转单据（2026-09-04 拍板）：<br>自有器具 → 客户赔付进应收；租入器具 → 运营方赔付进应付（见应付账单）。</div></div>
+<div class="proto-pin" id="proto-pin-3"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">3</span>S4 · 赔偿转应收</div><div class="pnp-d">丢损赔偿按对象直接转单据（2026-09-04 拍板）：<br>自有器具 → 客户赔付进应收；租入器具 → 供应商赔付进应付（见应付账单）。</div></div>
 <div class="pn-fab" id="protoNotesFab">标注</div></div>
 <script id="proto-notes-js">
 (function(){

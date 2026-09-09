@@ -35,9 +35,9 @@ window.DEMO_DATA = {
    * ------------------------------------------------------------------------ */
   payableBills: {
 
-    /* ===== 预付（路凯 · 预付运营方大箱租金 9 月度 · 已付款） ===== */
+    /* ===== 预付（路凯 · 预付供应商大箱租金 9 月度 · 已付款） ===== */
     'AP-20260905-012': {
-      'row': {"fields": {"supplier": "路凯包装运营", "btype": "预付预付运营方大箱租金（9 月度）", "project": "PRJ-2604", "period": "2026-09", "ref": "RZD-20260815-005", "inbound": "—", "date": "2026-09-05", "status": "已付款"}, "cells": ["路凯包装运营", "<span class=\"tag tag-blue\">预付</span><div style=\"color:#8c8c8c;font-size:11px;\">预付运营方大箱租金（9 月度）</div>", "PRJ-2604", "2026-09", "<span class=\"lk\">RZD-20260815-005</span>", "—", "<span class=\"td-num\">30,000.00</span>", "<span class=\"td-num\">0.00</span>", "<span class=\"td-num\">30,000.00</span>", "2026-09-05", "2026-09-30", "<span class=\"tag tag-green\">已付款</span>"], "ops": [{"t": "详情", "detail": true}]},
+      'row': {"fields": {"supplier": "路凯包装运营", "btype": "预付预付供应商大箱租金（9 月度）", "project": "PRJ-2604", "period": "2026-09", "ref": "RZD-20260815-005", "inbound": "—", "date": "2026-09-05", "status": "已付款"}, "cells": ["路凯包装运营", "<span class=\"tag tag-blue\">预付</span><div style=\"color:#8c8c8c;font-size:11px;\">预付供应商大箱租金（9 月度）</div>", "PRJ-2604", "2026-09", "<span class=\"lk\">RZD-20260815-005</span>", "—", "<span class=\"td-num\">30,000.00</span>", "<span class=\"td-num\">0.00</span>", "<span class=\"td-num\">30,000.00</span>", "2026-09-05", "2026-09-30", "<span class=\"tag tag-green\">已付款</span>"], "ops": [{"t": "详情", "detail": true}]},
       billNo: 'AP-20260905-012',
       billType: '预付',
       status: '已付款',
@@ -47,12 +47,12 @@ window.DEMO_DATA = {
       amount: 30000,
       paid: 30000,
       genMode: '手动创建（预付）',
-      scenario: '预付冲抵 · 运营方租金',
+      scenario: '预付冲抵 · 供应商租金',
       refs: [
         { label: '关联租入单', no: 'RZD-20260815-005', url: '租赁管理/租入单列表.html' }
       ],
       fees: [
-        { src: 'RZD-20260815-005', desc: '预付运营方大箱租金 · 2026-09 月度', amount: 30000, url: '租赁管理/租入单列表.html' }
+        { src: 'RZD-20260815-005', desc: '预付供应商大箱租金 · 2026-09 月度', amount: 30000, url: '租赁管理/租入单列表.html' }
       ],
       chain: [
         { role: '租入单', name: 'RZD-20260815-005', url: '租赁管理/租入单列表.html' },
@@ -2277,7 +2277,7 @@ window.DEMO_DATA = {
           'tag': '履行中'
         },
         {
-          'label': '运营方',
+          'label': '供应商',
           'text': '路凯包装运营（上海）有限公司',
           'full': true
         },
@@ -2394,7 +2394,7 @@ window.DEMO_DATA = {
           'tag': '部分归还'
         },
         {
-          'label': '运营方',
+          'label': '供应商',
           'text': '路凯包装运营（上海）有限公司',
           'full': true
         },
@@ -2510,7 +2510,7 @@ window.DEMO_DATA = {
           'tag': '待审核'
         },
         {
-          'label': '运营方',
+          'label': '供应商',
           'text': '路凯包装运营（上海）有限公司',
           'full': true
         },
@@ -2599,7 +2599,7 @@ window.DEMO_DATA = {
           'tag': '已归还'
         },
         {
-          'label': '运营方',
+          'label': '供应商',
           'text': '路凯包装运营（上海）有限公司',
           'full': true
         },
@@ -2692,7 +2692,7 @@ window.DEMO_DATA = {
           'tag': '已终止'
         },
         {
-          'label': '运营方',
+          'label': '供应商',
           'text': '路凯包装运营（上海）有限公司',
           'full': true
         },
@@ -4415,7 +4415,7 @@ window.DEMO_DATA = {
           'url': '租赁管理/租入单列表.html'
         },
         {
-          'label': '运营方',
+          'label': '供应商',
           'text': '路凯包装运营（上海）有限公司',
           'full': true
         },
@@ -4512,7 +4512,7 @@ window.DEMO_DATA = {
           'url': '租赁管理/租入单列表.html'
         },
         {
-          'label': '运营方',
+          'label': '供应商',
           'text': '路凯包装运营（上海）有限公司',
           'full': true
         },
@@ -4610,7 +4610,7 @@ window.DEMO_DATA = {
           'url': '租赁管理/租入单列表.html'
         },
         {
-          'label': '运营方',
+          'label': '供应商',
           'text': '路凯包装运营（上海）有限公司',
           'full': true
         },
@@ -4712,7 +4712,7 @@ window.DEMO_DATA = {
           'url': '租赁管理/租入单列表.html'
         },
         {
-          'label': '运营方',
+          'label': '供应商',
           'text': '路凯包装运营（上海）有限公司',
           'full': true
         },
@@ -4816,7 +4816,7 @@ window.DEMO_DATA = {
           'url': '租赁管理/租入单列表.html'
         },
         {
-          'label': '运营方',
+          'label': '供应商',
           'text': '路凯包装运营（上海）有限公司',
           'full': true
         },
@@ -4923,7 +4923,7 @@ window.DEMO_DATA = {
           'url': '租赁管理/租入单列表.html'
         },
         {
-          'label': '运营方',
+          'label': '供应商',
           'text': '路凯包装运营（上海）有限公司',
           'full': true
         },
@@ -9507,7 +9507,83 @@ window.DEMO_DATA = {
   /* 库存流水 stockFlows：键 = 物料编码（仓储作业/库存查询.html 散件 9 + 组合件 3） */
   /* 弹窗 flowModal · 触发锚「库存流水」；四态口径 + 进出流水时间倒序 */
   stockFlows: {
-    'LJ-A100': {
+     'XNC-AJZX-WBX': {
+      'row': {"fields": {"name": "围板箱 1200×1000×970（安吉智行·客户虚拟仓）", "cls": "租赁器具", "project": "PRJ-2605", "area": "安吉智行·客户虚拟仓"}, "cells": ["围板箱 1200×1000×970（安吉智行·客户虚拟仓）", "<span class=\"tag tag-blue\">租赁器具</span>", "PRJ-2605", "<span class=\"td-num\">0</span>", "<span class=\"td-num\">0</span>", "<span class=\"td-num\">640</span>", "<span class=\"td-num\">0</span>", "<span class=\"td-num\"><b>640</b></span>", "只", "安吉智行·客户虚拟仓"], "ops": [{"t": "库存流水", "detail": true}]},
+      'title': '库存流水',
+      'titleNo': 'XNC-AJZX-WBX 围板箱（安吉智行·客户虚拟仓）',
+      'info': [
+        {
+          'label': '物料编码',
+          'text': 'XNC-AJZX-WBX'
+        },
+        {
+          'label': '名称规格',
+          'text': '围板箱 1200×1000×970（安吉智行·客户虚拟仓）',
+          'full': true
+        },
+        {
+          'label': '物料类别',
+          'text': '租赁器具'
+        },
+        {
+          'label': '适用项目',
+          'text': 'PRJ-2605',
+          'full': true
+        },
+        {
+          'label': '在库',
+          'text': '0（虚拟仓不占实体库）'
+        },
+        {
+          'label': '客户端（on-hire）',
+          'text': '640 只'
+        },
+        {
+          'label': '口径',
+          'text': '客户虚拟仓＝在客户处的租赁资产按客户归集（on-hire）；客户转租为其子状态',
+          'full': true
+        },
+        {
+          'label': '库区',
+          'text': '安吉智行·客户虚拟仓'
+        }
+      ],
+      'feeSecTitle': '进出流水（时间倒序）',
+      'feeCols': ['日期', '类型', '单据号', '方向数量', '结存'],
+      'fees': [
+        {
+          'cells': ['09-02', '组合出库', 'CK-20260824-009', '+640', '640'],
+          'links': {
+            2: '租赁管理/组合出库列表.html'
+          }
+        }
+      ],
+      'chain': [
+        {
+          'role': '租赁单',
+          'name': 'ZL-20260823-033',
+          'url': '租赁管理/租赁单列表.html'
+        },
+        {
+          'role': '组合出库',
+          'name': 'CK-20260824-009 · 出库至客户',
+          'url': '租赁管理/组合出库列表.html'
+        },
+        {
+          'role': '客户虚拟仓（本仓）',
+          'name': 'XNC-AJZX · on-hire 640 只',
+          'self': true
+        }
+      ],
+      'timeline': [
+        {
+          't': '09-02',
+          'text': '组合出库 640 只至安吉智行 · 按客户归集记客户虚拟仓（on-hire）',
+          'who': '张伟'
+        }
+      ]
+    },
+   'LJ-A100': {
       'row': {"fields": {"name": "锁扣组件 不锈钢 304", "cls": "零部件", "project": "PRJ-2601/02/04", "area": "原料区 RA"}, "cells": ["锁扣组件 不锈钢 304", "<span class=\"tag tag-blue\">零部件</span>", "PRJ-2601/02/04", "<span class=\"td-num\">5,260</span>", "<span class=\"td-num\">1,200</span>", "<span class=\"td-num\">800</span>", "<span class=\"td-num\">2,400</span>", "<span class=\"td-num\"><b>7,260</b></span>", "件", "原料区 RA"], "ops": [{"t": "库存流水", "detail": true}]},
       'title': '库存流水',
       'titleNo': 'LJ-A100 锁扣组件 不锈钢 304',
@@ -12953,7 +13029,7 @@ window.DEMO_DATA = {
       ]
     },
     'DW-0201': {
-      'row': {"fields": {"name": "路凯包装运营（上海）有限公司", "type": "运营方", "contact": "路凯对接组", "status": "正常", "date": "2026-08-30"}, "cells": ["路凯包装运营（上海）有限公司", "<span class=\"tag tag-orange\">运营方</span>", "路凯对接组", "021-66****", "结算对账专用", "<span class=\"tag tag-green\">正常</span>", "2026-08-30"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "开票资料", "act": "openModal('createModal')"}]},
+      'row': {"fields": {"name": "路凯包装运营（上海）有限公司", "type": "供应商", "contact": "路凯对接组", "status": "正常", "date": "2026-08-30"}, "cells": ["路凯包装运营（上海）有限公司", "<span class=\"tag tag-blue\">供应商</span>", "路凯对接组", "021-66****", "结算对账专用", "<span class=\"tag tag-green\">正常</span>", "2026-08-30"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "开票资料", "act": "openModal('createModal')"}]},
       'title': '客商详情',
       'titleNo': '路凯包装运营（上海）有限公司',
       'info': [
@@ -12968,7 +13044,7 @@ window.DEMO_DATA = {
         },
         {
           'label': '客商类型',
-          'text': '运营方'
+          'text': '供应商'
         },
         {
           'label': '状态',
@@ -13052,14 +13128,13 @@ window.DEMO_DATA = {
 
   /* -------------------------------------------------------------------------- */
   /* 器具档案 appliances：键 = 器具编码（基础数据/器具档案.html 6 行全量） */
-  /* BTC-6040S 键先于 BTC-6040（前缀包含防误匹配）；在租状态对齐在租台账四态 */
-  appliances: {
+  /* BTC-6040S 键先于 BTC-6040（前缀包含防误匹配）；在租状态对齐在租台账四态 */  products: {
     'WBX-1210L': {
-      'row': {"fields": {"name": "围板箱 1200×1000×970", "cls": "围板箱", "spec": "1200×1000×970 mm", "src": "自有", "status": "启用", "date": "2026-01-06"}, "cells": ["围板箱 1200×1000×970", "<span class=\"tag tag-blue\">围板箱</span>", "1200×1000×970 mm", "只", "<span class=\"tag tag-green\">自有</span>", "<span class=\"td-num\">38.00</span>", "<span class=\"tag tag-green\">启用</span>", "<span class=\"td-num\">38.00</span>", "2026-01-06"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
-      'title': '器具详情',
+      'row': {"fields": {"name": "围板箱 1200×1000×970", "cls": "围板箱", "spec": "1200×1000×970 mm", "src": "自有", "status": "启用", "date": "2026-01-06"}, "cells": ["围板箱 1200×1000×970", "<span class=\"tag tag-blue\">围板箱</span>", "1200×1000×970 mm", "只", "<span class=\"tag tag-green\">自有</span>", "<span class=\"td-num\">38.00</span>", "<span class=\"td-num\">38.00</span>", "<span class=\"tag tag-green\">启用</span>", "2026-01-06"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
+      'title': '产品详情',
       'info': [
         {
-          'label': '器具编码',
+          'label': '产品编码',
           'text': 'WBX-1210L'
         },
         {
@@ -13068,7 +13143,7 @@ window.DEMO_DATA = {
           'full': true
         },
         {
-          'label': '器具类别',
+          'label': '分类',
           'text': '围板箱'
         },
         {
@@ -13081,7 +13156,7 @@ window.DEMO_DATA = {
           'text': '只'
         },
         {
-          'label': '资产来源',
+          'label': '归属权',
           'text': '自有（另有租入-路凯在库 · 见租入台账）',
           'full': true
         },
@@ -13110,7 +13185,7 @@ window.DEMO_DATA = {
       ],
       'chain': [
         {
-          'role': '器具档案（本档）',
+          'role': '产品档案（本档）',
           'name': 'WBX-1210L',
           'self': true
         },
@@ -13142,11 +13217,11 @@ window.DEMO_DATA = {
       ]
     },
     'WBX-1210M': {
-      'row': {"fields": {"name": "围板箱 1200×1000×590", "cls": "围板箱", "spec": "1200×1000×590 mm", "src": "自有", "status": "启用", "date": "2026-01-06"}, "cells": ["围板箱 1200×1000×590", "<span class=\"tag tag-blue\">围板箱</span>", "1200×1000×590 mm", "只", "<span class=\"tag tag-green\">自有</span>", "<span class=\"td-num\">32.00</span>", "<span class=\"tag tag-green\">启用</span>", "<span class=\"td-num\">32.00</span>", "2026-01-06"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
-      'title': '器具详情',
+      'row': {"fields": {"name": "围板箱 1200×1000×590", "cls": "围板箱", "spec": "1200×1000×590 mm", "src": "自有", "status": "启用", "date": "2026-01-06"}, "cells": ["围板箱 1200×1000×590", "<span class=\"tag tag-blue\">围板箱</span>", "1200×1000×590 mm", "只", "<span class=\"tag tag-green\">自有</span>", "<span class=\"td-num\">32.00</span>", "<span class=\"td-num\">32.00</span>", "<span class=\"tag tag-green\">启用</span>", "2026-01-06"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
+      'title': '产品详情',
       'info': [
         {
-          'label': '器具编码',
+          'label': '产品编码',
           'text': 'WBX-1210M'
         },
         {
@@ -13155,7 +13230,7 @@ window.DEMO_DATA = {
           'full': true
         },
         {
-          'label': '器具类别',
+          'label': '分类',
           'text': '围板箱'
         },
         {
@@ -13168,7 +13243,7 @@ window.DEMO_DATA = {
           'text': '只'
         },
         {
-          'label': '资产来源',
+          'label': '归属权',
           'text': '自有',
           'full': true
         },
@@ -13197,7 +13272,7 @@ window.DEMO_DATA = {
       ],
       'chain': [
         {
-          'role': '器具档案（本档）',
+          'role': '产品档案（本档）',
           'name': 'WBX-1210M',
           'self': true
         },
@@ -13225,11 +13300,11 @@ window.DEMO_DATA = {
       ]
     },
     'PLT-1210W': {
-      'row': {"fields": {"name": "木托盘 1200×1000", "cls": "托盘", "spec": "1200×1000×144 mm", "src": "自有", "status": "启用", "date": "2026-02-11"}, "cells": ["木托盘 1200×1000", "<span class=\"tag tag-green\">托盘</span>", "1200×1000×144 mm", "块", "<span class=\"tag tag-green\">自有</span>", "<span class=\"td-num\">12.00</span>", "<span class=\"tag tag-green\">启用</span>", "<span class=\"td-num\">12.00</span>", "2026-02-11"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
-      'title': '器具详情',
+      'row': {"fields": {"name": "木托盘 1200×1000", "cls": "托盘", "spec": "1200×1000×144 mm", "src": "自有", "status": "启用", "date": "2026-02-11"}, "cells": ["木托盘 1200×1000", "<span class=\"tag tag-green\">托盘</span>", "1200×1000×144 mm", "块", "<span class=\"tag tag-green\">自有</span>", "<span class=\"td-num\">12.00</span>", "<span class=\"td-num\">12.00</span>", "<span class=\"tag tag-green\">启用</span>", "2026-02-11"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
+      'title': '产品详情',
       'info': [
         {
-          'label': '器具编码',
+          'label': '产品编码',
           'text': 'PLT-1210W'
         },
         {
@@ -13238,7 +13313,7 @@ window.DEMO_DATA = {
           'full': true
         },
         {
-          'label': '器具类别',
+          'label': '分类',
           'text': '托盘'
         },
         {
@@ -13251,7 +13326,7 @@ window.DEMO_DATA = {
           'text': '块'
         },
         {
-          'label': '资产来源',
+          'label': '归属权',
           'text': '自有',
           'full': true
         },
@@ -13280,7 +13355,7 @@ window.DEMO_DATA = {
       ],
       'chain': [
         {
-          'role': '器具档案（本档）',
+          'role': '产品档案（本档）',
           'name': 'PLT-1210W',
           'self': true
         },
@@ -13304,11 +13379,11 @@ window.DEMO_DATA = {
       ]
     },
     'PLT-1210P': {
-      'row': {"fields": {"name": "塑料托盘 1200×1000", "cls": "托盘", "spec": "1200×1000×150 mm", "src": "租入-路凯", "status": "启用", "date": "2026-02-11"}, "cells": ["塑料托盘 1200×1000", "<span class=\"tag tag-green\">托盘</span>", "1200×1000×150 mm", "块", "<span class=\"tag tag-orange\">租入-路凯</span>", "<span class=\"td-num\">18.00</span>", "<span class=\"tag tag-green\">启用</span>", "<span class=\"td-num\">18.00</span>", "2026-02-11"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
-      'title': '器具详情',
+      'row': {"fields": {"name": "塑料托盘 1200×1000", "cls": "托盘", "spec": "1200×1000×150 mm", "src": "租入-路凯", "status": "启用", "date": "2026-02-11"}, "cells": ["塑料托盘 1200×1000", "<span class=\"tag tag-green\">托盘</span>", "1200×1000×150 mm", "块", "<span class=\"tag tag-orange\">租入-路凯</span>", "<span class=\"td-num\">18.00</span>", "<span class=\"td-num\">18.00</span>", "<span class=\"tag tag-green\">启用</span>", "2026-02-11"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
+      'title': '产品详情',
       'info': [
         {
-          'label': '器具编码',
+          'label': '产品编码',
           'text': 'PLT-1210P'
         },
         {
@@ -13317,7 +13392,7 @@ window.DEMO_DATA = {
           'full': true
         },
         {
-          'label': '器具类别',
+          'label': '分类',
           'text': '托盘'
         },
         {
@@ -13330,8 +13405,8 @@ window.DEMO_DATA = {
           'text': '块'
         },
         {
-          'label': '资产来源',
-          'text': '租入-路凯（运营方资产 · 计租见租入单）',
+          'label': '归属权',
+          'text': '租入-路凯（供应商资产 · 计租见租入单）',
           'full': true
         },
         {
@@ -13359,7 +13434,7 @@ window.DEMO_DATA = {
       ],
       'chain': [
         {
-          'role': '器具档案（本档）',
+          'role': '产品档案（本档）',
           'name': 'PLT-1210P',
           'self': true
         },
@@ -13387,11 +13462,11 @@ window.DEMO_DATA = {
       ]
     },
     'BTC-6040S': {
-      'row': {"fields": {"name": "料箱 600×400×220（带盖）", "cls": "料箱", "spec": "600×400×220 mm", "src": "否", "status": "停用", "date": "2026-03-02"}, "cells": ["料箱 600×400×220（带盖）", "<span class=\"tag tag-orange\">料箱</span>", "600×400×220 mm", "只", "<span class=\"tag tag-gray\">否</span>", "<span class=\"td-num\">7.80</span>", "<span class=\"tag tag-gray\">停用</span>", "<span class=\"td-num\">7.80</span>", "2026-03-02"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
-      'title': '器具详情',
+      'row': {"fields": {"name": "料箱 600×400×220（带盖）", "cls": "料箱", "spec": "600×400×220 mm", "src": "自有", "status": "停用", "date": "2026-03-02"}, "cells": ["料箱 600×400×220（带盖）", "<span class=\"tag tag-orange\">料箱</span>", "600×400×220 mm", "只", "<span class=\"tag tag-green\">自有</span>", "<span class=\"td-num\">7.80</span>", "<span class=\"td-num\">7.80</span>", "<span class=\"tag tag-gray\">停用</span>", "2026-03-02"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
+      'title': '产品详情',
       'info': [
         {
-          'label': '器具编码',
+          'label': '产品编码',
           'text': 'BTC-6040S'
         },
         {
@@ -13400,7 +13475,7 @@ window.DEMO_DATA = {
           'full': true
         },
         {
-          'label': '器具类别',
+          'label': '分类',
           'text': '料箱'
         },
         {
@@ -13413,7 +13488,7 @@ window.DEMO_DATA = {
           'text': '只'
         },
         {
-          'label': '资产来源',
+          'label': '归属权',
           'text': '否（停用 · 不可再出租）',
           'full': true
         },
@@ -13442,7 +13517,7 @@ window.DEMO_DATA = {
       ],
       'chain': [
         {
-          'role': '器具档案（本档）',
+          'role': '产品档案（本档）',
           'name': 'BTC-6040S · 停用',
           'self': true
         }
@@ -13461,11 +13536,11 @@ window.DEMO_DATA = {
       ]
     },
     'BTC-6040': {
-      'row': {"fields": {"name": "料箱 600×400×340", "cls": "料箱", "spec": "600×400×340 mm", "src": "租入-路凯", "status": "启用", "date": "2026-03-02"}, "cells": ["料箱 600×400×340", "<span class=\"tag tag-orange\">料箱</span>", "600×400×340 mm", "只", "<span class=\"tag tag-orange\">租入-路凯</span>", "<span class=\"td-num\">8.50</span>", "<span class=\"tag tag-green\">启用</span>", "<span class=\"td-num\">8.50</span>", "2026-03-02"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
-      'title': '器具详情',
+      'row': {"fields": {"name": "料箱 600×400×340", "cls": "料箱", "spec": "600×400×340 mm", "src": "租入-路凯", "status": "启用", "date": "2026-03-02"}, "cells": ["料箱 600×400×340", "<span class=\"tag tag-orange\">料箱</span>", "600×400×340 mm", "只", "<span class=\"tag tag-orange\">租入-路凯</span>", "<span class=\"td-num\">8.50</span>", "<span class=\"td-num\">8.50</span>", "<span class=\"tag tag-green\">启用</span>", "2026-03-02"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
+      'title': '产品详情',
       'info': [
         {
-          'label': '器具编码',
+          'label': '产品编码',
           'text': 'BTC-6040'
         },
         {
@@ -13474,7 +13549,7 @@ window.DEMO_DATA = {
           'full': true
         },
         {
-          'label': '器具类别',
+          'label': '分类',
           'text': '料箱'
         },
         {
@@ -13487,8 +13562,8 @@ window.DEMO_DATA = {
           'text': '只'
         },
         {
-          'label': '资产来源',
-          'text': '租入-路凯（运营方资产 · 计租见租入单）',
+          'label': '归属权',
+          'text': '租入-路凯（供应商资产 · 计租见租入单）',
           'full': true
         },
         {
@@ -13516,7 +13591,7 @@ window.DEMO_DATA = {
       ],
       'chain': [
         {
-          'role': '器具档案（本档）',
+          'role': '产品档案（本档）',
           'name': 'BTC-6040',
           'self': true
         },
@@ -13542,28 +13617,46 @@ window.DEMO_DATA = {
           'text': '在租 2,480 只 · 无超期'
         }
       ]
-    }
-  },
+    },
 
-  /* -------------------------------------------------------------------------- */
-  /* 零部件档案 parts：键 = LJ 零件号（基础数据/零部件档案.html 6 行全量） */
-  /* 库存与用途对齐库存查询四态 */
-  parts: {
+    /* ===== 组件（原零部件档案并入 · N4 合并） ===== */
     'LJ-A100': {
-      'row': {"fields": {"name": "锁扣组件", "spec": "不锈钢 304 · M8", "supplier": "苏州联恒五金制品有限公司", "shared": "正常", "project": "PRJ-2601/2602/2604", "status": "启用"}, "cells": ["锁扣组件", "不锈钢 304 · M8", "苏州联恒五金制品有限公司", "<span class=\"td-num\">6.80</span>", "<span class=\"tag tag-green\">正常</span>", "PRJ-2601/2602/2604", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
-      'title': '零部件详情',
+      'row': {"fields": {"name": "锁扣组件", "cls": "组件", "spec": "不锈钢 304 · M8", "src": "自有", "status": "启用", "date": "2026-01-06", "supplier": "苏州联恒五金制品有限公司"}, "cells": ["锁扣组件", "<span class=\"tag tag-blue\">组件</span>", "不锈钢 304 · M8", "件", "<span class=\"tag tag-green\">自有</span>", "<span class=\"td-num\">6.80</span>", "—", "<span class=\"tag tag-green\">启用</span>", "2026-01-06"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
+'title': '产品详情',
       'info': [
         {
-          'label': '零件号',
+          'label': '产品编码',
           'text': 'LJ-A100'
         },
         {
           'label': '名称',
-          'text': '锁扣组件'
+          'text': '锁扣组件',
+          'full': true
+        },
+        {
+          'label': '分类',
+          'text': '组件'
         },
         {
           'label': '规格',
-          'text': '不锈钢 304 · M8'
+          'text': '不锈钢 304 · M8',
+          'full': true
+        },
+        {
+          'label': '计量单位',
+          'text': '件'
+        },
+        {
+          'label': '归属权',
+          'text': '自有'
+        },
+        {
+          'label': '参考单价',
+          'text': '6.80 元'
+        },
+        {
+          'label': '租金单价',
+          'text': '—（采购件不计租金）'
         },
         {
           'label': '供应商（带出）',
@@ -13571,21 +13664,12 @@ window.DEMO_DATA = {
           'full': true
         },
         {
-          'label': '参考单价',
-          'text': '6.80 元'
-        },
-        {
           'label': '状态',
-          'tag': '正常'
+          'tag': '启用'
         },
         {
-          'label': '适用项目',
-          'text': 'PRJ-2601 / 2602 / 2604',
-          'full': true
-        },
-        {
-          'label': '档案状态',
-          'text': '启用'
+          'label': '建档日期',
+          'text': '2026-01-06'
         }
       ],
       'feeSecTitle': '库存与用途',
@@ -13601,7 +13685,7 @@ window.DEMO_DATA = {
           'name': '苏州联恒'
         },
         {
-          'role': '零部件（本档）',
+          'role': '产品档案（本档）',
           'name': 'LJ-A100 锁扣组件',
           'self': true
         },
@@ -13634,20 +13718,42 @@ window.DEMO_DATA = {
       ]
     },
     'LJ-B200': {
-      'row': {"fields": {"name": "铰链", "spec": "锌合金 · 65mm", "supplier": "苏州联恒五金制品有限公司", "shared": "正常", "project": "PRJ-2601/2602", "status": "启用"}, "cells": ["铰链", "锌合金 · 65mm", "苏州联恒五金制品有限公司", "<span class=\"td-num\">4.20</span>", "<span class=\"tag tag-green\">正常</span>", "PRJ-2601/2602", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
-      'title': '零部件详情',
+      'row': {"fields": {"name": "铰链", "cls": "组件", "spec": "锌合金 · 65mm", "src": "自有", "status": "启用", "date": "2026-01-06", "supplier": "苏州联恒五金制品有限公司"}, "cells": ["铰链", "<span class=\"tag tag-blue\">组件</span>", "锌合金 · 65mm", "件", "<span class=\"tag tag-green\">自有</span>", "<span class=\"td-num\">4.20</span>", "—", "<span class=\"tag tag-green\">启用</span>", "2026-01-06"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
+'title': '产品详情',
       'info': [
         {
-          'label': '零件号',
+          'label': '产品编码',
           'text': 'LJ-B200'
         },
         {
           'label': '名称',
-          'text': '铰链'
+          'text': '铰链',
+          'full': true
+        },
+        {
+          'label': '分类',
+          'text': '组件'
         },
         {
           'label': '规格',
-          'text': '锌合金 · 65mm'
+          'text': '锌合金 · 65mm',
+          'full': true
+        },
+        {
+          'label': '计量单位',
+          'text': '件'
+        },
+        {
+          'label': '归属权',
+          'text': '自有'
+        },
+        {
+          'label': '参考单价',
+          'text': '4.20 元'
+        },
+        {
+          'label': '租金单价',
+          'text': '—（采购件不计租金）'
         },
         {
           'label': '供应商（带出）',
@@ -13655,21 +13761,12 @@ window.DEMO_DATA = {
           'full': true
         },
         {
-          'label': '参考单价',
-          'text': '4.20 元'
-        },
-        {
           'label': '状态',
-          'tag': '正常'
+          'tag': '启用'
         },
         {
-          'label': '适用项目',
-          'text': 'PRJ-2601 / 2602',
-          'full': true
-        },
-        {
-          'label': '档案状态',
-          'text': '启用'
+          'label': '建档日期',
+          'text': '2026-01-06'
         }
       ],
       'feeSecTitle': '库存与用途',
@@ -13685,7 +13782,7 @@ window.DEMO_DATA = {
           'name': '苏州联恒'
         },
         {
-          'role': '零部件（本档）',
+          'role': '产品档案（本档）',
           'name': 'LJ-B200 铰链',
           'self': true
         },
@@ -13714,20 +13811,42 @@ window.DEMO_DATA = {
       ]
     },
     'LJ-C300': {
-      'row': {"fields": {"name": "围板", "spec": "HDPE 波纹板 · 970 高", "supplier": "宁波华塑包装制品有限公司", "shared": "否", "project": "PRJ-2601", "status": "启用"}, "cells": ["围板", "HDPE 波纹板 · 970 高", "宁波华塑包装制品有限公司", "<span class=\"td-num\">52.00</span>", "<span class=\"tag tag-gray\">否</span>", "PRJ-2601", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
-      'title': '零部件详情',
+      'row': {"fields": {"name": "围板", "cls": "组件", "spec": "HDPE 波纹板 · 970 高", "src": "自有", "status": "启用", "date": "2026-02-02", "supplier": "宁波华塑包装制品有限公司"}, "cells": ["围板", "<span class=\"tag tag-blue\">组件</span>", "HDPE 波纹板 · 970 高", "件", "<span class=\"tag tag-green\">自有</span>", "<span class=\"td-num\">52.00</span>", "—", "<span class=\"tag tag-green\">启用</span>", "2026-02-02"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
+'title': '产品详情',
       'info': [
         {
-          'label': '零件号',
+          'label': '产品编码',
           'text': 'LJ-C300'
         },
         {
           'label': '名称',
-          'text': '围板'
+          'text': '围板',
+          'full': true
+        },
+        {
+          'label': '分类',
+          'text': '组件'
         },
         {
           'label': '规格',
-          'text': 'HDPE 波纹板 · 970 高'
+          'text': 'HDPE 波纹板 · 970 高',
+          'full': true
+        },
+        {
+          'label': '计量单位',
+          'text': '件'
+        },
+        {
+          'label': '归属权',
+          'text': '自有'
+        },
+        {
+          'label': '参考单价',
+          'text': '52.00 元'
+        },
+        {
+          'label': '租金单价',
+          'text': '—（采购件不计租金）'
         },
         {
           'label': '供应商（带出）',
@@ -13735,21 +13854,12 @@ window.DEMO_DATA = {
           'full': true
         },
         {
-          'label': '参考单价',
-          'text': '52.00 元'
-        },
-        {
           'label': '状态',
-          'tag': '否'
+          'tag': '启用'
         },
         {
-          'label': '适用项目',
-          'text': 'PRJ-2601',
-          'full': true
-        },
-        {
-          'label': '档案状态',
-          'text': '启用'
+          'label': '建档日期',
+          'text': '2026-02-02'
         }
       ],
       'feeSecTitle': '库存与用途',
@@ -13765,7 +13875,7 @@ window.DEMO_DATA = {
           'name': '宁波华塑'
         },
         {
-          'role': '零部件（本档）',
+          'role': '产品档案（本档）',
           'name': 'LJ-C300 围板',
           'self': true
         },
@@ -13792,20 +13902,42 @@ window.DEMO_DATA = {
       ]
     },
     'LJ-D400': {
-      'row': {"fields": {"name": "箱盖", "spec": "ABS 吸塑 · 1200×1000", "supplier": "宁波华塑包装制品有限公司", "shared": "正常", "project": "PRJ-2601/2604", "status": "启用"}, "cells": ["箱盖", "ABS 吸塑 · 1200×1000", "宁波华塑包装制品有限公司", "<span class=\"td-num\">36.00</span>", "<span class=\"tag tag-green\">正常</span>", "PRJ-2601/2604", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
-      'title': '零部件详情',
+      'row': {"fields": {"name": "箱盖", "cls": "组件", "spec": "ABS 吸塑 · 1200×1000", "src": "自有", "status": "启用", "date": "2026-02-02", "supplier": "宁波华塑包装制品有限公司"}, "cells": ["箱盖", "<span class=\"tag tag-blue\">组件</span>", "ABS 吸塑 · 1200×1000", "件", "<span class=\"tag tag-green\">自有</span>", "<span class=\"td-num\">36.00</span>", "—", "<span class=\"tag tag-green\">启用</span>", "2026-02-02"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
+'title': '产品详情',
       'info': [
         {
-          'label': '零件号',
+          'label': '产品编码',
           'text': 'LJ-D400'
         },
         {
           'label': '名称',
-          'text': '箱盖'
+          'text': '箱盖',
+          'full': true
+        },
+        {
+          'label': '分类',
+          'text': '组件'
         },
         {
           'label': '规格',
-          'text': 'ABS 吸塑 · 1200×1000'
+          'text': 'ABS 吸塑 · 1200×1000',
+          'full': true
+        },
+        {
+          'label': '计量单位',
+          'text': '件'
+        },
+        {
+          'label': '归属权',
+          'text': '自有'
+        },
+        {
+          'label': '参考单价',
+          'text': '36.00 元'
+        },
+        {
+          'label': '租金单价',
+          'text': '—（采购件不计租金）'
         },
         {
           'label': '供应商（带出）',
@@ -13813,21 +13945,12 @@ window.DEMO_DATA = {
           'full': true
         },
         {
-          'label': '参考单价',
-          'text': '36.00 元'
-        },
-        {
           'label': '状态',
-          'tag': '正常'
+          'tag': '启用'
         },
         {
-          'label': '适用项目',
-          'text': 'PRJ-2601 / 2604',
-          'full': true
-        },
-        {
-          'label': '档案状态',
-          'text': '启用'
+          'label': '建档日期',
+          'text': '2026-02-02'
         }
       ],
       'feeSecTitle': '库存与用途',
@@ -13843,7 +13966,7 @@ window.DEMO_DATA = {
           'name': '宁波华塑'
         },
         {
-          'role': '零部件（本档）',
+          'role': '产品档案（本档）',
           'name': 'LJ-D400 箱盖',
           'self': true
         },
@@ -13871,20 +13994,42 @@ window.DEMO_DATA = {
       ]
     },
     'LJ-E500': {
-      'row': {"fields": {"name": "底托架", "spec": "钢制喷塑 · 1200×1000", "supplier": "常州正大塑料托盘厂", "shared": "否", "project": "PRJ-2603", "status": "启用"}, "cells": ["底托架", "钢制喷塑 · 1200×1000", "常州正大塑料托盘厂", "<span class=\"td-num\">78.00</span>", "<span class=\"tag tag-gray\">否</span>", "PRJ-2603", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
-      'title': '零部件详情',
+      'row': {"fields": {"name": "底托架", "cls": "组件", "spec": "钢制喷塑 · 1200×1000", "src": "自有", "status": "启用", "date": "2026-03-06", "supplier": "常州正大塑料托盘厂"}, "cells": ["底托架", "<span class=\"tag tag-blue\">组件</span>", "钢制喷塑 · 1200×1000", "件", "<span class=\"tag tag-green\">自有</span>", "<span class=\"td-num\">78.00</span>", "—", "<span class=\"tag tag-green\">启用</span>", "2026-03-06"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
+'title': '产品详情',
       'info': [
         {
-          'label': '零件号',
+          'label': '产品编码',
           'text': 'LJ-E500'
         },
         {
           'label': '名称',
-          'text': '底托架'
+          'text': '底托架',
+          'full': true
+        },
+        {
+          'label': '分类',
+          'text': '组件'
         },
         {
           'label': '规格',
-          'text': '钢制喷塑 · 1200×1000'
+          'text': '钢制喷塑 · 1200×1000',
+          'full': true
+        },
+        {
+          'label': '计量单位',
+          'text': '件'
+        },
+        {
+          'label': '归属权',
+          'text': '自有'
+        },
+        {
+          'label': '参考单价',
+          'text': '78.00 元'
+        },
+        {
+          'label': '租金单价',
+          'text': '—（采购件不计租金）'
         },
         {
           'label': '供应商（带出）',
@@ -13892,21 +14037,12 @@ window.DEMO_DATA = {
           'full': true
         },
         {
-          'label': '参考单价',
-          'text': '78.00 元'
-        },
-        {
           'label': '状态',
-          'tag': '否'
+          'tag': '启用'
         },
         {
-          'label': '适用项目',
-          'text': 'PRJ-2603',
-          'full': true
-        },
-        {
-          'label': '档案状态',
-          'text': '启用'
+          'label': '建档日期',
+          'text': '2026-03-06'
         }
       ],
       'feeSecTitle': '库存与用途',
@@ -13922,7 +14058,7 @@ window.DEMO_DATA = {
           'name': '常州正大'
         },
         {
-          'role': '零部件（本档）',
+          'role': '产品档案（本档）',
           'name': 'LJ-E500 底托架',
           'self': true
         }
@@ -13941,20 +14077,42 @@ window.DEMO_DATA = {
       ]
     },
     'LJ-F600': {
-      'row': {"fields": {"name": "内衬", "spec": "EPE 珍珠棉 · 定制", "supplier": "宁波华塑包装制品有限公司", "shared": "正常", "project": "PRJ-2603/2605", "status": "启用"}, "cells": ["内衬", "EPE 珍珠棉 · 定制", "宁波华塑包装制品有限公司", "<span class=\"td-num\">15.50</span>", "<span class=\"tag tag-green\">正常</span>", "PRJ-2603/2605", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
-      'title': '零部件详情',
+      'row': {"fields": {"name": "内衬", "cls": "组件", "spec": "EPE 珍珠棉 · 定制", "src": "自有", "status": "启用", "date": "2026-03-06", "supplier": "宁波华塑包装制品有限公司"}, "cells": ["内衬", "<span class=\"tag tag-blue\">组件</span>", "EPE 珍珠棉 · 定制", "件", "<span class=\"tag tag-green\">自有</span>", "<span class=\"td-num\">15.50</span>", "—", "<span class=\"tag tag-green\">启用</span>", "2026-03-06"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
+'title': '产品详情',
       'info': [
         {
-          'label': '零件号',
+          'label': '产品编码',
           'text': 'LJ-F600'
         },
         {
           'label': '名称',
-          'text': '内衬'
+          'text': '内衬',
+          'full': true
+        },
+        {
+          'label': '分类',
+          'text': '组件'
         },
         {
           'label': '规格',
-          'text': 'EPE 珍珠棉 · 定制'
+          'text': 'EPE 珍珠棉 · 定制',
+          'full': true
+        },
+        {
+          'label': '计量单位',
+          'text': '件'
+        },
+        {
+          'label': '归属权',
+          'text': '自有'
+        },
+        {
+          'label': '参考单价',
+          'text': '15.50 元'
+        },
+        {
+          'label': '租金单价',
+          'text': '—（采购件不计租金）'
         },
         {
           'label': '供应商（带出）',
@@ -13962,21 +14120,12 @@ window.DEMO_DATA = {
           'full': true
         },
         {
-          'label': '参考单价',
-          'text': '15.50 元'
-        },
-        {
           'label': '状态',
-          'tag': '正常'
+          'tag': '启用'
         },
         {
-          'label': '适用项目',
-          'text': 'PRJ-2603 / 2605',
-          'full': true
-        },
-        {
-          'label': '档案状态',
-          'text': '启用'
+          'label': '建档日期',
+          'text': '2026-03-06'
         }
       ],
       'feeSecTitle': '库存与用途',
@@ -13992,7 +14141,7 @@ window.DEMO_DATA = {
           'name': '宁波华塑'
         },
         {
-          'role': '零部件（本档）',
+          'role': '产品档案（本档）',
           'name': 'LJ-F600 内衬',
           'self': true
         },
@@ -14020,13 +14169,75 @@ window.DEMO_DATA = {
         }
       ]
     }
-  },
-
-  /* -------------------------------------------------------------------------- */
+  },  /* -------------------------------------------------------------------------- */
   /* 库位档案 locations：键 = 库位编码（基础数据/库位档案.html 10 行全量） */
   /* 存放物料按库区真实分布 */
   locations: {
-    'RA-A-01-01': {
+     'XNC-AJZX': {
+      'row': {"fields": {"wh": "华东中心仓（WH-01）", "area": "客户虚拟仓", "ltype": "虚拟仓", "spec": "按客户归集", "usage": "on-hire 640 只", "status": "启用"}, "cells": ["客户虚拟仓（安吉智行）", "<span class=\"lk\">XNC-AJZX</span>", "虚拟仓", "按客户归集", "on-hire 640 只", "<span class=\"tag tag-blue\">启用</span>"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}]},
+      'title': '库位详情',
+      'info': [
+        {
+          'label': '仓库',
+          'text': '华东中心仓（WH-01）· 虚拟',
+          'full': true
+        },
+        {
+          'label': '库区',
+          'text': '客户虚拟仓'
+        },
+        {
+          'label': '库位编码',
+          'text': 'XNC-AJZX'
+        },
+        {
+          'label': '库位类型',
+          'text': '虚拟仓'
+        },
+        {
+          'label': '归集口径',
+          'text': '在客户处的租赁资产按客户归集（on-hire）；客户转租为其子状态',
+          'full': true
+        },
+        {
+          'label': '容量占用',
+          'text': 'on-hire 640 只（围板箱）'
+        },
+        {
+          'label': '状态',
+          'tag': '启用'
+        }
+      ],
+      'chain': [
+        {
+          'role': '租赁单',
+          'name': 'ZL-20260823-033',
+          'url': '租赁管理/租赁单列表.html'
+        },
+        {
+          'role': '组合出库',
+          'name': 'CK-20260824-009',
+          'url': '租赁管理/组合出库列表.html'
+        },
+        {
+          'role': '客户虚拟仓（本仓）',
+          'name': 'XNC-AJZX · 安吉智行',
+          'self': true
+        }
+      ],
+      'timeline': [
+        {
+          't': '09-02',
+          'text': '组合出库 640 只至安吉智行 · 记客户虚拟仓（on-hire）',
+          'who': '张伟'
+        },
+        {
+          't': '当前',
+          'text': '虚拟仓在库 640 只 · 支撑按客户对账/盘点核对'
+        }
+      ]
+    },
+   'RA-A-01-01': {
       'row': {"fields": {"wh": "华东中心仓（WH-01）", "area": "原料区 RA", "ltype": "存储位", "spec": "1.2m×1.0m / 2t", "usage": "68%", "status": "启用"}, "cells": ["原料区 RA", "<span class=\"lk\">RA-A-01-01</span>", "存储位", "1.2m×1.0m / 2t", "68%", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
       'title': '库位详情',
       'info': [
