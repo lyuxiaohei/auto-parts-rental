@@ -708,9 +708,9 @@ demo-data.js 删 returnApplies/assemblyOrders/disassemblyOrders/damageOrders 四
 **验证**：verify_listfull.py 三批复跑 293 项断言全绿（含新增 1b 列结构=表头列数、1c 首行逐格=实体 cells）；全量 audit 死链 0 / 相对基线新增 0（F01 报 1 条 Google Fonts 外链 ERR_CONNECTION_RESET＝当前网络对该外链持续不可达的资源加载失败，非脚本错误，页面既有外链且本轮 F01 仅注入 4 行滚动条 CSS，按外链网络豁免口径注明）；滚动条 styleSheets 断言复跑 124/124；截图视觉复核（AI 视觉检查器实看）退租入库列表/器具档案/应付账单——无空白列、无列错位、租金单价格就位、操作列复位。执行脚本 `fix_cells_nested_td.py`/`fix_colparity.py` 留档。
 
 
-## 十四、⏳ meeting0908 · 批4 收尾任务书（2026-09-09 生成，goal 续跑版）
+## 十四、✅ meeting0908 · 批4 收尾任务书（2026-09-09 生成，goal 续跑版·**已执行**）
 
-> **状态**：待执行。批1-3 已提交（36d824b / fab2157 / ecc46e5）；批4 改动**全部落地但未提交**——F01 v3.0（31 处改点+几何断言 23 项全过+截图）、A04 九处 pin 叙事同步+JSON 复验、P1-R05 十三节+变更记录、P1-R01 附录 10.2 三行同步、P3-R04 批4（+3 场景 76✅/1⚠️）、失败清单 goal-failures-meeting0908.html（空清单）。终验 audit 已过：108 页 死链 0/JS 0/问题 36 条（26 modal-unreachable 误报+10 readonly 豁免=5 既有+5 三件套 auto 计算格同类）。
+> **状态**：✅ 已执行（2026-09-09）。批1-3 已提交（36d824b / fab2157 / ecc46e5）；批4 改动**全部落地但未提交**——F01 v3.0（31 处改点+几何断言 23 项全过+截图）、A04 九处 pin 叙事同步+JSON 复验、P1-R05 十三节+变更记录、P1-R01 附录 10.2 三行同步、P3-R04 批4（+3 场景 76✅/1⚠️）、失败清单 goal-failures-meeting0908.html（空清单）。终验 audit 已过：108 页 死链 0/JS 0/问题 36 条（26 modal-unreachable 误报+10 readonly 豁免=5 既有+5 三件套 auto 计算格同类）。
 
 ### 任务组（仅剩三步）
 
@@ -734,6 +734,8 @@ demo-data.js 删 returnApplies/assemblyOrders/disassemblyOrders/damageOrders 四
 - verify 三批输出：`==== batchN 验证门：X 项断言，失败 0 项 ====` 三行贴对话（100/88/55）。
 - git log 输出行：新提交号一行贴对话（含"批4"字样）。
 - 本文档第十四节状态行 = ✅ 已执行（grep 输出贴对话）。
+
+**完成记录（2026-09-09）**：前置校验过（HEAD=ecc46e5/_data 81 分钟无变化）；verify 三批 100+88+55=243 断言失败 0；批4 提交 `7a2862f`；四批连跑全部完成（36d824b/fab2157/ecc46e5/7a2862f），失败清单空（失败 0 项）。
 
 ## 变更记录 · 2026-09-09（09-08 客户会议原型改造 · 第十三节任务书四批连跑）
 
