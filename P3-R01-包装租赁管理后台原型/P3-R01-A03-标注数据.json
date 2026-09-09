@@ -345,7 +345,7 @@
    "req": "REQ-04"
   }
  ],
- "仓储作业/采购入库列表.html": [
+ "采购管理/采购入库列表.html": [
   {
    "id": 1,
    "selector": "<h3 class=\"card-title\">采购入库单</h3>",
@@ -356,14 +356,14 @@
   },
   {
    "id": 2,
-   "selector": "<button class=\"btn btn-sm\" onclick=\"go('../仓储作业/采购入库录单.html')\">新增入库单</button>",
+   "selector": "<button class=\"btn btn-sm\" onclick=\"go('../采购管理/采购入库录单.html')\">新增入库单</button>",
    "title": "新增入库单",
    "note": "进入录单页面（从列表页按钮打开）",
    "fp": "FP3-01",
    "req": "REQ-04"
   }
  ],
- "仓储作业/采购入库录单.html": [
+ "采购管理/采购入库录单.html": [
   {
    "id": 1,
    "selector": "<h3 class=\"card-title\">到货明细</h3>",
@@ -433,7 +433,7 @@
    "req": "REQ-06"
   }
  ],
- "仓储作业/组合出库列表.html": [
+ "租赁管理/组合出库列表.html": [
   {
    "id": 1,
    "selector": "<h3 class=\"card-title\">组合出库单</h3>",
@@ -451,7 +451,7 @@
    "req": "REQ-03"
   }
  ],
- "仓储作业/组合出库录单.html": [
+ "租赁管理/组合出库录单.html": [
   {
    "id": 1,
    "selector": "<th>可用量校验</th>",

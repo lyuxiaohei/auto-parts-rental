@@ -1,12 +1,7 @@
 [
  {
   "page": "P3-R01-F01-业务流程导航图.html",
-  "js_errors": [
-   {
-    "type": "error",
-    "text": "Failed to load resource: net::ERR_CONNECTION_RESET"
-   }
-  ],
+  "js_errors": [],
   "problems": [],
   "stats": {
    "buttons": 0,
@@ -43,7 +38,7 @@
   "stats": {
    "buttons": 11,
    "links": 4,
-   "onclickEls": 49,
+   "onclickEls": 47,
    "modals": 3,
    "modalTitles": [
     "新增其他入库单",
@@ -78,7 +73,7 @@
   "stats": {
    "buttons": 11,
    "links": 6,
-   "onclickEls": 49,
+   "onclickEls": 47,
    "modals": 3,
    "modalTitles": [
     "新增其他出库单",
@@ -103,7 +98,7 @@
   "stats": {
    "buttons": 2,
    "links": 15,
-   "onclickEls": 47,
+   "onclickEls": 45,
    "modals": 1,
    "modalTitles": [
     "库存流水"
@@ -114,7 +109,7 @@
    "checkboxes": 0,
    "inputs": 2,
    "stabs": 0,
-   "tabs": 4,
+   "tabs": 3,
    "bgMut": 0
   },
   "dead_links": [],
@@ -137,7 +132,7 @@
   "stats": {
    "buttons": 11,
    "links": 4,
-   "onclickEls": 49,
+   "onclickEls": 47,
    "modals": 3,
    "modalTitles": [
     "新建调拨单",
@@ -306,7 +301,7 @@
   "stats": {
    "buttons": 1,
    "links": 0,
-   "onclickEls": 9,
+   "onclickEls": 7,
    "modals": 1,
    "modalTitles": [
     "库存流水 · LJ-A100 锁扣组件 (演示页)"
@@ -316,78 +311,6 @@
    "radios": 0,
    "checkboxes": 0,
    "inputs": 0,
-   "stabs": 0,
-   "tabs": 0,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "仓储作业\\弹窗\\拆卸单详情.html",
-  "js_errors": [],
-  "problems": [],
-  "stats": {
-   "buttons": 1,
-   "links": 0,
-   "onclickEls": 4,
-   "modals": 1,
-   "modalTitles": [
-    "拆卸单详情 · CX-20260902-(演示页)"
-   ],
-   "selects": 0,
-   "fakeSelects": 0,
-   "radios": 0,
-   "checkboxes": 0,
-   "inputs": 0,
-   "stabs": 0,
-   "tabs": 0,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "仓储作业\\弹窗\\拆卸审核.html",
-  "js_errors": [],
-  "problems": [],
-  "stats": {
-   "buttons": 2,
-   "links": 0,
-   "onclickEls": 3,
-   "modals": 1,
-   "modalTitles": [
-    "审核确认(演示页)"
-   ],
-   "selects": 0,
-   "fakeSelects": 0,
-   "radios": 2,
-   "checkboxes": 0,
-   "inputs": 1,
-   "stabs": 0,
-   "tabs": 0,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "仓储作业\\弹窗\\拆卸新建.html",
-  "js_errors": [],
-  "problems": [],
-  "stats": {
-   "buttons": 4,
-   "links": 0,
-   "onclickEls": 4,
-   "modals": 1,
-   "modalTitles": [
-    "新建拆卸单(演示页)"
-   ],
-   "selects": 2,
-   "fakeSelects": 0,
-   "radios": 0,
-   "checkboxes": 0,
-   "inputs": 7,
    "stabs": 0,
    "tabs": 0,
    "bgMut": 0
@@ -444,205 +367,13 @@
   "nav_anomaly": null
  },
  {
-  "page": "仓储作业\\弹窗\\租入入库单详情.html",
-  "js_errors": [],
-  "problems": [],
-  "stats": {
-   "buttons": 1,
-   "links": 0,
-   "onclickEls": 6,
-   "modals": 1,
-   "modalTitles": [
-    "租入入库单详情 · RZRK-20260(演示页)"
-   ],
-   "selects": 0,
-   "fakeSelects": 0,
-   "radios": 0,
-   "checkboxes": 0,
-   "inputs": 0,
-   "stabs": 0,
-   "tabs": 0,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "仓储作业\\弹窗\\租入入库确认.html",
-  "js_errors": [],
-  "problems": [],
-  "stats": {
-   "buttons": 2,
-   "links": 0,
-   "onclickEls": 3,
-   "modals": 1,
-   "modalTitles": [
-    "入库确认(演示页)"
-   ],
-   "selects": 0,
-   "fakeSelects": 0,
-   "radios": 2,
-   "checkboxes": 0,
-   "inputs": 1,
-   "stabs": 0,
-   "tabs": 0,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "仓储作业\\弹窗\\租入归还单详情.html",
-  "js_errors": [],
-  "problems": [],
-  "stats": {
-   "buttons": 1,
-   "links": 0,
-   "onclickEls": 6,
-   "modals": 1,
-   "modalTitles": [
-    "租入归还单详情 · GHCK-20260(演示页)"
-   ],
-   "selects": 0,
-   "fakeSelects": 0,
-   "radios": 0,
-   "checkboxes": 0,
-   "inputs": 0,
-   "stabs": 0,
-   "tabs": 0,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "仓储作业\\弹窗\\租入归还审核.html",
-  "js_errors": [],
-  "problems": [],
-  "stats": {
-   "buttons": 2,
-   "links": 0,
-   "onclickEls": 3,
-   "modals": 1,
-   "modalTitles": [
-    "审核确认(演示页)"
-   ],
-   "selects": 0,
-   "fakeSelects": 0,
-   "radios": 2,
-   "checkboxes": 0,
-   "inputs": 1,
-   "stabs": 0,
-   "tabs": 0,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "仓储作业\\弹窗\\租入归还新建.html",
-  "js_errors": [],
-  "problems": [],
-  "stats": {
-   "buttons": 2,
-   "links": 0,
-   "onclickEls": 3,
-   "modals": 1,
-   "modalTitles": [
-    "新建归还单(演示页)"
-   ],
-   "selects": 2,
-   "fakeSelects": 0,
-   "radios": 2,
-   "checkboxes": 0,
-   "inputs": 2,
-   "stabs": 0,
-   "tabs": 0,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "仓储作业\\弹窗\\组合出库单详情.html",
-  "js_errors": [],
-  "problems": [],
-  "stats": {
-   "buttons": 1,
-   "links": 0,
-   "onclickEls": 7,
-   "modals": 1,
-   "modalTitles": [
-    "组合出库单详情 · CK-2026083(演示页)"
-   ],
-   "selects": 0,
-   "fakeSelects": 0,
-   "radios": 0,
-   "checkboxes": 0,
-   "inputs": 0,
-   "stabs": 0,
-   "tabs": 0,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "仓储作业\\弹窗\\组合出库确认.html",
-  "js_errors": [],
-  "problems": [],
-  "stats": {
-   "buttons": 2,
-   "links": 0,
-   "onclickEls": 3,
-   "modals": 1,
-   "modalTitles": [
-    "出库确认(演示页)"
-   ],
-   "selects": 0,
-   "fakeSelects": 0,
-   "radios": 2,
-   "checkboxes": 0,
-   "inputs": 1,
-   "stabs": 0,
-   "tabs": 0,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "仓储作业\\弹窗\\组装单详情.html",
-  "js_errors": [],
-  "problems": [],
-  "stats": {
-   "buttons": 1,
-   "links": 0,
-   "onclickEls": 7,
-   "modals": 1,
-   "modalTitles": [
-    "组装单详情 · ZZ-20260822-(演示页)"
-   ],
-   "selects": 0,
-   "fakeSelects": 0,
-   "radios": 0,
-   "checkboxes": 0,
-   "inputs": 0,
-   "stabs": 0,
-   "tabs": 0,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
   "page": "仓储作业\\弹窗\\调拨单详情.html",
   "js_errors": [],
   "problems": [],
   "stats": {
    "buttons": 1,
    "links": 0,
-   "onclickEls": 4,
+   "onclickEls": 3,
    "modals": 1,
    "modalTitles": [
     "调拨单详情 · DB-20260901-(演示页)"
@@ -708,279 +439,6 @@
   "nav_anomaly": null
  },
  {
-  "page": "仓储作业\\弹窗\\退租入库单详情.html",
-  "js_errors": [],
-  "problems": [],
-  "stats": {
-   "buttons": 1,
-   "links": 0,
-   "onclickEls": 6,
-   "modals": 1,
-   "modalTitles": [
-    "退租入库单详情 · TZRK-20260(演示页)"
-   ],
-   "selects": 0,
-   "fakeSelects": 0,
-   "radios": 0,
-   "checkboxes": 0,
-   "inputs": 0,
-   "stabs": 0,
-   "tabs": 0,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "仓储作业\\弹窗\\退租入库审核.html",
-  "js_errors": [],
-  "problems": [],
-  "stats": {
-   "buttons": 2,
-   "links": 0,
-   "onclickEls": 3,
-   "modals": 1,
-   "modalTitles": [
-    "审核确认(演示页)"
-   ],
-   "selects": 0,
-   "fakeSelects": 0,
-   "radios": 2,
-   "checkboxes": 0,
-   "inputs": 1,
-   "stabs": 0,
-   "tabs": 0,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "仓储作业\\弹窗\\采购入库单详情.html",
-  "js_errors": [],
-  "problems": [],
-  "stats": {
-   "buttons": 1,
-   "links": 0,
-   "onclickEls": 6,
-   "modals": 1,
-   "modalTitles": [
-    "采购入库单详情 · CGRK-20260(演示页)"
-   ],
-   "selects": 0,
-   "fakeSelects": 0,
-   "radios": 0,
-   "checkboxes": 0,
-   "inputs": 0,
-   "stabs": 0,
-   "tabs": 0,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "仓储作业\\弹窗\\采购入库审核.html",
-  "js_errors": [],
-  "problems": [],
-  "stats": {
-   "buttons": 2,
-   "links": 0,
-   "onclickEls": 3,
-   "modals": 1,
-   "modalTitles": [
-    "审核确认(演示页)"
-   ],
-   "selects": 0,
-   "fakeSelects": 0,
-   "radios": 2,
-   "checkboxes": 0,
-   "inputs": 1,
-   "stabs": 0,
-   "tabs": 0,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "仓储作业\\弹窗\\销售出库单详情.html",
-  "js_errors": [],
-  "problems": [],
-  "stats": {
-   "buttons": 1,
-   "links": 0,
-   "onclickEls": 5,
-   "modals": 1,
-   "modalTitles": [
-    "销售出库单详情 · XSCK-20260(演示页)"
-   ],
-   "selects": 0,
-   "fakeSelects": 0,
-   "radios": 0,
-   "checkboxes": 0,
-   "inputs": 0,
-   "stabs": 0,
-   "tabs": 0,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "仓储作业\\弹窗\\销售出库审核.html",
-  "js_errors": [],
-  "problems": [],
-  "stats": {
-   "buttons": 2,
-   "links": 0,
-   "onclickEls": 3,
-   "modals": 1,
-   "modalTitles": [
-    "审核确认(演示页)"
-   ],
-   "selects": 0,
-   "fakeSelects": 0,
-   "radios": 2,
-   "checkboxes": 0,
-   "inputs": 1,
-   "stabs": 0,
-   "tabs": 0,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "仓储作业\\弹窗\\销售出库新建.html",
-  "js_errors": [],
-  "problems": [],
-  "stats": {
-   "buttons": 4,
-   "links": 0,
-   "onclickEls": 3,
-   "modals": 1,
-   "modalTitles": [
-    "新增销售出库单(演示页)"
-   ],
-   "selects": 2,
-   "fakeSelects": 0,
-   "radios": 0,
-   "checkboxes": 0,
-   "inputs": 7,
-   "stabs": 0,
-   "tabs": 0,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "仓储作业\\拆卸管理列表.html",
-  "js_errors": [],
-  "problems": [
-   {
-    "cat": "输入框",
-    "type": "input-not-editable",
-    "phase": "modal",
-    "where": {
-     "tag": "input",
-     "id": "",
-     "cls": "auto",
-     "text": "",
-     "row": "WBX-1210L",
-     "inModal": "createModal"
-    },
-    "detail": "readonly 不可输入（预填:50）"
-   },
-   {
-    "cat": "输入框",
-    "type": "input-not-editable",
-    "phase": "modal",
-    "where": {
-     "tag": "input",
-     "id": "",
-     "cls": "auto",
-     "text": "",
-     "row": "LJ-C300",
-     "inModal": "createModal"
-    },
-    "detail": "readonly 不可输入（预填:200）"
-   },
-   {
-    "cat": "输入框",
-    "type": "input-not-editable",
-    "phase": "modal",
-    "where": {
-     "tag": "input",
-     "id": "",
-     "cls": "auto",
-     "text": "",
-     "row": "LJ-D400",
-     "inModal": "createModal"
-    },
-    "detail": "readonly 不可输入（预填:50）"
-   },
-   {
-    "cat": "输入框",
-    "type": "input-not-editable",
-    "phase": "modal",
-    "where": {
-     "tag": "input",
-     "id": "",
-     "cls": "auto",
-     "text": "",
-     "row": "LJ-A100",
-     "inModal": "createModal"
-    },
-    "detail": "readonly 不可输入（预填:200）"
-   },
-   {
-    "cat": "输入框",
-    "type": "input-not-editable",
-    "phase": "modal",
-    "where": {
-     "tag": "input",
-     "id": "",
-     "cls": "auto",
-     "text": "",
-     "row": "LJ-B200",
-     "inModal": "createModal"
-    },
-    "detail": "readonly 不可输入（预填:100）"
-   },
-   {
-    "cat": "弹窗",
-    "type": "modal-unreachable",
-    "phase": "modal",
-    "where": {
-     "text": "拆卸单详情"
-    },
-    "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
-   }
-  ],
-  "stats": {
-   "buttons": 12,
-   "links": 5,
-   "onclickEls": 49,
-   "modals": 3,
-   "modalTitles": [
-    "新建拆卸单",
-    "审核确认"
-   ],
-   "selects": 4,
-   "fakeSelects": 0,
-   "radios": 2,
-   "checkboxes": 0,
-   "inputs": 17,
-   "stabs": 3,
-   "tabs": 3,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
   "page": "仓储作业\\盘点列表.html",
   "js_errors": [],
   "problems": [
@@ -997,7 +455,7 @@
   "stats": {
    "buttons": 8,
    "links": 15,
-   "onclickEls": 54,
+   "onclickEls": 52,
    "modals": 2,
    "modalTitles": [
     "审核确认"
@@ -1021,7 +479,7 @@
   "stats": {
    "buttons": 5,
    "links": 0,
-   "onclickEls": 39,
+   "onclickEls": 37,
    "modals": 0,
    "modalTitles": [],
    "selects": 4,
@@ -1031,312 +489,6 @@
    "inputs": 13,
    "stabs": 0,
    "tabs": 4,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "仓储作业\\租入入库列表.html",
-  "js_errors": [],
-  "problems": [
-   {
-    "cat": "弹窗",
-    "type": "modal-unreachable",
-    "phase": "modal",
-    "where": {
-     "text": "租入入库单详情"
-    },
-    "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
-   }
-  ],
-  "stats": {
-   "buttons": 7,
-   "links": 6,
-   "onclickEls": 49,
-   "modals": 2,
-   "modalTitles": [
-    "入库确认"
-   ],
-   "selects": 3,
-   "fakeSelects": 0,
-   "radios": 2,
-   "checkboxes": 0,
-   "inputs": 9,
-   "stabs": 3,
-   "tabs": 4,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "仓储作业\\租入归还列表.html",
-  "js_errors": [],
-  "problems": [
-   {
-    "cat": "弹窗",
-    "type": "modal-unreachable",
-    "phase": "modal",
-    "where": {
-     "text": "租入归还单详情"
-    },
-    "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
-   }
-  ],
-  "stats": {
-   "buttons": 10,
-   "links": 5,
-   "onclickEls": 52,
-   "modals": 3,
-   "modalTitles": [
-    "新建归还单",
-    "审核确认"
-   ],
-   "selects": 5,
-   "fakeSelects": 0,
-   "radios": 4,
-   "checkboxes": 0,
-   "inputs": 11,
-   "stabs": 3,
-   "tabs": 4,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "仓储作业\\组合出库列表.html",
-  "js_errors": [],
-  "problems": [
-   {
-    "cat": "弹窗",
-    "type": "modal-unreachable",
-    "phase": "modal",
-    "where": {
-     "text": "组合出库单详情"
-    },
-    "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
-   }
-  ],
-  "stats": {
-   "buttons": 8,
-   "links": 24,
-   "onclickEls": 60,
-   "modals": 2,
-   "modalTitles": [
-    "出库确认"
-   ],
-   "selects": 3,
-   "fakeSelects": 0,
-   "radios": 2,
-   "checkboxes": 0,
-   "inputs": 14,
-   "stabs": 3,
-   "tabs": 4,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "仓储作业\\组合出库录单.html",
-  "js_errors": [],
-  "problems": [],
-  "stats": {
-   "buttons": 5,
-   "links": 3,
-   "onclickEls": 40,
-   "modals": 0,
-   "modalTitles": [],
-   "selects": 4,
-   "fakeSelects": 0,
-   "radios": 2,
-   "checkboxes": 2,
-   "inputs": 6,
-   "stabs": 0,
-   "tabs": 4,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "仓储作业\\组装列表.html",
-  "js_errors": [],
-  "problems": [
-   {
-    "cat": "弹窗",
-    "type": "modal-unreachable",
-    "phase": "modal",
-    "where": {
-     "text": "组装单详情"
-    },
-    "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
-   }
-  ],
-  "stats": {
-   "buttons": 8,
-   "links": 21,
-   "onclickEls": 58,
-   "modals": 2,
-   "modalTitles": [
-    "组装确认"
-   ],
-   "selects": 4,
-   "fakeSelects": 0,
-   "radios": 0,
-   "checkboxes": 0,
-   "inputs": 12,
-   "stabs": 5,
-   "tabs": 4,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "仓储作业\\组装录单.html",
-  "js_errors": [],
-  "problems": [],
-  "stats": {
-   "buttons": 5,
-   "links": 0,
-   "onclickEls": 39,
-   "modals": 0,
-   "modalTitles": [],
-   "selects": 3,
-   "fakeSelects": 0,
-   "radios": 2,
-   "checkboxes": 0,
-   "inputs": 6,
-   "stabs": 0,
-   "tabs": 4,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "仓储作业\\退租入库列表.html",
-  "js_errors": [],
-  "problems": [
-   {
-    "cat": "弹窗",
-    "type": "modal-unreachable",
-    "phase": "modal",
-    "where": {
-     "text": "退租入库单详情"
-    },
-    "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
-   }
-  ],
-  "stats": {
-   "buttons": 7,
-   "links": 16,
-   "onclickEls": 54,
-   "modals": 2,
-   "modalTitles": [
-    "审核确认"
-   ],
-   "selects": 3,
-   "fakeSelects": 0,
-   "radios": 2,
-   "checkboxes": 0,
-   "inputs": 14,
-   "stabs": 3,
-   "tabs": 3,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "仓储作业\\采购入库列表.html",
-  "js_errors": [],
-  "problems": [
-   {
-    "cat": "弹窗",
-    "type": "modal-unreachable",
-    "phase": "modal",
-    "where": {
-     "text": "采购入库单详情"
-    },
-    "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
-   }
-  ],
-  "stats": {
-   "buttons": 8,
-   "links": 31,
-   "onclickEls": 67,
-   "modals": 2,
-   "modalTitles": [
-    "审核确认"
-   ],
-   "selects": 4,
-   "fakeSelects": 0,
-   "radios": 2,
-   "checkboxes": 0,
-   "inputs": 13,
-   "stabs": 3,
-   "tabs": 4,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "仓储作业\\采购入库录单.html",
-  "js_errors": [],
-  "problems": [],
-  "stats": {
-   "buttons": 5,
-   "links": 4,
-   "onclickEls": 40,
-   "modals": 0,
-   "modalTitles": [],
-   "selects": 4,
-   "fakeSelects": 0,
-   "radios": 5,
-   "checkboxes": 3,
-   "inputs": 15,
-   "stabs": 0,
-   "tabs": 4,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "仓储作业\\销售出库列表.html",
-  "js_errors": [],
-  "problems": [
-   {
-    "cat": "弹窗",
-    "type": "modal-unreachable",
-    "phase": "modal",
-    "where": {
-     "text": "销售出库单详情"
-    },
-    "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
-   }
-  ],
-  "stats": {
-   "buttons": 12,
-   "links": 7,
-   "onclickEls": 48,
-   "modals": 3,
-   "modalTitles": [
-    "新增销售出库单",
-    "审核确认"
-   ],
-   "selects": 5,
-   "fakeSelects": 0,
-   "radios": 2,
-   "checkboxes": 0,
-   "inputs": 19,
-   "stabs": 3,
-   "tabs": 3,
    "bgMut": 0
   },
   "dead_links": [],
@@ -1349,7 +501,7 @@
   "stats": {
    "buttons": 6,
    "links": 12,
-   "onclickEls": 58,
+   "onclickEls": 56,
    "modals": 1,
    "modalTitles": [
     "停用确认"
@@ -1383,7 +535,7 @@
   "stats": {
    "buttons": 6,
    "links": 11,
-   "onclickEls": 42,
+   "onclickEls": 39,
    "modals": 1,
    "modalTitles": [],
    "selects": 1,
@@ -1415,7 +567,7 @@
   "stats": {
    "buttons": 10,
    "links": 18,
-   "onclickEls": 59,
+   "onclickEls": 57,
    "modals": 3,
    "modalTitles": [
     "新建器具",
@@ -1450,7 +602,7 @@
   "stats": {
    "buttons": 8,
    "links": 24,
-   "onclickEls": 60,
+   "onclickEls": 58,
    "modals": 2,
    "modalTitles": [
     "新建客商"
@@ -1484,7 +636,7 @@
   "stats": {
    "buttons": 10,
    "links": 30,
-   "onclickEls": 67,
+   "onclickEls": 65,
    "modals": 3,
    "modalTitles": [
     "新建库位",
@@ -1509,7 +661,7 @@
   "stats": {
    "buttons": 1,
    "links": 0,
-   "onclickEls": 4,
+   "onclickEls": 3,
    "modals": 1,
    "modalTitles": [
     "BOM 版本查看 · ZH-2601-A(演示页)"
@@ -1725,7 +877,7 @@
   "stats": {
    "buttons": 1,
    "links": 0,
-   "onclickEls": 4,
+   "onclickEls": 3,
    "modals": 1,
    "modalTitles": [
     "零部件详情 · LJ-A100(演示页)"
@@ -1759,7 +911,7 @@
   "stats": {
    "buttons": 10,
    "links": 18,
-   "onclickEls": 59,
+   "onclickEls": 57,
    "modals": 3,
    "modalTitles": [
     "新建零部件",
@@ -1778,34 +930,22 @@
   "nav_anomaly": null
  },
  {
-  "page": "租赁管理\\丢损赔偿单.html",
+  "page": "我的待办.html",
   "js_errors": [],
-  "problems": [
-   {
-    "cat": "弹窗",
-    "type": "modal-unreachable",
-    "phase": "modal",
-    "where": {
-     "text": "丢损赔偿单详情"
-    },
-    "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
-   }
-  ],
+  "problems": [],
   "stats": {
-   "buttons": 8,
-   "links": 11,
-   "onclickEls": 50,
-   "modals": 2,
-   "modalTitles": [
-    "审核确认"
-   ],
-   "selects": 3,
+   "buttons": 1,
+   "links": 15,
+   "onclickEls": 66,
+   "modals": 0,
+   "modalTitles": [],
+   "selects": 1,
    "fakeSelects": 0,
-   "radios": 2,
+   "radios": 0,
    "checkboxes": 0,
-   "inputs": 11,
-   "stabs": 4,
-   "tabs": 4,
+   "inputs": 1,
+   "stabs": 0,
+   "tabs": 5,
    "bgMut": 0
   },
   "dead_links": [],
@@ -1828,7 +968,7 @@
   "stats": {
    "buttons": 8,
    "links": 27,
-   "onclickEls": 62,
+   "onclickEls": 60,
    "modals": 2,
    "modalTitles": [
     "报废确认"
@@ -1839,55 +979,7 @@
    "checkboxes": 0,
    "inputs": 2,
    "stabs": 2,
-   "tabs": 4,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "租赁管理\\弹窗\\丢损赔偿单详情.html",
-  "js_errors": [],
-  "problems": [],
-  "stats": {
-   "buttons": 1,
-   "links": 0,
-   "onclickEls": 6,
-   "modals": 1,
-   "modalTitles": [
-    "丢损赔偿单详情 · BS-2026090(演示页)"
-   ],
-   "selects": 0,
-   "fakeSelects": 0,
-   "radios": 0,
-   "checkboxes": 0,
-   "inputs": 0,
-   "stabs": 0,
-   "tabs": 0,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "租赁管理\\弹窗\\丢损赔偿审核.html",
-  "js_errors": [],
-  "problems": [],
-  "stats": {
-   "buttons": 2,
-   "links": 0,
-   "onclickEls": 3,
-   "modals": 1,
-   "modalTitles": [
-    "审核确认(演示页)"
-   ],
-   "selects": 0,
-   "fakeSelects": 0,
-   "radios": 2,
-   "checkboxes": 0,
-   "inputs": 1,
-   "stabs": 0,
-   "tabs": 0,
+   "tabs": 3,
    "bgMut": 0
   },
   "dead_links": [],
@@ -1900,7 +992,7 @@
   "stats": {
    "buttons": 1,
    "links": 0,
-   "onclickEls": 5,
+   "onclickEls": 4,
    "modals": 1,
    "modalTitles": [
     "器具出租履历 · ZL-20260823(演示页)"
@@ -1942,7 +1034,55 @@
   "nav_anomaly": null
  },
  {
-  "page": "租赁管理\\弹窗\\退租申请审核.html",
+  "page": "租赁管理\\弹窗\\租入入库单详情.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 1,
+   "links": 0,
+   "onclickEls": 6,
+   "modals": 1,
+   "modalTitles": [
+    "租入入库单详情 · RZRK-20260(演示页)"
+   ],
+   "selects": 0,
+   "fakeSelects": 0,
+   "radios": 0,
+   "checkboxes": 0,
+   "inputs": 0,
+   "stabs": 0,
+   "tabs": 0,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "租赁管理\\弹窗\\租入入库确认.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 2,
+   "links": 0,
+   "onclickEls": 3,
+   "modals": 1,
+   "modalTitles": [
+    "入库确认(演示页)"
+   ],
+   "selects": 0,
+   "fakeSelects": 0,
+   "radios": 2,
+   "checkboxes": 0,
+   "inputs": 1,
+   "stabs": 0,
+   "tabs": 0,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "租赁管理\\弹窗\\租入单审核.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -1966,22 +1106,22 @@
   "nav_anomaly": null
  },
  {
-  "page": "租赁管理\\弹窗\\退租申请新建.html",
+  "page": "租赁管理\\弹窗\\租入单新建.html",
   "js_errors": [],
   "problems": [],
   "stats": {
-   "buttons": 4,
+   "buttons": 2,
    "links": 0,
-   "onclickEls": 4,
+   "onclickEls": 3,
    "modals": 1,
    "modalTitles": [
-    "新建退租申请(演示页)"
+    "新建租入单(演示页)"
    ],
-   "selects": 3,
+   "selects": 2,
    "fakeSelects": 0,
    "radios": 0,
    "checkboxes": 0,
-   "inputs": 8,
+   "inputs": 6,
    "stabs": 0,
    "tabs": 0,
    "bgMut": 0
@@ -1990,16 +1130,16 @@
   "nav_anomaly": null
  },
  {
-  "page": "租赁管理\\弹窗\\退租申请详情.html",
+  "page": "租赁管理\\弹窗\\租入单详情.html",
   "js_errors": [],
   "problems": [],
   "stats": {
    "buttons": 1,
    "links": 0,
-   "onclickEls": 6,
+   "onclickEls": 7,
    "modals": 1,
    "modalTitles": [
-    "退租申请详情 · TZSQ-202609(演示页)"
+    "租入单详情 · RZD-20260815(演示页)"
    ],
    "selects": 0,
    "fakeSelects": 0,
@@ -2008,6 +1148,350 @@
    "inputs": 0,
    "stabs": 0,
    "tabs": 0,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "租赁管理\\弹窗\\租入归还单详情.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 1,
+   "links": 0,
+   "onclickEls": 6,
+   "modals": 1,
+   "modalTitles": [
+    "租入归还单详情 · GHCK-20260(演示页)"
+   ],
+   "selects": 0,
+   "fakeSelects": 0,
+   "radios": 0,
+   "checkboxes": 0,
+   "inputs": 0,
+   "stabs": 0,
+   "tabs": 0,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "租赁管理\\弹窗\\租入归还审核.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 2,
+   "links": 0,
+   "onclickEls": 3,
+   "modals": 1,
+   "modalTitles": [
+    "审核确认(演示页)"
+   ],
+   "selects": 0,
+   "fakeSelects": 0,
+   "radios": 2,
+   "checkboxes": 0,
+   "inputs": 1,
+   "stabs": 0,
+   "tabs": 0,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "租赁管理\\弹窗\\租入归还新建.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 2,
+   "links": 0,
+   "onclickEls": 3,
+   "modals": 1,
+   "modalTitles": [
+    "新建归还单(演示页)"
+   ],
+   "selects": 2,
+   "fakeSelects": 0,
+   "radios": 2,
+   "checkboxes": 0,
+   "inputs": 2,
+   "stabs": 0,
+   "tabs": 0,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "租赁管理\\弹窗\\租赁单审核.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 2,
+   "links": 0,
+   "onclickEls": 3,
+   "modals": 1,
+   "modalTitles": [
+    "审核确认(演示页)"
+   ],
+   "selects": 0,
+   "fakeSelects": 0,
+   "radios": 2,
+   "checkboxes": 0,
+   "inputs": 1,
+   "stabs": 0,
+   "tabs": 0,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "租赁管理\\弹窗\\租赁单新建.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 4,
+   "links": 0,
+   "onclickEls": 4,
+   "modals": 1,
+   "modalTitles": [
+    "新建租赁单(演示页)"
+   ],
+   "selects": 2,
+   "fakeSelects": 0,
+   "radios": 0,
+   "checkboxes": 0,
+   "inputs": 16,
+   "stabs": 0,
+   "tabs": 0,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "租赁管理\\弹窗\\租赁单详情.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 1,
+   "links": 0,
+   "onclickEls": 5,
+   "modals": 1,
+   "modalTitles": [
+    "租赁单详情 · ZL-20260823-(演示页)"
+   ],
+   "selects": 0,
+   "fakeSelects": 0,
+   "radios": 0,
+   "checkboxes": 0,
+   "inputs": 0,
+   "stabs": 0,
+   "tabs": 0,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "租赁管理\\弹窗\\组合出库单详情.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 1,
+   "links": 0,
+   "onclickEls": 7,
+   "modals": 1,
+   "modalTitles": [
+    "组合出库单详情 · CK-2026083(演示页)"
+   ],
+   "selects": 0,
+   "fakeSelects": 0,
+   "radios": 0,
+   "checkboxes": 0,
+   "inputs": 0,
+   "stabs": 0,
+   "tabs": 0,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "租赁管理\\弹窗\\组合出库确认.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 2,
+   "links": 0,
+   "onclickEls": 3,
+   "modals": 1,
+   "modalTitles": [
+    "出库确认(演示页)"
+   ],
+   "selects": 0,
+   "fakeSelects": 0,
+   "radios": 2,
+   "checkboxes": 0,
+   "inputs": 1,
+   "stabs": 0,
+   "tabs": 0,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "租赁管理\\弹窗\\退租入库单详情.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 1,
+   "links": 0,
+   "onclickEls": 4,
+   "modals": 1,
+   "modalTitles": [
+    "退租入库单详情 · TZRK-20260(演示页)"
+   ],
+   "selects": 0,
+   "fakeSelects": 0,
+   "radios": 0,
+   "checkboxes": 0,
+   "inputs": 0,
+   "stabs": 0,
+   "tabs": 0,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "租赁管理\\弹窗\\退租入库审核.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 2,
+   "links": 0,
+   "onclickEls": 3,
+   "modals": 1,
+   "modalTitles": [
+    "审核确认(演示页)"
+   ],
+   "selects": 0,
+   "fakeSelects": 0,
+   "radios": 2,
+   "checkboxes": 0,
+   "inputs": 1,
+   "stabs": 0,
+   "tabs": 0,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "租赁管理\\租入入库列表.html",
+  "js_errors": [],
+  "problems": [
+   {
+    "cat": "弹窗",
+    "type": "modal-unreachable",
+    "phase": "modal",
+    "where": {
+     "text": "租入入库单详情"
+    },
+    "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
+   }
+  ],
+  "stats": {
+   "buttons": 7,
+   "links": 6,
+   "onclickEls": 47,
+   "modals": 2,
+   "modalTitles": [
+    "入库确认"
+   ],
+   "selects": 3,
+   "fakeSelects": 0,
+   "radios": 2,
+   "checkboxes": 0,
+   "inputs": 9,
+   "stabs": 3,
+   "tabs": 4,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "租赁管理\\租入单列表.html",
+  "js_errors": [],
+  "problems": [
+   {
+    "cat": "弹窗",
+    "type": "modal-unreachable",
+    "phase": "modal",
+    "where": {
+     "text": "租入单详情"
+    },
+    "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
+   }
+  ],
+  "stats": {
+   "buttons": 10,
+   "links": 11,
+   "onclickEls": 51,
+   "modals": 3,
+   "modalTitles": [
+    "新建租入单",
+    "审核确认"
+   ],
+   "selects": 5,
+   "fakeSelects": 0,
+   "radios": 2,
+   "checkboxes": 0,
+   "inputs": 17,
+   "stabs": 6,
+   "tabs": 4,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "租赁管理\\租入归还列表.html",
+  "js_errors": [],
+  "problems": [
+   {
+    "cat": "弹窗",
+    "type": "modal-unreachable",
+    "phase": "modal",
+    "where": {
+     "text": "租入归还单详情"
+    },
+    "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
+   }
+  ],
+  "stats": {
+   "buttons": 10,
+   "links": 5,
+   "onclickEls": 50,
+   "modals": 3,
+   "modalTitles": [
+    "新建归还单",
+    "审核确认"
+   ],
+   "selects": 5,
+   "fakeSelects": 0,
+   "radios": 4,
+   "checkboxes": 0,
+   "inputs": 11,
+   "stabs": 3,
+   "tabs": 4,
    "bgMut": 0
   },
   "dead_links": [],
@@ -2030,7 +1514,7 @@
   "stats": {
    "buttons": 6,
    "links": 20,
-   "onclickEls": 51,
+   "onclickEls": 49,
    "modals": 1,
    "modalTitles": [],
    "selects": 3,
@@ -2039,14 +1523,14 @@
    "checkboxes": 0,
    "inputs": 15,
    "stabs": 5,
-   "tabs": 4,
+   "tabs": 3,
    "bgMut": 0
   },
   "dead_links": [],
   "nav_anomaly": null
  },
  {
-  "page": "租赁管理\\退租申请列表.html",
+  "page": "租赁管理\\租赁单列表.html",
   "js_errors": [],
   "problems": [
    {
@@ -2054,27 +1538,117 @@
     "type": "modal-unreachable",
     "phase": "modal",
     "where": {
-     "text": "退租申请详情"
+     "text": "租赁单详情"
     },
     "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
    }
   ],
   "stats": {
    "buttons": 12,
-   "links": 12,
-   "onclickEls": 58,
+   "links": 22,
+   "onclickEls": 61,
    "modals": 3,
    "modalTitles": [
-    "新建退租申请",
+    "新建租赁单",
     "审核确认"
    ],
-   "selects": 6,
+   "selects": 5,
    "fakeSelects": 0,
    "radios": 2,
    "checkboxes": 0,
-   "inputs": 24,
-   "stabs": 5,
+   "inputs": 30,
+   "stabs": 6,
    "tabs": 3,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "租赁管理\\组合出库列表.html",
+  "js_errors": [],
+  "problems": [
+   {
+    "cat": "弹窗",
+    "type": "modal-unreachable",
+    "phase": "modal",
+    "where": {
+     "text": "组合出库单详情"
+    },
+    "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
+   }
+  ],
+  "stats": {
+   "buttons": 8,
+   "links": 24,
+   "onclickEls": 58,
+   "modals": 2,
+   "modalTitles": [
+    "出库确认"
+   ],
+   "selects": 3,
+   "fakeSelects": 0,
+   "radios": 2,
+   "checkboxes": 0,
+   "inputs": 14,
+   "stabs": 3,
+   "tabs": 4,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "租赁管理\\组合出库录单.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 5,
+   "links": 3,
+   "onclickEls": 38,
+   "modals": 0,
+   "modalTitles": [],
+   "selects": 4,
+   "fakeSelects": 0,
+   "radios": 2,
+   "checkboxes": 2,
+   "inputs": 6,
+   "stabs": 0,
+   "tabs": 4,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "租赁管理\\退租入库列表.html",
+  "js_errors": [],
+  "problems": [
+   {
+    "cat": "弹窗",
+    "type": "modal-unreachable",
+    "phase": "modal",
+    "where": {
+     "text": "退租入库单详情"
+    },
+    "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
+   }
+  ],
+  "stats": {
+   "buttons": 7,
+   "links": 10,
+   "onclickEls": 46,
+   "modals": 2,
+   "modalTitles": [
+    "审核确认"
+   ],
+   "selects": 3,
+   "fakeSelects": 0,
+   "radios": 2,
+   "checkboxes": 0,
+   "inputs": 13,
+   "stabs": 3,
+   "tabs": 2,
    "bgMut": 0
   },
   "dead_links": [],
@@ -2207,7 +1781,7 @@
   "stats": {
    "buttons": 4,
    "links": 0,
-   "onclickEls": 38,
+   "onclickEls": 36,
    "modals": 0,
    "modalTitles": [],
    "selects": 3,
@@ -2229,7 +1803,7 @@
   "stats": {
    "buttons": 5,
    "links": 10,
-   "onclickEls": 49,
+   "onclickEls": 47,
    "modals": 2,
    "modalTitles": [
     "新增字典项",
@@ -2241,7 +1815,7 @@
    "checkboxes": 0,
    "inputs": 6,
    "stabs": 0,
-   "tabs": 4,
+   "tabs": 3,
    "bgMut": 0
   },
   "dead_links": [],
@@ -2254,7 +1828,7 @@
   "stats": {
    "buttons": 13,
    "links": 41,
-   "onclickEls": 93,
+   "onclickEls": 91,
    "modals": 4,
    "modalTitles": [
     "角色管理",
@@ -2291,7 +1865,7 @@
   "stats": {
    "buttons": 11,
    "links": 6,
-   "onclickEls": 49,
+   "onclickEls": 47,
    "modals": 3,
    "modalTitles": [
     "新建付款登记",
@@ -2326,7 +1900,7 @@
   "stats": {
    "buttons": 10,
    "links": 16,
-   "onclickEls": 57,
+   "onclickEls": 55,
    "modals": 3,
    "modalTitles": [
     "新建收款登记",
@@ -2361,7 +1935,7 @@
   "stats": {
    "buttons": 11,
    "links": 19,
-   "onclickEls": 59,
+   "onclickEls": 57,
    "modals": 3,
    "modalTitles": [
     "新建应付账单",
@@ -2396,7 +1970,7 @@
   "stats": {
    "buttons": 10,
    "links": 41,
-   "onclickEls": 77,
+   "onclickEls": 75,
    "modals": 3,
    "modalTitles": [
     "手动生成账单",
@@ -2431,7 +2005,7 @@
   "stats": {
    "buttons": 10,
    "links": 22,
-   "onclickEls": 63,
+   "onclickEls": 61,
    "modals": 3,
    "modalTitles": [
     "新增开票登记",
@@ -2744,7 +2318,7 @@
   "stats": {
    "buttons": 3,
    "links": 0,
-   "onclickEls": 42,
+   "onclickEls": 41,
    "modals": 0,
    "modalTitles": [],
    "selects": 3,
@@ -2776,7 +2350,7 @@
   "stats": {
    "buttons": 8,
    "links": 8,
-   "onclickEls": 49,
+   "onclickEls": 47,
    "modals": 2,
    "modalTitles": [
     "撤销核销确认"
@@ -2818,7 +2392,31 @@
   "nav_anomaly": null
  },
  {
-  "page": "采购管理\\弹窗\\租入单审核.html",
+  "page": "采购管理\\弹窗\\采购入库单详情.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 1,
+   "links": 0,
+   "onclickEls": 6,
+   "modals": 1,
+   "modalTitles": [
+    "采购入库单详情 · CGRK-20260(演示页)"
+   ],
+   "selects": 0,
+   "fakeSelects": 0,
+   "radios": 0,
+   "checkboxes": 0,
+   "inputs": 0,
+   "stabs": 0,
+   "tabs": 0,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "采购管理\\弹窗\\采购入库审核.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -2834,54 +2432,6 @@
    "radios": 2,
    "checkboxes": 0,
    "inputs": 1,
-   "stabs": 0,
-   "tabs": 0,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "采购管理\\弹窗\\租入单新建.html",
-  "js_errors": [],
-  "problems": [],
-  "stats": {
-   "buttons": 2,
-   "links": 0,
-   "onclickEls": 3,
-   "modals": 1,
-   "modalTitles": [
-    "新建租入单(演示页)"
-   ],
-   "selects": 2,
-   "fakeSelects": 0,
-   "radios": 0,
-   "checkboxes": 0,
-   "inputs": 6,
-   "stabs": 0,
-   "tabs": 0,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "采购管理\\弹窗\\租入单详情.html",
-  "js_errors": [],
-  "problems": [],
-  "stats": {
-   "buttons": 1,
-   "links": 0,
-   "onclickEls": 7,
-   "modals": 1,
-   "modalTitles": [
-    "租入单详情 · RZD-20260815(演示页)"
-   ],
-   "selects": 0,
-   "fakeSelects": 0,
-   "radios": 0,
-   "checkboxes": 0,
-   "inputs": 0,
    "stabs": 0,
    "tabs": 0,
    "bgMut": 0
@@ -2938,7 +2488,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "采购管理\\租入单列表.html",
+  "page": "采购管理\\采购入库列表.html",
   "js_errors": [],
   "problems": [
    {
@@ -2946,27 +2496,48 @@
     "type": "modal-unreachable",
     "phase": "modal",
     "where": {
-     "text": "租入单详情"
+     "text": "采购入库单详情"
     },
     "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
    }
   ],
   "stats": {
-   "buttons": 10,
-   "links": 11,
-   "onclickEls": 53,
-   "modals": 3,
+   "buttons": 8,
+   "links": 31,
+   "onclickEls": 65,
+   "modals": 2,
    "modalTitles": [
-    "新建租入单",
     "审核确认"
    ],
-   "selects": 5,
+   "selects": 4,
    "fakeSelects": 0,
    "radios": 2,
    "checkboxes": 0,
-   "inputs": 17,
-   "stabs": 6,
-   "tabs": 4,
+   "inputs": 13,
+   "stabs": 3,
+   "tabs": 3,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "采购管理\\采购入库录单.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 5,
+   "links": 4,
+   "onclickEls": 38,
+   "modals": 0,
+   "modalTitles": [],
+   "selects": 4,
+   "fakeSelects": 0,
+   "radios": 5,
+   "checkboxes": 3,
+   "inputs": 15,
+   "stabs": 0,
+   "tabs": 3,
    "bgMut": 0
   },
   "dead_links": [],
@@ -3017,7 +2588,7 @@
   "stats": {
    "buttons": 12,
    "links": 15,
-   "onclickEls": 56,
+   "onclickEls": 54,
    "modals": 3,
    "modalTitles": [
     "新建采购订单",
@@ -3060,7 +2631,31 @@
   "nav_anomaly": null
  },
  {
-  "page": "销售管理\\弹窗\\租赁单审核.html",
+  "page": "销售管理\\弹窗\\销售出库单详情.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 1,
+   "links": 0,
+   "onclickEls": 5,
+   "modals": 1,
+   "modalTitles": [
+    "销售出库单详情 · XSCK-20260(演示页)"
+   ],
+   "selects": 0,
+   "fakeSelects": 0,
+   "radios": 0,
+   "checkboxes": 0,
+   "inputs": 0,
+   "stabs": 0,
+   "tabs": 0,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "销售管理\\弹窗\\销售出库审核.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -3084,46 +2679,22 @@
   "nav_anomaly": null
  },
  {
-  "page": "销售管理\\弹窗\\租赁单新建.html",
+  "page": "销售管理\\弹窗\\销售出库新建.html",
   "js_errors": [],
   "problems": [],
   "stats": {
    "buttons": 4,
    "links": 0,
-   "onclickEls": 4,
+   "onclickEls": 3,
    "modals": 1,
    "modalTitles": [
-    "新建租赁单(演示页)"
+    "新增销售出库单(演示页)"
    ],
    "selects": 2,
    "fakeSelects": 0,
    "radios": 0,
    "checkboxes": 0,
-   "inputs": 16,
-   "stabs": 0,
-   "tabs": 0,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "销售管理\\弹窗\\租赁单详情.html",
-  "js_errors": [],
-  "problems": [],
-  "stats": {
-   "buttons": 1,
-   "links": 0,
-   "onclickEls": 6,
-   "modals": 1,
-   "modalTitles": [
-    "租赁单详情 · ZL-20260823-(演示页)"
-   ],
-   "selects": 0,
-   "fakeSelects": 0,
-   "radios": 0,
-   "checkboxes": 0,
-   "inputs": 0,
+   "inputs": 7,
    "stabs": 0,
    "tabs": 0,
    "bgMut": 0
@@ -3180,7 +2751,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "销售管理\\租赁单列表.html",
+  "page": "销售管理\\销售出库列表.html",
   "js_errors": [],
   "problems": [
    {
@@ -3188,26 +2759,26 @@
     "type": "modal-unreachable",
     "phase": "modal",
     "where": {
-     "text": "租赁单详情"
+     "text": "销售出库单详情"
     },
     "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
    }
   ],
   "stats": {
    "buttons": 12,
-   "links": 22,
-   "onclickEls": 63,
+   "links": 13,
+   "onclickEls": 52,
    "modals": 3,
    "modalTitles": [
-    "新建租赁单",
+    "新增销售出库单",
     "审核确认"
    ],
    "selects": 5,
    "fakeSelects": 0,
    "radios": 2,
    "checkboxes": 0,
-   "inputs": 30,
-   "stabs": 6,
+   "inputs": 19,
+   "stabs": 3,
    "tabs": 3,
    "bgMut": 0
   },
@@ -3259,7 +2830,7 @@
   "stats": {
    "buttons": 12,
    "links": 16,
-   "onclickEls": 56,
+   "onclickEls": 54,
    "modals": 3,
    "modalTitles": [
     "新建销售订单",
@@ -3371,7 +2942,7 @@
   "stats": {
    "buttons": 9,
    "links": 14,
-   "onclickEls": 67,
+   "onclickEls": 66,
    "modals": 2,
    "modalTitles": [
     "项目上下游绑定",
@@ -3395,8 +2966,8 @@
   "problems": [],
   "stats": {
    "buttons": 5,
-   "links": 7,
-   "onclickEls": 57,
+   "links": 6,
+   "onclickEls": 54,
    "modals": 1,
    "modalTitles": [
     "项目上下游绑定"
@@ -3414,35 +2985,13 @@
   "nav_anomaly": null
  },
  {
-  "page": "首页\\我的待办.html",
-  "js_errors": [],
-  "problems": [],
-  "stats": {
-   "buttons": 1,
-   "links": 18,
-   "onclickEls": 75,
-   "modals": 0,
-   "modalTitles": [],
-   "selects": 1,
-   "fakeSelects": 0,
-   "radios": 0,
-   "checkboxes": 0,
-   "inputs": 1,
-   "stabs": 0,
-   "tabs": 6,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
   "page": "首页\\项目看板.html",
   "js_errors": [],
   "problems": [],
   "stats": {
    "buttons": 2,
    "links": 5,
-   "onclickEls": 50,
+   "onclickEls": 47,
    "modals": 0,
    "modalTitles": [],
    "selects": 0,
