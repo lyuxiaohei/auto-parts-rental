@@ -10,8 +10,8 @@
 > 本块=交接文档第①段基线的滚动维护处（goal-creator v6 三段式）；每任务收尾同步。三、五节为 09-04 历史快照不再回改，现状以本块+最新任务节为准。
 
 - **原型**：111 页（40 业务页含 系统管理/角色管理.html + 独立弹窗模板（G01 新增 权限配置/新增角色 两模板）+ F01）；菜单=**v3.2**（G02，40 页侧边栏统一：项目管理组 2 项=看板/列表·损益归财务管理组尾「项目损益」·组名 财务管理/仓储管理·小标签仍恰 8 处·盘点录入退出菜单·角色管理独立菜单；脚本 v32_sidebar.py，验证 v32_menu_verify.py 14 项）
-- **数据驱动**：`_data/demo-data.js` 增 roles 实体 9 条（G01）+ list-generic/detail-generic 渲染器（角色管理页=noCheckbox:true+keyHtml 接线模式）；F01=v3.0 唯一演示图；verify 三批 100/88/55；audit 口径=死链 0/JS 1（F01 外链噪音豁免）/问题 36 条相对基线 diff 新增 0；audit 触发器探测 2026-09-09 起识别包装器触达（openRolePerm/openGenericDetail 类：页内脚本含 openModal('id') 即视为可达）
-- **当前任务**：菜单重组 v3.2 四连投喂 ⏳（G01 角色管理数据驱动化 ✅ dccaa23（2026-09-09）→**G02 菜单 v3.2 侧边栏重写 ✅ df4bda7（2026-09-09）**→G03 复验收与总收口→G04 三连跑独立验收·纯只读 20 项；G03/G04 两条命令按序投喂（各自全新会话），全史锚+前置链校验，共享备份 backup-menuregroup32-20260909（已建·117 文件）与失败清单 goal-failures-menuregroup32-20260909.html）；**任务总账=`agent-handoff/_索引.md`**
+- **数据驱动**：`_data/demo-data.js` 增 roles 实体 9 条（G01，demo-data 合计 **31 实体**=30+roles）+ list-generic/detail-generic 渲染器（角色管理页=noCheckbox:true+keyHtml 接线模式）；F01=v3.0 唯一演示图；verify 三批 100/88/55；audit 口径=死链 0/JS 1（F01 外链噪音豁免）/问题 36 条相对基线 diff 新增 0；audit 触发器探测 2026-09-09 起识别包装器触达（openRolePerm/openGenericDetail 类：页内脚本含 openModal('id') 即视为可达）
+- **当前任务**：菜单重组 v3.2 四连投喂（G01 角色管理数据驱动化 ✅ dccaa23→G02 菜单 v3.2 侧边栏重写 ✅ df4bda7→**G03 复验收与总收口 ✅ 3b7092f/6f920c2+段3终锚**→G04 三连跑独立验收·纯只读 20 项·待投喂；2026-09-09，共享备份 backup-menuregroup32-20260909 与失败清单 goal-failures-menuregroup32-20260909.html 留档，三连跑总结论=失败 0 项）；**任务总账=`agent-handoff/_索引.md`**
 - **关键路径**：项目根 `D:\工作台-吕道远-【ACTIVE】汽车物流包装租赁\`；原型 `P3-R01-包装租赁管理后台原型/`（启动页 首页/项目看板.html）；工具 `_scan_tmpdir/audit_interaction.py`（全量审计）+`verify_listfull.py`（三批断言）+`baseline-*.json`（基线快照）；agent 记忆库 `p3r01-prototype-baseline.md` 与本块双写同步
 - **口径纪律铁律摘引**（全文=第四节，源）：①原型目录同一时刻仅一 agent 写（开工查 `_data` mtime≥30 分钟）②原型手工维护——批量改动=读取-精确替换+assert 计数，禁裸 open('w') 整页写 ③多股改动入库一律 `git add -A`（_data 不随 -u 入库）、禁 push ④HTML 切块替换类名 find 会吃 CSS 段须带标签锚，改后标签配平自检 ⑤Playwright 编程点击+导航等待（IAB 管道缺陷）、URL unquote()、文本断言 textContent ⑥列表驱动 row.cells 存 td innerHTML——新实体 cells 不得带外层 td ⑦新增 onclick 须自带 DOM 副作用（closeModal 类）免审计判死按钮 ⑧打包/外发 zip 必须含 `_data/`
 
