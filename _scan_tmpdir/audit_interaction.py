@@ -213,12 +213,18 @@ HARNESS = r"""
       const mid = ov.id || '(无id)';
       const title = ((ov.querySelector('.modal-title') || {}).textContent || '').trim().slice(0, 20) || mid;
       // 找页内触发器
-      let trigger = null;
+      let trigger = null, scriptOpen = false;
       if (ov.id) {
         trigger = [...document.querySelectorAll('[onclick]')].find(el => {
           const oc = el.getAttribute('onclick') || '';
           return oc.includes("openModal('" + ov.id + "')") || oc.includes('openModal("' + ov.id + '")');
         });
+        // 数据驱动包装器触达（openRolePerm/openGenericDetail 等包装函数内调用 openModal）：
+        // 页内脚本含 openModal('id') 字面调用即视为可达，清扫走 window.openModal 兜底（2026-09-09 G01）
+        if (!trigger) {
+          const html = document.documentElement.innerHTML;
+          scriptOpen = html.includes("openModal('" + ov.id + "')") || html.includes('openModal("' + ov.id + '")');
+        }
       }
       const openVia = async () => {
         if (trigger) { fireClick(trigger); await sleep(30); }
@@ -256,8 +262,8 @@ HARNESS = r"""
         await closeVia();
         results.push(title);
       } else {
-        // 无页内触发器：独立演示页（默认已开）或死弹窗
-        if (!initialShown.has(ov)) {
+        // 无页内触发器：独立演示页（默认已开）/ 包装器触达（scriptOpen）或死弹窗
+        if (!initialShown.has(ov) && !scriptOpen) {
           problems.push({ cat: '弹窗', type: 'modal-unreachable', phase: 'modal', where: { text: title }, detail: '页内无 openModal 触发器且默认未打开（不可达弹窗）' });
           continue;
         }

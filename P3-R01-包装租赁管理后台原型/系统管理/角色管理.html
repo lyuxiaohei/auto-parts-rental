@@ -72,6 +72,22 @@ svg { display:inline-block; vertical-align:middle; }
 .card-head .card-title { margin-bottom:0; }
 .card-head .head-btns { display:flex; align-items:center; gap:8px; }
 
+/* ===== 筛选区（13px 控件，样板：仓储作业/采购入库列表） ===== */
+.filter-card { background:#fff; border-radius:8px; padding:16px 18px; margin:0 0 12px; box-shadow:0 1px 3px rgba(0,0,0,0.05); }
+.filter-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; }
+.ff { display:flex; align-items:center; border:1px solid #d9d9d9; border-radius:6px; padding:0 10px; height:32px; background:#fff; transition:border-color .2s; }
+.ff:focus-within { border-color:#1677ff; }
+.ff .ff-label { flex-shrink:0; font-size:13px; color:#262626; margin-right:6px; white-space:nowrap; }
+.ff input, .ff select { flex:1; min-width:0; border:none; outline:none; height:100%; font-size:13px; color:#262626; background:transparent; font-family:inherit; }
+.ff input::placeholder { color:#bfbfbf; }
+.ff select { appearance:none; -webkit-appearance:none; color:#8c8c8c; cursor:pointer; }
+.ff .ff-chev { width:12px; height:12px; color:#8c8c8c; flex-shrink:0; pointer-events:none; }
+.ff .ff-sep { margin:0 6px; color:#8c8c8c; flex-shrink:0; }
+.filter-actions { display:flex; align-items:center; justify-content:flex-end; gap:10px; height:32px; }
+.link-collapse { display:flex; align-items:center; gap:4px; font-size:13px; color:#1677ff; cursor:pointer; background:none; border:none; font-family:inherit; }
+.link-collapse svg { width:12px; height:12px; transition:transform .2s; }
+.filter-card.collapsed .filter-grid .ff-row-extra { display:none; }
+.filter-card:not(.collapsed) .link-collapse svg { transform:rotate(180deg); }
 /* ===== 按钮（13px 体系，表单/卡片头/弹窗用；筛选区 12px 另按作用域覆盖） ===== */
 .btn { display:inline-flex; align-items:center; justify-content:center; height:30px; padding:0 14px; border-radius:6px; border:none; cursor:pointer; font-size:13px; background:var(--primary); color:#fff; white-space:nowrap; font-family:inherit; }
 .btn:hover { background:#4096ff; }
@@ -339,24 +355,37 @@ th.td-num { text-align:right; }
   <span class="tab">数据字典 <span class="close">×</span></span>
 </div>
     <div class="content">
+<div class="filter-card" id="filterCard">
+  <div class="filter-grid">
+    <div class="ff"><span class="ff-label">角色名称：</span><input placeholder="请输入"></div>
+    <div class="ff"><span class="ff-label">数据权限：</span>
+      <select><option selected>全部</option><option>全部项目</option><option>所属客户</option><option>所属供应商</option></select>
+      <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+    <div class="filter-actions">
+      <button class="btn btn-default">重置</button>
+      <button class="btn">查询</button>
+    </div>
+  </div>
+</div>
 <div class="card">
   <div class="card-head">
     <h3 class="card-title">角色管理</h3>
-    <div class="head-btns"><button class="btn btn-sm" onclick="openModal('roleModal')">新增角色</button></div>
+    <div class="head-btns"><button class="btn btn-sm" onclick="openModal('createModal')">新增角色</button></div>
   </div>
   <div class="table-wrap">
     <table>
       <thead><tr><th>角色</th><th>说明</th><th>数据权限</th><th>账号数</th><th class="sticky-op">操作</th></tr></thead>
       <tbody>
-            <tr><td><b>系统管理员</b></td><td>全部功能 + 系统管理</td><td>全部项目</td><td><span class="td-num">2</span></td><td class="sticky-op"><span class="ops"><a onclick="openModal('roleModal')">权限配置</a></span></td></tr>
-            <tr><td><b>财务</b></td><td>财务应收/应付/项目损益</td><td>全部项目</td><td><span class="td-num">1</span></td><td class="sticky-op"><span class="ops"><a onclick="openModal('roleModal')">权限配置</a></span></td></tr>
-            <tr><td><b>财务主管</b></td><td>财务全模块 + 付款/回款确认审核</td><td>全部项目</td><td><span class="td-num">1</span></td><td class="sticky-op"><span class="ops"><a onclick="openModal('roleModal')">权限配置</a></span></td></tr>
-            <tr><td><b>商务</b></td><td>订单/租赁全流程</td><td>全部项目</td><td><span class="td-num">2</span></td><td class="sticky-op"><span class="ops"><a onclick="openModal('roleModal')">权限配置</a></span></td></tr>
-            <tr><td><b>商务主管</b></td><td>订单/租赁全流程 + 单据审核</td><td>全部项目</td><td><span class="td-num">1</span></td><td class="sticky-op"><span class="ops"><a onclick="openModal('roleModal')">权限配置</a></span></td></tr>
-            <tr><td><b>物流</b></td><td>仓储作业 + 库存查询</td><td>全部项目</td><td><span class="td-num">1</span></td><td class="sticky-op"><span class="ops"><a onclick="openModal('roleModal')">权限配置</a></span></td></tr>
-            <tr><td><b>物流主管</b></td><td>仓储作业 + 库存查询 + 出/入库审核</td><td>全部项目</td><td><span class="td-num">1</span></td><td class="sticky-op"><span class="ops"><a onclick="openModal('roleModal')">权限配置</a></span></td></tr>
-            <tr><td><b>客户账号</b></td><td>仅查看与下单申请</td><td>所属客户</td><td><span class="td-num">7</span></td><td class="sticky-op"><span class="ops"><a onclick="openModal('roleModal')">权限配置</a></span></td></tr>
-            <tr><td><b>供应商账号</b></td><td>下发回执与对账</td><td>所属供应商</td><td><span class="td-num">3</span></td><td class="sticky-op"><span class="ops"><a onclick="openModal('roleModal')">权限配置</a></span></td></tr>
+            <tr><td><b>系统管理员</b></td><td>全部功能 + 系统管理</td><td>全部项目</td><td><span class="td-num">2</span></td><td class="sticky-op"><span class="ops"><a onclick="openRolePerm('系统管理员')">权限配置</a></span></td></tr>
+            <tr><td><b>财务</b></td><td>财务应收/应付/项目损益</td><td>全部项目</td><td><span class="td-num">1</span></td><td class="sticky-op"><span class="ops"><a onclick="openRolePerm('财务')">权限配置</a></span></td></tr>
+            <tr><td><b>财务主管</b></td><td>财务全模块 + 付款/回款确认审核</td><td>全部项目</td><td><span class="td-num">1</span></td><td class="sticky-op"><span class="ops"><a onclick="openRolePerm('财务主管')">权限配置</a></span></td></tr>
+            <tr><td><b>商务</b></td><td>订单/租赁全流程</td><td>全部项目</td><td><span class="td-num">2</span></td><td class="sticky-op"><span class="ops"><a onclick="openRolePerm('商务')">权限配置</a></span></td></tr>
+            <tr><td><b>商务主管</b></td><td>订单/租赁全流程 + 单据审核</td><td>全部项目</td><td><span class="td-num">1</span></td><td class="sticky-op"><span class="ops"><a onclick="openRolePerm('商务主管')">权限配置</a></span></td></tr>
+            <tr><td><b>物流</b></td><td>仓储作业 + 库存查询</td><td>全部项目</td><td><span class="td-num">1</span></td><td class="sticky-op"><span class="ops"><a onclick="openRolePerm('物流')">权限配置</a></span></td></tr>
+            <tr><td><b>物流主管</b></td><td>仓储作业 + 库存查询 + 出/入库审核</td><td>全部项目</td><td><span class="td-num">1</span></td><td class="sticky-op"><span class="ops"><a onclick="openRolePerm('物流主管')">权限配置</a></span></td></tr>
+            <tr><td><b>客户账号</b></td><td>仅查看与下单申请</td><td>所属客户</td><td><span class="td-num">7</span></td><td class="sticky-op"><span class="ops"><a onclick="openRolePerm('客户账号')">权限配置</a></span></td></tr>
+            <tr><td><b>供应商账号</b></td><td>下发回执与对账</td><td>所属供应商</td><td><span class="td-num">3</span></td><td class="sticky-op"><span class="ops"><a onclick="openRolePerm('供应商账号')">权限配置</a></span></td></tr>
       </tbody>
     </table>
   </div>
@@ -448,29 +477,55 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 <div class="modal-overlay" id="roleModal">
   <div class="modal modal-lg">
     <div class="modal-header">
-      <h3 class="modal-title">角色管理</h3>
+      <h3 class="modal-title"><span id="rolePermTitle">权限配置 · 系统管理员</span></h3>
       <span class="modal-close" onclick="closeModal('roleModal')">×</span>
     </div>
     <div class="modal-body">
-      <div class="table-wrap" style="border:1px solid var(--border);border-radius:6px;">
-        <table>
-          <thead><tr><th>角色</th><th>说明</th><th>数据权限</th><th>账号数</th><th class="sticky-op">操作</th></tr></thead>
-          <tbody>
-                        <tr><td><b>系统管理员</b></td><td>全部功能 + 系统管理</td><td>全部项目</td><td><span class="td-num">2</span></td><td class="sticky-op"><span class="ops"><a onclick="openModal('roleModal')">权限配置</a></span></td></tr>
-            <tr><td><b>财务</b></td><td>财务应收/应付/项目损益</td><td>全部项目</td><td><span class="td-num">1</span></td><td class="sticky-op"><span class="ops"><a onclick="openModal('roleModal')">权限配置</a></span></td></tr>
-            <tr><td><b>财务主管</b></td><td>财务全模块 + 付款/回款确认审核</td><td>全部项目</td><td><span class="td-num">1</span></td><td class="sticky-op"><span class="ops"><a onclick="openModal('roleModal')">权限配置</a></span></td></tr>
-            <tr><td><b>商务</b></td><td>订单/租赁全流程</td><td>全部项目</td><td><span class="td-num">2</span></td><td class="sticky-op"><span class="ops"><a onclick="openModal('roleModal')">权限配置</a></span></td></tr>
-            <tr><td><b>商务主管</b></td><td>订单/租赁全流程 + 单据审核</td><td>全部项目</td><td><span class="td-num">1</span></td><td class="sticky-op"><span class="ops"><a onclick="openModal('roleModal')">权限配置</a></span></td></tr>
-            <tr><td><b>物流</b></td><td>仓储作业 + 库存查询</td><td>全部项目</td><td><span class="td-num">1</span></td><td class="sticky-op"><span class="ops"><a onclick="openModal('roleModal')">权限配置</a></span></td></tr>
-            <tr><td><b>物流主管</b></td><td>仓储作业 + 库存查询 + 出/入库审核</td><td>全部项目</td><td><span class="td-num">1</span></td><td class="sticky-op"><span class="ops"><a onclick="openModal('roleModal')">权限配置</a></span></td></tr>
-            <tr><td><b>客户账号</b></td><td>仅查看与下单申请</td><td>所属客户</td><td><span class="td-num">7</span></td><td class="sticky-op"><span class="ops"><a onclick="openModal('roleModal')">权限配置</a></span></td></tr>
-            <tr><td><b>供应商账号</b></td><td>下发回执与对账</td><td>所属供应商</td><td><span class="td-num">3</span></td><td class="sticky-op"><span class="ops"><a onclick="openModal('roleModal')">权限配置</a></span></td></tr></tbody>
-        </table>
+      <div class="dgrid c3" style="margin-bottom:8px;">
+        <div class="drow"><span class="dlabel">角色名</span><span class="dval" id="rpName">系统管理员</span></div>
+        <div class="drow"><span class="dlabel">说明</span><span class="dval" id="rpDesc">全部功能 + 系统管理</span></div>
+        <div class="drow"><span class="dlabel">账号数</span><span class="dval" id="rpAccts">2</span></div>
+      </div>
+      <div class="dt-sec">菜单权限</div>
+      <div id="permMatrix" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px 16px;padding:4px 0 2px;">
+        <span class="checkbox checked" data-perm="项目管理"><span class="box">✓</span>项目管理</span>
+        <span class="checkbox checked" data-perm="我的待办"><span class="box">✓</span>我的待办</span>
+        <span class="checkbox checked" data-perm="基础资料"><span class="box">✓</span>基础资料</span>
+        <span class="checkbox checked" data-perm="采购管理"><span class="box">✓</span>采购管理</span>
+        <span class="checkbox checked" data-perm="销售管理"><span class="box">✓</span>销售管理</span>
+        <span class="checkbox checked" data-perm="租赁管理"><span class="box">✓</span>租赁管理</span>
+        <span class="checkbox checked" data-perm="仓储管理"><span class="box">✓</span>仓储管理</span>
+        <span class="checkbox checked" data-perm="财务管理"><span class="box">✓</span>财务管理</span>
+        <span class="checkbox checked" data-perm="系统管理"><span class="box">✓</span>系统管理</span>
+      </div>
+      <div class="dt-sec">数据权限范围</div>
+      <div style="display:flex;padding:4px 0 2px;">
+        <span class="radio checked" data-scope="全部项目"><span class="dot"></span>全部项目</span>
+        <span class="radio" data-scope="所属客户"><span class="dot"></span>所属客户</span>
+        <span class="radio" data-scope="所属供应商"><span class="dot"></span>所属供应商</span>
       </div>
     </div>
     <div class="modal-footer">
-      <button class="btn btn-default" onclick="closeModal('roleModal')">关闭</button>
-      <button class="btn" onclick="closeModal('roleModal')">新增角色</button>
+      <button class="btn btn-default" onclick="closeModal('roleModal')">取消</button>
+      <button class="btn" onclick="closeModal('roleModal')">保存</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="createModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3 class="modal-title">新增角色</h3>
+      <span class="modal-close" onclick="closeModal('createModal')">×</span>
+    </div>
+    <div class="modal-body">
+      <div class="form-row"><span class="form-label"><span class="req">*</span>角色名称</span><div class="input-box"><input placeholder="请输入角色名称"></div></div>
+      <div class="form-row"><span class="form-label">说明</span><div class="input-box"><input placeholder="请输入说明"></div></div>
+      <div class="form-row"><span class="form-label">数据权限范围</span><div class="input-box select-box"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>全部项目</option><option>所属客户</option><option>所属供应商</option></select><span class="caret">▾</span></div></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-default" onclick="closeModal('createModal')">取消</button>
+      <button class="btn" onclick="closeModal('createModal')">保存</button>
     </div>
   </div>
 </div>
@@ -493,6 +548,44 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 .tl-i .tl-t{color:#8c8c8c;font-size:12px;margin-right:8px;font-variant-numeric:tabular-nums}
 .tl-i .tl-who{color:#8c8c8c;font-size:12px;margin-left:8px}
 </style>
+<script src="../_data/demo-data.js"></script>
+<script src="../_data/list-generic.js"></script>
+<script>
+/* G01 角色管理数据驱动（2026-09-09）：roles 实体渲染 + 权限配置矩阵（矩阵口径=G01 文档 C 默认决策表） */
+window.ROLE_PERM = {
+  '系统管理员': { desc:'全部功能 + 系统管理', accts:'2', scope:'全部项目', perms:['项目管理','我的待办','基础资料','采购管理','销售管理','租赁管理','仓储管理','财务管理','系统管理'] },
+  '财务': { desc:'财务应收/应付/项目损益', accts:'1', scope:'全部项目', perms:['我的待办','财务管理'] },
+  '财务主管': { desc:'财务全模块 + 付款/回款确认审核', accts:'1', scope:'全部项目', perms:['我的待办','财务管理'] },
+  '商务': { desc:'订单/租赁全流程', accts:'2', scope:'全部项目', perms:['我的待办','基础资料','采购管理','销售管理','租赁管理'] },
+  '商务主管': { desc:'订单/租赁全流程 + 单据审核', accts:'1', scope:'全部项目', perms:['我的待办','基础资料','采购管理','销售管理','租赁管理'] },
+  '物流': { desc:'仓储作业 + 库存查询', accts:'1', scope:'全部项目', perms:['我的待办','仓储管理'] },
+  '物流主管': { desc:'仓储作业 + 库存查询 + 出/入库审核', accts:'1', scope:'全部项目', perms:['我的待办','仓储管理'] },
+  '客户账号': { desc:'仅查看与下单申请', accts:'7', scope:'所属客户', perms:['我的待办'] },
+  '供应商账号': { desc:'下发回执与对账', accts:'3', scope:'所属供应商', perms:['我的待办'] }
+};
+function openRolePerm(name) {
+  var p = window.ROLE_PERM[name] || { desc:'', accts:'', scope:'全部项目', perms:[] };
+  document.getElementById('rolePermTitle').textContent = '权限配置 · ' + name;
+  document.getElementById('rpName').textContent = name;
+  document.getElementById('rpDesc').textContent = p.desc;
+  document.getElementById('rpAccts').textContent = p.accts;
+  document.querySelectorAll('#roleModal .checkbox').forEach(function (c) {
+    c.classList.toggle('checked', p.perms.indexOf(c.getAttribute('data-perm')) > -1);
+  });
+  document.querySelectorAll('#roleModal .radio').forEach(function (r) {
+    r.classList.toggle('checked', r.getAttribute('data-scope') === p.scope);
+  });
+  openModal('roleModal');
+}
+renderListPage({
+  entity: 'roles',
+  noCheckbox: true,
+  filters: [
+    { label: '角色名称', field: 'name' },
+    { label: '数据权限', field: 'scope' }
+  ]
+});
+</script>
 <script>
 function openModal(id) { document.getElementById(id).classList.add('show'); }
 function closeModal(id) { document.getElementById(id).classList.remove('show'); }

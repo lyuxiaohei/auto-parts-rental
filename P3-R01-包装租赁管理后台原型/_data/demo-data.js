@@ -15324,5 +15324,20 @@ window.DEMO_DATA = {
         }
       ]
     }
+  },
+  /* --------------------------------------------------------------------------
+   * 角色 roles：键 = RL-xx（角色管理页列表驱动，2026-09-09 G01）
+   *   fields: name=角色名 desc=说明 scope=数据权限 accts=账号数；cells 不含外层 td
+   * ------------------------------------------------------------------------ */
+  roles: {
+    'RL-01': { 'row': {"fields": {"name": "系统管理员", "desc": "全部功能 + 系统管理", "scope": "全部项目", "accts": "2"}, "keyHtml": "<b>系统管理员</b>", "cells": ["全部功能 + 系统管理", "全部项目", "<span class=\"td-num\">2</span>"], "ops": [{"t": "权限配置", "act": "openRolePerm('系统管理员')"}]} },
+    'RL-02': { 'row': {"fields": {"name": "财务", "desc": "财务应收/应付/项目损益", "scope": "全部项目", "accts": "1"}, "keyHtml": "<b>财务</b>", "cells": ["财务应收/应付/项目损益", "全部项目", "<span class=\"td-num\">1</span>"], "ops": [{"t": "权限配置", "act": "openRolePerm('财务')"}]} },
+    'RL-03': { 'row': {"fields": {"name": "财务主管", "desc": "财务全模块 + 付款/回款确认审核", "scope": "全部项目", "accts": "1"}, "keyHtml": "<b>财务主管</b>", "cells": ["财务全模块 + 付款/回款确认审核", "全部项目", "<span class=\"td-num\">1</span>"], "ops": [{"t": "权限配置", "act": "openRolePerm('财务主管')"}]} },
+    'RL-04': { 'row': {"fields": {"name": "商务", "desc": "订单/租赁全流程", "scope": "全部项目", "accts": "2"}, "keyHtml": "<b>商务</b>", "cells": ["订单/租赁全流程", "全部项目", "<span class=\"td-num\">2</span>"], "ops": [{"t": "权限配置", "act": "openRolePerm('商务')"}]} },
+    'RL-05': { 'row': {"fields": {"name": "商务主管", "desc": "订单/租赁全流程 + 单据审核", "scope": "全部项目", "accts": "1"}, "keyHtml": "<b>商务主管</b>", "cells": ["订单/租赁全流程 + 单据审核", "全部项目", "<span class=\"td-num\">1</span>"], "ops": [{"t": "权限配置", "act": "openRolePerm('商务主管')"}]} },
+    'RL-06': { 'row': {"fields": {"name": "物流", "desc": "仓储作业 + 库存查询", "scope": "全部项目", "accts": "1"}, "keyHtml": "<b>物流</b>", "cells": ["仓储作业 + 库存查询", "全部项目", "<span class=\"td-num\">1</span>"], "ops": [{"t": "权限配置", "act": "openRolePerm('物流')"}]} },
+    'RL-07': { 'row': {"fields": {"name": "物流主管", "desc": "仓储作业 + 库存查询 + 出/入库审核", "scope": "全部项目", "accts": "1"}, "keyHtml": "<b>物流主管</b>", "cells": ["仓储作业 + 库存查询 + 出/入库审核", "全部项目", "<span class=\"td-num\">1</span>"], "ops": [{"t": "权限配置", "act": "openRolePerm('物流主管')"}]} },
+    'RL-08': { 'row': {"fields": {"name": "客户账号", "desc": "仅查看与下单申请", "scope": "所属客户", "accts": "7"}, "keyHtml": "<b>客户账号</b>", "cells": ["仅查看与下单申请", "所属客户", "<span class=\"td-num\">7</span>"], "ops": [{"t": "权限配置", "act": "openRolePerm('客户账号')"}]} },
+    'RL-09': { 'row': {"fields": {"name": "供应商账号", "desc": "下发回执与对账", "scope": "所属供应商", "accts": "3"}, "keyHtml": "<b>供应商账号</b>", "cells": ["下发回执与对账", "所属供应商", "<span class=\"td-num\">3</span>"], "ops": [{"t": "权限配置", "act": "openRolePerm('供应商账号')"}]} }
   }
 };
