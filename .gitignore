@@ -16,3 +16,6 @@ search_prompts.js
 # 系统文件
 Thumbs.db
 desktop.ini
+
+# 系统文件
+.DS_Store
