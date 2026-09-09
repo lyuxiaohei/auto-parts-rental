@@ -249,10 +249,10 @@ th.td-num { text-align:right; }
     <span class="form-label"><span class="req">*</span>供应商</span>
     <div class="input-box select-box" style="width:350px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option>路凯包装运营（上海）有限公司</option><option selected>苏州联恒五金制品有限公司</option><option>宁波华塑包装制品有限公司</option><option>常州正大塑料托盘厂</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
   </div><div class="form-row">
-    <span class="form-label"><span class="req">*</span>物料类型</span>
+    <span class="form-label"><span class="req">*</span>类别</span>
     <div class="input-box select-box" style="width:350px;"><select onchange="var r=document.getElementById('poQjRow');if(r)r.style.display=(this.options[this.selectedIndex].text=='器具')?'flex':'none'" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>零部件</option><option>器具</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
   </div><div class="form-row" id="poQjRow" style="display:none;">
-    <span class="form-label"><span class="req">*</span>器具档案</span>
+    <span class="form-label"><span class="req">*</span>产品档案</span>
     <div class="input-box select-box" style="width:350px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>WBX-1210L 围板箱</option><option>PLT-1210P 塑料托盘</option><option>BTC-6040 料箱</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
   </div><div class="form-row">
     <span class="form-label">关联销售订单号</span>
@@ -263,8 +263,8 @@ th.td-num { text-align:right; }
   </div><div style="margin:4px 0 8px;font-size:13px;font-weight:600;color:#1a1a1a;">采购明细</div>
   <div class="table-wrap" style="border:1px solid var(--border);border-radius:6px;">
     <table class="edit-tbl">
-      <thead><tr><th>物料编码</th><th>物料名称</th><th>规格</th><th>单位</th><th>数量</th><th>单价(元)</th><th>金额(元)</th></tr></thead>
-      <tbody><tr><td><input value="LJ-A100"></td><td><input value="锁扣组件"></td><td><input value="不锈钢 304"></td><td><input value="件"></td><td><input value="5,000"></td><td><input value="1.28"></td><td><input class="auto" value="6,400.00" readonly></td></tr><tr><td><input value="LJ-B200"></td><td><input value="铰链"></td><td><input value="锌合金 65mm"></td><td><input value="件"></td><td><input value="2,000"></td><td><input value="1.65"></td><td><input class="auto" value="3,300.00" readonly></td></tr></tbody>
+      <thead><tr><th>物料编码</th><th>物料名称</th><th>规格</th><th>单位</th><th>数量</th><th style="font-size:13.5px;font-weight:700;">未税单价(元)</th><th style="font-size:13.5px;font-weight:700;">税率</th><th style="font-size:13.5px;font-weight:700;">含税单价(元)</th><th>含税金额(元)</th></tr></thead>
+      <tbody><tr><td><select data-tax="prod" style="width:100%;min-width:0;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option>WBX-1210L 围板箱 1200×1000×970</option><option>WBX-1210M 围板箱 1200×1000×590</option><option>PLT-1210W 木托盘 1200×1000</option><option>PLT-1210P 塑料托盘 1200×1000</option><option>BTC-6040 料箱 600×400×340</option><option selected>LJ-A100 锁扣组件</option><option>LJ-C300 围板</option><option>LJ-D400 箱盖</option><option>LJ-F600 内衬</option></select></td><td><input value="锁扣组件"></td><td><input value="不锈钢 304"></td><td><input value="件"></td><td><input data-tax="qty" value="5,000"></td><td><input data-tax="excl" value="1.28"></td><td><input data-tax="rate" value="13%" style="width:56px;"></td><td><input data-tax="incl" value="1.45"></td><td><input data-tax="amt" class="auto" value="7,250.00" readonly></td></tr><tr><td><select data-tax="prod" style="width:100%;min-width:0;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option selected>LJ-B200</option><option>WBX-1210L 围板箱 1200×1000×970</option><option>WBX-1210M 围板箱 1200×1000×590</option><option>PLT-1210W 木托盘 1200×1000</option><option>PLT-1210P 塑料托盘 1200×1000</option><option>BTC-6040 料箱 600×400×340</option><option>LJ-A100 锁扣组件</option><option>LJ-C300 围板</option><option>LJ-D400 箱盖</option><option>LJ-F600 内衬</option></select></td><td><input value="铰链"></td><td><input value="锌合金 65mm"></td><td><input value="件"></td><td><input data-tax="qty" value="2,000"></td><td><input data-tax="excl" value="1.65"></td><td><input data-tax="rate" value="13%" style="width:56px;"></td><td><input data-tax="incl" value="1.86"></td><td><input data-tax="amt" class="auto" value="3,720.00" readonly></td></tr></tbody>
     </table>
   </div>
   <button class="btn btn-dashed btn-sm" style="width:100%;margin-top:8px;">+ 添加一行</button><div class="form-row">
@@ -328,5 +328,26 @@ document.querySelectorAll('.tab').forEach(function (t) {
   }, true);
 })();
 </script>
-</body>
+<script>/*F-A 税率三件套双向换算 · meeting0908 批3*/
+(function () {
+  function num(v){ var x = parseFloat(String(v).replace(/,/g,'')); return isNaN(x)?0:x; }
+  document.addEventListener('input', function (e) {
+    var i = e.target;
+    if (!i.matches || !i.matches('input[data-tax]')) return;
+    var tr = i.closest('tr'); if (!tr) return;
+    function q(r){ var el = tr.querySelector('input[data-tax="'+r+'"]'); return el ? String(el.value).replace(/,/g,'') : '0'; }
+    var rate = num(q('rate')) / 100;
+    if (i.getAttribute('data-tax') === 'incl') {
+      var ex = rate > 0 ? num(q('incl')) / (1 + rate) : num(q('incl'));
+      var exEl = tr.querySelector('input[data-tax="excl"]'); if (exEl) exEl.value = ex.toFixed(2);
+    } else {
+      var inc = num(q('excl')) * (1 + rate);
+      var incEl = tr.querySelector('input[data-tax="incl"]'); if (incEl) incEl.value = inc.toFixed(2);
+    }
+    var amt = tr.querySelector('input[data-tax="amt"]');
+    if (amt) amt.value = fmtAmt(num(q('qty')) * num(q('incl')));
+    function fmtAmt(x){ return x.toLocaleString('zh-CN', {minimumFractionDigits: 2, maximumFractionDigits: 2}); }
+  });
+})();
+</script></body>
 </html>

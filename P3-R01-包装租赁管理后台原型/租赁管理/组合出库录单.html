@@ -392,7 +392,7 @@ th.td-num { text-align:right; }
   </div>
   <div class="table-wrap edit-tbl">
     <table>
-      <thead><tr><th style="width:44px;">序号</th><th>组合件编码</th><th>组合件名称</th><th style="width:110px;">出库数量 *</th><th>可用组合库存</th><th data-note="1">可用量校验</th><th>出库库位</th><th class="sticky-op">操作</th></tr></thead>
+      <thead><tr><th style="width:44px;">序号</th><th>组合件编码</th><th>组合件名称</th><th style="width:110px;">出库数量 *</th><th style="font-size:13.5px;font-weight:700;">未税单价(元)</th><th style="font-size:13.5px;font-weight:700;">税率</th><th style="font-size:13.5px;font-weight:700;">含税单价(元)</th><th>含税金额(元)</th><th>可用组合库存</th><th data-note="1">可用量校验</th><th>出库库位</th><th class="sticky-op">操作</th></tr></thead>
       <tbody>
         <tr>
           <td>1</td>
@@ -584,5 +584,25 @@ document.querySelectorAll('.tab').forEach(function (t) {
   }, true);
 })();
 </script>
-</body>
+<script>/*F-A 税率三件套双向换算 · meeting0908 批3*/
+(function () {
+  function num(v){ var x = parseFloat(String(v).replace(/,/g,'')); return isNaN(x)?0:x; }
+  document.addEventListener('input', function (e) {
+    var i = e.target;
+    if (!i.matches || !i.matches('input[data-tax]')) return;
+    var tr = i.closest('tr'); if (!tr) return;
+    function q(r){ var el = tr.querySelector('input[data-tax="'+r+'"]'); return el ? String(el.value).replace(/,/g,'') : '0'; }
+    var rate = num(q('rate')) / 100;
+    if (i.getAttribute('data-tax') === 'incl') {
+      var ex = rate > 0 ? num(q('incl')) / (1 + rate) : num(q('incl'));
+      var exEl = tr.querySelector('input[data-tax="excl"]'); if (exEl) exEl.value = ex.toFixed(2);
+    } else {
+      var inc = num(q('excl')) * (1 + rate);
+      var incEl = tr.querySelector('input[data-tax="incl"]'); if (incEl) incEl.value = inc.toFixed(2);
+    }
+    var amt = tr.querySelector('input[data-tax="amt"]');
+    if (amt) amt.value = (num(q('qty')) * num(q('incl'))).toLocaleString('zh-CN', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+  });
+})();
+</script></body>
 </html>

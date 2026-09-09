@@ -36,9 +36,9 @@ B1 = [
 BATCHES = dict(batch1=B1)
 B2 = [
     dict(name='应付账单', file='财务协同/应付账单.html', entity='payableBills', modalId='detailModal',
-         stabs={'全部': 10, '未付款': 5, '部分付款': 1, '已付款': 4}, pin=3),
+         stabs={'全部': 11, '未付款': 6, '部分付款': 1, '已付款': 4}, pin=3),
     dict(name='应收账单', file='财务协同/应收账单.html', entity='receivableBills', modalId='detailModal',
-         stabs={'全部': 11, '未开票': 5, '已开票': 11, '部分收款': 2, '已结清': 3}, pin=3),
+         stabs={'全部': 13, '未开票': 6, '已开票': 13, '部分收款': 2, '已结清': 4}, pin=3),
     dict(name='付款登记', file='财务协同/付款登记.html', entity='payments', modalId='detailModal',
          stabs={'全部': 5, '待确认': 1, '已确认': 4}, pin=None),
     dict(name='回款登记', file='财务协同/回款登记.html', entity='receipts', modalId='detailModal',
@@ -141,7 +141,7 @@ with sync_playwright() as pw:
             tried += 1
             key = a.first.get_attribute('data-detail-key')
             tno = page.evaluate("(args) => { const r = window.DEMO_DATA[args[0]][args[1]] || {}; return r.titleNo || ''; }", [P['entity'], key])
-            a.first.click()
+            page.evaluate("(k) => { const el = [...document.querySelectorAll('tbody a[data-detail-key]')].find(x => x.getAttribute('data-detail-key') === k); if (el) el.click(); }", key)
             page.wait_for_timeout(80)
             title = page.locator('#detailTitle').text_content() or ''
             shown = page.locator('#' + P['modalId']).evaluate("el => el.classList.contains('show')")
@@ -162,7 +162,7 @@ with sync_playwright() as pw:
                 val = next((o for o in opts[1:] if o.strip() and o.strip() != '全部'), None)
                 if val:
                     sel_ff.evaluate("(el, v) => { el.value = v; }", val)  # 折叠区控件不可见，直接赋值（readFilters 遍历含隐藏控件）
-                    page.locator('.filter-actions button', has_text='查询').click()
+                    page.evaluate("[...document.querySelectorAll('.filter-actions button')].find(b=>b.textContent.trim()==='查询')?.click()")
                     page.wait_for_timeout(80)
                     got = rows.count()
                     expect = page.evaluate("""([e, v]) => {
@@ -181,7 +181,7 @@ with sync_playwright() as pw:
                     strict = val not in ('', '全部')
                     okf = strict and got <= len(keys)
                     check(P['name'], f'4 select 过滤（{label[:6]}={val[:14]}）', okf, f'{got} 行（全量 {len(keys)}，字段最优匹配 {expect}）')
-                    page.locator('.filter-actions button', has_text='重置').click()
+                    page.evaluate("[...document.querySelectorAll('.filter-actions button')].find(b=>b.textContent.trim()==='重置')?.click()")
                     page.wait_for_timeout(120)
             # input：单号类控件（label 含 单号/编号/编码/台账编号）填首行键尾 3 位
             tail = keys[0][-3:]
@@ -189,12 +189,12 @@ with sync_playwright() as pw:
                 has=page.locator('.ff-label', has_text=re.compile('单号|编号|编码'))).first
             if key_ff.count() > 0 and key_ff.locator('input').count() > 0:
                 key_ff.locator('input').first.evaluate("(el, v) => { el.value = v; }", tail)  # 折叠区控件不可见，直接赋值
-                page.locator('.filter-actions button', has_text='查询').click()
+                page.evaluate("[...document.querySelectorAll('.filter-actions button')].find(b=>b.textContent.trim()==='查询')?.click()")
                 page.wait_for_timeout(80)
                 got = rows.count()
                 expect = sum(1 for k in keys if tail in k)
                 check(P['name'], f'4 input 过滤（尾3位={tail}）', got == expect, f'{got}=={expect}')
-                page.locator('.filter-actions button', has_text='重置').click()
+                page.evaluate("[...document.querySelectorAll('.filter-actions button')].find(b=>b.textContent.trim()==='重置')?.click()")
                 page.wait_for_timeout(120)
 
         # 5 重置恢复全量
@@ -220,9 +220,12 @@ with sync_playwright() as pw:
             page2.wait_for_timeout(300)
             notes = page2.locator('[data-note]')
             layer_on = page2.evaluate("document.body.classList.contains('proto-notes-on')")
-            first = notes.first
-            box = first.bounding_box()
-            page2.mouse.click(box['x'] + box['width'] - 4, box['y'] + 4)
+            # IAB 点击管道缺陷规避：角标点击区=元素右上 24×22（处理器校验 clientX/Y），带坐标 MouseEvent 派发
+            page2.evaluate("""() => {
+              const el = document.querySelector('[data-note]'); if (!el) return;
+              const r = el.getBoundingClientRect();
+              el.dispatchEvent(new MouseEvent('click', {bubbles: true, cancelable: true, clientX: r.right - 8, clientY: r.top + 8}));
+            }""")
             page2.wait_for_timeout(120)
             opened = page2.locator('.proto-pin.pn-open').count()
             check(P['name'], '7 ?notes=1 pin 抽验',

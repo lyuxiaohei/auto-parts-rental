@@ -110,7 +110,10 @@
         if (sel) {
           var v = sel.value || (sel.options[sel.selectedIndex] || {}).text || '';
           v = v.trim();
-          if (v && v !== '全部') preds.push(function (r) { return String(r.fields[f.field]) === v; });
+          if (v && v !== '全部') preds.push(function (r) {
+            var fv = String(r.fields[f.field] || '');
+            return f.match === 'contains' ? fv.indexOf(v) > -1 : fv === v;
+          });
           return;
         }
         var inp = ff.querySelector('input');

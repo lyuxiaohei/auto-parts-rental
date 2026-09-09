@@ -1027,18 +1027,18 @@
   "js_errors": [],
   "problems": [],
   "stats": {
-   "buttons": 2,
+   "buttons": 3,
    "links": 0,
    "onclickEls": 3,
    "modals": 1,
    "modalTitles": [
     "新建租入单(演示页)"
    ],
-   "selects": 2,
+   "selects": 5,
    "fakeSelects": 0,
    "radios": 0,
    "checkboxes": 0,
-   "inputs": 6,
+   "inputs": 14,
    "stabs": 0,
    "tabs": 0,
    "bgMut": 0
@@ -1053,7 +1053,7 @@
   "stats": {
    "buttons": 1,
    "links": 0,
-   "onclickEls": 7,
+   "onclickEls": 6,
    "modals": 1,
    "modalTitles": [
     "租入单详情 · RZD-20260815(演示页)"
@@ -1178,11 +1178,11 @@
    "modalTitles": [
     "新建租赁单(演示页)"
    ],
-   "selects": 2,
+   "selects": 5,
    "fakeSelects": 0,
    "radios": 0,
    "checkboxes": 0,
-   "inputs": 16,
+   "inputs": 17,
    "stabs": 0,
    "tabs": 0,
    "bgMut": 0
@@ -1349,6 +1349,34 @@
   "js_errors": [],
   "problems": [
    {
+    "cat": "输入框",
+    "type": "input-not-editable",
+    "phase": "modal",
+    "where": {
+     "tag": "input",
+     "id": "",
+     "cls": "auto",
+     "text": "",
+     "row": "WBX-1210L 围板箱 12",
+     "inModal": "createModal"
+    },
+    "detail": "readonly 不可输入（预填:13,560.00）"
+   },
+   {
+    "cat": "输入框",
+    "type": "input-not-editable",
+    "phase": "modal",
+    "where": {
+     "tag": "input",
+     "id": "",
+     "cls": "auto",
+     "text": "",
+     "row": "WBX-1210L 围板箱 12",
+     "inModal": "createModal"
+    },
+    "detail": "readonly 不可输入（预填:68.00）"
+   },
+   {
     "cat": "弹窗",
     "type": "modal-unreachable",
     "phase": "modal",
@@ -1359,7 +1387,7 @@
    }
   ],
   "stats": {
-   "buttons": 10,
+   "buttons": 11,
    "links": 11,
    "onclickEls": 50,
    "modals": 3,
@@ -1367,11 +1395,11 @@
     "新建租入单",
     "审核确认"
    ],
-   "selects": 5,
+   "selects": 8,
    "fakeSelects": 0,
    "radios": 2,
    "checkboxes": 0,
-   "inputs": 17,
+   "inputs": 25,
    "stabs": 6,
    "tabs": 4,
    "bgMut": 0
@@ -1451,6 +1479,34 @@
   "js_errors": [],
   "problems": [
    {
+    "cat": "输入框",
+    "type": "input-not-editable",
+    "phase": "modal",
+    "where": {
+     "tag": "input",
+     "id": "",
+     "cls": "auto",
+     "text": "",
+     "row": "WBX-1210L 围板箱 12",
+     "inModal": "createModal"
+    },
+    "detail": "readonly 不可输入（预填:487.80）"
+   },
+   {
+    "cat": "输入框",
+    "type": "input-not-editable",
+    "phase": "modal",
+    "where": {
+     "tag": "input",
+     "id": "",
+     "cls": "auto",
+     "text": "",
+     "row": "WBX-1210L 围板箱 12",
+     "inModal": "createModal"
+    },
+    "detail": "readonly 不可输入（预填:30.60）"
+   },
+   {
     "cat": "弹窗",
     "type": "modal-unreachable",
     "phase": "modal",
@@ -1469,11 +1525,11 @@
     "新建租赁单",
     "审核确认"
    ],
-   "selects": 5,
+   "selects": 8,
    "fakeSelects": 0,
    "radios": 2,
    "checkboxes": 0,
-   "inputs": 30,
+   "inputs": 31,
    "stabs": 6,
    "tabs": 3,
    "bgMut": 0
@@ -1788,11 +1844,11 @@
     "新建付款登记",
     "确认付款"
    ],
-   "selects": 5,
+   "selects": 6,
    "fakeSelects": 0,
    "radios": 2,
    "checkboxes": 0,
-   "inputs": 14,
+   "inputs": 15,
    "stabs": 3,
    "tabs": 3,
    "bgMut": 0
@@ -1851,18 +1907,18 @@
   ],
   "stats": {
    "buttons": 11,
-   "links": 19,
-   "onclickEls": 56,
+   "links": 22,
+   "onclickEls": 58,
    "modals": 3,
    "modalTitles": [
     "新建应付账单",
     "账单确认"
    ],
-   "selects": 3,
+   "selects": 5,
    "fakeSelects": 0,
    "radios": 0,
    "checkboxes": 0,
-   "inputs": 21,
+   "inputs": 23,
    "stabs": 4,
    "tabs": 3,
    "bgMut": 0
@@ -1886,18 +1942,18 @@
   ],
   "stats": {
    "buttons": 10,
-   "links": 41,
-   "onclickEls": 74,
+   "links": 45,
+   "onclickEls": 76,
    "modals": 3,
    "modalTitles": [
     "手动生成账单",
     "账单确认"
    ],
-   "selects": 7,
+   "selects": 8,
    "fakeSelects": 0,
    "radios": 0,
    "checkboxes": 0,
-   "inputs": 19,
+   "inputs": 21,
    "stabs": 5,
    "tabs": 4,
    "bgMut": 0
@@ -1952,11 +2008,11 @@
    "modalTitles": [
     "新建付款登记(演示页)"
    ],
-   "selects": 3,
+   "selects": 4,
    "fakeSelects": 0,
    "radios": 0,
    "checkboxes": 0,
-   "inputs": 3,
+   "inputs": 4,
    "stabs": 0,
    "tabs": 0,
    "bgMut": 0
@@ -2296,11 +2352,11 @@
    "modalTitles": [
     "新建采购订单(演示页)"
    ],
-   "selects": 3,
+   "selects": 5,
    "fakeSelects": 0,
    "radios": 0,
    "checkboxes": 0,
-   "inputs": 17,
+   "inputs": 19,
    "stabs": 0,
    "tabs": 0,
    "bgMut": 0
@@ -2473,10 +2529,10 @@
      "id": "",
      "cls": "auto",
      "text": "",
-     "row": "",
+     "row": "WBX-1210L 围板箱 12",
      "inModal": "createModal"
     },
-    "detail": "readonly 不可输入（预填:6,400.00）"
+    "detail": "readonly 不可输入（预填:7,250.00）"
    },
    {
     "cat": "输入框",
@@ -2487,10 +2543,10 @@
      "id": "",
      "cls": "auto",
      "text": "",
-     "row": "",
+     "row": "LJ-B200WBX-1210L",
      "inModal": "createModal"
     },
-    "detail": "readonly 不可输入（预填:3,300.00）"
+    "detail": "readonly 不可输入（预填:3,720.00）"
    },
    {
     "cat": "弹窗",
@@ -2511,11 +2567,11 @@
     "新建采购订单",
     "审核确认"
    ],
-   "selects": 7,
+   "selects": 9,
    "fakeSelects": 0,
    "radios": 2,
    "checkboxes": 0,
-   "inputs": 29,
+   "inputs": 31,
    "stabs": 5,
    "tabs": 3,
    "bgMut": 0
@@ -2535,11 +2591,11 @@
    "modalTitles": [
     "新建销售订单(演示页)"
    ],
-   "selects": 2,
+   "selects": 4,
    "fakeSelects": 0,
    "radios": 2,
    "checkboxes": 0,
-   "inputs": 16,
+   "inputs": 18,
    "stabs": 0,
    "tabs": 0,
    "bgMut": 0
@@ -2607,11 +2663,11 @@
    "modalTitles": [
     "新增销售出库单(演示页)"
    ],
-   "selects": 2,
+   "selects": 3,
    "fakeSelects": 0,
    "radios": 0,
    "checkboxes": 0,
-   "inputs": 7,
+   "inputs": 10,
    "stabs": 0,
    "tabs": 0,
    "bgMut": 0
@@ -2672,6 +2728,20 @@
   "js_errors": [],
   "problems": [
    {
+    "cat": "输入框",
+    "type": "input-not-editable",
+    "phase": "modal",
+    "where": {
+     "tag": "input",
+     "id": "",
+     "cls": "auto",
+     "text": "",
+     "row": "WBX-1210L 围板箱 12",
+     "inModal": "createModal"
+    },
+    "detail": "readonly 不可输入（预填:87,550.00）"
+   },
+   {
     "cat": "弹窗",
     "type": "modal-unreachable",
     "phase": "modal",
@@ -2690,11 +2760,11 @@
     "新增销售出库单",
     "审核确认"
    ],
-   "selects": 5,
+   "selects": 6,
    "fakeSelects": 0,
    "radios": 2,
    "checkboxes": 0,
-   "inputs": 19,
+   "inputs": 22,
    "stabs": 3,
    "tabs": 3,
    "bgMut": 0
@@ -2715,10 +2785,10 @@
      "id": "",
      "cls": "auto",
      "text": "",
-     "row": "",
+     "row": "WBX-1210L 围板箱 12",
      "inModal": "createModal"
     },
-    "detail": "readonly 不可输入（预填:4,800.00）"
+    "detail": "readonly 不可输入（预填:5,430.00）"
    },
    {
     "cat": "输入框",
@@ -2729,10 +2799,10 @@
      "id": "",
      "cls": "auto",
      "text": "",
-     "row": "",
+     "row": "WBX-1210L 围板箱 12",
      "inModal": "createModal"
     },
-    "detail": "readonly 不可输入（预填:5,400.00）"
+    "detail": "readonly 不可输入（预填:6,105.00）"
    },
    {
     "cat": "弹窗",
@@ -2753,11 +2823,11 @@
     "新建销售订单",
     "审核确认"
    ],
-   "selects": 6,
+   "selects": 8,
    "fakeSelects": 0,
    "radios": 4,
    "checkboxes": 0,
-   "inputs": 29,
+   "inputs": 31,
    "stabs": 6,
    "tabs": 3,
    "bgMut": 0

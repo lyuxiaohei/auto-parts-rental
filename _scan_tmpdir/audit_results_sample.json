@@ -1,21 +1,62 @@
 [
  {
-  "page": "P3-R01-F01-业务流程导航图.html",
+  "page": "租赁管理\\租赁单列表.html",
   "js_errors": [],
-  "problems": [],
+  "problems": [
+   {
+    "cat": "输入框",
+    "type": "input-not-editable",
+    "phase": "modal",
+    "where": {
+     "tag": "input",
+     "id": "",
+     "cls": "auto",
+     "text": "",
+     "row": "WBX-1210L 围板箱 12",
+     "inModal": "createModal"
+    },
+    "detail": "readonly 不可输入（预填:487.80）"
+   },
+   {
+    "cat": "输入框",
+    "type": "input-not-editable",
+    "phase": "modal",
+    "where": {
+     "tag": "input",
+     "id": "",
+     "cls": "auto",
+     "text": "",
+     "row": "WBX-1210L 围板箱 12",
+     "inModal": "createModal"
+    },
+    "detail": "readonly 不可输入（预填:30.60）"
+   },
+   {
+    "cat": "弹窗",
+    "type": "modal-unreachable",
+    "phase": "modal",
+    "where": {
+     "text": "租赁单详情"
+    },
+    "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
+   }
+  ],
   "stats": {
-   "buttons": 0,
-   "links": 86,
-   "onclickEls": 8,
-   "modals": 0,
-   "modalTitles": [],
-   "selects": 0,
+   "buttons": 12,
+   "links": 22,
+   "onclickEls": 60,
+   "modals": 3,
+   "modalTitles": [
+    "新建租赁单",
+    "审核确认"
+   ],
+   "selects": 8,
    "fakeSelects": 0,
-   "radios": 0,
+   "radios": 2,
    "checkboxes": 0,
-   "inputs": 0,
-   "stabs": 0,
-   "tabs": 0,
+   "inputs": 31,
+   "stabs": 6,
+   "tabs": 3,
    "bgMut": 0
   },
   "dead_links": [],
