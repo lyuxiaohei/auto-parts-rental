@@ -5,7 +5,7 @@
   "problems": [],
   "stats": {
    "buttons": 0,
-   "links": 85,
+   "links": 84,
    "onclickEls": 8,
    "modals": 0,
    "modalTitles": [],
@@ -1848,7 +1848,7 @@
    "fakeSelects": 0,
    "radios": 2,
    "checkboxes": 0,
-   "inputs": 15,
+   "inputs": 19,
    "stabs": 3,
    "tabs": 3,
    "bgMut": 0
@@ -1918,7 +1918,7 @@
    "fakeSelects": 0,
    "radios": 0,
    "checkboxes": 0,
-   "inputs": 23,
+   "inputs": 27,
    "stabs": 4,
    "tabs": 3,
    "bgMut": 0
@@ -2012,7 +2012,7 @@
    "fakeSelects": 0,
    "radios": 0,
    "checkboxes": 0,
-   "inputs": 4,
+   "inputs": 8,
    "stabs": 0,
    "tabs": 0,
    "bgMut": 0

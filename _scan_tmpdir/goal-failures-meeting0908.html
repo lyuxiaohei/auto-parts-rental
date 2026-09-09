@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>meeting0908 改造 · 失败清单</title>
+<style>
+body{font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;background:#f5f5f5;color:#262626;padding:32px;}
+.card{max-width:860px;margin:0 auto;background:#fff;border:1px solid #f0f0f0;border-radius:8px;padding:24px 28px;}
+h2{font-size:17px;margin:0 0 12px;}
+table{width:100%;border-collapse:collapse;font-size:13px;margin-top:12px;}
+th,td{border:1px solid #f0f0f0;padding:8px 10px;text-align:left;}
+th{background:#fafafa;}
+.ok{color:#52c41a;font-weight:600;}
+.meta{color:#8c8c8c;font-size:12px;line-height:1.8;margin-top:16px;}
+</style>
+</head>
+<body>
+<div class="card">
+<h2>meeting0908 · 09-08 客户会议原型改造 · 失败清单（/goal 四批连跑）</h2>
+<table>
+<thead><tr><th>批次</th><th>范围</th><th>失败项</th><th>状态</th></tr></thead>
+<tbody>
+<tr><td>批1 结构</td><td>菜单五块+31 文件迁移+四模块移除+退租去关联+打印出货单</td><td>—</td><td class="ok">失败 0 项（audit 111 页 0/0/0 · verify 251 · 抽验 58）</td></tr>
+<tr><td>批2 档案角色</td><td>产品档案合并+客商去运营方+六角色+客户虚拟仓</td><td>—</td><td class="ok">失败 0 项（audit 108 页 0/0/0 · verify 243 · 抽验 36）</td></tr>
+<tr><td>批3 表单财务</td><td>税率三件套+产品下拉+单据简化+4v4+分期互算</td><td>—</td><td class="ok">失败 0 项（audit 108 页 0/0/0 · verify 243 · 抽验 34）</td></tr>
+<tr><td>批4 F01 与台账</td><td>F01 v3.0+A04 同步+P1-R05 十三节+P3-R04+P1-R01 10.2</td><td>—</td><td class="ok">失败 0 项（F01 audit 0/0/0 · 几何断言 23 项 · 新增重叠 0）</td></tr>
+</tbody>
+</table>
+<p class="meta"><b>结论：失败 0 项</b>——四批全部通过批末硬门，无单页回滚、无批内部分失败提交。<br>
+执行中拦截并当场修复（未流入提交前终态）：租赁单两文件 createModal 尾段腐蚀（换算脚本 tbody 定位 bug，git 恢复重做）与取消按钮错指 auditModal（fab2157 前遗留缺陷）；应付账单分期脚本占位 id 未替换；A04 九处 pin 旧模块叙事（批4 同步）。<br>
+默认决策偏差（详见 P1-R05 第十三节 D）：待办 18→15 类（纪要口径 16，按实际数据）；销售出库补打印出货单按钮（原无）；BOM.html 侧边栏随全站重划（裁定"不碰"限样式注入）；客户转租菜单未建（goal 菜单终版未含，F01 注记已落，P3-R04 ⚠️ 待下版）。<br>
+留档：_scan_tmpdir/backup-meeting0908-批1/批2 · 截图 f01-v30-full.png · 脚本 m0908_*.py</p>
+</div>
+</body>
+</html>

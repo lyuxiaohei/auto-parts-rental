@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>P3-R01-F01 · 业务流程导航图（v2.9）</title>
+<title>P3-R01-F01 · 业务流程导航图（v3.0）</title>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
@@ -66,9 +66,9 @@
 <body>
 <div class="wrap">
 
-  <p class="eyebrow">P3-R01-F01 · v2.9 原型业务流程导航</p>
+  <p class="eyebrow">P3-R01-F01 · v3.0 原型业务流程导航</p>
   <h1>业务流程导航图</h1>
-  <p class="sub">包装租赁管理后台原型 v2.9 · <b>45</b> 个页面 · 6 条业务流程泳道（第2次沟通纪要＋09-04 内部沟通）：<b>B1</b> 零部件买卖 · <b>L1</b> 单一出租 · <b>L2</b> 组合出租（第一期实现）· <b>L3</b> 租入转租 · <b>L4</b> 混合转租（2026-09-04 拍板第一期实现）· <b>T1</b> 退租专项（四线退租及后续链路汇总 · 09-04 拍板）· <b>6</b> 条支线 · B1 销售/采购双线独立+库存缓冲（09-04 王琳总拍板）· 实体节点点击直达</p>
+  <p class="sub">包装租赁管理后台原型 v3.0（2026-09-08 会议改造）· <b>40</b> 个页面 · 6 条业务流程泳道（第3次沟通纪要 09-08）：<b>B1</b> 零部件买卖 · <b>L1</b> 单一出租 · <b>L2</b> 组合出租（第一期实现）· <b>L3</b> 租入转租 · <b>L4</b> 混合转租（2026-09-04 拍板第一期实现）· <b>T1</b> 退租专项（四线退租及后续链路汇总 · 09-04 拍板）· <b>6</b> 条支线 · B1 销售/采购双线独立+库存缓冲（09-04 王琳总拍板）· 实体节点点击直达 · 09-08 改造：组装/拆卸/退租申请/丢损赔偿单移除（按 BOM 组合出库·按零件入库·赔偿直建账单）· 财务 4v4 · 客户虚拟仓/客户转租</p>
 
   <!-- ============ 演示主线（两行泳道，可点） ============ -->
   <div class="sec-head">
@@ -116,7 +116,7 @@
 
     <rect x="560" y="76" width="680" height="52" rx="6" fill="rgba(17,24,39,0.02)" stroke="#d1d5db" stroke-width="0.8" stroke-dasharray="4,3"/>
     <text x="574" y="94" fill="#9ca3af" font-size="8.5" font-family="'Geist Mono',monospace">决策变更：原"先销后采互通"（袁丽晶 21:46）→ 2026-09-04 王琳总拍板：销售/采购两条独立线 · 库存缓冲 · 不以销定采</text>
-    <text x="574" y="112" fill="#9ca3af" font-size="8.5" font-family="'Geist Mono',monospace">入库凭单验收 · 指令来源4种：采购入库←采购订单 ｜ 租入入库←租入单 ｜ 退租入库←退租申请 ｜ 其他入库←手工（例外）</text>
+    <text x="574" y="112" fill="#9ca3af" font-size="8.5" font-family="'Geist Mono',monospace">入库凭单验收 · 指令来源4种：采购入库←采购订单 ｜ 租入入库←租入单 ｜ 退租入库←客户退回直接录入 ｜ 其他入库←手工（例外）</text>
 
     <path d="M 459 142 V 156 H 287 V 168" fill="none" stroke="#2563eb" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arr-blue)"/>
     <text x="447" y="152" fill="#2563eb" font-size="8.5" font-family="'Geist Mono',monospace" text-anchor="end">库存缓冲 · 按可用量发货</text>
@@ -221,8 +221,8 @@
 
     <a href="租赁管理/组合出库列表.html">
       <rect x="412" y="422" width="112" height="56" rx="6" fill="rgba(37,99,235,0.08)" stroke="#2563eb" stroke-width="1"/>
-      <text x="468" y="447" fill="#111827" font-size="12.5" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">组装</text>
-      <text x="468" y="466" fill="#2563eb" font-size="8.5" font-family="'Geist Mono',monospace" text-anchor="middle">选父项C·自动带子件</text>
+      <text x="468" y="447" fill="#111827" font-size="12.5" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">按 BOM 组合出库</text>
+      <text x="468" y="466" fill="#2563eb" font-size="8.5" font-family="'Geist Mono',monospace" text-anchor="middle">出库时组合扣减组件（无组装单）</text>
     </a>
 
     <a href="租赁管理/租赁单列表.html">
@@ -239,7 +239,7 @@
     <text x="784" y="454" fill="#9ca3af" font-size="9.5" font-family="'Geist Mono',monospace">→ 退租及后续见 T1 专项</text>
 
         <line x1="40" y1="528" x2="1240" y2="528" stroke="rgba(17,24,39,0.06)" stroke-width="1"/>
-    <text x="40" y="546" fill="#1f2937" font-size="14" font-weight="700" font-family="'Geist',sans-serif">L3 · 租赁 · 租入转租（向供应商/运营方租入 → 转租客户）</text>
+    <text x="40" y="546" fill="#1f2937" font-size="14" font-weight="700" font-family="'Geist',sans-serif">L3 · 租赁 · 租入转租（向供应商/供应商租入 → 转租客户）</text>
     <rect x="466" y="532" width="158" height="17" rx="3" fill="rgba(37,99,235,0.08)" stroke="#2563eb" stroke-width="0.8"/>
     <text x="545" y="544" fill="#2563eb" font-size="9" font-weight="600" font-family="'Geist Mono',monospace" text-anchor="middle">第一期实现 · 2026-09-04 拍板</text>
     <text x="730" y="545" fill="#9ca3af" font-size="9" font-family="'Geist Mono',monospace">决策变更：原会议暂缓（袁丽晶 37:35）→ 2026-09-04 道远拍板第一期闭环</text>
@@ -257,7 +257,7 @@
     <a href="租赁管理/租入单列表.html">
       <rect x="40" y="562" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
       <text x="110" y="587" fill="#111827" font-size="12.5" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">租入单</text>
-      <text x="110" y="606" fill="#4b5563" font-size="8.5" font-family="'Geist Mono',monospace" text-anchor="middle">向运营方/供应商租入</text>
+      <text x="110" y="606" fill="#4b5563" font-size="8.5" font-family="'Geist Mono',monospace" text-anchor="middle">向供应商/供应商租入</text>
     </a>
 
     <a href="租赁管理/租入入库列表.html">
@@ -346,35 +346,31 @@
     </g>
     <text x="1240" y="882" fill="#2563eb" font-size="9.5" font-family="'Geist Mono',monospace" text-anchor="end">核对：要么赔偿，要么继续 · 来源定去向（回库 / 归还）</text>
 
-    <line x1="210" y1="930" x2="230" y2="930" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
-    <line x1="380" y1="930" x2="400" y2="930" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
+    <line x1="210" y1="930" x2="400" y2="930" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
     <a href="租赁管理/在租台账.html">
       <rect x="40" y="902" width="170" height="56" rx="6" fill="rgba(75,85,99,0.10)" stroke="#4b5563" stroke-width="1"/>
       <text x="125" y="927" fill="#111827" font-size="12.5" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">在租台账「退租」/ 客户申请</text>
-      <text x="125" y="946" fill="#4b5563" font-size="8.5" font-family="'Geist Mono',monospace" text-anchor="middle">双入口发起退租申请</text>
-    </a>
-    <a href="租赁管理/退租入库列表.html">
-      <rect x="230" y="902" width="150" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
-      <text x="305" y="927" fill="#111827" font-size="12.5" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">退租申请</text>
-      <text x="305" y="946" fill="#4b5563" font-size="8.5" font-family="'Geist Mono',monospace" text-anchor="middle">待审核→已审核→待入库→已入库</text>
+      <text x="125" y="946" fill="#4b5563" font-size="8.5" font-family="'Geist Mono',monospace" text-anchor="middle">客户退回 · 直接录入退租入库</text>
     </a>
     <a href="租赁管理/退租入库列表.html">
       <rect x="400" y="902" width="150" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
       <text x="475" y="927" fill="#111827" font-size="12.5" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">退租入库</text>
       <text x="475" y="946" fill="#4b5563" font-size="8.5" font-family="'Geist Mono',monospace" text-anchor="middle">凭单验收 · 缺损核对</text>
     </a>
-    <text x="592" y="924" fill="#6b7280" font-size="9.5" font-family="'Geist Mono',monospace">审核通过自动生成「退租入库单」（退租申请列表 · 审核弹窗）</text>
+    <text x="592" y="924" fill="#6b7280" font-size="9.5" font-family="'Geist Mono',monospace">退租无申请单：客户退回后直接录入退租入库单 · 入库仅更新库存（2026-09-08 会议）</text>
     <text x="592" y="940" fill="#6b7280" font-size="9.5" font-family="'Geist Mono',monospace">核对二分（赔偿 / 继续）与来源分流 ↓</text>
 
     <path d="M 550 930 H 572 V 1358" fill="none" stroke="#4b5563" stroke-width="1"/>
-    <text x="40" y="1000" fill="#374151" font-size="11" font-weight="700" font-family="'Geist',sans-serif">① 缺损核对 · 要么赔偿，要么继续</text>
+        <text x="40" y="968" fill="#6b7280" font-size="9.5" font-family="'Geist Mono',monospace">客户转租：独立菜单改状态 · 最简化——拉表改状态（如「客户转租出」）+ 可查（哪个客户/何时改的）+ 最终能还回（2026-09-08 会议）</text>
+    <text x="40" y="982" fill="#6b7280" font-size="9.5" font-family="'Geist Mono',monospace">客户虚拟仓：在客户处的租赁资产按客户归集（on-hire）；客户转租为其子状态（T1 方向 · 库位档案/库存查询已示例）</text>
+<text x="40" y="1000" fill="#374151" font-size="11" font-weight="700" font-family="'Geist',sans-serif">① 缺损核对 · 要么赔偿，要么继续</text>
     <line x1="572" y1="1042" x2="600" y2="1042" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
     <a href="财务协同/应付账单.html">
       <rect x="600" y="1014" width="170" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
-      <text x="685" y="1039" fill="#111827" font-size="12.5" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">丢损赔偿</text>
+      <text x="685" y="1039" fill="#111827" font-size="12.5" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">直接转应收/应付</text>
       <text x="685" y="1058" fill="#4b5563" font-size="8.5" font-family="'Geist Mono',monospace" text-anchor="middle">缺损/丢失/损坏 · 转 AR/AP</text>
     </a>
-    <text x="800" y="1046" fill="#6b7280" font-size="9.5" font-family="'Geist Mono',monospace">自有 → 应收（客户赔）· 租入 → 应付（运营方赔）· 审核即核销库存 · 详见 S4</text>
+    <text x="800" y="1046" fill="#6b7280" font-size="9.5" font-family="'Geist Mono',monospace">自有 → 应收（客户赔）· 租入 → 应付（供应商赔）· 无赔偿单直接建账单（费用分类）· 详见 S4</text>
     <text x="40" y="1100" fill="#374151" font-size="11" font-weight="700" font-family="'Geist',sans-serif">② 完好 · 按资产来源 × 是否拆散 · 归还分流</text>
     <line x1="572" y1="1142" x2="600" y2="1142" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
     <g>
@@ -399,13 +395,13 @@
     <g>
       <rect x="600" y="1186" width="96" height="56" rx="6" fill="rgba(37,99,235,0.08)" stroke="#93c5fd" stroke-width="1"/>
       <text x="648" y="1211" fill="#1f2937" font-size="11.5" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">L2 · 组合出租</text>
-      <text x="648" y="1230" fill="#6b7280" font-size="8.5" font-family="'Geist Mono',monospace" text-anchor="middle">按 BOM 拆散</text>
+      <text x="648" y="1230" fill="#6b7280" font-size="8.5" font-family="'Geist Mono',monospace" text-anchor="middle">按零件入库</text>
     </g>
     <line x1="696" y1="1214" x2="716" y2="1214" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
     <a href="租赁管理/退租入库列表.html">
       <rect x="716" y="1186" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
-      <text x="786" y="1211" fill="#111827" font-size="12.5" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">拆散 · 拆卸管理</text>
-      <text x="786" y="1230" fill="#4b5563" font-size="8.5" font-family="'Geist Mono',monospace" text-anchor="middle">组合拆回散件</text>
+      <text x="786" y="1211" fill="#111827" font-size="12.5" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">按零件入库</text>
+      <text x="786" y="1230" fill="#4b5563" font-size="8.5" font-family="'Geist Mono',monospace" text-anchor="middle">退租按拆后零件记录（无拆卸单）</text>
     </a>
     <line x1="856" y1="1214" x2="876" y2="1214" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
     <a href="仓储作业/库存查询.html">
@@ -416,8 +412,8 @@
     <line x1="1016" y1="1214" x2="1036" y2="1214" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
     <a href="租赁管理/组合出库列表.html">
       <rect x="1036" y="1186" width="140" height="56" rx="6" fill="rgba(37,99,235,0.08)" stroke="#2563eb" stroke-width="1"/>
-      <text x="1106" y="1211" fill="#111827" font-size="12.5" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">再组装</text>
-      <text x="1106" y="1230" fill="#2563eb" font-size="8.5" font-family="'Geist Mono',monospace" text-anchor="middle">散件循环 · 成组</text>
+      <text x="1106" y="1211" fill="#111827" font-size="12.5" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">再组合出库</text>
+      <text x="1106" y="1230" fill="#2563eb" font-size="8.5" font-family="'Geist Mono',monospace" text-anchor="middle">按 BOM 组合扣减组件</text>
     </a>
     <text x="1186" y="1218" fill="#9ca3af" font-size="9.5" font-family="'Geist Mono',monospace">↩ 属 L2 线</text>
     <line x1="572" y1="1286" x2="600" y2="1286" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
@@ -430,7 +426,7 @@
     <a href="租赁管理/租入归还列表.html">
       <rect x="716" y="1258" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
       <text x="786" y="1283" fill="#111827" font-size="12.5" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">租入归还</text>
-      <text x="786" y="1302" fill="#4b5563" font-size="8.5" font-family="'Geist Mono',monospace" text-anchor="middle">整退 GHCK · 还运营方</text>
+      <text x="786" y="1302" fill="#4b5563" font-size="8.5" font-family="'Geist Mono',monospace" text-anchor="middle">整退 GHCK · 还供应商</text>
     </a>
     <line x1="856" y1="1286" x2="876" y2="1286" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
     <a href="财务协同/应付账单.html">
@@ -448,7 +444,7 @@
     <line x1="696" y1="1358" x2="716" y2="1358" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
     <a href="租赁管理/退租入库列表.html">
       <rect x="716" y="1330" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
-      <text x="786" y="1355" fill="#111827" font-size="12.5" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">拆散 · 拆卸管理</text>
+      <text x="786" y="1355" fill="#111827" font-size="12.5" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">按零件入库</text>
       <text x="786" y="1374" fill="#4b5563" font-size="8.5" font-family="'Geist Mono',monospace" text-anchor="middle">组合拆回散件</text>
     </a>
     <line x1="856" y1="1358" x2="876" y2="1358" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
@@ -473,12 +469,12 @@
     <a href="租赁管理/组合出库列表.html">
       <rect x="40" y="1438" width="280" height="56" rx="6" fill="rgba(75,85,99,0.10)" stroke="#4b5563" stroke-width="1"/>
       <text x="180" y="1463" fill="#111827" font-size="12.5" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">F1 · 应收来源</text>
-      <text x="180" y="1482" fill="#4b5563" font-size="8.5" font-family="'Geist Mono',monospace" text-anchor="middle">B1 销售费 · L1~L4 租赁费 · 丢损赔偿（对客户）</text>
+      <text x="180" y="1482" fill="#4b5563" font-size="8.5" font-family="'Geist Mono',monospace" text-anchor="middle">B1 销售费 · L1~L4 租赁费 · 丢损赔偿（对客户）· 供应商应收（4 来源）</text>
     </a>
     <a href="财务协同/应收账单.html">
       <rect x="336" y="1438" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
       <text x="406" y="1463" fill="#111827" font-size="12.5" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">应收账单</text>
-      <text x="406" y="1482" fill="#4b5563" font-size="8.5" font-family="'Geist Mono',monospace" text-anchor="middle">三类应收自动汇总</text>
+      <text x="406" y="1482" fill="#4b5563" font-size="8.5" font-family="'Geist Mono',monospace" text-anchor="middle">四类应收来源（含供应商应收）</text>
     </a>
     <line x1="476" y1="1466" x2="492" y2="1466" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
     <a href="财务协同/开票登记.html">
@@ -502,12 +498,12 @@
     <a href="租赁管理/租入单列表.html">
       <rect x="40" y="1514" width="280" height="56" rx="6" fill="rgba(75,85,99,0.10)" stroke="#4b5563" stroke-width="1"/>
       <text x="180" y="1539" fill="#111827" font-size="12.5" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">F2 · 应付来源</text>
-      <text x="180" y="1558" fill="#4b5563" font-size="8.5" font-family="'Geist Mono',monospace" text-anchor="middle">采购应付 · 租金应付（按月）· 赔付应付</text>
+      <text x="180" y="1558" fill="#4b5563" font-size="8.5" font-family="'Geist Mono',monospace" text-anchor="middle">采购应付 · 租金应付 · 赔付应付 · 对客户应付/预付款（4 来源）</text>
     </a>
     <a href="财务协同/应付账单.html">
       <rect x="336" y="1514" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
       <text x="406" y="1539" fill="#111827" font-size="12.5" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">应付账单</text>
-      <text x="406" y="1558" fill="#4b5563" font-size="8.5" font-family="'Geist Mono',monospace" text-anchor="middle">三类应付汇总</text>
+      <text x="406" y="1558" fill="#4b5563" font-size="8.5" font-family="'Geist Mono',monospace" text-anchor="middle">四类应付来源（含对客户应付）</text>
     </a>
     <line x1="476" y1="1542" x2="492" y2="1542" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
     <a href="财务协同/付款登记.html">
@@ -519,7 +515,7 @@
     <text x="660" y="1546" fill="#6b7280" font-size="9.5" font-family="'Geist Mono',monospace">付款确认 <a href="财务协同/弹窗/付款确认.html" fill="#2563eb">弹窗独立打开</a> · 租金应付 L3/L4 已实现（租入单按月生成）</text>
     <text x="960" y="1470" fill="#6b7280" font-size="9.5" font-family="'Geist Mono',monospace">按客户/供应商汇总 · 同一账单可部分核销</text>
     <text x="40" y="1594" fill="#9ca3af" font-size="8.5" font-family="'Geist',sans-serif">押金：租赁单现有押金字段（原型自带）；收退规则属商务口径待客户确认（计费单价/押金/缺损标准，见 P1-R01 待确认项）——非会议提出的需求</text>
-    <text x="40" y="1610" fill="#9ca3af" font-size="8.5" font-family="'Geist',sans-serif">预收/预付：客户预付租金记预收按月冲抵；预付运营方租金记预付（09-06 补充）</text>
+    <text x="40" y="1610" fill="#9ca3af" font-size="8.5" font-family="'Geist',sans-serif">预收/预付：客户预付租金记预收按月冲抵；预付供应商租金记预付（09-06 补充）</text>
     <line x1="40" y1="1400" x2="1240" y2="1400" stroke="rgba(17,24,39,0.06)" stroke-width="1"/>
     </svg>
 
@@ -548,7 +544,7 @@
 
     <a href="仓储作业/其他出库列表.html"><rect x="826" y="20" width="104" height="36" rx="4" fill="#ffffff" stroke="#111827"/><text x="878" y="36" fill="#111827" font-size="11.5" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">其他出库</text><text x="878" y="50" fill="#6b7280" font-size="8.5" font-family="'Geist Mono',monospace" text-anchor="middle">报废/盘亏/其他</text></a>
 
-    <a href="租赁管理/退租入库列表.html"><rect x="946" y="20" width="104" height="36" rx="4" fill="rgba(75,85,99,0.10)" stroke="#4b5563"/><text x="998" y="36" fill="#111827" font-size="11.5" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">拆卸管理</text><text x="998" y="50" fill="#6b7280" font-size="8.5" font-family="'Geist Mono',monospace" text-anchor="middle">承接 T1 拆散</text></a>
+    <a href="租赁管理/退租入库列表.html"><rect x="946" y="20" width="104" height="36" rx="4" fill="rgba(75,85,99,0.10)" stroke="#4b5563"/><text x="998" y="36" fill="#111827" font-size="11.5" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">按零件入库</text><text x="998" y="50" fill="#6b7280" font-size="8.5" font-family="'Geist Mono',monospace" text-anchor="middle">退租拆后零件入库</text></a>
 
     <text x="1062" y="42" fill="#6b7280" font-size="9.5" font-family="'Geist Mono',monospace">⟵ T1 退租拆散（L2/L4 分支）</text>
     <text x="336" y="70" fill="#9ca3af" font-size="8.5" font-family="'Geist Mono',monospace">盘点差异 → 盘盈转其他入库 · 盘亏转其他出库</text>
@@ -579,7 +575,7 @@
     <text x="40" y="386" fill="#1f2937" font-size="14" font-weight="700" font-family="'Geist',sans-serif">S4 · 赔偿转单据</text>
     <text x="40" y="400" fill="#9ca3af" font-size="8.5" font-family="'Geist Mono',monospace">DAMAGE → AR/AP</text>
 
-    <a href="财务协同/应付账单.html"><rect x="200" y="380" width="150" height="56" rx="4" fill="rgba(75,85,99,0.10)" stroke="#4b5563"/><text x="275" y="396" fill="#111827" font-size="11.5" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">丢损赔偿单</text><text x="275" y="410" fill="#6b7280" font-size="8.5" font-family="'Geist Mono',monospace" text-anchor="middle">按资产来源定对象</text></a>
+    <a href="财务协同/应付账单.html"><rect x="200" y="380" width="150" height="56" rx="4" fill="rgba(75,85,99,0.10)" stroke="#4b5563"/><text x="275" y="396" fill="#111827" font-size="11.5" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">直接生成应收/应付</text><text x="275" y="410" fill="#6b7280" font-size="8.5" font-family="'Geist Mono',monospace" text-anchor="middle">无赔偿单 · 费用分类</text></a>
 
     <line x1="350" y1="382" x2="404" y2="382" stroke="#4b5563" stroke-width="1" marker-end="url(#arr2)"/>
     <text x="377" y="376" fill="#4b5563" font-size="8.5" font-family="'Geist Mono',monospace" text-anchor="middle">自有</text>
@@ -587,15 +583,15 @@
 
     <line x1="350" y1="434" x2="404" y2="434" stroke="#4b5563" stroke-width="1" marker-end="url(#arr2)"/>
     <text x="377" y="448" fill="#4b5563" font-size="8.5" font-family="'Geist Mono',monospace" text-anchor="middle">租入</text>
-    <a href="财务协同/应付账单.html"><rect x="404" y="416" width="170" height="36" rx="4" fill="#ffffff" stroke="#111827"/><text x="489" y="432" fill="#111827" font-size="11.5" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">应付账单（运营方赔付）</text><text x="489" y="446" fill="#6b7280" font-size="8.5" font-family="'Geist Mono',monospace" text-anchor="middle">转应付 → 付款登记</text></a>
+    <a href="财务协同/应付账单.html"><rect x="404" y="416" width="170" height="36" rx="4" fill="#ffffff" stroke="#111827"/><text x="489" y="432" fill="#111827" font-size="11.5" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">应付账单（供应商赔付）</text><text x="489" y="446" fill="#6b7280" font-size="8.5" font-family="'Geist Mono',monospace" text-anchor="middle">转应付 → 付款登记</text></a>
 
-    <text x="600" y="408" fill="#6b7280" font-size="9.5" font-family="'Geist Mono',monospace">口径：按对象直接转单据，无中间结算环节；审核即核销库存（其他出库 · 赔偿核销，09-05 王琳总）</text>
+    <text x="600" y="408" fill="#6b7280" font-size="9.5" font-family="'Geist Mono',monospace">口径：不走独立赔偿单，按对象直接生成应收/应付账单（带费用分类，2026-09-08 会议）；核销库存（其他出库 · 赔偿核销，09-05 王琳总）</text>
     <text x="40" y="522" fill="#1f2937" font-size="14" font-weight="700" font-family="'Geist',sans-serif">S5 · 录单页与台账</text>
     <text x="40" y="536" fill="#9ca3af" font-size="8.5" font-family="'Geist Mono',monospace">FORMS &amp; LEDGER</text>
 
     <a href="采购管理/采购入库录单.html"><rect x="200" y="500" width="130" height="36" rx="4" fill="#ffffff" stroke="#111827"/><text x="265" y="516" fill="#111827" font-size="11.5" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">采购入库录单</text><text x="265" y="530" fill="#6b7280" font-size="8.5" font-family="'Geist Mono',monospace" text-anchor="middle">⟷ 采购入库列表</text></a>
 
-    <a href="租赁管理/组合出库录单.html"><rect x="344" y="500" width="130" height="36" rx="4" fill="#ffffff" stroke="#111827"/><text x="409" y="516" fill="#111827" font-size="11.5" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">组装录单</text><text x="409" y="530" fill="#6b7280" font-size="8.5" font-family="'Geist Mono',monospace" text-anchor="middle">⟷ 组装列表</text></a>
+    <a href="租赁管理/组合出库录单.html"><rect x="344" y="500" width="130" height="36" rx="4" fill="#ffffff" stroke="#111827"/><text x="409" y="516" fill="#111827" font-size="11.5" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">组合出库录单</text><text x="409" y="530" fill="#6b7280" font-size="8.5" font-family="'Geist Mono',monospace" text-anchor="middle">⟷ 组合出库列表</text></a>
 
     <a href="租赁管理/组合出库录单.html"><rect x="488" y="500" width="130" height="36" rx="4" fill="#ffffff" stroke="#111827"/><text x="553" y="516" fill="#111827" font-size="11.5" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">组合出库录单</text><text x="553" y="530" fill="#6b7280" font-size="8.5" font-family="'Geist Mono',monospace" text-anchor="middle">⟷ 组合出库列表</text></a>
 
@@ -620,10 +616,10 @@
     <a href="采购管理/弹窗/采购入库审核.html"><rect x="398" y="620" width="150" height="36" rx="4" fill="#ffffff" stroke="#111827"/><text x="473" y="636" fill="#111827" font-size="11.5" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">审核弹窗（18 类）</text><text x="473" y="650" fill="#6b7280" font-size="8.5" font-family="'Geist Mono',monospace" text-anchor="middle">通过 / 驳回 · 审核意见</text></a>
     <a href="销售管理/销售订单列表.html"><rect x="596" y="620" width="150" height="36" rx="4" fill="#ffffff" stroke="#111827"/><text x="671" y="636" fill="#111827" font-size="11.5" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">状态流转</text><text x="671" y="650" fill="#6b7280" font-size="8.5" font-family="'Geist Mono',monospace" text-anchor="middle">待审核→已审核→已完成</text></a>
     <a href="系统管理/操作日志.html"><rect x="794" y="620" width="150" height="36" rx="4" fill="#ffffff" stroke="#111827"/><text x="869" y="636" fill="#111827" font-size="11.5" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">操作日志</text><text x="869" y="650" fill="#6b7280" font-size="8.5" font-family="'Geist Mono',monospace" text-anchor="middle">全操作留痕可溯</text></a>
-    <text x="992" y="642" fill="#6b7280" font-size="9.5" font-family="'Geist',sans-serif">18 类单据统一进待办（订单/出入库/租赁/退租/赔偿/盘点/调拨/拆卸/付款、收款/租入单据）；<tspan fill="#374151" font-weight="600">状态流范本＝销售订单</tspan>（待审核/已审核/待发货/已完成/已关闭）</text>
+    <text x="992" y="642" fill="#6b7280" font-size="9.5" font-family="'Geist',sans-serif">15 类单据统一进待办（订单/出入库/租赁/退租/盘点/调拨/付款、收款/租入单据；赔偿/组装/拆卸随模块移除）；<tspan fill="#374151" font-weight="600">状态流范本＝销售订单</tspan>（待审核/已审核/待发货/已完成/已关闭）</text>
   </svg>
 
-  <footer>P3-R01-F01 · v2.9 · 2026-09-04 · 汽车物流包装租赁 · 包装租赁管理后台原型 · 45 页 / 6 条主线泳道（B1/L1/L2/L3/L4 全部第一期实现·L3/L4 为 2026-09-04 拍板升级·T1 退租专项汇总四线·泳道止于出库，退租及后续统一在 T1）+ 6 条支线 S1-S6（采购应付已并入 F2） · 全部流程化跳转 · 79 个弹窗可独立演示 · 单一管理端 · 订单唯一来源：项目经理代下销售订单（客户PO）· 演示建议：从 L1/L2 租赁线开始（在租台账四态卡为亮点），再走 B1 买卖线（更简单快速）· F02 演示流程图已归档，演示统一用本图</footer>
+  <footer>P3-R01-F01 · v3.0 · 2026-09-09 · 汽车物流包装租赁 · 包装租赁管理后台原型 · 40 页 / 6 条主线泳道（B1/L1/L2/L3/L4 全部第一期实现·L3/L4 为 2026-09-04 拍板升级·T1 退租专项汇总四线·泳道止于出库，退租及后续统一在 T1）+ 6 条支线 S1-S6（采购应付已并入 F2） · 全部流程化跳转 · 67 个弹窗可独立演示 · 单一管理端 · 订单唯一来源：项目经理代下销售订单（客户PO）· 演示建议：从 L1/L2 租赁线开始（在租台账四态卡为亮点），再走 B1 买卖线（更简单快速）· F02 演示流程图已归档，演示统一用本图 · v3.0（09-08 会议）：四模块移除·按 BOM 组合出库/按零件入库·赔偿直建 4v4·分期互算·产品档案合并·客户虚拟仓/客户转租·六角色审核</footer>
 </div>
 
 <style id="src-pop-css">
@@ -644,6 +640,7 @@ var SRC_DATA = {
     ['第2次沟通 [音频转写] · 袁丽晶 21:46','"先销售后采购，或者我采购订单先入库之后再生成销售订单，我觉得这个可以互通关系都没问题"'],
     ['决策变更 · 第3次沟通前内部沟通 [音频转写] · 王琳总 2:18 / 2:36','"销售和采购不是匹配关系……不是以销定产，肯定不是以销定产。即使它是，也要人为把它拆开"；"这是两条线，销售直接就是销售出入，采购是单独的"'],
     ['同上 · 王琳总 0:40 / 1:35 / 3:27','"采购订单分两类，一类是采购零件的……可以公用"；"肯定要入库指令才能入库……知道你要入十个，我还验收，来的是不是十个……信息和物资去匹配才能形成完整的闭环"；"入库的指令来源于4种"'],
+    ['v3.0 · 2026-09-08 会议拍板','组装/拆卸/退租申请/丢损赔偿单四模块移除——库存结果导向（出库按 BOM 组合扣减·退租按零件入库·赔偿直接建应收/应付）；财务应收应付各 4 来源；器具+零部件合并产品档案；客商去供应商；六角色审核；客户虚拟仓（on-hire）与客户转租最简化'],
     ['同上 · 道远 3:49（王琳总确认）','"这个退租入库给它拆出来……主要复杂就在于要退租"——各租赁线退租独立成段；v2.9 泳道内压缩为「退租」占位节点，完整四链路见 T1 专项'],
   ]},
   l1: {head:'L1 · 单一出租 · 会议依据', items:[
