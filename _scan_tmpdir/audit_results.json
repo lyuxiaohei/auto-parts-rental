@@ -1,7 +1,12 @@
 [
  {
   "page": "P3-R01-F01-业务流程导航图.html",
-  "js_errors": [],
+  "js_errors": [
+   {
+    "type": "error",
+    "text": "Failed to load resource: net::ERR_CONNECTION_RESET"
+   }
+  ],
   "problems": [],
   "stats": {
    "buttons": 0,
@@ -1822,6 +1827,30 @@
   "nav_anomaly": null
  },
  {
+  "page": "系统管理\\角色管理.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 3,
+   "links": 18,
+   "onclickEls": 56,
+   "modals": 1,
+   "modalTitles": [
+    "角色管理"
+   ],
+   "selects": 0,
+   "fakeSelects": 0,
+   "radios": 0,
+   "checkboxes": 0,
+   "inputs": 1,
+   "stabs": 0,
+   "tabs": 3,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
   "page": "财务协同\\付款登记.html",
   "js_errors": [],
   "problems": [
@@ -2291,7 +2320,7 @@
   "stats": {
    "buttons": 3,
    "links": 0,
-   "onclickEls": 40,
+   "onclickEls": 39,
    "modals": 0,
    "modalTitles": [],
    "selects": 3,
@@ -2929,7 +2958,7 @@
   "stats": {
    "buttons": 9,
    "links": 14,
-   "onclickEls": 65,
+   "onclickEls": 64,
    "modals": 2,
    "modalTitles": [
     "项目上下游绑定",
