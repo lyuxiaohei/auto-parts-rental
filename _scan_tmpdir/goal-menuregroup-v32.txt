@@ -1,19 +1,22 @@
-/goal 项目根：D:\工作台-吕道远\5-【ACTIVE】汽车物流包装租赁（全部相对路径以此根拼接）。任务载体=agent-handoff/ 双层（goal-creator v7）：基线 D:\工作台-吕道远\5-【ACTIVE】汽车物流包装租赁gent-handoff\_AGENT基线.md（①口径纪律/当前基线快照/关键路径/铁律摘引）+ 本 goal 任务文档 D:\工作台-吕道远\5-【ACTIVE】汽车物流包装租赁gent-handoff60909-G01-菜单重组v3.2角色管理.md（②全量细则：现状核实/A 结构表/B 任务组/C 默认决策表/D 验证门）——先通读两者再执行。全程无人值守：不需要也不得向用户提问；拿不准按第十六节 C 默认决策表执行并在收尾报告注明。
+/goal 项目根：D:\工作台-吕道远\5-【ACTIVE】汽车物流包装租赁（全部相对路径以此根拼接）。任务载体=agent-handoff/ 双层（goal-creator v7）：①常驻基线 D:\工作台-吕道远\5-【ACTIVE】汽车物流包装租赁\agent-handoff\_AGENT基线.md（当前基线快照/关键路径/纪律铁律）+②本 goal 任务文档 D:\工作台-吕道远\5-【ACTIVE】汽车物流包装租赁\agent-handoff\20260909-G01-菜单重组v3.2角色管理.md（现状核实/A 结构表/B 任务组/C 默认决策表/D 验证门）——先通读两文档全文再执行；深历史与纪律全集=agent-handoff\20260909-56fc58d-P1-R05-交接文档-冻结.md（只读）。全程无人值守：不需要也不得向用户提问；拿不准按任务文档 C 默认决策表执行并在收尾报告注明。
 【前置校验（不过即停）】
 1. git log --oneline -1 信息含「菜单重组v3.2」且不含「菜单重组v3.2·执行」→可执行；已含→往 _scan_tmpdir\goal-failures-menuregroup32-20260909.html 追加"已执行，跳过"一行后停止
-2. 原型目录 P3-R01-包装租赁管理后台原型\_data\ mtime ≥30 分钟无变化（第四节⑦）；工作区非 clean 先 git add -A 留档
+2. 原型目录 P3-R01-包装租赁管理后台原型\_data\ mtime ≥30 分钟无变化（资源互斥：同一工作区同一时刻仅本 agent 一个写）；工作区非 clean 先 git add -A 留档
 【任务（细则全在 G01 任务文档 B 任务组，此处仅路由）】
-开工先备份（C 表口径 backup-menuregroup32-20260909·剔 zip）→B1 角色管理数据驱动化（roles 实体+renderListPage+权限配置/新增角色弹窗+双层新模板）→B2 侧边栏 v3.2 重写 40 页→B3 P1-R01 附录追加句→B4 批末验证（audit 111 页/verify 三批/verify_roles_v32 12 项/v32 抽验≥16 含 v3.1 复验收）→git 一提交（含「菜单重组v3.2·执行」）→回写三件套（G01 文档 ✅+commit 哈希回填其头部+_索引.md 挂行+基线快照滚动 v3.2+记忆库同步）
+开工先备份（C 表口径 backup-menuregroup32-20260909·剔 zip）→B1 角色管理数据驱动化（roles 实体+renderListPage+权限配置/新增角色弹窗+双层新模板）→B2 侧边栏 v3.2 重写 40 页→B3 P1-R01 附录追加句→B4 批末验证（audit 111 页/verify 三批/verify_roles_v32 12 项/v32 抽验≥16 含 v3.1 复验收）→git 一提交（含「菜单重组v3.2·执行」）→回写三件套（G01 文档状态 ✅+执行记录+commit 哈希回填头部；_索引.md G01 行挂哈希；_AGENT基线.md 快照滚动 v3.2+记忆库 p3r01-prototype-baseline.md 同步）
 【完成判定（全部满足，证据贴对话）】
 1. audit 输出行：111 页 死链 0/JS 0（F01 噪音 1=豁免）/相对执行前自跑基线新增 0
 2. 三行 ==== batchN 验证门：X 项断言，失败 0 项 ====（100/88/55）
 3. ==== 角色管理数据驱动验证门：12 项断言，失败 0 项 ====
 4. ==== 菜单重组 v3.2 抽验：N 过 / 0 败 ====（N≥16，含 v3.1 复验收断言）
 5. grep 组名形态 </span>财务协同<span 与 </span>仓储作业<span 输出 0 处 + ls 系统管理\弹窗\权限配置.html 与 新增角色.html 存在 + demo-data.js grep roles 命中
-6. git log 新提交号一行（含「菜单重组v3.2·执行」）+ grep G01 文档头部状态行=✅ 已执行 与 _索引.md 本任务行已 ✅（commit 已回填）
+6. git log 新提交号一行（含「菜单重组v3.2·执行」）+ grep G01 文档头部状态=✅ 已执行且 commit 已回填 与 _索引.md G01 行=✅ 且哈希已挂 + _AGENT基线.md 快照含 v3.2 现状字样
 7. 失败清单结论行（失败 0 项或留档明细）
 【约束】
-- 纪律沿用 agent-handoff/_AGENT基线.md 第四节全集（摘引见基线快照）；原型目录同一时刻仅本 agent 写；文件零移动（仅新增两弹窗模板+两验证脚本）；99-归档不碰；_build\modals_build.py 禁用；禁止 git push
+- 纪律=G01 任务文档与基线「纪律铁律」节（全集=agent-handoff 冻结版 P1-R05 第四节）；P1-R05 冻结版只读不改，一切回写只进 G01/索引/基线/记忆库
+- 原型目录同一时刻仅本 agent 写；文件零移动（仅新增两弹窗模板+两验证脚本）；99-归档不碰；_build\modals_build.py 禁用；禁止 git push
 - BOM.html 仅侧边栏随全站统一（体内容不碰）；用户权限.html 及其 roleModal/弹窗\角色管理.html 保留不动
 - 单页失败：修复一次→仍败恢复该页备份、记失败清单、继续；批末硬门不过：恢复问题页、提交已成功部分（注明失败数）；禁止卡住等待
 - Python 二进制读写保行尾；HTML 改后标签配平自检；roles row.cells 不得带外层 td（列表驱动 cells 陷阱）；Playwright 编程点击+导航等待、URL unquote()、文本断言 textContent；新增 onclick 须自带 DOM 副作用（closeModal 类）免判死按钮
+
+or stop after 40 turns
