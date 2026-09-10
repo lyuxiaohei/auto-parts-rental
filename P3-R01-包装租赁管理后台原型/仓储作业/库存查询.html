@@ -335,10 +335,8 @@ th.td-num { text-align:right; }
 <div class="stat-grid">
   <div class="stat">
     <div class="st-label"><span>在库（仓库内可用）</span></div>
-<div class="pn-hint">客户虚拟仓＝在客户处的租赁资产按客户归集（on-hire）；客户转租为其子状态（2026-09-08 会议 T1 方向）。</div>
-<div class="pn-hint">客户在租明细（原在租台账·2026-09-10 并入）＝行内「客户在租」按客户/项目下钻；租出与退回进度在租赁单列表「退回进度」列跟踪。</div>
     <div class="st-num">42,860<span class="unit">件/套</span></div>
-    <div class="st-foot">其中组装占用 <em>3,920</em> 件</div>
+    <div class="st-foot" data-note="2">其中组装占用 <em>3,920</em> 件</div>
   </div>
   <div class="stat">
     <div class="st-label"><span>在途（退租未审核）</span></div>
@@ -346,7 +344,7 @@ th.td-num { text-align:right; }
     <div class="st-foot">退租申请待审核 3 单</div>
   </div>
   <div class="stat">
-    <div class="st-label"><span>客户端（租出在外）</span></div>
+    <div class="st-label" data-note="3"><span>客户端（租出在外）</span></div>
     <div class="st-num">12,480<span class="unit">只/套</span></div>
     <div class="st-foot">对应在租租赁单 40 张</div>
   </div>
@@ -380,7 +378,7 @@ th.td-num { text-align:right; }
           <th>适用项目</th>
           <th>在库</th>
           <th>在途(退租未审核)</th>
-          <th data-note="2">客户端(租出)</th>
+          <th>客户端(租出)</th>
           <th>退租待入库</th>
           <th>总量</th>
           <th>单位</th>
@@ -672,7 +670,6 @@ th.td-num { text-align:right; }
     </div>
   </div>
 </div>
-<!-- 客户在租明细（原在租台账并入·2026-09-10 台账合并）+ 资产轨迹（assetTracks 数据渲染） -->
 <div class="modal-overlay" id="rentDrillModal">
   <div class="modal modal-lg" style="width:860px;">
     <div class="modal-header">
@@ -718,7 +715,6 @@ renderListPage({
   noCheckbox: true,
   modalId: 'flowModal'
 });
-/* 客户在租下钻·资产轨迹（原在租台账并入·2026-09-10）：按 assetTracks 键渲染四段式详情 */
 function openTrack(key) {
   var rec = window.DEMO_DATA && window.DEMO_DATA.assetTracks ? window.DEMO_DATA.assetTracks[key] : null;
   if (!rec) { console.warn('[demo-data] assetTracks 无数据: ' + key); return; }
@@ -760,6 +756,40 @@ document.querySelectorAll('.checkbox').forEach(function (c) {
   c.addEventListener('click', function () { c.classList.toggle('checked'); });
 });
 </script>
+
+
+
+<script>/*ia-fix: tab-switch + btn-feedback (2026-09-04)*/
+/* R3 顶部页签切换（点击换 active；× 不做关闭跳转——原型不销毁页签） */
+document.querySelectorAll('.tab').forEach(function (t) {
+  t.addEventListener('click', function () {
+    document.querySelectorAll('.tab').forEach(function (x) { x.classList.remove('active'); });
+    t.classList.add('active');
+  });
+});
+/* R1 死按钮全局反馈：无 onclick 的 button/a 给按压视觉态；「重置」清空所在筛选卡 */
+(function () {
+  document.addEventListener('click', function (e) {
+    var el = e.target.closest ? e.target.closest('button, a, .sm-link') : null;
+    if (!el) return;
+    if (el.getAttribute('onclick')) return;
+    var h = el.getAttribute('href');
+    if (el.tagName === 'A' && h && h !== '#' && !/^javascript:/i.test(h)) return;
+    if (el.disabled) return;
+    var txt = (el.textContent || '').trim();
+    if (txt === '重置') {
+      var card = el.closest('.filter-card') || el.closest('.card');
+      if (card) {
+        card.querySelectorAll('input:not([type=checkbox]):not([type=radio])').forEach(function (i) { if (!i.readOnly && !i.disabled) i.value = ''; });
+        card.querySelectorAll('select').forEach(function (s) { if (!s.disabled) s.selectedIndex = 0; });
+      }
+    }
+    el.style.transition = 'transform .08s';
+    el.style.transform = 'scale(.96)';
+    setTimeout(function () { el.style.transform = ''; }, 160);
+  }, true);
+})();
+</script>
 <style id="proto-notes-style">
 body.proto-notes-on [data-note]{position:relative}
 body.proto-notes-on [data-note]::after{content:attr(data-note);position:absolute;top:1px;right:1px;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600;box-shadow:0 0 0 1.5px #fff;cursor:pointer;opacity:.75;transition:opacity .15s}
@@ -781,8 +811,9 @@ body.proto-notes-on .proto-pin.pn-open{display:block}
 body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 .pn-fab .pn-fab-n{font-family:Consolas,monospace;font-weight:600}
 </style>
-<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>库存四态查询</div><div class="pnp-d">在库/在途/客户端/退租库存四态 + 散件/组合双视角切换</div><div class="pnp-b"><span class="pnp-tag">FP3-06 · 库存查询</span><span class="pnp-tag">REQ-06 · 组装管理节点</span></div><div class="pnp-src"><div class="src-item"><b>FP3-06 库存查询</b>：零件/组合双视角实时库存，按项目/库位过滤</div><div class="src-item"><b>REQ-06 组装管理节点</b>：记录 A+B→C 的组装时间与数量；库存双视角（零件/组合）</div></div></div>
-<div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>库存四态说明</div><div class="pnp-d">在库（仓库内可用）、在途（退租未审核）、客户端（租出在外）、退租库存（待入库）</div><div class="pnp-b"><span class="pnp-tag">FP3-06 · 库存查询</span><span class="pnp-tag">REQ-06 · 组装管理节点</span></div><div class="pnp-src"><div class="src-item"><b>FP3-06 库存查询</b>：零件/组合双视角实时库存，按项目/库位过滤</div><div class="src-item"><b>REQ-06 组装管理节点</b>：记录 A+B→C 的组装时间与数量；库存双视角（零件/组合）</div></div></div>
+<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>库存双视角查询</div><div class="pnp-d">零件视角 / 组合视角切换——本次新增能力</div><div class="pnp-b"><span class="pnp-tag">FP3-06 · 库存查询</span><span class="pnp-tag">REQ-06 · 小组装管理节点</span></div><div class="pnp-src"><div class="src-item"><b>FP3-06 库存查询</b>：零件/组合双视角实时库存，按项目/库位过滤</div><div class="src-item"><b>REQ-06 小组装管理节点</b>：记录 A+B→C 的组装时间与数量；库存双视角（零件/组合）</div></div></div>
+<div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>库存四项状态</div><div class="pnp-d">可用、已分配、组装占用、采购在途——「组装占用」正是小组装改进的体现</div><div class="pnp-b"><span class="pnp-tag">FP3-06 · 库存查询</span><span class="pnp-tag">REQ-06 · 小组装管理节点</span></div><div class="pnp-src"><div class="src-item"><b>FP3-06 库存查询</b>：零件/组合双视角实时库存，按项目/库位过滤</div><div class="src-item"><b>REQ-06 小组装管理节点</b>：记录 A+B→C 的组装时间与数量；库存双视角（零件/组合）</div></div></div>
+<div class="proto-pin" id="proto-pin-3"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">3</span>客户虚拟仓与在租明细</div><div class="pnp-d">客户虚拟仓＝在客户处的租赁资产按客户归集（on-hire）；客户转租为其子状态（2026-09-08 会议 T1 方向）。<br>客户在租明细（原在租台账·2026-09-10 并入）＝行内「客户在租」按客户/项目下钻；租出与退回进度在租赁单列表「退回进度」列跟踪。</div><div class="pnp-b"><span class="pnp-tag">FP4-02 · 库存查询·客户在租</span><span class="pnp-tag">REQ-03 · 包材租赁循环管理</span></div><div class="pnp-src"><div class="src-item"><b>FP4-02 库存查询·客户在租</b>：客户端(租出)按客户/项目下钻+资产轨迹（原在租台账 2026-09-10 并入库存查询）</div><div class="src-item"><b>REQ-03 包材租赁循环管理</b>：出库、退租、循环使用状态跟踪（围板箱/托盘/料箱）</div></div></div>
 <div class="pn-fab" id="protoNotesFab">标注</div></div>
 <script id="proto-notes-js">
 (function(){
@@ -830,37 +861,6 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
     }
   });
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply);else apply();
-})();
-</script>
-<script>/*ia-fix: tab-switch + btn-feedback (2026-09-04)*/
-/* R3 顶部页签切换（点击换 active；× 不做关闭跳转——原型不销毁页签） */
-document.querySelectorAll('.tab').forEach(function (t) {
-  t.addEventListener('click', function () {
-    document.querySelectorAll('.tab').forEach(function (x) { x.classList.remove('active'); });
-    t.classList.add('active');
-  });
-});
-/* R1 死按钮全局反馈：无 onclick 的 button/a 给按压视觉态；「重置」清空所在筛选卡 */
-(function () {
-  document.addEventListener('click', function (e) {
-    var el = e.target.closest ? e.target.closest('button, a, .sm-link') : null;
-    if (!el) return;
-    if (el.getAttribute('onclick')) return;
-    var h = el.getAttribute('href');
-    if (el.tagName === 'A' && h && h !== '#' && !/^javascript:/i.test(h)) return;
-    if (el.disabled) return;
-    var txt = (el.textContent || '').trim();
-    if (txt === '重置') {
-      var card = el.closest('.filter-card') || el.closest('.card');
-      if (card) {
-        card.querySelectorAll('input:not([type=checkbox]):not([type=radio])').forEach(function (i) { if (!i.readOnly && !i.disabled) i.value = ''; });
-        card.querySelectorAll('select').forEach(function (s) { if (!s.disabled) s.selectedIndex = 0; });
-      }
-    }
-    el.style.transition = 'transform .08s';
-    el.style.transform = 'scale(.96)';
-    setTimeout(function () { el.style.transform = ''; }, 160);
-  }, true);
 })();
 </script>
 </body>

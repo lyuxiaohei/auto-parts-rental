@@ -513,8 +513,7 @@ th.td-num { text-align:right; }
       <tbody><tr><td><select style="width:100%;min-width:0;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option selected>WBX-1210L 围板箱 1200×1000×970</option><option>WBX-1210M 围板箱 1200×1000×590</option><option>PLT-1210W 木托盘 1200×1000</option><option>PLT-1210P 塑料托盘 1200×1000</option><option>BTC-6040 料箱 600×400×340</option><option>LJ-A100 锁扣组件</option><option>LJ-C300 围板</option><option>LJ-D400 箱盖</option><option>LJ-F600 内衬</option></select></td><td><input data-tax="qty" value="30" style="width:64px;"></td><td><select style="width:88px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;"><option selected>月租</option><option>按套</option></select></td><td><input data-tax="excl" value="400.00"></td><td><input data-tax="rate" value="13%" style="width:56px;"></td><td><input data-tax="incl" value="452.00"></td><td><input data-tax="amt" class="auto" value="13,560.00" readonly></td></tr><tr><td><select style="width:100%;min-width:0;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option>WBX-1210L 围板箱 1200×1000×970</option><option>WBX-1210M 围板箱 1200×1000×590</option><option>PLT-1210W 木托盘 1200×1000</option><option selected>PLT-1210P 塑料托盘 1200×1000</option><option>BTC-6040 料箱 600×400×340</option><option>LJ-A100 锁扣组件</option><option>LJ-C300 围板</option><option>LJ-D400 箱盖</option><option>LJ-F600 内衬</option></select></td><td><input data-tax="qty" value="50" style="width:64px;"></td><td><select style="width:88px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;"><option>月租</option><option selected>按套</option></select></td><td><input data-tax="excl" value="1.20"></td><td><input data-tax="rate" value="13%" style="width:56px;"></td><td><input data-tax="incl" value="1.36"></td><td><input data-tax="amt" class="auto" value="68.00" readonly></td></tr></tbody>
     </table>
   </div>
-  <button class="btn btn-dashed btn-sm" style="width:100%;margin-top:8px;">+ 添加明细行</button>
-  <div style="margin-top:6px;font-size:12px;color:#8c8c8c;">计费＝月租金 + 按套数单价（无日租金，2026-09-08 会议）；应付生成方式取决于租入单模式（静态租入 / 背靠背）。</div>
+  <button class="btn btn-dashed btn-sm" style="width:100%;margin-top:8px;" data-note="3">+ 添加明细行</button>
 
   <div class="form-row">
         <span class="form-label">押金（元）</span>
@@ -744,7 +743,30 @@ document.querySelectorAll('.tab').forEach(function (t) {
 
 
 
-<style id="proto-notes-style">
+
+
+
+<script>/*F-A 税率三件套双向换算 · meeting0908 批3*/
+(function () {
+  function num(v){ var x = parseFloat(String(v).replace(/,/g,'')); return isNaN(x)?0:x; }
+  document.addEventListener('input', function (e) {
+    var i = e.target;
+    if (!i.matches || !i.matches('input[data-tax]')) return;
+    var tr = i.closest('tr'); if (!tr) return;
+    function q(r){ var el = tr.querySelector('input[data-tax="'+r+'"]'); return el ? String(el.value).replace(/,/g,'') : '0'; }
+    var rate = num(q('rate')) / 100;
+    if (i.getAttribute('data-tax') === 'incl') {
+      var ex = rate > 0 ? num(q('incl')) / (1 + rate) : num(q('incl'));
+      var exEl = tr.querySelector('input[data-tax="excl"]'); if (exEl) exEl.value = ex.toFixed(2);
+    } else {
+      var inc = num(q('excl')) * (1 + rate);
+      var incEl = tr.querySelector('input[data-tax="incl"]'); if (incEl) incEl.value = inc.toFixed(2);
+    }
+    var amt = tr.querySelector('input[data-tax="amt"]');
+    if (amt) amt.value = (num(q('qty')) * num(q('incl'))).toLocaleString('zh-CN', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+  });
+})();
+</script><style id="proto-notes-style">
 body.proto-notes-on [data-note]{position:relative}
 body.proto-notes-on [data-note]::after{content:attr(data-note);position:absolute;top:1px;right:1px;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600;box-shadow:0 0 0 1.5px #fff;cursor:pointer;opacity:.75;transition:opacity .15s}
 body.proto-notes-on [data-note]:hover::after{opacity:1}
@@ -766,7 +788,8 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 .pn-fab .pn-fab-n{font-family:Consolas,monospace;font-weight:600}
 </style>
 <div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>L3 · 步骤 1/8 租入单</div><div class="pnp-d">L3 租入转租起点：向路凯租入围板箱×30（日租金 400）。<br>状态流：待审核→履行中→部分归还→已归还。操作列可按月生成租金应付。<br>2026-09-04 拍板第一期实现（原会议暂缓）。</div></div>
-<div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>L4 · 步骤 3/10 租入单（混合侧）</div><div class="pnp-d">租入大箱×10 与自购隔板组成混合配方 → ZZ-20260822-006 组装 ZH-2604-D×40 套。</div></div>
+<div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>L4 · 步骤 3/10 租入单（混合侧）</div><div class="pnp-d">租入大箱×10 与自购隔板组成混合配方 → ZH-2604-D×40 套按 BOM 组合出库（无组装单·2026-09-08）。</div></div>
+<div class="proto-pin" id="proto-pin-3"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">3</span>租入计费口径</div><div class="pnp-d">计费＝月租金 + 按套数单价（无日租金，2026-09-08 会议）；应付生成方式取决于租入单模式（静态租入 / 背靠背）。</div></div>
 <div class="pn-fab" id="protoNotesFab">标注</div></div>
 <script id="proto-notes-js">
 (function(){
@@ -816,25 +839,5 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply);else apply();
 })();
 </script>
-<script>/*F-A 税率三件套双向换算 · meeting0908 批3*/
-(function () {
-  function num(v){ var x = parseFloat(String(v).replace(/,/g,'')); return isNaN(x)?0:x; }
-  document.addEventListener('input', function (e) {
-    var i = e.target;
-    if (!i.matches || !i.matches('input[data-tax]')) return;
-    var tr = i.closest('tr'); if (!tr) return;
-    function q(r){ var el = tr.querySelector('input[data-tax="'+r+'"]'); return el ? String(el.value).replace(/,/g,'') : '0'; }
-    var rate = num(q('rate')) / 100;
-    if (i.getAttribute('data-tax') === 'incl') {
-      var ex = rate > 0 ? num(q('incl')) / (1 + rate) : num(q('incl'));
-      var exEl = tr.querySelector('input[data-tax="excl"]'); if (exEl) exEl.value = ex.toFixed(2);
-    } else {
-      var inc = num(q('excl')) * (1 + rate);
-      var incEl = tr.querySelector('input[data-tax="incl"]'); if (incEl) incEl.value = inc.toFixed(2);
-    }
-    var amt = tr.querySelector('input[data-tax="amt"]');
-    if (amt) amt.value = (num(q('qty')) * num(q('incl'))).toLocaleString('zh-CN', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-  });
-})();
-</script></body>
+</body>
 </html>

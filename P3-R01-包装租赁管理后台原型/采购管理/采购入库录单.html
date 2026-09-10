@@ -476,7 +476,6 @@ th.td-num { text-align:right; }
 </div>
 
 <script>
-/* ===== 添加明细：克隆明细表末行示例数据并重排序号（详情落地页补齐 2026-09-04） ===== */
 function addDetailRow(btn) {
   var card = btn.closest('.card');
   var tbody = card ? card.querySelector('tbody') : null;
@@ -514,7 +513,61 @@ document.querySelectorAll('.checkbox').forEach(function (c) {
   c.addEventListener('click', function () { c.classList.toggle('checked'); });
 });
 </script>
-<style id="proto-notes-style">
+
+
+
+<script>/*ia-fix: tab-switch + btn-feedback (2026-09-04)*/
+/* R3 顶部页签切换（点击换 active；× 不做关闭跳转——原型不销毁页签） */
+document.querySelectorAll('.tab').forEach(function (t) {
+  t.addEventListener('click', function () {
+    document.querySelectorAll('.tab').forEach(function (x) { x.classList.remove('active'); });
+    t.classList.add('active');
+  });
+});
+/* R1 死按钮全局反馈：无 onclick 的 button/a 给按压视觉态；「重置」清空所在筛选卡 */
+(function () {
+  document.addEventListener('click', function (e) {
+    var el = e.target.closest ? e.target.closest('button, a, .sm-link') : null;
+    if (!el) return;
+    if (el.getAttribute('onclick')) return;
+    var h = el.getAttribute('href');
+    if (el.tagName === 'A' && h && h !== '#' && !/^javascript:/i.test(h)) return;
+    if (el.disabled) return;
+    var txt = (el.textContent || '').trim();
+    if (txt === '重置') {
+      var card = el.closest('.filter-card') || el.closest('.card');
+      if (card) {
+        card.querySelectorAll('input:not([type=checkbox]):not([type=radio])').forEach(function (i) { if (!i.readOnly && !i.disabled) i.value = ''; });
+        card.querySelectorAll('select').forEach(function (s) { if (!s.disabled) s.selectedIndex = 0; });
+      }
+    }
+    el.style.transition = 'transform .08s';
+    el.style.transform = 'scale(.96)';
+    setTimeout(function () { el.style.transform = ''; }, 160);
+  }, true);
+})();
+</script>
+<script>/*F-A 税率三件套双向换算 · meeting0908 批3*/
+(function () {
+  function num(v){ var x = parseFloat(String(v).replace(/,/g,'')); return isNaN(x)?0:x; }
+  document.addEventListener('input', function (e) {
+    var i = e.target;
+    if (!i.matches || !i.matches('input[data-tax]')) return;
+    var tr = i.closest('tr'); if (!tr) return;
+    function q(r){ var el = tr.querySelector('input[data-tax="'+r+'"]'); return el ? String(el.value).replace(/,/g,'') : '0'; }
+    var rate = num(q('rate')) / 100;
+    if (i.getAttribute('data-tax') === 'incl') {
+      var ex = rate > 0 ? num(q('incl')) / (1 + rate) : num(q('incl'));
+      var exEl = tr.querySelector('input[data-tax="excl"]'); if (exEl) exEl.value = ex.toFixed(2);
+    } else {
+      var inc = num(q('excl')) * (1 + rate);
+      var incEl = tr.querySelector('input[data-tax="incl"]'); if (incEl) incEl.value = inc.toFixed(2);
+    }
+    var amt = tr.querySelector('input[data-tax="amt"]');
+    if (amt) amt.value = (num(q('qty')) * num(q('incl'))).toLocaleString('zh-CN', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+  });
+})();
+</script><style id="proto-notes-style">
 body.proto-notes-on [data-note]{position:relative}
 body.proto-notes-on [data-note]::after{content:attr(data-note);position:absolute;top:1px;right:1px;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600;box-shadow:0 0 0 1.5px #fff;cursor:pointer;opacity:.75;transition:opacity .15s}
 body.proto-notes-on [data-note]:hover::after{opacity:1}
@@ -586,56 +639,5 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply);else apply();
 })();
 </script>
-<script>/*ia-fix: tab-switch + btn-feedback (2026-09-04)*/
-/* R3 顶部页签切换（点击换 active；× 不做关闭跳转——原型不销毁页签） */
-document.querySelectorAll('.tab').forEach(function (t) {
-  t.addEventListener('click', function () {
-    document.querySelectorAll('.tab').forEach(function (x) { x.classList.remove('active'); });
-    t.classList.add('active');
-  });
-});
-/* R1 死按钮全局反馈：无 onclick 的 button/a 给按压视觉态；「重置」清空所在筛选卡 */
-(function () {
-  document.addEventListener('click', function (e) {
-    var el = e.target.closest ? e.target.closest('button, a, .sm-link') : null;
-    if (!el) return;
-    if (el.getAttribute('onclick')) return;
-    var h = el.getAttribute('href');
-    if (el.tagName === 'A' && h && h !== '#' && !/^javascript:/i.test(h)) return;
-    if (el.disabled) return;
-    var txt = (el.textContent || '').trim();
-    if (txt === '重置') {
-      var card = el.closest('.filter-card') || el.closest('.card');
-      if (card) {
-        card.querySelectorAll('input:not([type=checkbox]):not([type=radio])').forEach(function (i) { if (!i.readOnly && !i.disabled) i.value = ''; });
-        card.querySelectorAll('select').forEach(function (s) { if (!s.disabled) s.selectedIndex = 0; });
-      }
-    }
-    el.style.transition = 'transform .08s';
-    el.style.transform = 'scale(.96)';
-    setTimeout(function () { el.style.transform = ''; }, 160);
-  }, true);
-})();
-</script>
-<script>/*F-A 税率三件套双向换算 · meeting0908 批3*/
-(function () {
-  function num(v){ var x = parseFloat(String(v).replace(/,/g,'')); return isNaN(x)?0:x; }
-  document.addEventListener('input', function (e) {
-    var i = e.target;
-    if (!i.matches || !i.matches('input[data-tax]')) return;
-    var tr = i.closest('tr'); if (!tr) return;
-    function q(r){ var el = tr.querySelector('input[data-tax="'+r+'"]'); return el ? String(el.value).replace(/,/g,'') : '0'; }
-    var rate = num(q('rate')) / 100;
-    if (i.getAttribute('data-tax') === 'incl') {
-      var ex = rate > 0 ? num(q('incl')) / (1 + rate) : num(q('incl'));
-      var exEl = tr.querySelector('input[data-tax="excl"]'); if (exEl) exEl.value = ex.toFixed(2);
-    } else {
-      var inc = num(q('excl')) * (1 + rate);
-      var incEl = tr.querySelector('input[data-tax="incl"]'); if (incEl) incEl.value = inc.toFixed(2);
-    }
-    var amt = tr.querySelector('input[data-tax="amt"]');
-    if (amt) amt.value = (num(q('qty')) * num(q('incl'))).toLocaleString('zh-CN', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-  });
-})();
-</script></body>
+</body>
 </html>

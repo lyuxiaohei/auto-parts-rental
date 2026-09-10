@@ -491,6 +491,40 @@ document.querySelectorAll('.checkbox').forEach(function (c) {
   c.addEventListener('click', function () { c.classList.toggle('checked'); });
 });
 </script>
+
+
+
+<script>/*ia-fix: tab-switch + btn-feedback (2026-09-04)*/
+/* R3 顶部页签切换（点击换 active；× 不做关闭跳转——原型不销毁页签） */
+document.querySelectorAll('.tab').forEach(function (t) {
+  t.addEventListener('click', function () {
+    document.querySelectorAll('.tab').forEach(function (x) { x.classList.remove('active'); });
+    t.classList.add('active');
+  });
+});
+/* R1 死按钮全局反馈：无 onclick 的 button/a 给按压视觉态；「重置」清空所在筛选卡 */
+(function () {
+  document.addEventListener('click', function (e) {
+    var el = e.target.closest ? e.target.closest('button, a, .sm-link') : null;
+    if (!el) return;
+    if (el.getAttribute('onclick')) return;
+    var h = el.getAttribute('href');
+    if (el.tagName === 'A' && h && h !== '#' && !/^javascript:/i.test(h)) return;
+    if (el.disabled) return;
+    var txt = (el.textContent || '').trim();
+    if (txt === '重置') {
+      var card = el.closest('.filter-card') || el.closest('.card');
+      if (card) {
+        card.querySelectorAll('input:not([type=checkbox]):not([type=radio])').forEach(function (i) { if (!i.readOnly && !i.disabled) i.value = ''; });
+        card.querySelectorAll('select').forEach(function (s) { if (!s.disabled) s.selectedIndex = 0; });
+      }
+    }
+    el.style.transition = 'transform .08s';
+    el.style.transform = 'scale(.96)';
+    setTimeout(function () { el.style.transform = ''; }, 160);
+  }, true);
+})();
+</script>
 <style id="proto-notes-style">
 body.proto-notes-on [data-note]{position:relative}
 body.proto-notes-on [data-note]::after{content:attr(data-note);position:absolute;top:1px;right:1px;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600;box-shadow:0 0 0 1.5px #fff;cursor:pointer;opacity:.75;transition:opacity .15s}
@@ -561,37 +595,6 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
     }
   });
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply);else apply();
-})();
-</script>
-<script>/*ia-fix: tab-switch + btn-feedback (2026-09-04)*/
-/* R3 顶部页签切换（点击换 active；× 不做关闭跳转——原型不销毁页签） */
-document.querySelectorAll('.tab').forEach(function (t) {
-  t.addEventListener('click', function () {
-    document.querySelectorAll('.tab').forEach(function (x) { x.classList.remove('active'); });
-    t.classList.add('active');
-  });
-});
-/* R1 死按钮全局反馈：无 onclick 的 button/a 给按压视觉态；「重置」清空所在筛选卡 */
-(function () {
-  document.addEventListener('click', function (e) {
-    var el = e.target.closest ? e.target.closest('button, a, .sm-link') : null;
-    if (!el) return;
-    if (el.getAttribute('onclick')) return;
-    var h = el.getAttribute('href');
-    if (el.tagName === 'A' && h && h !== '#' && !/^javascript:/i.test(h)) return;
-    if (el.disabled) return;
-    var txt = (el.textContent || '').trim();
-    if (txt === '重置') {
-      var card = el.closest('.filter-card') || el.closest('.card');
-      if (card) {
-        card.querySelectorAll('input:not([type=checkbox]):not([type=radio])').forEach(function (i) { if (!i.readOnly && !i.disabled) i.value = ''; });
-        card.querySelectorAll('select').forEach(function (s) { if (!s.disabled) s.selectedIndex = 0; });
-      }
-    }
-    el.style.transition = 'transform .08s';
-    el.style.transform = 'scale(.96)';
-    setTimeout(function () { el.style.transform = ''; }, 160);
-  }, true);
 })();
 </script>
 </body>

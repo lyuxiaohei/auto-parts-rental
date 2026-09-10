@@ -1,0 +1,86 @@
+{
+ "scope": "38 业务页（F01 豁免·弹窗仅登记）",
+ "business_hits": [
+  {
+   "page": "仓储作业/库存调拨列表.html",
+   "line": 441,
+   "kinds": [
+    "P6-pnhint/clean"
+   ],
+   "ctx": "pn-hint",
+   "text": "第一期仅支持同仓群内的库位调拨，不做调拨在途管理；调拨审核通过后即时完成库存转移。"
+  },
+  {
+   "page": "仓储作业/盘点录入.html",
+   "line": 344,
+   "kinds": [
+    "P6-pnhint/clean"
+   ],
+   "ctx": "pn-hint",
+   "text": "按单据编码规则自动生成，不可编辑。"
+  },
+  {
+   "page": "仓储作业/盘点录入.html",
+   "line": 438,
+   "kinds": [
+    "P6-pnhint/clean"
+   ],
+   "ctx": "pn-hint",
+   "text": "本单当前进度：已盘 1,024 / 1,286 项；差异 ≠ 0 时差异说明必填。"
+  },
+  {
+   "page": "基础数据/BOM维护.html",
+   "line": 367,
+   "kinds": [
+    "P6-pnhint/clean"
+   ],
+   "ctx": "pn-hint",
+   "text": "版本号只增不改，历史版本留档可追溯。"
+  },
+  {
+   "page": "租赁管理/组合出库录单.html",
+   "line": 351,
+   "kinds": [
+    "P6-pnhint/clean"
+   ],
+   "ctx": "pn-hint",
+   "text": "按单据编码规则自动生成，不可编辑。"
+  },
+  {
+   "page": "租赁管理/组合出库录单.html",
+   "line": 372,
+   "kinds": [
+    "P6-pnhint/clean"
+   ],
+   "ctx": "pn-hint",
+   "text": "选择订单后自动带出客户、收货地点与要货明细。"
+  },
+  {
+   "page": "财务协同/应付账单.html",
+   "line": 585,
+   "kinds": [
+    "P6-pnhint/clean"
+   ],
+   "ctx": "pn-hint",
+   "text": "应付账单可由采购入库单审核后自动生成（第一期支持手动创建）；租入业务（路凯）按周期生成应付账单。"
+  },
+  {
+   "page": "财务协同/应收账单.html",
+   "line": 625,
+   "kinds": [
+    "P6-pnhint/clean"
+   ],
+   "ctx": "pn-hint",
+   "text": "可选类型：租赁费（按组合出库自动汇总）/ 销售费（按销售出库自动汇总）/ 丢损赔偿（退租联动）"
+  },
+  {
+   "page": "采购管理/采购入库录单.html",
+   "line": 350,
+   "kinds": [
+    "P6-pnhint/clean"
+   ],
+   "ctx": "pn-hint",
+   "text": "按单据编码规则自动生成，不可编辑。"
+  }
+ ]
+}

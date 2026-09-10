@@ -368,7 +368,7 @@ th.td-num { text-align:right; }
 </div>
 <div class="card">
   <div class="card-head">
-    <h3 class="card-title">退租入库单</h3>
+    <h3 class="card-title" data-note="4">退租入库单</h3>
     <div class="head-btns"><button class="btn btn-default btn-sm">批量导出</button></div>
   </div>
 <div class="stabs">
@@ -521,7 +521,7 @@ th.td-num { text-align:right; }
     </span>
     <span class="pg-jump">跳至 <input value="" placeholder="跳转页码"> 页</span>
   </div>
-</div><div class="pn-hint" style="padding:0 4px;">退租无申请单：客户退回后直接录入退租入库单（按拆后零件·单一产品记录）；入库仅更新库存状态，与财务结算解耦——租金只要发出去就要收，还了也收（2026-09-08 会议拍板）。</div>
+</div>
     </div>
   </div>
 </div>
@@ -732,6 +732,9 @@ document.querySelectorAll('.tab').forEach(function (t) {
 
 
 
+
+
+
 <style id="proto-notes-style">
 body.proto-notes-on [data-note]{position:relative}
 body.proto-notes-on [data-note]::after{content:attr(data-note);position:absolute;top:1px;right:1px;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600;box-shadow:0 0 0 1.5px #fff;cursor:pointer;opacity:.75;transition:opacity .15s}
@@ -754,8 +757,9 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 .pn-fab .pn-fab-n{font-family:Consolas,monospace;font-weight:600}
 </style>
 <div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>L4 · 步骤 8/10 退租入库（拆散分流）</div><div class="pnp-d">按 BOM 拆散：隔板×80 自有回库 / 大箱×10 租入转归还（4 只缺损）。<br>分流去向标签可点跳租入归还 → GHCK-20260903-002。</div></div>
-<div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>L3 · 步骤 6/8 退租入库（整箱退回）</div><div class="pnp-d">租入资产不拆散，整箱核对后退回供应商。<br>下一步 → 租入归还 GHCK-20260903-001。</div></div>
-<div class="proto-pin" id="proto-pin-3"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">3</span>L2 · 步骤 8/10 退租入库（按 BOM 拆散）</div><div class="pnp-d">组合件拆回散件入库，缺损进入丢损赔偿；散件可循环再组装。</div></div>
+<div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>L3 · 步骤 6/8 退租入库（整箱退回）</div><div class="pnp-d">租入资产不拆散，整箱核对后退回运营方。<br>下一步 → 租入归还 GHCK-20260903-001。</div></div>
+<div class="proto-pin" id="proto-pin-3"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">3</span>L2 · 步骤 8/10 退租入库（按 BOM 拆散）</div><div class="pnp-d">组合件按拆后零件入库（无拆卸单·2026-09-08）；缺损直接生成应收/应付账单；散件再出租时按 BOM 组合出库。</div></div>
+<div class="proto-pin" id="proto-pin-4"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">4</span>退租无申请单口径</div><div class="pnp-d">退租无申请单：客户退回后直接录入退租入库单（按拆后零件·单一产品记录）；入库仅更新库存状态，与财务结算解耦——租金只要发出去就要收，还了也收（2026-09-08 会议拍板）。</div></div>
 <div class="pn-fab" id="protoNotesFab">标注</div></div>
 <script id="proto-notes-js">
 (function(){

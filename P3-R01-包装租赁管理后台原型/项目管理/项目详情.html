@@ -573,6 +573,40 @@ document.querySelectorAll('.checkbox').forEach(function (c) {
   c.addEventListener('click', function () { c.classList.toggle('checked'); });
 });
 </script>
+
+
+
+<script>/*ia-fix: tab-switch + btn-feedback (2026-09-04)*/
+/* R3 顶部页签切换（点击换 active；× 不做关闭跳转——原型不销毁页签） */
+document.querySelectorAll('.tab').forEach(function (t) {
+  t.addEventListener('click', function () {
+    document.querySelectorAll('.tab').forEach(function (x) { x.classList.remove('active'); });
+    t.classList.add('active');
+  });
+});
+/* R1 死按钮全局反馈：无 onclick 的 button/a 给按压视觉态；「重置」清空所在筛选卡 */
+(function () {
+  document.addEventListener('click', function (e) {
+    var el = e.target.closest ? e.target.closest('button, a, .sm-link') : null;
+    if (!el) return;
+    if (el.getAttribute('onclick')) return;
+    var h = el.getAttribute('href');
+    if (el.tagName === 'A' && h && h !== '#' && !/^javascript:/i.test(h)) return;
+    if (el.disabled) return;
+    var txt = (el.textContent || '').trim();
+    if (txt === '重置') {
+      var card = el.closest('.filter-card') || el.closest('.card');
+      if (card) {
+        card.querySelectorAll('input:not([type=checkbox]):not([type=radio])').forEach(function (i) { if (!i.readOnly && !i.disabled) i.value = ''; });
+        card.querySelectorAll('select').forEach(function (s) { if (!s.disabled) s.selectedIndex = 0; });
+      }
+    }
+    el.style.transition = 'transform .08s';
+    el.style.transform = 'scale(.96)';
+    setTimeout(function () { el.style.transform = ''; }, 160);
+  }, true);
+})();
+</script>
 <style id="proto-notes-style">
 body.proto-notes-on [data-note]{position:relative}
 body.proto-notes-on [data-note]::after{content:attr(data-note);position:absolute;top:1px;right:1px;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600;box-shadow:0 0 0 1.5px #fff;cursor:pointer;opacity:.75;transition:opacity .15s}
@@ -594,7 +628,7 @@ body.proto-notes-on .proto-pin.pn-open{display:block}
 body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 .pn-fab .pn-fab-n{font-family:Consolas,monospace;font-weight:600}
 </style>
-<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>上下游关系（详情维护）</div><div class="pnp-d">在单个项目页内维护上下游，与项目档案共用同一份数据</div><div class="pnp-b"><span class="pnp-tag">FP2-02 · 上下游绑定</span><span class="pnp-tag">REQ-01 · 多项目统一管理</span></div><div class="pnp-src"><div class="src-item"><b>FP2-02 上下游绑定</b>：项目↔客户↔供应商↔供应商关系维护</div><div class="src-item"><b>REQ-01 多项目统一管理</b>：所有项目整合进一个系统，按项目建立编码，绑定上下游关系</div></div></div>
+<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>上下游关系（详情维护）</div><div class="pnp-d">在单个项目页内维护上下游，与项目档案共用同一份数据</div><div class="pnp-b"><span class="pnp-tag">FP2-02 · 上下游绑定</span><span class="pnp-tag">REQ-01 · 多项目统一管理</span></div><div class="pnp-src"><div class="src-item"><b>FP2-02 上下游绑定</b>：项目↔客户↔运营方↔供应商关系维护</div><div class="src-item"><b>REQ-01 多项目统一管理</b>：所有项目整合进一个系统，按项目建立编码，绑定上下游关系</div></div></div>
 <div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>项目单据查询</div><div class="pnp-d">查看本项目全部出入库、租出、账单单据</div><div class="pnp-b"><span class="pnp-tag">FP2-04 · 项目明细查看明细</span><span class="pnp-tag">REQ-02 · 项目维度经营分析</span></div><div class="pnp-src"><div class="src-item"><b>FP2-04 项目明细查看明细</b>：从看板点开查看到单据</div><div class="src-item"><b>REQ-02 项目维度经营分析</b>：按项目看出入库、营收、盈利情况</div></div></div>
 <div class="pn-fab" id="protoNotesFab">标注</div></div>
 <script id="proto-notes-js">
@@ -643,37 +677,6 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
     }
   });
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply);else apply();
-})();
-</script>
-<script>/*ia-fix: tab-switch + btn-feedback (2026-09-04)*/
-/* R3 顶部页签切换（点击换 active；× 不做关闭跳转——原型不销毁页签） */
-document.querySelectorAll('.tab').forEach(function (t) {
-  t.addEventListener('click', function () {
-    document.querySelectorAll('.tab').forEach(function (x) { x.classList.remove('active'); });
-    t.classList.add('active');
-  });
-});
-/* R1 死按钮全局反馈：无 onclick 的 button/a 给按压视觉态；「重置」清空所在筛选卡 */
-(function () {
-  document.addEventListener('click', function (e) {
-    var el = e.target.closest ? e.target.closest('button, a, .sm-link') : null;
-    if (!el) return;
-    if (el.getAttribute('onclick')) return;
-    var h = el.getAttribute('href');
-    if (el.tagName === 'A' && h && h !== '#' && !/^javascript:/i.test(h)) return;
-    if (el.disabled) return;
-    var txt = (el.textContent || '').trim();
-    if (txt === '重置') {
-      var card = el.closest('.filter-card') || el.closest('.card');
-      if (card) {
-        card.querySelectorAll('input:not([type=checkbox]):not([type=radio])').forEach(function (i) { if (!i.readOnly && !i.disabled) i.value = ''; });
-        card.querySelectorAll('select').forEach(function (s) { if (!s.disabled) s.selectedIndex = 0; });
-      }
-    }
-    el.style.transition = 'transform .08s';
-    el.style.transform = 'scale(.96)';
-    setTimeout(function () { el.style.transform = ''; }, 160);
-  }, true);
 })();
 </script>
 </body>

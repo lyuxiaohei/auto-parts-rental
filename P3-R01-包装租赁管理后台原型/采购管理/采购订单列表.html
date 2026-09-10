@@ -764,7 +764,31 @@ document.querySelectorAll('.tab').forEach(function (t) {
 
 
 
-<style id="proto-notes-style">
+
+
+
+<script>/*F-A 税率三件套双向换算 · meeting0908 批3*/
+(function () {
+  function num(v){ var x = parseFloat(String(v).replace(/,/g,'')); return isNaN(x)?0:x; }
+  document.addEventListener('input', function (e) {
+    var i = e.target;
+    if (!i.matches || !i.matches('input[data-tax]')) return;
+    var tr = i.closest('tr'); if (!tr) return;
+    function q(r){ var el = tr.querySelector('input[data-tax="'+r+'"]'); return el ? String(el.value).replace(/,/g,'') : '0'; }
+    var rate = num(q('rate')) / 100;
+    if (i.getAttribute('data-tax') === 'incl') {
+      var ex = rate > 0 ? num(q('incl')) / (1 + rate) : num(q('incl'));
+      var exEl = tr.querySelector('input[data-tax="excl"]'); if (exEl) exEl.value = ex.toFixed(2);
+    } else {
+      var inc = num(q('excl')) * (1 + rate);
+      var incEl = tr.querySelector('input[data-tax="incl"]'); if (incEl) incEl.value = inc.toFixed(2);
+    }
+    var amt = tr.querySelector('input[data-tax="amt"]');
+    if (amt) amt.value = fmtAmt(num(q('qty')) * num(q('incl')));
+    function fmtAmt(x){ return x.toLocaleString('zh-CN', {minimumFractionDigits: 2, maximumFractionDigits: 2}); }
+  });
+})();
+</script><style id="proto-notes-style">
 body.proto-notes-on [data-note]{position:relative}
 body.proto-notes-on [data-note]::after{content:attr(data-note);position:absolute;top:1px;right:1px;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600;box-shadow:0 0 0 1.5px #fff;cursor:pointer;opacity:.75;transition:opacity .15s}
 body.proto-notes-on [data-note]:hover::after{opacity:1}
@@ -835,26 +859,5 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply);else apply();
 })();
 </script>
-<script>/*F-A 税率三件套双向换算 · meeting0908 批3*/
-(function () {
-  function num(v){ var x = parseFloat(String(v).replace(/,/g,'')); return isNaN(x)?0:x; }
-  document.addEventListener('input', function (e) {
-    var i = e.target;
-    if (!i.matches || !i.matches('input[data-tax]')) return;
-    var tr = i.closest('tr'); if (!tr) return;
-    function q(r){ var el = tr.querySelector('input[data-tax="'+r+'"]'); return el ? String(el.value).replace(/,/g,'') : '0'; }
-    var rate = num(q('rate')) / 100;
-    if (i.getAttribute('data-tax') === 'incl') {
-      var ex = rate > 0 ? num(q('incl')) / (1 + rate) : num(q('incl'));
-      var exEl = tr.querySelector('input[data-tax="excl"]'); if (exEl) exEl.value = ex.toFixed(2);
-    } else {
-      var inc = num(q('excl')) * (1 + rate);
-      var incEl = tr.querySelector('input[data-tax="incl"]'); if (incEl) incEl.value = inc.toFixed(2);
-    }
-    var amt = tr.querySelector('input[data-tax="amt"]');
-    if (amt) amt.value = fmtAmt(num(q('qty')) * num(q('incl')));
-    function fmtAmt(x){ return x.toLocaleString('zh-CN', {minimumFractionDigits: 2, maximumFractionDigits: 2}); }
-  });
-})();
-</script></body>
+</body>
 </html>

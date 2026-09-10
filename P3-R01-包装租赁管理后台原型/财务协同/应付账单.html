@@ -735,11 +735,10 @@ th.td-num { text-align:right; }
   </div>
   <div class="table-wrap">
     <table>
-      <thead><tr><th>期次</th><th>比例(%)</th><th>金额(元)</th><th>计划日期</th><th>状态</th></tr></thead>
+      <thead><tr><th data-note="4">期次</th><th>比例(%)</th><th>金额(元)</th><th>计划日期</th><th>状态</th></tr></thead>
       <tbody id="instBody"></tbody>
     </table>
   </div>
-  <div class="pn-hint">分期互算：填比例自动算金额、填金额自动算比例，末期自动补差；账单头部展示「账单金额 / 已付 / 剩余」，付款时选金额，超出账单金额拦截（2026-09-08 会议 M2/C-C）。</div>
 </div>
 <script>/*C-C/D 分期比例⇄金额互算 · meeting0908 批3*/
 (function () {
@@ -874,6 +873,9 @@ document.querySelectorAll('.tab').forEach(function (t) {
 
 
 
+
+
+
 <style id="proto-notes-style">
 body.proto-notes-on [data-note]{position:relative}
 body.proto-notes-on [data-note]::after{content:attr(data-note);position:absolute;top:1px;right:1px;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600;box-shadow:0 0 0 1.5px #fff;cursor:pointer;opacity:.75;transition:opacity .15s}
@@ -898,6 +900,7 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 <div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>L3 · 步骤 8/8 租金应付</div><div class="pnp-d">按周期对路凯生成的租金应付（36,000），RZD 单号可点跳租入单。<br>下一步 → 付款登记。</div></div>
 <div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>L4 · 步骤 10/10 多线应付（租金）</div><div class="pnp-d">L4 多线应付：采购应付（隔板）+ 租金应付（本行）+ 赔付应付 三线并存。</div></div>
 <div class="proto-pin" id="proto-pin-3"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">3</span>财务通道 · 采购应付</div><div class="pnp-d">采购应付：采购入库 → 应付账单 → 付款登记（财务通道应付行；v2.9 起 S1 支线并入）。</div></div>
+<div class="proto-pin" id="proto-pin-4"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">4</span>分期互算口径</div><div class="pnp-d">分期互算：填比例自动算金额、填金额自动算比例，末期自动补差；账单头部展示「账单金额 / 已付 / 剩余」，付款时选金额，超出账单金额拦截（2026-09-08 会议 M2/C-C）。</div></div>
 <div class="pn-fab" id="protoNotesFab">标注</div></div>
 <script id="proto-notes-js">
 (function(){

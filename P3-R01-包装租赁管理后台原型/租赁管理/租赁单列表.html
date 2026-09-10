@@ -548,12 +548,11 @@ th.td-num { text-align:right; }
     <span class="form-label"><span class="req">*</span>建单日期</span>
     <div class="input-box" style="width:350px;"><input value="2026-09-05" placeholder="请输入"></div>
   </div><div class="form-row">
-    <span class="form-label">押金(元)</span>
+    <span class="form-label" data-note="6">押金(元)</span>
     <div class="input-box" style="width:350px;"><input value="50,000.00" placeholder="请输入"></div>
   </div>
   <div class="form-row">
     <span class="form-label"></span>
-    <div style="font-size:12px;color:#8c8c8c;line-height:1.7;">押金为设计预留字段——两次会议均未涉及，收退与计价商务口径待客户确认（F01 财务通道注记同步）</div>
   </div><div style="margin:4px 0 8px;font-size:13px;font-weight:600;color:#1a1a1a;">租赁器具明细</div>
   <div class="table-wrap" style="border:1px solid var(--border);border-radius:6px;">
     <table class="edit-tbl">
@@ -779,7 +778,30 @@ document.querySelectorAll('.tab').forEach(function (t) {
 
 
 
-<style id="proto-notes-style">
+
+
+
+<script>/*F-A 税率三件套双向换算 · meeting0908 批3*/
+(function () {
+  function num(v){ var x = parseFloat(String(v).replace(/,/g,'')); return isNaN(x)?0:x; }
+  document.addEventListener('input', function (e) {
+    var i = e.target;
+    if (!i.matches || !i.matches('input[data-tax]')) return;
+    var tr = i.closest('tr'); if (!tr) return;
+    function q(r){ var el = tr.querySelector('input[data-tax="'+r+'"]'); return el ? String(el.value).replace(/,/g,'') : '0'; }
+    var rate = num(q('rate')) / 100;
+    if (i.getAttribute('data-tax') === 'incl') {
+      var ex = rate > 0 ? num(q('incl')) / (1 + rate) : num(q('incl'));
+      var exEl = tr.querySelector('input[data-tax="excl"]'); if (exEl) exEl.value = ex.toFixed(2);
+    } else {
+      var inc = num(q('excl')) * (1 + rate);
+      var incEl = tr.querySelector('input[data-tax="incl"]'); if (incEl) incEl.value = inc.toFixed(2);
+    }
+    var amt = tr.querySelector('input[data-tax="amt"]');
+    if (amt) amt.value = (num(q('qty')) * num(q('incl'))).toLocaleString('zh-CN', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+  });
+})();
+</script><style id="proto-notes-style">
 body.proto-notes-on [data-note]{position:relative}
 body.proto-notes-on [data-note]::after{content:attr(data-note);position:absolute;top:1px;right:1px;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600;box-shadow:0 0 0 1.5px #fff;cursor:pointer;opacity:.75;transition:opacity .15s}
 body.proto-notes-on [data-note]:hover::after{opacity:1}
@@ -801,10 +823,11 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 .pn-fab .pn-fab-n{font-family:Consolas,monospace;font-weight:600}
 </style>
 <div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>L4 · 步骤 5/10 租赁单（混合来源）</div><div class="pnp-d">混合组合套件出租：资产来源=自购+租入-路凯，来源列可点跳租入单 RZD-20260815-005。<br>下一步 → 组合出库 CK-20260824-009。</div></div>
-<div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>L3 · 步骤 3/8 租赁单（转租）</div><div class="pnp-d">租入资产转租客户：RZD-20260815-003（路凯围板箱×30）入库后直接转租。<br>退租后整箱归还供应商。</div></div>
+<div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>L3 · 步骤 3/8 租赁单（转租）</div><div class="pnp-d">租入资产转租客户：RZD-20260815-003（路凯围板箱×30）入库后直接转租。<br>退租后整箱归还运营方。</div></div>
 <div class="proto-pin" id="proto-pin-3"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">3</span>L2 · 步骤 5/10 租赁单（组合件 C）</div><div class="pnp-d">A+B→C 组合出租，租金按套计费。<br>下一步 → 组合出库。</div></div>
-<div class="proto-pin" id="proto-pin-4"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">4</span>L1 · 步骤 3/8 租赁单（单一器具）</div><div class="pnp-d">L1 单一出租：采购 A → 出租 A，不经组装（会后补充口径）。<br>塑料托盘 400 块直接出租。</div></div>
+<div class="proto-pin" id="proto-pin-4"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">4</span>L1 · 步骤 3/8 租赁单（单一器具）</div><div class="pnp-d">L1 单一出租：采购 A → 出租 A，单一产品直接出租（不经组合）。<br>塑料托盘 400 块直接出租。</div></div>
 <div class="proto-pin" id="proto-pin-5"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">5</span>L3 · 转租（批量示例）</div><div class="pnp-d">租入-路凯围板箱×300 批量转租，来源列可点跳租入单 RZD-20260815-003。</div></div>
+<div class="proto-pin" id="proto-pin-6"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">6</span>押金预留字段</div><div class="pnp-d">押金为设计预留字段——两次会议均未涉及，收退与计价商务口径待客户确认（F01 财务通道注记同步）。</div></div>
 <div class="pn-fab" id="protoNotesFab">标注</div></div>
 <script id="proto-notes-js">
 (function(){
@@ -854,25 +877,5 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply);else apply();
 })();
 </script>
-<script>/*F-A 税率三件套双向换算 · meeting0908 批3*/
-(function () {
-  function num(v){ var x = parseFloat(String(v).replace(/,/g,'')); return isNaN(x)?0:x; }
-  document.addEventListener('input', function (e) {
-    var i = e.target;
-    if (!i.matches || !i.matches('input[data-tax]')) return;
-    var tr = i.closest('tr'); if (!tr) return;
-    function q(r){ var el = tr.querySelector('input[data-tax="'+r+'"]'); return el ? String(el.value).replace(/,/g,'') : '0'; }
-    var rate = num(q('rate')) / 100;
-    if (i.getAttribute('data-tax') === 'incl') {
-      var ex = rate > 0 ? num(q('incl')) / (1 + rate) : num(q('incl'));
-      var exEl = tr.querySelector('input[data-tax="excl"]'); if (exEl) exEl.value = ex.toFixed(2);
-    } else {
-      var inc = num(q('excl')) * (1 + rate);
-      var incEl = tr.querySelector('input[data-tax="incl"]'); if (incEl) incEl.value = inc.toFixed(2);
-    }
-    var amt = tr.querySelector('input[data-tax="amt"]');
-    if (amt) amt.value = (num(q('qty')) * num(q('incl'))).toLocaleString('zh-CN', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-  });
-})();
-</script></body>
+</body>
 </html>
