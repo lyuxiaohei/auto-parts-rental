@@ -1,7 +1,12 @@
 [
  {
   "page": "P3-R01-F01-业务流程导航图.html",
-  "js_errors": [],
+  "js_errors": [
+   {
+    "type": "error",
+    "text": "Failed to load resource: net::ERR_CONNECTION_CLOSED"
+   }
+  ],
   "problems": [],
   "stats": {
    "buttons": 0,
