@@ -15332,7 +15332,7 @@ window.DEMO_DATA = {
    * ------------------------------------------------------------------------ */
   roles: {
     'RL-01': { 'row': {"fields": {"name": "系统管理员", "desc": "全部功能 + 系统管理", "scope": "全部项目", "accts": "2"}, "keyHtml": "<b>系统管理员</b>", "cells": ["全部功能 + 系统管理", "全部项目", "<span class=\"td-num\">2</span>"], "ops": [{"t": "权限配置", "act": "openRolePerm('系统管理员')"}]} },
-    'RL-02': { 'row': {"fields": {"name": "财务", "desc": "财务应收/应付/项目损益", "scope": "全部项目", "accts": "1"}, "keyHtml": "<b>财务</b>", "cells": ["财务应收/应付/项目损益", "全部项目", "<span class=\"td-num\">1</span>"], "ops": [{"t": "权限配置", "act": "openRolePerm('财务')"}]} },
+    'RL-02': { 'row': {"fields": {"name": "财务", "desc": "财务应收/应付/财务看板", "scope": "全部项目", "accts": "1"}, "keyHtml": "<b>财务</b>", "cells": ["财务应收/应付/财务看板", "全部项目", "<span class=\"td-num\">1</span>"], "ops": [{"t": "权限配置", "act": "openRolePerm('财务')"}]} },
     'RL-03': { 'row': {"fields": {"name": "财务主管", "desc": "财务全模块 + 付款/回款确认审核", "scope": "全部项目", "accts": "1"}, "keyHtml": "<b>财务主管</b>", "cells": ["财务全模块 + 付款/回款确认审核", "全部项目", "<span class=\"td-num\">1</span>"], "ops": [{"t": "权限配置", "act": "openRolePerm('财务主管')"}]} },
     'RL-04': { 'row': {"fields": {"name": "商务", "desc": "订单/租赁全流程", "scope": "全部项目", "accts": "2"}, "keyHtml": "<b>商务</b>", "cells": ["订单/租赁全流程", "全部项目", "<span class=\"td-num\">2</span>"], "ops": [{"t": "权限配置", "act": "openRolePerm('商务')"}]} },
     'RL-05': { 'row': {"fields": {"name": "商务主管", "desc": "订单/租赁全流程 + 单据审核", "scope": "全部项目", "accts": "1"}, "keyHtml": "<b>商务主管</b>", "cells": ["订单/租赁全流程 + 单据审核", "全部项目", "<span class=\"td-num\">1</span>"], "ops": [{"t": "权限配置", "act": "openRolePerm('商务主管')"}]} },

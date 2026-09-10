@@ -66,19 +66,19 @@ with sync_playwright() as pw:
     check('③', '项目管理组恰 2 项=项目看板/项目列表（损益已移出）',
           pm_items == ['项目看板', '项目列表'], '→'.join(pm_items))
 
-    # ④ 损益=财务管理组尾普通项（非小标签）
+    # ④ 财务看板=财务管理组首普通项（非小标签）（G10·v3.5：移位+改名·应收小标签之前）
     g_fin = next(g for g in groups if g['name'] == '财务管理')
-    fin_last = g_fin['sub'][-1]
-    n_sun = pg.evaluate("() => [...document.querySelectorAll('.side-menu .sm-link')].filter(e=>e.textContent.trim()==='项目损益').length")
-    check('④', '项目损益=财务管理组尾普通菜单项（非小标签，全菜单恰 1 处）',
-          fin_last['text'] == '项目损益' and not fin_last['isTag'] and n_sun == 1,
-          f"组尾={fin_last['text']} isTag={fin_last['isTag']} 出现{n_sun}次")
+    fin_first = g_fin['sub'][0]
+    n_sun = pg.evaluate("() => [...document.querySelectorAll('.side-menu .sm-link')].filter(e=>e.textContent.trim()==='财务看板').length")
+    check('④', '财务看板=财务管理组首普通菜单项（非小标签，全菜单恰 1 处）',
+          fin_first['text'] == '财务看板' and not fin_first['isTag'] and n_sun == 1,
+          f"组首={fin_first['text']} isTag={fin_first['isTag']} 出现{n_sun}次")
 
     # ⑥ 财务管理组小标签=应收(4)/应付(2)
     fin_seq = [('T' if s['isTag'] else 'I') + s['text'] for s in g_fin['sub']]
-    check('⑥', '财务管理组 应收(应收账单/开票登记/收款登记/收款核销)+应付(应付账单/付款登记)+项目损益',
-          fin_seq == ['T应收', 'I应收账单', 'I开票登记', 'I收款登记', 'I收款核销',
-                      'T应付', 'I应付账单', 'I付款登记', 'I项目损益'], ' '.join(fin_seq))
+    check('⑥', '财务管理组 财务看板+应收(应收账单/开票登记/收款登记/收款核销)+应付(应付账单/付款登记)',
+          fin_seq == ['I财务看板', 'T应收', 'I应收账单', 'I开票登记', 'I收款登记', 'I收款核销',
+                      'T应付', 'I应付账单', 'I付款登记'], ' '.join(fin_seq))
 
     # ⑦ 仓储管理组三小标签=库存管理(3)/入库类(1)/出库类(1)
     g_wh = next(g for g in groups if g['name'] == '仓储管理')
@@ -98,18 +98,18 @@ with sync_playwright() as pw:
     all_text = pg.evaluate("() => document.querySelector('.side-menu').textContent")
     check('⑨', '菜单无「盘点录入」项', '盘点录入' not in all_text)
 
-    # ⑤ 点击损益落地 财务协同/盈亏报表.html
+    # ⑤ 点击财务看板落地 财务协同/盈亏报表.html
     with pg.expect_navigation():
-        pg.evaluate("() => [...document.querySelectorAll('.sm-link')].find(e=>e.textContent.trim()==='项目损益').click()")
+        pg.evaluate("() => [...document.querySelectorAll('.sm-link')].find(e=>e.textContent.trim()==='财务看板').click()")
     pg.wait_for_load_state('load')
     url1 = unquote(pg.url)
-    check('⑤', '点击项目损益落地 财务协同/盈亏报表.html',
+    check('⑤', '点击财务看板落地 财务协同/盈亏报表.html',
           url1.endswith('财务协同/盈亏报表.html'), url1)
     # 落地页 selected/open 顺带核对
     sel1 = pg.evaluate("() => { const e=document.querySelector('.sm-link.selected'); return e?e.textContent.trim():null }")
     g_fin2 = pg.evaluate(MENU_JS)
     fin_open = next(g for g in g_fin2 if g['name'] == '财务管理')['open']
-    check('⑤b', '盈亏报表页 selected=项目损益 且 财务管理组 open', sel1 == '项目损益' and fin_open, f'selected={sel1} open={fin_open}')
+    check('⑤b', '盈亏报表页 selected=财务看板 且 财务管理组 open', sel1 == '财务看板' and fin_open, f'selected={sel1} open={fin_open}')
 
     # ⑪ 我的待办一级直达（从盈亏报表页点击）
     with pg.expect_navigation():
@@ -141,5 +141,5 @@ with sync_playwright() as pw:
 fails = [r for r in results if not r[2]]
 for no, name, ok, note in results:
     print(f"{'PASS' if ok else 'FAIL'} {no} {name}" + (f'  ｜{note}' if not ok or no in ('⑤', '⑪') else ''))
-print(f"==== 菜单 v3.4 验证门：{len(results)} 项断言，失败 {len(fails)} 项 ====")
+print(f"==== 菜单 v3.5 验证门：{len(results)} 项断言，失败 {len(fails)} 项 ====")
 sys.exit(1 if fails else 0)
