@@ -1405,7 +1405,7 @@ window.DEMO_DATA = {
   /* 租金标准 8.00 元/套/日为默认决策待确认；押金口径待客户 */
   leaseOrders: {
     'ZL-20260823-033': {
-      'row': {"fields": {"customer": "一汽解放汽车有限公司", "project": "PRJ-2604", "status": "已退租", "start": "2026-08-23"}, "note": "1", "cells": ["一汽解放汽车有限公司", "PRJ-2604", "ZH-2604-D 混合组合套件", "<span class=\"tag tag-orange\">混合（自购 + 租入-路凯）</span> <span class=\"lk\" onclick=\"go('../租赁管理/租入单列表.html')\">RZD-20260815-005</span>", "<span class=\"td-num\">40 套</span>", "2026-08-23", "2026-11-23", "<span class=\"td-num\">92</span>", "<span class=\"tag tag-green\">已退租</span>"], "ops": [{"t": "编辑", "act": "openModal('createModal')"}, {"t": "审核", "act": "openModal('auditModal')"}, {"t": "关闭"}]},
+      'row': {"fields": {"customer": "一汽解放汽车有限公司", "project": "PRJ-2604", "status": "已退租", "start": "2026-08-23"}, "note": "1", "cells": ["一汽解放汽车有限公司", "PRJ-2604", "ZH-2604-D 混合组合套件", "<span class=\"tag tag-orange\">混合（自购 + 租入-路凯）</span> <span class=\"lk\" onclick=\"go('../租赁管理/租入单列表.html')\">RZD-20260815-005</span>", "<span class=\"td-num\">40 套</span>", "2026-08-23", "<span class=\"td-num\">40/40 套</span>", "<span class=\"tag tag-green\">已退租</span>"], "ops": [{"t": "编辑", "act": "openModal('createModal')"}, {"t": "审核", "act": "openModal('auditModal')"}, {"t": "关闭"}]},
       'title': '租赁单详情',
       'info': [
         {
@@ -1446,8 +1446,8 @@ window.DEMO_DATA = {
           'url': '租赁管理/租入单列表.html'
         },
         {
-          'label': '租期',
-          'text': '2026-08-23 ~ 2026-11-23',
+          'label': '退回进度',
+          'text': '40/40 套',
           'full': true
         },
         {
@@ -1525,7 +1525,7 @@ window.DEMO_DATA = {
       ]
     },
     'ZL-20260901-032': {
-      'row': {"fields": {"customer": "一汽解放汽车有限公司", "project": "PRJ-2601", "status": "待审核", "start": "2026-09-05"}, "cells": ["一汽解放汽车有限公司", "PRJ-2601", "ZH-2601-A 驾驶室围板箱整箱套件", "<span class=\"tag tag-gray\">自有</span>", "<span class=\"td-num\">180 套</span>", "2026-09-05", "2026-12-05", "<span class=\"td-num\">91</span>", "<span class=\"tag tag-orange\">待审核</span>"], "ops": [{"t": "编辑", "act": "openModal('createModal')"}, {"t": "审核", "act": "openModal('auditModal')"}, {"t": "关闭"}]},
+      'row': {"fields": {"customer": "一汽解放汽车有限公司", "project": "PRJ-2601", "status": "待审核", "start": "2026-09-05"}, "cells": ["一汽解放汽车有限公司", "PRJ-2601", "ZH-2601-A 驾驶室围板箱整箱套件", "<span class=\"tag tag-gray\">自有</span>", "<span class=\"td-num\">180 套</span>", "2026-09-05", "<span class=\"td-num\">—</span>", "<span class=\"tag tag-orange\">待审核</span>"], "ops": [{"t": "编辑", "act": "openModal('createModal')"}, {"t": "审核", "act": "openModal('auditModal')"}, {"t": "关闭"}]},
       'title': '租赁单详情',
       'info': [
         {
@@ -1565,8 +1565,8 @@ window.DEMO_DATA = {
           'full': true
         },
         {
-          'label': '租期',
-          'text': '2026-09-05 ~ 2026-12-05',
+          'label': '退回进度',
+          'text': '—',
           'full': true
         },
         {
@@ -1621,7 +1621,7 @@ window.DEMO_DATA = {
       ]
     },
     'ZL-20260828-031': {
-      'row': {"fields": {"customer": "上汽大众汽车有限公司宁波分公司", "project": "PRJ-2602", "status": "已审核", "start": "2026-09-01"}, "note": "3", "cells": ["上汽大众汽车有限公司宁波分公司", "PRJ-2602", "ZH-2602-B 冲压件料箱组套", "<span class=\"tag tag-gray\">自有</span>", "<span class=\"td-num\">120 套</span>", "2026-09-01", "2026-11-30", "<span class=\"td-num\">90</span>", "<span class=\"tag tag-blue\">已审核</span>"], "ops": [{"t": "出库", "act": "go('../租赁管理/组合出库列表.html')"}, {"t": "详情", "detail": true}, {"t": "关闭"}]},
+      'row': {"fields": {"customer": "上汽大众汽车有限公司宁波分公司", "project": "PRJ-2602", "status": "已审核", "start": "2026-09-01"}, "note": "3", "cells": ["上汽大众汽车有限公司宁波分公司", "PRJ-2602", "ZH-2602-B 冲压件料箱组套", "<span class=\"tag tag-gray\">自有</span>", "<span class=\"td-num\">120 套</span>", "2026-09-01", "<span class=\"td-num\">0/120 套</span>", "<span class=\"tag tag-blue\">已审核</span>"], "ops": [{"t": "出库", "act": "go('../租赁管理/组合出库列表.html')"}, {"t": "详情", "detail": true}, {"t": "关闭"}]},
       'title': '租赁单详情',
       'info': [
         {
@@ -1661,8 +1661,8 @@ window.DEMO_DATA = {
           'full': true
         },
         {
-          'label': '租期',
-          'text': '2026-09-01 ~ 2026-11-30',
+          'label': '退回进度',
+          'text': '0/120 套',
           'full': true
         },
         {
@@ -1722,7 +1722,7 @@ window.DEMO_DATA = {
       ]
     },
     'ZL-20260816-029': {
-      'row': {"fields": {"customer": "上汽大众汽车有限公司宁波分公司", "project": "PRJ-2603", "status": "已退租", "start": "2026-08-16"}, "note": "2", "cells": ["上汽大众汽车有限公司宁波分公司", "PRJ-2603", "WBX-1210L 围板箱 1200×1000×970", "<span class=\"tag tag-orange\">租入-路凯</span> <span class=\"lk\" onclick=\"go('../租赁管理/租入单列表.html')\">RZD-20260815-003</span>", "<span class=\"td-num\">30 只</span>", "2026-08-16", "2026-11-16", "<span class=\"td-num\">92</span>", "<span class=\"tag tag-green\">已退租</span>"], "ops": [{"t": "详情", "detail": true}, {"t": "退租入库", "act": "go('../租赁管理/退租入库列表.html')"}]},
+      'row': {"fields": {"customer": "上汽大众汽车有限公司宁波分公司", "project": "PRJ-2603", "status": "已退租", "start": "2026-08-16"}, "note": "2", "cells": ["上汽大众汽车有限公司宁波分公司", "PRJ-2603", "WBX-1210L 围板箱 1200×1000×970", "<span class=\"tag tag-orange\">租入-路凯</span> <span class=\"lk\" onclick=\"go('../租赁管理/租入单列表.html')\">RZD-20260815-003</span>", "<span class=\"td-num\">30 只</span>", "2026-08-16", "<span class=\"td-num\">30/30 只</span>", "<span class=\"tag tag-green\">已退租</span>"], "ops": [{"t": "详情", "detail": true}, {"t": "退租入库", "act": "go('../租赁管理/退租入库列表.html')"}]},
       'title': '租赁单详情',
       'info': [
         {
@@ -1763,8 +1763,8 @@ window.DEMO_DATA = {
           'url': '租赁管理/租入单列表.html'
         },
         {
-          'label': '租期',
-          'text': '2026-08-16 ~ 2026-11-16',
+          'label': '退回进度',
+          'text': '30/30 只',
           'full': true
         },
         {
@@ -1843,7 +1843,7 @@ window.DEMO_DATA = {
       ]
     },
     'ZL-20260815-028': {
-      'row': {"fields": {"customer": "一汽解放汽车有限公司", "project": "PRJ-2601", "status": "在租", "start": "2026-08-20"}, "note": "5", "cells": ["一汽解放汽车有限公司", "PRJ-2601", "WBX-1210L 围板箱 1200×1000×970", "<span class=\"tag tag-orange\">租入-路凯</span> <span class=\"lk\" onclick=\"go('../租赁管理/租入单列表.html')\">RZD-20260815-003</span>", "<span class=\"td-num\">300 只</span>", "2026-08-20", "2026-11-20", "<span class=\"td-num\">92</span>", "<span class=\"tag tag-blue\">在租</span>"], "ops": [{"t": "出库", "act": "go('../租赁管理/组合出库列表.html')"}, {"t": "详情", "detail": true}, {"t": "退租入库", "act": "go('../租赁管理/退租入库列表.html')"}]},
+      'row': {"fields": {"customer": "一汽解放汽车有限公司", "project": "PRJ-2601", "status": "在租", "start": "2026-08-20"}, "note": "5", "cells": ["一汽解放汽车有限公司", "PRJ-2601", "WBX-1210L 围板箱 1200×1000×970", "<span class=\"tag tag-orange\">租入-路凯</span> <span class=\"lk\" onclick=\"go('../租赁管理/租入单列表.html')\">RZD-20260815-003</span>", "<span class=\"td-num\">300 只</span>", "2026-08-20", "<span class=\"td-num\">0/300 只</span>", "<span class=\"tag tag-blue\">在租</span>"], "ops": [{"t": "出库", "act": "go('../租赁管理/组合出库列表.html')"}, {"t": "详情", "detail": true}, {"t": "退租入库", "act": "go('../租赁管理/退租入库列表.html')"}]},
       'title': '租赁单详情',
       'info': [
         {
@@ -1884,8 +1884,8 @@ window.DEMO_DATA = {
           'url': '租赁管理/租入单列表.html'
         },
         {
-          'label': '租期',
-          'text': '2026-08-20 ~ 2026-11-20',
+          'label': '退回进度',
+          'text': '0/300 只',
           'full': true
         },
         {
@@ -1930,9 +1930,9 @@ window.DEMO_DATA = {
           'url': '租赁管理/组合出库列表.html'
         },
         {
-          'role': '在租台账',
+          'role': '库存查询·客户在租',
           'name': '客户占用 · 租赁费应收',
-          'url': '租赁管理/在租台账.html'
+          'url': '仓储作业/库存查询.html'
         }
       ],
       'timeline': [
@@ -1960,7 +1960,7 @@ window.DEMO_DATA = {
       ]
     },
     'ZL-20260720-022': {
-      'row': {"fields": {"customer": "小鹏汽车科技有限公司", "project": "PRJ-2603", "status": "在租", "start": "2026-07-25"}, "cells": ["小鹏汽车科技有限公司", "PRJ-2603", "ZH-2603-C 电池托盘护角套件", "<span class=\"tag tag-gray\">自有</span>", "<span class=\"td-num\">60 套</span>", "2026-07-25", "2026-10-25", "<span class=\"td-num\">92</span>", "<span class=\"tag tag-blue\">在租</span>"], "ops": [{"t": "出库", "act": "go('../租赁管理/组合出库列表.html')"}, {"t": "详情", "detail": true}, {"t": "退租入库", "act": "go('../租赁管理/退租入库列表.html')"}]},
+      'row': {"fields": {"customer": "小鹏汽车科技有限公司", "project": "PRJ-2603", "status": "在租", "start": "2026-07-25"}, "cells": ["小鹏汽车科技有限公司", "PRJ-2603", "ZH-2603-C 电池托盘护角套件", "<span class=\"tag tag-gray\">自有</span>", "<span class=\"td-num\">60 套</span>", "2026-07-25", "<span class=\"td-num\">20/60 套</span>", "<span class=\"tag tag-blue\">在租</span>"], "ops": [{"t": "出库", "act": "go('../租赁管理/组合出库列表.html')"}, {"t": "详情", "detail": true}, {"t": "退租入库", "act": "go('../租赁管理/退租入库列表.html')"}]},
       'title': '租赁单详情',
       'info': [
         {
@@ -2000,8 +2000,8 @@ window.DEMO_DATA = {
           'full': true
         },
         {
-          'label': '租期',
-          'text': '2026-07-25 ~ 2026-10-25',
+          'label': '退回进度',
+          'text': '20/60 套',
           'full': true
         },
         {
@@ -2061,7 +2061,7 @@ window.DEMO_DATA = {
       ]
     },
     'ZL-20260610-015': {
-      'row': {"fields": {"customer": "一汽解放汽车有限公司", "project": "PRJ-2601", "status": "在租", "start": "2026-06-15"}, "cells": ["一汽解放汽车有限公司", "PRJ-2601", "BTC-6040 料箱 600×400×340", "<span class=\"tag tag-gray\">自有</span>", "<span class=\"td-num\">500 只</span>", "2026-06-15", "2026-09-15", "<span class=\"td-num\">92</span>", "<span class=\"tag tag-blue\">在租</span>"], "ops": [{"t": "出库", "act": "go('../租赁管理/组合出库列表.html')"}, {"t": "详情", "detail": true}, {"t": "退租入库", "act": "go('../租赁管理/退租入库列表.html')"}]},
+      'row': {"fields": {"customer": "一汽解放汽车有限公司", "project": "PRJ-2601", "status": "在租", "start": "2026-06-15"}, "cells": ["一汽解放汽车有限公司", "PRJ-2601", "BTC-6040 料箱 600×400×340", "<span class=\"tag tag-gray\">自有</span>", "<span class=\"td-num\">500 只</span>", "2026-06-15", "<span class=\"td-num\">0/500 只</span>", "<span class=\"tag tag-blue\">在租</span>"], "ops": [{"t": "出库", "act": "go('../租赁管理/组合出库列表.html')"}, {"t": "详情", "detail": true}, {"t": "退租入库", "act": "go('../租赁管理/退租入库列表.html')"}]},
       'title': '租赁单详情',
       'info': [
         {
@@ -2101,8 +2101,8 @@ window.DEMO_DATA = {
           'full': true
         },
         {
-          'label': '租期',
-          'text': '2026-06-15 ~ 2026-09-15',
+          'label': '退回进度',
+          'text': '0/500 只',
           'full': true
         },
         {
@@ -2172,7 +2172,7 @@ window.DEMO_DATA = {
       ]
     },
     'ZL-20260301-006': {
-      'row': {"fields": {"customer": "上汽大众汽车有限公司宁波分公司", "project": "PRJ-2602", "status": "已退租", "start": "2026-03-05"}, "note": "4", "cells": ["上汽大众汽车有限公司宁波分公司", "PRJ-2602", "PLT-1210P 塑料托盘 1200×1000", "<span class=\"tag tag-gray\">自有（单一器具直接出租）</span>", "<span class=\"td-num\">400 块</span>", "2026-03-05", "2026-06-05", "<span class=\"td-num\">92</span>", "<span class=\"tag tag-green\">已退租</span>"], "ops": [{"t": "详情", "detail": true}]},
+      'row': {"fields": {"customer": "上汽大众汽车有限公司宁波分公司", "project": "PRJ-2602", "status": "已退租", "start": "2026-03-05"}, "note": "4", "cells": ["上汽大众汽车有限公司宁波分公司", "PRJ-2602", "PLT-1210P 塑料托盘 1200×1000", "<span class=\"tag tag-gray\">自有（单一器具直接出租）</span>", "<span class=\"td-num\">400 块</span>", "2026-03-05", "<span class=\"td-num\">400/400 块</span>", "<span class=\"tag tag-green\">已退租</span>"], "ops": [{"t": "详情", "detail": true}]},
       'title': '租赁单详情',
       'info': [
         {
@@ -2212,8 +2212,8 @@ window.DEMO_DATA = {
           'full': true
         },
         {
-          'label': '租期',
-          'text': '2026-03-05 ~ 2026-06-05',
+          'label': '退回进度',
+          'text': '400/400 块',
           'full': true
         },
         {
@@ -2277,7 +2277,7 @@ window.DEMO_DATA = {
       ]
     },
     'ZL-20260115-002': {
-      'row': {"fields": {"customer": "东风本田汽车有限公司", "project": "PRJ-2604", "status": "已关闭", "start": "2026-01-20"}, "cells": ["东风本田汽车有限公司", "PRJ-2604", "WBX-1210M 围板箱 1200×1000×590", "<span class=\"tag tag-gray\">自有</span>", "<span class=\"td-num\">150 只</span>", "2026-01-20", "2026-04-20", "<span class=\"td-num\">90</span>", "<span class=\"tag tag-gray\">已关闭</span>"], "ops": [{"t": "详情", "detail": true}]},
+      'row': {"fields": {"customer": "东风本田汽车有限公司", "project": "PRJ-2604", "status": "已关闭", "start": "2026-01-20"}, "cells": ["东风本田汽车有限公司", "PRJ-2604", "WBX-1210M 围板箱 1200×1000×590", "<span class=\"tag tag-gray\">自有</span>", "<span class=\"td-num\">150 只</span>", "2026-01-20", "<span class=\"td-num\">150/150 只</span>", "<span class=\"tag tag-gray\">已关闭</span>"], "ops": [{"t": "详情", "detail": true}]},
       'title': '租赁单详情',
       'info': [
         {
@@ -2317,8 +2317,8 @@ window.DEMO_DATA = {
           'full': true
         },
         {
-          'label': '租期',
-          'text': '2026-01-20 ~ 2026-04-20',
+          'label': '退回进度',
+          'text': '150/150 只',
           'full': true
         },
         {
@@ -2948,9 +2948,9 @@ window.DEMO_DATA = {
           'self': true
         },
         {
-          'role': '在租台账 / 应收',
+          'role': '库存查询·客户在租 / 应收',
           'name': '客户占用起租 · 租赁费应收',
-          'url': '租赁管理/在租台账.html'
+          'url': '仓储作业/库存查询.html'
         }
       ],
       'timeline': [
@@ -3055,9 +3055,9 @@ window.DEMO_DATA = {
           'self': true
         },
         {
-          'role': '在租台账 / 应收',
+          'role': '库存查询·客户在租 / 应收',
           'name': '客户占用起租 · 租赁费应收',
-          'url': '租赁管理/在租台账.html'
+          'url': '仓储作业/库存查询.html'
         }
       ],
       'timeline': [
@@ -3162,9 +3162,9 @@ window.DEMO_DATA = {
           'self': true
         },
         {
-          'role': '在租台账 / 应收',
+          'role': '库存查询·客户在租 / 应收',
           'name': '出库确认后起租',
-          'url': '租赁管理/在租台账.html'
+          'url': '仓储作业/库存查询.html'
         }
       ],
       'timeline': [
@@ -3265,9 +3265,9 @@ window.DEMO_DATA = {
           'self': true
         },
         {
-          'role': '在租台账 / 应收',
+          'role': '库存查询·客户在租 / 应收',
           'name': '客户占用起租 · 租赁费应收',
-          'url': '租赁管理/在租台账.html'
+          'url': '仓储作业/库存查询.html'
         }
       ],
       'timeline': [
@@ -3372,9 +3372,9 @@ window.DEMO_DATA = {
           'self': true
         },
         {
-          'role': '在租台账 / 应收',
+          'role': '库存查询·客户在租 / 应收',
           'name': '客户占用起租 · 租赁费应收',
-          'url': '租赁管理/在租台账.html'
+          'url': '仓储作业/库存查询.html'
         }
       ],
       'timeline': [
@@ -3479,9 +3479,9 @@ window.DEMO_DATA = {
           'self': true
         },
         {
-          'role': '在租台账 / 应收',
+          'role': '库存查询·客户在租 / 应收',
           'name': '客户占用起租 · 租赁费应收',
-          'url': '租赁管理/在租台账.html'
+          'url': '仓储作业/库存查询.html'
         }
       ],
       'timeline': [
@@ -3580,9 +3580,9 @@ window.DEMO_DATA = {
           'self': true
         },
         {
-          'role': '在租台账 / 应收',
+          'role': '库存查询·客户在租 / 应收',
           'name': '客户占用起租 · 租赁费应收',
-          'url': '租赁管理/在租台账.html'
+          'url': '仓储作业/库存查询.html'
         }
       ],
       'timeline': [
@@ -3687,9 +3687,9 @@ window.DEMO_DATA = {
           'self': true
         },
         {
-          'role': '在租台账 / 应收',
+          'role': '库存查询·客户在租 / 应收',
           'name': '客户占用起租 · 租赁费应收',
-          'url': '租赁管理/在租台账.html'
+          'url': '仓储作业/库存查询.html'
         }
       ],
       'timeline': [
@@ -9611,7 +9611,7 @@ window.DEMO_DATA = {
   /* 弹窗 flowModal · 触发锚「库存流水」；四态口径 + 进出流水时间倒序 */
   stockFlows: {
      'XNC-AJZX-WBX': {
-      'row': {"fields": {"name": "围板箱 1200×1000×970（安吉智行·客户虚拟仓）", "cls": "租赁器具", "project": "PRJ-2605", "area": "安吉智行·客户虚拟仓"}, "cells": ["围板箱 1200×1000×970（安吉智行·客户虚拟仓）", "<span class=\"tag tag-blue\">租赁器具</span>", "PRJ-2605", "<span class=\"td-num\">0</span>", "<span class=\"td-num\">0</span>", "<span class=\"td-num\">640</span>", "<span class=\"td-num\">0</span>", "<span class=\"td-num\"><b>640</b></span>", "只", "安吉智行·客户虚拟仓"], "ops": [{"t": "库存流水", "detail": true}]},
+      'row': {"fields": {"name": "围板箱 1200×1000×970（安吉智行·客户虚拟仓）", "cls": "租赁器具", "project": "PRJ-2605", "area": "安吉智行·客户虚拟仓"}, "cells": ["围板箱 1200×1000×970（安吉智行·客户虚拟仓）", "<span class=\"tag tag-blue\">租赁器具</span>", "PRJ-2605", "<span class=\"td-num\">0</span>", "<span class=\"td-num\">0</span>", "<span class=\"td-num\">640</span>", "<span class=\"td-num\">0</span>", "<span class=\"td-num\"><b>640</b></span>", "只", "安吉智行·客户虚拟仓"], "ops": [{"t": "库存流水", "detail": true}, {"t": "客户在租", "act": "openModal('rentDrillModal')"}]},
       'title': '库存流水',
       'titleNo': 'XNC-AJZX-WBX 围板箱（安吉智行·客户虚拟仓）',
       'info': [
@@ -9687,7 +9687,7 @@ window.DEMO_DATA = {
       ]
     },
    'LJ-A100': {
-      'row': {"fields": {"name": "锁扣组件 不锈钢 304", "cls": "零部件", "project": "PRJ-2601/02/04", "area": "原料区 RA"}, "cells": ["锁扣组件 不锈钢 304", "<span class=\"tag tag-blue\">零部件</span>", "PRJ-2601/02/04", "<span class=\"td-num\">5,260</span>", "<span class=\"td-num\">1,200</span>", "<span class=\"td-num\">800</span>", "<span class=\"td-num\">2,400</span>", "<span class=\"td-num\"><b>7,260</b></span>", "件", "原料区 RA"], "ops": [{"t": "库存流水", "detail": true}]},
+      'row': {"fields": {"name": "锁扣组件 不锈钢 304", "cls": "零部件", "project": "PRJ-2601/02/04", "area": "原料区 RA"}, "cells": ["锁扣组件 不锈钢 304", "<span class=\"tag tag-blue\">零部件</span>", "PRJ-2601/02/04", "<span class=\"td-num\">5,260</span>", "<span class=\"td-num\">1,200</span>", "<span class=\"td-num\">800</span>", "<span class=\"td-num\">2,400</span>", "<span class=\"td-num\"><b>7,260</b></span>", "件", "原料区 RA"], "ops": [{"t": "库存流水", "detail": true}, {"t": "客户在租", "act": "openModal('rentDrillModal')"}]},
       'title': '库存流水',
       'titleNo': 'LJ-A100 锁扣组件 不锈钢 304',
       'info': [
@@ -9796,7 +9796,7 @@ window.DEMO_DATA = {
       ]
     },
     'LJ-B200': {
-      'row': {"fields": {"name": "铰链 锌合金 65mm", "cls": "零部件", "project": "PRJ-2601/02", "area": "原料区 RA"}, "cells": ["铰链 锌合金 65mm", "<span class=\"tag tag-blue\">零部件</span>", "PRJ-2601/02", "<span class=\"td-num\">2,640</span>", "<span class=\"td-num\">400</span>", "<span class=\"td-num\">1,600</span>", "<span class=\"td-num\">0</span>", "<span class=\"td-num\"><b>4,640</b></span>", "件", "原料区 RA"], "ops": [{"t": "库存流水", "detail": true}]},
+      'row': {"fields": {"name": "铰链 锌合金 65mm", "cls": "零部件", "project": "PRJ-2601/02", "area": "原料区 RA"}, "cells": ["铰链 锌合金 65mm", "<span class=\"tag tag-blue\">零部件</span>", "PRJ-2601/02", "<span class=\"td-num\">2,640</span>", "<span class=\"td-num\">400</span>", "<span class=\"td-num\">1,600</span>", "<span class=\"td-num\">0</span>", "<span class=\"td-num\"><b>4,640</b></span>", "件", "原料区 RA"], "ops": [{"t": "库存流水", "detail": true}, {"t": "客户在租", "act": "openModal('rentDrillModal')"}]},
       'title': '库存流水',
       'titleNo': 'LJ-B200 铰链 锌合金 65mm',
       'info': [
@@ -9895,7 +9895,7 @@ window.DEMO_DATA = {
       ]
     },
     'LJ-C300': {
-      'row': {"fields": {"name": "围板 HDPE 波纹板", "cls": "零部件", "project": "PRJ-2601", "area": "原料区 RA"}, "cells": ["围板 HDPE 波纹板", "<span class=\"tag tag-blue\">零部件</span>", "PRJ-2601", "<span class=\"td-num\">1,860</span>", "<span class=\"td-num\">0</span>", "<span class=\"td-num\">1,600</span>", "<span class=\"td-num\">0</span>", "<span class=\"td-num\"><b>3,460</b></span>", "件", "原料区 RA"], "ops": [{"t": "库存流水", "detail": true}]},
+      'row': {"fields": {"name": "围板 HDPE 波纹板", "cls": "零部件", "project": "PRJ-2601", "area": "原料区 RA"}, "cells": ["围板 HDPE 波纹板", "<span class=\"tag tag-blue\">零部件</span>", "PRJ-2601", "<span class=\"td-num\">1,860</span>", "<span class=\"td-num\">0</span>", "<span class=\"td-num\">1,600</span>", "<span class=\"td-num\">0</span>", "<span class=\"td-num\"><b>3,460</b></span>", "件", "原料区 RA"], "ops": [{"t": "库存流水", "detail": true}, {"t": "客户在租", "act": "openModal('rentDrillModal')"}]},
       'title': '库存流水',
       'titleNo': 'LJ-C300 围板 HDPE 波纹板',
       'info': [
@@ -9983,7 +9983,7 @@ window.DEMO_DATA = {
       ]
     },
     'LJ-D400': {
-      'row': {"fields": {"name": "箱盖 ABS 吸塑", "cls": "零部件", "project": "PRJ-2601/04", "area": "原料区 RA"}, "cells": ["箱盖 ABS 吸塑", "<span class=\"tag tag-blue\">零部件</span>", "PRJ-2601/04", "<span class=\"td-num\">980</span>", "<span class=\"td-num\">480</span>", "<span class=\"td-num\">400</span>", "<span class=\"td-num\">1,000</span>", "<span class=\"td-num\"><b>1,860</b></span>", "件", "原料区 RA"], "ops": [{"t": "库存流水", "detail": true}]},
+      'row': {"fields": {"name": "箱盖 ABS 吸塑", "cls": "零部件", "project": "PRJ-2601/04", "area": "原料区 RA"}, "cells": ["箱盖 ABS 吸塑", "<span class=\"tag tag-blue\">零部件</span>", "PRJ-2601/04", "<span class=\"td-num\">980</span>", "<span class=\"td-num\">480</span>", "<span class=\"td-num\">400</span>", "<span class=\"td-num\">1,000</span>", "<span class=\"td-num\"><b>1,860</b></span>", "件", "原料区 RA"], "ops": [{"t": "库存流水", "detail": true}, {"t": "客户在租", "act": "openModal('rentDrillModal')"}]},
       'title': '库存流水',
       'titleNo': 'LJ-D400 箱盖 ABS 吸塑',
       'info': [
@@ -10085,7 +10085,7 @@ window.DEMO_DATA = {
       ]
     },
     'LJ-F600': {
-      'row': {"fields": {"name": "内衬 EPE 珍珠棉", "cls": "零部件", "project": "PRJ-2603/05", "area": "原料区 RA"}, "cells": ["内衬 EPE 珍珠棉", "<span class=\"tag tag-blue\">零部件</span>", "PRJ-2603/05", "<span class=\"td-num\">1,520</span>", "<span class=\"td-num\">120</span>", "<span class=\"td-num\">0</span>", "<span class=\"td-num\">0</span>", "<span class=\"td-num\"><b>1,640</b></span>", "件", "原料区 RA"], "ops": [{"t": "库存流水", "detail": true}]},
+      'row': {"fields": {"name": "内衬 EPE 珍珠棉", "cls": "零部件", "project": "PRJ-2603/05", "area": "原料区 RA"}, "cells": ["内衬 EPE 珍珠棉", "<span class=\"tag tag-blue\">零部件</span>", "PRJ-2603/05", "<span class=\"td-num\">1,520</span>", "<span class=\"td-num\">120</span>", "<span class=\"td-num\">0</span>", "<span class=\"td-num\">0</span>", "<span class=\"td-num\"><b>1,640</b></span>", "件", "原料区 RA"], "ops": [{"t": "库存流水", "detail": true}, {"t": "客户在租", "act": "openModal('rentDrillModal')"}]},
       'title': '库存流水',
       'titleNo': 'LJ-F600 内衬 EPE 珍珠棉',
       'info': [
@@ -10181,7 +10181,7 @@ window.DEMO_DATA = {
       ]
     },
     'WBX-1210L': {
-      'row': {"fields": {"name": "围板箱 1200×1000×970", "cls": "租赁器具", "project": "PRJ-2601/04", "area": "成品区 RB"}, "cells": ["围板箱 1200×1000×970", "<span class=\"tag tag-green\">租赁器具</span>", "PRJ-2601/04", "<span class=\"td-num\">2,120</span>", "<span class=\"td-num\">160</span>", "<span class=\"td-num\">3,120</span>", "<span class=\"td-num\">80</span>", "<span class=\"td-num\"><b>2,480</b></span>", "只", "成品区 RB"], "ops": [{"t": "库存流水", "detail": true}]},
+      'row': {"fields": {"name": "围板箱 1200×1000×970", "cls": "租赁器具", "project": "PRJ-2601/04", "area": "成品区 RB"}, "cells": ["围板箱 1200×1000×970", "<span class=\"tag tag-green\">租赁器具</span>", "PRJ-2601/04", "<span class=\"td-num\">2,120</span>", "<span class=\"td-num\">160</span>", "<span class=\"td-num\">3,120</span>", "<span class=\"td-num\">80</span>", "<span class=\"td-num\"><b>2,480</b></span>", "只", "成品区 RB"], "ops": [{"t": "库存流水", "detail": true}, {"t": "客户在租", "act": "openModal('rentDrillModal')"}]},
       'title': '库存流水',
       'titleNo': 'WBX-1210L 围板箱 1200×1000×970',
       'info': [
@@ -10271,7 +10271,7 @@ window.DEMO_DATA = {
       ]
     },
     'WBX-1210M': {
-      'row': {"fields": {"name": "围板箱 1200×1000×590", "cls": "租赁器具", "project": "PRJ-2602", "area": "成品区 RB"}, "cells": ["围板箱 1200×1000×590", "<span class=\"tag tag-green\">租赁器具</span>", "PRJ-2602", "<span class=\"td-num\">860</span>", "<span class=\"td-num\">40</span>", "<span class=\"td-num\">1,020</span>", "<span class=\"td-num\">0</span>", "<span class=\"td-num\"><b>1,000</b></span>", "只", "成品区 RB"], "ops": [{"t": "库存流水", "detail": true}]},
+      'row': {"fields": {"name": "围板箱 1200×1000×590", "cls": "租赁器具", "project": "PRJ-2602", "area": "成品区 RB"}, "cells": ["围板箱 1200×1000×590", "<span class=\"tag tag-green\">租赁器具</span>", "PRJ-2602", "<span class=\"td-num\">860</span>", "<span class=\"td-num\">40</span>", "<span class=\"td-num\">1,020</span>", "<span class=\"td-num\">0</span>", "<span class=\"td-num\"><b>1,000</b></span>", "只", "成品区 RB"], "ops": [{"t": "库存流水", "detail": true}, {"t": "客户在租", "act": "openModal('rentDrillModal')"}]},
       'title': '库存流水',
       'titleNo': 'WBX-1210M 围板箱 1200×1000×590',
       'info': [
@@ -10340,8 +10340,8 @@ window.DEMO_DATA = {
         },
         {
           'role': '租出',
-          'name': '去向 · 在租台账',
-          'url': '租赁管理/在租台账.html'
+          'name': '去向 · 客户在租（库存查询）',
+          'url': '仓储作业/库存查询.html'
         }
       ],
       'timeline': [
@@ -10358,7 +10358,7 @@ window.DEMO_DATA = {
       ]
     },
     'PLT-1210P': {
-      'row': {"fields": {"name": "塑料托盘 1200×1000", "cls": "租赁器具", "project": "PRJ-2602/03", "area": "成品区 RB"}, "cells": ["塑料托盘 1200×1000", "<span class=\"tag tag-green\">租赁器具</span>", "PRJ-2602/03", "<span class=\"td-num\">1,410</span>", "<span class=\"td-num\">0</span>", "<span class=\"td-num\">1,860</span>", "<span class=\"td-num\">60</span>", "<span class=\"td-num\"><b>1,700</b></span>", "块", "成品区 RB"], "ops": [{"t": "库存流水", "detail": true}]},
+      'row': {"fields": {"name": "塑料托盘 1200×1000", "cls": "租赁器具", "project": "PRJ-2602/03", "area": "成品区 RB"}, "cells": ["塑料托盘 1200×1000", "<span class=\"tag tag-green\">租赁器具</span>", "PRJ-2602/03", "<span class=\"td-num\">1,410</span>", "<span class=\"td-num\">0</span>", "<span class=\"td-num\">1,860</span>", "<span class=\"td-num\">60</span>", "<span class=\"td-num\"><b>1,700</b></span>", "块", "成品区 RB"], "ops": [{"t": "库存流水", "detail": true}, {"t": "客户在租", "act": "openModal('rentDrillModal')"}]},
       'title': '库存流水',
       'titleNo': 'PLT-1210P 塑料托盘 1200×1000',
       'info': [
@@ -10431,7 +10431,7 @@ window.DEMO_DATA = {
         {
           'role': '租出 / 组装',
           'name': '去向',
-          'url': '租赁管理/在租台账.html'
+          'url': '仓储作业/库存查询.html'
         }
       ],
       'timeline': [
@@ -10448,7 +10448,7 @@ window.DEMO_DATA = {
       ]
     },
     'BTC-6040': {
-      'row': {"fields": {"name": "料箱 600×400×340", "cls": "租赁器具", "project": "PRJ-2602", "area": "成品区 RB"}, "cells": ["料箱 600×400×340", "<span class=\"tag tag-green\">租赁器具</span>", "PRJ-2602", "<span class=\"td-num\">3,300</span>", "<span class=\"td-num\">40</span>", "<span class=\"td-num\">2,480</span>", "<span class=\"td-num\">120</span>", "<span class=\"td-num\"><b>3,940</b></span>", "只", "成品区 RB"], "ops": [{"t": "库存流水", "detail": true}]},
+      'row': {"fields": {"name": "料箱 600×400×340", "cls": "租赁器具", "project": "PRJ-2602", "area": "成品区 RB"}, "cells": ["料箱 600×400×340", "<span class=\"tag tag-green\">租赁器具</span>", "PRJ-2602", "<span class=\"td-num\">3,300</span>", "<span class=\"td-num\">40</span>", "<span class=\"td-num\">2,480</span>", "<span class=\"td-num\">120</span>", "<span class=\"td-num\"><b>3,940</b></span>", "只", "成品区 RB"], "ops": [{"t": "库存流水", "detail": true}, {"t": "客户在租", "act": "openModal('rentDrillModal')"}]},
       'title': '库存流水',
       'titleNo': 'BTC-6040 料箱 600×400×340',
       'info': [
@@ -10824,7 +10824,7 @@ window.DEMO_DATA = {
   },
 
   /* -------------------------------------------------------------------------- */
-  /* 器具出租履历 rentTracks：键 = ZL 租赁单号（租赁管理/租出台账.html 10 行全量） */
+  /* 器具出租履历 rentTracks：键 = ZL 租赁单号（原宿主 租出台账 2026-09-10 并入租赁单列表；现供 弹窗/器具出租履历.html 独立模板 10 行全量） */
   /* 弹窗 trackModal · 触发锚「详情」；含循环再出租/部分退租/超期场景 */
   rentTracks: {
     'ZL-20260903-034': {
@@ -10903,9 +10903,9 @@ window.DEMO_DATA = {
           'self': true
         },
         {
-          'role': '在租台账',
+          'role': '库存查询·客户在租',
           'name': '客户占用 · 计租',
-          'url': '租赁管理/在租台账.html'
+          'url': '仓储作业/库存查询.html'
         }
       ],
       'timeline': [
@@ -11081,9 +11081,9 @@ window.DEMO_DATA = {
           'url': '租赁管理/退租入库列表.html'
         },
         {
-          'role': '在租台账',
+          'role': '库存查询·客户在租',
           'name': '余量继续计租',
-          'url': '租赁管理/在租台账.html'
+          'url': '仓储作业/库存查询.html'
         }
       ],
       'timeline': [
@@ -11164,9 +11164,9 @@ window.DEMO_DATA = {
           'self': true
         },
         {
-          'role': '在租台账',
+          'role': '库存查询·客户在租',
           'name': '客户占用 · 计租',
-          'url': '租赁管理/在租台账.html'
+          'url': '仓储作业/库存查询.html'
         }
       ],
       'timeline': [
@@ -11246,9 +11246,9 @@ window.DEMO_DATA = {
           'self': true
         },
         {
-          'role': '在租台账',
+          'role': '库存查询·客户在租',
           'name': '客户占用 · 计租',
-          'url': '租赁管理/在租台账.html'
+          'url': '仓储作业/库存查询.html'
         }
       ],
       'timeline': [
@@ -11416,9 +11416,9 @@ window.DEMO_DATA = {
           'self': true
         },
         {
-          'role': '在租台账',
+          'role': '库存查询·客户在租',
           'name': '超期 240 只待催收',
-          'url': '租赁管理/在租台账.html'
+          'url': '仓储作业/库存查询.html'
         }
       ],
       'timeline': [
@@ -11582,9 +11582,9 @@ window.DEMO_DATA = {
           'self': true
         },
         {
-          'role': '在租台账',
+          'role': '库存查询·客户在租',
           'name': '即将到期（09-30 止）',
-          'url': '租赁管理/在租台账.html'
+          'url': '仓储作业/库存查询.html'
         }
       ],
       'timeline': [
@@ -11685,10 +11685,11 @@ window.DEMO_DATA = {
   },
 
   /* -------------------------------------------------------------------------- */
-  /* 资产轨迹 assetTracks：键 = 器具编码（租赁管理/在租台账.html 9 行全量） */
-  /* 弹窗 trackModal · 触发锚「资产轨迹」；与租出台账共用履历模板 */
+  /* 资产轨迹 assetTracks：键 = 器具编码（原宿主 租赁管理/在租台账.html 已删·9 行留档；现供库存查询 openTrack） */
+  /* 弹窗 trackModal · 触发锚「资产轨迹」；履历模板=弹窗/器具出租履历.html（原租出台账共用） */
   /* 注意：WBX-1210L(旧) 键须排在 WBX-1210L 前（前缀包含防误匹配） */
-  assetTracks: {
+  
+  /* 宿主变更注记（2026-09-10 台账合并）：原列表宿主 租赁管理/在租台账.html 已删（row.cells/ops 留档不再渲染）；本实体 info/timeline 由 仓储作业/库存查询.html「客户在租」下钻 openTrack 渲染 */assetTracks: {
     'WBX-1210L(旧)': {
       'row': {"fields": {"name": "围板箱 旧箱体批次", "project": "—", "status": "已报废"}, "cells": ["围板箱 旧箱体批次", "—", "<span class=\"td-num\"><b>0</b></span>", "48.0", "—", "<span class=\"td-num\">0</span>", "<span class=\"tag tag-gray\">已报废</span>"], "ops": [{"t": "资产轨迹", "detail": true}, {"t": "退租", "act": "go('../租赁管理/退租入库列表.html')"}, {"t": "报废", "act": "openModal('scrapModal')"}]},
       'title': '资产轨迹',
@@ -11861,9 +11862,9 @@ window.DEMO_DATA = {
           'self': true
         },
         {
-          'role': '租出台账 / 在租台账',
-          'name': '租出与在租统计',
-          'url': '租赁管理/租出台账.html'
+          'role': '租赁单列表·退回进度',
+          'name': '租出与退回统计（租赁单列表）',
+          'url': '租赁管理/租赁单列表.html'
         }
       ],
       'timeline': [
@@ -11943,9 +11944,9 @@ window.DEMO_DATA = {
           'self': true
         },
         {
-          'role': '在租台账',
+          'role': '库存查询·客户在租',
           'name': '四态统计',
-          'url': '租赁管理/在租台账.html'
+          'url': '仓储作业/库存查询.html'
         }
       ],
       'timeline': [
@@ -12029,9 +12030,9 @@ window.DEMO_DATA = {
           'self': true
         },
         {
-          'role': '在租台账',
+          'role': '库存查询·客户在租',
           'name': '四态统计',
-          'url': '租赁管理/在租台账.html'
+          'url': '仓储作业/库存查询.html'
         }
       ],
       'timeline': [
@@ -12196,9 +12197,9 @@ window.DEMO_DATA = {
           'self': true
         },
         {
-          'role': '在租台账',
+          'role': '库存查询·客户在租',
           'name': '四态统计',
-          'url': '租赁管理/在租台账.html'
+          'url': '仓储作业/库存查询.html'
         }
       ],
       'timeline': [
@@ -12289,9 +12290,9 @@ window.DEMO_DATA = {
           'self': true
         },
         {
-          'role': '在租台账',
+          'role': '库存查询·客户在租',
           'name': '四态统计',
-          'url': '租赁管理/在租台账.html'
+          'url': '仓储作业/库存查询.html'
         }
       ],
       'timeline': [
@@ -12374,9 +12375,9 @@ window.DEMO_DATA = {
           'self': true
         },
         {
-          'role': '在租台账',
+          'role': '库存查询·客户在租',
           'name': '四态统计',
-          'url': '租赁管理/在租台账.html'
+          'url': '仓储作业/库存查询.html'
         }
       ],
       'timeline': [
@@ -13231,7 +13232,7 @@ window.DEMO_DATA = {
 
   /* -------------------------------------------------------------------------- */
   /* 器具档案 appliances：键 = 器具编码（基础数据/器具档案.html 6 行全量） */
-  /* BTC-6040S 键先于 BTC-6040（前缀包含防误匹配）；在租状态对齐在租台账四态 */  products: {
+  /* BTC-6040S 键先于 BTC-6040（前缀包含防误匹配）；在租状态对齐库存查询客户态 */  products: {
     'WBX-1210L': {
       'row': {"fields": {"name": "围板箱 1200×1000×970", "cls": "围板箱", "spec": "1200×1000×970 mm", "src": "自有", "status": "启用", "date": "2026-01-06"}, "cells": ["围板箱 1200×1000×970", "<span class=\"tag tag-blue\">围板箱</span>", "1200×1000×970 mm", "只", "<span class=\"tag tag-green\">自有</span>", "<span class=\"td-num\">38.00</span>", "<span class=\"td-num\">38.00</span>", "<span class=\"tag tag-green\">启用</span>", "2026-01-06"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
       'title': '产品详情',
@@ -13280,9 +13281,9 @@ window.DEMO_DATA = {
       'feeCols': ['在租', '待归还（超期）', '平均循环', '平均租期', '台账'],
       'fees': [
         {
-          'cells': ['3,120 只', '128 只', '21.6 次', '86 天', '在租台账'],
+          'cells': ['3,120 只', '128 只', '21.6 次', '86 天', '客户在租'],
           'links': {
-            4: '租赁管理/在租台账.html'
+            4: '仓储作业/库存查询.html'
           }
         }
       ],
@@ -13293,14 +13294,14 @@ window.DEMO_DATA = {
           'self': true
         },
         {
-          'role': '租出台账',
-          'name': '租出记录 · 按来源统计',
-          'url': '租赁管理/租出台账.html'
+          'role': '租赁单列表·退回进度',
+          'name': '租出记录 · 按来源统计（退回进度列）',
+          'url': '租赁管理/租赁单列表.html'
         },
         {
-          'role': '在租台账',
+          'role': '库存查询·客户在租',
           'name': '四态统计 + 资产轨迹',
-          'url': '租赁管理/在租台账.html'
+          'url': '仓储作业/库存查询.html'
         }
       ],
       'timeline': [
@@ -13367,9 +13368,9 @@ window.DEMO_DATA = {
       'feeCols': ['在租', '待归还（超期）', '平均循环', '平均租期', '台账'],
       'fees': [
         {
-          'cells': ['1,020 只', '0 只', '14.2 次', '64 天', '在租台账'],
+          'cells': ['1,020 只', '0 只', '14.2 次', '64 天', '客户在租'],
           'links': {
-            4: '租赁管理/在租台账.html'
+            4: '仓储作业/库存查询.html'
           }
         }
       ],
@@ -13380,14 +13381,14 @@ window.DEMO_DATA = {
           'self': true
         },
         {
-          'role': '租出台账',
-          'name': '租出记录',
-          'url': '租赁管理/租出台账.html'
+          'role': '租赁单列表·退回进度',
+          'name': '租出记录（退回进度列）',
+          'url': '租赁管理/租赁单列表.html'
         },
         {
-          'role': '在租台账',
+          'role': '库存查询·客户在租',
           'name': '四态统计',
-          'url': '租赁管理/在租台账.html'
+          'url': '仓储作业/库存查询.html'
         }
       ],
       'timeline': [
@@ -13450,9 +13451,9 @@ window.DEMO_DATA = {
       'feeCols': ['在租', '待归还（超期）', '平均循环', '平均租期', '台账'],
       'fees': [
         {
-          'cells': ['0 块', '0 块', '—', '—', '在租台账（已退回）'],
+          'cells': ['0 块', '0 块', '—', '—', '客户在租（已退回）'],
           'links': {
-            4: '租赁管理/在租台账.html'
+            4: '仓储作业/库存查询.html'
           }
         }
       ],
@@ -13529,9 +13530,9 @@ window.DEMO_DATA = {
       'feeCols': ['在租', '待归还（超期）', '平均循环', '平均租期', '台账'],
       'fees': [
         {
-          'cells': ['1,860 块', '36 块', '26.4 次', '102 天', '在租台账'],
+          'cells': ['1,860 块', '36 块', '26.4 次', '102 天', '客户在租'],
           'links': {
-            4: '租赁管理/在租台账.html'
+            4: '仓储作业/库存查询.html'
           }
         }
       ],
@@ -13547,9 +13548,9 @@ window.DEMO_DATA = {
           'url': '租赁管理/租入单列表.html'
         },
         {
-          'role': '在租台账',
+          'role': '库存查询·客户在租',
           'name': '四态统计',
-          'url': '租赁管理/在租台账.html'
+          'url': '仓储作业/库存查询.html'
         }
       ],
       'timeline': [
@@ -13612,9 +13613,9 @@ window.DEMO_DATA = {
       'feeCols': ['在租', '待归还（超期）', '平均循环', '平均租期', '台账'],
       'fees': [
         {
-          'cells': ['0 只', '0 只', '—', '—', '在租台账（无在租）'],
+          'cells': ['0 只', '0 只', '—', '—', '客户在租（无在租）'],
           'links': {
-            4: '租赁管理/在租台账.html'
+            4: '仓储作业/库存查询.html'
           }
         }
       ],
@@ -13686,9 +13687,9 @@ window.DEMO_DATA = {
       'feeCols': ['在租', '待归还（超期）', '平均循环', '平均租期', '台账'],
       'fees': [
         {
-          'cells': ['2,480 只', '0 只', '31.8 次', '118 天', '在租台账'],
+          'cells': ['2,480 只', '0 只', '31.8 次', '118 天', '客户在租'],
           'links': {
-            4: '租赁管理/在租台账.html'
+            4: '仓储作业/库存查询.html'
           }
         }
       ],
@@ -13704,9 +13705,9 @@ window.DEMO_DATA = {
           'url': '租赁管理/租入单列表.html'
         },
         {
-          'role': '在租台账',
+          'role': '库存查询·客户在租',
           'name': '四态统计',
-          'url': '租赁管理/在租台账.html'
+          'url': '仓储作业/库存查询.html'
         }
       ],
       'timeline': [

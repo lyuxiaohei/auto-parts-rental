@@ -78,7 +78,8 @@ svg { display:inline-block; vertical-align:middle; }
 .ctl.sel { justify-content:space-between; cursor:pointer; }
 .ctl.sel svg { width:12px; height:12px; color:rgba(0,0,0,.35); flex:none; }
 .ctl.range { gap:6px; }
-.ctl.range .sep { color:rgba(0,0,0,.45); flex:none; }/* ===== 按钮（13px 体系，表单/卡片头/弹窗用；筛选区 12px 另按作用域覆盖） ===== */
+.ctl.range .sep { color:rgba(0,0,0,.45); flex:none; }
+/* ===== 按钮（13px 体系，表单/卡片头/弹窗用；筛选区 12px 另按作用域覆盖） ===== */
 .btn { display:inline-flex; align-items:center; justify-content:center; height:30px; padding:0 14px; border-radius:6px; border:none; cursor:pointer; font-size:13px; background:var(--primary); color:#fff; white-space:nowrap; font-family:inherit; }
 .btn:hover { background:#4096ff; }
 .btn-sm { height:28px; padding:0 12px; font-size:12px; }
@@ -281,9 +282,7 @@ th.td-num { text-align:right; }
    <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">租赁</li>
    <li><div class="sm-link" onclick="go('../租赁管理/租赁单列表.html')">租赁单</div></li>
    <li><div class="sm-link selected">租赁出库</div></li>
-   <li><div class="sm-link" onclick="go('../租赁管理/在租台账.html')">在租台账</div></li>
-   <li><div class="sm-link" onclick="go('../租赁管理/租出台账.html')">租出台账</div></li>
-   <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">租入</li>
+         <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">租入</li>
    <li><div class="sm-link" onclick="go('../租赁管理/租入单列表.html')">租入单</div></li>
    <li><div class="sm-link" onclick="go('../租赁管理/租入入库列表.html')">租入入库</div></li>
    <li><div class="sm-link" onclick="go('../租赁管理/租入归还列表.html')">租入归还</div></li>
