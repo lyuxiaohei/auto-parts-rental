@@ -1,0 +1,39 @@
+/goal G14·移动端 H5 与登录（P3-R01 原型·2026-09-11）
+
+【根目录】
+D:\工作台-吕道远\5-【ACTIVE】汽车物流包装租赁\（下称 ROOT；本条件全部相对路径以此根拼接）
+不需要也不得向用户提问；拿不准按任务书默认决策表执行并在收尾报告注明。
+
+【第 0 步·上下文获取】
+1. 读 ROOT\agent-handoff\_AGENT基线.md 全文（口径/纪律铁律/工具/事故教训）
+2. 读 ROOT\agent-handoff\20260911-G14-移动端H5与登录.md（唯一任务细则，逐条执行）
+3. 工具：ROOT\_scan_tmpdir\audit_interaction.py、verify_listfull.py、v32_menu_verify.py
+
+【前置校验】（任一不过=停止并写失败清单 _scan_tmpdir\goal-failures-g14-20260911.md）
+1. G13 已完成：_索引.md G13 行=✅ f68fa90（重验，被回退则停止）
+2. 原型目录（ROOT\P3-R01-包装租赁管理后台原型\）最近文件 mtime≥30 分钟无变化，尤其 _data\
+3. 本 goal 任务文档头部 commit 哈希为空（非空=已执行）
+4. 自跑 audit 存 audit_results_g14baseline.json 基线（mobile 未建应为 108 页；禁引用历史数字）
+
+【任务】按任务书 T1-T4 执行（会议依据=纪要十.2-4 企微 H5+免二次登录；道远 09-10 拍板"移动端 html+登录 html"）
+1. T1 骨架：新建 mobile\ 目录+_m.css（企微 H5 风·375 视口·max-width 480·底部 tab）+_m.js（引 ../_data/demo-data.js+localStorage 免二次登录守卫）
+2. T2 五页（中文文件名 M01-M05）：登录.html（账号密码+企微一键登录绿按钮+写 m-auth 跳待办）｜待办审批.html（todoItems 卡片列表+统计）｜审批详情.html（摘要+明细+驳回/通过双按钮+toast）｜库存查询.html（stockFlows+搜索+状态 chips 含客户端(转租)）｜我的.html（登录人卡片+退出登录清 m-auth）
+3. T3 PC 零改动：不改 PC 页面/菜单/F01/弹窗；demo-data.js 只读复用（37 实体，不新增）
+4. T4 文档：A02 增 mobile 5 页+P1-R01 附录 10.2 记录句
+5. 验证门全过→失败清单→提交（git add -A）→推送→三件回写
+
+【完成判定】（全部机器可判；验证命令输出必须打印到本对话）
+1. audit：113 页（108+mobile 5）死链 0/JS 0（F01 外链断网噪音豁免沿 G13 预注）+既有 108 页相对 g14baseline diff 新增 0+mobile 5 页各自 0/0
+2. grep 逐项命中：mobile 5 页存在+登录含「企业微信」「m-auth」+待办含 todoItems+库存含 stockFlows 与「客户端(转租)」+详情含「通过」「驳回」+我的含「退出登录」
+3. Playwright 5 项 PASS：未登录守卫跳登录｜登录→跳待办+m-auth 写入+卡片≥10｜审批通过→状态变化+toast｜库存 chips 客户端(转租)→行数变化｜退出→清标记回登录
+4. verify_listfull.py 三批失败 0（103/88/43）+v32_menu_verify.py 14/14（PC 零改动佐证）
+5. _scan_tmpdir\goal-failures-g14-20260911.md 存在+结论行
+6. git log ≥1 提交；推送成功或失败清单注记"待推送"
+
+【约束】
+1. 纪律=基线第四节铁律全文；新 JS 写盘后 node --check（G13 逗号事故纪律）；mobile 新建文件可直接写，改 PC 既有文件则精确替换+assert
+2. 失败处理=跳过+留档 goal-failures-g14-20260911.md+继续；禁猜测性改写
+3. 样式自包含不引外链 CDN（断网可开）；主体色沿 PC 主色，仅企微按钮用 #07c160
+4. 收尾三件回写硬性：任务文档标 ✅+commit 哈希+执行记录｜_索引.md G14 行挂哈希｜_AGENT基线.md 快照滚动（108→113 页+mobile 结构+audit 新口径）
+5. 推送：代理扫描候选 7890/10808/10809/14157，git -c http.proxy=socks5://127.0.0.1:<端口> push origin main；全不通留本地+注记（当前积压待推，恢复后一并带走）
+6. 执行超过 60 轮工具调用未触达验证门→停止并写失败清单收尾（or stop after 60 turns）
