@@ -1,40 +1,40 @@
-G12·数据驱动查漏收口（无人值守 · goal-creator v7 B 形态）
+/goal G12·数据驱动查漏收口（P3-R01 原型·2026-09-10）
 
 【根目录】
-D:\工作台-吕道远\5-【ACTIVE】汽车物流包装租赁\（下称 ROOT；本命令全部相对路径以此根拼接；副机 macOS 按 /Users/bailey/Desktop/xiaohei-workplace/auto-parts-rental/ 等价换算，\ 与 / 等价）。
+D:\工作台-吕道远\5-【ACTIVE】汽车物流包装租赁\（下称 ROOT；本条件全部相对路径以此根拼接）
 不需要也不得向用户提问；拿不准按任务书默认决策表执行并在收尾报告注明。
 
 【第 0 步·上下文获取】
-1. 读 ROOT\agent-handoff\_AGENT基线.md 全文（口径/纪律铁律/工具/事故教训）。
-2. 读 ROOT\agent-handoff\20260910-G12-数据驱动查漏收口.md（本 goal 任务书，为唯一任务细则，逐条执行）。
-3. 工具：ROOT\_scan_tmpdir\audit_interaction.py（全量审计）、verify_listfull.py（三批断言）。
+1. 读 ROOT\agent-handoff\_AGENT基线.md 全文（口径/纪律铁律/工具/事故教训）
+2. 读 ROOT\agent-handoff\20260910-G12-数据驱动查漏收口.md（唯一任务细则，逐条执行）
+3. 工具：ROOT\_scan_tmpdir\audit_interaction.py、verify_listfull.py
 
-【前置校验】（任一不过=停止并写失败清单）
-1. 原型目录（ROOT\P3-R01-包装租赁管理后台原型\）最近文件 mtime≥30 分钟无变化，尤其 _data\demo-data.js——同一时刻仅本 agent 一个写。
-2. 任务文档头部 commit 哈希为空（非空=已执行）。
-3. 自跑 audit 存 audit_results_g12baseline.json 基线（禁引用历史数字）。
-4. 复扫 38 业务页+69 弹窗 demo-data.js 引用 → _scan_tmpdir\g12-scan.json，与任务书「现状实测」比对，有出入以实扫为准并注记。
+【前置校验】（任一不过=停止并写失败清单 _scan_tmpdir\goal-failures-g12-20260910.md）
+1. 原型目录（ROOT\P3-R01-包装租赁管理后台原型\）最近文件 mtime≥30 分钟无变化，尤其 _data\demo-data.js——同一时刻仅本 agent 一个写
+2. 任务文档头部 commit 哈希为空（非空=已执行）
+3. 自跑 audit 存 audit_results_g12baseline.json 基线（禁引用历史数字）
+4. 复扫 38 业务页+69 弹窗 demo-data.js 引用→_scan_tmpdir\g12-scan.json，与任务书「现状实测」比对，有出入以实扫为准并注记
 
-【任务】按任务书 T1-T5 执行：
-1. T1 分类判定 54 个未引文件（A=应驱动/B=白名单），产出 g12-classify.json。
-2. T2 demo-data 实体补齐（仅 A 类所需，先查重复用）。
-3. T3 A 类页面/弹窗接线（renderListPage/详情渲染+激活筛选；数据字典字段分类筛选必须交互生效；不动菜单/结构/文件）。
-4. T4 B 类白名单留档 agent-handoff\g12-whitelist.md（本体零改动）。
-5. T5 验证门全过 → 失败清单 → 提交 → 推送 → 三件回写。
-已知漏网：11 业务页+43 弹窗（清单在任务书「现状实测」）。预分类 A 候选=操作日志/数据字典/用户权限/项目档案/BOM/项目详情；混合=项目看板/盈亏报表；B 候选=盘点录入/组合出库录单/采购入库录单+弹窗多数。
+【任务】按任务书 T1-T5 执行（54 个未引 demo-data 文件分类收口）
+1. T1 分类判定：A=应驱动（表格/列表/筛选）/B=白名单（纯表单）→_scan_tmpdir\g12-classify.json
+2. T2 demo-data 实体补齐：仅 A 类所需，先查重复用
+3. T3 A 类接线：renderListPage/详情渲染+激活筛选；数据字典字段分类筛选必须交互生效；不动菜单/结构/文件
+4. T4 B 类白名单留档 agent-handoff\g12-whitelist.md（本体零改动）
+5. T5 验证门全过→失败清单→提交（git add -A 含 _data）→推送→三件回写
 
-【完成判定】（全部机器可判，证据贴对话）
-1. audit：108 页 死链 0/JS 0+相对 g12baseline 逐键 diff 新增 0。
-2. grep：A 类清单 N 文件全部含 demo-data.js（计数 N=N）。
-3. Playwright 抽 4 页 PASS（数据字典筛选交互生效+操作日志/用户权限/项目档案 行≥6+筛选可用）。
-4. 白名单文件 git diff 交集=∅。
-5. verify_listfull.py 三批失败 0。
-6. _scan_tmpdir\goal-failures-g12-20260910.md 存在+结论行。
-7. git log ≥1 提交（git add -A，含 _data）；推送成功或失败清单注记"待推送"。
+【完成判定】（全部机器可判；验证命令输出必须打印到本对话）
+1. audit：108 页 死链 0/JS 0+相对 g12baseline 逐键 diff 新增 0
+2. grep：A 类清单 N 文件全部含 demo-data.js（贴计数 N=N）
+3. Playwright 抽 4 页 PASS：数据字典筛选交互生效+操作日志/用户权限/项目档案 行≥6+筛选可用
+4. 白名单文件 git diff 交集=∅
+5. verify_listfull.py 三批失败 0
+6. _scan_tmpdir\goal-failures-g12-20260910.md 存在+结论行
+7. git log ≥1 提交；推送成功或失败清单注记"待推送"
 
 【约束】
-1. 纪律=基线第四节铁律全文（摘引：精确替换+assert 禁整页写/onclick 自带副作用/cells 不带外层 td/标签配平/备份 backup-g12-20260910\）。
-2. 失败处理=跳过+留档 goal-failures-g12-20260910.md+继续；禁猜测性改写。
-3. 不新增页面/不移动文件/不动菜单侧边栏；B 类本体零改动。
-4. 收尾三件回写硬性：任务文档标 ✅+commit 哈希+执行记录；_索引.md G12 行挂哈希；_AGENT基线.md 快照滚动（漏网清零+白名单指针+实体数+F01 v3.4+4v4 弹窗+107 页 fab 补登）。
-5. 推送：代理端口扫描候选（7890/10808/10809/14157 顺序），git -c http.proxy=socks5://127.0.0.1:<端口> push origin main；全不通则留本地+注记。
+1. 纪律=基线第四节铁律全文（精确替换+assert 禁整页写/onclick 自带副作用/cells 不带外层 td/标签配平/备份 backup-g12-20260910\）
+2. 失败处理=跳过+留档 goal-failures-g12-20260910.md+继续；禁猜测性改写
+3. 不新增页面/不移动文件/不动菜单侧边栏；B 类本体零改动
+4. 收尾三件回写硬性：任务文档标 ✅+commit 哈希+执行记录｜_索引.md G12 行挂哈希｜_AGENT基线.md 快照滚动
+5. 推送：代理扫描候选 7890/10808/10809/14157 顺序，git -c http.proxy=socks5://127.0.0.1:<端口> push origin main；全不通留本地+注记
+6. 执行超过 60 轮工具调用未触达验证门→停止并写失败清单收尾（or stop after 60 turns）
