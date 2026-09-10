@@ -24,7 +24,7 @@ D:\工作台-吕道远\5-【ACTIVE】汽车物流包装租赁\（下称 ROOT；�
 5. 验证门全过→失败清单→提交（git add -A 含 _data）→推送→三件回写（含 g12-whitelist.md 增订「G13 改动的 B 类文件」注记）
 
 【完成判定】（全部机器可判；验证命令输出必须打印到本对话）
-1. audit：108 页 死链 0/JS 0+相对 g13baseline 逐键 diff 新增 0
+1. audit：108 页 死链 0/JS 0+相对 g13baseline 逐键 diff 新增 0（豁免预注：F01 页 ERR_CONNECTION_CONNECTED 类外链资源加载失败=断网噪音·剔除后计数·G06 既有豁免先例）
 2. grep 13 项逐项断言命中（清单在任务书验证门 2，逐项贴命中行数）
 3. Playwright 抽 4 页 PASS：库存查询[客户端(转租)筛选生效]+租赁单新建[库存提示]+租入归还新建[关联后明细同步]+权限配置[可审单据区渲染]
 4. verify_listfull.py 三批失败 0（batch1=100/batch2=88/batch3=43）+v32_menu_verify.py 14/14
