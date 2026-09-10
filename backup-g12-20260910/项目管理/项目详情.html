@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<title>项目损益 - 包装租赁管理后台</title>
+<title>项目详情 - 包装租赁管理后台</title>
 <style>
 :root {
   --primary: #1677ff;
@@ -72,22 +72,6 @@ svg { display:inline-block; vertical-align:middle; }
 .card-head .card-title { margin-bottom:0; }
 .card-head .head-btns { display:flex; align-items:center; gap:8px; }
 
-/* ===== 筛选区（13px 控件，样板：仓储作业/采购入库列表） ===== */
-.filter-card { background:#fff; border-radius:8px; padding:16px 18px; margin:0 0 12px; box-shadow:0 1px 3px rgba(0,0,0,0.05); }
-.filter-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; }
-.ff { display:flex; align-items:center; border:1px solid #d9d9d9; border-radius:6px; padding:0 10px; height:32px; background:#fff; transition:border-color .2s; }
-.ff:focus-within { border-color:#1677ff; }
-.ff .ff-label { flex-shrink:0; font-size:13px; color:#262626; margin-right:6px; white-space:nowrap; }
-.ff input, .ff select { flex:1; min-width:0; border:none; outline:none; height:100%; font-size:13px; color:#262626; background:transparent; font-family:inherit; }
-.ff input::placeholder { color:#bfbfbf; }
-.ff select { appearance:none; -webkit-appearance:none; color:#8c8c8c; cursor:pointer; }
-.ff .ff-chev { width:12px; height:12px; color:#8c8c8c; flex-shrink:0; pointer-events:none; }
-.ff .ff-sep { margin:0 6px; color:#8c8c8c; flex-shrink:0; }
-.filter-actions { display:flex; align-items:center; justify-content:flex-end; gap:10px; height:32px; }
-.link-collapse { display:flex; align-items:center; gap:4px; font-size:13px; color:#1677ff; cursor:pointer; background:none; border:none; font-family:inherit; }
-.link-collapse svg { width:12px; height:12px; transition:transform .2s; }
-.filter-card.collapsed .filter-grid .ff-row-extra { display:none; }
-.filter-card:not(.collapsed) .link-collapse svg { transform:rotate(180deg); }
 /* ===== 按钮（13px 体系，表单/卡片头/弹窗用；筛选区 12px 另按作用域覆盖） ===== */
 .btn { display:inline-flex; align-items:center; justify-content:center; height:30px; padding:0 14px; border-radius:6px; border:none; cursor:pointer; font-size:13px; background:var(--primary); color:#fff; white-space:nowrap; font-family:inherit; }
 .btn:hover { background:#4096ff; }
@@ -214,10 +198,17 @@ th.td-num { text-align:right; }
 .hbar .hb-fill.red { background:var(--danger); }
 .hbar .hb-val { flex:none; width:76px; text-align:right; color:var(--text-2); font-variant-numeric:tabular-nums; }
 
+
+/* 整窗滚动布局：系统切换块固定到视口左下角 */
+.side-foot { position:fixed; left:0; bottom:0; width:208px; background:var(--side-bg); z-index:30; }
+.side-menu { padding-bottom:64px; }
 /* ===== 本页业务样式 ===== */
 
-.rate-bar { display:inline-block; height:8px; width:64px; background:#f0f0f0; border-radius:2px; vertical-align:middle; margin-right:6px; overflow:hidden; }
-.rate-bar i { display:block; height:100%; background:var(--primary); }
+.chain { display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+.chain .node { border:1px solid var(--border); border-radius:6px; padding:10px 16px; background:#fafafa; min-width:150px; }
+.chain .node .n-role { font-size:12px; color:var(--text-3); }
+.chain .node .n-name { font-size:13px; font-weight:600; margin-top:2px; }
+.chain .link-arrow { color:var(--text-3); }
 
 ::-webkit-scrollbar{width:6px;height:6px}
 ::-webkit-scrollbar-thumb{background:#d9d9d9;border-radius:3px}
@@ -250,7 +241,7 @@ th.td-num { text-align:right; }
     <span class="avatar" title="账户"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="8" width="14" height="10" rx="3"/><circle cx="10" cy="13" r="0.6" fill="#fff"/><circle cx="14" cy="13" r="0.6" fill="#fff"/><path d="M12 8V4"/><circle cx="12" cy="3.4" r="0.8" fill="#fff"/></svg></span>
   </div>
 </header>
-<div class="body fixed">
+<div class="body">
 <aside class="sidebar">
   <ul class="side-menu">
       <li class="sm-item has-sub">
@@ -310,10 +301,10 @@ th.td-num { text-align:right; }
    <li><div class="sm-link" onclick="go('../仓储作业/其他出库列表.html')">其他出库</div></li>
    </ul>
       </li>
-      <li class="sm-item has-sub open">
+      <li class="sm-item has-sub">
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></span>财务管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
-      <li><div class="sm-link selected">财务看板</div></li>
+      <li><div class="sm-link" onclick="go('../财务协同/盈亏报表.html')">财务看板</div></li>
 <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">应收</li>
    <li><div class="sm-link" onclick="go('../财务协同/应收账单.html')">应收账单</div></li>
    <li><div class="sm-link" onclick="go('../财务协同/开票登记.html')">开票登记</div></li>
@@ -341,153 +332,151 @@ th.td-num { text-align:right; }
   </div></aside>
   <div class="main-col">
 <div class="tabs">
-  <span class="tab active">项目损益 <span class="close">×</span></span>
+  <span class="tab active">项目详情 <span class="close">×</span></span>
+  <span class="tab">项目档案 <span class="close">×</span></span>
+  <span class="tab">租出台账 <span class="close">×</span></span>
   <span class="tab">应收账单 <span class="close">×</span></span>
-  <span class="tab">收款核销 <span class="close">×</span></span>
-  <span class="tab">项目看板 <span class="close">×</span></span>
 </div>
-    <div class="content">
-<div class="stat-grid">
-  <div class="stat">
-    <div class="st-label"><span>本月营业收入</span></div>
-    <div class="st-num">1,138,900<span class="unit">元</span></div>
-    <div class="st-foot">租赁 990,700 / 组装 130,000 / 赔偿 18,200</div>
+    <div class="content submit-pad">
+<div class="card">
+  <div class="card-head">
+    <h3 class="card-title">项目基础信息 · PRJ-2601</h3>
+    <div class="head-btns"><button class="btn btn-default btn-sm" onclick="go('../项目管理/项目档案.html')">返回列表</button><button class="btn btn-sm" onclick="openModal('bindModal')">维护上下游</button></div>
   </div>
-  <div class="stat">
-    <div class="st-label"><span>本月营业成本</span></div>
-    <div class="st-num">659,500<span class="unit">元</span></div>
-    <div class="st-foot">器具摊销 505,200 / 仓储 154,300</div>
+  <div class="dgrid c3">
+    <div class="drow"><div class="dlabel">项目编码</div><div class="dval"><span class="lk">PRJ-2601</span></div></div>
+    <div class="drow"><div class="dlabel">项目名称</div><div class="dval">一汽解放·长春基地 驾驶室围板箱租赁</div></div>
+    <div class="drow"><div class="dlabel">项目状态</div><div class="dval"><span class="tag tag-blue">进行中</span></div></div>
+    <div class="drow"><div class="dlabel">项目起止</div><div class="dval">2026-01-01 ~ 2027-12-31</div></div>
+    <div class="drow"><div class="dlabel">项目负责人</div><div class="dval">王强</div></div>
+    <div class="drow"><div class="dlabel">默认库房</div><div class="dval">华东中心仓（WH-01）</div></div>
+    <div class="drow"><div class="dlabel">计费方式</div><div class="dval">按天计租 · 按张计费</div></div>
+    <div class="drow"><div class="dlabel">备注</div><div class="dval">客户日计划频繁变更，改组合需拆件</div></div>
   </div>
-  <div class="stat">
-    <div class="st-label"><span>本月毛利</span></div>
-    <div class="st-num">479,400<span class="unit">元</span></div>
-    <div class="st-foot">毛利率 <em>42.1%</em></div>
-  </div>
-  <div class="stat">
-    <div class="st-label"><span>亏损项目</span></div>
-    <div class="st-num">1<span class="unit">个</span></div>
-    <div class="st-foot">PRJ-2604 <em class='down'>-18,600</em> 元（已暂停）</div>
+  <div style="margin-top:18px;">
+    <div class="card-title" style="font-size:14px;margin-bottom:10px;" data-note="1">上下游关系</div>
+    <div class="chain">
+      <div class="node"><div class="n-role">客户</div><div class="n-name">一汽解放汽车有限公司</div></div>
+      <span class="link-arrow">→</span>
+      <div class="node"><div class="n-role">我方（系统运营）</div><div class="n-name">包装租赁管理后台</div></div>
+      <span class="link-arrow">→</span>
+      <div class="node"><div class="n-role">供应商（资产方）</div><div class="n-name">路凯包装运营（上海）</div></div>
+      <span class="link-arrow">→</span>
+      <div class="node"><div class="n-role">供应商</div><div class="n-name">宁波华塑 / 苏州联恒</div></div>
+    </div>
   </div>
 </div>
 
-<div class="filter-card collapsed" id="filterCard">
-  <div class="filter-grid">
-    <div class="ff"><span class="ff-label">账期：</span>
-      <select><option selected>全部</option><option>2026-09</option><option>2026-08</option><option>2026-07</option></select>
-      <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-    </div>
-    <div class="ff"><span class="ff-label">所属项目：</span>
-      <select><option selected>全部</option><option>PRJ-2601</option><option>PRJ-2602</option><option>PRJ-2603</option><option>PRJ-2604</option><option>PRJ-2605</option></select>
-      <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-    </div>
-    <div class="ff"><span class="ff-label">统计口径：</span>
-      <select><option selected>全部</option><option>按月</option><option>按季</option></select>
-      <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-    </div>
-    <div class="filter-actions">
-      <button class="btn btn-default">重置</button>
-      <button class="btn btn-primary">查询</button>
-    </div>
+<div class="stat-grid">
+  <div class="stat">
+    <div class="st-label"><span>在租数量</span></div>
+    <div class="st-num">3,860<span class="unit">只</span></div>
+    <div class="st-foot">围板箱 3,120 / 托盘 740</div>
+  </div>
+  <div class="stat">
+    <div class="st-label"><span>本月出库</span></div>
+    <div class="st-num">1,240<span class="unit">件</span></div>
+    <div class="st-foot">组合件 1,120 / 散件 120</div>
+  </div>
+  <div class="stat">
+    <div class="st-label"><span>本月营收</span></div>
+    <div class="st-num">486,200<span class="unit">元</span></div>
+    <div class="st-foot">已开票 <em>312,000</em> 元</div>
+  </div>
+  <div class="stat">
+    <div class="st-label"><span>累计毛利</span></div>
+    <div class="st-num">212,400<span class="unit">元</span></div>
+    <div class="st-foot">毛利率 <em>21.8%</em></div>
   </div>
 </div>
+
 <div class="card">
   <div class="card-head">
-    <h3 class="card-title" data-note="1">项目损益</h3>
-    <div class="head-btns"><button class="btn btn-default btn-sm">导出 Excel</button></div>
+    <h3 class="card-title" data-note="2">项目单据查询</h3>
+    <div class="head-btns"><button class="btn btn-default btn-sm" onclick="go('../财务协同/盈亏报表.html')">项目损益</button></div>
   </div>
-<div class="stabs">
-  <span class="stab active">按项目汇总</span>
-  <span class="stab">按月趋势</span>
-  <span class="stab">按客户汇总</span>
+  <div class="stabs">
+  <span class="stab active">全部单据</span>
+  <span class="stab">租赁出库单</span>
+  <span class="stab">退租入库单</span>
+  <span class="stab">采购入库单</span>
+  <span class="stab">销售订单</span>
+  <span class="stab">应收账单</span>
 </div>
+  <div style="height:12px;"></div>
   <div class="table-wrap">
     <table>
       <thead>
         <tr>
-          <th>项目编码</th>
-          <th>项目名称</th>
-          <th>租赁收入(元)</th>
-          <th>组装服务收入(元)</th>
-          <th>赔偿收入(元)</th>
-          <th>收入合计(元)</th>
-          <th>器具摊销(元)</th>
-          <th>仓储+组装成本(元)</th>
-          <th>成本合计(元)</th>
-          <th>毛利(元)</th>
-          <th>毛利率</th>
+          <th>单据编号</th>
+          <th>内容摘要</th>
+          <th>数量</th>
+          <th>状态</th>
+          <th>单据日期</th>
+          <th>关联单据</th>
+          <th class="sticky-op">操作</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td><span class="lk" onclick="go('../项目管理/项目详情.html')">PRJ-2601</span></td>
-          <td>一汽解放·长春基地 驾驶室围板箱租赁</td>
-          <td><span class="td-num">420,000.00</span></td>
-          <td><span class="td-num">48,000.00</span></td>
-          <td><span class="td-num">18,200.00</span></td>
-          <td><span class="td-num"><b>486,200.00</b></span></td>
-          <td><span class="td-num">186,300.00</span></td>
-          <td><span class="td-num">75,600.00</span></td>
-          <td><span class="td-num"><b>261,900.00</b></span></td>
-          <td><span class="td-num"><b>224,300.00</b></span></td>
-          <td><td><span class="rate-bar"><i style="width:46.1%;"></i></span>46.1%</td></td>
+          <td><span class="lk" onclick="go('../租赁管理/组合出库列表.html')">CK-20260828-012</span></td>
+          <td>ZH-2601-A 驾驶室围板箱整箱套件</td>
+          <td><span class="td-num">180 套</span></td>
+          <td><span class="tag tag-green">已出库</span></td>
+          <td>2026-08-28</td>
+          <td>SO-20260827-0036</td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../租赁管理/组合出库列表.html')">查看单据</a></span></td>
         </tr>
         <tr>
-          <td><span class="lk" onclick="go('../项目管理/项目详情.html')">PRJ-2602</span></td>
-          <td>上汽大众·宁波工厂 冲压件料箱项目</td>
-          <td><span class="td-num">318,900.00</span></td>
-          <td><span class="td-num">40,000.00</span></td>
-          <td><span class="td-num">0.00</span></td>
-          <td><span class="td-num"><b>358,900.00</b></span></td>
-          <td><span class="td-num">148,200.00</span></td>
-          <td><span class="td-num">42,600.00</span></td>
-          <td><span class="td-num"><b>190,800.00</b></span></td>
-          <td><span class="td-num"><b>168,100.00</b></span></td>
-          <td><td><span class="rate-bar"><i style="width:46.8%;"></i></span>46.8%</td></td>
+          <td><span class="lk" onclick="go('../租赁管理/组合出库列表.html')">CK-20260827-009</span></td>
+          <td>ZH-2601-A 驾驶室围板箱整箱套件</td>
+          <td><span class="td-num">120 套</span></td>
+          <td><span class="tag tag-green">已出库</span></td>
+          <td>2026-08-27</td>
+          <td>SO-20260826-0031</td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../租赁管理/组合出库列表.html')">查看单据</a></span></td>
         </tr>
         <tr>
-          <td><span class="lk" onclick="go('../项目管理/项目详情.html')">PRJ-2603</span></td>
-          <td>小鹏汽车·广州工厂 电池托盘护角套件</td>
-          <td><span class="td-num">205,500.00</span></td>
-          <td><span class="td-num">36,000.00</span></td>
-          <td><span class="td-num">0.00</span></td>
-          <td><span class="td-num"><b>241,500.00</b></span></td>
-          <td><span class="td-num">112,400.00</span></td>
-          <td><span class="td-num">36,200.00</span></td>
-          <td><span class="td-num"><b>148,600.00</b></span></td>
-          <td><span class="td-num"><b>92,900.00</b></span></td>
-          <td><td><span class="rate-bar"><i style="width:38.5%;"></i></span>38.5%</td></td>
+          <td><span class="lk" onclick="go('../租赁管理/退租入库列表.html')">TZ-20260826-004</span></td>
+          <td>退租回收 · 长春基地第 41 批</td>
+          <td><span class="td-num">96 套</span></td>
+          <td><span class="tag tag-orange">待质检</span></td>
+          <td>2026-08-26</td>
+          <td>—</td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../租赁管理/退租入库列表.html')">查看单据</a></span></td>
         </tr>
         <tr>
-          <td><span class="lk" onclick="go('../项目管理/项目详情.html')">PRJ-2604</span></td>
-          <td>东风本田·武汉工厂 保险杠围板箱项目</td>
-          <td><span class="td-num">46,300.00</span></td>
-          <td><span class="td-num">6,000.00</span></td>
-          <td><span class="td-num">0.00</span></td>
-          <td><span class="td-num"><b>52,300.00</b></span></td>
-          <td><span class="td-num">58,300.00</span></td>
-          <td><span class="td-num">12,600.00</span></td>
-          <td><span class="td-num"><b>70,900.00</b></span></td>
-          <td><span class="td-num" style="color:var(--danger)"><b>-18,600.00</b></span></td>
-          <td><td><span class="rate-bar"><i style="width:0%;"></i></span>-35.6%</td></td>
+          <td><span class="lk" onclick="go('../采购管理/采购入库列表.html')">CGRK-20260825-006</span></td>
+          <td>苏州联恒五金 锁扣组件 到货</td>
+          <td><span class="td-num">40 托</span></td>
+          <td><span class="tag tag-green">已入库</span></td>
+          <td>2026-08-25</td>
+          <td>—</td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../采购管理/采购入库列表.html')">查看单据</a></span></td>
         </tr>
         <tr>
-          <td><span class="lk" onclick="go('../项目管理/项目详情.html')">PRJ-2605</span></td>
-          <td>天津丰田·座椅滑轨组合供货项目</td>
-          <td><span class="td-num">0.00</span></td>
-          <td><span class="td-num">0.00</span></td>
-          <td><span class="td-num">0.00</span></td>
-          <td><span class="td-num"><b>0.00</b></span></td>
-          <td><span class="td-num">0.00</span></td>
-          <td><span class="td-num">0.00</span></td>
-          <td><span class="td-num"><b>0.00</b></span></td>
-          <td><span class="td-num"><b>0.00</b></span></td>
-          <td><td>—</td></td>
+          <td><span class="lk" onclick="go('../销售管理/销售订单列表.html')">SO-20260827-0036</span></td>
+          <td>一汽解放 9 月第 1 批要货</td>
+          <td><span class="td-num">180 套</span></td>
+          <td><span class="tag tag-green">已下发</span></td>
+          <td>2026-08-27</td>
+          <td>—</td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../销售管理/销售订单列表.html')">查看单据</a></span></td>
+        </tr>
+        <tr>
+          <td><span class="lk" onclick="go('../财务协同/应收账单.html')">AR-2026-07-PRJ2601</span></td>
+          <td>2026 年 7 月租赁应收账单</td>
+          <td><span class="td-num">¥486,200.00</span></td>
+          <td><span class="tag tag-orange">部分收款</span></td>
+          <td>2026-08-01</td>
+          <td>—</td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../财务协同/应收账单.html')">查看单据</a></span></td>
         </tr>
       </tbody>
     </table>
   </div>
-  <div class="pager" data-note="2">
-    <span class="pg-info">第 1-10 条/总共 5 条</span>
+  <div class="pager">
+    <span class="pg-info">第 1-10 条/总共 326 条</span>
     <span class="pg-btn">‹</span>
     <span class="pg-btn cur">1</span>
     <span class="pg-btn">2</span>
@@ -503,35 +492,63 @@ th.td-num { text-align:right; }
     <span class="pg-jump">跳至 <input value="" placeholder="跳转页码"> 页</span>
   </div>
 </div>
-
-<div class="card">
-  <h3 class="card-title">项目毛利对比</h3>
-  <div style="display:flex;flex-direction:column;gap:12px;max-width:900px;">
-    <div class="hbar"><span style="flex:none;width:180px;">PRJ-2601 长春基地</span><div class="hb-track"><div class="hb-fill green" style="width:94%;"></div></div><span class="hb-val">224,300 元</span></div>
-    <div class="hbar"><span style="flex:none;width:180px;">PRJ-2602 宁波工厂</span><div class="hb-track"><div class="hb-fill green" style="width:71%;"></div></div><span class="hb-val">168,100 元</span></div>
-    <div class="hbar"><span style="flex:none;width:180px;">PRJ-2603 广州工厂</span><div class="hb-track"><div class="hb-fill green" style="width:39%;"></div></div><span class="hb-val">92,900 元</span></div>
-    <div class="hbar"><span style="flex:none;width:180px;">PRJ-2604 武汉工厂</span><div class="hb-track"><div class="hb-fill red" style="width:8%;"></div></div><span class="hb-val">-18,600 元</span></div>
+<!-- 弹窗已提取到 弹窗/上下游绑定.html，构建时注入 -->
+<div class="modal-overlay" id="bindModal">
+  <div class="modal modal-lg">
+    <div class="modal-header">
+      <h3 class="modal-title">项目上下游绑定</h3>
+      <span class="modal-close" onclick="closeModal('bindModal')">×</span>
+    </div>
+    <div class="modal-body">
+  <div class="form-row" style="margin-bottom:14px;">
+    <div class="form-label"><span class="req">*</span>项目：</div>
+      <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>PRJ-2601 一汽解放·长春基地 驾驶室围板箱租赁</option><option>PRJ-2601 一汽解放·长春基地 驾驶室围板箱租赁·其他</option></select><span class="caret">▾</span></div>
   </div>
+  <div class="form-row" style="margin-bottom:14px;">
+    <div class="form-label"><span class="req">*</span>客户：</div>
+      <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>一汽解放汽车有限公司</option><option>一汽解放汽车有限公司·其他</option></select><span class="caret">▾</span></div>
   </div>
+  <div class="form-row" style="margin-bottom:14px;">
+    <div class="form-label"><span class="req">*</span>供应商：</div>
+      <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>路凯包装运营（上海）有限公司</option><option>路凯包装运营（上海）有限公司·其他</option></select><span class="caret">▾</span></div>
+  </div>
+  <div class="form-row" style="margin-bottom:14px;">
+    <div class="form-label">供应商：</div>
+    <div style="width:380px;border:1px solid #d9d9d9;border-radius:4px;padding:8px 12px;background:#fff;max-height:180px;overflow-y:auto">
+      <label style="display:flex;align-items:center;gap:8px;padding:4px 0;cursor:pointer;font-size:13px;color:#262626">
+        <input type="checkbox" checked style="accent-color:#1677ff;width:16px;height:16px"> 宁波华塑包装制品有限公司
+      </label>
+      <label style="display:flex;align-items:center;gap:8px;padding:4px 0;cursor:pointer;font-size:13px;color:#262626">
+        <input type="checkbox" checked style="accent-color:#1677ff;width:16px;height:16px"> 苏州联恒五金制品有限公司
+      </label>
+      <label style="display:flex;align-items:center;gap:8px;padding:4px 0;cursor:pointer;font-size:13px;color:#262626">
+        <input type="checkbox" checked style="accent-color:#1677ff;width:16px;height:16px"> 常州正大塑料托盘厂
+      </label>
+      <label style="display:flex;align-items:center;gap:8px;padding:4px 0;cursor:pointer;font-size:13px;color:#262626">
+        <input type="checkbox" style="accent-color:#1677ff;width:16px;height:16px"> 上海喜悦智行科技股份有限公司
+      </label>
+      <label style="display:flex;align-items:center;gap:8px;padding:4px 0;cursor:pointer;font-size:13px;color:#262626">
+        <input type="checkbox" style="accent-color:#1677ff;width:16px;height:16px"> 中集良才循环包装科技有限公司
+      </label>
+    </div>
+  </div>
+  <div class="form-row" style="margin-bottom:0;">
+    <div class="form-label">默认库房：</div>
+      <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>华东中心仓（WH-01）</option><option>华南仓（WH-02）</option><option>西南仓（WH-03）</option></select><span class="caret">▾</span></div>
+    </div>
+    </div>
+    <div class="modal-footer">
+<button class="btn btn-default" onclick="closeModal('bindModal')">取 消</button><button class="btn" onclick="closeModal('bindModal')">保存绑定</button>
     </div>
   </div>
 </div>
-
-<script src="../_data/demo-data.js"></script>
-<script src="../_data/list-generic.js"></script>
-<script>
-/* G12 数据驱动接线（2026-09-10）：tbody 实体渲染 + 真筛选 + stab 计数 */
-renderListPage({
-  entity: 'profitRows',
-  noCheckbox: true,
-  noOps: true,
-  filters: [
-    { label: '账期', field: 'period' },
-    { label: '所属项目', field: 'code' }
-  ]
-});
-</script>
-
+  </div>
+</div>
+<script>function openModal(id) { document.getElementById(id).classList.add('show'); }
+function closeModal(id) { document.getElementById(id).classList.remove('show'); }
+document.querySelectorAll('.modal-overlay').forEach(function (ov) {
+  ov.addEventListener('click', function (e) { if (e.target === ov) ov.classList.remove('show'); });
+});</script>
 <script>
 /* ===== 菜单折叠 / 页签与表单视觉态（统一脚本） ===== */
 function go(url) { location.href = url; }
@@ -611,8 +628,8 @@ body.proto-notes-on .proto-pin.pn-open{display:block}
 body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 .pn-fab .pn-fab-n{font-family:Consolas,monospace;font-weight:600}
 </style>
-<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>项目损益表</div><div class="pnp-d">项目维度收入/成本/损益汇总（租赁+组装服务+赔偿 vs 摊销+成本）</div><div class="pnp-b"><span class="pnp-tag">FP6-05 · 项目盈亏报表</span><span class="pnp-tag">REQ-02 · 项目维度经营分析</span></div><div class="pnp-src"><div class="src-item"><b>FP6-05 项目盈亏报表</b>：项目维度营收成本汇总</div><div class="src-item"><b>REQ-02 项目维度经营分析</b>：按项目看出入库、营收、盈利情况</div></div></div>
-<div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>演示链数据对齐</div><div class="pnp-d">对齐说明（演示链数据）：PRJ-2601 收入合计 486,200.00 ＝ 应收账单 AR-2026-08-PRJ2601（已开票 186,200 · 水单部分核销 286,500，见开票登记 / 银行水单核销）；PRJ-2604 为 L4 混合链演示项目——租入大箱租金应付 AP-20260903-010（12,000.00 / 月）与自购隔板采购摊销计入成本合计，9 月销售费应收 AR-2026-09-PRJ2604-S1（1,280.00）见应收账单；当前成本大于收入、毛利为负（项目状态：已暂停）。</div><div class="pnp-b"><span class="pnp-tag">FP6-05 · 项目盈亏报表</span><span class="pnp-tag">REQ-02 · 项目维度经营分析</span></div><div class="pnp-src"><div class="src-item"><b>FP6-05 项目盈亏报表</b>：项目维度营收成本汇总</div><div class="src-item"><b>REQ-02 项目维度经营分析</b>：按项目看出入库、营收、盈利情况</div></div></div>
+<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>上下游关系（详情维护）</div><div class="pnp-d">在单个项目页内维护上下游，与项目档案共用同一份数据</div><div class="pnp-b"><span class="pnp-tag">FP2-02 · 上下游绑定</span><span class="pnp-tag">REQ-01 · 多项目统一管理</span></div><div class="pnp-src"><div class="src-item"><b>FP2-02 上下游绑定</b>：项目↔客户↔运营方↔供应商关系维护</div><div class="src-item"><b>REQ-01 多项目统一管理</b>：所有项目整合进一个系统，按项目建立编码，绑定上下游关系</div></div></div>
+<div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>项目单据查询</div><div class="pnp-d">查看本项目全部出入库、租出、账单单据</div><div class="pnp-b"><span class="pnp-tag">FP2-04 · 项目明细查看明细</span><span class="pnp-tag">REQ-02 · 项目维度经营分析</span></div><div class="pnp-src"><div class="src-item"><b>FP2-04 项目明细查看明细</b>：从看板点开查看到单据</div><div class="src-item"><b>REQ-02 项目维度经营分析</b>：按项目看出入库、营收、盈利情况</div></div></div>
 <style id="f01-fab-style">.fab-row{position:fixed;right:12px;bottom:12px;z-index:880;display:flex;align-items:center;gap:6px}.fab-row .pn-fab{position:static}.f01-fab{display:flex;text-decoration:none;align-items:center;height:24px;padding:0 10px;border-radius:4px;background:#fff;border:1px solid #d9d9d9;color:#8c8c8c;font-size:11px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.06);opacity:.6;transition:opacity .15s}.f01-fab:hover{opacity:1;border-color:#722ed1;color:#722ed1}</style><div class="fab-row"><a class="f01-fab" href="../P3-R01-F01-业务流程导航图.html">流程图</a><div class="pn-fab" id="protoNotesFab">标注</div></div></div>
 <script id="proto-notes-js">
 (function(){

@@ -563,6 +563,52 @@ document.querySelectorAll('.modal-overlay').forEach(function (ov) {
   ov.addEventListener('click', function (e) { if (e.target === ov) ov.classList.remove('show'); });
 });
 </script>
+<script src="../_data/demo-data.js"></script>
+<script>
+/* G12 数据驱动接线（2026-09-10）：字典分类点击切换主表（道远点名交互）+ dictItems 实体渲染 + 分类计数联动 */
+(function () {
+  var DATA = window.DEMO_DATA && window.DEMO_DATA.dictItems;
+  if (!DATA) return;
+  var keysAll = Object.keys(DATA).filter(function (k) { return DATA[k].row; });
+  var tbody = document.querySelector('.dic-wrap table tbody');
+  var title = document.querySelector('.dic-wrap .card-head .card-title');
+  var pg = document.querySelector('.dic-wrap .pg-info');
+  var items = document.querySelectorAll('.dic-list .dic-item');
+  if (!tbody) return;
+  function byCat(cat) {
+    return keysAll.filter(function (k) { return DATA[k].row.fields.category === cat; });
+  }
+  function render(cat) {
+    var keys = byCat(cat);
+    tbody.innerHTML = keys.length ? keys.map(function (k) {
+      var r = DATA[k].row;
+      var ops = r.ops.map(function (o) { return o.act ? '<a onclick="' + o.act + '">' + o.t + '</a>' : '<a>' + o.t + '</a>'; }).join('');
+      return '<tr><td>' + k + '</td>' + r.cells.map(function (c) { return '<td>' + c + '</td>'; }).join('') +
+        '<td class="sticky-op"><span class="ops">' + ops + '</span></td></tr>';
+    }).join('\n') : '<tr><td colspan="7" style="text-align:center;color:#8c8c8c;padding:24px 0;">该分类暂无字典项</td></tr>';
+    if (title) title.textContent = '字典项 · ' + cat;
+    if (pg) pg.textContent = '第 1-' + keys.length + ' 条/总共 ' + keys.length + ' 条';
+  }
+  function refreshCounts(activeCat) {
+    items.forEach(function (it) {
+      var name = it.querySelector('span').textContent.trim();
+      var cnt = it.querySelector('.cnt');
+      if (cnt) { cnt.textContent = byCat(name).length; cnt.classList.toggle('hot', name === activeCat); }
+      it.classList.toggle('active', name === activeCat);
+    });
+  }
+  items.forEach(function (it) {
+    it.addEventListener('click', function () {
+      var cat = it.querySelector('span').textContent.trim();
+      render(cat); refreshCounts(cat);
+    });
+  });
+  var init = document.querySelector('.dic-list .dic-item.active span');
+  var cat0 = init ? init.textContent.trim() : '缺损类型';
+  render(cat0); refreshCounts(cat0);
+})();
+</script>
+
 <script>
 /* ===== 菜单折叠 / 页签与表单视觉态（统一脚本） ===== */
 function go(url) { location.href = url; }

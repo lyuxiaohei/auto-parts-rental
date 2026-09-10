@@ -502,8 +502,8 @@
   "problems": [],
   "stats": {
    "buttons": 6,
-   "links": 19,
-   "onclickEls": 61,
+   "links": 13,
+   "onclickEls": 53,
    "modals": 1,
    "modalTitles": [
     "停用确认"
@@ -512,7 +512,7 @@
    "fakeSelects": 0,
    "radios": 0,
    "checkboxes": 0,
-   "inputs": 11,
+   "inputs": 9,
    "stabs": 0,
    "tabs": 3,
    "bgMut": 0
@@ -854,8 +854,8 @@
   "problems": [],
   "stats": {
    "buttons": 1,
-   "links": 13,
-   "onclickEls": 60,
+   "links": 16,
+   "onclickEls": 63,
    "modals": 0,
    "modalTitles": [],
    "selects": 1,
@@ -1735,8 +1735,8 @@
   "problems": [],
   "stats": {
    "buttons": 5,
-   "links": 13,
-   "onclickEls": 45,
+   "links": 11,
+   "onclickEls": 44,
    "modals": 2,
    "modalTitles": [
     "新增字典项",
@@ -1760,8 +1760,8 @@
   "problems": [],
   "stats": {
    "buttons": 13,
-   "links": 58,
-   "onclickEls": 104,
+   "links": 54,
+   "onclickEls": 100,
    "modals": 4,
    "modalTitles": [
     "角色管理",
@@ -1773,7 +1773,7 @@
    "fakeSelects": 0,
    "radios": 0,
    "checkboxes": 0,
-   "inputs": 17,
+   "inputs": 16,
    "stabs": 4,
    "tabs": 4,
    "bgMut": 0
@@ -2277,7 +2277,7 @@
   "stats": {
    "buttons": 3,
    "links": 1,
-   "onclickEls": 38,
+   "onclickEls": 37,
    "modals": 0,
    "modalTitles": [],
    "selects": 3,
@@ -2914,8 +2914,8 @@
   ],
   "stats": {
    "buttons": 9,
-   "links": 17,
-   "onclickEls": 65,
+   "links": 15,
+   "onclickEls": 62,
    "modals": 2,
    "modalTitles": [
     "项目上下游绑定",
@@ -2925,7 +2925,7 @@
    "fakeSelects": 0,
    "radios": 0,
    "checkboxes": 0,
-   "inputs": 23,
+   "inputs": 22,
    "stabs": 0,
    "tabs": 4,
    "bgMut": 0
@@ -2939,8 +2939,8 @@
   "problems": [],
   "stats": {
    "buttons": 5,
-   "links": 12,
-   "onclickEls": 61,
+   "links": 7,
+   "onclickEls": 51,
    "modals": 1,
    "modalTitles": [
     "项目上下游绑定"
@@ -2963,8 +2963,8 @@
   "problems": [],
   "stats": {
    "buttons": 2,
-   "links": 7,
-   "onclickEls": 46,
+   "links": 6,
+   "onclickEls": 44,
    "modals": 0,
    "modalTitles": [],
    "selects": 0,

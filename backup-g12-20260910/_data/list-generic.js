@@ -47,17 +47,13 @@
         (r.note ? ' data-note="' + r.note + '"' : '') + '>' +
         (r.keyHtml || '<span class="lk">' + key + '</span>') + '</td>\n';
       r.cells.forEach(function (c) { h += '          <td>' + c + '</td>\n'; });
-      /* G12（2026-09-10）：noOps=表格无操作列（操作日志/盈亏报表类）；顺带防御 ops 缺失 */
-      if (!cfg.noOps) {
-        h += '          <td class="sticky-op"><span class="ops">';
-        (r.ops || []).forEach(function (o) {
-          if (o.detail) h += '<a data-detail-key="' + key + '">' + o.t + '</a>';
-          else if (o.act) h += '<a onclick="' + o.act + '">' + o.t + '</a>';
-          else h += '<a>' + o.t + '</a>';
-        });
-        h += '</span></td>\n';
-      }
-      h += '        </tr>';
+      h += '          <td class="sticky-op"><span class="ops">';
+      r.ops.forEach(function (o) {
+        if (o.detail) h += '<a data-detail-key="' + key + '">' + o.t + '</a>';
+        else if (o.act) h += '<a onclick="' + o.act + '">' + o.t + '</a>';
+        else h += '<a>' + o.t + '</a>';
+      });
+      h += '</span></td>\n        </tr>';
       return h;
     }
 

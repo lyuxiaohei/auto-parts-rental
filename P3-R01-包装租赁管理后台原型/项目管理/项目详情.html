@@ -549,6 +549,18 @@ function closeModal(id) { document.getElementById(id).classList.remove('show'); 
 document.querySelectorAll('.modal-overlay').forEach(function (ov) {
   ov.addEventListener('click', function (e) { if (e.target === ov) ov.classList.remove('show'); });
 });</script>
+<script src="../_data/demo-data.js"></script>
+<script src="../_data/list-generic.js"></script>
+<script>
+/* G12 数据驱动接线（2026-09-10）：tbody 实体渲染 + 真筛选 + stab 计数 */
+renderListPage({
+  entity: 'projectDocs',
+  noCheckbox: true,
+  stabs: true,
+  stabField: 'type'
+});
+</script>
+
 <script>
 /* ===== 菜单折叠 / 页签与表单视觉态（统一脚本） ===== */
 function go(url) { location.href = url; }

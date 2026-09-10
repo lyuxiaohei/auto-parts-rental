@@ -56,10 +56,10 @@ B2 = [
 ]
 BATCHES['batch2'] = B2
 B3 = [
-    dict(name='租出台账', file='租赁管理/租出台账.html', entity='rentTracks', modalId='trackModal',
-         stabs={'已退回': 2, '超期未还': 1, '缺损待赔': 1}, pin=1),
-    dict(name='在租台账', file='租赁管理/在租台账.html', entity='assetTracks', modalId='trackModal',
-         stabs={'全部': 9, '即将到期(7天)': 9}, pin=None, noCheckbox=True),
+    # G12 工具清单修复（2026-09-10）：G07 台账合并后 租出台账/在租台账 两页已删——
+    # 租出台账→并入 租赁单列表（改挂本实体）；在租台账→并入 库存查询（batch1 已覆盖，删除本条目）
+    dict(name='租赁单列表', file='租赁管理/租赁单列表.html', entity='leaseOrders', modalId='detailModal',
+         stabs=None, pin=None),
     dict(name='客商管理', file='基础数据/客商管理.html', entity='partners', modalId='detailModal',
          stabs={'全部': 8, '客户': 4, '供应商': 4}, pin=None),
     dict(name='产品档案', file='基础数据/产品档案.html', entity='products', modalId='detailModal',
@@ -70,8 +70,7 @@ B3 = [
          stabs=None, pin=None, noCheckbox=True, tsel='#bomVerTable tbody', key_contains=True),
 ]
 BATCHES['batch3'] = B3
-# 注：在租台账「即将到期(7天)」期望=渲染器 fallback 全量（表无到期日列，默认决策表口径）；
-#     BOM维护键列为 ver-tag 富格（V2.1+已生效），断言用 contains
+# 注：BOM维护键列为 ver-tag 富格（V2.1+已生效），断言用 contains
 results, fails = [], []
 
 def check(page_name, item, ok, detail=''):

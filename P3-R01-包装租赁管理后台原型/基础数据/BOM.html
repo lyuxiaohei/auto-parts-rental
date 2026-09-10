@@ -492,6 +492,22 @@ document.querySelectorAll('.modal-overlay').forEach(function (ov) {
 });
 </script>
 
+<script src="../_data/demo-data.js"></script>
+<script src="../_data/list-generic.js"></script>
+<script>
+/* G12 数据驱动接线（2026-09-10）：tbody 实体渲染 + 真筛选 + stab 计数 */
+renderListPage({
+  entity: 'bomList',
+  filters: [
+    { label: '父项编码', field: '_key' },
+    { label: '父项名称', field: 'name' },
+    { label: '版本', field: 'ver' },
+    { label: '状态', field: 'status' },
+    { label: '更新时间', field: 'update', range: true }
+  ]
+});
+</script>
+
 <script>
 /* ===== 菜单折叠 / 页签与表单视觉态（统一脚本） ===== */
 function go(url) { location.href = url; }
