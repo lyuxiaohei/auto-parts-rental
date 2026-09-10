@@ -5,8 +5,8 @@
   "problems": [],
   "stats": {
    "buttons": 0,
-   "links": 83,
-   "onclickEls": 8,
+   "links": 85,
+   "onclickEls": 9,
    "modals": 0,
    "modalTitles": [],
    "selects": 0,
@@ -22,7 +22,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "仓储作业/其他入库列表.html",
+  "page": "仓储作业\\其他入库列表.html",
   "js_errors": [],
   "problems": [
    {
@@ -57,7 +57,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "仓储作业/其他出库列表.html",
+  "page": "仓储作业\\其他出库列表.html",
   "js_errors": [],
   "problems": [
    {
@@ -92,7 +92,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "仓储作业/库存查询.html",
+  "page": "仓储作业\\库存查询.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -118,7 +118,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "仓储作业/库存调拨列表.html",
+  "page": "仓储作业\\库存调拨列表.html",
   "js_errors": [],
   "problems": [
    {
@@ -153,7 +153,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "仓储作业/弹窗/其他入库单详情.html",
+  "page": "仓储作业\\弹窗\\其他入库单详情.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -177,7 +177,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "仓储作业/弹窗/其他入库审核.html",
+  "page": "仓储作业\\弹窗\\其他入库审核.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -201,7 +201,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "仓储作业/弹窗/其他入库新建.html",
+  "page": "仓储作业\\弹窗\\其他入库新建.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -225,7 +225,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "仓储作业/弹窗/其他出库单详情.html",
+  "page": "仓储作业\\弹窗\\其他出库单详情.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -249,7 +249,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "仓储作业/弹窗/其他出库审核.html",
+  "page": "仓储作业\\弹窗\\其他出库审核.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -273,7 +273,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "仓储作业/弹窗/其他出库新建.html",
+  "page": "仓储作业\\弹窗\\其他出库新建.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -297,7 +297,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "仓储作业/弹窗/库存流水.html",
+  "page": "仓储作业\\弹窗\\库存流水.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -321,7 +321,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "仓储作业/弹窗/盘点单详情.html",
+  "page": "仓储作业\\弹窗\\盘点单详情.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -345,7 +345,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "仓储作业/弹窗/盘点审核.html",
+  "page": "仓储作业\\弹窗\\盘点审核.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -369,7 +369,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "仓储作业/弹窗/调拨单详情.html",
+  "page": "仓储作业\\弹窗\\调拨单详情.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -393,7 +393,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "仓储作业/弹窗/调拨审核.html",
+  "page": "仓储作业\\弹窗\\调拨审核.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -417,7 +417,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "仓储作业/弹窗/调拨新建.html",
+  "page": "仓储作业\\弹窗\\调拨新建.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -441,7 +441,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "仓储作业/盘点列表.html",
+  "page": "仓储作业\\盘点列表.html",
   "js_errors": [],
   "problems": [
    {
@@ -475,7 +475,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "仓储作业/盘点录入.html",
+  "page": "仓储作业\\盘点录入.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -497,7 +497,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "基础数据/BOM.html",
+  "page": "基础数据\\BOM.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -521,7 +521,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "基础数据/BOM维护.html",
+  "page": "基础数据\\BOM维护.html",
   "js_errors": [],
   "problems": [
    {
@@ -553,7 +553,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "基础数据/产品档案.html",
+  "page": "基础数据\\产品档案.html",
   "js_errors": [],
   "problems": [
    {
@@ -588,7 +588,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "基础数据/客商管理.html",
+  "page": "基础数据\\客商管理.html",
   "js_errors": [],
   "problems": [
    {
@@ -622,7 +622,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "基础数据/库位档案.html",
+  "page": "基础数据\\库位档案.html",
   "js_errors": [],
   "problems": [
    {
@@ -657,7 +657,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "基础数据/弹窗/BOM版本查看.html",
+  "page": "基础数据\\弹窗\\BOM版本查看.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -681,7 +681,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "基础数据/弹窗/产品详情.html",
+  "page": "基础数据\\弹窗\\产品详情.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -705,7 +705,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "基础数据/弹窗/停用确认.html",
+  "page": "基础数据\\弹窗\\停用确认.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -729,7 +729,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "基础数据/弹窗/客商详情.html",
+  "page": "基础数据\\弹窗\\客商详情.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -753,7 +753,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "基础数据/弹窗/库位详情.html",
+  "page": "基础数据\\弹窗\\库位详情.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -777,7 +777,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "基础数据/弹窗/新建产品.html",
+  "page": "基础数据\\弹窗\\新建产品.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -801,7 +801,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "基础数据/弹窗/新建客商.html",
+  "page": "基础数据\\弹窗\\新建客商.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -825,7 +825,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "基础数据/弹窗/新建库位.html",
+  "page": "基础数据\\弹窗\\新建库位.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -871,7 +871,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "租赁管理/弹窗/器具出租履历.html",
+  "page": "租赁管理\\弹窗\\器具出租履历.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -895,7 +895,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "租赁管理/弹窗/租入入库单详情.html",
+  "page": "租赁管理\\弹窗\\租入入库单详情.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -919,7 +919,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "租赁管理/弹窗/租入入库确认.html",
+  "page": "租赁管理\\弹窗\\租入入库确认.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -943,7 +943,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "租赁管理/弹窗/租入单审核.html",
+  "page": "租赁管理\\弹窗\\租入单审核.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -967,7 +967,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "租赁管理/弹窗/租入单新建.html",
+  "page": "租赁管理\\弹窗\\租入单新建.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -991,7 +991,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "租赁管理/弹窗/租入单详情.html",
+  "page": "租赁管理\\弹窗\\租入单详情.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -1015,7 +1015,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "租赁管理/弹窗/租入归还单详情.html",
+  "page": "租赁管理\\弹窗\\租入归还单详情.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -1039,7 +1039,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "租赁管理/弹窗/租入归还审核.html",
+  "page": "租赁管理\\弹窗\\租入归还审核.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -1063,7 +1063,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "租赁管理/弹窗/租入归还新建.html",
+  "page": "租赁管理\\弹窗\\租入归还新建.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -1087,7 +1087,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "租赁管理/弹窗/租赁单审核.html",
+  "page": "租赁管理\\弹窗\\租赁单审核.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -1111,7 +1111,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "租赁管理/弹窗/租赁单新建.html",
+  "page": "租赁管理\\弹窗\\租赁单新建.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -1135,7 +1135,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "租赁管理/弹窗/租赁单详情.html",
+  "page": "租赁管理\\弹窗\\租赁单详情.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -1159,7 +1159,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "租赁管理/弹窗/组合出库单详情.html",
+  "page": "租赁管理\\弹窗\\组合出库单详情.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -1183,7 +1183,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "租赁管理/弹窗/组合出库确认.html",
+  "page": "租赁管理\\弹窗\\组合出库确认.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -1207,7 +1207,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "租赁管理/弹窗/退租入库单详情.html",
+  "page": "租赁管理\\弹窗\\退租入库单详情.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -1231,7 +1231,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "租赁管理/弹窗/退租入库审核.html",
+  "page": "租赁管理\\弹窗\\退租入库审核.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -1255,7 +1255,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "租赁管理/租入入库列表.html",
+  "page": "租赁管理\\租入入库列表.html",
   "js_errors": [],
   "problems": [
    {
@@ -1289,7 +1289,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "租赁管理/租入单列表.html",
+  "page": "租赁管理\\租入单列表.html",
   "js_errors": [],
   "problems": [
    {
@@ -1352,7 +1352,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "租赁管理/租入归还列表.html",
+  "page": "租赁管理\\租入归还列表.html",
   "js_errors": [],
   "problems": [
    {
@@ -1387,7 +1387,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "租赁管理/租赁单列表.html",
+  "page": "租赁管理\\租赁单列表.html",
   "js_errors": [],
   "problems": [
    {
@@ -1450,7 +1450,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "租赁管理/组合出库列表.html",
+  "page": "租赁管理\\组合出库列表.html",
   "js_errors": [],
   "problems": [
    {
@@ -1484,7 +1484,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "租赁管理/组合出库录单.html",
+  "page": "租赁管理\\组合出库录单.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -1506,7 +1506,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "租赁管理/退租入库列表.html",
+  "page": "租赁管理\\退租入库列表.html",
   "js_errors": [],
   "problems": [
    {
@@ -1540,7 +1540,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "系统管理/弹窗/停用确认.html",
+  "page": "系统管理\\弹窗\\停用确认.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -1564,7 +1564,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "系统管理/弹窗/新增字典项.html",
+  "page": "系统管理\\弹窗\\新增字典项.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -1588,7 +1588,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "系统管理/弹窗/新增用户.html",
+  "page": "系统管理\\弹窗\\新增用户.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -1612,7 +1612,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "系统管理/弹窗/新增角色.html",
+  "page": "系统管理\\弹窗\\新增角色.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -1636,7 +1636,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "系统管理/弹窗/权限配置.html",
+  "page": "系统管理\\弹窗\\权限配置.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -1660,7 +1660,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "系统管理/弹窗/角色管理.html",
+  "page": "系统管理\\弹窗\\角色管理.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -1684,7 +1684,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "系统管理/弹窗/重置密码确认.html",
+  "page": "系统管理\\弹窗\\重置密码确认.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -1708,7 +1708,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "系统管理/操作日志.html",
+  "page": "系统管理\\操作日志.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -1730,7 +1730,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "系统管理/数据字典.html",
+  "page": "系统管理\\数据字典.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -1755,7 +1755,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "系统管理/用户权限.html",
+  "page": "系统管理\\用户权限.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -1782,7 +1782,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "系统管理/角色管理.html",
+  "page": "系统管理\\角色管理.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -1807,7 +1807,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "财务协同/付款登记.html",
+  "page": "财务协同\\付款登记.html",
   "js_errors": [],
   "problems": [
    {
@@ -1842,7 +1842,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "财务协同/回款登记.html",
+  "page": "财务协同\\回款登记.html",
   "js_errors": [],
   "problems": [
    {
@@ -1877,7 +1877,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "财务协同/应付账单.html",
+  "page": "财务协同\\应付账单.html",
   "js_errors": [],
   "problems": [
    {
@@ -1912,7 +1912,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "财务协同/应收账单.html",
+  "page": "财务协同\\应收账单.html",
   "js_errors": [],
   "problems": [
    {
@@ -1947,7 +1947,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "财务协同/开票登记.html",
+  "page": "财务协同\\开票登记.html",
   "js_errors": [],
   "problems": [
    {
@@ -1982,7 +1982,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "财务协同/弹窗/付款登记新建.html",
+  "page": "财务协同\\弹窗\\付款登记新建.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -2006,7 +2006,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "财务协同/弹窗/付款登记详情.html",
+  "page": "财务协同\\弹窗\\付款登记详情.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -2030,7 +2030,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "财务协同/弹窗/付款确认.html",
+  "page": "财务协同\\弹窗\\付款确认.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -2054,7 +2054,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "财务协同/弹窗/回款登记详情.html",
+  "page": "财务协同\\弹窗\\回款登记详情.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -2078,7 +2078,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "财务协同/弹窗/应付账单新建.html",
+  "page": "财务协同\\弹窗\\应付账单新建.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -2102,7 +2102,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "财务协同/弹窗/应付账单详情.html",
+  "page": "财务协同\\弹窗\\应付账单详情.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -2126,7 +2126,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "财务协同/弹窗/应收账单生成.html",
+  "page": "财务协同\\弹窗\\应收账单生成.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -2150,7 +2150,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "财务协同/弹窗/应收账单详情.html",
+  "page": "财务协同\\弹窗\\应收账单详情.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -2174,7 +2174,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "财务协同/弹窗/开票登记新建.html",
+  "page": "财务协同\\弹窗\\开票登记新建.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -2198,7 +2198,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "财务协同/弹窗/开票登记详情.html",
+  "page": "财务协同\\弹窗\\开票登记详情.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -2222,7 +2222,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "财务协同/弹窗/收款登记新建.html",
+  "page": "财务协同\\弹窗\\收款登记新建.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -2246,7 +2246,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "财务协同/弹窗/水单核销详情.html",
+  "page": "财务协同\\弹窗\\水单核销详情.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -2270,7 +2270,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "财务协同/盈亏报表.html",
+  "page": "财务协同\\盈亏报表.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -2292,7 +2292,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "财务协同/银行水单核销.html",
+  "page": "财务协同\\银行水单核销.html",
   "js_errors": [],
   "problems": [
    {
@@ -2326,7 +2326,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "采购管理/弹窗/新建采购订单.html",
+  "page": "采购管理\\弹窗\\新建采购订单.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -2350,7 +2350,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "采购管理/弹窗/采购入库单详情.html",
+  "page": "采购管理\\弹窗\\采购入库单详情.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -2374,7 +2374,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "采购管理/弹窗/采购入库审核.html",
+  "page": "采购管理\\弹窗\\采购入库审核.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -2398,7 +2398,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "采购管理/弹窗/采购订单审核.html",
+  "page": "采购管理\\弹窗\\采购订单审核.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -2422,7 +2422,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "采购管理/弹窗/采购订单详情.html",
+  "page": "采购管理\\弹窗\\采购订单详情.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -2446,7 +2446,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "采购管理/采购入库列表.html",
+  "page": "采购管理\\采购入库列表.html",
   "js_errors": [],
   "problems": [
    {
@@ -2480,7 +2480,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "采购管理/采购入库录单.html",
+  "page": "采购管理\\采购入库录单.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -2502,7 +2502,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "采购管理/采购订单列表.html",
+  "page": "采购管理\\采购订单列表.html",
   "js_errors": [],
   "problems": [
    {
@@ -2565,7 +2565,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "销售管理/弹窗/新建销售订单.html",
+  "page": "销售管理\\弹窗\\新建销售订单.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -2589,7 +2589,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "销售管理/弹窗/销售出库单详情.html",
+  "page": "销售管理\\弹窗\\销售出库单详情.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -2613,7 +2613,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "销售管理/弹窗/销售出库审核.html",
+  "page": "销售管理\\弹窗\\销售出库审核.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -2637,7 +2637,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "销售管理/弹窗/销售出库新建.html",
+  "page": "销售管理\\弹窗\\销售出库新建.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -2661,7 +2661,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "销售管理/弹窗/销售订单审核.html",
+  "page": "销售管理\\弹窗\\销售订单审核.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -2685,7 +2685,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "销售管理/弹窗/销售订单详情.html",
+  "page": "销售管理\\弹窗\\销售订单详情.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -2709,7 +2709,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "销售管理/销售出库列表.html",
+  "page": "销售管理\\销售出库列表.html",
   "js_errors": [],
   "problems": [
    {
@@ -2758,7 +2758,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "销售管理/销售订单列表.html",
+  "page": "销售管理\\销售订单列表.html",
   "js_errors": [],
   "problems": [
    {
@@ -2821,7 +2821,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "项目管理/弹窗/上下游绑定.html",
+  "page": "项目管理\\弹窗\\上下游绑定.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -2845,7 +2845,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "项目管理/弹窗/新建项目.html",
+  "page": "项目管理\\弹窗\\新建项目.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -2869,7 +2869,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "项目管理/弹窗/编码规则.html",
+  "page": "项目管理\\弹窗\\编码规则.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -2893,7 +2893,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "项目管理/项目档案.html",
+  "page": "项目管理\\项目档案.html",
   "js_errors": [],
   "problems": [
    {
@@ -2933,7 +2933,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "项目管理/项目详情.html",
+  "page": "项目管理\\项目详情.html",
   "js_errors": [],
   "problems": [],
   "stats": {
@@ -2957,7 +2957,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "首页/项目看板.html",
+  "page": "首页\\项目看板.html",
   "js_errors": [],
   "problems": [],
   "stats": {

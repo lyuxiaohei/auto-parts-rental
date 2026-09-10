@@ -87,13 +87,12 @@ with sync_playwright() as pw:
           wh_seq == ['T库存管理', 'I库存查询', 'I盘点', 'I库存调拨',
                      'T入库类', 'I其他入库', 'T出库类', 'I其他出库'], ' '.join(wh_seq))
 
-    # ⑧ 租赁管理组三小标签=租赁(2)/租入(3)/退租(1)（G07·2026-09-10 台账合并：在租台账/租出台账菜单项移除）
+    # ⑧ 租赁管理组两小标签=租赁(3)/租入(3)（G09·2026-09-10：退租入库移入租赁标签·退租小标签取消）
     g_lease = next(g for g in groups if g['name'] == '租赁管理')
     lease_seq = [('T' if s['isTag'] else 'I') + s['text'] for s in g_lease['sub']]
-    check('⑧', '租赁管理组 租赁(租赁单/租赁出库)+租入(租入单/租入入库/租入归还)+退租(退租入库)',
-          lease_seq == ['T租赁', 'I租赁单', 'I租赁出库',
-                        'T租入', 'I租入单', 'I租入入库', 'I租入归还',
-                        'T退租', 'I退租入库'], ' '.join(lease_seq))
+    check('⑧', '租赁管理组 租赁(租赁单/租赁出库/退租入库)+租入(租入单/租入入库/租入归还)',
+          lease_seq == ['T租赁', 'I租赁单', 'I租赁出库', 'I退租入库',
+                        'T租入', 'I租入单', 'I租入入库', 'I租入归还'], ' '.join(lease_seq))
 
     # ⑨ 菜单无「盘点录入」项
     all_text = pg.evaluate("() => document.querySelector('.side-menu').textContent")
@@ -142,5 +141,5 @@ with sync_playwright() as pw:
 fails = [r for r in results if not r[2]]
 for no, name, ok, note in results:
     print(f"{'PASS' if ok else 'FAIL'} {no} {name}" + (f'  ｜{note}' if not ok or no in ('⑤', '⑪') else ''))
-print(f"==== 菜单 v3.2 验证门：{len(results)} 项断言，失败 {len(fails)} 项 ====")
+print(f"==== 菜单 v3.4 验证门：{len(results)} 项断言，失败 {len(fails)} 项 ====")
 sys.exit(1 if fails else 0)
