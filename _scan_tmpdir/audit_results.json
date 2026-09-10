@@ -37,7 +37,7 @@
   ],
   "stats": {
    "buttons": 11,
-   "links": 4,
+   "links": 5,
    "onclickEls": 44,
    "modals": 3,
    "modalTitles": [
@@ -72,7 +72,7 @@
   ],
   "stats": {
    "buttons": 11,
-   "links": 6,
+   "links": 7,
    "onclickEls": 44,
    "modals": 3,
    "modalTitles": [
@@ -97,7 +97,7 @@
   "problems": [],
   "stats": {
    "buttons": 4,
-   "links": 36,
+   "links": 37,
    "onclickEls": 68,
    "modals": 3,
    "modalTitles": [
@@ -133,7 +133,7 @@
   ],
   "stats": {
    "buttons": 11,
-   "links": 4,
+   "links": 5,
    "onclickEls": 44,
    "modals": 3,
    "modalTitles": [
@@ -158,7 +158,7 @@
   "problems": [],
   "stats": {
    "buttons": 1,
-   "links": 0,
+   "links": 1,
    "onclickEls": 5,
    "modals": 1,
    "modalTitles": [
@@ -182,7 +182,7 @@
   "problems": [],
   "stats": {
    "buttons": 2,
-   "links": 0,
+   "links": 1,
    "onclickEls": 3,
    "modals": 1,
    "modalTitles": [
@@ -206,7 +206,7 @@
   "problems": [],
   "stats": {
    "buttons": 3,
-   "links": 0,
+   "links": 1,
    "onclickEls": 4,
    "modals": 1,
    "modalTitles": [
@@ -230,7 +230,7 @@
   "problems": [],
   "stats": {
    "buttons": 1,
-   "links": 0,
+   "links": 1,
    "onclickEls": 3,
    "modals": 1,
    "modalTitles": [
@@ -254,7 +254,7 @@
   "problems": [],
   "stats": {
    "buttons": 2,
-   "links": 0,
+   "links": 1,
    "onclickEls": 3,
    "modals": 1,
    "modalTitles": [
@@ -278,7 +278,7 @@
   "problems": [],
   "stats": {
    "buttons": 3,
-   "links": 0,
+   "links": 1,
    "onclickEls": 4,
    "modals": 1,
    "modalTitles": [
@@ -302,7 +302,7 @@
   "problems": [],
   "stats": {
    "buttons": 1,
-   "links": 0,
+   "links": 1,
    "onclickEls": 7,
    "modals": 1,
    "modalTitles": [
@@ -326,7 +326,7 @@
   "problems": [],
   "stats": {
    "buttons": 1,
-   "links": 0,
+   "links": 1,
    "onclickEls": 7,
    "modals": 1,
    "modalTitles": [
@@ -350,7 +350,7 @@
   "problems": [],
   "stats": {
    "buttons": 2,
-   "links": 0,
+   "links": 1,
    "onclickEls": 3,
    "modals": 1,
    "modalTitles": [
@@ -374,7 +374,7 @@
   "problems": [],
   "stats": {
    "buttons": 1,
-   "links": 0,
+   "links": 1,
    "onclickEls": 3,
    "modals": 1,
    "modalTitles": [
@@ -398,7 +398,7 @@
   "problems": [],
   "stats": {
    "buttons": 2,
-   "links": 0,
+   "links": 1,
    "onclickEls": 3,
    "modals": 1,
    "modalTitles": [
@@ -422,7 +422,7 @@
   "problems": [],
   "stats": {
    "buttons": 3,
-   "links": 0,
+   "links": 1,
    "onclickEls": 4,
    "modals": 1,
    "modalTitles": [
@@ -456,7 +456,7 @@
   ],
   "stats": {
    "buttons": 8,
-   "links": 15,
+   "links": 16,
    "onclickEls": 49,
    "modals": 2,
    "modalTitles": [
@@ -480,7 +480,7 @@
   "problems": [],
   "stats": {
    "buttons": 5,
-   "links": 0,
+   "links": 1,
    "onclickEls": 34,
    "modals": 0,
    "modalTitles": [],
@@ -502,7 +502,7 @@
   "problems": [],
   "stats": {
    "buttons": 6,
-   "links": 12,
+   "links": 13,
    "onclickEls": 53,
    "modals": 1,
    "modalTitles": [
@@ -536,7 +536,7 @@
   ],
   "stats": {
    "buttons": 6,
-   "links": 11,
+   "links": 12,
    "onclickEls": 36,
    "modals": 1,
    "modalTitles": [],
@@ -568,7 +568,7 @@
   ],
   "stats": {
    "buttons": 11,
-   "links": 36,
+   "links": 37,
    "onclickEls": 66,
    "modals": 3,
    "modalTitles": [
@@ -603,7 +603,7 @@
   ],
   "stats": {
    "buttons": 8,
-   "links": 24,
+   "links": 25,
    "onclickEls": 55,
    "modals": 2,
    "modalTitles": [
@@ -637,7 +637,7 @@
   ],
   "stats": {
    "buttons": 10,
-   "links": 32,
+   "links": 33,
    "onclickEls": 63,
    "modals": 3,
    "modalTitles": [
@@ -662,7 +662,7 @@
   "problems": [],
   "stats": {
    "buttons": 1,
-   "links": 0,
+   "links": 1,
    "onclickEls": 3,
    "modals": 1,
    "modalTitles": [
@@ -686,7 +686,7 @@
   "problems": [],
   "stats": {
    "buttons": 1,
-   "links": 0,
+   "links": 1,
    "onclickEls": 5,
    "modals": 1,
    "modalTitles": [
@@ -710,7 +710,7 @@
   "problems": [],
   "stats": {
    "buttons": 2,
-   "links": 0,
+   "links": 1,
    "onclickEls": 3,
    "modals": 1,
    "modalTitles": [
@@ -734,7 +734,7 @@
   "problems": [],
   "stats": {
    "buttons": 1,
-   "links": 0,
+   "links": 1,
    "onclickEls": 6,
    "modals": 1,
    "modalTitles": [
@@ -758,7 +758,7 @@
   "problems": [],
   "stats": {
    "buttons": 1,
-   "links": 0,
+   "links": 1,
    "onclickEls": 3,
    "modals": 1,
    "modalTitles": [
@@ -782,7 +782,7 @@
   "problems": [],
   "stats": {
    "buttons": 2,
-   "links": 0,
+   "links": 1,
    "onclickEls": 3,
    "modals": 1,
    "modalTitles": [
@@ -806,7 +806,7 @@
   "problems": [],
   "stats": {
    "buttons": 2,
-   "links": 0,
+   "links": 1,
    "onclickEls": 3,
    "modals": 1,
    "modalTitles": [
@@ -830,7 +830,7 @@
   "problems": [],
   "stats": {
    "buttons": 2,
-   "links": 0,
+   "links": 1,
    "onclickEls": 3,
    "modals": 1,
    "modalTitles": [
@@ -854,7 +854,7 @@
   "problems": [],
   "stats": {
    "buttons": 1,
-   "links": 15,
+   "links": 16,
    "onclickEls": 63,
    "modals": 0,
    "modalTitles": [],
@@ -876,7 +876,7 @@
   "problems": [],
   "stats": {
    "buttons": 1,
-   "links": 0,
+   "links": 1,
    "onclickEls": 4,
    "modals": 1,
    "modalTitles": [
@@ -900,7 +900,7 @@
   "problems": [],
   "stats": {
    "buttons": 1,
-   "links": 0,
+   "links": 1,
    "onclickEls": 6,
    "modals": 1,
    "modalTitles": [
@@ -924,7 +924,7 @@
   "problems": [],
   "stats": {
    "buttons": 2,
-   "links": 0,
+   "links": 1,
    "onclickEls": 3,
    "modals": 1,
    "modalTitles": [
@@ -948,7 +948,7 @@
   "problems": [],
   "stats": {
    "buttons": 2,
-   "links": 0,
+   "links": 1,
    "onclickEls": 3,
    "modals": 1,
    "modalTitles": [
@@ -972,7 +972,7 @@
   "problems": [],
   "stats": {
    "buttons": 3,
-   "links": 0,
+   "links": 1,
    "onclickEls": 3,
    "modals": 1,
    "modalTitles": [
@@ -996,7 +996,7 @@
   "problems": [],
   "stats": {
    "buttons": 1,
-   "links": 0,
+   "links": 1,
    "onclickEls": 6,
    "modals": 1,
    "modalTitles": [
@@ -1020,7 +1020,7 @@
   "problems": [],
   "stats": {
    "buttons": 1,
-   "links": 0,
+   "links": 1,
    "onclickEls": 6,
    "modals": 1,
    "modalTitles": [
@@ -1044,7 +1044,7 @@
   "problems": [],
   "stats": {
    "buttons": 2,
-   "links": 0,
+   "links": 1,
    "onclickEls": 3,
    "modals": 1,
    "modalTitles": [
@@ -1068,7 +1068,7 @@
   "problems": [],
   "stats": {
    "buttons": 2,
-   "links": 0,
+   "links": 1,
    "onclickEls": 3,
    "modals": 1,
    "modalTitles": [
@@ -1092,7 +1092,7 @@
   "problems": [],
   "stats": {
    "buttons": 2,
-   "links": 0,
+   "links": 1,
    "onclickEls": 3,
    "modals": 1,
    "modalTitles": [
@@ -1116,7 +1116,7 @@
   "problems": [],
   "stats": {
    "buttons": 4,
-   "links": 0,
+   "links": 1,
    "onclickEls": 4,
    "modals": 1,
    "modalTitles": [
@@ -1140,7 +1140,7 @@
   "problems": [],
   "stats": {
    "buttons": 1,
-   "links": 0,
+   "links": 1,
    "onclickEls": 5,
    "modals": 1,
    "modalTitles": [
@@ -1164,7 +1164,7 @@
   "problems": [],
   "stats": {
    "buttons": 1,
-   "links": 0,
+   "links": 1,
    "onclickEls": 7,
    "modals": 1,
    "modalTitles": [
@@ -1188,7 +1188,7 @@
   "problems": [],
   "stats": {
    "buttons": 2,
-   "links": 0,
+   "links": 1,
    "onclickEls": 3,
    "modals": 1,
    "modalTitles": [
@@ -1212,7 +1212,7 @@
   "problems": [],
   "stats": {
    "buttons": 1,
-   "links": 0,
+   "links": 1,
    "onclickEls": 4,
    "modals": 1,
    "modalTitles": [
@@ -1236,7 +1236,7 @@
   "problems": [],
   "stats": {
    "buttons": 2,
-   "links": 0,
+   "links": 1,
    "onclickEls": 3,
    "modals": 1,
    "modalTitles": [
@@ -1270,7 +1270,7 @@
   ],
   "stats": {
    "buttons": 7,
-   "links": 6,
+   "links": 7,
    "onclickEls": 44,
    "modals": 2,
    "modalTitles": [
@@ -1332,7 +1332,7 @@
   ],
   "stats": {
    "buttons": 11,
-   "links": 11,
+   "links": 12,
    "onclickEls": 48,
    "modals": 3,
    "modalTitles": [
@@ -1367,7 +1367,7 @@
   ],
   "stats": {
    "buttons": 10,
-   "links": 5,
+   "links": 6,
    "onclickEls": 47,
    "modals": 3,
    "modalTitles": [
@@ -1430,7 +1430,7 @@
   ],
   "stats": {
    "buttons": 12,
-   "links": 22,
+   "links": 23,
    "onclickEls": 58,
    "modals": 3,
    "modalTitles": [
@@ -1465,7 +1465,7 @@
   ],
   "stats": {
    "buttons": 8,
-   "links": 24,
+   "links": 25,
    "onclickEls": 55,
    "modals": 2,
    "modalTitles": [
@@ -1489,7 +1489,7 @@
   "problems": [],
   "stats": {
    "buttons": 5,
-   "links": 3,
+   "links": 4,
    "onclickEls": 35,
    "modals": 0,
    "modalTitles": [],
@@ -1521,7 +1521,7 @@
   ],
   "stats": {
    "buttons": 7,
-   "links": 10,
+   "links": 11,
    "onclickEls": 43,
    "modals": 2,
    "modalTitles": [
@@ -1545,7 +1545,7 @@
   "problems": [],
   "stats": {
    "buttons": 2,
-   "links": 0,
+   "links": 1,
    "onclickEls": 3,
    "modals": 1,
    "modalTitles": [
@@ -1569,7 +1569,7 @@
   "problems": [],
   "stats": {
    "buttons": 2,
-   "links": 0,
+   "links": 1,
    "onclickEls": 3,
    "modals": 1,
    "modalTitles": [
@@ -1593,7 +1593,7 @@
   "problems": [],
   "stats": {
    "buttons": 2,
-   "links": 0,
+   "links": 1,
    "onclickEls": 3,
    "modals": 1,
    "modalTitles": [
@@ -1617,7 +1617,7 @@
   "problems": [],
   "stats": {
    "buttons": 2,
-   "links": 0,
+   "links": 1,
    "onclickEls": 3,
    "modals": 1,
    "modalTitles": [
@@ -1641,7 +1641,7 @@
   "problems": [],
   "stats": {
    "buttons": 2,
-   "links": 0,
+   "links": 1,
    "onclickEls": 3,
    "modals": 1,
    "modalTitles": [
@@ -1665,7 +1665,7 @@
   "problems": [],
   "stats": {
    "buttons": 2,
-   "links": 5,
+   "links": 6,
    "onclickEls": 3,
    "modals": 1,
    "modalTitles": [
@@ -1689,7 +1689,7 @@
   "problems": [],
   "stats": {
    "buttons": 2,
-   "links": 0,
+   "links": 1,
    "onclickEls": 3,
    "modals": 1,
    "modalTitles": [
@@ -1713,7 +1713,7 @@
   "problems": [],
   "stats": {
    "buttons": 4,
-   "links": 0,
+   "links": 1,
    "onclickEls": 33,
    "modals": 0,
    "modalTitles": [],
@@ -1735,7 +1735,7 @@
   "problems": [],
   "stats": {
    "buttons": 5,
-   "links": 10,
+   "links": 11,
    "onclickEls": 44,
    "modals": 2,
    "modalTitles": [
@@ -1760,7 +1760,7 @@
   "problems": [],
   "stats": {
    "buttons": 13,
-   "links": 53,
+   "links": 54,
    "onclickEls": 100,
    "modals": 4,
    "modalTitles": [
@@ -1787,7 +1787,7 @@
   "problems": [],
   "stats": {
    "buttons": 7,
-   "links": 9,
+   "links": 10,
    "onclickEls": 48,
    "modals": 2,
    "modalTitles": [
@@ -1821,19 +1821,19 @@
    }
   ],
   "stats": {
-   "buttons": 11,
-   "links": 6,
+   "buttons": 13,
+   "links": 10,
    "onclickEls": 44,
    "modals": 3,
    "modalTitles": [
     "新建付款登记",
     "确认付款"
    ],
-   "selects": 6,
+   "selects": 5,
    "fakeSelects": 0,
    "radios": 2,
    "checkboxes": 0,
-   "inputs": 19,
+   "inputs": 21,
    "stabs": 3,
    "tabs": 3,
    "bgMut": 0
@@ -1857,7 +1857,7 @@
   ],
   "stats": {
    "buttons": 10,
-   "links": 16,
+   "links": 17,
    "onclickEls": 52,
    "modals": 3,
    "modalTitles": [
@@ -1891,19 +1891,20 @@
    }
   ],
   "stats": {
-   "buttons": 11,
-   "links": 22,
-   "onclickEls": 56,
-   "modals": 3,
+   "buttons": 17,
+   "links": 29,
+   "onclickEls": 59,
+   "modals": 4,
    "modalTitles": [
     "新建应付账单",
-    "账单确认"
+    "账单确认",
+    "分期付款计划 · AP-20260905"
    ],
-   "selects": 5,
+   "selects": 6,
    "fakeSelects": 0,
    "radios": 0,
    "checkboxes": 0,
-   "inputs": 27,
+   "inputs": 36,
    "stabs": 4,
    "tabs": 3,
    "bgMut": 0
@@ -1926,19 +1927,19 @@
    }
   ],
   "stats": {
-   "buttons": 10,
-   "links": 45,
+   "buttons": 12,
+   "links": 49,
    "onclickEls": 74,
    "modals": 3,
    "modalTitles": [
     "手动生成账单",
     "账单确认"
    ],
-   "selects": 8,
+   "selects": 9,
    "fakeSelects": 0,
    "radios": 0,
    "checkboxes": 0,
-   "inputs": 21,
+   "inputs": 27,
    "stabs": 5,
    "tabs": 4,
    "bgMut": 0
@@ -1962,7 +1963,7 @@
   ],
   "stats": {
    "buttons": 10,
-   "links": 22,
+   "links": 23,
    "onclickEls": 58,
    "modals": 3,
    "modalTitles": [
@@ -1986,14 +1987,14 @@
   "js_errors": [],
   "problems": [],
   "stats": {
-   "buttons": 3,
-   "links": 0,
+   "buttons": 5,
+   "links": 3,
    "onclickEls": 4,
    "modals": 1,
    "modalTitles": [
     "新建付款登记(演示页)"
    ],
-   "selects": 4,
+   "selects": 3,
    "fakeSelects": 0,
    "radios": 0,
    "checkboxes": 0,
@@ -2011,7 +2012,7 @@
   "problems": [],
   "stats": {
    "buttons": 1,
-   "links": 0,
+   "links": 1,
    "onclickEls": 5,
    "modals": 1,
    "modalTitles": [
@@ -2035,7 +2036,7 @@
   "problems": [],
   "stats": {
    "buttons": 2,
-   "links": 0,
+   "links": 1,
    "onclickEls": 3,
    "modals": 1,
    "modalTitles": [
@@ -2059,7 +2060,7 @@
   "problems": [],
   "stats": {
    "buttons": 1,
-   "links": 0,
+   "links": 1,
    "onclickEls": 8,
    "modals": 1,
    "modalTitles": [
@@ -2082,18 +2083,18 @@
   "js_errors": [],
   "problems": [],
   "stats": {
-   "buttons": 3,
-   "links": 0,
+   "buttons": 5,
+   "links": 3,
    "onclickEls": 4,
    "modals": 1,
    "modalTitles": [
     "新建应付账单(演示页)"
    ],
-   "selects": 1,
+   "selects": 3,
    "fakeSelects": 0,
    "radios": 0,
    "checkboxes": 0,
-   "inputs": 5,
+   "inputs": 10,
    "stabs": 0,
    "tabs": 0,
    "bgMut": 0
@@ -2107,7 +2108,7 @@
   "problems": [],
   "stats": {
    "buttons": 1,
-   "links": 0,
+   "links": 1,
    "onclickEls": 8,
    "modals": 1,
    "modalTitles": [
@@ -2130,18 +2131,18 @@
   "js_errors": [],
   "problems": [],
   "stats": {
-   "buttons": 2,
-   "links": 0,
+   "buttons": 4,
+   "links": 3,
    "onclickEls": 3,
    "modals": 1,
    "modalTitles": [
     "手动生成账单(演示页)"
    ],
-   "selects": 3,
+   "selects": 4,
    "fakeSelects": 0,
    "radios": 0,
    "checkboxes": 0,
-   "inputs": 3,
+   "inputs": 7,
    "stabs": 0,
    "tabs": 0,
    "bgMut": 0
@@ -2155,7 +2156,7 @@
   "problems": [],
   "stats": {
    "buttons": 1,
-   "links": 0,
+   "links": 1,
    "onclickEls": 6,
    "modals": 1,
    "modalTitles": [
@@ -2179,7 +2180,7 @@
   "problems": [],
   "stats": {
    "buttons": 2,
-   "links": 0,
+   "links": 1,
    "onclickEls": 3,
    "modals": 1,
    "modalTitles": [
@@ -2203,7 +2204,7 @@
   "problems": [],
   "stats": {
    "buttons": 1,
-   "links": 0,
+   "links": 1,
    "onclickEls": 7,
    "modals": 1,
    "modalTitles": [
@@ -2227,7 +2228,7 @@
   "problems": [],
   "stats": {
    "buttons": 2,
-   "links": 0,
+   "links": 1,
    "onclickEls": 3,
    "modals": 1,
    "modalTitles": [
@@ -2251,7 +2252,7 @@
   "problems": [],
   "stats": {
    "buttons": 1,
-   "links": 0,
+   "links": 1,
    "onclickEls": 6,
    "modals": 1,
    "modalTitles": [
@@ -2275,7 +2276,7 @@
   "problems": [],
   "stats": {
    "buttons": 3,
-   "links": 0,
+   "links": 1,
    "onclickEls": 37,
    "modals": 0,
    "modalTitles": [],
@@ -2307,7 +2308,7 @@
   ],
   "stats": {
    "buttons": 8,
-   "links": 8,
+   "links": 9,
    "onclickEls": 44,
    "modals": 2,
    "modalTitles": [
@@ -2331,7 +2332,7 @@
   "problems": [],
   "stats": {
    "buttons": 4,
-   "links": 0,
+   "links": 1,
    "onclickEls": 4,
    "modals": 1,
    "modalTitles": [
@@ -2355,7 +2356,7 @@
   "problems": [],
   "stats": {
    "buttons": 1,
-   "links": 0,
+   "links": 1,
    "onclickEls": 6,
    "modals": 1,
    "modalTitles": [
@@ -2379,7 +2380,7 @@
   "problems": [],
   "stats": {
    "buttons": 2,
-   "links": 0,
+   "links": 1,
    "onclickEls": 3,
    "modals": 1,
    "modalTitles": [
@@ -2403,7 +2404,7 @@
   "problems": [],
   "stats": {
    "buttons": 2,
-   "links": 0,
+   "links": 1,
    "onclickEls": 3,
    "modals": 1,
    "modalTitles": [
@@ -2427,7 +2428,7 @@
   "problems": [],
   "stats": {
    "buttons": 1,
-   "links": 0,
+   "links": 1,
    "onclickEls": 6,
    "modals": 1,
    "modalTitles": [
@@ -2461,7 +2462,7 @@
   ],
   "stats": {
    "buttons": 8,
-   "links": 31,
+   "links": 32,
    "onclickEls": 62,
    "modals": 2,
    "modalTitles": [
@@ -2485,7 +2486,7 @@
   "problems": [],
   "stats": {
    "buttons": 5,
-   "links": 4,
+   "links": 5,
    "onclickEls": 35,
    "modals": 0,
    "modalTitles": [],
@@ -2545,7 +2546,7 @@
   ],
   "stats": {
    "buttons": 12,
-   "links": 15,
+   "links": 16,
    "onclickEls": 51,
    "modals": 3,
    "modalTitles": [
@@ -2570,7 +2571,7 @@
   "problems": [],
   "stats": {
    "buttons": 4,
-   "links": 0,
+   "links": 1,
    "onclickEls": 4,
    "modals": 1,
    "modalTitles": [
@@ -2594,7 +2595,7 @@
   "problems": [],
   "stats": {
    "buttons": 1,
-   "links": 0,
+   "links": 1,
    "onclickEls": 5,
    "modals": 1,
    "modalTitles": [
@@ -2618,7 +2619,7 @@
   "problems": [],
   "stats": {
    "buttons": 2,
-   "links": 0,
+   "links": 1,
    "onclickEls": 3,
    "modals": 1,
    "modalTitles": [
@@ -2642,7 +2643,7 @@
   "problems": [],
   "stats": {
    "buttons": 4,
-   "links": 0,
+   "links": 1,
    "onclickEls": 3,
    "modals": 1,
    "modalTitles": [
@@ -2666,7 +2667,7 @@
   "problems": [],
   "stats": {
    "buttons": 2,
-   "links": 0,
+   "links": 1,
    "onclickEls": 3,
    "modals": 1,
    "modalTitles": [
@@ -2690,7 +2691,7 @@
   "problems": [],
   "stats": {
    "buttons": 1,
-   "links": 0,
+   "links": 1,
    "onclickEls": 4,
    "modals": 1,
    "modalTitles": [
@@ -2738,7 +2739,7 @@
   ],
   "stats": {
    "buttons": 12,
-   "links": 13,
+   "links": 14,
    "onclickEls": 49,
    "modals": 3,
    "modalTitles": [
@@ -2801,7 +2802,7 @@
   ],
   "stats": {
    "buttons": 12,
-   "links": 16,
+   "links": 17,
    "onclickEls": 51,
    "modals": 3,
    "modalTitles": [
@@ -2826,7 +2827,7 @@
   "problems": [],
   "stats": {
    "buttons": 2,
-   "links": 0,
+   "links": 1,
    "onclickEls": 3,
    "modals": 1,
    "modalTitles": [
@@ -2850,7 +2851,7 @@
   "problems": [],
   "stats": {
    "buttons": 2,
-   "links": 0,
+   "links": 1,
    "onclickEls": 3,
    "modals": 1,
    "modalTitles": [
@@ -2874,7 +2875,7 @@
   "problems": [],
   "stats": {
    "buttons": 2,
-   "links": 0,
+   "links": 1,
    "onclickEls": 3,
    "modals": 1,
    "modalTitles": [
@@ -2913,7 +2914,7 @@
   ],
   "stats": {
    "buttons": 9,
-   "links": 14,
+   "links": 15,
    "onclickEls": 62,
    "modals": 2,
    "modalTitles": [
@@ -2938,7 +2939,7 @@
   "problems": [],
   "stats": {
    "buttons": 5,
-   "links": 6,
+   "links": 7,
    "onclickEls": 51,
    "modals": 1,
    "modalTitles": [
@@ -2962,7 +2963,7 @@
   "problems": [],
   "stats": {
    "buttons": 2,
-   "links": 5,
+   "links": 6,
    "onclickEls": 44,
    "modals": 0,
    "modalTitles": [],

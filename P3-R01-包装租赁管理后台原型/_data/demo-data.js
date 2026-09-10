@@ -37,7 +37,7 @@ window.DEMO_DATA = {
 
     /* ===== 预付（路凯 · 预付供应商大箱租金 9 月度 · 已付款） ===== */
      'AP-20260905-013': {
-      'row': {"fields": {"supplier": "一汽解放汽车有限公司", "btype": "对客户应付", "project": "PRJ-2601", "period": "2026-09", "ref": "—", "inbound": "—", "date": "2026-09-05", "status": "未付款"}, "cells": ["一汽解放汽车有限公司", "<span class=\"tag tag-purple\" style=\"background:#f9f0ff;border-color:#d3adf7;color:#722ed1\">对客户应付</span><div style=\"color:#8c8c8c;font-size:11px;\">交付延误 · 断产赔偿（赔付客户）</div>", "PRJ-2601", "2026-09", "—", "—", "<span class=\"td-num\">68,400.00</span>", "<span class=\"td-num\">0.00</span>", "<span class=\"td-num\" style=\"color:var(--danger)\">68,400.00</span>", "2026-09-05", "2026-09-20", "<span class=\"tag tag-red\">未付款</span>"], "ops": [{"t": "账单确认", "act": "openModal('auditModal')"}, {"t": "分期付款", "act": "go('../财务协同/付款登记.html')"}, {"t": "详情", "detail": true}]},
+      'row': {"fields": {"supplier": "一汽解放汽车有限公司", "btype": "对客户应付", "project": "PRJ-2601", "period": "2026-09", "ref": "—", "inbound": "—", "date": "2026-09-05", "status": "未付款"}, "cells": ["一汽解放汽车有限公司", "<span class=\"tag tag-purple\" style=\"background:#f9f0ff;border-color:#d3adf7;color:#722ed1\">对客户应付</span><div style=\"color:#8c8c8c;font-size:11px;\">交付延误 · 断产赔偿（赔付客户）</div>", "PRJ-2601", "2026-09", "—", "—", "<span class=\"td-num\">68,400.00</span>", "<span class=\"td-num\">0.00</span>", "<span class=\"td-num\" style=\"color:var(--danger)\">68,400.00</span>", "2026-09-05", "2026-09-20", "<span class=\"tag tag-red\">未付款</span>"], "ops": [{"t": "账单确认", "act": "openModal('auditModal')"}, {"t": "分期付款", "act": "openModal('instModal')"}, {"t": "详情", "detail": true}]},
       'title': '应付账单详情',
       'billNo': 'AP-20260905-013',
       'billType': '对客户应付',
