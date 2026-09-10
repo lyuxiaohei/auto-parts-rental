@@ -490,70 +490,96 @@ th.td-num { text-align:right; }
   </div>
     </div>
 
-<div style="margin:12px 0 4px;font-size:13px;font-weight:600;">分期计划（比例⇄金额互算 · 末期补差）</div>
-<div style="display:flex;gap:8px;align-items:center;margin-bottom:6px;"><div class="head-btns">
-      <select id="instNM" style="border:1px solid #d9d9d9;border-radius:4px;padding:2px 6px;font:inherit;">
-        <option value="1">分 1 期</option><option value="2" selected>分 2 期</option><option value="3">分 3 期</option>
-      </select>
+<div style="margin:12px 0 4px;font-size:13px;font-weight:600;">分期付款计划（比例⇄金额互算 · 笔数不限直至付清）</div>
+<div style="display:flex;gap:8px;align-items:center;margin-bottom:6px;">
+      <button class="btn btn-default btn-sm" id="instAddM" type="button">+ 添加一笔</button>
+      <button class="btn btn-default btn-sm" id="instFillM" type="button">剩余全排</button>
       <input id="instBaseM" value="68,400.00" style="border:1px solid #d9d9d9;border-radius:4px;padding:2px 8px;font:inherit;width:120px;text-align:right;" title="账单金额">
-    </div>
   </div>
   <div class="table-wrap">
     <table>
-      <thead><tr><th>期次</th><th>比例(%)</th><th>金额(元)</th><th>计划日期</th><th>状态</th></tr></thead>
+      <thead><tr><th>笔次</th><th>比例(%)</th><th>金额(元)</th><th>计划日期</th><th>状态</th><th></th></tr></thead>
       <tbody id="instBodyM"></tbody>
     </table>
   </div></div>
-<div style="font-size:12px;color:#8c8c8c;margin-top:4px;">填比例算金额 / 填金额算比例；末期自动补差；付款金额超出账单金额拦截（账单金额/已付/剩余 头部展示）。</div>
-<script>/*C-C/D 分期比例⇄金额互算 · meeting0908 批3*/
-(function () {
+<div style="font-size:12px;color:#8c8c8c;margin-top:4px;">填比例算金额 / 填金额算比例；「+ 添加一笔」自由加笔，「剩余全排」把剩余填入最后一笔；付款金额超出账单金额拦截（账单金额/已付/剩余 头部展示）。</div>
+<script>/*C-C/D 分期比例⇄金额互算工厂 · meeting0908 批3 · 2026-09-10 自由笔数版（笔数不限直至付清）*/
+function createInstPlan(cfg) {
   function num(v){ var x = parseFloat(String(v).replace(/,/g,'')); return isNaN(x)?0:x; }
   function fmt(x){ return x.toLocaleString('zh-CN', {minimumFractionDigits:2, maximumFractionDigits:2}); }
-  function base(){ var el = document.getElementById('instBaseM'); return el ? num(el.value) : 0; }
-  function n(){ var el = document.getElementById('instNM'); return el ? parseInt(el.value,10) : 2; }
-  function render() {
-    var tb = document.getElementById('instBodyM'); if (!tb) return;
-    var rows = '', plans = ['2026-09-20', '2026-10-20', '2026-11-20'], N = n();
-    var defs = N === 1 ? [100] : N === 2 ? [60, 40] : [40, 30, 30];
-    for (var i = 0; i < N; i++) {
-      var last = i === N - 1;
-      rows += '<tr><td>第 ' + (i+1) + ' 期' + (last && N > 1 ? '（末期 · 自动补差）' : '') + '</td>'
-        + '<td><input data-i="' + i + '" data-k="rate" value="' + defs[i].toFixed(2) + '" style="width:76px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 6px;"></td>'
-        + '<td><input data-i="' + i + '" data-k="amt" value="' + fmt(base() * defs[i] / 100) + '" style="width:110px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 6px;text-align:right;"></td>'
-        + '<td>' + plans[i] + '</td><td>' + (i === 0 ? '<span class="tag tag-orange">待付款</span>' : '<span class="tag tag-gray">未开始</span>') + '</td></tr>';
-    }
-    rows += '<tr><td style="font-weight:700;text-align:right;" colspan="2">合计（不得超账单金额，超出拦截）</td><td class="td-num" style="font-weight:700;" colspan="3">' + fmt(base()) + '</td></tr>';
-    tb.innerHTML = rows;
+  var root = document.getElementById(cfg.root);
+  var rates = (cfg.defs || [60, 40]).slice();
+  function tb(){ return document.getElementById(cfg.bodyId); }
+  function base(){ return cfg.base(); }
+  function rowDate(i){ var m = 9 + i, y = 2026 + Math.floor((m - 1) / 12); m = (m - 1) % 12 + 1; return y + '-' + (m < 10 ? '0' : '') + m + '-20'; }
+  function amt(i){ return base() * rates[i] / 100; }
+  function refreshSum(){
+    var b = base(), s = 0, k;
+    for (k = 0; k < rates.length; k++) s += amt(k);
+    var over = s > b + 0.005;
+    var sumEl = document.getElementById(cfg.sumId);
+    var restEl = document.getElementById(cfg.restId);
+    var baseEl = document.getElementById(cfg.baseTxtId);
+    if (sumEl) { sumEl.textContent = fmt(s); sumEl.style.color = over ? '#ff4d4f' : ''; }
+    if (restEl) { restEl.textContent = fmt(b - s); restEl.style.color = over ? '#ff4d4f' : ''; }
+    if (baseEl) baseEl.textContent = fmt(b);
+    return over;
   }
-  document.addEventListener('input', function (e) {
+  function render() {
+    var body = tb(); if (!body) return;
+    var rows = '';
+    for (var i = 0; i < rates.length; i++) {
+      rows += '<tr><td>第 ' + (i + 1) + ' 笔</td>'
+        + '<td><input data-i="' + i + '" data-k="rate" value="' + rates[i].toFixed(2) + '" style="width:76px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 6px;"></td>'
+        + '<td><input data-i="' + i + '" data-k="amt" value="' + fmt(amt(i)) + '" style="width:110px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 6px;text-align:right;"></td>'
+        + '<td>' + rowDate(i) + '</td>'
+        + '<td>' + (i === 0 ? '<span class="tag tag-orange">' + cfg.status + '</span>' : '<span class="tag tag-gray">未开始</span>') + '</td>'
+        + '<td>' + (rates.length > 1 ? '<a data-del="' + i + '" style="color:#8c8c8c;cursor:pointer;" title="删除本笔">×</a>' : '<span style="color:#d9d9d9;" title="至少保留 1 笔">×</span>') + '</td></tr>';
+    }
+    rows += '<tr><td style="font-weight:700;" colspan="2">已排合计（超账单金额红框拦截）</td>'
+      + '<td class="td-num" style="font-weight:700;" id="' + cfg.sumId + '">0.00</td>'
+      + '<td colspan="3">剩余 <b id="' + cfg.restId + '">0.00</b> / 账单金额 <span id="' + cfg.baseTxtId + '"></span></td></tr>';
+    body.innerHTML = rows;
+    refreshSum();
+  }
+  root.addEventListener('input', function (e) {
     var i = e.target;
-    if (!i.matches || !i.matches('#instCardM input[data-i]')) return;
+    if (!i.matches || !i.matches('input[data-i]')) return;
     var idx = parseInt(i.getAttribute('data-i'), 10), kind = i.getAttribute('data-k');
-    var tb = document.getElementById('instBodyM'); if (!tb) return;
-    var N = n(), b = base();
-    var rates = [], amts = [], k, el;
-    for (k = 0; k < N; k++) {
-      var r = tb.querySelector('input[data-i="' + k + '"][data-k="rate"]');
-      var a = tb.querySelector('input[data-i="' + k + '"][data-k="amt"]');
-      rates.push(num(r.value)); amts.push(num(a.value));
-    }
-    if (kind === 'rate') { rates[idx] = num(i.value); amts[idx] = b * rates[idx] / 100; }
-    else { amts[idx] = num(i.value); rates[idx] = b > 0 ? amts[idx] / b * 100 : 0; }
-    if (N > 1) { /* 末期补差 */
-      var rest = 0;
-      for (k = 0; k < N - 1; k++) { rest += amts[k]; }
-      amts[N-1] = Math.max(0, b - rest); rates[N-1] = b > 0 ? amts[N-1] / b * 100 : 0;
-    }
-    for (k = 0; k < N; k++) {
-      el = tb.querySelector('input[data-i="' + k + '"][data-k="rate"]'); if (el) el.value = rates[k].toFixed(2);
-      el = tb.querySelector('input[data-i="' + k + '"][data-k="amt"]'); if (el) el.value = fmt(amts[k]);
-    }
-    var sum = 0; for (k = 0; k < N; k++) sum += amts[k];
-    i.style.borderColor = (sum > b + 0.005) ? '#ff4d4f' : '#d9d9d9';
+    var b = base(), body = tb(); if (!body) return;
+    if (kind === 'rate') rates[idx] = num(i.value);
+    else rates[idx] = b > 0 ? num(i.value) / b * 100 : 0;
+    var rEl = body.querySelector('input[data-i="' + idx + '"][data-k="rate"]');
+    var aEl = body.querySelector('input[data-i="' + idx + '"][data-k="amt"]');
+    if (rEl && kind !== 'rate') rEl.value = rates[idx].toFixed(2);
+    if (aEl && kind !== 'amt') aEl.value = fmt(amt(idx));
+    i.style.borderColor = refreshSum() ? '#ff4d4f' : '#d9d9d9';
   });
-  document.addEventListener('change', function (e) { if (e.target && e.target.id === 'instNM') render(); });
+  root.addEventListener('click', function (e) {
+    var t = e.target;
+    if (t.matches && t.matches('a[data-del]') && rates.length > 1) {
+      rates.splice(parseInt(t.getAttribute('data-del'), 10), 1);
+      render();
+    }
+  });
+  var addBtn = document.getElementById(cfg.addId);
+  if (addBtn) addBtn.addEventListener('click', function () { rates.push(0); render(); });
+  var fillBtn = document.getElementById(cfg.fillId);
+  if (fillBtn) fillBtn.addEventListener('click', function () {
+    var b = base(), rest = 0, k;
+    for (k = 0; k < rates.length - 1; k++) rest += amt(k);
+    rates[rates.length - 1] = b > 0 ? Math.max(0, b - rest) / b * 100 : 0;
+    render();
+  });
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', render); else render();
-})();
+  return { render: render };
+}
+var mPlan = createInstPlan({
+  root: 'createModal', bodyId: 'instBodyM', addId: 'instAddM', fillId: 'instFillM',
+  sumId: 'instSumM', restId: 'instRestM', baseTxtId: 'instBaseTxtM', status: '待付款',
+  base: function () { var el = document.getElementById('instBaseM'); var x = parseFloat(String(el ? el.value : '').replace(/,/g,'')); return isNaN(x) ? 0 : x; }
+});
+document.getElementById('instBaseM').addEventListener('input', function () { mPlan.render(); });
 </script>
 
     <div class="modal-footer">
@@ -792,7 +818,7 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 .pn-fab .pn-fab-n{font-family:Consolas,monospace;font-weight:600}
 </style>
 <div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>财务通道 · 付款登记</div><div class="pnp-d">应付付款通道：关联应付账单 AP-20260830-007，付款确认弹窗。</div></div>
-<div class="pn-fab" id="protoNotesFab">标注</div></div>
+<style id="f01-fab-style">.fab-row{position:fixed;right:12px;bottom:12px;z-index:880;display:flex;align-items:center;gap:6px}.fab-row .pn-fab{position:static}.f01-fab{display:flex;text-decoration:none;align-items:center;height:24px;padding:0 10px;border-radius:4px;background:#fff;border:1px solid #d9d9d9;color:#8c8c8c;font-size:11px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.06);opacity:.6;transition:opacity .15s}.f01-fab:hover{opacity:1;border-color:#722ed1;color:#722ed1}</style><div class="fab-row"><a class="f01-fab" href="../P3-R01-F01-业务流程导航图.html">流程图</a><div class="pn-fab" id="protoNotesFab">标注</div></div></div>
 <script id="proto-notes-js">
 (function(){
   var KEY='proto-notes-on';
