@@ -358,9 +358,12 @@ th.td-num { text-align:right; }
       <select id="todoType" onchange="filterTodo()"><option>全部</option><option>付款登记</option><option>其他入库</option><option>其他出库</option><option>库存调拨</option><option>收款确认</option><option>盘点</option><option>租赁单</option><option>退租入库</option><option>采购入库</option><option>采购订单</option><option>租入单</option><option>租入入库</option><option>租入归还</option><option>销售出库</option><option>销售订单</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
+    <div class="ff"><span class="ff-label">审核人：</span>
+      <select id="todoAuditor" onchange="filterTodo()"><option>全部</option><option>王琳</option><option>袁丽晶</option><option>徐蔚</option><option>王强</option><option>李国栋</option><option>陈金</option><option>袁明</option></select>
+    </div>
     <div class="ff"><span class="ff-label">关键词：</span><input id="todoKw" placeholder="单号 / 客户 / 项目 / 摘要" oninput="filterTodo()"></div>
     <div class="filter-actions">
-      <button class="btn btn-default" onclick="document.getElementById('todoKw').value='';document.getElementById('todoType').value='全部';filterTodo()">重置</button>
+      <button class="btn btn-default" onclick="document.getElementById('todoKw').value='';document.getElementById('todoType').value='全部';document.getElementById('todoAuditor').value='全部';filterTodo()">重置</button>
     </div>
   </div>
 </div>
@@ -535,9 +538,11 @@ th.td-num { text-align:right; }
 function filterTodo(){
   var kw = document.getElementById('todoKw').value.trim().toLowerCase();
   var ty = document.getElementById('todoType').value;
+  var auEl = document.getElementById('todoAuditor');
+  var au = auEl ? auEl.value : '全部';
   var shown = 0;
   document.querySelectorAll('#todoBody tr').forEach(function(tr){
-    var ok = (!ty || ty === '全部' || ty === tr.getAttribute('data-type')) && (!kw || tr.innerText.toLowerCase().indexOf(kw) > -1);
+    var ok = (!ty || ty === '全部' || ty === tr.getAttribute('data-type')) && (au === '全部' || au === tr.getAttribute('data-auditor')) && (!kw || tr.innerText.toLowerCase().indexOf(kw) > -1);
     tr.style.display = ok ? '' : 'none';
     if (ok) shown++;
   });
@@ -560,7 +565,7 @@ function pickType(t){
   var html = '';
   keys.forEach(function (k) {
     var rec = DATA[k], f = rec.row.fields;
-    html += '<tr data-type="' + f.type + '"><td><span class="tag tag-blue">' + f.type + '</span></td>' +
+    html += '<tr data-type="' + f.type + '" data-auditor="' + (f.auditor || '') + '"><td><span class="tag tag-blue">' + f.type + '</span></td>' +
       '<td><span class="lk">' + k + '</span></td><td>' + f.summary + '</td><td>' + f.project + '</td>' +
       '<td>' + f.submitter + '</td><td>' + f.time + '</td><td><span class="tag tag-orange">' + f.action + '</span></td>' +
       '<td class="sticky-op"><span class="ops"><a onclick="go(\'' + rec.link + '\')">去审核</a></span></td></tr>' + '\n';

@@ -38,7 +38,7 @@ B2 = [
     dict(name='应付账单', file='财务协同/应付账单.html', entity='payableBills', modalId='detailModal',
          stabs={'全部': 11, '未付款': 6, '部分付款': 1, '已付款': 4}, pin=3),
     dict(name='应收账单', file='财务协同/应收账单.html', entity='receivableBills', modalId='detailModal',
-         stabs={'全部': 13, '未开票': 6, '已开票': 13, '部分收款': 2, '已结清': 4}, pin=3),
+         stabs={'全部': 14, '未开票': 7, '已开票': 14, '部分收款': 2, '已结清': 4}, pin=3),  # G13：+usage 演示行,
     dict(name='付款登记', file='财务协同/付款登记.html', entity='payments', modalId='detailModal',
          stabs={'全部': 5, '待确认': 1, '已确认': 4}, pin=None),
     dict(name='回款登记', file='财务协同/回款登记.html', entity='receipts', modalId='detailModal',
@@ -50,7 +50,7 @@ B2 = [
     dict(name='采购订单', file='采购管理/采购订单列表.html', entity='purchaseOrders', modalId='detailModal',
          stabs={'全部': 7, '待审核': 2, '已审核': 2, '已完成': 2, '已关闭': 1}, pin=None),
     dict(name='租入单', file='租赁管理/租入单列表.html', entity='rentInOrders', modalId='detailModal',
-         stabs={'全部': 5, '待审核': 1, '履行中': 1, '部分归还': 1, '已归还': 1, '已终止': 1}, pin=2),
+         stabs={'全部': 6, '新建(草稿)': 1, '待审核': 1, '履行中': 1, '部分归还': 1, '已归还': 1, '已终止': 1}, pin=2),  # G13：+草稿演示行,
     dict(name='销售订单', file='销售管理/销售订单列表.html', entity='salesOrders', modalId='detailModal',
          stabs={'全部': 8, '待审核': 2, '已审核': 1, '待发货': 2, '已完成': 2, '已关闭': 1}, pin=None),
 ]

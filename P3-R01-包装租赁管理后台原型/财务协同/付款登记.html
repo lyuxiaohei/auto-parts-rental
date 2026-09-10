@@ -485,6 +485,9 @@ th.td-num { text-align:right; }
     <span class="form-label">付款银行</span>
     <div class="input-box select-box" style="width:350px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>招商银行苏州分行 1109××××8821</option><option>全部</option><option>待定选项（演示数据）</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
   </div><div class="form-row">
+    <span class="form-label">付款方式</span>
+    <div class="input-box select-box" style="width:350px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>银行转账</option><option>承兑</option><option>现金</option><option>票据</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+  </div><div class="form-row">
     <span class="form-label">备注</span>
     <div class="input-box" style="width:350px;"><input placeholder="选填"></div>
   </div>
@@ -603,8 +606,9 @@ document.getElementById('instBaseM').addEventListener('input', function () { mPl
         <div class="drow"><div class="dlabel">单据编号</div><div class="dval">PAY-20260902-005</div></div>
         <div class="drow"><div class="dlabel">单据类型</div><div class="dval">付款登记</div></div>
         <div class="drow"><div class="dlabel">付款金额</div><div class="dval">6,000.00 元</div></div>
+        <div class="drow"><div class="dlabel">付款方式</div><div class="dval">银行转账</div></div>
         <div class="drow"><div class="dlabel">提交人 / 时间</div><div class="dval">财务·周敏 / 2026-09-02 13:26</div></div>
-        <div class="drow"><div class="dlabel">审核人（按角色配置）</div><div class="dval">财务主管 · 周敏</div></div>
+        <div class="drow"><div class="dlabel">审核人（按角色匹配）</div><div class="dval">财务主管 · 周敏</div></div>
         
       </div>
       <div class="form-row">

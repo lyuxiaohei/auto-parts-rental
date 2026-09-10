@@ -264,9 +264,23 @@ th.td-num { text-align:right; }
       <tbody><tr><td><select data-tax="prod" style="width:100%;min-width:0;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option>WBX-1210L 围板箱 1200×1000×970</option><option>WBX-1210M 围板箱 1200×1000×590</option><option>PLT-1210W 木托盘 1200×1000</option><option>PLT-1210P 塑料托盘 1200×1000</option><option>BTC-6040 料箱 600×400×340</option><option selected>LJ-A100 锁扣组件</option><option>LJ-C300 围板</option><option>LJ-D400 箱盖</option><option>LJ-F600 内衬</option></select></td><td><input value="锁扣组件"></td><td><input value="不锈钢 304"></td><td><input value="件"></td><td><input data-tax="qty" value="3,000"></td><td><input data-tax="excl" value="1.60"></td><td><input data-tax="rate" value="13%" style="width:56px;"></td><td><input data-tax="incl" value="1.81"></td><td><input data-tax="amt" class="auto" value="5,430.00" readonly></td></tr><tr><td><select data-tax="prod" style="width:100%;min-width:0;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option>WBX-1210L 围板箱 1200×1000×970</option><option>WBX-1210M 围板箱 1200×1000×590</option><option>PLT-1210W 木托盘 1200×1000</option><option>PLT-1210P 塑料托盘 1200×1000</option><option>BTC-6040 料箱 600×400×340</option><option>LJ-A100 锁扣组件</option><option>LJ-C300 围板</option><option selected>LJ-D400 箱盖</option><option>LJ-F600 内衬</option></select></td><td><input value="箱盖"></td><td><input value="ABS 吸塑"></td><td><input value="件"></td><td><input data-tax="qty" value="1,500"></td><td><input data-tax="excl" value="3.60"></td><td><input data-tax="rate" value="13%" style="width:56px;"></td><td><input data-tax="incl" value="4.07"></td><td><input data-tax="amt" class="auto" value="6,105.00" readonly></td></tr></tbody>
     </table>
   </div>
-  <button class="btn btn-dashed btn-sm" style="width:100%;margin-top:8px;">+ 添加一行</button><div class="form-row">
+  <button class="btn btn-dashed btn-sm" style="width:100%;margin-top:8px;">+ 添加一行</button>
+  <div id="stockWarn" style="display:none;margin-top:8px;padding:8px 12px;border:1px solid #ffa39e;background:#fff1f0;border-radius:6px;font-size:12px;color:#d4380d;line-height:1.9;">
+    <span class="sw-txt">可用库存不足——可选择生成：</span>
+    <button class="btn btn-sm" style="margin-left:8px;" onclick="go('../../采购管理/采购订单列表.html')">生成采购订单</button>
+    <button class="btn btn-sm" style="margin-left:6px;" onclick="go('../../租赁管理/租入单列表.html')">生成租入单</button>
+  </div><div class="form-row">
     <span class="form-label">备注</span>
     <div class="input-box" style="width:350px;"><input placeholder="选填"></div>
+  </div>
+  <div style="margin:12px 0 8px;font-size:13px;font-weight:600;color:#1a1a1a;">订单附件（PDF / 邮件截图 · 演示上传）</div>
+  <div style="display:flex;gap:8px;align-items:center;margin-bottom:8px;">
+    <input id="attName" placeholder="输入附件文件名，如：PO-2601-合同.pdf / 客户邮件截图.png" style="flex:1;border:1px solid #d9d9d9;border-radius:4px;height:30px;padding:0 10px;font:inherit;font-size:13px;outline:none;">
+    <button class="btn btn-sm" type="button" onclick="addAttach()">添加</button>
+  </div>
+  <div id="attList">
+    <div class="att-row" style="display:flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid #f0f0f0;border-radius:4px;margin-bottom:6px;font-size:12px;"><span>📄</span><span style="flex:1;">PO-2601-围板箱采购合同.pdf</span><span style="color:#8c8c8c;">1.2 MB</span><a onclick="delAttach(this)" style="color:#ff4d4f;cursor:pointer;">删除</a></div>
+    <div class="att-row" style="display:flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid #f0f0f0;border-radius:4px;margin-bottom:6px;font-size:12px;"><span>📧</span><span style="flex:1;">客户下单确认邮件截图.png</span><span style="color:#8c8c8c;">356 KB</span><a onclick="delAttach(this)" style="color:#ff4d4f;cursor:pointer;">删除</a></div>
   </div>
     </div>
     <div class="modal-footer">
@@ -348,5 +362,59 @@ document.querySelectorAll('.tab').forEach(function (t) {
 })();
 </script><style id="f01-fab-style">.f01-fab{position:fixed;right:12px;bottom:12px;z-index:1001;display:flex;align-items:center;height:24px;padding:0 10px;border-radius:4px;background:#fff;border:1px solid #d9d9d9;color:#8c8c8c;font-size:11px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.06);opacity:.6;transition:opacity .15s}.f01-fab:hover{opacity:1;border-color:#722ed1;color:#722ed1}</style>
 <a class="f01-fab" href="../../P3-R01-F01-业务流程导航图.html">流程图</a>
+<script>/* G13 ⑩ 订单附件假上传（文件名演示，不做真 file API） */
+function addAttach() {
+  var inp = document.getElementById('attName');
+  if (!inp) return;
+  if (!inp.value.trim()) { inp.style.borderColor = '#ff4d4f'; inp.placeholder = '请先输入附件文件名'; return; }
+  var row = document.createElement('div');
+  row.className = 'att-row';
+  row.style.cssText = 'display:flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid #f0f0f0;border-radius:4px;margin-bottom:6px;font-size:12px;';
+  row.innerHTML = '<span>📄</span><span style="flex:1;">' + inp.value.trim().replace(/[<>]/g, '') + '</span><span style="color:#8c8c8c;">— KB</span><a onclick="delAttach(this)" style="color:#ff4d4f;cursor:pointer;">删除</a>';
+  document.getElementById('attList').appendChild(row);
+  inp.value = ''; inp.style.borderColor = '#d9d9d9';
+}
+function delAttach(a) { var r = a.closest('.att-row'); if (r) r.remove(); }</script>
+<script>/* G13 ⑦ 新建优先查库存：选产品行内「可用库存 N 套」+不足红色提示条+生成采购订单/租入单（道远拍板） */
+(function () {
+  var STOCK_MAP = { 'WBX-1210L': [2120, '只'], 'WBX-1210M': [860, '只'], 'PLT-1210W': [60, '块'], 'PLT-1210P': [1410, '块'], 'BTC-6040': [3300, '只'], 'LJ-A100': [5260, '件'], 'LJ-B200': [2640, '件'], 'LJ-C300': [1860, '件'], 'LJ-D400': [980, '件'], 'LJ-F600': [1520, '件'], 'ZH-2601-A': [640, '套'], 'ZH-2602-B': [820, '套'], 'ZH-2603-C': [150, '套'], 'ZH-2604-D': [0, '套'] };
+  var GOBASE = '../../';
+  function num(v) { var x = parseFloat(String(v).replace(/,/g, '')); return isNaN(x) ? 0 : x; }
+  function keyOf(text) { var m = String(text || '').trim().match(/^([A-Za-z]+-[\w.-]+)/); return m ? m[1] : ''; }
+  function rowQty(tr) { var q = tr.querySelector('input[data-tax="qty"]'); return num(q ? q.value : 0); }
+  function updRow(tr) {
+    var sel = tr.querySelector('td select'); if (!sel) return;
+    var k = keyOf(sel.value || (sel.options[sel.selectedIndex] || {}).text);
+    var td = sel.closest('td');
+    var hint = td.querySelector('.stock-hint');
+    if (!hint) { hint = document.createElement('div'); hint.className = 'stock-hint'; hint.style.cssText = 'font-size:11px;color:#52c41a;margin-top:3px;white-space:nowrap;'; td.appendChild(hint); }
+    var st = STOCK_MAP[k];
+    if (!st) { hint.textContent = '可用库存 —（无库存记录）'; hint.style.color = '#8c8c8c'; return; }
+    hint.textContent = '可用库存 ' + st[0] + ' ' + st[1];
+    hint.style.color = rowQty(tr) > st[0] ? '#ff4d4f' : '#52c41a';
+  }
+  function refresh() {
+    var lack = null;
+    document.querySelectorAll('.edit-tbl tbody tr').forEach(function (tr) {
+      if (!tr.querySelector('td select')) return;
+      updRow(tr);
+      var sel = tr.querySelector('td select');
+      var k = keyOf(sel.value || (sel.options[sel.selectedIndex] || {}).text);
+      var st = STOCK_MAP[k];
+      if (st && rowQty(tr) > st[0]) lack = { name: k, need: rowQty(tr), have: st[0], unit: st[1] };
+    });
+    var w = document.getElementById('stockWarn');
+    if (!w) return;
+    if (lack) {
+      w.style.display = 'block';
+      var t = w.querySelector('.sw-txt');
+      if (t) t.textContent = '可用库存不足（' + lack.name + '：需求 ' + lack.need + ' · 可用 ' + lack.have + ' ' + lack.unit + '）——可选择生成：';
+    } else { w.style.display = 'none'; }
+  }
+  document.addEventListener('change', function (e) { if (e.target.matches && e.target.matches('.edit-tbl td select, .edit-tbl input[data-tax="qty"]')) refresh(); });
+  document.addEventListener('input', function (e) { if (e.target.matches && e.target.matches('.edit-tbl input[data-tax="qty"]')) refresh(); });
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', refresh); else refresh();
+})();
+</script>
 </body>
 </html>

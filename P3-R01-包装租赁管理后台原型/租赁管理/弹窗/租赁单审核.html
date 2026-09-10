@@ -250,7 +250,7 @@ th.td-num { text-align:right; }
         <div class="drow"><div class="dlabel">单据类型</div><div class="dval">租赁单</div></div>
         <div class="drow"><div class="dlabel">租赁数量</div><div class="dval">180 套 · 已退回 0 套</div></div>
         <div class="drow"><div class="dlabel">提交人 / 时间</div><div class="dval">王强 / 2026-09-01 09:18</div></div>
-        <div class="drow"><div class="dlabel">审核人（按角色配置）</div><div class="dval">商务主管 · 王琳</div></div>
+        <div class="drow"><div class="dlabel">审核人（按角色匹配）</div><div class="dval">商务主管 · 王琳</div></div>
         
       </div>
       <div class="form-row">
@@ -264,7 +264,7 @@ th.td-num { text-align:right; }
     </div>
     <div class="modal-footer">
       <button class="btn btn-default" onclick="closeModal('auditModal')">取消</button>
-      <button class="btn" onclick="closeModal('auditModal')">确认提交</button>
+      <button class="btn" onclick="closeModal('auditModal');showToast('已生成租入单草稿 RZD-20260910-009，供应商待选（背靠背自动生成）')">确认提交</button>
     </div>
   </div>
 </div>
@@ -319,5 +319,7 @@ document.querySelectorAll('.tab').forEach(function (t) {
 </script>
 <style id="f01-fab-style">.f01-fab{position:fixed;right:12px;bottom:12px;z-index:1001;display:flex;align-items:center;height:24px;padding:0 10px;border-radius:4px;background:#fff;border:1px solid #d9d9d9;color:#8c8c8c;font-size:11px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.06);opacity:.6;transition:opacity .15s}.f01-fab:hover{opacity:1;border-color:#722ed1;color:#722ed1}</style>
 <a class="f01-fab" href="../../P3-R01-F01-业务流程导航图.html">流程图</a>
+<script>/* G13 ⑧ 演示 toast */
+function showToast(msg) { var t = document.getElementById('g13Toast'); if (!t) { t = document.createElement('div'); t.id = 'g13Toast'; t.style.cssText = 'position:fixed;top:56px;left:50%;transform:translateX(-50%);z-index:1200;background:#fff;border:1px solid #1677ff;color:#1677ff;padding:8px 16px;border-radius:6px;font-size:13px;box-shadow:0 4px 12px rgba(0,0,0,.12);max-width:80vw;'; document.body.appendChild(t); } t.textContent = msg; t.style.display = 'block'; clearTimeout(window.__g13ToastT); window.__g13ToastT = setTimeout(function () { t.style.display = 'none'; }, 3200); }</script>
 </body>
 </html>

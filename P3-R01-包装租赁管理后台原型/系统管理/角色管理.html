@@ -501,6 +501,24 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
         <span class="radio" data-scope="所属客户"><span class="dot"></span>所属客户</span>
         <span class="radio" data-scope="所属供应商"><span class="dot"></span>所属供应商</span>
       </div>
+      <div class="dt-sec" style="margin-top:18px;">可审单据</div>
+      <div id="auditPermMatrix" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px 16px;padding:4px 0 2px;">
+        <span class="checkbox checked" data-audit="采购订单"><span class="box">✓</span>采购订单</span>
+        <span class="checkbox checked" data-audit="销售订单"><span class="box">✓</span>销售订单</span>
+        <span class="checkbox checked" data-audit="租赁单"><span class="box">✓</span>租赁单</span>
+        <span class="checkbox checked" data-audit="租入单"><span class="box">✓</span>租入单</span>
+        <span class="checkbox checked" data-audit="销售出库"><span class="box">✓</span>销售出库</span>
+        <span class="checkbox checked" data-audit="租赁出库"><span class="box">✓</span>租赁出库</span>
+        <span class="checkbox" data-audit="采购入库"><span class="box"></span>采购入库</span>
+        <span class="checkbox" data-audit="租入入库"><span class="box"></span>租入入库</span>
+        <span class="checkbox checked" data-audit="退租入库"><span class="box">✓</span>退租入库</span>
+        <span class="checkbox" data-audit="其他入库"><span class="box"></span>其他入库</span>
+        <span class="checkbox" data-audit="其他出库"><span class="box"></span>其他出库</span>
+        <span class="checkbox checked" data-audit="盘点"><span class="box">✓</span>盘点</span>
+        <span class="checkbox" data-audit="库存调拨"><span class="box"></span>库存调拨</span>
+        <span class="checkbox" data-audit="租入归还"><span class="box"></span>租入归还</span>
+      </div>
+      <div style="font-size:12px;color:#8c8c8c;padding-top:6px;line-height:1.7;">勾选该角色可审核的单据类型；各审核弹窗「审核人（按角色匹配）」据此匹配（G13 · 纪要十.1）。</div>
     </div>
     <div class="modal-footer">
       <button class="btn btn-default" onclick="closeModal('roleModal')">取消</button>

@@ -351,7 +351,7 @@ th.td-num { text-align:right; }
     <div class="ff"><span class="ff-label">租入单号：</span><input placeholder="请输入租入单号"></div>
     <div class="ff"><span class="ff-label">供应商：</span><select><option value="">全部</option><option>路凯包装运营（上海）有限公司</option></select><svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
     <div class="ff"><span class="ff-label">器具：</span><select><option value="">全部</option><option>围板箱 1200×1000×970</option><option>塑料托盘 1200×1000</option><option>金属料箱 800×600</option></select><svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
-    <div class="ff ff-row-extra"><span class="ff-label">状态：</span><select><option value="">全部</option><option>待审核</option><option>履行中</option><option>部分归还</option><option>已归还</option><option>已终止</option></select><svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+    <div class="ff ff-row-extra"><span class="ff-label">状态：</span><select><option value="">全部</option><option>新建(草稿)</option><option>待审核</option><option>履行中</option><option>部分归还</option><option>已归还</option><option>已终止</option></select><svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
     <div class="ff ff-row-extra"><span class="ff-label">租期开始：</span><input placeholder="开始日期"><span class="ff-sep">→</span><input placeholder="结束日期"></div>
     <div class="ff ff-row-extra"><span class="ff-label">经办人：</span><input placeholder="请输入经办人"></div>
     <div class="filter-actions">
@@ -370,7 +370,8 @@ th.td-num { text-align:right; }
     <div class="head-btns"><button class="btn btn-default btn-sm">批量导出</button><button class="btn btn-sm" onclick="openModal('createModal')">新建租入单</button></div>
   </div>
   <div class="stabs">
-  <span class="stab active">全部<span class="stab-count">5</span></span>
+  <span class="stab active">全部<span class="stab-count">6</span></span>
+  <span class="stab">新建(草稿)<span class="stab-count">1</span></span>
   <span class="stab">待审核<span class="stab-count">1</span></span>
   <span class="stab">履行中<span class="stab-count">1</span></span>
   <span class="stab">部分归还<span class="stab-count">1</span></span>
@@ -839,5 +840,12 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply);else apply();
 })();
 </script>
+<script>/* G13 演示 toast（背靠背草稿链 / 三步入口反馈） */
+function showToast(msg) {
+  var t = document.getElementById('g13Toast');
+  if (!t) { t = document.createElement('div'); t.id = 'g13Toast'; t.style.cssText = 'position:fixed;top:56px;left:50%;transform:translateX(-50%);z-index:1200;background:#fff;border:1px solid #1677ff;color:#1677ff;padding:8px 16px;border-radius:6px;font-size:13px;box-shadow:0 4px 12px rgba(0,0,0,.12);max-width:80vw;'; document.body.appendChild(t); }
+  t.textContent = msg; t.style.display = 'block';
+  clearTimeout(window.__g13ToastT); window.__g13ToastT = setTimeout(function () { t.style.display = 'none'; }, 3200);
+}</script>
 </body>
 </html>

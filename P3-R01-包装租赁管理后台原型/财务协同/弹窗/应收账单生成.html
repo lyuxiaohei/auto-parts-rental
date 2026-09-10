@@ -261,6 +261,11 @@ th.td-num { text-align:right; }
     <span class="form-label">费用分类</span>
     <div class="input-box select-box" style="width:350px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>丢损缺损赔偿</option><option>违约金</option><option>保证金</option><option>预付款</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
   </div><div class="form-row">
+    <span class="form-label"><span class="req">*</span>生成方式</span>
+    <div><span class="radio checked" onclick="toggleUsageGen(false)"><span class="dot"></span>按月定期（现有默认）</span><span class="radio" onclick="toggleUsageGen(true)"><span class="dot"></span>按实际使用量</span></div>
+  </div>
+  <div id="usageHint" style="display:none;margin:-12px 0 12px 128px;font-size:12px;color:#595959;line-height:1.7;background:#fafafa;border:1px dashed #d9d9d9;border-radius:6px;padding:8px 12px;max-width:560px;">按实际使用量生成：按 <b>数量 × 单价</b> 计费，<b>按客户对账量录入</b>（以客户确认的对账量为准，非按月汇总）；示例：46,600 套·日 × 4.00 元 = 186,400.00 元。</div>
+<div class="form-row">
     <span class="form-label"><span class="req">*</span>账单金额(元)</span>
     <div class="input-box" style="width:350px;"><input id="cmAmt" value="126,800.00" placeholder="请输入"></div>
   </div><div class="form-row">
@@ -448,5 +453,7 @@ document.querySelectorAll('.tab').forEach(function (t) {
 </script>
 <style id="f01-fab-style">.f01-fab{position:fixed;right:12px;bottom:12px;z-index:1001;display:flex;align-items:center;height:24px;padding:0 10px;border-radius:4px;background:#fff;border:1px solid #d9d9d9;color:#8c8c8c;font-size:11px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.06);opacity:.6;transition:opacity .15s}.f01-fab:hover{opacity:1;border-color:#722ed1;color:#722ed1}</style>
 <a class="f01-fab" href="../../P3-R01-F01-业务流程导航图.html">流程图</a>
+<script>/* G13 ④ 生成方式切换 */
+function toggleUsageGen(usage) { var h = document.getElementById('usageHint'); if (h) h.style.display = usage ? 'block' : 'none'; }</script>
 </body>
 </html>

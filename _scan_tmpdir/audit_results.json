@@ -1,12 +1,7 @@
 [
  {
   "page": "P3-R01-F01-业务流程导航图.html",
-  "js_errors": [
-   {
-    "type": "error",
-    "text": "Failed to load resource: net::ERR_CONNECTION_CLOSED"
-   }
-  ],
+  "js_errors": [],
   "problems": [],
   "stats": {
    "buttons": 0,
@@ -101,20 +96,20 @@
   "js_errors": [],
   "problems": [],
   "stats": {
-   "buttons": 4,
-   "links": 37,
-   "onclickEls": 68,
+   "buttons": 6,
+   "links": 45,
+   "onclickEls": 73,
    "modals": 3,
    "modalTitles": [
     "库存流水",
     "客户在租明细",
-    "资产轨迹 · ZH-2602-B(演示页)"
+    "资产轨迹 · XNC-ZZ-WBX(演示页)"
    ],
-   "selects": 0,
+   "selects": 1,
    "fakeSelects": 0,
    "radios": 0,
    "checkboxes": 0,
-   "inputs": 2,
+   "inputs": 3,
    "stabs": 0,
    "tabs": 3,
    "bgMut": 0
@@ -863,7 +858,7 @@
    "onclickEls": 60,
    "modals": 0,
    "modalTitles": [],
-   "selects": 1,
+   "selects": 2,
    "fakeSelects": 0,
    "radios": 0,
    "checkboxes": 0,
@@ -1083,7 +1078,7 @@
    "fakeSelects": 0,
    "radios": 2,
    "checkboxes": 0,
-   "inputs": 2,
+   "inputs": 3,
    "stabs": 0,
    "tabs": 0,
    "bgMut": 0
@@ -1120,16 +1115,16 @@
   "js_errors": [],
   "problems": [],
   "stats": {
-   "buttons": 4,
+   "buttons": 6,
    "links": 1,
-   "onclickEls": 4,
+   "onclickEls": 8,
    "modals": 1,
    "modalTitles": [
     "新建租赁单(演示页)"
    ],
    "selects": 5,
    "fakeSelects": 0,
-   "radios": 0,
+   "radios": 2,
    "checkboxes": 0,
    "inputs": 17,
    "stabs": 0,
@@ -1337,8 +1332,8 @@
   ],
   "stats": {
    "buttons": 11,
-   "links": 12,
-   "onclickEls": 48,
+   "links": 15,
+   "onclickEls": 51,
    "modals": 3,
    "modalTitles": [
     "新建租入单",
@@ -1348,8 +1343,8 @@
    "fakeSelects": 0,
    "radios": 2,
    "checkboxes": 0,
-   "inputs": 25,
-   "stabs": 6,
+   "inputs": 26,
+   "stabs": 7,
    "tabs": 4,
    "bgMut": 0
   },
@@ -1383,7 +1378,7 @@
    "fakeSelects": 0,
    "radios": 4,
    "checkboxes": 0,
-   "inputs": 11,
+   "inputs": 12,
    "stabs": 3,
    "tabs": 4,
    "bgMut": 0
@@ -1434,17 +1429,18 @@
    }
   ],
   "stats": {
-   "buttons": 12,
-   "links": 23,
-   "onclickEls": 58,
-   "modals": 3,
+   "buttons": 15,
+   "links": 32,
+   "onclickEls": 73,
+   "modals": 4,
    "modalTitles": [
     "新建租赁单",
-    "审核确认"
+    "审核确认",
+    "退回对比 · ZL-20260828-0"
    ],
    "selects": 8,
    "fakeSelects": 0,
-   "radios": 2,
+   "radios": 4,
    "checkboxes": 0,
    "inputs": 31,
    "stabs": 6,
@@ -1655,7 +1651,7 @@
    "selects": 0,
    "fakeSelects": 0,
    "radios": 3,
-   "checkboxes": 9,
+   "checkboxes": 23,
    "inputs": 0,
    "stabs": 0,
    "tabs": 0,
@@ -1777,7 +1773,7 @@
    "selects": 6,
    "fakeSelects": 0,
    "radios": 0,
-   "checkboxes": 0,
+   "checkboxes": 14,
    "inputs": 17,
    "stabs": 4,
    "tabs": 4,
@@ -1802,7 +1798,7 @@
    "selects": 2,
    "fakeSelects": 0,
    "radios": 3,
-   "checkboxes": 9,
+   "checkboxes": 23,
    "inputs": 4,
    "stabs": 0,
    "tabs": 3,
@@ -1834,7 +1830,7 @@
     "新建付款登记",
     "确认付款"
    ],
-   "selects": 5,
+   "selects": 6,
    "fakeSelects": 0,
    "radios": 2,
    "checkboxes": 0,
@@ -1933,8 +1929,8 @@
   ],
   "stats": {
    "buttons": 12,
-   "links": 49,
-   "onclickEls": 74,
+   "links": 53,
+   "onclickEls": 79,
    "modals": 3,
    "modalTitles": [
     "手动生成账单",
@@ -1942,9 +1938,9 @@
    ],
    "selects": 9,
    "fakeSelects": 0,
-   "radios": 0,
+   "radios": 2,
    "checkboxes": 0,
-   "inputs": 27,
+   "inputs": 28,
    "stabs": 5,
    "tabs": 4,
    "bgMut": 0
@@ -1999,7 +1995,7 @@
    "modalTitles": [
     "新建付款登记(演示页)"
    ],
-   "selects": 3,
+   "selects": 4,
    "fakeSelects": 0,
    "radios": 0,
    "checkboxes": 0,
@@ -2138,14 +2134,14 @@
   "stats": {
    "buttons": 4,
    "links": 3,
-   "onclickEls": 3,
+   "onclickEls": 5,
    "modals": 1,
    "modalTitles": [
     "手动生成账单(演示页)"
    ],
    "selects": 4,
    "fakeSelects": 0,
-   "radios": 0,
+   "radios": 2,
    "checkboxes": 0,
    "inputs": 7,
    "stabs": 0,
@@ -2575,9 +2571,9 @@
   "js_errors": [],
   "problems": [],
   "stats": {
-   "buttons": 4,
-   "links": 1,
-   "onclickEls": 4,
+   "buttons": 7,
+   "links": 3,
+   "onclickEls": 9,
    "modals": 1,
    "modalTitles": [
     "新建销售订单(演示页)"
@@ -2586,7 +2582,7 @@
    "fakeSelects": 0,
    "radios": 2,
    "checkboxes": 0,
-   "inputs": 18,
+   "inputs": 19,
    "stabs": 0,
    "tabs": 0,
    "bgMut": 0
@@ -2806,9 +2802,9 @@
    }
   ],
   "stats": {
-   "buttons": 12,
+   "buttons": 15,
    "links": 17,
-   "onclickEls": 51,
+   "onclickEls": 54,
    "modals": 3,
    "modalTitles": [
     "新建销售订单",
@@ -2818,7 +2814,7 @@
    "fakeSelects": 0,
    "radios": 4,
    "checkboxes": 0,
-   "inputs": 31,
+   "inputs": 32,
    "stabs": 6,
    "tabs": 3,
    "bgMut": 0

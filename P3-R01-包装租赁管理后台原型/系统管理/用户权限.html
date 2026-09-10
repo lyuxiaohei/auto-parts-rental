@@ -575,6 +575,24 @@ th.td-num { text-align:right; }
             <tr><td><b>供应商账号</b></td><td>下发回执与对账</td><td>所属供应商</td><td><span class="td-num">3</span></td><td class="sticky-op"><span class="ops"><a onclick="openModal('roleModal')">权限配置</a></span></td></tr></tbody>
         </table>
       </div>
+      <div class="dt-sec" style="margin-top:18px;">可审单据</div>
+      <div id="auditPermMatrix" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px 16px;padding:4px 0 2px;">
+        <span class="checkbox checked" data-audit="采购订单"><span class="box">✓</span>采购订单</span>
+        <span class="checkbox checked" data-audit="销售订单"><span class="box">✓</span>销售订单</span>
+        <span class="checkbox checked" data-audit="租赁单"><span class="box">✓</span>租赁单</span>
+        <span class="checkbox checked" data-audit="租入单"><span class="box">✓</span>租入单</span>
+        <span class="checkbox checked" data-audit="销售出库"><span class="box">✓</span>销售出库</span>
+        <span class="checkbox checked" data-audit="租赁出库"><span class="box">✓</span>租赁出库</span>
+        <span class="checkbox" data-audit="采购入库"><span class="box"></span>采购入库</span>
+        <span class="checkbox" data-audit="租入入库"><span class="box"></span>租入入库</span>
+        <span class="checkbox checked" data-audit="退租入库"><span class="box">✓</span>退租入库</span>
+        <span class="checkbox" data-audit="其他入库"><span class="box"></span>其他入库</span>
+        <span class="checkbox" data-audit="其他出库"><span class="box"></span>其他出库</span>
+        <span class="checkbox checked" data-audit="盘点"><span class="box">✓</span>盘点</span>
+        <span class="checkbox" data-audit="库存调拨"><span class="box"></span>库存调拨</span>
+        <span class="checkbox" data-audit="租入归还"><span class="box"></span>租入归还</span>
+      </div>
+      <div style="font-size:12px;color:#8c8c8c;padding-top:6px;line-height:1.7;">与角色管理页·权限配置「可审单据」同源同步（双层同步 · G13）；正式版按所选角色加载勾选态。</div>
     </div>
     <div class="modal-footer">
       <button class="btn btn-default" onclick="closeModal('roleModal')">关闭</button>
