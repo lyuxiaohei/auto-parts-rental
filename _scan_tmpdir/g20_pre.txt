@@ -1,0 +1,13 @@
+1 单写者：<30min 文件 6 个
+   10min P3-R01-包装租赁管理后台原型/包装租赁管理后台原型-20260911-3.zip
+   11min agent-handoff/_AGENT基线.md
+   20min P3-R01-包装租赁管理后台原型/P3-R01-A05-字段字典.md
+   22min P3-R01-包装租赁管理后台原型/基础数据/弹窗/新建产品.html
+   23min P3-R01-包装租赁管理后台原型/基础数据/产品档案.html
+   27min P3-R01-包装租赁管理后台原型/_data/demo-data.js
+2a F01 含 v3.6: False（应 False）
+2b 退租入库含「新建退租入库单」: False（应 False）
+2c 退租入库新建模板存在: False（应 False）
+2d 索引无 G20 行: True（应 True）
+4 HTML 总数: 115（应 115）
+新增组 「日租金」分布: ['_data/demo-data.js x11', 'P3-R01-A03-标注数据.json x1', 'P3-R01-A04-流程链标注数据.json x2', 'P3-R01-A05-字段字典.md x2', '我的待办.html x1', '租赁管理/弹窗/租入单审核.html x1', '租赁管理/弹窗/租入单新建.html x1', '租赁管理/租入单列表.html x4', '系统管理/数据字典.html x1']
