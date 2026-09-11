@@ -1,0 +1,85 @@
+===== 租赁管理/弹窗/租入单新建.html =====
+260:         <div style="display:flex;gap:10px"><div class="input-box" style="width:170px"><input placeholder="开始日期"></div><div class="input-box" style="width:170px"><input placeholder="结束日期"></div></div>
+261:       </div>
+262:       <div style="margin:4px 0 8px;font-size:13px;font-weight:600;color:#1a1a1a;">租入明细（多货品 · 计费方式：月租 / 按套）</div>
+263:   <div class="table-wrap" style="border:1px solid var(--border);border-radius:6px;">
+264:     <table class="edit-tbl">
+  ----
+263:   <div class="table-wrap" style="border:1px solid var(--border);border-radius:6px;">
+264:     <table class="edit-tbl">
+265:       <thead><tr><th>物料</th><th>数量</th><th data-note="1">计费方式</th><th>未税单价(元)</th><th style="font-size:13.5px;font-weight:700;">税率</th><th style="font-size:13.5px;font-weight:700;">含税单价(元)</th><th>含税金
+266:       <tbody><tr><td><select style="width:100%;min-width:0;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option selected>WBX-1210L 围板箱 1200×
+267:     </table>
+  ----
+===== 租赁管理/弹窗/租赁单新建.html =====
+266:   </div>
+267:   <div class="form-row">
+268:     <span class="form-label"><span class="req">*</span>计费方式</span>
+269:     <div><span class="radio checked" onclick="toggleBillingMode(false)"><span class="dot"></span>按月定期生成应收</span><span class="radio" onclick="toggleBillingMode(true)"><span class="dot"></span>按次套数对账</s
+270:   </div>
+  ----
+364: </script><style id="f01-fab-style">.f01-fab{position:fixed;right:12px;bottom:12px;z-index:1001;display:flex;align-items:center;height:24px;padding:0 10px;border-radius:4px;background:#fff;border:1px s
+365: <a class="f01-fab" href="../../P3-R01-F01-业务流程导航图.html">流程图</a>
+366: <script>/* G13 ⑥ 租出计费方式切换 */
+367: function toggleBillingMode(byUsage) { var h = document.getElementById('billingHint'); if (h) h.style.display = byUsage ? 'block' : 'none'; }</script>
+368: <script>/* G13 ⑦ 新建优先查库存：选物料行内「可用库存 N 套」+不足红色提示条+生成采购订单/租入单（道远拍板） */
+  ----
+===== 租赁管理/弹窗/租赁单详情.html =====
+279: <!-- 弹窗模板：租赁单详情（详情落地页补齐 2026-09-04） -->
+280: <!-- 注入标记：租赁管理/租赁单列表.html -->
+281: <!-- G13 ⑥ 计费方式：单据信息段动态渲染 demo-data leaseOrders info 行「计费方式」（按月定期生成应收/按次套数对账）——四段式详情无表单区，以信息行呈现 -->
+282: <!-- 详情弹窗（四段式）· 骨架化 · 详情弹窗数据驱动 2026-09-08 -->
+283: <div class="modal-overlay" id="detailModal">
+  ----
+===== 租赁管理/租入单列表.html =====
+512:         <div style="display:flex;gap:10px"><div class="input-box" style="width:170px"><input placeholder="开始日期"></div><div class="input-box" style="width:170px"><input placeholder="结束日期"></div></div>
+513:       </div>
+514:       <div style="margin:4px 0 8px;font-size:13px;font-weight:600;color:#1a1a1a;">租入明细（多货品 · 计费方式：月租 / 按套）</div>
+515:   <div class="table-wrap" style="border:1px solid var(--border);border-radius:6px;">
+516:     <table class="edit-tbl">
+  ----
+515:   <div class="table-wrap" style="border:1px solid var(--border);border-radius:6px;">
+516:     <table class="edit-tbl">
+517:       <thead><tr><th>物料</th><th>数量</th><th>计费方式</th><th>未税单价(元)</th><th style="font-size:13.5px;font-weight:700;">税率</th><th style="font-size:13.5px;font-weight:700;">含税单价(元)</th><th>含税金额(元)</th></tr>
+518:       <tbody><tr><td><select style="width:100%;min-width:0;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option selected>WBX-1210L 围板箱 1200×
+519:     </table>
+  ----
+===== 租赁管理/租赁单列表.html =====
+555:     <span class="form-label"></span>
+556:   </div><div class="form-row">
+557:     <span class="form-label"><span class="req">*</span>计费方式</span>
+558:     <div><span class="radio checked" onclick="toggleBillingMode(false)"><span class="dot"></span>按月定期生成应收</span><span class="radio" onclick="toggleBillingMode(true)"><span class="dot"></span>按次套数对账</s
+559:   </div>
+  ----
+842:   clearTimeout(window.__g13ToastT); window.__g13ToastT = setTimeout(function () { t.style.display = 'none'; }, 3200);
+843: }</script>
+844: <script>/* G13 ⑥ 租出计费方式切换 */
+845: function toggleBillingMode(byUsage) { var h = document.getElementById('billingHint'); if (h) h.style.display = byUsage ? 'block' : 'none'; }</script>
+846: <script>/* G13 ⑦ 新建优先查库存：选物料行内「可用库存 N 套」+不足红色提示条+生成采购订单/租入单（道远拍板） */
+  ----
+===== 系统管理/数据字典.html =====
+342:     <div class="dic-item"><span>单据状态</span><span class="cnt">32</span></div>
+343:     <div class="dic-item active"><span>缺损类型</span><span class="cnt hot">5</span></div>
+344:     <div class="dic-item"><span>计费方式</span><span class="cnt">3</span></div>
+345:     <div class="dic-item"><span>计量单位</span><span class="cnt">8</span></div>
+346:     <div class="dic-item"><span>项目状态</span><span class="cnt">4</span></div>
+  ----
+438: </div>
+439:     <div class="card">
+440:       <h3 class="card-title" data-note="2">计费方式</h3>
+441:   <div class="table-wrap">
+442:     <table>
+  ----
+704: </style>
+705: <div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>数据字典</div><div class="pnp-d">常用选项与参数集中设置</div><div class="pn
+706: <div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>计费方式（预留）</div><div class="pnp-d">租金计费规则确认后在此设置（当前为预留）</div><div class="pnp-b"><sp
+707: <div class="pn-fab" id="protoNotesFab">标注</div></div>
+708: <script id="proto-notes-js">
+  ----
+===== 项目管理/项目详情.html =====
+351:     <div class="drow"><div class="dlabel">项目负责人</div><div class="dval">王强</div></div>
+352:     <div class="drow"><div class="dlabel">默认库房</div><div class="dval">华东中心仓（WH-01）</div></div>
+353:     <div class="drow"><div class="dlabel">计费方式</div><div class="dval">按天计租 · 按张计费</div></div>
+354:     <div class="drow"><div class="dlabel">备注</div><div class="dval">客户日计划频繁变更，改组合需拆件</div></div>
+355:   </div>
+  ----

@@ -1,0 +1,10 @@
+== chip#2 块（60616~60994）==
+<a href="租赁管理/组合出库录单.html"><rect x="472" y="544" width="120" height="36" rx="6" fill="#ffffff" stroke="#111827"/><text x="532" y="560" fill="#111827" font-size="12" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">租赁出库录单</text><text x="532" y="574" fill="#4b5563" font-size="8" font-family="'Geist Mono',monospace" text-anchor="middle">⟷ 租赁出库列表</text></a>
+== 盘点录入 chip（y=588 区·51289~51663）==
+<a href="仓储作业/盘点列表.html"><rect x="336" y="20" width="120" height="36" rx="6" fill="#ffffff" stroke="#111827"/><text x="396" y="36" fill="#111827" font-size="12" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">库存盘点</text><text x="396" y="50" fill="#4b5563" font-size="8" font-family="'Geist Mono',monospace" text-anchor="middle">列表 · ⟷ 盘点录入</text></a>
+== S1 副标 ==
+在库/在途/客户/退租/租入
+== S1 副标 text 元素 ==
+<text x="260" y="50" fill="#2563eb" font-size="8" font-family="'Geist Mono',monospace" text-anchor="middle">在库/在途/客户/退租/租入</text>
+== S3 块 ==
+<a href="系统管理/弹窗/角色管理.html" fill="#2563eb">弹窗</a>

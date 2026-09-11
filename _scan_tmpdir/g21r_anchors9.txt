@@ -1,0 +1,107 @@
+===== 产品档案.html 605-640（createModal 四价段）=====
+605:     <span class="form-label"><span class="req">*</span>物料类型</span>
+606:     <div class="input-box select-box"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>器具</option><option>零部件</optio
+607:   </div>
+608:   <div class="form-row">
+609:     <span class="form-label">物料分类</span>
+610:     <div class="input-box select-box"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>围板箱</option><option>塑料托盘</opt
+611:   </div><div class="form-row">
+612:     <span class="form-label">规格</span>
+613:     <div class="input-box"><input value="1200×1000×970mm" placeholder="请输入"></div>
+614:   </div><div class="form-row">
+615:     <span class="form-label">单位</span>
+616:     <div class="input-box select-box"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>只</option><option>套</option><
+617:   </div>
+618:   <div class="form-row">
+619:     <span class="form-label">参考未税采购价(元)</span>
+620:     <div class="input-box"><input value="380.00" placeholder="采购参考单价"></div>
+621:   </div>
+622:   <div class="form-row">
+623:     <span class="form-label">参考未税销售价(元)</span>
+624:     <div class="input-box"><input placeholder="可售物料填写，不适用留空"></div>
+625:   </div>
+626:   <div class="form-row">
+627:     <span class="form-label">参考未税租入价</span>
+628:     <div class="input-box"><input placeholder="如 45.00 元/只·月（无租入来源留空）"></div>
+629:   </div>
+630:   <div class="form-row">
+631:     <span class="form-label">参考未税租赁价</span>
+632:     <div class="input-box"><input placeholder="按周期或按次，如 60.00 元/只·月 / 15.00 元/块·次"></div>
+633:   </div><div class="form-row">
+634:     <span class="form-label">备注</span>
+635:     <div class="input-box"><input placeholder="选填"></div>
+636:   </div>
+637:   <style>
+638:   .tax-sec{margin:2px 0 6px;}
+639:   .tax-sec-title{font-size:13px;font-weight:600;color:#1a1a1a;margin:4px 0 8px;}
+640:   .tax-sec-sub{font-weight:400;color:#8c8c8c;font-size:12px;margin-left:6px;}
+641:   .tax-edit{border:1px solid #e5e6eb;border-radius:6px;padding:8px 10px;}
+642:   .tax-edit-hd{display:flex;gap:8px;font-size:12px;color:#8c8c8c;padding:2px 0 6px;}
+
+===== 新建产品.html 四价命中+上下文 =====
+268:   <div class="form-row">
+269:     <span class="form-label">参考未税采购价(元)</span>
+270:     <div class="input-box"><input value="380.00" placeholder="采购参考单价"></div>
+271:   </div>
+  ----
+272:   <div class="form-row">
+273:     <span class="form-label">参考未税销售价(元)</span>
+274:     <div class="input-box"><input placeholder="可售物料填写，不适用留空"></div>
+275:   </div>
+  ----
+276:   <div class="form-row">
+277:     <span class="form-label">参考未税租入价</span>
+278:     <div class="input-box"><input placeholder="如 45.00 元/只·月（无租入来源留空）"></div>
+279:   </div>
+  ----
+280:   <div class="form-row">
+281:     <span class="form-label">参考未税租赁价</span>
+282:     <div class="input-box"><input placeholder="按周期或按次，如 60.00 元/只·月 / 15.00 元/块·次"></div>
+283:   </div><div class="form-row">
+  ----
+
+===== 数据字典.html 计费方式卡片区 438-475 =====
+438: </div>
+439:     <div class="card">
+440:       <h3 class="card-title" data-note="2">计费方式</h3>
+441:   <div class="table-wrap">
+442:     <table>
+443:       <thead>
+444:         <tr>
+445:           <th>简码</th>
+446:           <th>名称</th>
+447:           <th>计费基准</th>
+448:           <th>当前用途</th>
+449:           <th>状态</th>
+450:         </tr>
+451:       </thead>
+452:       <tbody>
+453:         <tr>
+454:           <td>按月</td>
+455:           <td>按月计租</td>
+456:           <td>月租金 / 按套数单价</td>
+457:           <td>围板箱/托盘租赁（暂估）</td>
+458:           <td><span class="tag tag-green">启用</span></td>
+459:         </tr>
+460:         <tr>
+461:           <td>按次</td>
+462:           <td>按次计费</td>
+463:           <td>出库/退租次数 × 次单价</td>
+464:           <td>组装服务费（暂估）</td>
+465:           <td><span class="tag tag-green">启用</span></td>
+466:         </tr>
+467:         <tr>
+468:           <td>按张</td>
+469:           <td>按张计费</td>
+470:           <td>在租张数 × 张单价</td>
+471:           <td>托盘/料箱备用口径</td>
+472:           <td><span class="tag tag-green">启用</span></td>
+473:         </tr>
+474:       </tbody>
+475:     </table>
+476:   </div>
+
+===== 数据字典.html 渲染机制探针（dictItems/renderListPage/cnt 联动）=====
+344: <div class="dic-item"><span>计费方式</span><span class="cnt">3</span></div>
+569: /* G12 数据驱动接线（2026-09-10）：字典分类点击切换主表（道远点名交互）+ dictItems 实体渲染 + 分类计数联动 */
+571: var DATA = window.DEMO_DATA && window.DEMO_DATA.dictItems;

@@ -1,0 +1,33 @@
+[modal] x31
+[form-row] x8
+[form-label] x7
+== 表单区起 @7958 ==
+ont-size:12px; user-select:none; }
+.pg-btn:hover { color:var(--primary); border-color:var(--primary); }
+.pg-btn.cur { background:var(--primary); border-color:var(--primary); color:#fff; }
+.pg-ellipsis { color:rgba(0,0,0,.45); padding:0 2px; }
+.pg-size { height:30px; border:1px solid var(--input-border); border-radius:4px; padding:0 8px; display:inline-flex; align-items:center; gap:6px; cursor:pointer; background:#fff; }
+.pg-size svg { width:11px; height:11px; color:rgba(0,0,0,.35); }
+.pg-jump { display:inline-flex; align-items:center; gap:6px; }
+.pg-jump input { width:44px; height:30px; border:1px solid var(--input-border); border-radius:4px; text-align:center; font-size:12px; outline:none; font-family:inherit; }
+.pg-jump input:focus { border-color:var(--primary); }
+
+/* ===== 表单 ===== */
+.form-row { display:flex; align-items:center; margin-bottom:20px; }
+.form-row:last-child { margin-bottom:0; }
+.form-label { flex:0 0 120px; text-align:right; margin-right:8px; font-size:13px; color:var(--text); white-space:nowrap; }
+.req { color:var(--danger); margin-right:4px; }
+.info-ico { color:var(--text-3); margin:0 2px; display:inline-flex; vertical-align:middle; }
+.input-box { width:350px; height:30px; border:1px solid var(--input-border); border-radius:6px; display:flex; align-items:center; padding:0 11px; background:#fff; font-size:13px; color:var(--text); }
+.input-box input { flex:1; min-width:0; height:100%; border:none; outline:none; background:transparent; font:inherit; color:inherit; padding:0; }
+.input-box input::placeholder { color:var(--placeholder); }
+.input-box:focus-within { border-color:var(--primary); box-shadow:0 0 0 2px rgba(22,119,255,.1); }
+.input-box .suffix { margin-left:auto; display:inline-flex; align-items:center; gap:6px; color:var(--text-3); font-size:12px; }
+.input-box .clear-ico { display:inline-flex; cursor:pointer; }
+.select-box { justify-content:space-between; cursor:pointer; }
+.select-box .caret { color:var(--text-3); }
+.radio, .checkbox { display:inline-flex; align-items:center; margin-right:24px; cursor:pointer; font-size:13px; color:var(--text); }
+.radio .dot { width:16px; height:16px; border-radius:50%; border:1px solid var(--input-border); margin-right:6px; position:relative; background:#fff; }
+.radio.checked .dot { border-color:var(--primary); }
+.radio.checked .dot::after { content:''; position:absolute; inset:3px; border-radius:50%; background:var(--primary); }
+.checkbox .box { width:16px; height:16px; border-radius:2px; border:1px solid var(--input-border); margin-right:6px; background:#fff; display:inline-flex; align-items:

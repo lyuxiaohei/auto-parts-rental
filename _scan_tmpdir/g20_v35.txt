@@ -1,0 +1,5 @@
+@163: ame="viewport" content="width=device-width, initial-scale=1"> <title>P3-R01-F01 · 业务流程导航图（v3.5 · 双线制）</title> <link href="https://fonts.googleapis.com/css2?fami
+@3495: ransparent} </style> </head> <body> <div class="wrap">    <p class="eyebrow">P3-R01-F01 · v3.5 原型业务流程导航 · 2026-09-10 双线制修正</p>   <h1>业务流程导航图</h1>   <p class="su
+@3579: F01 · v3.5 原型业务流程导航 · 2026-09-10 双线制修正</p>   <h1>业务流程导航图</h1>   <p class="sub">包装租赁管理后台原型 v3.5（双线制：补给线与业务线不串行 · 业务内容沿用 v3.3）· <b>38</b> 个页面 · <b>7</b> 条主线泳道：<b>
+@65965: nt-family="'Geist Mono',monospace">⟷ = 双向联动（副标标注）</text>   </svg>    <footer>P3-R01-F01 · v3.5 · 2026-09-10 · 汽车物流包装租赁 · 包装租赁管理后台原型 · 38 页 / 7 条主线泳道（B1/L1/L2/L3
+@66655: 9-10 规则化样式统一）：文本 6 级规则·节点 6 类型·蓝底仅库存枢纽·BOM 节点虚线化·交棒 chip 统一收尾·补 T1→T2 跨泳道交棒虚线·决策备注统一虚线框 · v3.5（09-10 结构修正）：前 5 条业务线改双线制——补给线（采购/租入→入库→库存）与业务线（单据→出库→交棒）不串行，库存到出库

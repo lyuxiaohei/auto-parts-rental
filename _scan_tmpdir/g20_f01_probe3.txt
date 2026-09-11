@@ -1,0 +1,9 @@
+y=588 chip: <a href="仓储作业/盘点录入.html"><rect x="200" y="588" width="120" height="36" rx="6" fill="#ffffff" stroke="#111827"/><text x="260" y="604" fill="#111827" font-size="12" font-weight="600"
+y=588 chip: <a href="基础数据/BOM维护.html"><rect x="336" y="588" width="120" height="36" rx="6" fill="#ffffff" stroke="#111827"/><text x="396" y="604" fill="#111827" font-size="12" font-weight="600
+y=588 chip: <a href="租赁管理/租赁单列表.html"><rect x="472" y="588" width="170" height="36" rx="6" fill="#ffffff" stroke="#111827"/><text x="532" y="604" fill="#111827" font-size="12" font-weight="600
+注记 y行: <text x="336" y="116" fill="#6b7280" font-size="8" font-family="'Geist Mono',monospace">盘点差异 → 盘盈转其他入库 · 盘亏转其他出库</text>
+[五态] @-1
+[库存状态五态] @-1
+[四类应收来源] @44424 …xt>       <text x="110" y="1964" fill="#4b5563" font-size="8" font-family="'Geist Mono',monospace" text-anchor="middle">四类应收来源 · 含供应商应收</text>     </a>     <a href="财务协同/开票登记.html">       <rect x="196" y="1920" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke…
+[四类应付来源] @46607 …xt>       <text x="110" y="2052" fill="#4b5563" font-size="8" font-family="'Geist Mono',monospace" text-anchor="middle">四类应付来源 · 含对客户应付</text>     </a>     <a href="财务协同/付款登记.html">       <rect x="196" y="2008" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke…
+[在库/在途（退租未审核）] @-1

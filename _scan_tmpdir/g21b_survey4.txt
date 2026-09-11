@@ -1,0 +1,20 @@
+
+===== 租入单新建.html =====
+yle="margin:4px 0 8px;font-size:13px;font-weight:600;color:#1a1a1a;">租入明细（多货品 · 计费方式：月租 / 按套）</div>⏎  <div class="table-wrap" style="border:1px solid var(--border);border-radius:6px;">⏎    <table class="e
+---
+[单价] 数量</th><th data-note="1">计费方式</th><th>未税单价(元)</th><th style="font-size:13.5px;font-weight:700;">税率</th><th style="font-size:13.5px;font-weight:700;">含
+---
+
+===== 租赁单新建.html =====
+  <div class="form-row">⏎    <span class="form-label"><span class="req">*</span>计费方式</span>⏎    <div><span class="radio checked" onclick="toggleBillingMode(false)"><span class="dot"></span>按月定期生成应收</span>
+---
+class="f01-fab" href="../../P3-R01-F01-业务流程导航图.html">流程图</a>⏎<script>/* G13 ⑥ 租出计费方式切换 */⏎function toggleBillingMode(byUsage) { var h = document.getElementById('billingHint'); if (h) h.style.display = byU
+---
+[单价] e="font-size:13.5px;font-weight:700;">未税单价(元)</th><th style="font-size:13.5px;font-weight:700;">税率</th><th style="font-size:13.5px;font-weight:700;">含
+---
+
+===== 租入单列表.html =====
+yle="margin:4px 0 8px;font-size:13px;font-weight:600;color:#1a1a1a;">租入明细（多货品 · 计费方式：月租 / 按套）</div>⏎  <div class="table-wrap" style="border:1px solid var(--border);border-radius:6px;">⏎    <table class="e
+---
+[单价] th>物料</th><th>数量</th><th>计费方式</th><th>未税单价(元)</th><th style="font-size:13.5px;font-weight:700;">税率</th><th style="font-size:13.5px;font-weight:700;">含
+---

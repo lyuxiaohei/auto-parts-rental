@@ -2438,8 +2438,8 @@ window.DEMO_DATA = {
           'text': '30 只'
         },
         {
-          'label': '日租金',
-          'text': '400.00 元 / 日（按单）',
+          'label': '月租',
+          'text': '1,350.00 元 / 月（按单 · 45.00 元/只×30）',
           'full': true
         },
         {
@@ -2553,8 +2553,8 @@ window.DEMO_DATA = {
           'text': '10 只'
         },
         {
-          'label': '日租金',
-          'text': '400.00 元 / 日（按单）',
+          'label': '月租',
+          'text': '450.00 元 / 月（按单 · 45.00 元/只×10）',
           'full': true
         },
         {
@@ -2667,8 +2667,8 @@ window.DEMO_DATA = {
           'text': '50 只'
         },
         {
-          'label': '日租金',
-          'text': '1.20 元 / 日（按单）',
+          'label': '月租',
+          'text': '600.00 元 / 月（按单 · 12.00 元/块×50）',
           'full': true
         },
         {
@@ -2756,8 +2756,8 @@ window.DEMO_DATA = {
           'text': '20 只'
         },
         {
-          'label': '日租金',
-          'text': '3.00 元 / 日（按单）',
+          'label': '月租',
+          'text': '200.00 元 / 月（按单 · 10.00 元/只×20）',
           'full': true
         },
         {
@@ -2849,8 +2849,8 @@ window.DEMO_DATA = {
           'text': '15 只'
         },
         {
-          'label': '日租金',
-          'text': '2.50 元 / 日（按单）',
+          'label': '月租',
+          'text': '150.00 元 / 月（按单 · 10.00 元/只×15）',
           'full': true
         },
         {
@@ -15791,7 +15791,7 @@ window.DEMO_DATA = {
     'DT-04': { 'row': {"fields": {"category": "缺损类型", "abbr": "WS", "name": "污损", "status": "停用"}, "cells": ["WS", "污损", "<span class=\"td-num\">4</span>", "严重污染无法清理", "<span class=\"tag tag-gray\">停用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
     'DT-05': { 'row': {"fields": {"category": "缺损类型", "abbr": "LH", "name": "老化", "status": "启用"}, "cells": ["LH", "老化", "<span class=\"td-num\">5</span>", "达到设计寿命正常老化", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
     'DT-06': { 'row': {"fields": {"category": "缺损类型", "abbr": "HJ", "name": "划痕", "status": "启用"}, "cells": ["HJ", "划痕", "<span class=\"td-num\">6</span>", "外表层划痕，影响外观不影响使用", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
-    'BF-01': { 'row': {"fields": {"category": "计费方式", "abbr": "按天", "name": "按天计租", "status": "启用"}, "cells": ["按天", "按天计租", "<span class=\"td-num\">1</span>", "在租天数 × 日租金 · 围板箱/托盘租赁", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
+    'BF-01': { 'row': {"fields": {"category": "计费方式", "abbr": "按月", "name": "按月计租", "status": "启用"}, "cells": ["按月", "按月计租", "<span class=\"td-num\">1</span>", "月租金 / 按套数单价 · 围板箱/托盘租赁", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
     'BF-02': { 'row': {"fields": {"category": "计费方式", "abbr": "按次", "name": "按次计费", "status": "启用"}, "cells": ["按次", "按次计费", "<span class=\"td-num\">2</span>", "出库/退租次数 × 次单价 · 组装服务费", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
     'BF-03': { 'row': {"fields": {"category": "计费方式", "abbr": "按张", "name": "按张计费", "status": "启用"}, "cells": ["按张", "按张计费", "<span class=\"td-num\">3</span>", "在租张数 × 张单价 · 托盘/料箱备用口径", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
     'ZT-01': { 'row': {"fields": {"category": "单据状态", "abbr": "CG", "name": "草稿", "status": "启用"}, "cells": ["CG", "草稿", "<span class=\"td-num\">1</span>", "保存未提交", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
@@ -15846,11 +15846,14 @@ window.DEMO_DATA = {
     'TK-20260908-006': { 'row': {"fields": {"auditor": "袁明", "type": "退租入库", "docNo": "TK-20260908-006", "summary": "一汽解放 · 退租围板箱 86 只（含缺损 3 只）", "project": "PRJ-2601", "submitter": "袁明", "time": "09-08 16:30", "action": "待审核"}}, 'link': '租赁管理/退租入库列表.html?audit=1' },
     'PD-20260907-003': { 'row': {"fields": {"auditor": "李国栋", "type": "盘点", "docNo": "PD-20260907-003", "summary": "华东中心仓 9 月初盘点（差异 5 只）", "project": "华东中心仓", "submitter": "李国栋", "time": "09-07 10:12", "action": "待审核"}}, 'link': '仓储作业/盘点列表.html?audit=1' },
     'RK-20260906-014': { 'row': {"fields": {"auditor": "袁丽晶", "type": "采购入库", "docNo": "RK-20260906-014", "summary": "华塑包装 · 围板箱到货 200 只", "project": "PRJ-2601", "submitter": "李国栋", "time": "09-06 09:45", "action": "待验收"}}, 'link': '采购管理/采购入库列表.html?audit=1' },
-    'RZ-20260905-004': { 'row': {"fields": {"auditor": "王强", "type": "租入库", "docNo": "RZ-20260905-004", "summary": "路凯 · 围板箱租入 300 只", "project": "PRJ-2603", "submitter": "王强", "time": "09-05 11:20", "action": "待入库"}}, 'link': '租赁管理/租入入库列表.html?audit=1' },
+    'RZ-20260905-004': { 'row': {"fields": {"auditor": "王强", "type": "租入入库", "docNo": "RZ-20260905-004", "summary": "路凯 · 围板箱租入 300 只", "project": "PRJ-2603", "submitter": "王强", "time": "09-05 11:20", "action": "待入库"}}, 'link': '租赁管理/租入入库列表.html?audit=1' },
     'GH-20260904-002': { 'row': {"fields": {"auditor": "王强", "type": "租入归还", "docNo": "GH-20260904-002", "summary": "路凯 · 归还围板箱 100 只", "project": "PRJ-2603", "submitter": "王强", "time": "09-04 15:08", "action": "待审核"}}, 'link': '租赁管理/租入归还列表.html?audit=1' },
     'QT-20260903-001': { 'row': {"fields": {"auditor": "徐蔚", "type": "其他入库", "docNo": "QT-20260903-001", "summary": "调拨余量回库 · 托盘 40 张", "project": "华东中心仓", "submitter": "赵磊", "time": "09-03 14:22", "action": "待审核"}}, 'link': '仓储作业/其他入库列表.html?audit=1' },
     'FK-20260902-005': { 'row': {"fields": {"auditor": "袁丽晶", "type": "付款登记", "docNo": "FK-20260902-005", "summary": "华塑包装 · 8 月应付结算", "project": "PRJ-2601", "submitter": "李静", "time": "09-02 10:30", "action": "待确认"}}, 'link': '财务协同/付款登记.html?audit=1' },
     'SK-20260901-003': { 'row': {"fields": {"auditor": "袁丽晶", "type": "收款确认", "docNo": "SK-20260901-003", "summary": "一汽解放 · 8 月租金回款", "project": "PRJ-2601", "submitter": "李静", "time": "09-01 09:15", "action": "待确认"}}, 'link': '财务协同/回款登记.html?audit=1' },
+    'QTCK-20260904-003': { 'row': {"fields": {"auditor": "李国栋", "type": "其他出库", "docNo": "QTCK-20260904-003", "summary": "华东中心仓 · 报废隔板 12 块", "project": "华东中心仓", "submitter": "赵磊", "time": "09-04 10:05", "action": "待审核"}}, 'link': '仓储作业/其他出库列表.html?audit=1' },
+    'DB-20260906-008': { 'row': {"fields": {"auditor": "李国栋", "type": "库存调拨", "docNo": "DB-20260906-008", "summary": "华东中心仓→华南中心仓 · 围板箱 50 只", "project": "华东中心仓", "submitter": "赵磊", "time": "09-06 11:40", "action": "待审核"}}, 'link': '仓储作业/库存调拨列表.html?audit=1' },
+    'RZD-20260909-010': { 'row': {"fields": {"auditor": "王强", "type": "租入单", "docNo": "RZD-20260909-010", "summary": "路凯 · 大箱租入 40 只（月租）", "project": "PRJ-2603", "submitter": "王强", "time": "09-09 09:50", "action": "待审核"}}, 'link': '租赁管理/租入单列表.html?audit=1' },
   },
 
   /* --------------------------------------------------------------------------

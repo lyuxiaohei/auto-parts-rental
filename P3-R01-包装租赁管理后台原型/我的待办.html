@@ -502,7 +502,7 @@ th.td-num { text-align:right; }
         <tr data-type="租入单">
           <td><span class="tag tag-blue">租入单</span></td>
           <td><span class="lk">RZD-20260902-008</span></td>
-          <td>路凯 · 塑料托盘 1200×1000 × 50 只 · 日租金 1.20</td>
+          <td>路凯 · 塑料托盘 1200×1000 × 50 只 · 月租 12.00 元/块</td>
           <td>—</td>
           <td>陈金</td>
           <td>09-02 16:40</td>
@@ -733,6 +733,13 @@ document.querySelectorAll('.tab').forEach(function (t) {
 
 
 
+
+
+
+<script src="_data/pc-auth.js"></script>
+
+
+
 <style id="proto-notes-style">
 body.proto-notes-on [data-note]{position:relative}
 body.proto-notes-on [data-note]::after{content:attr(data-note);position:absolute;top:1px;right:1px;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600;box-shadow:0 0 0 1.5px #fff;cursor:pointer;opacity:.75;transition:opacity .15s}
@@ -754,7 +761,7 @@ body.proto-notes-on .proto-pin.pn-open{display:block}
 body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 .pn-fab .pn-fab-n{font-family:Consolas,monospace;font-weight:600}
 </style>
-<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>S6 · 我的待办（审核聚合入口）</div><div class="pnp-d">S6 审核与待办支线：18 类单据统一进待办，搜索/类型速滤后「去审核」跳转列表页并自动弹出审核弹窗（?audit=1）。</div></div>
+<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>S6 · 我的待办（审核聚合入口）</div><div class="pnp-d">S6 审核与待办支线：15 类单据统一进待办，搜索/类型速滤后「去审核」跳转列表页并自动弹出审核弹窗（?audit=1）。</div></div>
 <div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>待办总量口径</div><div class="pnp-d">覆盖 15 类单据 · 点击“去审核”直达审核弹窗</div></div>
 <div class="proto-pin" id="proto-pin-3"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">3</span>待审核构成</div><div class="pnp-d">订单/出入库/租赁/盘点等</div></div>
 <div class="proto-pin" id="proto-pin-4"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">4</span>待验收含义</div><div class="pnp-d">采购入库到货验收</div></div>
@@ -809,6 +816,5 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply);else apply();
 })();
 </script>
-<script src="_data/pc-auth.js"></script>
 </body>
 </html>

@@ -1,0 +1,29 @@
+===== 元/天 共 0 处 =====
+===== 按天 共 1 处 =====
+项目管理\项目详情.html:353: <div class="drow"><div class="dlabel">计费方式</div><div class="dval">按天计租 · 按张计费</div></div>
+===== 月租 共 42 处 =====
+我的待办.html:505: <td>路凯 · 塑料托盘 1200×1000 × 50 只 · 月租 12.00 元/块</td>
+租赁管理\租入单列表.html:514: <div style="margin:4px 0 8px;font-size:13px;font-weight:600;color:#1a1a1a;">租入明细（多货品 · 计费方式：月租 / 按套）</div>
+租赁管理\租入单列表.html:518: <tbody><tr><td><select style="width:100%;min-width:0;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;backg
+租赁管理\租入单列表.html:549: <div class="drow" style="grid-column:1/-1;"><div class="dlabel">租入内容</div><div class="dval">塑料托盘 1200×1000 × 50 只（月租 12.00 元/块）</d
+租赁管理\租入单列表.html:835: <div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n
+租赁管理\租入单列表.html:837: <div class="proto-pin" id="proto-pin-3"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">3</span>租入计费口径</div
+系统管理\数据字典.html:456: <td>月租金 / 按套数单价</td>
+财务协同\应收账单.html:417: <td><span class="tag tag-blue">预收</span><div style="color:#8c8c8c;font-size:11px;">客户预付 9-10 月租金，后续按月冲抵</div></td>
+项目管理\项目详情.html:464: <td>2026 年 7 月租赁应收账单</td>
+租赁管理\弹窗\租入单审核.html:253: <div class="drow" style="grid-column:1/-1;"><div class="dlabel">租入内容</div><div class="dval">塑料托盘 1200×1000 × 50 只（月租 12.00 元/块）</d
+租赁管理\弹窗\租入单新建.html:262: <div style="margin:4px 0 8px;font-size:13px;font-weight:600;color:#1a1a1a;">租入明细（多货品 · 计费方式：月租 / 按套）</div>
+租赁管理\弹窗\租入单新建.html:266: <tbody><tr><td><select style="width:100%;min-width:0;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;backg
+===== 按套 共 18 处 =====
+租赁管理\租入单列表.html:514: <div style="margin:4px 0 8px;font-size:13px;font-weight:600;color:#1a1a1a;">租入明细（多货品 · 计费方式：月租 / 按套）</div>
+租赁管理\租入单列表.html:518: <tbody><tr><td><select style="width:100%;min-width:0;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;backg
+租赁管理\租入单列表.html:837: <div class="proto-pin" id="proto-pin-3"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">3</span>租入计费口径</div
+租赁管理\租赁单列表.html:917: <div class="proto-pin" id="proto-pin-3"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">3</span>L2 · 步骤 5/1
+系统管理\数据字典.html:456: <td>月租金 / 按套数单价</td>
+租赁管理\弹窗\租入单新建.html:262: <div style="margin:4px 0 8px;font-size:13px;font-weight:600;color:#1a1a1a;">租入明细（多货品 · 计费方式：月租 / 按套）</div>
+租赁管理\弹窗\租入单新建.html:266: <tbody><tr><td><select style="width:100%;min-width:0;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;backg
+租赁管理\弹窗\租入单新建.html:407: <div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n
+_data\demo-data.js:1768: {'label': '计费方式', 'text': '按次套数对账（验收后按套数生成应收）'},
+_data\demo-data.js:2110: {'label': '计费方式', 'text': '按次套数对账（验收后按套数生成应收）'},
+_data\demo-data.js:2470: 'feeSecTitle': '租入明细（多货品 · 月租/按套 · 无日租金）',
+_data\demo-data.js:2585: 'feeSecTitle': '租入明细（多货品 · 月租/按套 · 无日租金）',

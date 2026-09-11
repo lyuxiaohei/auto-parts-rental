@@ -1,0 +1,14 @@
+===== products 块（前 6000 字符）=====
+
+
+===== dictItems 块 =====
+dictItems: {
+    'DT-01': { 'row': {"fields": {"category": "缺损类型", "abbr": "PS", "name": "破损", "status": "启用"}, "cells": ["PS", "破损", "<span class=\"td-num\">1</span>", "外观或结构损坏，可维修", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
+    'DT-02': { 'row': {"fields": {"category": "缺损类型", "abbr": "QS", "name": "缺失", "status": "启用"}, "cells": ["QS", "缺失", "<span class=\"td-num\">2</span>", "回收时无法找到的部件", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
+    'DT-03': { 'row': {"fields": {"category": "缺损类型", "abbr": "BX", "name": "变形", "status": "启用"}, "cells": ["BX", "变形", "<span class=\"td-num\">3</span>", "超差变形影响使用", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
+    'DT-04': { 'row': {"fields": {"category": "缺损类型", "abbr": "WS", "name": "污损", "status": "停用"}, "cells": ["WS", "污损", "<span class=\"td-num\">4</span>", "严重污染无法清理", "<span class=\"tag tag-gray\">停用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
+    'DT-05': { 'row': {"fields": {"category": "缺损类型", "abbr": "LH", "name": "老化", "status": "启用"}, "cells": ["LH", "老化", "<span class=\"td-num\">5</span>", "达到设计寿命正常老化", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
+    'DT-06': { 'row': {"fields": {"category": "缺损类型", "abbr": "HJ", "name": "划痕", "status": "启用"}, "cells": ["HJ", "划痕", "<span class=\"td-num\">6</span>", "外表层划痕，影响外观不影响使用", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
+    'BF-01': { 'row': {"fields": {"category": "计费方式", "abbr": "按月", "name": "按月计租", "status": "启用"}, "cells": ["按月", "按月计租", "<span class=\"td-num\">1</span>", "月租金 / 按套数单价 · 围板箱/托盘租赁", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
+    'BF-02': { 'row': {"fields": {"category": "计费方式", "abbr": "按次", "name": "按次计费", "status": "启用"}, "cells": ["按次", "按次计费", "<span class=\"td-num\">2</span>", "出库/退租次数 × 次单价 · 组装服务费", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
+    'BF-03': { 'row': {"fields": {"category": "计费方式", "abbr": "按张", "name": "按张计费", "status": "启用"}, "cells": ["按张", "按张计费", "<span class=\"td-num\">3</span>", "在租张数 × 张单价 · 托

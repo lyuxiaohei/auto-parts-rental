@@ -1,0 +1,83 @@
+范本总长 23999
+== 范本头 60 行 ==
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>租入归还新建 - 包装租赁管理后台</title>
+<style>
+:root {
+  --primary: #1677ff;
+  --primary-bg: #e6f4ff;
+  --strip-bg: #e6f7ff;
+  --page-bg: #f5f5f5;
+  --side-bg: #fafafa;
+  --thead-bg: #fafafa;
+  --border: #f0f0f0;
+  --input-border: #d9d9d9;
+  --text: #262626;
+  --text-2: #595959;
+  --text-3: #8c8c8c;
+  --placeholder: #bfbfbf;
+  --danger: #ff4d4f;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif; background:var(--page-bg); color:var(--text); font-size:13px; line-height:1.5715; min-width:1200px; margin:0; }
+svg { display:inline-block; vertical-align:middle; }
+
+/* ===== 顶栏 ===== */
+.topbar { height:44px; background:#fff; border-bottom:1px solid var(--border); display:flex; align-items:center; }
+.topbar .logo { width:208px; flex-shrink:0; padding-left:24px; color:var(--primary); font-size:16px; font-weight:700; letter-spacing:.5px; white-space:nowrap; }
+.topbar .tools { margin-left:auto; display:flex; align-items:center; gap:18px; padding-right:20px; color:var(--text-2); }
+.topbar .tools .ico-btn { cursor:pointer; display:inline-flex; align-items:center; }
+.topbar .manual { color:var(--primary); font-size:13px; display:inline-flex; align-items:center; gap:4px; cursor:pointer; }
+.topbar .avatar { width:28px; height:28px; border-radius:50%; background:var(--primary); display:inline-flex; align-items:center; justify-content:center; cursor:pointer; }
+
+/* ===== 主体 ===== */
+.body { display:flex; align-items:stretch; }
+.body.fixed { height:calc(100vh - 44px); overflow:hidden; }
+.body.fixed .sidebar { height:100%; overflow-y:auto; }
+.body.fixed .main-col { height:100%; overflow-y:auto; }
+.sidebar { width:208px; flex-shrink:0; background:var(--side-bg); border-right:1px solid var(--border); display:flex; flex-direction:column; min-height:calc(100vh - 44px); }
+.main-col { flex:1; min-width:0; display:flex; flex-direction:column; }
+
+/* ===== 页签条 ===== */
+.tabs { background:#fff; border-bottom:1px solid var(--border); padding:8px 16px 0; display:flex; gap:6px; overflow-x:auto; }
+.tab { height:28px; display:inline-flex; align-items:center; gap:6px; padding:0 10px; border:1px solid var(--border); border-radius:4px; background:#fff; color:var(--text); font-size:13px; white-space:nowrap; cursor:pointer; }
+.tab .close { color:var(--text-3); font-size:12px; line-height:1; }
+.tab .close:hover { color:var(--text); }
+.tab.active { background:var(--strip-bg); border-color:transparent; color:var(--primary); }
+
+/* ===== 侧边栏菜单 + 当前系统标识 ===== */
+.side-menu { flex:1; padding:8px 0; overflow-y:auto; list-style:none; margin:0; }
+.side-menu ul { list-style:none; margin:0; padding:0; }
+.sm-ico { width:16px; height:16px; flex:none; margin-right:10px; display:inline-flex; align-items:center; justify-content:center; }
+.sm-link { height:40px; display:flex; align-items:center; padding:0 24px; font-size:14px; color:#262626; cursor:pointer; white-space:nowrap; }
+.sm-link:hover { color:#1677ff; }
+.sm-arrow { margin-left:auto; display:inline-flex; color:#8c8c8c; transition:transform .2s; }
+.sm-item:not(.open) > .sm-sub { display:none; }
+.sm-item.has-sub.open > .sm-link { color:#1677ff; }
+.sm-item.has-sub.open > .sm-link .sm-arrow { transform:rotate(180deg); color:#1677ff; }
+.sm-sub .sm-link { padding-left:48px; }
+== 宿主页 批量导出按钮行 ==
+</button>
+    </div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-head">
+    <h3 class="card-title" data-note="4">退租入库单</h3>
+    <div class="head-btns"><button class="btn btn-default btn-sm">批量导出</button></div>
+  </div>
+<div class="stabs">
+  <span class="stab active">全部<span class="stab-count">31</span></span>
+== detailModal 块尾+后续 ==
+openModal @44433: k', function (c2) { c.classList.toggle('checked'); });
+});
+/* ===== 弹窗 ===== */
+function openModal(id) { document.getElementById(id).classList.add('show'); }
+function closeModal(id) { document.getElementById(id).classList.remove('show'); }
+document.querySelectorAll('.modal-overla
+showToast 存在: False
+leaseOrders 单号: ['ZL-20260823-033', 'ZL-20260823-033', 'ZL-20260823-033', 'ZL-20260901-032', 'ZL-20260901-032', 'ZL-20260828-031', 'ZL-20260828-031', 'ZL-20260816-029']

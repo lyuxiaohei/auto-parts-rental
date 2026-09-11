@@ -1,0 +1,65 @@
+===== 数据字典.html 565-625（G12 JS 接线）=====
+565: });
+566: </script>
+567: <script src="../_data/demo-data.js"></script>
+568: <script>
+569: /* G12 数据驱动接线（2026-09-10）：字典分类点击切换主表（道远点名交互）+ dictItems 实体渲染 + 分类计数联动 */
+570: (function () {
+571:   var DATA = window.DEMO_DATA && window.DEMO_DATA.dictItems;
+572:   if (!DATA) return;
+573:   var keysAll = Object.keys(DATA).filter(function (k) { return DATA[k].row; });
+574:   var tbody = document.querySelector('.dic-wrap table tbody');
+575:   var title = document.querySelector('.dic-wrap .card-head .card-title');
+576:   var pg = document.querySelector('.dic-wrap .pg-info');
+577:   var items = document.querySelectorAll('.dic-list .dic-item');
+578:   if (!tbody) return;
+579:   function byCat(cat) {
+580:     return keysAll.filter(function (k) { return DATA[k].row.fields.category === cat; });
+581:   }
+582:   function render(cat) {
+583:     var keys = byCat(cat);
+584:     tbody.innerHTML = keys.length ? keys.map(function (k) {
+585:       var r = DATA[k].row;
+586:       var ops = r.ops.map(function (o) { return o.act ? '<a onclick="' + o.act + '">' + o.t + '</a>' : '<a>' + o.t + '</a>'; }).join('');
+587:       return '<tr><td>' + k + '</td>' + r.cells.map(function (c) { return '<td>' + c + '</td>'; }).join('') +
+588:         '<td class="sticky-op"><span class="ops">' + ops + '</span></td></tr>';
+589:     }).join('\n') : '<tr><td colspan="7" style="text-align:center;color:#8c8c8c;padding:24px 0;">该分类暂无字典项</td></tr>';
+590:     if (title) title.textContent = '字典项 · ' + cat;
+591:     if (pg) pg.textContent = '第 1-' + keys.length + ' 条/总共 ' + keys.length + ' 条';
+592:   }
+593:   function refreshCounts(activeCat) {
+594:     items.forEach(function (it) {
+595:       var name = it.querySelector('span').textContent.trim();
+596:       var cnt = it.querySelector('.cnt');
+597:       if (cnt) { cnt.textContent = byCat(name).length; cnt.classList.toggle('hot', name === activeCat); }
+598:       it.classList.toggle('active', name === activeCat);
+599:     });
+600:   }
+601:   items.forEach(function (it) {
+602:     it.addEventListener('click', function () {
+603:       var cat = it.querySelector('span').textContent.trim();
+604:       render(cat); refreshCounts(cat);
+605:     });
+606:   });
+607:   var init = document.querySelector('.dic-list .dic-item.active span');
+608:   var cat0 = init ? init.textContent.trim() : '缺损类型';
+609:   render(cat0); refreshCounts(cat0);
+610: })();
+611: </script>
+612: 
+613: <script>
+614: /* ===== 菜单折叠 / 页签与表单视觉态（统一脚本） ===== */
+615: function go(url) { location.href = url; }
+616: document.querySelectorAll('.sm-item.has-sub > .sm-link').forEach(function (link) {
+617:   link.addEventListener('click', function () { link.parentElement.classList.toggle('open'); });
+618: });
+619: /* 状态页签切换（视觉选中态） */
+620: document.querySelectorAll('.stabs .stab').forEach(function (tab) {
+621:   tab.addEventListener('click', function () {
+622:     tab.parentElement.querySelectorAll('.stab').forEach(function (t) { t.classList.remove('active'); });
+623:     tab.classList.add('active');
+624:   });
+625: });
+
+===== 租入单新建 266 全行（1953 字符）=====
+      <tbody><tr><td><select style="width:100%;min-width:0;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option selected>WBX-1210L 围板箱 1200×1000×970</option><option>WBX-1210M 围板箱 1200×1000×590</option><option>PLT-1210W 木托盘 1200×1000</option><option>PLT-1210P 塑料托盘 1200×1000</option><option>BTC-6040 料箱 600×400×340</option><option>LJ-A100 锁扣组件</option><option>LJ-C300 围板</option><option>LJ-D400 箱盖</option><option>LJ-F600 内衬</option></select></td><td><input data-tax="qty" value="30" style="width:64px;"></td><td><select style="width:88px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;"><option selected>月租</option><option>按套</option></select></td><td><input data-tax="excl" value="400.00"></td><td><input data-tax="rate" value="13%" style="width:56px;"></td><td><input data-tax="incl" value="452.00"></td><td><input data-tax="amt" class="auto" value="13,560.00" readonly></td></tr><tr><td><select style="width:100%;min-width:0;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option>WBX-1210L 围板箱 1200×1000×970</option><option>WBX-1210M 围板箱 1200×1000×590</option><option>PLT-1210W 木托盘 1200×1000</option><option selected>PLT-1210P 塑料托盘 1200×1000</option><option>BTC-6040 料箱 600×400×340</option><option>LJ-A100 锁扣组件</option><option>LJ-C300 围板</option><option>LJ-D400 箱盖</option><option>LJ-F600 内衬</option></select></td><td><input data-tax="qty" value="50" style="width:64px;"></td><td><select style="width:88px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;"><option>月租</option><option selected>按套</option></select></td><td><input data-tax="excl" value="1.20"></td><td><input data-tax="rate" value="13%" style="width:56px;"></td><td><input data-tax="incl" value="1.36"></td><td><input data-tax="amt" class="auto" value="68.00" readonly></td></tr></tbody>

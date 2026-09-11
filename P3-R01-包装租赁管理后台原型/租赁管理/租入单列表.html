@@ -387,7 +387,7 @@ th.td-num { text-align:right; }
           <th>供应商</th>
           <th>物料</th>
           <th>数量</th>
-          <th>日租金(元)</th>
+          <th>租金</th>
           <th>租期起止</th>
           <th>押金(元)</th>
           <th>累计租金应付(元)</th>
@@ -546,7 +546,7 @@ th.td-num { text-align:right; }
       <div class="dgrid" style="margin-bottom:16px;">
         <div class="drow"><div class="dlabel">单据编号</div><div class="dval">RZD-20260902-008</div></div>
         <div class="drow"><div class="dlabel">单据类型</div><div class="dval">租入单</div></div>
-        <div class="drow" style="grid-column:1/-1;"><div class="dlabel">租入内容</div><div class="dval">塑料托盘 1200×1000 × 50 只（日租金 1.20 元/只）</div></div>
+        <div class="drow" style="grid-column:1/-1;"><div class="dlabel">租入内容</div><div class="dval">塑料托盘 1200×1000 × 50 只（月租 12.00 元/块）</div></div>
         <div class="drow"><div class="dlabel">供应商</div><div class="dval">路凯包装运营（上海）有限公司</div></div>
         <div class="drow"><div class="dlabel">提交人 / 时间</div><div class="dval">陈金 / 2026-09-02 16:40</div></div>
         <div class="drow"><div class="dlabel">审核人（按角色配置）</div><div class="dval">商务主管 · 王琳</div></div>
@@ -807,6 +807,10 @@ function showToast(msg) {
 
 
 
+
+
+
+<script src="../_data/pc-auth.js"></script>
 <style id="proto-notes-style">
 body.proto-notes-on [data-note]{position:relative}
 body.proto-notes-on [data-note]::after{content:attr(data-note);position:absolute;top:1px;right:1px;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600;box-shadow:0 0 0 1.5px #fff;cursor:pointer;opacity:.75;transition:opacity .15s}
@@ -828,7 +832,7 @@ body.proto-notes-on .proto-pin.pn-open{display:block}
 body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 .pn-fab .pn-fab-n{font-family:Consolas,monospace;font-weight:600}
 </style>
-<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>L3 · 步骤 1/8 租入单</div><div class="pnp-d">L3 租入转租起点：向路凯租入围板箱×30（日租金 400）。<br>状态流：待审核→履行中→部分归还→已归还。操作列可按月生成租金应付。<br>2026-09-04 拍板第一期实现（原会议暂缓）。</div></div>
+<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>L3 · 步骤 1/8 租入单</div><div class="pnp-d">L3 租入转租起点：向路凯租入围板箱×30（月租 45.00 元/只）。<br>状态流：待审核→履行中→部分归还→已归还。操作列可按月生成租金应付。<br>2026-09-04 拍板第一期实现（原会议暂缓）。</div></div>
 <div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>L4 · 步骤 3/10 租入单（混合侧）</div><div class="pnp-d">租入大箱×10 与自购隔板组成混合配方 → ZH-2604-D×40 套按 BOM 组合出库（无组装单·2026-09-08）。</div></div>
 <div class="proto-pin" id="proto-pin-3"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">3</span>租入计费口径</div><div class="pnp-d">计费＝月租金 + 按套数单价（无日租金，2026-09-08 会议）；应付生成方式取决于租入单模式（静态租入 / 背靠背）。</div></div>
 <div class="pn-fab" id="protoNotesFab">标注</div></div>
@@ -880,6 +884,5 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply);else apply();
 })();
 </script>
-<script src="../_data/pc-auth.js"></script>
 </body>
 </html>

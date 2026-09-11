@@ -1,0 +1,8 @@
+products 键匹配: None @ -1
+
+===== 计费方式字典全量行 =====
+'BF-01': { 'row': {"fields": {"category": "计费方式", "abbr": "按月", "name": "按月计租", "status": "启用"}, "cells": ["按月", "按月计租", "<span class=\"td-num\">1</span>", "月租金 / 按套数单价 · 围板箱/托盘租赁", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
+'BF-02': { 'row': {"fields": {"category": "计费方式", "abbr": "按次", "name": "按次计费", "status": "启用"}, "cells": ["按次", "按次计费", "<span class=\"td-num\">2</span>", "出库/退租次数 × 次单价 · 组装服务费", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
+'BF-03': { 'row': {"fields": {"category": "计费方式", "abbr": "按张", "name": "按张计费", "status": "启用"}, "cells": ["按张", "按张计费", "<span class=\"td-num\">3</span>", "在租张数 × 张单价 · 托盘/料箱备用口径", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
+
+按天 命中: 0 | 按日 命中: 0 | 按月 命中: 25

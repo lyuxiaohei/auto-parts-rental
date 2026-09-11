@@ -451,9 +451,9 @@ th.td-num { text-align:right; }
       </thead>
       <tbody>
         <tr>
-          <td>按天</td>
-          <td>按天计租</td>
-          <td>在租天数 × 日租金</td>
+          <td>按月</td>
+          <td>按月计租</td>
+          <td>月租金 / 按套数单价</td>
           <td>围板箱/托盘租赁（暂估）</td>
           <td><span class="tag tag-green">启用</span></td>
         </tr>
@@ -677,6 +677,10 @@ document.querySelectorAll('.tab').forEach(function (t) {
 
 
 
+
+
+
+<script src="../_data/pc-auth.js"></script>
 <style id="proto-notes-style">
 body.proto-notes-on [data-note]{position:relative}
 body.proto-notes-on [data-note]::after{content:attr(data-note);position:absolute;top:1px;right:1px;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600;box-shadow:0 0 0 1.5px #fff;cursor:pointer;opacity:.75;transition:opacity .15s}
@@ -749,6 +753,5 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply);else apply();
 })();
 </script>
-<script src="../_data/pc-auth.js"></script>
 </body>
 </html>

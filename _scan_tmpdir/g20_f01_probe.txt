@@ -1,0 +1,15 @@
+F01 总长 74535
+[租赁出库录单] x3
+[在库/在途/客户/退租/租入] x1
+[弹窗/角色管理.html] x1
+[四类应收来源] x1
+[四类应付来源] x1
+[4 来源] x3
+[v3.5] x5
+[在库/客户/转租/退租/租入] x0
+--- 租赁出库录单 #1 @60470
+6" fill="#ffffff" stroke="#111827"/><text x="396" y="560" fill="#111827" font-size="12" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">租赁出库录单</text><text x="396" y="574" fill="#4b5563" font-size="8" font-family="'Geist Mono',monospace" text-anchor="middle">⟷ 租赁出库列表</text></a> <a href="租赁管理/组合出库录单.html"><rect x="472" y="544" width
+--- 租赁出库录单 #2 @60853
+6" fill="#ffffff" stroke="#111827"/><text x="532" y="560" fill="#111827" font-size="12" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">租赁出库录单</text><text x="532" y="574" fill="#4b5563" font-size="8" font-family="'Geist Mono',monospace" text-anchor="middle">⟷ 租赁出库列表</text></a> <a href="仓储作业/盘点录入.html"><rect x="200" y="588" width="
+--- 租赁出库录单 #3 @68670
+S1[库存运营：库存查询/盘点/调拨/其他出入库/按零件入库] S2[项目经营：项目看板 → 项目档案 → 项目详情 → 财务看板] S3[系统支撑：用户权限/数据字典/操作日志] S4[赔偿转单据：直建应收（自有·客户赔）/ 应付（租入·供应商赔）] S5[录单页与台账：采购入库录单/租赁出库录单/盘点录入/BOM维护/退回进度] S6[审核与待办：我的待办 → 审核弹窗（15 类）→ 状态流转 → 操作日志] end</pre> </details> </div> <div id="srcPop"><span class="sp-close" onclick="this.parentElement.style.display='none'">×</span>

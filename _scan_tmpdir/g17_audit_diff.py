@@ -30,7 +30,7 @@ for r in post:
     new_dl += [(page, d) for d in r['dead_links']]
     for e in r['js_errors']:
         tot_js += 1
-        if 'ERR_CONNECTION_CLOSED' in e.get('text',''):
+        if 'ERR_CONNECTION_' in e.get('text',''):  # G20 扩：断网变体 CLOSED/RESET/ABORTED 全豁免
             exempt.append((page, e['text'][:80]))
         else:
             new_js.append((page, e['text'][:100]))

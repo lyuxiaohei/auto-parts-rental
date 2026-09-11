@@ -1,0 +1,17 @@
+===== 全站 日租金 grep（排除备份）=====
+租赁管理\弹窗\租入单新建.html:407: <div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>租入计费口径</div><div cla
+租赁管理\租入单列表.html:837: <div class="proto-pin" id="proto-pin-3"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">3</span>租入计费口径</div><div class="pnp-d">计费＝月租金 + 按
+_data/demo-data.js:2470: 'feeSecTitle': '租入明细（多货品 · 月租/按套 · 无日租金）',
+_data/demo-data.js:2585: 'feeSecTitle': '租入明细（多货品 · 月租/按套 · 无日租金）',
+_data/demo-data.js:2698: 'feeSecTitle': '租入明细（多货品 · 月租/按套 · 无日租金）',
+_data/demo-data.js:2787: 'feeSecTitle': '租入明细（多货品 · 月租/按套 · 无日租金）',
+_data/demo-data.js:2880: 'feeSecTitle': '租入明细（多货品 · 月租/按套 · 无日租金）',
+
+===== 全站 计费方式 grep =====
+租赁管理\弹窗\租入单新建.html: 行 [262, 265]
+租赁管理\弹窗\租赁单新建.html: 行 [268, 366]
+租赁管理\弹窗\租赁单详情.html: 行 [281]
+租赁管理\租入单列表.html: 行 [514, 517]
+租赁管理\租赁单列表.html: 行 [557, 844]
+系统管理\数据字典.html: 行 [344, 440, 706]
+项目管理\项目详情.html: 行 [353]

@@ -1,0 +1,9 @@
+@477345: 停用", "act": "openModal('stopModal')"}]} },     'BF-01': { 'row': {"fields": {"category": "计费方式", "abbr": "按天", "name": "按天计租", "status": "启用"}, "cells": ["按天", "按天计租", "<span class=\"td-num\">1</span>", "在租天数 × 日租金 · 围板箱/托盘租赁", "<span class
+
+@477386: ,     'BF-01': { 'row': {"fields": {"category": "计费方式", "abbr": "按天", "name": "按天计租", "status": "启用"}, "cells": ["按天", "按天计租", "<span class=\"td-num\">1</span>", "在租天数 × 日租金 · 围板箱/托盘租赁", "<span class=\"tag tag-green\">启用</span>"], "ops": [{
+
+数据字典 [<td>按天</td>] = 1
+
+数据字典 [<td>按天计租</td>] = 1
+
+数据字典 [<td>在租天数 × 日租金</td>] = 1

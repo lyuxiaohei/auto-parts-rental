@@ -1,0 +1,16 @@
+=== 我的待办 租入入库 上下文 ===
+x;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">租入</li>    <li><div class="sm-link" onclick="go('租赁管理/租入单列表.html')">租入单</div></li>    <li><div class="sm-link" onclick="go('租赁管理/租入入库列表.html')">租入入库</div></li>    <li><div class="sm-link" onclick="go('租赁管理/租入归
+=== 我的待办 租入入库 上下文 ===
+;letter-spacing:.08em;user-select:none;list-style:none">租入</li>    <li><div class="sm-link" onclick="go('租赁管理/租入单列表.html')">租入单</div></li>    <li><div class="sm-link" onclick="go('租赁管理/租入入库列表.html')">租入入库</div></li>    <li><div class="sm-link" onclick="go('租赁管理/租入归还列表.html')">租入归
+=== 我的待办 租入入库 上下文 ===
+option><option>其他出库</option><option>库存调拨</option><option>收款确认</option><option>盘点</option><option>租赁单</option><option>退租入库</option><option>采购入库</option><option>采购订单</option><option>租入单</option><option>租入入库</option><option>租入归还</option><option>销售出库</option><option>销售订单</option></se
+=== mobile 待办审批 列表项类名 ===
+<div class="m-stat-item"
+<div class="m-stat-item"
+<div class="m-stat-item"
+<div class="m-item"
+<div class="m-item-top"
+<div class="m-item-doc"
+<div class="m-item-title"
+<div class="m-item-meta"
+mobile 总长=3646 todoItems 引用=2

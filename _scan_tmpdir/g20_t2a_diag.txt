@@ -1,0 +1,17 @@
+openModal 定义数 = 1
+closeModal 定义数 = 1
+window.openModal = 0
+window.closeModal = 0
+createModal markup @44538 ｜ 第一个<script> @39371 ｜ openModal 首现 @30480
+--- createModal 前 200 字 ---
+remove('checked'); });
+    r.classList.add('checked');
+  });
+});
+document.querySelectorAll('.checkbox').forEach(function (c) {
+  c.addEventListener('click', function (c2) { c.classList.toggle('checked'); });
+});
+/* ===== 弹窗 ===== */
+<div class="modal-overlay" id="createModal">
+  <div class="modal modal-lg">
+    <div cl

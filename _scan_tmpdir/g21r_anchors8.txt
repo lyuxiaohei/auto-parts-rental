@@ -1,0 +1,24 @@
+===== 基础数据/ 目录 =====
+基础数据\BOM.html
+基础数据\BOM维护.html
+基础数据\产品档案.html
+基础数据\客商管理.html
+基础数据\库位档案.html
+基础数据\弹窗\BOM版本查看.html
+基础数据\弹窗\产品详情.html
+基础数据\弹窗\停用确认.html
+基础数据\弹窗\客商详情.html
+基础数据\弹窗\库位详情.html
+基础数据\弹窗\新建产品.html
+基础数据\弹窗\新建客商.html
+基础数据\弹窗\新建库位.html
+
+===== 基础数据/产品档案.html 四价命中行 =====
+382: <th>参考未税采购价(元)</th>
+383: <th>参考未税销售价(元)</th>
+384: <th>参考未税租入价</th>
+385: <th>参考未税租赁价</th>
+619: <span class="form-label">参考未税采购价(元)</span>
+623: <span class="form-label">参考未税销售价(元)</span>
+627: <span class="form-label">参考未税租入价</span>
+631: <span class="form-label">参考未税租赁价</span>

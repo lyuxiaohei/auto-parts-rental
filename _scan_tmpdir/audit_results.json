@@ -133,11 +133,24 @@
  },
  {
   "page": "P3-R01-F01-业务流程导航图.html",
-  "js_errors": [],
+  "js_errors": [
+   {
+    "type": "error",
+    "text": "Failed to load resource: net::ERR_CONNECTION_RESET"
+   },
+   {
+    "type": "error",
+    "text": "Failed to load resource: net::ERR_CONNECTION_RESET"
+   },
+   {
+    "type": "error",
+    "text": "Failed to load resource: net::ERR_CONNECTION_RESET"
+   }
+  ],
   "problems": [],
   "stats": {
    "buttons": 0,
-   "links": 91,
+   "links": 92,
    "onclickEls": 9,
    "modals": 0,
    "modalTitles": [],
@@ -1003,8 +1016,8 @@
   "problems": [],
   "stats": {
    "buttons": 1,
-   "links": 12,
-   "onclickEls": 60,
+   "links": 15,
+   "onclickEls": 63,
    "modals": 0,
    "modalTitles": [],
    "selects": 2,
@@ -1413,6 +1426,30 @@
   "nav_anomaly": null
  },
  {
+  "page": "租赁管理\\弹窗\\退租入库新建.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 2,
+   "links": 1,
+   "onclickEls": 3,
+   "modals": 1,
+   "modalTitles": [
+    "新建退租入库单(演示页)"
+   ],
+   "selects": 1,
+   "fakeSelects": 0,
+   "radios": 0,
+   "checkboxes": 0,
+   "inputs": 8,
+   "stabs": 0,
+   "tabs": 0,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
   "page": "租赁管理\\租入入库列表.html",
   "js_errors": [],
   "problems": [
@@ -1679,18 +1716,19 @@
    }
   ],
   "stats": {
-   "buttons": 7,
+   "buttons": 10,
    "links": 10,
-   "onclickEls": 43,
-   "modals": 2,
+   "onclickEls": 47,
+   "modals": 3,
    "modalTitles": [
-    "审核确认"
+    "审核确认",
+    "新建退租入库单"
    ],
-   "selects": 3,
+   "selects": 4,
    "fakeSelects": 0,
    "radios": 2,
    "checkboxes": 0,
-   "inputs": 13,
+   "inputs": 21,
    "stabs": 3,
    "tabs": 2,
    "bgMut": 0
@@ -1810,30 +1848,6 @@
    "fakeSelects": 0,
    "radios": 3,
    "checkboxes": 23,
-   "inputs": 0,
-   "stabs": 0,
-   "tabs": 0,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "系统管理\\弹窗\\角色管理.html",
-  "js_errors": [],
-  "problems": [],
-  "stats": {
-   "buttons": 2,
-   "links": 6,
-   "onclickEls": 3,
-   "modals": 1,
-   "modalTitles": [
-    "角色管理(演示页)"
-   ],
-   "selects": 0,
-   "fakeSelects": 0,
-   "radios": 0,
-   "checkboxes": 0,
    "inputs": 0,
    "stabs": 0,
    "tabs": 0,

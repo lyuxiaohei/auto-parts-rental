@@ -865,6 +865,71 @@ document.querySelectorAll('.tab').forEach(function (t) {
 
 
 
+
+
+
+<script>
+/* 供应商税率行编辑器（数据驱动：下拉源=DEMO_DATA.partners 类型=供应商；预填=DEMO_DATA.productTaxes） */
+(function () {
+  var SUPS = [];
+  try {
+    var P = (window.DEMO_DATA || {}).partners || {};
+    Object.keys(P).forEach(function (k) {
+      var f = (P[k].row || {}).fields || {};
+      if (f.type === '供应商') SUPS.push(f.name);
+    });
+  } catch (e) {}
+  function esc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
+  window.addTaxRow = function (sup, rate, cyc) {
+    var box = document.getElementById('taxEditRows');
+    if (!box) return;
+    var opts = SUPS.map(function (n) {
+      return '<option value="' + esc(n) + '"' + (n === sup ? ' selected' : '') + '>' + esc(n) + '</option>';
+    }).join('');
+    box.insertAdjacentHTML('beforeend',
+      '<div class="tax-edit-row">'
+      + '<span class="tax-cell"><select class="tax-sel">' + opts + '</select></span>'
+      + '<span class="tax-cell"><input class="tax-in" value="' + esc(rate || '13%') + '"></span>'
+      + '<span class="tax-cell"><input class="tax-in" value="' + esc(cyc || '月结 30 天') + '"></span>'
+      + '<span class="tax-cell" style="flex:0 0 44px;"><a href="javascript:void(0)" class="tax-del" onclick="removeTaxRow(this)">删除</a></span>'
+      + '</div>');
+  };
+  window.removeTaxRow = function (el) {
+    var row = el.closest('.tax-edit-row');
+    if (row && row.parentNode) row.parentNode.removeChild(row);
+  };
+  window.initTaxEdit = function (productKey) {
+    var box = document.getElementById('taxEditRows');
+    if (!box) return;
+    box.innerHTML = '';
+    var n = 0;
+    try {
+      var T = (window.DEMO_DATA || {}).productTaxes || {};
+      Object.keys(T).forEach(function (k) {
+        var f = (T[k].row || {}).fields || {};
+        if (!productKey || f.product === productKey) { window.addTaxRow(f.supplier, f.taxRate, f.settleCycle); n++; }
+      });
+    } catch (e) {}
+    if (n === 0) window.addTaxRow();
+  };
+  if (document.getElementById('taxEditRows')) initTaxEdit('WBX-1210L');
+  /* 供应商税率维护区列表（仅产品档案页有此节点）：按 productTaxes 渲染 */
+  var listBody = document.getElementById('taxRateBody');
+  if (listBody) {
+    var html = '';
+    try {
+      var T2 = (window.DEMO_DATA || {}).productTaxes || {};
+      Object.keys(T2).forEach(function (k) {
+        var f = (T2[k].row || {}).fields || {};
+        html += '<tr><td>' + esc(f.product) + '</td><td>' + esc(f.productName) + '</td><td>' + esc(f.cls) + '</td><td>' + esc(f.supplier) + '</td><td><span class="td-num">' + esc(f.taxRate) + '</span></td><td>' + esc(f.settleCycle) + '</td></tr>';
+      });
+    } catch (e) {}
+    listBody.innerHTML = html || '<tr><td colspan="6">—</td></tr>';
+  }
+})();
+</script>
+
+<script src="../_data/pc-auth.js"></script>
 <style id="proto-notes-style">
 body.proto-notes-on [data-note]{position:relative}
 body.proto-notes-on [data-note]::after{content:attr(data-note);position:absolute;top:1px;right:1px;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600;box-shadow:0 0 0 1.5px #fff;cursor:pointer;opacity:.75;transition:opacity .15s}
@@ -936,67 +1001,5 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply);else apply();
 })();
 </script>
-<script>
-/* 供应商税率行编辑器（数据驱动：下拉源=DEMO_DATA.partners 类型=供应商；预填=DEMO_DATA.productTaxes） */
-(function () {
-  var SUPS = [];
-  try {
-    var P = (window.DEMO_DATA || {}).partners || {};
-    Object.keys(P).forEach(function (k) {
-      var f = (P[k].row || {}).fields || {};
-      if (f.type === '供应商') SUPS.push(f.name);
-    });
-  } catch (e) {}
-  function esc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
-  window.addTaxRow = function (sup, rate, cyc) {
-    var box = document.getElementById('taxEditRows');
-    if (!box) return;
-    var opts = SUPS.map(function (n) {
-      return '<option value="' + esc(n) + '"' + (n === sup ? ' selected' : '') + '>' + esc(n) + '</option>';
-    }).join('');
-    box.insertAdjacentHTML('beforeend',
-      '<div class="tax-edit-row">'
-      + '<span class="tax-cell"><select class="tax-sel">' + opts + '</select></span>'
-      + '<span class="tax-cell"><input class="tax-in" value="' + esc(rate || '13%') + '"></span>'
-      + '<span class="tax-cell"><input class="tax-in" value="' + esc(cyc || '月结 30 天') + '"></span>'
-      + '<span class="tax-cell" style="flex:0 0 44px;"><a href="javascript:void(0)" class="tax-del" onclick="removeTaxRow(this)">删除</a></span>'
-      + '</div>');
-  };
-  window.removeTaxRow = function (el) {
-    var row = el.closest('.tax-edit-row');
-    if (row && row.parentNode) row.parentNode.removeChild(row);
-  };
-  window.initTaxEdit = function (productKey) {
-    var box = document.getElementById('taxEditRows');
-    if (!box) return;
-    box.innerHTML = '';
-    var n = 0;
-    try {
-      var T = (window.DEMO_DATA || {}).productTaxes || {};
-      Object.keys(T).forEach(function (k) {
-        var f = (T[k].row || {}).fields || {};
-        if (!productKey || f.product === productKey) { window.addTaxRow(f.supplier, f.taxRate, f.settleCycle); n++; }
-      });
-    } catch (e) {}
-    if (n === 0) window.addTaxRow();
-  };
-  if (document.getElementById('taxEditRows')) initTaxEdit('WBX-1210L');
-  /* 供应商税率维护区列表（仅产品档案页有此节点）：按 productTaxes 渲染 */
-  var listBody = document.getElementById('taxRateBody');
-  if (listBody) {
-    var html = '';
-    try {
-      var T2 = (window.DEMO_DATA || {}).productTaxes || {};
-      Object.keys(T2).forEach(function (k) {
-        var f = (T2[k].row || {}).fields || {};
-        html += '<tr><td>' + esc(f.product) + '</td><td>' + esc(f.productName) + '</td><td>' + esc(f.cls) + '</td><td>' + esc(f.supplier) + '</td><td><span class="td-num">' + esc(f.taxRate) + '</span></td><td>' + esc(f.settleCycle) + '</td></tr>';
-      });
-    } catch (e) {}
-    listBody.innerHTML = html || '<tr><td colspan="6">—</td></tr>';
-  }
-})();
-</script>
-
-<script src="../_data/pc-auth.js"></script>
 </body>
 </html>
