@@ -3,31 +3,86 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>A06 实体关系与状态机 · 渲染版 - 包装租赁管理后台</title>
+<title>A06 实体关系与状态机 - 包装租赁管理后台</title>
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
-body { font-family:"Microsoft YaHei","PingFang SC",sans-serif; background:#f5f7fa; color:#1f2329; padding:32px 16px 64px; }
-.wrap { max-width:1160px; margin:0 auto; }
-h1 { font-size:24px; color:#1677ff; margin-bottom:8px; }
-.meta { font-size:13px; color:#8c8c8c; margin-bottom:20px; line-height:1.7; }
-.legend { background:#fff; border-left:4px solid #1677ff; border-radius:8px; padding:14px 18px; font-size:13.5px; line-height:2; margin-bottom:26px; box-shadow:0 1px 4px rgba(0,0,0,.05); }
-.card { background:#fff; border-radius:10px; padding:22px 26px; margin-bottom:26px; box-shadow:0 1px 4px rgba(0,0,0,.05); }
-.card h2 { font-size:17px; color:#1677ff; margin-bottom:6px; }
-.card p { font-size:13px; color:#595959; margin-bottom:14px; line-height:1.7; }
-.mermaid { display:flex; justify-content:center; overflow-x:auto; padding:8px 0; }
-.footer { text-align:center; font-size:12px; color:#bfbfbf; margin-top:8px; }
+body { font-family:"Microsoft YaHei","PingFang SC",sans-serif; background:#f5f7fa; color:#1f2329; }
+.layout { display:flex; max-width:1380px; margin:0 auto; align-items:flex-start; }
+.toc { position:sticky; top:0; width:212px; flex:none; height:100vh; overflow-y:auto; padding:28px 10px 40px 18px; font-size:13px; }
+.toc-title { font-weight:700; color:#1677ff; margin-bottom:10px; font-size:14px; }
+.toc a { display:block; padding:5px 8px; color:#595959; text-decoration:none; border-left:2px solid transparent; border-radius:0 6px 6px 0; }
+.toc a.lv3 { padding-left:20px; font-size:12.5px; }
+.toc a:hover { color:#1677ff; background:#e8f1ff; border-left-color:#1677ff; }
+.main { flex:1; min-width:0; padding:32px 26px 72px; }
+h1 { font-size:23px; color:#1677ff; margin:6px 0 10px; }
+h2 { font-size:18px; color:#1677ff; margin:30px 0 10px; padding-bottom:6px; border-bottom:2px solid #e8f1ff; }
+h3 { font-size:15.5px; color:#1f2329; margin:20px 0 8px; }
+h4 { font-size:14px; margin:14px 0 6px; }
+p { font-size:13.5px; line-height:1.85; margin:8px 0; color:#333; }
+blockquote { background:#f0f7ff; border-left:4px solid #1677ff; border-radius:6px; padding:10px 14px; font-size:12.8px; color:#4a5568; line-height:1.8; margin:10px 0; }
+code { background:#eef1f5; border-radius:4px; padding:1px 5px; font-size:12.3px; font-family:Consolas,Menlo,monospace; color:#c7254e; }
+strong { color:#1f2329; }
+.tbl-wrap { overflow-x:auto; margin:10px 0 16px; border-radius:8px; box-shadow:0 1px 3px rgba(0,0,0,.06); }
+table { border-collapse:collapse; width:100%; background:#fff; font-size:12.8px; }
+th { background:#1677ff; color:#fff; font-weight:600; padding:8px 10px; text-align:left; white-space:nowrap; position:sticky; top:0; }
+td { padding:7px 10px; border-bottom:1px solid #eef1f5; line-height:1.6; vertical-align:top; }
+tbody tr:nth-child(even) { background:#fafbfd; }
+tbody tr:hover { background:#f0f7ff; }
+.mermaid { display:flex; justify-content:center; overflow-x:auto; background:#fff; border-radius:8px; padding:14px 8px; margin:10px 0 18px; box-shadow:0 1px 3px rgba(0,0,0,.06); }
+.rawcode { background:#1f2329; color:#e8eaed; border-radius:8px; padding:14px; overflow-x:auto; font-size:12.5px; margin:10px 0; }
+ul, ol { margin:8px 0 8px 22px; font-size:13.5px; line-height:1.9; color:#333; }
+.footer { text-align:center; font-size:12px; color:#bfbfbf; margin-top:36px; }
+@media (max-width:900px){ .toc{ display:none; } .main{ padding:20px 12px 60px; } }
 </style>
 </head>
 <body>
-<div class="wrap">
-<h1>P3-R01-A06 · 实体关系与状态机（渲染版）</h1>
-<div class="meta">V1.1（2026-09-11 · G16a 拆图版 · 道远拍板方案 A：1 底图 + 4 流程线）｜ 真值源=同名 .md（第 1-4 节：分域清单/29 条关系表/状态机/数据缺口）｜ 37 实体 · demo-data dump 实测</div>
-<div class="legend"><b>图例</b><br>- --> 实线＝1:N 数据外键（单号互引，括注=引用记录数证据） ｜ -.-> 虚线＝M:N / 视图 / 流程口径（数据层无外键） ｜ 灰色虚框节点＝跨图复现实体（真身见 5.1 或所属线图）</div>
-<div class="card">
-<h2>5.1 主档与仓储底图</h2>
+<div class="layout">
+<nav class="toc"><div class="toc-title">目录</div><a class="lv2" href="#1._实体分域清单_37_实体_">实体分域清单（37 实体）</a><a class="lv2" href="#2._核心关系表_29_条_·_逐条证据_">核心关系表（29 条 · 逐条证据）</a><a class="lv2" href="#3._状态机">状态机</a><a class="lv3" href="#3.1_单据审核流_全模块统一口径_·_术语表第四节_">1 单据审核流（全模块统一口径 · </a><a class="lv3" href="#3.2_库存状态_stockFlows_·_口径漂移注记_">2 库存状态（stockFlows </a><a class="lv3" href="#3.3_账单生命周期_四来源_分期收付_核销_">3 账单生命周期（四来源 → 分期收</a><a class="lv2" href="#4._数据缺口_与_A05_末节同源_·_5_条_">数据缺口（与 A05 末节同源 · </a><a class="lv2" href="#5._实体关系图_拆分版_·_2026-09-11_道远拍板方案_A_1_底图_">实体关系图（拆分版 · 2026-0</a><a class="lv3" href="#5.1_主档与仓储底图">1 主档与仓储底图</a><a class="lv3" href="#5.2_销售线">2 销售线</a><a class="lv3" href="#5.3_租赁线_租出_">3 租赁线（租出）</a><a class="lv3" href="#5.4_租入线">4 租入线</a><a class="lv3" href="#5.5_采购线">5 采购线</a></nav>
+<div class="main">
+<h1 id="P3-R01-A06_·_实体关系与状态机">P3-R01-A06 · 实体关系与状态机</h1>
+<blockquote><strong>版本</strong>：V1.1（2026-09-11 · G16a 拆图版：第 5 节单图拆为 1 底图+4 流程线·道远拍板方案 A·新增同名 HTML 渲染版 7 图）<br>原版 V1.0（2026-09-11 · G16 生成）<br><strong>统计</strong>：实体 37（demo-data 全量）｜ 关系 29 条（逐条带证据）｜ 状态机 3 组<br><strong>来源</strong>：<code>_data/demo-data.js</code> dump（<code>g16_data_dump.json</code>）互引扫描 + 页面消费关系；生成脚本 <code>_scan_tmpdir/g16_t3_gen.py</code>。<br><strong>姊妹篇</strong>：<code>P3-R01-A05-字段字典.md</code>（实体→字段级）；页面层演示见 <code>系统管理/数据字典.html</code>（仅 dictItems 子集）。</blockquote>
+<h2 id="1._实体分域清单_37_实体_">1. 实体分域清单（37 实体）</h2>
+<div class="tbl-wrap"><table><thead><tr><th>域</th><th>实体键</th><th>中文名</th><th>承载页面</th><th>行数</th></tr></thead><tbody><tr><td>基础资料</td><td><code>products</code></td><td>物料档案</td><td>基础数据/产品档案.html</td><td>12</td></tr><tr><td>基础资料</td><td><code>partners</code></td><td>客商</td><td>基础数据/客商管理.html</td><td>8</td></tr><tr><td>基础资料</td><td><code>locations</code></td><td>库位档案</td><td>基础数据/库位档案.html</td><td>11</td></tr><tr><td>基础资料</td><td><code>bomVersions</code></td><td>BOM 维护</td><td>基础数据/BOM维护.html</td><td>3</td></tr><tr><td>基础资料</td><td><code>bomList</code></td><td>BOM 列表</td><td>基础数据/BOM.html</td><td>6</td></tr><tr><td>基础资料</td><td><code>dictItems</code></td><td>数据字典项</td><td>系统管理/数据字典.html</td><td>45</td></tr><tr><td>项目管理</td><td><code>projects</code></td><td>项目档案</td><td>项目管理/项目档案.html</td><td>8</td></tr><tr><td>项目管理</td><td><code>projectDocs</code></td><td>项目详情</td><td>项目管理/项目详情.html</td><td>11</td></tr><tr><td>项目管理</td><td><code>boardRows</code></td><td>项目看板</td><td>首页/项目看板.html</td><td>6</td></tr><tr><td>采购</td><td><code>purchaseOrders</code></td><td>采购订单</td><td>采购管理/采购订单列表.html</td><td>7</td></tr><tr><td>采购</td><td><code>purchaseInbounds</code></td><td>采购入库</td><td>采购管理/采购入库列表.html</td><td>8</td></tr><tr><td>销售</td><td><code>salesOrders</code></td><td>销售订单</td><td>销售管理/销售订单列表.html</td><td>8</td></tr><tr><td>销售</td><td><code>salesOutbounds</code></td><td>销售出库</td><td>销售管理/销售出库列表.html</td><td>6</td></tr><tr><td>租赁·租出</td><td><code>leaseOrders</code></td><td>租赁单</td><td>租赁管理/租赁单列表.html</td><td>9</td></tr><tr><td>租赁·租出</td><td><code>comboOutbounds</code></td><td>租赁出库(组合出库)</td><td>租赁管理/组合出库列表.html</td><td>8</td></tr><tr><td>租赁·租出</td><td><code>returnInbounds</code></td><td>退租入库</td><td>租赁管理/退租入库列表.html</td><td>8</td></tr><tr><td>租赁·租出</td><td><code>rentTracks</code></td><td>出租履历</td><td>库存查询·出租履历弹窗</td><td>10</td></tr><tr><td>租赁·租入</td><td><code>rentInOrders</code></td><td>租入单</td><td>租赁管理/租入单列表.html</td><td>6</td></tr><tr><td>租赁·租入</td><td><code>rentInbounds</code></td><td>租入入库</td><td>租赁管理/租入入库列表.html</td><td>3</td></tr><tr><td>租赁·租入</td><td><code>rentInReturns</code></td><td>租入归还</td><td>租赁管理/租入归还列表.html</td><td>3</td></tr><tr><td>仓储</td><td><code>otherInbounds</code></td><td>其他入库</td><td>仓储作业/其他入库列表.html</td><td>3</td></tr><tr><td>仓储</td><td><code>otherOutbounds</code></td><td>其他出库</td><td>仓储作业/其他出库列表.html</td><td>5</td></tr><tr><td>仓储</td><td><code>stocktakes</code></td><td>盘点记录</td><td>仓储作业/盘点列表.html</td><td>5</td></tr><tr><td>仓储</td><td><code>transfers</code></td><td>库存调拨</td><td>仓储作业/库存调拨列表.html</td><td>3</td></tr><tr><td>仓储</td><td><code>stockFlows</code></td><td>库存查询</td><td>仓储作业/库存查询.html</td><td>16</td></tr><tr><td>仓储</td><td><code>assetTracks</code></td><td>资产轨迹</td><td>库存查询·资产轨迹弹窗</td><td>10</td></tr><tr><td>财务</td><td><code>payableBills</code></td><td>应付账单</td><td>财务协同/应付账单.html</td><td>11</td></tr><tr><td>财务</td><td><code>receivableBills</code></td><td>应收账单</td><td>财务协同/应收账单.html</td><td>14</td></tr><tr><td>财务</td><td><code>payments</code></td><td>付款登记</td><td>财务协同/付款登记.html</td><td>5</td></tr><tr><td>财务</td><td><code>receipts</code></td><td>回款登记</td><td>财务协同/回款登记.html</td><td>5</td></tr><tr><td>财务</td><td><code>invoices</code></td><td>开票登记</td><td>财务协同/开票登记.html</td><td>6</td></tr><tr><td>财务</td><td><code>writeoffs</code></td><td>银行水单核销</td><td>财务协同/银行水单核销.html</td><td>4</td></tr><tr><td>财务</td><td><code>profitRows</code></td><td>项目损益</td><td>财务协同/盈亏报表.html</td><td>6</td></tr><tr><td>系统</td><td><code>roles</code></td><td>角色</td><td>系统管理/角色管理.html</td><td>9</td></tr><tr><td>系统</td><td><code>users</code></td><td>用户</td><td>系统管理/用户权限.html</td><td>12</td></tr><tr><td>系统</td><td><code>opLogs</code></td><td>操作日志</td><td>系统管理/操作日志.html</td><td>12</td></tr><tr><td>系统</td><td><code>todoItems</code></td><td>我的待办</td><td>首页/我的待办</td><td>12</td></tr></tbody></table></div>
+<blockquote>建模约定（demo-data 头注）：<strong>单号即外键</strong>——实体间用单号互引不复制数据；<code>_key</code>（记录键）=单号/编码。</blockquote>
+<h2 id="2._核心关系表_29_条_·_逐条证据_">2. 核心关系表（29 条 · 逐条证据）</h2>
+<blockquote>证据类型：<code>数据</code>=dump 记录内单号/编码互引（括注引用记录数）；<code>页面</code>=页面列/弹窗/注记；关系方向 A→B=A 持 B 的引用。</blockquote>
+<div class="tbl-wrap"><table><thead><tr><th>#</th><th>关系</th><th>类型</th><th>证据</th></tr></thead><tbody><tr><td>1</td><td>projects ↔ partners（上下游绑定）</td><td>M:N</td><td>页面=上下游绑定.html 多选弹窗+项目档案绑定区+新建租入单/采购订单选项目→供应商候选=绑定集合（2026-09-11 落地）；<strong>数据层未落</strong>：projects 无 suppliers 字段（缺口 #4）</td></tr><tr><td>2</td><td>partners → products（供应商税率维护区）</td><td>1:N</td><td>数据=products 6/12 行带 supplier 名（苏州联恒/宁波华塑/常州正大）；名字外键（缺口 #3）</td></tr><tr><td>3</td><td>partners → purchaseOrders</td><td>1:N</td><td>数据=partners 3 条记录被 PO- 引用；purchaseOrders.fields.supplier=供应商名</td></tr><tr><td>4</td><td>partners → rentInOrders / payableBills</td><td>1:N</td><td>数据=payableBills.fields.supplier（11 行）；rentInOrders 供应商=路凯（A04 流程链 L3）</td></tr><tr><td>5</td><td>partners → leaseOrders / receivableBills（客户侧）</td><td>1:N</td><td>数据=leaseOrders.fields.customer=客户名（9 行）；receivableBills 客户维度——名字外键同缺口 #3</td></tr><tr><td>6</td><td>projects → leaseOrders / rentInOrders / purchaseOrders / salesOrders / stockFlows</td><td>1:N</td><td>数据=PRJ- 引用：leaseOrders 9/9、salesOrders 8/8、purchaseInbounds 8/8、payableBills 10/11、stockFlows fields.project、comboOutbounds 8/8、returnInbounds 8/8、salesOutbounds 6/6、assetTracks 8/10、profitRows 6/6（所属项目字段/筛选）</td></tr><tr><td>7</td><td>projects → boardRows（看板行=项目键直连）</td><td>1:1</td><td>数据=boardRows._key=PRJ-2601…（6 行=6 项目）</td></tr><tr><td>8</td><td>projects → projectDocs（项目详情档案）</td><td>1:N</td><td>数据=projectDocs 记录按 PRJ- 分组挂项目（11 行）</td></tr><tr><td>9</td><td>bomVersions → bomList（版本挂父项）</td><td>N:1</td><td>数据=bomVersions 3/3 条 info.父项编码=ZH-2601-A（V1.0/V2.0/V2.1）</td></tr><tr><td>10</td><td>bomList 自引用（父项⇄子项）</td><td>1:N</td><td>数据=组合件行 ZH-2601-A/B/C 子项=WBX-/PLT-/BTC- 编码；BOM 语义=父项由子项按配比组成（术语表第四节）</td></tr><tr><td>11</td><td>salesOrders → leaseOrders（代下租赁）</td><td>流程</td><td>页面/流程=订单唯一来源=项目经理代下销售订单（已拍板）；<strong>数据层无 SO- 外键</strong>（leaseOrders 0 行含 SO-）——流程口径非数据关系</td></tr><tr><td>12</td><td>salesOrders → purchaseOrders</td><td>N:M</td><td>数据=purchaseOrders 2 行含 SO-（销售联动采购）；页面=采购订单列表 so 筛选列</td></tr><tr><td>13</td><td>leaseOrders → comboOutbounds（租赁出库）</td><td>1:N</td><td>数据=comboOutbounds 8/8 行含 ZL-（关联租赁单）</td></tr><tr><td>14</td><td>leaseOrders → returnInbounds（退租入库）</td><td>1:N</td><td>数据=returnInbounds 8/8 行含 ZL-（TZRK- 单引 ZL-，按单退租）</td></tr><tr><td>15</td><td>rentInOrders → rentInbounds（租入入库）</td><td>1:N</td><td>数据=rentInbounds 3/3 行含 RZD-</td></tr><tr><td>16</td><td>rentInOrders → rentInReturns（租入归还）</td><td>1:N</td><td>数据=rentInReturns 3/3 行含 RZD-（关联租入单+明细同步+分批）</td></tr><tr><td>17</td><td>rentInOrders ↔ leaseOrders（客户转租）</td><td>N:M</td><td>数据=leaseOrders 2 行含 RZD-、rentInOrders 2 行含 ZL-；stockFlows XNC-ZZ-* 3 行状态=客户转租出（2026-09-10 转租演示线）</td></tr><tr><td>18</td><td>purchaseOrders → purchaseInbounds（采购入库）</td><td>1:N</td><td>数据=purchaseInbounds 8/8 行含 PO-（凭单验收）</td></tr><tr><td>19</td><td>salesOrders → salesOutbounds（销售出库）</td><td>1:N</td><td>数据=salesOutbounds 6/6 行含 SO-</td></tr><tr><td>20</td><td>purchaseOrders / rentInOrders / rentInReturns → payableBills（应付四来源）</td><td>1:N</td><td>数据=payableBills btype：采购应付 6/租金应付 2/赔付应付 1/对客户应付 1/预付 1；5 行含 PO-、3 行含 RZD-</td></tr><tr><td>21</td><td>salesOutbounds / comboOutbounds / 丢损 → receivableBills（应收四来源）</td><td>1:N</td><td>数据=receivableBills btype：租赁费 7/销售费 3（含 XSCK- 引用）/丢损赔偿 1/供应商应收 1/预付款 1/预收 1</td></tr><tr><td>22</td><td>payableBills → payments（付款分期）</td><td>1:N</td><td>数据=payments 5/5 行含 AP-（分期自由笔数）</td></tr><tr><td>23</td><td>receivableBills → receipts（收款分期）</td><td>1:N</td><td>数据=receipts 5 行含 AR-（4 记录级）</td></tr><tr><td>24</td><td>receivableBills → invoices（开票）</td><td>1:N</td><td>数据=invoices 6/6 行含 AR-</td></tr><tr><td>25</td><td>receivableBills / receipts → writeoffs（水单核销）</td><td>N:M</td><td>数据=writeoffs 3 行含 AR-；核销=收付款与账单多对多冲抵（银行水单核销页）</td></tr><tr><td>26</td><td>stocktakes → otherInbounds / otherOutbounds（盘盈亏生成其他出入库）</td><td>1:N</td><td>数据=otherInbounds 1 行含 PD-、otherOutbounds 1 行含 PD-（2026-09-11 盘点联动；关联单据列）</td></tr><tr><td>27</td><td>locations → stockFlows（客户虚拟仓）</td><td>1:N</td><td>数据=stockFlows XNC-* 4 行键=库位编码 XNC-AJZX（客户在租按客户归集 on-hire 口径）</td></tr><tr><td>28</td><td>todoItems → 全单据（审核待办）</td><td>N:1</td><td>数据=todoItems 12 行 docNo 弱引用 SO-/PO-/ZL-/RZD-/TZRK- 等单号+auditor 审核人；我的待办审核人筛选（G13）</td></tr><tr><td>29</td><td>rentTracks / assetTracks → leaseOrders / projects / products（履历视图）</td><td>视图</td><td>数据=rentTracks 10 行含 ZL-/PRJ-；assetTracks 8/10 含 PRJ-——聚合视图实体，非独立业务对象</td></tr></tbody></table></div>
+<h2 id="3._状态机">3. 状态机</h2>
+<h3 id="3.1_单据审核流_全模块统一口径_·_术语表第四节_">3.1 单据审核流（全模块统一口径 · 术语表第四节）</h3>
+<pre class="mermaid">stateDiagram-v2
+    [*] --&gt; 待提交
+    待提交 --&gt; 待审核: 提交
+    待审核 --&gt; 待发货: 审核通过
+    待审核 --&gt; [*]: 驳回
+    待发货 --&gt; 已完成: 执行完成
+    已完成 --&gt; 已关闭: 关闭</pre>
+<blockquote>各单据在统一骨架上有<strong>执行态变体</strong>（数据实测枚举）：</blockquote>
+<div class="tbl-wrap"><table><thead><tr><th>实体</th><th>实测状态枚举（dump 全量）</th></tr></thead><tbody><tr><td><code>salesOrders</code> 销售订单</td><td>待发货 / 待审核 / 已审核 / 已完成 / 已关闭</td></tr><tr><td><code>purchaseOrders</code> 采购订单</td><td>待审核 / 已审核 / 已完成 / 已关闭</td></tr><tr><td><code>leaseOrders</code> 租赁单</td><td>已退租 / 待审核 / 已审核 / 在租 / 已关闭</td></tr><tr><td><code>rentInOrders</code> 租入单</td><td>履行中 / 部分归还 / 待审核 / 已归还 / 已终止 / 新建(草稿)</td></tr><tr><td><code>comboOutbounds</code> 租赁出库(组合出库)</td><td>已出库 / 拣货中</td></tr><tr><td><code>salesOutbounds</code> 销售出库</td><td>待审核 / 已完成</td></tr><tr><td><code>purchaseInbounds</code> 采购入库</td><td>已入库 / 待验收</td></tr><tr><td><code>rentInbounds</code> 租入入库</td><td>已入库 / 待入库</td></tr><tr><td><code>returnInbounds</code> 退租入库</td><td>待审核 / 已入库</td></tr><tr><td><code>rentInReturns</code> 租入归还</td><td>已归还 / 待审核</td></tr><tr><td><code>otherInbounds</code> 其他入库</td><td>待审核 / 已入库</td></tr><tr><td><code>otherOutbounds</code> 其他出库</td><td>已出库 / 待审核 / 已完成</td></tr><tr><td><code>stocktakes</code> 盘点记录</td><td>盘点中 / 待审核 / 已完成</td></tr><tr><td><code>transfers</code> 库存调拨</td><td>待审核 / 已完成</td></tr><tr><td><code>payments</code> 付款登记</td><td>待确认 / 已确认</td></tr><tr><td><code>receipts</code> 回款登记</td><td>待核销 / 部分核销 / 已核销</td></tr><tr><td><code>invoices</code> 开票登记</td><td>已红冲 / 已登记 / 停用</td></tr><tr><td><code>writeoffs</code> 银行水单核销</td><td>部分核销 / 已核销</td></tr><tr><td><code>payableBills</code> 应付账单</td><td>未付款 / 已付款 / 部分付款</td></tr><tr><td><code>receivableBills</code> 应收账单</td><td>未开票 / 已结清 / 已收 / 部分收款</td></tr></tbody></table></div>
+<blockquote>档案类启停：products/partners/locations/bomList=启用/停用；projects=筹备中/进行中/已暂停/已完结。</blockquote>
+<h3 id="3.2_库存状态_stockFlows_·_口径漂移注记_">3.2 库存状态（stockFlows · 口径漂移注记）</h3>
+<div class="tbl-wrap"><table><thead><tr><th>层</th><th>枚举</th><th>出处</th></tr></thead><tbody><tr><td><strong>数据实测</strong>（16 行）</td><td>在库 / 客户端(租出) / 客户转租出 / 退租待入库</td><td>dump fields.status（ZH-* 组合行 3 行无状态）</td></tr><tr><td><strong>页面筛选</strong></td><td>全部 / 在库 / 客户端(租出) / 客户转租出 / 退租待入库</td><td>仓储作业/库存查询.html 筛选 select</td></tr><tr><td><strong>历史口径</strong>（09-08 五态）</td><td>在库 / 在途(退租未审核) / 客户端(租出) / 退租库存 / 租入</td><td>会议拍板（已拍板不复议区）</td></tr></tbody></table></div>
+<blockquote><strong>漂移结论</strong>（G16 实测）：①「在途(退租未审核)」在数据层现名「退租待入库」（同义改名未回写会议口径）；②「退租库存」「租入」两态<strong>无演示行</strong>（缺口 #5）；③「客户转租出」为 09-10 转租演示新增态（会议口径之后产生）。09-11 已拍板<strong>去数量词</strong>（四态/五态字样全站清零 016ac01），口径=「库存状态」不带数字。</blockquote>
+<h3 id="3.3_账单生命周期_四来源_分期收付_核销_">3.3 账单生命周期（四来源 → 分期收付 → 核销）</h3>
+<pre class="mermaid">flowchart LR
+    subgraph 应付侧
+    PO[采购订单] &amp; RZ[租入单/归还] --&gt; AP[应付账单·未付款]
+    AP --&gt;|部分付款| AP2[部分付款] --&gt;|付清| AP3[已付款]
+    AP --&gt; PM[付款登记·分期多笔]
+    end
+    subgraph 应收侧
+    SO[销售/租赁出库] --&gt; AR[应收账单·未开票/部分收款]
+    AR --&gt;|收清| AR2[已结清/已收]
+    AR --&gt; RC[回款登记] --&gt; WO[水单核销·已核销/部分核销]
+    AR --&gt; IV[开票登记·已登记/已红冲]
+    end</pre>
+<h2 id="4._数据缺口_与_A05_末节同源_·_5_条_">4. 数据缺口（与 A05 末节同源 · 5 条）</h2>
+<ol><li><strong>采购订单实体无 project 字段</strong>——列表页有「所属项目」筛选+M:N 联动，数据层缺投影字段。</li><li><strong>stockFlows 无供应商维度</strong>——租入在库无法按供应商查；路凯对账需补 supplier 字段。</li><li><strong>partners 引用为公司名字符串</strong>非 DW-xxx 编码——演示层名字匹配，正式版须改编码外键。</li><li><strong>上下游 M:N 绑定未落数据层</strong>（G16 实测）——绑定弹窗 0 处 DEMO_DATA 引用、projects 无 suppliers 字段；正式版须建关系表。</li><li><strong>库存「租入」「退租库存」两态无演示行</strong>（G16 实测）——含 3.2 节口径漂移三条。</li></ol>
+<h2 id="5._实体关系图_拆分版_·_2026-09-11_道远拍板方案_A_1_底图_">5. 实体关系图（拆分版 · 2026-09-11 道远拍板方案 A：1 底图 + 4 流程线）</h2>
+<blockquote><strong>图例</strong>：- <code>--&gt;</code> 实线＝1:N 数据外键（单号互引，括注=引用记录数证据） ｜ <code>-.-&gt;</code> 虚线＝M:N / 视图 / 流程口径（数据层无外键） ｜ 灰色虚框节点＝跨图复现实体（真身见 5.1 或所属线图）</blockquote>
+<blockquote><strong>浏览器阅读</strong>：全文渲染版 <code>P3-R01-A06-实体关系与状态机.html</code>（原型根目录·双击打开·本档全部章节+表格+7 图·内嵌 mermaid 离线可用·重跑脚本 <code>_scan_tmpdir/g16a_render.py</code>·md 仍为真值源）</blockquote>
+<h3 id="5.1_主档与仓储底图">5.1 主档与仓储底图</h3>
 <p>全站静态结构：主档域 + 仓储库存域。系统域（roles/users/opLogs/todoItems/dictItems）与履历视图（rentTracks/assetTracks/projectDocs/boardRows/profitRows）不入图，见第 1 节分域清单。</p>
-<pre class="mermaid">
-flowchart LR
+<pre class="mermaid">flowchart LR
   subgraph MASTER["主档域"]
     PROJECTS["projects·项目档案 (8)"]
     PARTNERS["partners·客商 (8)"]
@@ -43,22 +98,18 @@ flowchart LR
     OOUT["otherOutbounds·其他出库 (5)"]
     TRF["transfers·库存调拨 (3)"]
   end
-  PROJECTS <-."M:N 上下游绑定（未落数据层·缺口#4）".-> PARTNERS
-  PARTNERS -->|"供应商维护（名字外键·缺口#3）"| PRODUCTS
-  BOMLIST -->|"父项⇄子项 自引用"| BOMLIST
-  BOMVER -->|"版本挂父项 ZH-（3/3）"| BOMLIST
-  LOCATIONS -->|"客户虚拟仓 XNC-（4 行）"| STOCK
-  STK -->|"盘盈生成（PD-）"| OIN
-  STK -->|"盘亏生成（PD-）"| OOUT
+  PROJECTS &lt;-."M:N 上下游绑定（未落数据层·缺口#4）".-&gt; PARTNERS
+  PARTNERS --&gt;|"供应商维护（名字外键·缺口#3）"| PRODUCTS
+  BOMLIST --&gt;|"父项⇄子项 自引用"| BOMLIST
+  BOMVER --&gt;|"版本挂父项 ZH-（3/3）"| BOMLIST
+  LOCATIONS --&gt;|"客户虚拟仓 XNC-（4 行）"| STOCK
+  STK --&gt;|"盘盈生成（PD-）"| OIN
+  STK --&gt;|"盘亏生成（PD-）"| OOUT
   classDef gray fill:#f5f5f5,stroke:#bfbfbf,stroke-dasharray:4 3,color:#8c8c8c;
-  class PROJECTS,PARTNERS anchor;
-</pre>
-</div>
-<div class="card">
-<h2>5.2 销售线</h2>
+  class PROJECTS,PARTNERS anchor;</pre>
+<h3 id="5.2_销售线">5.2 销售线</h3>
 <p>销售订单 → 出库 → 应收 → 收款/开票/核销。灰节点=跨图复现（真身见 5.1 / 5.5）。</p>
-<pre class="mermaid">
-flowchart LR
+<pre class="mermaid">flowchart LR
   SO["salesOrders·销售订单 (8)"]
   XSC["salesOutbounds·销售出库 (6)"]
   AR["receivableBills·应收账单 (14)"]
@@ -69,24 +120,20 @@ flowchart LR
   PO0["purchaseOrders·采购订单"]
   PG["projects〔复现〕"]
   CUG["partners·客户〔复现〕"]
-  SO -->|"出库（6/6 含 SO-）"| XSC
-  XSC -->|"销售费应收（XSCK-·3 行）"| AR
-  AR -->|"收款分期（AR-）"| RC
-  AR -->|"开票（AR-·6/6）"| IV
-  AR <-."核销冲抵（3 行 AR-）".-> WO
-  SO -. "代下租赁（流程口径·无外键）" .-> ZL0
-  SO -. "联动采购（2 行 SO-）" .-> PO0
+  SO --&gt;|"出库（6/6 含 SO-）"| XSC
+  XSC --&gt;|"销售费应收（XSCK-·3 行）"| AR
+  AR --&gt;|"收款分期（AR-）"| RC
+  AR --&gt;|"开票（AR-·6/6）"| IV
+  AR &lt;-."核销冲抵（3 行 AR-）".-&gt; WO
+  SO -. "代下租赁（流程口径·无外键）" .-&gt; ZL0
+  SO -. "联动采购（2 行 SO-）" .-&gt; PO0
   PG -. "所属项目（8/8）" .- SO
   CUG -. "客户（名字外键）" .- SO
   classDef gray fill:#f5f5f5,stroke:#bfbfbf,stroke-dasharray:4 3,color:#8c8c8c;
-  class ZL0,PO0,PG,CUG gray;
-</pre>
-</div>
-<div class="card">
-<h2>5.3 租赁线（租出）</h2>
+  class ZL0,PO0,PG,CUG gray;</pre>
+<h3 id="5.3_租赁线_租出_">5.3 租赁线（租出）</h3>
 <p>租赁单 → 租赁出库 / 退租入库 + 客户转租（与租入线 M:N）。灰节点=跨图复现。</p>
-<pre class="mermaid">
-flowchart LR
+<pre class="mermaid">flowchart LR
   ZL["leaseOrders·租赁单 (9)"]
   ZUC["comboOutbounds·租赁出库/组合出库 (8)"]
   TUI["returnInbounds·退租入库 (8)"]
@@ -96,23 +143,19 @@ flowchart LR
   RZD0["rentInOrders·租入单〔复现〕"]
   PG["projects〔复现〕"]
   CUG["partners·客户〔复现〕"]
-  ZL -->|"租赁出库（8/8 ZL-）"| ZUC
-  ZL -->|"退租入库（8/8 TZRK→ZL-）"| TUI
-  ZUC -->|"租赁费应收（7 行）"| AR0
-  ZL <-."客户转租（XNC-ZZ 3 行）".-> RZD0
-  RT -. "履历视图聚合" .-> ZL
-  AT -. "资产轨迹视图" .-> ZL
+  ZL --&gt;|"租赁出库（8/8 ZL-）"| ZUC
+  ZL --&gt;|"退租入库（8/8 TZRK→ZL-）"| TUI
+  ZUC --&gt;|"租赁费应收（7 行）"| AR0
+  ZL &lt;-."客户转租（XNC-ZZ 3 行）".-&gt; RZD0
+  RT -. "履历视图聚合" .-&gt; ZL
+  AT -. "资产轨迹视图" .-&gt; ZL
   PG -. "所属项目（9/9）" .- ZL
   CUG -. "客户（名字外键）" .- ZL
   classDef gray fill:#f5f5f5,stroke:#bfbfbf,stroke-dasharray:4 3,color:#8c8c8c;
-  class AR0,RZD0,PG,CUG gray;
-</pre>
-</div>
-<div class="card">
-<h2>5.4 租入线</h2>
+  class AR0,RZD0,PG,CUG gray;</pre>
+<h3 id="5.4_租入线">5.4 租入线</h3>
 <p>租入单 → 入库 / 归还 → 应付 → 付款。灰节点=跨图复现。</p>
-<pre class="mermaid">
-flowchart LR
+<pre class="mermaid">flowchart LR
   RZD["rentInOrders·租入单 (6)"]
   ZR["rentInbounds·租入入库 (3)"]
   GH["rentInReturns·租入归还 (3)"]
@@ -120,22 +163,18 @@ flowchart LR
   PM["payments·付款登记 (5)"]
   ZL0["leaseOrders·租赁单〔复现〕"]
   SG["partners·供应商（路凯）〔复现〕"]
-  RZD -->|"租入入库（3/3 RZD-）"| ZR
-  RZD -->|"租入归还（3/3 RZD-·明细同步分批）"| GH
-  RZD -->|"租金应付（2 行 RZD-）"| AP
-  GH -->|"赔付应付"| AP
-  AP -->|"付款分期（5/5 AP-·自由笔数）"| PM
-  RZD -. "转租出（2 行 ZL-）" .-> ZL0
+  RZD --&gt;|"租入入库（3/3 RZD-）"| ZR
+  RZD --&gt;|"租入归还（3/3 RZD-·明细同步分批）"| GH
+  RZD --&gt;|"租金应付（2 行 RZD-）"| AP
+  GH --&gt;|"赔付应付"| AP
+  AP --&gt;|"付款分期（5/5 AP-·自由笔数）"| PM
+  RZD -. "转租出（2 行 ZL-）" .-&gt; ZL0
   SG -. "供应商（名字外键）" .- RZD
   classDef gray fill:#f5f5f5,stroke:#bfbfbf,stroke-dasharray:4 3,color:#8c8c8c;
-  class ZL0,SG gray;
-</pre>
-</div>
-<div class="card">
-<h2>5.5 采购线</h2>
+  class ZL0,SG gray;</pre>
+<h3 id="5.5_采购线">5.5 采购线</h3>
 <p>采购订单 → 采购入库 → 应付 → 付款（尾段复现 5.4）。灰节点=跨图复现。</p>
-<pre class="mermaid">
-flowchart LR
+<pre class="mermaid">flowchart LR
   PO["purchaseOrders·采购订单 (7)"]
   CGR["purchaseInbounds·采购入库 (8)"]
   AP0["payableBills·应付账单〔复现 5.4〕"]
@@ -143,49 +182,17 @@ flowchart LR
   SO0["salesOrders·销售订单〔复现 5.2〕"]
   PG["projects〔复现〕"]
   SG["partners·供应商〔复现〕"]
-  PO -->|"采购入库（8/8 PO-·凭单验收）"| CGR
-  PO -. "采购应付（5 行 PO-）" .-> AP0
-  AP0 -. "付款分期" .-> PM0
-  PO <-. "联动采购（2 行 SO-）" .- SO0
+  PO --&gt;|"采购入库（8/8 PO-·凭单验收）"| CGR
+  PO -. "采购应付（5 行 PO-）" .-&gt; AP0
+  AP0 -. "付款分期" .-&gt; PM0
+  PO &lt;-. "联动采购（2 行 SO-）" .- SO0
   PG -. "所属项目（数据缺列·缺口#1）" .- PO
   SG -. "供应商（名字外键）" .- PO
   classDef gray fill:#f5f5f5,stroke:#bfbfbf,stroke-dasharray:4 3,color:#8c8c8c;
-  class AP0,PM0,SO0,PG,SG gray;
-</pre>
-</div>
-<div class="card">
-<h2>3.1 单据审核流（全模块统一口径）</h2>
-<p>术语表第四节定版：待提交→待审核→待发货→已完成；各单据执行态变体见 3.1 附表。</p>
-<pre class="mermaid">
-stateDiagram-v2
-    [*] --> 待提交
-    待提交 --> 待审核: 提交
-    待审核 --> 待发货: 审核通过
-    待审核 --> [*]: 驳回
-    待发货 --> 已完成: 执行完成
-    已完成 --> 已关闭: 关闭
-</pre>
-</div>
-<div class="card">
-<h2>3.3 账单生命周期（四来源 → 分期收付 → 核销）</h2>
-<p>应付侧与应收侧各自的单据→账单→收付→核销链。</p>
-<pre class="mermaid">
-flowchart LR
-    subgraph AP["应付侧"]
-    PO["采购订单"] & RZ["租入单/归还"] --> APB["应付账单·未付款"]
-    APB -->|部分付款| APB2["部分付款"] -->|付清| APB3["已付款"]
-    APB --> PM["付款登记·分期多笔"]
-    end
-    subgraph AR["应收侧"]
-    SX["销售/租赁出库"] --> ARB["应收账单·未开票/部分收款"]
-    ARB -->|收清| ARB2["已结清/已收"]
-    ARB --> RC["回款登记"] --> WO["水单核销·已核销/部分核销"]
-    ARB --> IV["开票登记·已登记/已红冲"]
-    end
-</pre>
-</div>
-<div class="footer">P3-R01-包装租赁管理后台原型 · A06 渲染版 · mermaid 10.9 内嵌（file:// 离线可用）</div>
-</div>
+  class AP0,PM0,SO0,PG,SG gray;</pre>
+<blockquote>跨线关系速查：销售⇄采购（联动采购 2 行 SO-）｜租赁⇄租入（客户转租 XNC-ZZ 3 行）｜盘点⇄其他出入库（盈亏生成）——均为虚线口径，证据详见第 2 节关系表 #12/#17/#24。</blockquote>
+<div class="footer">P3-R01-包装租赁管理后台原型 · A06 全文渲染版 · 真值源=同名 .md · mermaid 10.9 内嵌（file:// 离线可用）· 重跑脚本 _scan_tmpdir/g16a_render.py</div>
+</div></div>
 <script>
 (function(JM,Ag){typeof exports=="object"&&typeof module<"u"?module.exports=Ag():typeof define=="function"&&define.amd?define(Ag):(JM=typeof globalThis<"u"?globalThis:JM||self,JM.mermaid=Ag())})(this,function(){var FWe,RWe;"use strict";function JM(i){for(var s=[],u=1;u<arguments.length;u++)s[u-1]=arguments[u];var d=Array.from(typeof i=="string"?[i]:i);d[d.length-1]=d[d.length-1].replace(/\r?\n([\t ]*)$/,"");var p=d.reduce(function(y,T){var _=T.match(/\n([\t ]+|(?!\s).)/g);return _?y.concat(_.map(function(A){var P,R;return(R=(P=A.match(/[\t ]/g))===null||P===void 0?void 0:P.length)!==null&&R!==void 0?R:0})):y},[]);if(p.length){var v=new RegExp(`
 [	 ]{`+Math.min.apply(Math,p)+"}","g");d=d.map(function(y){return y.replace(v,`
