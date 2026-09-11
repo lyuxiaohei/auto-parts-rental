@@ -1,0 +1,26 @@
+=== C. demo-data 形态 ===
+  实体键 combOutbound 类: 1
+  'type': "组合出库": 0
+  'type': '组合出库': 0
+  组合出库单（词）: 17
+  go 链接 组合出库: 49
+  组合出库录单.html: 0
+  实体键: comboOutbounds
+  实体键: salesOutbounds
+  实体键: otherOutbounds
+=== D. 组合出库列表页 ===
+  title: 租赁出库 - 包装租赁管理后台
+  h1: []
+  审核 ops 存在: True
+  auditModal 存在: False
+  实体键(renderListPage): ["renderListPage({\n  entity: 'comboOutbounds',\n  stabs: true,\n  filters: [\n    { label: '出库单号', f"]
+  页面头注释: ['<!-- 弹窗已提取到 弹窗/组合出库确认.html，构建时注入 -->', '<!-- 详情弹窗（四段式）· 骨架化 · 详情弹窗数据驱动 2026-09-08 -->']
+=== E. 「租入-路凯/租入-XX」形态分布 ===
+  _data/demo-data.js: 22 ['租入-路凯', "租入-路凯'"]
+  P3-R01-A04-流程链标注数据.json: 3 ['租入-路凯', '租入-路凯围板箱×30']
+  仓储作业/库存查询.html: 1 ['租入-路凯']
+  基础数据/BOM.html: 3 ['租入-路凯']
+  基础数据/产品档案.html: 2 ['租入-路凯']
+  租赁管理/租赁单列表.html: 5 ['租入-路凯', '租入-路凯围板箱×30']
+  租赁管理/退租入库列表.html: 2 ['租入-路凯']
+  合计 38
