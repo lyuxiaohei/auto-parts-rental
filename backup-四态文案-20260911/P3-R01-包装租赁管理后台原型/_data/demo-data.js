@@ -9683,7 +9683,7 @@ window.DEMO_DATA = {
 
   /* -------------------------------------------------------------------------- */
   /* 库存流水 stockFlows：键 = 物料编码（仓储作业/库存查询.html 散件 9 + 组合件 3） */
-  /* 弹窗 flowModal · 触发锚「库存流水」；状态口径 + 进出流水时间倒序 */
+  /* 弹窗 flowModal · 触发锚「库存流水」；四态口径 + 进出流水时间倒序 */
   stockFlows: {
      'XNC-AJZX-WBX': {
       'row': {"fields": {"status": "客户端(租出)", "name": "围板箱 1200×1000×970（安吉智行·客户虚拟仓）", "cls": "租赁器具", "project": "PRJ-2605", "area": "安吉智行·客户虚拟仓"}, "cells": ["围板箱 1200×1000×970（安吉智行·客户虚拟仓）", "<span class=\"tag tag-blue\">租赁器具</span>", "PRJ-2605", "<span class=\"td-num\">0</span>", "<span class=\"td-num\">0</span>", "<span class=\"td-num\">640</span>", "<span class=\"td-num\">0</span>", "<span class=\"td-num\"><b>640</b></span>", "<span class=\"td-num\">340.00</span>", "只", "安吉智行·客户虚拟仓"], "ops": [{"t": "库存流水", "detail": true}, {"t": "客户在租", "act": "openModal('rentDrillModal')"}]},
@@ -12249,7 +12249,7 @@ window.DEMO_DATA = {
         },
         {
           'role': '库存查询·客户在租',
-          'name': '状态统计',
+          'name': '四态统计',
           'url': '仓储作业/库存查询.html'
         }
       ],
@@ -12335,7 +12335,7 @@ window.DEMO_DATA = {
         },
         {
           'role': '库存查询·客户在租',
-          'name': '状态统计',
+          'name': '四态统计',
           'url': '仓储作业/库存查询.html'
         }
       ],
@@ -12502,7 +12502,7 @@ window.DEMO_DATA = {
         },
         {
           'role': '库存查询·客户在租',
-          'name': '状态统计',
+          'name': '四态统计',
           'url': '仓储作业/库存查询.html'
         }
       ],
@@ -12595,7 +12595,7 @@ window.DEMO_DATA = {
         },
         {
           'role': '库存查询·客户在租',
-          'name': '状态统计',
+          'name': '四态统计',
           'url': '仓储作业/库存查询.html'
         }
       ],
@@ -12680,7 +12680,7 @@ window.DEMO_DATA = {
         },
         {
           'role': '库存查询·客户在租',
-          'name': '状态统计',
+          'name': '四态统计',
           'url': '仓储作业/库存查询.html'
         }
       ],
@@ -13601,7 +13601,7 @@ window.DEMO_DATA = {
           'text': '2026-01-06'
         }
       ],
-      'feeSecTitle': '在租状态（库存状态口径）',
+      'feeSecTitle': '在租状态（库存四态口径）',
       'feeCols': ['在租', '待归还（超期）', '平均循环', '平均租期', '台账'],
       'fees': [
         {
@@ -13624,7 +13624,7 @@ window.DEMO_DATA = {
         },
         {
           'role': '库存查询·客户在租',
-          'name': '状态统计 + 资产轨迹',
+          'name': '四态统计 + 资产轨迹',
           'url': '仓储作业/库存查询.html'
         }
       ],
@@ -13688,7 +13688,7 @@ window.DEMO_DATA = {
           'text': '2026-01-06'
         }
       ],
-      'feeSecTitle': '在租状态（库存状态口径）',
+      'feeSecTitle': '在租状态（库存四态口径）',
       'feeCols': ['在租', '待归还（超期）', '平均循环', '平均租期', '台账'],
       'fees': [
         {
@@ -13711,7 +13711,7 @@ window.DEMO_DATA = {
         },
         {
           'role': '库存查询·客户在租',
-          'name': '状态统计',
+          'name': '四态统计',
           'url': '仓储作业/库存查询.html'
         }
       ],
@@ -13771,7 +13771,7 @@ window.DEMO_DATA = {
           'text': '2026-02-11'
         }
       ],
-      'feeSecTitle': '在租状态（库存状态口径）',
+      'feeSecTitle': '在租状态（库存四态口径）',
       'feeCols': ['在租', '待归还（超期）', '平均循环', '平均租期', '台账'],
       'fees': [
         {
@@ -13850,7 +13850,7 @@ window.DEMO_DATA = {
           'text': '2026-02-11'
         }
       ],
-      'feeSecTitle': '在租状态（库存状态口径）',
+      'feeSecTitle': '在租状态（库存四态口径）',
       'feeCols': ['在租', '待归还（超期）', '平均循环', '平均租期', '台账'],
       'fees': [
         {
@@ -13873,7 +13873,7 @@ window.DEMO_DATA = {
         },
         {
           'role': '库存查询·客户在租',
-          'name': '状态统计',
+          'name': '四态统计',
           'url': '仓储作业/库存查询.html'
         }
       ],
@@ -13933,7 +13933,7 @@ window.DEMO_DATA = {
           'text': '2026-03-02'
         }
       ],
-      'feeSecTitle': '在租状态（库存状态口径）',
+      'feeSecTitle': '在租状态（库存四态口径）',
       'feeCols': ['在租', '待归还（超期）', '平均循环', '平均租期', '台账'],
       'fees': [
         {
@@ -14007,7 +14007,7 @@ window.DEMO_DATA = {
           'text': '2026-03-02'
         }
       ],
-      'feeSecTitle': '在租状态（库存状态口径）',
+      'feeSecTitle': '在租状态（库存四态口径）',
       'feeCols': ['在租', '待归还（超期）', '平均循环', '平均租期', '台账'],
       'fees': [
         {
@@ -14030,7 +14030,7 @@ window.DEMO_DATA = {
         },
         {
           'role': '库存查询·客户在租',
-          'name': '状态统计',
+          'name': '四态统计',
           'url': '仓储作业/库存查询.html'
         }
       ],
@@ -14700,7 +14700,7 @@ window.DEMO_DATA = {
         },
         {
           'label': '库存容量',
-          'text': '以库存状态口径管理',
+          'text': '以库存四态口径管理',
           'full': true
         }
       ],
@@ -14782,7 +14782,7 @@ window.DEMO_DATA = {
         },
         {
           'label': '库存容量',
-          'text': '以库存状态口径管理',
+          'text': '以库存四态口径管理',
           'full': true
         }
       ],
@@ -14857,7 +14857,7 @@ window.DEMO_DATA = {
         },
         {
           'label': '库存容量',
-          'text': '以库存状态口径管理',
+          'text': '以库存四态口径管理',
           'full': true
         }
       ],
@@ -14926,7 +14926,7 @@ window.DEMO_DATA = {
         },
         {
           'label': '库存容量',
-          'text': '以库存状态口径管理',
+          'text': '以库存四态口径管理',
           'full': true
         }
       ],
@@ -15005,7 +15005,7 @@ window.DEMO_DATA = {
         },
         {
           'label': '库存容量',
-          'text': '以库存状态口径管理',
+          'text': '以库存四态口径管理',
           'full': true
         }
       ],
@@ -15080,7 +15080,7 @@ window.DEMO_DATA = {
         },
         {
           'label': '库存容量',
-          'text': '以库存状态口径管理',
+          'text': '以库存四态口径管理',
           'full': true
         }
       ],
@@ -15154,7 +15154,7 @@ window.DEMO_DATA = {
         },
         {
           'label': '库存容量',
-          'text': '以库存状态口径管理',
+          'text': '以库存四态口径管理',
           'full': true
         }
       ],
@@ -15227,7 +15227,7 @@ window.DEMO_DATA = {
         },
         {
           'label': '库存容量',
-          'text': '以库存状态口径管理',
+          'text': '以库存四态口径管理',
           'full': true
         }
       ],
@@ -15296,7 +15296,7 @@ window.DEMO_DATA = {
         },
         {
           'label': '库存容量',
-          'text': '以库存状态口径管理',
+          'text': '以库存四态口径管理',
           'full': true
         }
       ],
@@ -15370,7 +15370,7 @@ window.DEMO_DATA = {
         },
         {
           'label': '库存容量',
-          'text': '以库存状态口径管理',
+          'text': '以库存四态口径管理',
           'full': true
         }
       ],

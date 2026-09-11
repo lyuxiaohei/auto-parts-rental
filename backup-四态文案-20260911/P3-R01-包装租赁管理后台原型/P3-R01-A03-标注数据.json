@@ -376,7 +376,7 @@
   "仓储作业/库存查询.html": [
     {
       "id": 1,
-      "selector": "<h3 class=\"card-title\">库存状态查询</h3>",
+      "selector": "<h3 class=\"card-title\">库存四态查询</h3>",
       "title": "库存双视角查询",
       "note": "零件视角 / 组合视角切换——本次新增能力",
       "fp": "FP3-06",

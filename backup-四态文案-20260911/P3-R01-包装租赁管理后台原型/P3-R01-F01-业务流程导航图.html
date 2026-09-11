@@ -109,7 +109,7 @@
     <a href="仓储作业/库存查询.html">
       <rect x="352" y="116" width="140" height="56" rx="6" fill="rgba(37,99,235,0.08)" stroke="#2563eb" stroke-width="1"/>
       <text x="422" y="141" fill="#111827" font-size="12" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">库存</text>
-      <text x="422" y="160" fill="#2563eb" font-size="8" font-family="'Geist Mono',monospace" text-anchor="middle">库存缓冲 · 状态统计</text>
+      <text x="422" y="160" fill="#2563eb" font-size="8" font-family="'Geist Mono',monospace" text-anchor="middle">库存缓冲 · 五态统计</text>
     </a>
     <rect x="560" y="116" width="680" height="56" rx="6" fill="rgba(17,24,39,0.02)" stroke="#d1d5db" stroke-width="0.8" stroke-dasharray="4,3"/>
     <text x="572" y="140" fill="#6b7280" font-size="8" font-family="'Geist Mono',monospace">09-04 王琳总拍板：销售/采购两条独立线 · 库存缓冲 · 不以销定采</text>
@@ -416,7 +416,7 @@
     <line x1="480" y1="1530" x2="496" y2="1530" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
     <a href="仓储作业/库存查询.html">
       <rect x="496" y="1502" width="170" height="56" rx="6" fill="rgba(37,99,235,0.08)" stroke="#2563eb" stroke-width="1"/>
-      <text x="581" y="1527" fill="#111827" font-size="12" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">在库</text>
+      <text x="581" y="1527" fill="#111827" font-size="12" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">在库 · 五态</text>
       <text x="581" y="1546" fill="#2563eb" font-size="8" font-family="'Geist Mono',monospace" text-anchor="middle">整器或拆后零件 · 统一按单一产品记录</text>
     </a>
     <line x1="666" y1="1530" x2="682" y2="1530" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
@@ -575,7 +575,7 @@
 
     <!-- S1 · 库存运营 -->
     <text x="40" y="42" fill="#111827" font-size="16" font-weight="700" font-family="'Geist',sans-serif">S1 · 库存运营</text>
-    <a href="仓储作业/库存查询.html"><rect x="200" y="20" width="120" height="36" rx="6" fill="rgba(37,99,235,0.08)" stroke="#2563eb"/><text x="260" y="36" fill="#111827" font-size="12" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">库存查询</text><text x="260" y="50" fill="#2563eb" font-size="8" font-family="'Geist Mono',monospace" text-anchor="middle">在库/在途/客户/退租/租入</text></a>
+    <a href="仓储作业/库存查询.html"><rect x="200" y="20" width="120" height="36" rx="6" fill="rgba(37,99,235,0.08)" stroke="#2563eb"/><text x="260" y="36" fill="#111827" font-size="12" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">库存查询（五态）</text><text x="260" y="50" fill="#2563eb" font-size="8" font-family="'Geist Mono',monospace" text-anchor="middle">在库/在途/客户/退租/租入</text></a>
     <a href="仓储作业/盘点列表.html"><rect x="336" y="20" width="120" height="36" rx="6" fill="#ffffff" stroke="#111827"/><text x="396" y="36" fill="#111827" font-size="12" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">库存盘点</text><text x="396" y="50" fill="#4b5563" font-size="8" font-family="'Geist Mono',monospace" text-anchor="middle">列表 · ⟷ 盘点录入</text></a>
     <a href="仓储作业/盘点录入.html"><rect x="472" y="20" width="120" height="36" rx="6" fill="#ffffff" stroke="#111827"/><text x="532" y="36" fill="#111827" font-size="12" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">盘点录入</text><text x="532" y="50" fill="#4b5563" font-size="8" font-family="'Geist Mono',monospace" text-anchor="middle">录单 · ⟷ 库存盘点</text></a>
     <a href="仓储作业/库存调拨列表.html"><rect x="608" y="20" width="120" height="36" rx="6" fill="#ffffff" stroke="#111827"/><text x="668" y="36" fill="#111827" font-size="12" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">库存调拨</text><text x="668" y="50" fill="#4b5563" font-size="8" font-family="'Geist Mono',monospace" text-anchor="middle">新建+审核</text></a>
@@ -584,7 +584,7 @@
     <a href="租赁管理/退租入库列表.html"><rect x="1016" y="20" width="120" height="36" rx="6" fill="rgba(75,85,99,0.10)" stroke="#4b5563"/><text x="1076" y="36" fill="#111827" font-size="12" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">按零件入库</text><text x="1076" y="50" fill="#4b5563" font-size="8" font-family="'Geist Mono',monospace" text-anchor="middle">退租拆后零件入库</text></a>
     <text x="1016" y="72" fill="#6b7280" font-size="8" font-family="'Geist Mono',monospace">来源：T1 退租拆散（L2/L4）</text>
     <text x="336" y="72" fill="#6b7280" font-size="8" font-family="'Geist Mono',monospace">盘点差异 → 盘盈转其他入库 · 盘亏转其他出库</text>
-    <text x="200" y="86" fill="#6b7280" font-size="8" font-family="'Geist Mono',monospace">库存状态口径：在途＝应入库未入库（退租待入库/采购到货/租入到货/调拨在途）· 租入＝在库未转租，转租后计入客户态</text>
+    <text x="200" y="86" fill="#6b7280" font-size="8" font-family="'Geist Mono',monospace">五态口径：在途＝应入库未入库（退租待入库/采购到货/租入到货/调拨在途）· 租入＝在库未转租，转租后计入客户态</text>
 
     <!-- S2 · 项目经营 -->
     <text x="40" y="162" fill="#111827" font-size="16" font-weight="700" font-family="'Geist',sans-serif">S2 · 项目经营</text>
@@ -689,7 +689,7 @@
   subgraph T1["T1 · 客户退租（退租入库统一入口）"]
     T1a[租赁单·退租] --> T1b[退租入库·验收+缺损核对]
     T1b -->|① 缺损| T1c[直接转应收/应付 ⇢ F1/F2]
-    T1b -->|② 完好·自有| T1d[自有资产回库] --> T1e[(在库)] --> T1f[循环再出租 ⇢ L1/L2]
+    T1b -->|② 完好·自有| T1d[自有资产回库] --> T1e[(在库·五态)] --> T1f[循环再出租 ⇢ L1/L2]
     T1b -->|③ 完好·租入| T1g[租入资产回库] --> T1h[(租入在库·待归还)] --> T1i[⇢ T2 租入归还]
   end
   subgraph T2["T2 · 租入归还（归还供应商·独立事件）"]
