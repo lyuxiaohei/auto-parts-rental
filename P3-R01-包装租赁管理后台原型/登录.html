@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>登录 - 包装租赁管理后台</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root { --primary: #1677ff; --bg: #f0f2f5; --text: #262626; --text-sub: #8c8c8c; --border: #d9d9d9; }
+body { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; background: var(--bg); height: 100vh; display: flex; align-items: center; justify-content: center; }
+.login-card { display: flex; width: 760px; max-width: 92vw; min-height: 400px; background: #fff; border-radius: 8px; box-shadow: 0 6px 24px rgba(0,0,0,.08); overflow: hidden; }
+.brand { flex: 1; background: linear-gradient(135deg, #1677ff 0%, #0e5fd8 100%); color: #fff; padding: 48px 40px; display: flex; flex-direction: column; justify-content: center; }
+.brand-logo { font-size: 26px; font-weight: 700; letter-spacing: 1px; }
+.brand-sub { margin-top: 14px; font-size: 14px; line-height: 1.8; opacity: .88; }
+.brand-tags { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 8px; }
+.brand-tag { font-size: 12px; padding: 3px 10px; border: 1px solid rgba(255,255,255,.45); border-radius: 10px; opacity: .9; }
+.form-side { flex: 1; padding: 44px 44px 32px; display: flex; flex-direction: column; justify-content: center; }
+.form-title { font-size: 20px; font-weight: 600; color: var(--text); }
+.form-desc { font-size: 12px; color: var(--text-sub); margin: 6px 0 26px; }
+.f-row { margin-bottom: 18px; }
+.f-label { font-size: 13px; color: var(--text); margin-bottom: 6px; }
+.f-input { width: 100%; height: 34px; border: 1px solid var(--border); border-radius: 4px; padding: 0 10px; font-size: 13px; outline: none; }
+.f-input:focus { border-color: var(--primary); }
+.f-err { font-size: 12px; color: #ff4d4f; margin-top: 4px; display: none; }
+.f-err.show { display: block; }
+.f-mid { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; font-size: 13px; }
+.f-check { display: inline-flex; align-items: center; gap: 6px; color: var(--text-sub); cursor: pointer; }
+.f-check input { accent-color: var(--primary); }
+.btn-login { width: 100%; height: 34px; background: var(--primary); color: #fff; border: none; border-radius: 4px; font-size: 14px; cursor: pointer; }
+.btn-login:hover { background: #3c8dff; }
+.btn-wecom { width: 100%; height: 34px; margin-top: 12px; background: #fff; color: var(--text); border: 1px solid var(--border); border-radius: 4px; font-size: 14px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 6px; }
+.btn-wecom:hover { border-color: var(--primary); color: var(--primary); }
+.toast { position: fixed; top: 24px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,.72); color: #fff; font-size: 13px; padding: 8px 18px; border-radius: 4px; display: none; z-index: 99; }
+.toast.show { display: block; }
+</style>
+</head>
+<body>
+<div class="login-card">
+  <div class="brand">
+    <div class="brand-logo">包装租赁管理后台</div>
+    <div class="brand-sub">汽车物流循环包装的一体化租赁运营平台<br>租赁 · 租入 · 库存 · 结算 全流程在线</div>
+    <div class="brand-tags">
+      <span class="brand-tag">围板箱 / 托盘 / 料箱</span>
+      <span class="brand-tag">器具 · 零部件双档案</span>
+      <span class="brand-tag">路凯 · 吉客云协同</span>
+    </div>
+  </div>
+  <div class="form-side">
+    <div class="form-title">账号登录</div>
+    <div class="form-desc">演示原型 · 账号已预填，直接点「登录」进入</div>
+    <div class="f-row">
+      <div class="f-label">账号</div>
+      <input class="f-input" id="loginUser" value="liu.dy" placeholder="请输入账号">
+      <div class="f-err" id="errUser">请输入账号</div>
+    </div>
+    <div class="f-row">
+      <div class="f-label">密码</div>
+      <input class="f-input" id="loginPwd" type="password" value="123456" placeholder="请输入密码">
+      <div class="f-err" id="errPwd">请输入密码</div>
+    </div>
+    <div class="f-mid">
+      <label class="f-check"><input type="checkbox" checked>记住登录</label>
+    </div>
+    <button class="btn-login" id="btnLogin" type="button">登 录</button>
+    <button class="btn-wecom" id="btnWecom" type="button">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 10h.01M12 10h.01M16 10h.01M8 14h8"/></svg>
+      企微扫码登录
+    </button>
+  </div>
+</div>
+<div class="toast" id="toast">演示原型 · 暂未接入</div>
+<script>
+/* G19b PC 登录页（独立页·与 我的待办.html 同级）：预填演示账号，登录=清 pc-logout 键回默认已登录态 */
+(function () {
+  var tEl = document.getElementById('toast'), tTimer = null;
+  function showToast(msg) {
+    tEl.textContent = msg;
+    tEl.classList.add('show');
+    if (tTimer) clearTimeout(tTimer);
+    tTimer = setTimeout(function () { tEl.classList.remove('show'); }, 1800);
+  }
+  document.getElementById('btnLogin').addEventListener('click', function () {
+    var u = document.getElementById('loginUser');
+    var p = document.getElementById('loginPwd');
+    var okU = !!u.value.trim(), okP = !!p.value.trim();
+    document.getElementById('errUser').classList.toggle('show', !okU);
+    document.getElementById('errPwd').classList.toggle('show', !okP);
+    if (!okU || !okP) return;
+    try { localStorage.removeItem('pc-logout'); } catch (e) {}
+    location.href = '首页/项目看板.html';
+  });
+  document.getElementById('btnWecom').addEventListener('click', function () {
+    showToast('演示原型 · 暂未接入');
+  });
+})();
+</script>
+</body>
+</html>
