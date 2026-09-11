@@ -845,7 +845,7 @@
   "stats": {
    "buttons": 1,
    "links": 1,
-   "onclickEls": 6,
+   "onclickEls": 8,
    "modals": 1,
    "modalTitles": [
     "客商详情 · 一汽解放汽车有限公司(演示页)"
@@ -1088,7 +1088,7 @@
    "modalTitles": [
     "新建租入单(演示页)"
    ],
-   "selects": 5,
+   "selects": 6,
    "fakeSelects": 0,
    "radios": 0,
    "checkboxes": 0,
@@ -1449,7 +1449,7 @@
     "新建租入单",
     "审核确认"
    ],
-   "selects": 8,
+   "selects": 9,
    "fakeSelects": 0,
    "radios": 2,
    "checkboxes": 0,
@@ -2449,7 +2449,7 @@
    "modalTitles": [
     "新建采购订单(演示页)"
    ],
-   "selects": 5,
+   "selects": 6,
    "fakeSelects": 0,
    "radios": 0,
    "checkboxes": 0,
@@ -2664,7 +2664,7 @@
     "新建采购订单",
     "审核确认"
    ],
-   "selects": 9,
+   "selects": 10,
    "fakeSelects": 0,
    "radios": 2,
    "checkboxes": 0,
@@ -2944,11 +2944,11 @@
    "modalTitles": [
     "项目上下游绑定(演示页)"
    ],
-   "selects": 4,
+   "selects": 3,
    "fakeSelects": 0,
    "radios": 0,
    "checkboxes": 0,
-   "inputs": 5,
+   "inputs": 6,
    "stabs": 0,
    "tabs": 0,
    "bgMut": 0
@@ -2968,11 +2968,11 @@
    "modalTitles": [
     "新建项目(演示页)"
    ],
-   "selects": 3,
+   "selects": 2,
    "fakeSelects": 0,
    "radios": 0,
    "checkboxes": 0,
-   "inputs": 4,
+   "inputs": 9,
    "stabs": 0,
    "tabs": 0,
    "bgMut": 0
@@ -3032,11 +3032,11 @@
     "项目上下游绑定",
     "新建项目"
    ],
-   "selects": 9,
+   "selects": 8,
    "fakeSelects": 0,
    "radios": 0,
    "checkboxes": 0,
-   "inputs": 23,
+   "inputs": 29,
    "stabs": 0,
    "tabs": 4,
    "bgMut": 0
@@ -3056,11 +3056,11 @@
    "modalTitles": [
     "项目上下游绑定"
    ],
-   "selects": 4,
+   "selects": 3,
    "fakeSelects": 0,
    "radios": 0,
    "checkboxes": 0,
-   "inputs": 6,
+   "inputs": 7,
    "stabs": 6,
    "tabs": 4,
    "bgMut": 0
