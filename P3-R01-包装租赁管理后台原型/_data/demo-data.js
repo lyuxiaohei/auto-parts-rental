@@ -2467,7 +2467,7 @@ window.DEMO_DATA = {
           'full': true
         }
       ],
-      'feeSecTitle': '租入明细（多货品 · 月租/按套 · 无日租金）',
+      'feeSecTitle': '租入明细（多货品 · 按月/按次 · 无日租金）',
       'feeCols': ['物料', '数量', '计费方式', '未税单价(元)', '税率', '含税单价(元)', '首期应付(元)'],
       'fees': [
         {
@@ -2582,7 +2582,7 @@ window.DEMO_DATA = {
           'full': true
         }
       ],
-      'feeSecTitle': '租入明细（多货品 · 月租/按套 · 无日租金）',
+      'feeSecTitle': '租入明细（多货品 · 按月/按次 · 无日租金）',
       'feeCols': ['物料', '数量', '计费方式', '未税单价(元)', '税率', '含税单价(元)', '首期应付(元)'],
       'fees': [
         {
@@ -2695,7 +2695,7 @@ window.DEMO_DATA = {
           'full': true
         }
       ],
-      'feeSecTitle': '租入明细（多货品 · 月租/按套 · 无日租金）',
+      'feeSecTitle': '租入明细（多货品 · 按月/按次 · 无日租金）',
       'feeCols': ['物料', '数量', '计费方式', '未税单价(元)', '税率', '含税单价(元)', '首期应付(元)'],
       'fees': [
         {
@@ -2784,7 +2784,7 @@ window.DEMO_DATA = {
           'full': true
         }
       ],
-      'feeSecTitle': '租入明细（多货品 · 月租/按套 · 无日租金）',
+      'feeSecTitle': '租入明细（多货品 · 按月/按次 · 无日租金）',
       'feeCols': ['物料', '数量', '计费方式', '未税单价(元)', '税率', '含税单价(元)', '首期应付(元)'],
       'fees': [
         {
@@ -2877,7 +2877,7 @@ window.DEMO_DATA = {
           'full': true
         }
       ],
-      'feeSecTitle': '租入明细（多货品 · 月租/按套 · 无日租金）',
+      'feeSecTitle': '租入明细（多货品 · 按月/按次 · 无日租金）',
       'feeCols': ['物料', '数量', '计费方式', '未税单价(元)', '税率', '含税单价(元)', '首期应付(元)'],
       'fees': [
         {
@@ -13568,7 +13568,7 @@ window.DEMO_DATA = {
   /* 器具档案 appliances：键 = 器具编码（基础数据/器具档案.html 6 行全量） */
   /* BTC-6040S 键先于 BTC-6040（前缀包含防误匹配）；在租状态对齐库存查询客户态 */  products: {
     'WBX-1210L': {
-      'row': {"fields": {"name": "围板箱 1200×1000×970", "cls": "围板箱", "spec": "1200×1000×970 mm", "status": "启用", "date": "2026-01-06"}, "cells": ["围板箱 1200×1000×970", "<span class=\"tag tag-blue\">围板箱</span>", "1200×1000×970 mm", "只", "<span class=\"td-num\">380.00</span>", "—", "<span class=\"td-num\">45.00 元/只·月</span>", "<span class=\"td-num\">60.00 元/只·月</span>", "<span class=\"tag tag-green\">启用</span>", "2026-01-06"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
+      'row': {"fields": {"name": "围板箱 1200×1000×970", "cls": "围板箱", "spec": "1200×1000×970 mm", "status": "启用", "date": "2026-01-06", "rentInMode": "按月", "rentInPrice": "45.00", "rentalMode": "按月", "rentalPrice": "60.00"}, "cells": ["围板箱 1200×1000×970", "<span class=\"tag tag-blue\">围板箱</span>", "1200×1000×970 mm", "只", "<span class=\"td-num\">380.00</span>", "—", "<span class=\"td-num\">45.00 元/只·月</span>", "<span class=\"td-num\">60.00 元/只·月</span>", "<span class=\"tag tag-green\">启用</span>", "2026-01-06"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
       'title': '物料详情',
       'info': [
         {
@@ -13662,7 +13662,7 @@ window.DEMO_DATA = {
       ]
     },
     'WBX-1210M': {
-      'row': {"fields": {"name": "围板箱 1200×1000×590", "cls": "围板箱", "spec": "1200×1000×590 mm", "status": "启用", "date": "2026-01-06"}, "cells": ["围板箱 1200×1000×590", "<span class=\"tag tag-blue\">围板箱</span>", "1200×1000×590 mm", "只", "<span class=\"td-num\">340.00</span>", "—", "—", "<span class=\"td-num\">55.00 元/只·月</span>", "<span class=\"tag tag-green\">启用</span>", "2026-01-06"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
+      'row': {"fields": {"name": "围板箱 1200×1000×590", "cls": "围板箱", "spec": "1200×1000×590 mm", "status": "启用", "date": "2026-01-06", "rentInMode": null, "rentInPrice": null, "rentalMode": "按月", "rentalPrice": "55.00"}, "cells": ["围板箱 1200×1000×590", "<span class=\"tag tag-blue\">围板箱</span>", "1200×1000×590 mm", "只", "<span class=\"td-num\">340.00</span>", "—", "—", "<span class=\"td-num\">55.00 元/只·月</span>", "<span class=\"tag tag-green\">启用</span>", "2026-01-06"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
       'title': '物料详情',
       'info': [
         {
@@ -13752,7 +13752,7 @@ window.DEMO_DATA = {
       ]
     },
     'PLT-1210W': {
-      'row': {"fields": {"name": "木托盘 1200×1000", "cls": "托盘", "spec": "1200×1000×144 mm", "status": "启用", "date": "2026-02-11"}, "cells": ["木托盘 1200×1000", "<span class=\"tag tag-green\">托盘</span>", "1200×1000×144 mm", "块", "<span class=\"td-num\">95.00</span>", "—", "—", "<span class=\"td-num\">15.00 元/块·次</span>", "<span class=\"tag tag-green\">启用</span>", "2026-02-11"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
+      'row': {"fields": {"name": "木托盘 1200×1000", "cls": "托盘", "spec": "1200×1000×144 mm", "status": "启用", "date": "2026-02-11", "rentInMode": null, "rentInPrice": null, "rentalMode": "按次", "rentalPrice": "15.00"}, "cells": ["木托盘 1200×1000", "<span class=\"tag tag-green\">托盘</span>", "1200×1000×144 mm", "块", "<span class=\"td-num\">95.00</span>", "—", "—", "<span class=\"td-num\">15.00 元/块·次</span>", "<span class=\"tag tag-green\">启用</span>", "2026-02-11"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
       'title': '物料详情',
       'info': [
         {
@@ -13838,7 +13838,7 @@ window.DEMO_DATA = {
       ]
     },
     'PLT-1210P': {
-      'row': {"fields": {"name": "塑料托盘 1200×1000", "cls": "托盘", "spec": "1200×1000×150 mm", "status": "启用", "date": "2026-02-11"}, "cells": ["塑料托盘 1200×1000", "<span class=\"tag tag-green\">托盘</span>", "1200×1000×150 mm", "块", "<span class=\"td-num\">110.00</span>", "—", "<span class=\"td-num\">12.00 元/块·月</span>", "<span class=\"td-num\">18.00 元/块·月</span>", "<span class=\"tag tag-green\">启用</span>", "2026-02-11"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
+      'row': {"fields": {"name": "塑料托盘 1200×1000", "cls": "托盘", "spec": "1200×1000×150 mm", "status": "启用", "date": "2026-02-11", "rentInMode": "按月", "rentInPrice": "12.00", "rentalMode": "按月", "rentalPrice": "18.00"}, "cells": ["塑料托盘 1200×1000", "<span class=\"tag tag-green\">托盘</span>", "1200×1000×150 mm", "块", "<span class=\"td-num\">110.00</span>", "—", "<span class=\"td-num\">12.00 元/块·月</span>", "<span class=\"td-num\">18.00 元/块·月</span>", "<span class=\"tag tag-green\">启用</span>", "2026-02-11"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
       'title': '物料详情',
       'info': [
         {
@@ -13928,7 +13928,7 @@ window.DEMO_DATA = {
       ]
     },
     'BTC-6040S': {
-      'row': {"fields": {"name": "料箱 600×400×220（带盖）", "cls": "料箱", "spec": "600×400×220 mm", "status": "停用", "date": "2026-03-02"}, "cells": ["料箱 600×400×220（带盖）", "<span class=\"tag tag-orange\">料箱</span>", "600×400×220 mm", "只", "<span class=\"td-num\">78.00</span>", "—", "—", "—", "<span class=\"tag tag-gray\">停用</span>", "2026-03-02"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
+      'row': {"fields": {"name": "料箱 600×400×220（带盖）", "cls": "料箱", "spec": "600×400×220 mm", "status": "停用", "date": "2026-03-02", "rentInMode": null, "rentInPrice": null, "rentalMode": null, "rentalPrice": null}, "cells": ["料箱 600×400×220（带盖）", "<span class=\"tag tag-orange\">料箱</span>", "600×400×220 mm", "只", "<span class=\"td-num\">78.00</span>", "—", "—", "—", "<span class=\"tag tag-gray\">停用</span>", "2026-03-02"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
       'title': '物料详情',
       'info': [
         {
@@ -14009,7 +14009,7 @@ window.DEMO_DATA = {
       ]
     },
     'BTC-6040': {
-      'row': {"fields": {"name": "料箱 600×400×340", "cls": "料箱", "spec": "600×400×340 mm", "status": "启用", "date": "2026-03-02"}, "cells": ["料箱 600×400×340", "<span class=\"tag tag-orange\">料箱</span>", "600×400×340 mm", "只", "<span class=\"td-num\">85.00</span>", "—", "<span class=\"td-num\">10.00 元/只·月</span>", "<span class=\"td-num\">14.00 元/只·次</span>", "<span class=\"tag tag-green\">启用</span>", "2026-03-02"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
+      'row': {"fields": {"name": "料箱 600×400×340", "cls": "料箱", "spec": "600×400×340 mm", "status": "启用", "date": "2026-03-02", "rentInMode": "按月", "rentInPrice": "10.00", "rentalMode": "按次", "rentalPrice": "14.00"}, "cells": ["料箱 600×400×340", "<span class=\"tag tag-orange\">料箱</span>", "600×400×340 mm", "只", "<span class=\"td-num\">85.00</span>", "—", "<span class=\"td-num\">10.00 元/只·月</span>", "<span class=\"td-num\">14.00 元/只·次</span>", "<span class=\"tag tag-green\">启用</span>", "2026-03-02"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
       'title': '物料详情',
       'info': [
         {
@@ -14101,7 +14101,7 @@ window.DEMO_DATA = {
 
     /* ===== 组件（原零部件档案并入 · N4 合并） ===== */
     'LJ-A100': {
-      'row': {"fields": {"name": "锁扣组件", "cls": "组件", "spec": "不锈钢 304 · M8", "status": "启用", "date": "2026-01-06", "supplier": "苏州联恒五金制品有限公司"}, "cells": ["锁扣组件", "<span class=\"tag tag-blue\">组件</span>", "不锈钢 304 · M8", "件", "<span class=\"td-num\">6.80</span>", "<span class=\"td-num\">9.80</span>", "—", "—", "<span class=\"tag tag-green\">启用</span>", "2026-01-06"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
+      'row': {"fields": {"name": "锁扣组件", "cls": "组件", "spec": "不锈钢 304 · M8", "status": "启用", "date": "2026-01-06", "supplier": "苏州联恒五金制品有限公司", "rentInMode": null, "rentInPrice": null, "rentalMode": null, "rentalPrice": null}, "cells": ["锁扣组件", "<span class=\"tag tag-blue\">组件</span>", "不锈钢 304 · M8", "件", "<span class=\"td-num\">6.80</span>", "<span class=\"td-num\">9.80</span>", "—", "—", "<span class=\"tag tag-green\">启用</span>", "2026-01-06"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
 'title': '物料详情',
       'info': [
         {
@@ -14202,7 +14202,7 @@ window.DEMO_DATA = {
       ]
     },
     'LJ-B200': {
-      'row': {"fields": {"name": "铰链", "cls": "组件", "spec": "锌合金 · 65mm", "status": "启用", "date": "2026-01-06", "supplier": "苏州联恒五金制品有限公司"}, "cells": ["铰链", "<span class=\"tag tag-blue\">组件</span>", "锌合金 · 65mm", "件", "<span class=\"td-num\">4.20</span>", "<span class=\"td-num\">6.50</span>", "—", "—", "<span class=\"tag tag-green\">启用</span>", "2026-01-06"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
+      'row': {"fields": {"name": "铰链", "cls": "组件", "spec": "锌合金 · 65mm", "status": "启用", "date": "2026-01-06", "supplier": "苏州联恒五金制品有限公司", "rentInMode": null, "rentInPrice": null, "rentalMode": null, "rentalPrice": null}, "cells": ["铰链", "<span class=\"tag tag-blue\">组件</span>", "锌合金 · 65mm", "件", "<span class=\"td-num\">4.20</span>", "<span class=\"td-num\">6.50</span>", "—", "—", "<span class=\"tag tag-green\">启用</span>", "2026-01-06"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
 'title': '物料详情',
       'info': [
         {
@@ -14299,7 +14299,7 @@ window.DEMO_DATA = {
       ]
     },
     'LJ-C300': {
-      'row': {"fields": {"name": "围板", "cls": "组件", "spec": "HDPE 波纹板 · 970 高", "status": "启用", "date": "2026-02-02", "supplier": "宁波华塑包装制品有限公司"}, "cells": ["围板", "<span class=\"tag tag-blue\">组件</span>", "HDPE 波纹板 · 970 高", "件", "<span class=\"td-num\">52.00</span>", "<span class=\"td-num\">68.00</span>", "—", "—", "<span class=\"tag tag-green\">启用</span>", "2026-02-02"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
+      'row': {"fields": {"name": "围板", "cls": "组件", "spec": "HDPE 波纹板 · 970 高", "status": "启用", "date": "2026-02-02", "supplier": "宁波华塑包装制品有限公司", "rentInMode": null, "rentInPrice": null, "rentalMode": null, "rentalPrice": null}, "cells": ["围板", "<span class=\"tag tag-blue\">组件</span>", "HDPE 波纹板 · 970 高", "件", "<span class=\"td-num\">52.00</span>", "<span class=\"td-num\">68.00</span>", "—", "—", "<span class=\"tag tag-green\">启用</span>", "2026-02-02"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
 'title': '物料详情',
       'info': [
         {
@@ -14394,7 +14394,7 @@ window.DEMO_DATA = {
       ]
     },
     'LJ-D400': {
-      'row': {"fields": {"name": "箱盖", "cls": "组件", "spec": "ABS 吸塑 · 1200×1000", "status": "启用", "date": "2026-02-02", "supplier": "宁波华塑包装制品有限公司"}, "cells": ["箱盖", "<span class=\"tag tag-blue\">组件</span>", "ABS 吸塑 · 1200×1000", "件", "<span class=\"td-num\">36.00</span>", "<span class=\"td-num\">48.00</span>", "—", "—", "<span class=\"tag tag-green\">启用</span>", "2026-02-02"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
+      'row': {"fields": {"name": "箱盖", "cls": "组件", "spec": "ABS 吸塑 · 1200×1000", "status": "启用", "date": "2026-02-02", "supplier": "宁波华塑包装制品有限公司", "rentInMode": null, "rentInPrice": null, "rentalMode": null, "rentalPrice": null}, "cells": ["箱盖", "<span class=\"tag tag-blue\">组件</span>", "ABS 吸塑 · 1200×1000", "件", "<span class=\"td-num\">36.00</span>", "<span class=\"td-num\">48.00</span>", "—", "—", "<span class=\"tag tag-green\">启用</span>", "2026-02-02"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
 'title': '物料详情',
       'info': [
         {
@@ -14490,7 +14490,7 @@ window.DEMO_DATA = {
       ]
     },
     'LJ-E500': {
-      'row': {"fields": {"name": "底托架", "cls": "组件", "spec": "钢制喷塑 · 1200×1000", "status": "启用", "date": "2026-03-06", "supplier": "常州正大塑料托盘厂"}, "cells": ["底托架", "<span class=\"tag tag-blue\">组件</span>", "钢制喷塑 · 1200×1000", "件", "<span class=\"td-num\">78.00</span>", "<span class=\"td-num\">98.00</span>", "—", "—", "<span class=\"tag tag-green\">启用</span>", "2026-03-06"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
+      'row': {"fields": {"name": "底托架", "cls": "组件", "spec": "钢制喷塑 · 1200×1000", "status": "启用", "date": "2026-03-06", "supplier": "常州正大塑料托盘厂", "rentInMode": null, "rentInPrice": null, "rentalMode": null, "rentalPrice": null}, "cells": ["底托架", "<span class=\"tag tag-blue\">组件</span>", "钢制喷塑 · 1200×1000", "件", "<span class=\"td-num\">78.00</span>", "<span class=\"td-num\">98.00</span>", "—", "—", "<span class=\"tag tag-green\">启用</span>", "2026-03-06"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
 'title': '物料详情',
       'info': [
         {
@@ -14577,7 +14577,7 @@ window.DEMO_DATA = {
       ]
     },
     'LJ-F600': {
-      'row': {"fields": {"name": "内衬", "cls": "组件", "spec": "EPE 珍珠棉 · 定制", "status": "启用", "date": "2026-03-06", "supplier": "宁波华塑包装制品有限公司"}, "cells": ["内衬", "<span class=\"tag tag-blue\">组件</span>", "EPE 珍珠棉 · 定制", "件", "<span class=\"td-num\">15.50</span>", "<span class=\"td-num\">22.00</span>", "—", "—", "<span class=\"tag tag-green\">启用</span>", "2026-03-06"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
+      'row': {"fields": {"name": "内衬", "cls": "组件", "spec": "EPE 珍珠棉 · 定制", "status": "启用", "date": "2026-03-06", "supplier": "宁波华塑包装制品有限公司", "rentInMode": null, "rentInPrice": null, "rentalMode": null, "rentalPrice": null}, "cells": ["内衬", "<span class=\"tag tag-blue\">组件</span>", "EPE 珍珠棉 · 定制", "件", "<span class=\"td-num\">15.50</span>", "<span class=\"td-num\">22.00</span>", "—", "—", "<span class=\"tag tag-green\">启用</span>", "2026-03-06"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
 'title': '物料详情',
       'info': [
         {
@@ -15793,7 +15793,9 @@ window.DEMO_DATA = {
     'DT-06': { 'row': {"fields": {"category": "缺损类型", "abbr": "HJ", "name": "划痕", "status": "启用"}, "cells": ["HJ", "划痕", "<span class=\"td-num\">6</span>", "外表层划痕，影响外观不影响使用", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
     'BF-01': { 'row': {"fields": {"category": "计费方式", "abbr": "按月", "name": "按月计租", "status": "启用"}, "cells": ["按月", "按月计租", "<span class=\"td-num\">1</span>", "月租金 / 按套数单价 · 围板箱/托盘租赁", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
     'BF-02': { 'row': {"fields": {"category": "计费方式", "abbr": "按次", "name": "按次计费", "status": "启用"}, "cells": ["按次", "按次计费", "<span class=\"td-num\">2</span>", "出库/退租次数 × 次单价 · 组装服务费", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
-    'BF-03': { 'row': {"fields": {"category": "计费方式", "abbr": "按张", "name": "按张计费", "status": "启用"}, "cells": ["按张", "按张计费", "<span class=\"td-num\">3</span>", "在租张数 × 张单价 · 托盘/料箱备用口径", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
+    'BF-03': { 'row': {"fields": {"category": "计费方式", "abbr": "按张", "name": "按张计费", "status": "停用"}, "cells": ["按张", "按张计费", "<span class=\"td-num\">3</span>", "在租张数 × 张单价 · 托盘/料箱备用口径", "<span class=\"tag tag-gray\">停用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
+    'BF-04': { 'row': {"fields": {"category": "计费方式", "abbr": "按年", "name": "按年计租", "status": "启用"}, "cells": ["按年", "按年计租", "<span class=\"td-num\">4</span>", "年租金 × 租期年数 · 长周期备用口径", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
+    'BF-05': { 'row': {"fields": {"category": "计费方式", "abbr": "按日", "name": "按日计租", "status": "启用"}, "cells": ["按日", "按日计租", "<span class=\"td-num\">5</span>", "日租金 × 在租天数 · 短期备用口径（本期无日租金业务）", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
     'ZT-01': { 'row': {"fields": {"category": "单据状态", "abbr": "CG", "name": "草稿", "status": "启用"}, "cells": ["CG", "草稿", "<span class=\"td-num\">1</span>", "保存未提交", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
     'ZT-02': { 'row': {"fields": {"category": "单据状态", "abbr": "DSH", "name": "待审核", "status": "启用"}, "cells": ["DSH", "待审核", "<span class=\"td-num\">2</span>", "已提交待审核", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
     'ZT-03': { 'row': {"fields": {"category": "单据状态", "abbr": "YSH", "name": "已审核", "status": "启用"}, "cells": ["YSH", "已审核", "<span class=\"td-num\">3</span>", "审核通过流转中", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },

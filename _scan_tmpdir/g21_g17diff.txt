@@ -1,0 +1,33 @@
+基线页数: 113 ｜ post 页数: 115（PC 110 + mobile 5）
+全站死链合计: 0
+全站 JS 错合计: 0（豁免 F01 外链断网 0 条；其余 0）
+既有页 problems 逐键新增: 35
+  [新增] 仓储作业/其他入库列表.html | 弹窗|modal-unreachable||||其他入库单详情|页内无 openModal 触发器且默认未打开（
+  [新增] 仓储作业/其他出库列表.html | 弹窗|modal-unreachable||||其他出库单详情|页内无 openModal 触发器且默认未打开（
+  [新增] 仓储作业/库存查询.html | 输入框|input-not-editable|input||||readonly 不可输入（预填:安吉智行物流）
+  [新增] 仓储作业/库存调拨列表.html | 弹窗|modal-unreachable||||调拨单详情|页内无 openModal 触发器且默认未打开（
+  [新增] 仓储作业/盘点列表.html | 弹窗|modal-unreachable||||盘点单详情|页内无 openModal 触发器且默认未打开（
+  [新增] 基础数据/BOM维护.html | 弹窗|modal-unreachable||||BOM 版本查看 · ZH-26|页内无 openModal 触发器且默认未打开（
+  [新增] 基础数据/产品档案.html | 弹窗|modal-unreachable||||物料详情|页内无 openModal 触发器且默认未打开（
+  [新增] 基础数据/客商管理.html | 弹窗|modal-unreachable||||客商详情|页内无 openModal 触发器且默认未打开（
+  [新增] 基础数据/库位档案.html | 弹窗|modal-unreachable||||库位详情|页内无 openModal 触发器且默认未打开（
+  [新增] 租赁管理/租入入库列表.html | 弹窗|modal-unreachable||||租入入库单详情|页内无 openModal 触发器且默认未打开（
+  [新增] 租赁管理/租入单列表.html | 输入框|input-not-editable|input||WBX-1210L 围板箱 12||readonly 不可输入（预填:13,560.
+  [新增] 租赁管理/租入单列表.html | 输入框|input-not-editable|input||WBX-1210L 围板箱 12||readonly 不可输入（预填:68.00）
+  [新增] 租赁管理/租入单列表.html | 弹窗|modal-unreachable||||租入单详情|页内无 openModal 触发器且默认未打开（
+  [新增] 租赁管理/租入归还列表.html | 弹窗|modal-unreachable||||租入归还单详情|页内无 openModal 触发器且默认未打开（
+  [新增] 租赁管理/租赁单列表.html | 输入框|input-not-editable|input||WBX-1210L 围板箱 12||readonly 不可输入（预填:487.80）
+  [新增] 租赁管理/租赁单列表.html | 输入框|input-not-editable|input||WBX-1210L 围板箱 12||readonly 不可输入（预填:30.60）
+  [新增] 租赁管理/租赁单列表.html | 弹窗|modal-unreachable||||租赁单详情|页内无 openModal 触发器且默认未打开（
+  [新增] 租赁管理/组合出库列表.html | 弹窗|modal-unreachable||||组合出库单详情|页内无 openModal 触发器且默认未打开（
+  [新增] 租赁管理/退租入库列表.html | 弹窗|modal-unreachable||||退租入库单详情|页内无 openModal 触发器且默认未打开（
+  [新增] 财务协同/付款登记.html | 弹窗|modal-unreachable||||付款登记详情|页内无 openModal 触发器且默认未打开（
+
+---- mobile 5 页逐页（死链/JS/问题/审计异常）----
+  mobile/审批详情.html  死链:0  JS错:0  问题:0  异常:无  nav_anomaly:True
+  mobile/库存查询.html  死链:0  JS错:0  问题:0  异常:无  nav_anomaly:True
+  mobile/待办审批.html  死链:0  JS错:0  问题:0  异常:无  nav_anomaly:True
+  mobile/我的.html  死链:0  JS错:0  问题:0  异常:无  nav_anomaly:True
+  mobile/登录.html  死链:0  JS错:0  问题:0  异常:无  nav_anomaly:False
+
+==== audit 门： FAIL ====

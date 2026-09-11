@@ -613,7 +613,7 @@ th.td-num { text-align:right; }
     <div class="input-box"><input value="1200×1000×970mm" placeholder="请输入"></div>
   </div><div class="form-row">
     <span class="form-label">单位</span>
-    <div class="input-box select-box"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>只</option><option>套</option><option>个</option><option>托</option><option>件</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+    <div class="input-box select-box"><select id="unitSel" onchange="g21RentHint('rentIn');g21RentHint('rental');" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>只</option><option>套</option><option>个</option><option>托</option><option>件</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
   </div>
   <div class="form-row">
     <span class="form-label">参考未税采购价(元)</span>
@@ -625,11 +625,21 @@ th.td-num { text-align:right; }
   </div>
   <div class="form-row">
     <span class="form-label">参考未税租入价</span>
-    <div class="input-box"><input placeholder="如 45.00 元/只·月（无租入来源留空）"></div>
+    <div style="display:flex;gap:6px;align-items:center;">
+      <div class="input-box select-box" style="width:116px;flex:none;"><select id="rentInModeSel" onchange="g21RentHint('rentIn')" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>按时间周期</option><option>按次</option></select></div>
+      <div class="input-box select-box" style="width:72px;flex:none;"><select id="rentInUnitSel" onchange="g21RentHint('rentIn')" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>月</option><option>年</option><option>日</option></select></div>
+      <div class="input-box" style="flex:1;min-width:0;"><input placeholder="数值，如 45.00（无租入来源留空）"></div>
+      <span id="rentInHint" style="font-size:12px;color:#8c8c8c;white-space:nowrap;">元/只·月</span>
+    </div>
   </div>
   <div class="form-row">
     <span class="form-label">参考未税租赁价</span>
-    <div class="input-box"><input placeholder="按周期或按次，如 60.00 元/只·月 / 15.00 元/块·次"></div>
+    <div style="display:flex;gap:6px;align-items:center;">
+      <div class="input-box select-box" style="width:116px;flex:none;"><select id="rentalModeSel" onchange="g21RentHint('rental')" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>按时间周期</option><option>按次</option></select></div>
+      <div class="input-box select-box" style="width:72px;flex:none;"><select id="rentalUnitSel" onchange="g21RentHint('rental')" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>月</option><option>年</option><option>日</option></select></div>
+      <div class="input-box" style="flex:1;min-width:0;"><input placeholder="数值，如 60.00"></div>
+      <span id="rentalHint" style="font-size:12px;color:#8c8c8c;white-space:nowrap;">元/只·月</span>
+    </div>
   </div><div class="form-row">
     <span class="form-label">备注</span>
     <div class="input-box"><input placeholder="选填"></div>
@@ -661,7 +671,8 @@ th.td-num { text-align:right; }
       <button class="btn" onclick="closeModal('createModal')">保存</button>
     </div>
   </div>
-</div>
+
+<script>/* G21 租价三段式联动：计费方式(按时间周期/按次)×周期单位(月/年/日·默认月)+数值，后缀=元/计量单位·周期（单位取同表单「单位」下拉） */ function g21RentHint(p){var m=document.getElementById(p+'ModeSel').value;var u=document.getElementById(p+'UnitSel');u.disabled=(m==='按次');var us=document.getElementById('unitSel');var unit=us?us.value:'只';document.getElementById(p+'Hint').textContent='元/'+unit+'·'+(m==='按次'?'次':u.value);}</script></div>
 
 
 <script id="batch-btn-js">
@@ -930,6 +941,9 @@ document.querySelectorAll('.tab').forEach(function (t) {
 </script>
 
 <script src="../_data/pc-auth.js"></script>
+
+
+
 <style id="proto-notes-style">
 body.proto-notes-on [data-note]{position:relative}
 body.proto-notes-on [data-note]::after{content:attr(data-note);position:absolute;top:1px;right:1px;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600;box-shadow:0 0 0 1.5px #fff;cursor:pointer;opacity:.75;transition:opacity .15s}
