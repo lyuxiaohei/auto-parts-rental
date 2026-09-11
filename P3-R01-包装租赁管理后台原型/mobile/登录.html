@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>P3-R01-M01 · 登录</title>
+<link rel="stylesheet" href="_m.css">
+</head>
+<body>
+<div class="m-page" id="m-app">
+
+  <div class="m-login-hero">
+    <div class="m-logo">包</div>
+    <div class="m-login-name">汽车物流包装租赁</div>
+    <div class="m-login-sub">移动端审批 · 企业微信 H5（演示）</div>
+  </div>
+
+  <div style="padding: 0 28px;">
+    <div class="m-field">
+      <input id="m-acc" type="text" placeholder="请输入账号（演示：wanglin）" autocomplete="off">
+      <div class="m-field-err" id="m-acc-err"></div>
+    </div>
+    <div class="m-field">
+      <input id="m-pwd" type="password" placeholder="请输入密码" autocomplete="off">
+      <div class="m-field-err" id="m-pwd-err"></div>
+    </div>
+    <button class="m-btn m-btn-primary" id="m-btn-login" style="margin-top:6px;">登 录</button>
+    <button class="m-btn m-btn-wx" id="m-btn-wx" style="margin-top:14px;">企业微信一键登录</button>
+    <div class="m-login-tip">首次登录后本机将记住登录状态（免二次登录），下次打开免验证直达待办；在「我的」页可随时退出。演示原型：任意账号密码均可登录。</div>
+    <div style="text-align:center;color:#bfbfbf;font-size:11px;margin-top:26px;">P3-R01 移动端 H5 · v1.0 · 2026-09-11</div>
+  </div>
+
+</div>
+<script src="_m.js"></script>
+<script>
+/* ---- 登录页逻辑（演示认证：空值行内提示，非空即登录成功） ---- */
+(function () {
+  var ACC = { wanglin: '王琳', wangqiang: '王强', chenjin: '陈金', lijing: '李静' };
+  var ROLE = { 王琳: '商务主管', 王强: '商务主管', 陈金: '商务', 李静: '财务主管' };
+
+  function err(id, msg) {
+    var el = document.getElementById(id);
+    if (el.textContent !== msg) el.textContent = msg;   // DOM 副作用：行内错误提示
+  }
+
+  document.getElementById('m-btn-login').onclick = function () {
+    var acc = document.getElementById('m-acc').value.trim();
+    var pwd = document.getElementById('m-pwd').value;
+    var ok = true;
+    if (!acc) { err('m-acc-err', '请输入账号'); ok = false; } else err('m-acc-err', '');
+    if (!pwd) { err('m-pwd-err', '请输入密码'); ok = false; } else err('m-pwd-err', '');
+    if (!ok) return;
+    var name = ACC[acc] || '王琳';                       // 演示：未知账号默认以审核人王琳进入
+    var role = ROLE[name] || '商务主管';
+    localStorage.setItem('m-auth', JSON.stringify({ name: name, role: role, ts: Date.now() }));   // 写免二次登录标记
+    mToast('登录成功 · 欢迎回来，' + name);
+    setTimeout(function () { go('待办审批.html'); }, 500);
+  };
+
+  document.getElementById('m-btn-wx').onclick = function () {
+    localStorage.setItem('m-auth', JSON.stringify({ name: '王琳', role: '商务主管', ts: Date.now() }));   // 企微一键登录同样写标记
+    mToast('企业微信登录成功（演示）');
+    setTimeout(function () { go('待办审批.html'); }, 500);
+  };
+
+  document.getElementById('m-acc').oninput = function () { err('m-acc-err', ''); };
+  document.getElementById('m-pwd').oninput = function () { err('m-pwd-err', ''); };
+
+  mGuardAuthed();   // 已登录访问登录页 → 直达待办（免二次登录）
+})();
+</script>
+</body>
+</html>

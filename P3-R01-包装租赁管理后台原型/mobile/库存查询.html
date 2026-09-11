@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>P3-R01-M04 · 库存查询</title>
+<link rel="stylesheet" href="_m.css">
+</head>
+<body>
+<div class="m-page" id="m-app">
+
+  <div class="m-header">
+    <div class="m-hd-title">库存查询</div>
+    <div class="m-hd-sub" id="m-hd-sub">— · 四态筛选</div>
+  </div>
+
+  <div class="m-body">
+    <div class="m-search">
+      <span class="m-search-ico"></span>
+      <input id="m-q" type="text" placeholder="搜索物料编码 / 名称 / 库区" autocomplete="off">
+    </div>
+    <div class="m-chips" id="m-chips">
+      <span class="m-chip active" data-s="全部" onclick="mPick(this)">全部</span>
+      <span class="m-chip" data-s="在库" onclick="mPick(this)">在库</span>
+      <span class="m-chip" data-s="客户端(租出)" onclick="mPick(this)">客户端(租出)</span>
+      <span class="m-chip" data-s="客户端(转租)" onclick="mPick(this)">客户端(转租)</span>
+      <span class="m-chip" data-s="退租待入库" onclick="mPick(this)">退租待入库</span>
+    </div>
+    <div id="m-count" style="font-size:12px;color:#8c8c8c;margin-bottom:8px;"></div>
+    <div id="m-list"></div>
+  </div>
+
+  <div class="m-tabbar">
+    <a href="待办审批.html"><span class="m-tab-ico">☑</span>待办</a>
+    <a href="库存查询.html" class="active"><span class="m-tab-ico">📦</span>库存</a>
+    <a href="我的.html"><span class="m-tab-ico">👤</span>我的</a>
+  </div>
+
+</div>
+<script src="../_data/demo-data.js"></script>
+<script src="_m.js"></script>
+<script>
+/* ---- 库存查询：消费 DEMO_DATA.stockFlows（13 行），搜索 + 状态 chips 筛选 ---- */
+var mStockRows = [];   // [{id, fields, qty}]
+mRows('stockFlows').forEach(function (r) {
+  if (!r.row.fields || !r.row.fields.status) return;   // 组合件无状态行不计入
+  mStockRows.push({ id: r.id, fields: r.row.fields, qty: mQtyFromCells(r.row.cells) });
+});
+
+var mState = { q: '', s: '全部' };
+
+function mRender() {
+  var q = mState.q.toLowerCase();
+  var list = mStockRows.filter(function (r) {
+    if (mState.s !== '全部' && r.fields.status !== mState.s) return false;
+    if (q) {
+      var blob = (r.id + ' ' + r.fields.name + ' ' + (r.fields.area || '')).toLowerCase();
+      if (blob.indexOf(q) < 0) return false;
+    }
+    return true;
+  });
+  document.getElementById('m-count').textContent = '共 ' + list.length + ' 种物料'
+    + (mState.s === '全部' ? '' : ' · 状态「' + mState.s + '」');
+  document.getElementById('m-list').innerHTML = list.map(function (r) {
+    return '<div class="m-item" style="cursor:default;">'
+      + '<div class="m-item-top"><span style="font-weight:700;color:#1677ff;">' + mEsc(r.id) + '</span>'
+      + '<span class="m-badge ' + mBadgeCls(r.fields.status) + '">' + mEsc(r.fields.status) + '</span></div>'
+      + '<div class="m-item-title" style="white-space:normal;">' + mEsc(r.fields.name) + '</div>'
+      + '<div class="m-item-meta"><span>' + mEsc(r.fields.cls) + '</span><span>' + mEsc(r.fields.project || '—') + '</span><span>' + mEsc(r.fields.area || '') + '</span></div>'
+      + '<div class="m-item-qty" style="margin-top:4px;">合计 <b>' + mEsc(r.qty) + '</b></div>'
+      + '</div>';
+  }).join('') || '<div class="m-empty">没有符合条件的物料</div>';
+}
+
+function mPick(el) {   // chip 点击：切换 active + 重渲染（DOM 副作用）
+  document.querySelectorAll('#m-chips .m-chip').forEach(function (c) { c.classList.remove('active'); });
+  el.classList.add('active');
+  mState.s = el.getAttribute('data-s');
+  mRender();
+}
+
+document.getElementById('m-q').oninput = function () { mState.q = this.value.trim(); mRender(); };
+
+(function () {
+  var u = mUser() || { name: '王琳', role: '商务主管' };
+  document.getElementById('m-hd-sub').textContent = u.name + ' · ' + mStockRows.length + ' 种物料';
+  mRender();
+  mGuard();   // 免二次登录守卫
+})();
+</script>
+</body>
+</html>
