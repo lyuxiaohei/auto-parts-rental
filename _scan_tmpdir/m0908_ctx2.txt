@@ -1,0 +1,102 @@
+== 退租申请 @ P3-R01-F01-业务流程导航图.html ==
+   …和物资去匹配才能形成完整的闭环"；"入库的指令来源于4种"'], ['v3.0 · 2026-09-08 会议拍板','组装/拆卸/退租申请/丢损赔偿单四模块移除——库存结果导向（出库按 BOM 组合扣减·退租按零件入库·赔偿直接建应收/应付）；财务应收应付各 4 来源；器具+零…
+== 退租申请 @ 仓储作业/库存查询.html ==
+   …n>退租在途（无独立审核）</div><div class="pnp-d">客户已通知退租 500 件 · 退租入库待确认 7 单。<br>退租申请模块已移除（2026-09-08 会议）：退租只做两件事——在途（客户通知）→ 退租入库（改库存），无独立审核环节。</div><div c…
+== 退租申请 @ 租赁管理/租赁单列表.html ==
+   …b active">租赁单 <span class="close">×</span></span> <span class="tab">退租申请 <span class="close">×</span></span> <span class="tab">在租台账 <span cl…
+
+== 库存查询「组装」全部形态 ==
+   [5] lass="pnp-tag">REQ-06 · 小组装管理节点</span></div><div cla
+   [5] ss="src-item"><b>REQ-06 小组装管理节点</b>：记录 A+B→C 的组装时间与数
+   [1]  <th>在库(已组装)</th>
+   [1] class="pnp-d">在库＝仓库内可用（其中组装占用 3,920 件，按 BOM 结果导向扣组件，
+   [1] 不管理组装过程）。<br>五态：在库 / 在客户（租出）/ 
+
+== 客户转租 @ 库存查询 形态 ==
+   [1] data-note="4"><span>客户转租出</span></div>
+   [1] 租出)</option><option>客户转租出</option><option>退租
+   [1] 租给终端用户，按来源标记区分（库存状态「客户转租出」）。</p>
+   [1] 0.00</span></td><td>客户转租</td><td><span class
+   [1] <!-- 客户转租登记/还回 弹窗 · 纪要八.5（租给客
+   [1] class="modal-title">客户转租登记</h3><span class="
+   [1] 租给客户 B —— 登记后库存状态变为「客户转租出（客户的客户）」，可查转租去向，不做所
+   [1] → 博世苏州 240 只 · 库存状态：客户转租出（筛「客户转租出」可查）')">确认转
+   [1] br>五态：在库 / 在客户（租出）/ 客户转租出（客户的客户）/ 退租在途 / 租入在
+   [1] 的租赁资产按客户归集（on-hire）；客户转租为其子状态（2026-09-08 会议 
+   mobile/库存查询 语境:
+   …click="mPick(this)">客户端(租出)</span> <span class="m-chip" data-s="客户转租出" onclick="mPick(this)">客户转租出</span> <span class="m-chip" data-…
+   …span> <span class="m-chip" data-s="客户转租出" onclick="mPick(this)">客户转租出</span> <span class="m-chip" data-s="退租待入库" onclick="mPick(this…
+   全站 grep 转租(仅文件名层面看是否有独立页):
+   组合出库列表页侧边栏含 转租: False
+
+== 租赁单新建弹窗 三件套/加粗/换算 ==
+   未税单价: 有
+      th>物料名称</th><th>单位</th><th>数量</th><th style="font-size:13.5px;font-weight:700;">未税单价(元)</th><th style="font-size:13.5px;font-weight:700;">税率</th><th style="font-size:13.5px;font-weight:700;">含税单价(元)</
+   税率: 有
+   含税单价: 有
+      e:13.5px;font-weight:700;">税率</th><th style="font-size:13.5px;font-weight:700;">含税单价(元)</th><th>含税金额(元)</th></tr></thead> <tbody><tr><td><select style="width:100%;min-width:0;border:1px solid #d
+   换算: 有
+      style.transform = ''; }, 160); }, true); })(); </script> <script>/*F-A 税率三件套双向换算 · meeting0908 批3*/ (function () { function num(v){ var x = parseFloat(String(v).replace(/,/g,'')); return isNaN(x)?
+   oninput: 无
+   bold: 无
+   font-weight: 有
+   标签形态: <th style="font-size:13.5px;font-weight:700;">未税单价(元)
+   标签形态: <th style="font-size:13.5px;font-weight:700;">含税单价(元)
+   标签形态: <th>含税金额(元)
+
+== 租入单新建 计费方式/日租金 ==
+   … class="pnp-n">1</span>租入计费口径</div><div class="pnp-d">计费＝月租金 + 按套数单价（无日租金，2026-09-08 会议）；应付生成方式取决于租入单模式（静态租入 / 背靠背）。</div><div class="pnp-b"><s…
+   计费段: e:13px;font-weight:600;color:#1a1a1a;">租入明细（多货品 · 计费方式：月租 / 按套）</div> <div class="table-wrap" style="border:1px solid var(--border);border-radius:6px;"> <table class="edit-tbl"> <thead><tr><th>物料</th><th>数量</th><th data-note="1">计费方式</th><th>未税单价(元)</th><th style="font-size:13.5px;font-weight:700;">税率</th><th style="font-size:13.5px;fon
+   租入单列表 日租金语境:
+   …th>供应商</th> <th>物料</th> <th>数量</th> <th>日租金(元)</th> <th>租期起止</th> <th>押金(元)</th> <t…
+   …<div class="dlabel">租入内容</div><div class="dval">塑料托盘 1200×1000 × 50 只（日租金 1.20 元/只）</div></div> <div class="drow"><div class="dlabel">供…
+   …1</span>L3 · 步骤 1/8 租入单</div><div class="pnp-d">L3 租入转租起点：向路凯租入围板箱×30（日租金 400）。<br>状态流：待审核→履行中→部分归还→已归还。操作列可按月生成租金应付。<br>2026-09-04 拍板第一期实现（原会议…
+   数据字典 日租金: ['…r> <td>按天</td> <td>按天计租</td> <td>在租天数 × 日租金</td> <td>围板箱/托盘租赁（暂估）</td> <td><span class="tag t…']
+
+== 应付账单列头/三金额 ==
+   th 列头: ['应付账单号', '供应商', '账单类型', '所属项目', '账期', '关联订单/租入单号', '关联采购入库单号', '账单金额(元)', '已付金额(元)', '未付金额(元)', '账单日期', '到期日', '状态', '操作', '笔次', '比例(%)', '金额(元)', '计划日期', '状态', '笔次', '比例(%)', '金额(元)', '计划日期', '状态']
+   未付金额: 1
+   待付金额: 0
+   未付: 8
+   待付: 2
+   剩余: 8
+
+== 付款登记新建 分期互算 ==
+   分期段: lder="选填"></div> </div> </div> <div style="margin:12px 0 4px;font-size:13px;font-weight:600;">分期付款计划（比例⇄金额互算 · 笔数不限直至付清）</div> <div style="display:flex;gap:8px;align-items:center;margin-bottom:6px;"> <button class="btn btn-default btn-sm" id="instAddM" type="button">+ 添加一笔</button> <button class="btn btn-default btn-sm" id="instFillM" type="button">剩余全排</button> <input id="instBaseM" value="68,400.00" style="border:1px solid #d9d9d9;border-radius:4px;padding:2px 8px;font:inherit;width:120px;text-align:right;" title="账单金额"> </div> <div class="table-wrap"> <table>
+   oninput: 0
+   比例: 5
+   自动算: 0
+   超出语境: …yle="font-size:12px;color:#8c8c8c;margin-top:4px;">填比例算金额 / 填金额算比例；「+ 添加一笔」自由加笔，「剩余全排」把剩余填入最后一笔；付款金额超出账单金额拦截（账单金额/已付/剩余 头部展示）。</div> <script>/*C-C/D 分期比例⇄金额互算工厂 · meeting0908 批3 · 2026-09-10 自由笔数版（笔数不限直…
+
+== 租赁管理 目录文件 ==
+   租入入库列表.html
+   租入单列表.html
+   租入归还列表.html
+   租赁单列表.html
+   组合出库列表.html
+   组合出库录单.html
+   退租入库列表.html
+   归还单关键词:
+   独立归还页: P3-R01-包装租赁管理后台原型/租赁管理/弹窗/租入归还单详情.html
+   独立归还页: P3-R01-包装租赁管理后台原型/租赁管理/弹窗/租入归还审核.html
+   独立归还页: P3-R01-包装租赁管理后台原型/租赁管理/弹窗/租入归还新建.html
+   独立归还页: P3-R01-包装租赁管理后台原型/租赁管理/租入归还列表.html
+
+== 赔偿单 语境 ==
+   应收: … <td>PRJ-2601</td> <td>一汽解放汽车有限公司</td> <td>丢损赔偿单（退租联动）</td> <td>丢损赔偿单 BS-20260828-004</td> <td><sp…
+   应收: … <td>一汽解放汽车有限公司</td> <td>丢损赔偿单（退租联动）</td> <td>丢损赔偿单 BS-20260828-004</td> <td><span class="td-num"><b>3,690.00</…
+   应收: …span class="pnp-n">3</span>S4 · 赔偿转应收</div><div class="pnp-d">丢损赔偿不走独立赔偿单，直接生成应收/应付账单（2026-09-04 拍板 · 2026-09-08 移除赔偿单模块）：<br>自有器具 → 客户赔付进应收；租入…
+   F01: …2" fill="#6b7280" font-size="8" font-family="'Geist Mono',monospace">无赔偿单直接建账单（费用分类）· 详见 S4</text> <text x="40" y="1534" fill="#111827" fo…
+   F01: …t-size="8" font-family="'Geist Mono',monospace" text-anchor="middle">无赔偿单 · 费用分类</text></a> <line x1="320" y1="440" x2="412" y2="440" strok…
+
+== 租赁单新建 库存不足提示 ==
+   …der-radius:6px;font-size:12px;color:#d4380d;line-height:1.9;"> <span class="sw-txt">可用库存不足——可选择生成：</span> <button class="btn btn-sm" style="margin-left:8px;" onclick="go('../..…
+   …play = 'block'; var t = w.querySelector('.sw-txt'); if (t) t.textContent = '可用库存不足（' + lack.name + '：需求 ' + lack.need + ' · 可用 ' + lack.have + ' ' + lack.unit + '）——可选择生成：'…
+
+== 租赁单新建 产品字段形态 ==
+   select 总数 5
+   select[0] options: ['一汽解放汽车有限公司', '上汽大众汽车有限公司宁波分公司', '小鹏汽车科技有限公司', '东风本田汽车有限公司']
+   select[1] options: ['常规', '背靠背']
+   select[2] options: ['PRJ-2601 一汽解放·长春基地', 'PRJ-2601 一汽解放', 'PRJ-2602 上汽大众', 'PRJ-2603 小鹏', 'PRJ-2604 东风本田']
+   select[3] options: ['WBX-1210L 围板箱 1200×1000×970', 'WBX-1210M 围板箱 1200×1000×590', 'PLT-1210W 木托盘 1200×1000', 'PLT-1210P 塑料托盘 1200×1000', 'BTC-6040 料箱 600×400×340', 'LJ-A100 锁扣组件']
+   select[4] options: ['WBX-1210L 围板箱 1200×1000×970', 'WBX-1210M 围板箱 1200×1000×590', 'PLT-1210W 木托盘 1200×1000', 'PLT-1210P 塑料托盘 1200×1000', 'BTC-6040 料箱 600×400×340', 'LJ-A100 锁扣组件']
