@@ -351,7 +351,7 @@ th.td-num { text-align:right; }
     <div class="ff"><span class="ff-label">入库单号：</span><input placeholder="请输入入库单号"></div>
     <div class="ff"><span class="ff-label">关联租入单：</span><input placeholder="请输入租入单号"></div>
     <div class="ff"><span class="ff-label">供应商：</span><select><option value="">全部</option><option>路凯包装运营（上海）有限公司</option></select><svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
-    <div class="ff ff-row-extra"><span class="ff-label">器具：</span><select><option value="">全部</option><option>围板箱 1200×1000×970</option><option>塑料托盘 1200×1000</option><option>金属料箱 800×600</option></select><svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+    <div class="ff ff-row-extra"><span class="ff-label">物料：</span><select><option value="">全部</option><option>围板箱 1200×1000×970</option><option>塑料托盘 1200×1000</option><option>金属料箱 800×600</option></select><svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
     <div class="ff ff-row-extra"><span class="ff-label">状态：</span><select><option value="">全部</option><option>待入库</option><option>已入库</option></select><svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
     <div class="ff ff-row-extra"><span class="ff-label">入库时间：</span><input placeholder="开始日期"><span class="ff-sep">→</span><input placeholder="结束日期"></div>
     <div class="filter-actions">
@@ -382,7 +382,7 @@ th.td-num { text-align:right; }
           <th>入库单号</th>
           <th>关联租入单</th>
           <th>供应商</th>
-          <th>器具</th>
+          <th>物料</th>
           <th>数量</th>
           <th>入库库区</th>
           <th>状态</th>
@@ -465,7 +465,7 @@ th.td-num { text-align:right; }
         <div class="drow"><div class="dlabel">供应商</div><div class="dval">路凯包装运营（上海）有限公司</div></div>
         <div class="drow"><div class="dlabel">提交人 / 时间</div><div class="dval">陈金 / 2026-09-03 09:45</div></div>
         <div class="drow"><div class="dlabel">审核人（按角色配置）</div><div class="dval">物流主管 · 李国栋</div></div>
-        <div class="drow" style="grid-column:1/-1;"><div class="dlabel">备注</div><div class="dval">确认后计入租入资产库存（器具档案标记来源=租入），按月生成租金应付</div></div>
+        <div class="drow" style="grid-column:1/-1;"><div class="dlabel">备注</div><div class="dval">确认后计入租入资产库存（物料档案标记来源=租入），按月生成租金应付</div></div>
       </div>
       <div class="form-row">
         <span class="form-label"><span class="req">*</span>审核结论</span>
@@ -527,7 +527,7 @@ renderListPage({
     { label: '入库单号', field: '_key' },
     { label: '关联租入单', field: 'ref' },
     { label: '供应商', field: 'operator' },
-    { label: '器具', field: 'appliance' },
+    { label: '物料', field: 'appliance' },
     { label: '状态', field: 'status' },
     { label: '入库时间', field: 'date', range: true }
   ]

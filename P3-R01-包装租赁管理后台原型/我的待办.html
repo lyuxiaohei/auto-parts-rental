@@ -361,7 +361,7 @@ th.td-num { text-align:right; }
     <div class="ff"><span class="ff-label">审核人：</span>
       <select id="todoAuditor" onchange="filterTodo()"><option>全部</option><option>王琳</option><option>袁丽晶</option><option>徐蔚</option><option>王强</option><option>李国栋</option><option>陈金</option><option>袁明</option></select>
     </div>
-    <div class="ff"><span class="ff-label">关键词：</span><input id="todoKw" placeholder="单号 / 客户 / 项目 / 摘要" oninput="filterTodo()"></div>
+    <div class="ff"><span class="ff-label">关键词：</span><input id="todoKw" placeholder="单据编号 / 客户 / 项目 / 摘要" oninput="filterTodo()"></div>
     <div class="filter-actions">
       <button class="btn btn-default" onclick="document.getElementById('todoKw').value='';document.getElementById('todoType').value='全部';document.getElementById('todoAuditor').value='全部';filterTodo()">重置</button>
     </div>
@@ -376,7 +376,7 @@ th.td-num { text-align:right; }
 <div class="table-wrap">
   <table id="todoTable">
     <thead><tr>
-      <th>单据类型</th><th>单据号</th><th>摘要</th><th>所属项目</th><th>提交人</th><th>提交时间</th><th>待办动作</th><th class="sticky-op">操作</th>
+      <th>单据类型</th><th>单据编号</th><th>摘要</th><th>所属项目</th><th>提交人</th><th>提交时间</th><th>待办动作</th><th class="sticky-op">操作</th>
     </tr></thead>
     <tbody id="todoBody">
         <tr data-type="销售订单">

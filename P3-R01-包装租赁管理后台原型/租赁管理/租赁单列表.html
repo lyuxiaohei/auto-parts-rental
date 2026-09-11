@@ -386,7 +386,7 @@ th.td-num { text-align:right; }
         <tr>
           <th></th>
           <th>租赁单号</th>
-          <th>客户名称</th>
+          <th>客户</th>
           <th>所属项目</th>
           <th>租赁器具</th>
           <th>资产来源</th>
@@ -737,7 +737,7 @@ renderListPage({
   stabs: true,
   filters: [
     { label: '租赁单号', field: '_key', match: 'contains' },
-    { label: '客户名称', field: 'customer' },
+    { label: '客户', field: 'customer' },
     { label: '所属项目', field: 'project' },
     { label: '状态', field: 'status' },
     { label: '建单日期', field: 'start', range: true }

@@ -348,7 +348,7 @@ th.td-num { text-align:right; }
   <div class="filter-grid">
     <div class="ff"><span class="ff-label">物料编码：</span><input placeholder="请输入"></div>
     <div class="ff"><span class="ff-label">物料名称：</span><input placeholder="请输入"></div>
-    <div class="ff"><span class="ff-label">分类：</span>
+    <div class="ff"><span class="ff-label">物料分类：</span>
       <select><option selected>全部</option><option>围板箱</option><option>托盘</option><option>料箱</option><option>料架</option><option>组件</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
@@ -380,7 +380,7 @@ th.td-num { text-align:right; }
           <th></th>
           <th>物料编码</th>
           <th>物料名称</th>
-          <th>分类</th>
+          <th>物料分类</th>
           <th>规格</th>
           <th>单位</th>
           <th>归属权</th>
@@ -609,7 +609,7 @@ th.td-num { text-align:right; }
     <div class="input-box select-box"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>器具</option><option>零部件</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
   </div>
   <div class="form-row">
-    <span class="form-label">分类</span>
+    <span class="form-label">物料分类</span>
     <div class="input-box select-box"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>围板箱</option><option>塑料托盘</option><option>木托盘</option><option>料箱</option><option>料架</option><option>组件</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
   </div><div class="form-row">
     <span class="form-label">规格</span>
@@ -719,7 +719,7 @@ th.td-num { text-align:right; }
   <div class="table-wrap">
     <table>
       <thead>
-        <tr><th>物料编码</th><th>物料名称</th><th>分类</th><th>供应商</th><th>税率</th><th>结算周期</th></tr>
+        <tr><th>物料编码</th><th>物料名称</th><th>物料分类</th><th>供应商</th><th>税率</th><th>结算周期</th></tr>
       </thead>
       <tbody>
         <tr><td>WBX-1210L</td><td>围板箱 1200×1000×970</td><td>围板箱</td><td>宁波华塑包装制品有限公司</td><td><span class="td-num">13%</span></td><td>月结 30 天</td></tr>
@@ -742,7 +742,7 @@ renderListPage({
   filters: [
     { label: '物料编码', field: '_key' },
     { label: '物料名称', field: 'name' },
-    { label: '分类', field: 'cls' },
+    { label: '物料分类', field: 'cls' },
     { label: '归属权', field: 'src' },
     { label: '状态', field: 'status' },
     { label: '建档时间', field: 'date', range: true }
@@ -757,9 +757,9 @@ renderListPage({
       <span class="modal-close" onclick="closeModal('stopModal')">×</span>
     </div>
     <div class="modal-body">
-      <div class="dgrid"><div class="drow"><div class="dlabel">物料编码</div><div class="dval">WBX-1210L</div></div><div class="drow"><div class="dlabel">名称</div><div class="dval">围板箱 1200×1000×970</div></div><div class="drow"><div class="dlabel">资产来源</div><div class="dval">自有</div></div><div class="drow"><div class="dlabel">当前状态</div><div class="dval"><span class="tag tag-green">启用</span></div></div></div>
+      <div class="dgrid"><div class="drow"><div class="dlabel">物料编码</div><div class="dval">WBX-1210L</div></div><div class="drow"><div class="dlabel">名称</div><div class="dval">围板箱 1200×1000×970</div></div><div class="drow"><div class="dlabel">资产来源</div><div class="dval">自有</div></div><div class="drow"><div class="dlabel">状态</div><div class="dval"><span class="tag tag-green">启用</span></div></div></div>
       <div style="height:14px;"></div>
-      <p style="font-size:13px;color:#262626;line-height:1.7;">确认停用该器具（WBX-1210L）？<br>停用后不可再出租、不可新增租赁单；在租与库存数据不受影响。</p></div>
+      <p style="font-size:13px;color:#262626;line-height:1.7;">确认停用该物料（WBX-1210L）？<br>停用后不可再出租、不可新增租赁单；在租与库存数据不受影响。</p></div>
     <div class="modal-footer">
       <button class="btn btn-default" onclick="closeModal('stopModal')">取 消</button>
       <button class="btn" style="background:#ff4d4f;" onclick="closeModal('stopModal')">确认停用</button>

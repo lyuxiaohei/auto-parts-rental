@@ -385,7 +385,7 @@ th.td-num { text-align:right; }
         <tr>
           <th></th>
           <th>应付账单号</th>
-          <th>供应商名称</th>
+          <th>供应商</th>
           <th>账单类型</th>
           <th>所属项目</th>
           <th>账期</th>
@@ -900,7 +900,7 @@ renderListPage({
   filters: [
     { label: '账单类型', field: 'btype', match: 'contains' },
     { label: '应付账单号', field: '_key' },
-    { label: '供应商名称', field: 'supplier' },
+    { label: '供应商', field: 'supplier' },
     { label: '关联采购订单号', field: 'ref' },
     { label: '状态', field: 'status' },
     { label: '账单日期', field: 'date', range: true }

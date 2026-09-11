@@ -83,8 +83,9 @@ with sync_playwright() as pw:
     # ⑦ 仓储管理组三小标签=库存管理(3)/入库类(1)/出库类(1)
     g_wh = next(g for g in groups if g['name'] == '仓储管理')
     wh_seq = [('T' if s['isTag'] else 'I') + s['text'] for s in g_wh['sub']]
-    check('⑦', '仓储管理组 库存管理(库存查询/盘点/库存调拨)+入库类(其他入库)+出库类(其他出库)',
-          wh_seq == ['T库存管理', 'I库存查询', 'I盘点', 'I库存调拨',
+    # G17（2026-09-11）断言随 09-11 晨会话菜单改名同步：「盘点」→「盘点记录」（术语表 #21）
+    check('⑦', '仓储管理组 库存管理(库存查询/盘点记录/库存调拨)+入库类(其他入库)+出库类(其他出库)',
+          wh_seq == ['T库存管理', 'I库存查询', 'I盘点记录', 'I库存调拨',
                      'T入库类', 'I其他入库', 'T出库类', 'I其他出库'], ' '.join(wh_seq))
 
     # ⑧ 租赁管理组两小标签=租赁(3)/租入(3)（G09·2026-09-10：退租入库移入租赁标签·退租小标签取消）
@@ -118,12 +119,12 @@ with sync_playwright() as pw:
     url2 = unquote(pg.url)
     check('⑪', '我的待办一级直达 我的待办.html', url2.endswith('我的待办.html'), url2)
 
-    # ⑩ 盘点录入.html 页 selected=盘点
+    # ⑩ 盘点录入.html 页 selected=盘点记录（G17 断言随菜单改名同步）
     pg.goto((PROTO / '仓储作业/盘点录入.html').as_uri())
     pg.wait_for_load_state('load')
     sel2 = pg.evaluate("() => { const e=document.querySelector('.sm-link.selected'); return e?e.textContent.trim():null }")
-    check('⑩', '盘点录入页 selected=盘点（open=仓储管理）',
-          sel2 == '盘点' and next(g for g in pg.evaluate(MENU_JS) if g['name'] == '仓储管理')['open'],
+    check('⑩', '盘点录入页 selected=盘点记录（open=仓储管理）',
+          sel2 == '盘点记录' and next(g for g in pg.evaluate(MENU_JS) if g['name'] == '仓储管理')['open'],
           f'selected={sel2}')
 
     # ⑫ 角色管理页 selected=角色管理·open=系统管理

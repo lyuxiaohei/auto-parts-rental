@@ -382,13 +382,13 @@ th.td-num { text-align:right; }
         <tr>
           <th></th>
           <th>退租入库单号</th>
-          <th>客户名称</th>
+          <th>客户</th>
           <th>所属项目</th>
-          <th>退租器具名称</th>
+          <th>退租物料名称</th>
           <th>退租数量</th>
           <th>按BOM拆解后散件明细摘要</th>
           <th>拆散去向</th>
-          <th>入库仓库</th>
+          <th>入库库房</th>
           <th>入库日期</th>
           <th>验收结果</th>
           <th>状态</th>
@@ -661,7 +661,7 @@ renderListPage({
   stabs: true,
   filters: [
     { label: '退租入库单号', field: '_key' },
-    { label: '客户名称', field: 'customer' },
+    { label: '客户', field: 'customer' },
     { label: '验收结果', field: 'result' },
     { label: '入库日期', field: 'date', range: true },
     { label: '所属项目', field: 'project' }

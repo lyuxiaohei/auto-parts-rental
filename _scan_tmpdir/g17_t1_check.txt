@@ -1,0 +1,32 @@
+PASS 残留[物料类别] 0
+PASS 残留[当前状态] 0
+PASS 残留[入库仓库] 0
+PASS 残留[出库仓库] 0
+PASS 残留[调出仓库] 0
+PASS 残留[调入仓库] 0
+PASS 残留[退租器具] 0
+PASS 残留[零件号/器具编码] 0
+PASS 残留[>单号<] 0
+PASS 残留[>单据号<] 0
+PASS 残留[单号：筛选] 0
+PASS 残留[单号placeholder] 0
+PASS 残留[>客户名称</th>] 0
+PASS 残留[>供应商名称</th>] 0
+PASS 残留[>客商名称</th>] 0
+PASS 残留[cfg客户名称] 0
+PASS 残留[cfg供应商名称] 0
+PASS 残留[cfg客商名称] 0
+PASS 残留[>说明</th>] 0
+PASS 残留[>分类</th>] 0
+PASS 残留[form分类] 0
+PASS 残留[cfg分类] 0
+PASS 残留[裸td零件] 0
+PASS 残留[ff器具] 0
+PASS 残留[>器具</th>] 0
+PASS 残留[cfg器具] 0
+PASS 白名单[租赁器具] = 8
+PASS 白名单[器具摊销] = 2
+PASS 白名单[器具区] = 2
+PASS 白名单[三级释义句] = 3
+PASS 白名单[零件号] = 2
+FAIL 标签配平 ['采购管理/采购订单列表.html:div', '租赁管理/租入单列表.html:div', '租赁管理/租入入库列表.html:div', '租赁管理/租入归还列表.html:div', '租赁管理/退租入库列表.html:div', '租赁管理/租赁单列表.html:div', '销售管理/销售出库列表.html:div', '销售管理/销售订单列表.html:div', '财务协同/应付账单.html:div', '我的待办.html:div', '仓储作业/其他入库列表.html:div', '仓储作业/其他出库列表.html:div', '仓储作业/库存调拨列表.html:div']

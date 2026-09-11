@@ -350,7 +350,7 @@ th.td-num { text-align:right; }
   <div class="filter-grid">
     <div class="ff"><span class="ff-label">租入单号：</span><input placeholder="请输入租入单号"></div>
     <div class="ff"><span class="ff-label">供应商：</span><select><option value="">全部</option><option>路凯包装运营（上海）有限公司</option></select><svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
-    <div class="ff"><span class="ff-label">器具：</span><select><option value="">全部</option><option>围板箱 1200×1000×970</option><option>塑料托盘 1200×1000</option><option>金属料箱 800×600</option></select><svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+    <div class="ff"><span class="ff-label">物料：</span><select><option value="">全部</option><option>围板箱 1200×1000×970</option><option>塑料托盘 1200×1000</option><option>金属料箱 800×600</option></select><svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
     <div class="ff ff-row-extra"><span class="ff-label">状态：</span><select><option value="">全部</option><option>新建(草稿)</option><option>待审核</option><option>履行中</option><option>部分归还</option><option>已归还</option><option>已终止</option></select><svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
     <div class="ff ff-row-extra"><span class="ff-label">租期开始：</span><input placeholder="开始日期"><span class="ff-sep">→</span><input placeholder="结束日期"></div>
     <div class="ff ff-row-extra"><span class="ff-label">经办人：</span><input placeholder="请输入经办人"></div>
@@ -385,7 +385,7 @@ th.td-num { text-align:right; }
           <th></th>
           <th>租入单号</th>
           <th>供应商</th>
-          <th>器具</th>
+          <th>物料</th>
           <th>数量</th>
           <th>日租金(元)</th>
           <th>租期起止</th>
@@ -611,7 +611,7 @@ renderListPage({
   filters: [
     { label: '租入单号', field: '_key' },
     { label: '供应商', field: 'operator' },
-    { label: '器具', field: 'appliance' },
+    { label: '物料', field: 'appliance' },
     { label: '状态', field: 'status' },
     { label: '租期开始', field: 'date', range: true },
     { label: '经办人', field: 'agent' }

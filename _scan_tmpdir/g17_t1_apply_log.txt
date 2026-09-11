@@ -1,0 +1,86 @@
+URL 免疫预检 PASS（全站 URL 参数 0 含替换词根）
+OK  项1 仓储作业/库存查询.html [<th>物料类别</th>] 期望1 实际1
+OK  项1 基础数据/BOM维护.html [<th>来源</th><th>类型</th>] 期望1 实际1
+OK  项1 采购管理/采购订单列表.html [<span class="req">*</span>类别</span] 期望1 实际1
+OK  项2 基础数据/产品档案.html [<span class="ff-label">分类：</span>] 期望1 实际1
+OK  项2 基础数据/产品档案.html [<th>分类</th>] 期望2 实际2
+OK  项2 基础数据/产品档案.html [<span class="form-label">分类</span>] 期望1 实际1
+OK  项2 基础数据/产品档案.html [{ label: '分类', field: 'cls' }] 期望1 实际1
+OK  项2 基础数据/弹窗/新建产品.html [<span class="form-label">分类</span>] 期望1 实际1
+OK  项3 租赁管理/租入单列表.html [<span class="ff-label">器具：</span>] 期望1 实际1
+OK  项3 租赁管理/租入单列表.html [<th>器具</th>] 期望1 实际1
+OK  项3 租赁管理/租入单列表.html [{ label: '器具', field: 'appliance' ] 期望1 实际1
+OK  项3 租赁管理/租入入库列表.html [<span class="ff-label">器具：</span>] 期望1 实际1
+OK  项3 租赁管理/租入入库列表.html [<th>器具</th>] 期望1 实际1
+OK  项3 租赁管理/租入入库列表.html [{ label: '器具', field: 'appliance' ] 期望1 实际1
+OK  项3 租赁管理/租入入库列表.html [器具档案标记来源=租入] 期望1 实际1
+OK  项3 租赁管理/租入归还列表.html [<th>器具</th>] 期望1 实际1
+OK  项3 租赁管理/租入归还列表.html [<span class="req">*</span>器具</span] 期望1 实际1
+OK  项3 租赁管理/租入归还列表.html [归还器具出库至供应商] 期望1 实际1
+OK  项3 租赁管理/弹窗/租入归还新建.html [<span class="req">*</span>器具</span] 期望1 实际1
+OK  项3 租赁管理/弹窗/租入入库确认.html [器具档案标记来源=租入] 期望1 实际1
+OK  项3 租赁管理/弹窗/租入归还审核.html [归还器具出库至供应商] 期望1 实际1
+OK  项3 租赁管理/退租入库列表.html [<th>退租器具名称</th>] 期望1 实际1
+OK  项3 采购管理/采购入库录单.html [<th>零件号 / 器具编码</th>] 期望1 实际1
+OK  项3 基础数据/BOM维护.html [<td>零件</td>] 期望3 实际3
+OK  项3 基础数据/产品档案.html [确认停用该器具（WBX-1210L）？] 期望1 实际1
+OK  项4 租赁管理/租赁单列表.html [<th>客户名称</th>] 期望1 实际1
+OK  项4 租赁管理/租赁单列表.html [{ label: '客户名称', field: 'customer'] 期望1 实际1
+OK  项4 租赁管理/退租入库列表.html [<th>客户名称</th>] 期望1 实际1
+OK  项4 租赁管理/退租入库列表.html [{ label: '客户名称', field: 'customer'] 期望1 实际1
+OK  项4 销售管理/销售出库列表.html [<th>客户名称</th>] 期望1 实际1
+OK  项4 销售管理/销售出库列表.html [{ label: '客户名称', field: 'customer'] 期望1 实际1
+OK  项4 销售管理/销售订单列表.html [<th>客户名称</th>] 期望1 实际1
+OK  项4 销售管理/销售订单列表.html [{ label: '客户名称', field: 'customer'] 期望1 实际1
+OK  项4 项目管理/项目档案.html [{ label: '客户名称', field: 'customer'] 期望1 实际1
+OK  项4 财务协同/付款登记.html [<th>供应商名称</th>] 期望1 实际1
+OK  项4 财务协同/付款登记.html [{ label: '供应商名称', field: 'supplier] 期望1 实际1
+OK  项4 财务协同/应付账单.html [<th>供应商名称</th>] 期望1 实际1
+OK  项4 财务协同/应付账单.html [{ label: '供应商名称', field: 'supplier] 期望1 实际1
+OK  项4 采购管理/采购订单列表.html [<th>供应商名称</th>] 期望1 实际1
+OK  项4 基础数据/客商管理.html [<th>客商名称</th>] 期望1 实际1
+OK  项4 基础数据/客商管理.html [{ label: '客商名称', field: 'name' }] 期望1 实际1
+OK  项5 仓储作业/其他入库列表.html [<span class="ff-label">单号：</span>] 期望1 实际1
+OK  项5 仓储作业/其他入库列表.html [<th>单号</th>] 期望1 实际1
+OK  项5 仓储作业/其他入库列表.html [按单号渲染] 期望1 实际1
+OK  项5 仓储作业/其他入库列表.html [按行内单号渲染] 期望1 实际1
+OK  项5 仓储作业/其他入库列表.html [{ label: '单号', field: '_key' }] 期望1 实际1
+OK  项5 仓储作业/其他出库列表.html [<span class="ff-label">单号：</span>] 期望1 实际1
+OK  项5 仓储作业/其他出库列表.html [<th>单号</th>] 期望1 实际1
+OK  项5 仓储作业/其他出库列表.html [按单号渲染] 期望1 实际1
+OK  项5 仓储作业/其他出库列表.html [按行内单号渲染] 期望1 实际1
+OK  项5 仓储作业/其他出库列表.html [{ label: '单号', field: '_key' }] 期望1 实际1
+OK  项5 我的待办.html [<th>单据号</th>] 期望1 实际1
+OK  项5 我的待办.html [placeholder="单号 / 客户 / 项目 / 摘要"] 期望1 实际1
+OK  项6 基础数据/BOM.html [<div class="dlabel">当前状态</div>] 期望1 实际1
+OK  项6 基础数据/产品档案.html [<div class="dlabel">当前状态</div>] 期望1 实际1
+OK  项6 基础数据/库位档案.html [<div class="dlabel">当前状态</div>] 期望1 实际1
+OK  项6 系统管理/数据字典.html [<div class="dlabel">当前状态</div>] 期望1 实际1
+OK  项6 系统管理/用户权限.html [<div class="dlabel">当前状态</div>] 期望2 实际2
+OK  项6 系统管理/弹窗/停用确认.html [<div class="dlabel">当前状态</div>] 期望1 实际1
+OK  项6 基础数据/弹窗/停用确认.html [<div class="dlabel">当前状态</div>] 期望1 实际1
+OK  项6 系统管理/弹窗/重置密码确认.html [<div class="dlabel">当前状态</div>] 期望1 实际1
+OK  项7 系统管理/用户权限.html [<th>说明</th>] 期望1 实际1
+OK  项7 系统管理/角色管理.html [<th>说明</th>] 期望1 实际1
+OK  项7 系统管理/弹窗/角色管理.html [<th>说明</th>] 期望1 实际1
+OK  项8 仓储作业/其他入库列表.html [入库仓库] 期望4 实际4
+OK  项8 仓储作业/弹窗/其他入库新建.html [入库仓库] 期望1 实际1
+OK  项8 租赁管理/退租入库列表.html [入库仓库] 期望1 实际1
+OK  项8 仓储作业/其他出库列表.html [出库仓库] 期望4 实际4
+OK  项8 仓储作业/弹窗/其他出库新建.html [出库仓库] 期望1 实际1
+OK  项8 销售管理/销售出库列表.html [出库仓库] 期望2 实际2
+OK  项8 销售管理/弹窗/销售出库新建.html [出库仓库] 期望1 实际1
+OK  项8 仓储作业/库存调拨列表.html [调出仓库] 期望4 实际4
+OK  项8 仓储作业/库存调拨列表.html [调入仓库] 期望4 实际4
+OK  项8 仓储作业/弹窗/调拨新建.html [调出仓库] 期望1 实际1
+OK  项8 仓储作业/弹窗/调拨新建.html [调入仓库] 期望1 实际1
+OK  项8 仓储作业/盘点录入.html [盘点仓库：] 期望1 实际1
+OK  项8 基础数据/库位档案.html [<span class="ff-label">仓库：</span>] 期望1 实际1
+OK  项8 基础数据/库位档案.html [<th>仓库</th>] 期望1 实际1
+OK  项8 基础数据/库位档案.html [<span class="req">*</span>仓库</span] 期望1 实际1
+OK  项8 基础数据/库位档案.html [{ label: '仓库', field: 'wh' }] 期望1 实际1
+OK  项8 基础数据/弹窗/新建库位.html [<span class="req">*</span>仓库</span] 期望1 实际1
+
+合计匹配 98 处 / 81 条规则；不符 0 条
+APPLY 完成：81 条规则全部写回
+写回复检 PASS：旧串残留 0 / 新串全在

@@ -1,0 +1,3 @@
+HEAD mobile\库存查询.html: []
+HEAD 仓储作业\库存查询.html: ['input-not-editable|readonly 不可输入（预填:安吉智行物流）']
+HEAD 基础数据\产品档案.html: ['modal-unreachable|页内无 openModal 触发器且默认未打开（不可达弹窗）']
