@@ -1,10 +1,10 @@
 [
  {
-  "page": "mobile\\库存查询.html",
+  "page": "P3-R01-A06-实体关系与状态机.html",
   "js_errors": [],
   "problems": [],
   "stats": {
-   "buttons": 2,
+   "buttons": 0,
    "links": 0,
    "onclickEls": 0,
    "modals": 0,
@@ -13,52 +13,9 @@
    "fakeSelects": 0,
    "radios": 0,
    "checkboxes": 0,
-   "inputs": 2,
+   "inputs": 0,
    "stabs": 0,
    "tabs": 0,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": "file:///D:/%E5%B7%A5%E4%BD%9C%E5%8F%B0-%E5%90%95%E9%81%93%E8%BF%9C/5-%E3%80%90ACTIVE%E3%80%91%E6%B1%BD%E8%BD%A6%E7%89%A9%E6%B5%81%E5%8C%85%E8%A3%85%E7%A7%9F%E8%B5%81/P3-R01-%E5%8C%85%E8%A3%85%E7%A7%9F%E8%B5%81%E7%AE%A1%E7%90%86%E5%90%8E%E5%8F%B0%E5%8E%9F%E5%9E%8B/mobile/%E7%99%BB%E5%BD%95.html"
- },
- {
-  "page": "仓储作业\\库存查询.html",
-  "js_errors": [],
-  "problems": [
-   {
-    "cat": "输入框",
-    "type": "input-not-editable",
-    "phase": "modal",
-    "where": {
-     "tag": "input",
-     "id": "",
-     "cls": "auto",
-     "text": "",
-     "row": "",
-     "inModal": "zzRegModal"
-    },
-    "detail": "readonly 不可输入（预填:安吉智行物流）"
-   }
-  ],
-  "stats": {
-   "buttons": 10,
-   "links": 52,
-   "onclickEls": 87,
-   "modals": 5,
-   "modalTitles": [
-    "库存流水",
-    "客户在租明细",
-    "资产轨迹 · XNC-ZZ-WBX(演示页)",
-    "客户转租登记",
-    "转租还回"
-   ],
-   "selects": 3,
-   "fakeSelects": 0,
-   "radios": 0,
-   "checkboxes": 0,
-   "inputs": 8,
-   "stabs": 0,
-   "tabs": 3,
    "bgMut": 0
   },
   "dead_links": [],

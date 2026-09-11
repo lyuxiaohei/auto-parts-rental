@@ -1,0 +1,9 @@
+['INDEX | G19b | 09-11 | PC登录页与默认登录态（⏳ 待执行·前置 G17/G18/G19a·根级 登录.html+pc-auth.js 默认已登录[退出才现登录页]+38 业务页注入·audit 114 页收口+基线滚动[含 G1']
+A06 渲染页存在: True mtime=2026-09-11 14:42:02.211879
+recent    0.5min  _data/pc-auth.js
+recent    0.7min  P3-R01-A02-页面类型与入口对照表.md
+recent    2.1min  P3-R01-A06-实体关系与状态机.md
+recent    2.6min  登录.html
+recent    3.2min  P3-R01-A06-实体关系与状态机.html
+recent    8.3min  包装租赁管理后台原型-20260911-2.zip
+git: 见下
