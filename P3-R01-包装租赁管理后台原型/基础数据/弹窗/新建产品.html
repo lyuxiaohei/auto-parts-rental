@@ -274,6 +274,27 @@ th.td-num { text-align:right; }
     <span class="form-label">备注</span>
     <div class="input-box"><input placeholder="选填"></div>
   </div>
+  <style>
+  .tax-sec{margin:2px 0 6px;}
+  .tax-sec-title{font-size:13px;font-weight:600;color:#1a1a1a;margin:4px 0 8px;}
+  .tax-sec-sub{font-weight:400;color:#8c8c8c;font-size:12px;margin-left:6px;}
+  .tax-edit{border:1px solid #e5e6eb;border-radius:6px;padding:8px 10px;}
+  .tax-edit-hd{display:flex;gap:8px;font-size:12px;color:#8c8c8c;padding:2px 0 6px;}
+  .tax-edit-hd span{flex:1;}
+  .tax-edit-row{display:flex;gap:8px;margin-bottom:6px;align-items:center;}
+  .tax-cell{flex:1;display:flex;}
+  .tax-sel,.tax-in{width:100%;height:28px;border:1px solid #d9d9d9;border-radius:4px;font-size:12px;padding:0 6px;outline:none;box-sizing:border-box;}
+  .tax-sel:focus,.tax-in:focus{border-color:#1677ff;}
+  .tax-del{color:#1677ff;font-size:12px;text-decoration:none;white-space:nowrap;}
+  </style>
+  <div class="tax-sec">
+    <div class="tax-sec-title">供应商税率<span class="tax-sec-sub">同一物料可按供应商维护不同税率；单据明细税率默认带出、可手动覆盖</span></div>
+    <div class="tax-edit">
+      <div class="tax-edit-hd"><span>供应商</span><span>默认税率</span><span>结算周期</span><span style="flex:0 0 44px;">操作</span></div>
+      <div id="taxEditRows"></div>
+      <button class="btn btn-default btn-sm" type="button" onclick="addTaxRow()">+ 添加一行</button>
+    </div>
+  </div>
     </div>
     <div class="modal-footer">
       <button class="btn btn-default" onclick="closeModal('createModal')">取消</button>
@@ -332,5 +353,66 @@ document.querySelectorAll('.tab').forEach(function (t) {
 </script>
 <style id="f01-fab-style">.f01-fab{position:fixed;right:12px;bottom:12px;z-index:1001;display:flex;align-items:center;height:24px;padding:0 10px;border-radius:4px;background:#fff;border:1px solid #d9d9d9;color:#8c8c8c;font-size:11px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.06);opacity:.6;transition:opacity .15s}.f01-fab:hover{opacity:1;border-color:#722ed1;color:#722ed1}</style>
 <a class="f01-fab" href="../../P3-R01-F01-业务流程导航图.html">流程图</a>
+<script src="../../_data/demo-data.js"></script>
+<script>
+/* 供应商税率行编辑器（数据驱动：下拉源=DEMO_DATA.partners 类型=供应商；预填=DEMO_DATA.productTaxes） */
+(function () {
+  var SUPS = [];
+  try {
+    var P = (window.DEMO_DATA || {}).partners || {};
+    Object.keys(P).forEach(function (k) {
+      var f = (P[k].row || {}).fields || {};
+      if (f.type === '供应商') SUPS.push(f.name);
+    });
+  } catch (e) {}
+  function esc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
+  window.addTaxRow = function (sup, rate, cyc) {
+    var box = document.getElementById('taxEditRows');
+    if (!box) return;
+    var opts = SUPS.map(function (n) {
+      return '<option value="' + esc(n) + '"' + (n === sup ? ' selected' : '') + '>' + esc(n) + '</option>';
+    }).join('');
+    box.insertAdjacentHTML('beforeend',
+      '<div class="tax-edit-row">'
+      + '<span class="tax-cell"><select class="tax-sel">' + opts + '</select></span>'
+      + '<span class="tax-cell"><input class="tax-in" value="' + esc(rate || '13%') + '"></span>'
+      + '<span class="tax-cell"><input class="tax-in" value="' + esc(cyc || '月结 30 天') + '"></span>'
+      + '<span class="tax-cell" style="flex:0 0 44px;"><a href="javascript:void(0)" class="tax-del" onclick="removeTaxRow(this)">删除</a></span>'
+      + '</div>');
+  };
+  window.removeTaxRow = function (el) {
+    var row = el.closest('.tax-edit-row');
+    if (row && row.parentNode) row.parentNode.removeChild(row);
+  };
+  window.initTaxEdit = function (productKey) {
+    var box = document.getElementById('taxEditRows');
+    if (!box) return;
+    box.innerHTML = '';
+    var n = 0;
+    try {
+      var T = (window.DEMO_DATA || {}).productTaxes || {};
+      Object.keys(T).forEach(function (k) {
+        var f = (T[k].row || {}).fields || {};
+        if (!productKey || f.product === productKey) { window.addTaxRow(f.supplier, f.taxRate, f.settleCycle); n++; }
+      });
+    } catch (e) {}
+    if (n === 0) window.addTaxRow();
+  };
+  if (document.getElementById('taxEditRows')) initTaxEdit('WBX-1210L');
+  /* 供应商税率维护区列表（仅产品档案页有此节点）：按 productTaxes 渲染 */
+  var listBody = document.getElementById('taxRateBody');
+  if (listBody) {
+    var html = '';
+    try {
+      var T2 = (window.DEMO_DATA || {}).productTaxes || {};
+      Object.keys(T2).forEach(function (k) {
+        var f = (T2[k].row || {}).fields || {};
+        html += '<tr><td>' + esc(f.product) + '</td><td>' + esc(f.productName) + '</td><td>' + esc(f.cls) + '</td><td>' + esc(f.supplier) + '</td><td><span class="td-num">' + esc(f.taxRate) + '</span></td><td>' + esc(f.settleCycle) + '</td></tr>';
+      });
+    } catch (e) {}
+    listBody.innerHTML = html || '<tr><td colspan="6">—</td></tr>';
+  }
+})();
+</script>
 </body>
 </html>

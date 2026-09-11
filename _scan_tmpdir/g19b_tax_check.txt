@@ -1,0 +1,15 @@
+[产品档案 税率@46913] …ss="card-head">⏎    <h3 class="card-title" data-note="1">供应商税率维护</h3>⏎    <div class="head-btns"><button class="btn btn-default btn-sm">批量导出</button></div>⏎  </div>⏎  <div class="t…
+[产品档案 税率@54870] …ose">×</span><div class="pnp-t"><span class="pnp-n">1</span>税率口径与档案合并</div><div class="pnp-d">口径：同一物料可按供应商维护不同税率（默认 13%；运费/杂费后续可能 6%/9%）；单据明细税率默认带出、可手动覆盖。物料档案 = 器具档案 + 零部件档案合并（2026…
+关键词[供应商税率/税率维护]: True
+=== 新建产品弹窗 form-label 序列 ===
+  <span class="req">*
+  <span class="req">*
+  <span class="req">*
+  物料分类
+  规格
+  单位
+  <span class="req">*
+  租金单价(元/天)
+  备注
+弹窗含[税率]: False｜含[供应商]: False｜含[结算周期]: False
+产品详情含[税率]: False｜含[供应商]: False

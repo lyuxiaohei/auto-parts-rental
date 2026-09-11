@@ -1,0 +1,37 @@
+demo-data 闲置 140min
+op[编辑]: openModal('createModal')
+op[停用]: openModal('stopModal')
+op[编辑]: openModal('createModal')
+op[停用]: openModal('stopModal')
+op[编辑]: openModal('createModal')
+op[停用]: openModal('stopModal')
+op[编辑]: openModal('createModal')
+op[停用]: openModal('stopModal')
+op[编辑]: openModal('createModal')
+op[停用]: openModal('stopModal')
+op[编辑]: openModal('createModal')
+op[停用]: openModal('stopModal')
+op[编辑]: openModal('createModal')
+op[停用]: openModal('stopModal')
+op[编辑]: openModal('createModal')
+op[停用]: openModal('stopModal')
+op[编辑]: openModal('createModal')
+op[停用]: openModal('stopModal')
+op[编辑]: openModal('createModal')
+op[停用]: openModal('stopModal')
+op[编辑]: openModal('createModal')
+op[停用]: openModal('stopModal')
+op[编辑]: openModal('createModal')
+op[停用]: openModal('stopModal')
+modal: detailModal
+modal: createModal
+modal: stopModal
+createModal 备注行后 420 字: 备注</span>⏎    <div class="input-box"><input placeholder="选填"></div>⏎  </div>⏎    </div>⏎    <div class="modal-footer">⏎      <button class="btn btn-default" onclick="closeModal('createModal')">取消</button>⏎      <button class="btn" onclick="closeModal('createModal')">保存</button>⏎    </div>⏎  </div>⏎</div>⏎⏎⏎<script id="batch-btn-js">⏎(function(){⏎  // 找到所有批量按钮，初始禁用⏎  var batchBtns = document.querySelectorAll('button[c
+demo-data 长 513461｜尾部: date": "2026-03-02"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../基础数据/BOM维护.html')\">WBX-1210L</span>", "cells": ["围板箱 1200×1000×970（单件）", "<span class=\"tag tag-gray\">停用</span>", "<span class=\"td-num\">0</span>", "—（单件器具，无子项组合）", "陈金", "2026-03-02"], "ops": [{"t": "维护", "act": "go('../基础数据/BOM维护.html')"}, {"t": "查看", "act": "go('../基础数据/BOM维护.html')"}, {"t": "停用", "act": "openModal('stopModal')"}]} },⏎  },⏎};
+partners 供应商(0): []
+税率区静态行=5
+  ['WBX-1210L', '围板箱 1200×1000×970', '围板箱', '宁波华塑包装制品有限公司', '13%', '月结 30 天']
+  ['WBX-1210L', '围板箱 1200×1000×970', '围板箱', '路凯包装运营（上海）有限公司', '13%', '月结 30 天']
+  ['BTC-6040', '料箱 600×400×340', '料箱', '路凯包装运营（上海）有限公司', '13%', '月结 30 天']
+  ['LJ-A100', '锁扣组件', '组件', '苏州联恒五金制品有限公司', '13%', '月结 60 天']
+  ['LJ-F600', '内衬', '组件', '宁波华塑包装制品有限公司', '13%', '月结 60 天']

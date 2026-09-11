@@ -1,0 +1,9 @@
+PASS 判定1a 登录.html 存在
+PASS 判定1b A02 含登记行
+PASS 判定1c 38 业务页引用恰 38 处
+PASS 判定1d 弹窗/F01/mobile/登录页引用=0
+PASS 判定3 audit 115 页·死链0·JS0
+PASS 判定4 菜单门 14/14
+PASS 判定5a 失败清单结论行
+PASS 判定5b 索引G19b行✅含哈希
+PASS 判定2 PW 三段流全 PASS（8 断言）

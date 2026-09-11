@@ -115,7 +115,7 @@
   "problems": [],
   "stats": {
    "buttons": 0,
-   "links": 0,
+   "links": 13,
    "onclickEls": 0,
    "modals": 0,
    "modalTitles": [],
@@ -716,19 +716,19 @@
    }
   ],
   "stats": {
-   "buttons": 11,
-   "links": 36,
-   "onclickEls": 66,
+   "buttons": 12,
+   "links": 37,
+   "onclickEls": 68,
    "modals": 3,
    "modalTitles": [
     "新建物料",
     "停用确认"
    ],
-   "selects": 6,
+   "selects": 8,
    "fakeSelects": 0,
    "radios": 2,
    "checkboxes": 0,
-   "inputs": 22,
+   "inputs": 24,
    "stabs": 0,
    "tabs": 3,
    "bgMut": 0
@@ -930,18 +930,18 @@
   "js_errors": [],
   "problems": [],
   "stats": {
-   "buttons": 2,
-   "links": 1,
-   "onclickEls": 3,
+   "buttons": 3,
+   "links": 3,
+   "onclickEls": 6,
    "modals": 1,
    "modalTitles": [
     "新建物料(演示页)"
    ],
-   "selects": 3,
+   "selects": 5,
    "fakeSelects": 0,
    "radios": 2,
    "checkboxes": 0,
-   "inputs": 5,
+   "inputs": 9,
    "stabs": 0,
    "tabs": 0,
    "bgMut": 0

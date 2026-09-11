@@ -1,0 +1,28 @@
+op: <a onclick="openModal('detailModal')">详情
+op: <a onclick="openModal('detailModal')">详情
+op: <a onclick="openModal('detailModal')">详情
+op: <a onclick="openModal('detailModal')">详情
+op: <a onclick="openModal('detailModal')">详情
+op: <a onclick="openModal('detailModal')">详情
+op: <a onclick="openModal('detailModal')">详情
+op: <a onclick="openModal('detailModal')">详情
+op: <a onclick="openModal('detailModal')">详情
+op: <a onclick="openModal('detailModal')">详情
+op: <a onclick="openModal('detailModal')">详情
+op: <a onclick="openModal('detailModal')">详情
+td-op:   详情  编辑  停用  
+td-op:   详情  编辑  停用  
+td-op:   详情  编辑  停用  
+td-op:   详情  编辑  停用  
+td-op:   详情  编辑  停用  
+td-op:   详情  编辑  停用  
+td-op:   详情  编辑  停用  
+td-op:   详情  编辑  停用  
+td-op:   详情  编辑  停用  
+td-op:   详情  编辑  停用  
+td-op:   详情  编辑  停用  
+td-op:   详情  编辑  停用  
+税率区行数≈5
+税率区首行: 
+        ||WBX-1210L||围板箱 1200×1000×970||围板箱||宁波华塑包装制品有限公司|||13%|||月结 30 天||
+        ||WBX-1210L||围板箱 1200×1000×970||围板箱||路凯包装运营（上海）有限公司|||13%|||月结 30

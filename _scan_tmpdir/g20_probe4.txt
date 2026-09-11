@@ -1,0 +1,29 @@
+=== createModal 备注行→footer ===
+="form-label">租金单价(元/天)</span>
+    <div class="input-box"><input value="2.40" placeholder="请输入"></div>
+  </div><div class="form-row">
+    <span class="form-label">备注</span>
+    <div class="input-box"><input placeholder="选填"></div>
+  </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-default" onclick="closeModal('createModal')">取消</button>
+      <button class="btn" onclick="closeModal('createModal')">保存</button>
+    <
+=== 税率区 thead ===
+<thead>
+        <tr><th>物料编码</th><th>物料名称</th><th>物料分类</th><th>供应商</th><th>税率</th><th>结算周期</th></tr>
+      </thead>
+=== tbody 前 200/后 100 ===
+
+        <tr><td>WBX-1210L</td><td>围板箱 1200×1000×970</td><td>围板箱</td><td>宁波华塑包装制品有限公司</td><td><span class="td-num">13%</span></td><td>月结 30 天</td></tr>
+        <tr><td>WBX-1210L</td><td>围板箱 1200×1000×
+…F600</td><td>内衬</td><td>组件</td><td>宁波华塑包装制品有限公司</td><td><span class="td-num">13%</span></td><td>月结 60 天</td></tr>
+      
+script: ../_data/demo-data.js
+script: ../_data/detail-generic.js
+script: ../_data/list-generic.js
+script: ../_data/pc-auth.js
+=== 弹窗模板 备注行→footer ===
+
+弹窗模板 script 引用数: 0
