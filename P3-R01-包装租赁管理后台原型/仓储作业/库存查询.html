@@ -866,6 +866,22 @@ document.querySelectorAll('.tab').forEach(function (t) {
 
 
 
+
+
+
+
+<style id="zz-toast-css">#zzToast{position:fixed;left:50%;bottom:64px;transform:translateX(-50%);z-index:1100;max-width:560px;background:#fff;border:1px solid #b7eb8f;border-left:3px solid #52c41a;border-radius:8px;box-shadow:0 6px 20px rgba(0,0,0,.14);padding:10px 16px;font-size:12.5px;color:#262626;display:none}</style>
+<div id="zzToast"></div>
+<script>/* 转租弹窗遮罩关闭自绑定（注入位置晚于页面统一绑定脚本，需自行挂载） */
+['zzRegModal','zzBackModal'].forEach(function(id){
+  var ov=document.getElementById(id);
+  if(ov) ov.addEventListener('click', function(e){ if(e.target===ov) closeModal(id); });
+});</script>
+
+<script id="zz-toast-js">function zzToast(msg){var t=document.getElementById('zzToast');t.textContent='✓ '+msg;t.style.display='block';clearTimeout(t._tm);t._tm=setTimeout(function(){t.style.display='none'},2600);}</script>
+
+
+
 <style id="proto-notes-style">
 body.proto-notes-on [data-note]{position:relative}
 body.proto-notes-on [data-note]::after{content:attr(data-note);position:absolute;top:1px;right:1px;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600;box-shadow:0 0 0 1.5px #fff;cursor:pointer;opacity:.75;transition:opacity .15s}
@@ -942,15 +958,5 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply);else apply();
 })();
 </script>
-
-<style id="zz-toast-css">#zzToast{position:fixed;left:50%;bottom:64px;transform:translateX(-50%);z-index:1100;max-width:560px;background:#fff;border:1px solid #b7eb8f;border-left:3px solid #52c41a;border-radius:8px;box-shadow:0 6px 20px rgba(0,0,0,.14);padding:10px 16px;font-size:12.5px;color:#262626;display:none}</style>
-<div id="zzToast"></div>
-<script>/* 转租弹窗遮罩关闭自绑定（注入位置晚于页面统一绑定脚本，需自行挂载） */
-['zzRegModal','zzBackModal'].forEach(function(id){
-  var ov=document.getElementById(id);
-  if(ov) ov.addEventListener('click', function(e){ if(e.target===ov) closeModal(id); });
-});</script>
-
-<script id="zz-toast-js">function zzToast(msg){var t=document.getElementById('zzToast');t.textContent='✓ '+msg;t.style.display='block';clearTimeout(t._tm);t._tm=setTimeout(function(){t.style.display='none'},2600);}</script>
 </body>
 </html>

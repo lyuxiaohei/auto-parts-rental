@@ -369,24 +369,20 @@ th.td-num { text-align:right; }
 
 <div class="stat-grid">
   <div class="stat">
-    <div class="st-label"><span>在租数量</span></div>
+    <div class="st-label" data-note="4"><span>在租数量</span></div>
     <div class="st-num">3,860<span class="unit">只</span></div>
-    <div class="st-foot">围板箱 3,120 / 托盘 740</div>
   </div>
   <div class="stat">
-    <div class="st-label"><span>本月出库</span></div>
+    <div class="st-label" data-note="5"><span>本月出库</span></div>
     <div class="st-num">1,240<span class="unit">件</span></div>
-    <div class="st-foot">组合件 1,120 / 散件 120</div>
   </div>
   <div class="stat">
-    <div class="st-label"><span>本月营收</span></div>
+    <div class="st-label" data-note="6"><span>本月营收</span></div>
     <div class="st-num">486,200<span class="unit">元</span></div>
-    <div class="st-foot">已开票 <em>312,000</em> 元</div>
   </div>
   <div class="stat">
-    <div class="st-label"><span>累计毛利</span></div>
+    <div class="st-label" data-note="7"><span>累计毛利</span></div>
     <div class="st-num">212,400<span class="unit">元</span></div>
-    <div class="st-foot">毛利率 <em>21.8%</em></div>
   </div>
 </div>
 
@@ -496,7 +492,7 @@ th.td-num { text-align:right; }
 <div class="modal-overlay" id="bindModal">
   <div class="modal modal-lg">
     <div class="modal-header">
-      <h3 class="modal-title">项目上下游绑定</h3>
+      <h3 class="modal-title" data-note="3">项目上下游绑定</h3>
       <span class="modal-close" onclick="closeModal('bindModal')">×</span>
     </div>
     <div class="modal-body">
@@ -534,7 +530,6 @@ th.td-num { text-align:right; }
   <div class="form-row" style="margin-bottom:0;">
     <div class="form-label">默认库房：</div>
       <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>华东中心仓（WH-01）</option><option>华南仓（WH-02）</option><option>西南仓（WH-03）</option></select><span class="caret">▾</span></div>
-    <div style="font-size:12px;color:#8c8c8c;margin:10px 0 0;line-height:1.7;">上下游支持一对多/多对多（2026-09-08 王总提出，2026-09-11 落地）：单项目可绑定多家供应商（勾选，含租入/采购角色），新建租入单/采购订单时按项目带出候选供应商。</div>
     </div>
     </div>
     <div class="modal-footer">
@@ -625,6 +620,12 @@ document.querySelectorAll('.tab').forEach(function (t) {
 
 
 
+
+
+
+
+
+
 <style id="proto-notes-style">
 body.proto-notes-on [data-note]{position:relative}
 body.proto-notes-on [data-note]::after{content:attr(data-note);position:absolute;top:1px;right:1px;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600;box-shadow:0 0 0 1.5px #fff;cursor:pointer;opacity:.75;transition:opacity .15s}
@@ -648,6 +649,11 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 </style>
 <div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>上下游关系（详情维护）</div><div class="pnp-d">在单个项目页内维护上下游（供应商多选绑定），与项目档案共用同一份数据</div><div class="pnp-b"><span class="pnp-tag">FP2-02 · 上下游绑定</span><span class="pnp-tag">REQ-01 · 多项目统一管理</span></div><div class="pnp-src"><div class="src-item"><b>FP2-02 上下游绑定</b>：项目↔客户↔运营方↔供应商关系维护</div><div class="src-item"><b>REQ-01 多项目统一管理</b>：所有项目整合进一个系统，按项目建立编码，绑定上下游关系</div></div></div>
 <div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>项目单据查询</div><div class="pnp-d">查看本项目全部出入库、租出、账单单据</div><div class="pnp-b"><span class="pnp-tag">FP2-04 · 项目明细查看明细</span><span class="pnp-tag">REQ-02 · 项目维度经营分析</span></div><div class="pnp-src"><div class="src-item"><b>FP2-04 项目明细查看明细</b>：从看板点开查看到单据</div><div class="src-item"><b>REQ-02 项目维度经营分析</b>：按项目看出入库、营收、盈利情况</div></div></div>
+<div class="proto-pin" id="proto-pin-3"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">3</span>上下游绑定关系口径</div><div class="pnp-d">上下游支持一对多/多对多（2026-09-08 王总提出，2026-09-11 落地）：单项目可绑定多家供应商（勾选，含租入/采购角色），新建租入单/采购订单时按项目带出候选供应商。</div><div class="pnp-b"><span class="pnp-tag">FP2-02 · 上下游绑定</span><span class="pnp-tag">REQ-01 · 多项目统一管理</span></div><div class="pnp-src"><div class="src-item"><b>FP2-02 上下游绑定</b>：项目↔客户↔运营方↔供应商关系维护</div><div class="src-item"><b>REQ-01 多项目统一管理</b>：所有项目整合进一个系统，按项目建立编码，绑定上下游关系</div></div></div>
+<div class="proto-pin" id="proto-pin-4"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">4</span>在租数量构成</div><div class="pnp-d">围板箱 3,120 / 托盘 740</div><div class="pnp-b"><span class="pnp-tag">FP2-04 · 项目明细查看明细</span><span class="pnp-tag">REQ-02 · 项目维度经营分析</span></div><div class="pnp-src"><div class="src-item"><b>FP2-04 项目明细查看明细</b>：从看板点开查看到单据</div><div class="src-item"><b>REQ-02 项目维度经营分析</b>：按项目看出入库、营收、盈利情况</div></div></div>
+<div class="proto-pin" id="proto-pin-5"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">5</span>本月出库构成</div><div class="pnp-d">组合件 1,120 / 散件 120</div><div class="pnp-b"><span class="pnp-tag">FP2-04 · 项目明细查看明细</span><span class="pnp-tag">REQ-02 · 项目维度经营分析</span></div><div class="pnp-src"><div class="src-item"><b>FP2-04 项目明细查看明细</b>：从看板点开查看到单据</div><div class="src-item"><b>REQ-02 项目维度经营分析</b>：按项目看出入库、营收、盈利情况</div></div></div>
+<div class="proto-pin" id="proto-pin-6"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">6</span>营收开票口径</div><div class="pnp-d">已开票 312,000 元</div><div class="pnp-b"><span class="pnp-tag">FP2-04 · 项目明细查看明细</span><span class="pnp-tag">REQ-02 · 项目维度经营分析</span></div><div class="pnp-src"><div class="src-item"><b>FP2-04 项目明细查看明细</b>：从看板点开查看到单据</div><div class="src-item"><b>REQ-02 项目维度经营分析</b>：按项目看出入库、营收、盈利情况</div></div></div>
+<div class="proto-pin" id="proto-pin-7"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">7</span>毛利率口径</div><div class="pnp-d">毛利率 21.8%</div><div class="pnp-b"><span class="pnp-tag">FP2-04 · 项目明细查看明细</span><span class="pnp-tag">REQ-02 · 项目维度经营分析</span></div><div class="pnp-src"><div class="src-item"><b>FP2-04 项目明细查看明细</b>：从看板点开查看到单据</div><div class="src-item"><b>REQ-02 项目维度经营分析</b>：按项目看出入库、营收、盈利情况</div></div></div>
 <div class="pn-fab" id="protoNotesFab">标注</div></div>
 <script id="proto-notes-js">
 (function(){

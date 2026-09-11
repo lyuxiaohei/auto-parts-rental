@@ -1,0 +1,78 @@
+===== 仓储作业/库存查询.html:837 =====
+  829:       <div class="form-row"><span class="form-label"><span class="req">*</span>转租客户（B）</span>
+  830:         <div class="input-box select-box" style="width:350px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;co
+  831:       <div class="form-row"><span class="form-label"><span class="req">*</span>转租数量</span>
+  832:         <div class="input-box" style="width:350px;"><input value="240" placeholder="≤ 该客户当前在租量"></div></div>
+  833:       <div class="form-row"><span class="form-label">转租日期</span>
+  834:         <div class="input-box" style="width:350px;"><input value="2026-09-11"></div></div>
+  835:       <div class="form-row"><span class="form-label">备注</span>
+  836:         <div class="input-box" style="width:350px;"><input placeholder="选填"></div></div>
+>>837:       <div class="pn-hint">转租定义：物料/组合（BOM）已租给客户 A，A 再租给客户 B —— 登记后库存状态变为「客户转租出（客户的客户）」，可查转租去向，不做所有权变更；最终可「转租还回」或随客户 A 一起退租入库。</div>
+  838:     </div>
+  839:     <div class="modal-footer">
+  840:       <button class="btn btn-default" onclick="closeModal('zzRegModal')">取 消</button>
+===== 租赁管理/租赁单列表.html:860 =====
+  852: body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
+  853: .pn-fab .pn-fab-n{font-family:Consolas,monospace;font-weight:600}
+  854: </style>
+  855: <div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>L4 · 步骤 5/10 租赁单（混合来
+  856: <div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>L3 · 步骤 3/8 租赁单（转租）</div><div class="pnp-
+  857: <div class="proto-pin" id="proto-pin-3"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">3</span>L2 · 步骤 5/10 租赁单（组合件 C）</div><div class="
+  858: <div class="proto-pin" id="proto-pin-4"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">4</span>L1 · 步骤 3/8 租赁单（单一器具）</div><div class="pn
+  859: <div class="proto-pin" id="proto-pin-5"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">5</span>L3 · 转租（批量示例）</div><div class="pnp-d">租入-
+>>860: <div class="proto-pin" id="proto-pin-6"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">6</span>押金预留字段</div><div class="pnp-d">押金为设计预留字段—
+  861: <style id="f01-fab-style">.fab-row{position:fixed;right:12px;bottom:12px;z-index:880;display:flex;align-items:center;gap:6px}.fab-row .pn-fab{position:static}.f
+  862: <script id="proto-notes-js">
+  863: (function(){
+===== 租赁管理/退租入库列表.html:762 =====
+  754: .pn-fab{position:fixed;right:12px;bottom:12px;z-index:880;display:flex;align-items:center;gap:5px;height:24px;padding:0 10px;border-radius:4px;background:#fff;b
+  755: .pn-fab:hover{opacity:1;border-color:#722ed1}
+  756: body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
+  757: .pn-fab .pn-fab-n{font-family:Consolas,monospace;font-weight:600}
+  758: </style>
+  759: <div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>L4 · 步骤 8/10 退租入库（拆散
+  760: <div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>L3 · 步骤 6/8 退租入库（整箱退回）</div><div class="p
+  761: <div class="proto-pin" id="proto-pin-3"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">3</span>L2 · 步骤 8/10 退租入库（按 BOM 拆散）</div><div cla
+>>762: <div class="proto-pin" id="proto-pin-4"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">4</span>退租无申请单口径</div><div class="pnp-d">退租无申请单：客
+  763: <style id="f01-fab-style">.fab-row{position:fixed;right:12px;bottom:12px;z-index:880;display:flex;align-items:center;gap:6px}.fab-row .pn-fab{position:static}.f
+  764: <script id="proto-notes-js">
+  765: (function(){
+===== 系统管理/用户权限.html:595 =====
+  587:         <span class="checkbox" data-audit="租入入库"><span class="box"></span>租入入库</span>
+  588:         <span class="checkbox checked" data-audit="退租入库"><span class="box">✓</span>退租入库</span>
+  589:         <span class="checkbox" data-audit="其他入库"><span class="box"></span>其他入库</span>
+  590:         <span class="checkbox" data-audit="其他出库"><span class="box"></span>其他出库</span>
+  591:         <span class="checkbox checked" data-audit="盘点"><span class="box">✓</span>盘点</span>
+  592:         <span class="checkbox" data-audit="库存调拨"><span class="box"></span>库存调拨</span>
+  593:         <span class="checkbox" data-audit="租入归还"><span class="box"></span>租入归还</span>
+  594:       </div>
+>>595:       <div style="font-size:12px;color:#8c8c8c;padding-top:6px;line-height:1.7;">与角色管理页·权限配置「可审单据」同源同步（双层同步 · G13）；正式版按所选角色加载勾选态。</div>
+  596:     </div>
+  597:     <div class="modal-footer">
+  598:       <button class="btn btn-default" onclick="closeModal('roleModal')">关闭</button>
+===== 财务协同/应付账单.html:600 =====
+  592:   <div class="modal" style="width:720px;">
+  593:     <div class="modal-header">
+  594:       <h3 class="modal-title">新建应付账单</h3>
+  595:       <span class="modal-close" onclick="closeModal('createModal')">×</span>
+  596:     </div>
+  597:     <div class="modal-body">
+  598: <div class="form-row">
+  599:     <span class="form-label"><span class="req">*</span>账单类型</span>
+>>600:     <div class="input-box select-box" style="width:350px;"><select id="cmBtype" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:i
+  601:   </div><div class="pn-hint" id="cmTypeHint" style="margin:-14px 0 12px 128px;"></div><div class="form-row">
+  602:     <span class="form-label"><span class="req">*</span><span id="cmPartyLabel">供应商</span></span>
+  603:     <div class="input-box select-box" style="width:350px;"><select id="cmParty" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:i
+===== 财务协同/弹窗/应付账单新建.html:250 =====
+  242:   <div class="modal" style="width:720px;">
+  243:     <div class="modal-header">
+  244:       <h3 class="modal-title">新建应付账单</h3>
+  245:       <span class="modal-close" onclick="closeModal('createModal')">×</span>
+  246:     </div>
+  247:     <div class="modal-body">
+  248: <div class="form-row">
+  249:     <span class="form-label"><span class="req">*</span>账单类型</span>
+>>250:     <div class="input-box select-box" style="width:350px;"><select id="cmBtype" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:i
+  251:   </div><div class="pn-hint" id="cmTypeHint" style="margin:-14px 0 12px 128px;"></div><div class="form-row">
+  252:     <span class="form-label"><span class="req">*</span><span id="cmPartyLabel">供应商</span></span>
+  253:     <div class="input-box select-box" style="width:350px;"><select id="cmParty" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:i

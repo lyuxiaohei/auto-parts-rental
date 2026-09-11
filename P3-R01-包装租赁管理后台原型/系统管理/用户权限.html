@@ -556,7 +556,7 @@ th.td-num { text-align:right; }
 <div class="modal-overlay" id="roleModal">
   <div class="modal modal-lg">
     <div class="modal-header">
-      <h3 class="modal-title">角色管理</h3>
+      <h3 class="modal-title" data-note="3">角色管理</h3>
       <span class="modal-close" onclick="closeModal('roleModal')">×</span>
     </div>
     <div class="modal-body">
@@ -592,7 +592,6 @@ th.td-num { text-align:right; }
         <span class="checkbox" data-audit="库存调拨"><span class="box"></span>库存调拨</span>
         <span class="checkbox" data-audit="租入归还"><span class="box"></span>租入归还</span>
       </div>
-      <div style="font-size:12px;color:#8c8c8c;padding-top:6px;line-height:1.7;">与角色管理页·权限配置「可审单据」同源同步（双层同步 · G13）；正式版按所选角色加载勾选态。</div>
     </div>
     <div class="modal-footer">
       <button class="btn btn-default" onclick="closeModal('roleModal')">关闭</button>
@@ -782,6 +781,12 @@ document.querySelectorAll('.tab').forEach(function (t) {
 
 
 
+
+
+
+
+
+
 <style id="proto-notes-style">
 body.proto-notes-on [data-note]{position:relative}
 body.proto-notes-on [data-note]::after{content:attr(data-note);position:absolute;top:1px;right:1px;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600;box-shadow:0 0 0 1.5px #fff;cursor:pointer;opacity:.75;transition:opacity .15s}
@@ -805,6 +810,7 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 </style>
 <div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>用户与权限</div><div class="pnp-d">我方/客户/运营方三类账号体系——客户端登录即在此配置</div><div class="pnp-b"><span class="pnp-tag">FP7-01 · 组织与权限</span><span class="pnp-tag">REQ-01 · 多项目统一管理</span></div><div class="pnp-src"><div class="src-item"><b>FP7-01 组织与权限</b>：用户/角色/数据权限（我方/客户区分）</div><div class="src-item"><b>REQ-01 多项目统一管理</b>：所有项目整合进一个系统，按项目建立编码，绑定上下游关系</div></div></div>
 <div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>数据权限范围</div><div class="pnp-d">按项目与所属方划分权限，客户只能看到自己的单据</div><div class="pnp-b"><span class="pnp-tag">FP7-01 · 组织与权限</span></div><div class="pnp-src"><div class="src-item"><b>FP7-01 组织与权限</b>：用户/角色/数据权限（我方/客户区分）</div></div></div>
+<div class="proto-pin" id="proto-pin-3"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">3</span>可审单据同源同步</div><div class="pnp-d">与角色管理页·权限配置「可审单据」同源同步（双层同步 · G13）；正式版按所选角色加载勾选态。</div><div class="pnp-b"><span class="pnp-tag">FP7-01 · 组织与权限</span><span class="pnp-tag">REQ-01 · 多项目统一管理</span></div><div class="pnp-src"><div class="src-item"><b>FP7-01 组织与权限</b>：用户/角色/数据权限（我方/客户区分）</div><div class="src-item"><b>REQ-01 多项目统一管理</b>：所有项目整合进一个系统，按项目建立编码，绑定上下游关系</div></div></div>
 <div class="pn-fab" id="protoNotesFab">标注</div></div>
 <script id="proto-notes-js">
 (function(){

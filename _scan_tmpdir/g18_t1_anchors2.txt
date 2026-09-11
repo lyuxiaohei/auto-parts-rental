@@ -1,0 +1,53 @@
+A03 21 键：
+  首页/项目看板.html (3 条)
+  项目管理/项目档案.html (2 条)
+  项目管理/项目详情.html (2 条)
+  基础数据/BOM维护.html (2 条)
+  基础数据/库位档案.html (1 条)
+  采购管理/采购入库列表.html (2 条)
+  采购管理/采购入库录单.html (2 条)
+  租赁管理/组合出库列表.html (2 条)
+  租赁管理/组合出库录单.html (2 条)
+  仓储作业/盘点列表.html (1 条)
+  仓储作业/盘点录入.html (2 条)
+  仓储作业/库存查询.html (6 条)
+  财务协同/应收账单.html (2 条)
+  财务协同/开票登记.html (1 条)
+  财务协同/回款登记.html (2 条)
+  财务协同/银行水单核销.html (3 条)
+  财务协同/盈亏报表.html (2 条)
+  系统管理/用户权限.html (2 条)
+  系统管理/操作日志.html (1 条)
+  系统管理/数据字典.html (2 条)
+  基础数据/产品档案.html (1 条)
+
+应付账单 pn-hint 4 处：
+  @12129: …ckbox.checked .box { background:var(--primary); border-color:var(--primary); }⏎.pn-hint { margin-top:6px; font-size:12px; color:var(--text-3); line-height:1.7; }⏎.pn-hint code { background:#fafafa; border:1px solid var(--border); border-radius:4px; padding:0 4px; margin:0 1px; co…
+  @12212: …hint { margin-top:6px; font-size:12px; color:var(--text-3); line-height:1.7; }⏎.pn-hint code { background:#fafafa; border:1px solid var(--border); border-radius:4px; padding:0 4px; margin:0 1px; color:#d4380d; font-family:Consolas,Monaco,monospace; font-size:11px; }⏎.input-box.er…
+  @40262: …ump">跳至 <input value="" placeholder="跳转页码"> 页</span>⏎  </div>⏎</div><div class="pn-hint" style="padding:0 4px;">应付账单可由采购入库单审核后自动生成（第一期支持手动创建）；租入业务（路凯）按周期生成应付账单。</div>⏎    </div>⏎  </div>⏎</div>⏎⏎<!-- 弹窗已提取到 弹窗/应付账单新建.html，构建时注入 -->⏎<div class="modal-overlay" id="createModal">⏎  <…
+  @41541: …und"><polyline points="6 9 12 15 18 9"/></svg></span></div>⏎  </div><div class="pn-hint" id="cmTypeHint" style="margin:-14px 0 12px 128px;"></div><div class="form-row">⏎    <span class="form-label"><span class="req">*</span><span id="cmPartyLabel">供应商</span></span>⏎    <div class…
+
+上下游绑定 bindModal 头 600 字：
+id="bindModal">
+  <div class="modal modal-lg">
+    <div class="modal-header">
+      <h3 class="modal-title">项目上下游绑定</h3>
+      <span class="modal-close" onclick="closeModal('bindModal')">×</span>
+    </div>
+    <div class="modal-body">
+  <div class="form-row" style="margin-bottom:14px;">
+    <div class="form-label"><span class="req">*</span>项目：</div>
+      <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option se
+
+角色管理 roleModal 头 500 字：
+id="roleModal">
+  <div class="modal modal-lg">
+    <div class="modal-header">
+      <h3 class="modal-title"><span id="rolePermTitle">权限配置 · 系统管理员</span></h3>
+      <span class="modal-close" onclick="closeModal('roleModal')">×</span>
+    </div>
+    <div class="modal-body">
+      <div class="dgrid c3" style="margin-bottom:8px;">
+        <div class="drow"><span class="dlabel">角色名</span><span class="dval" id="rpName">系统管理员</span></div>
+        <div class="drow"><span class="dlabel">说明</span><span cl
+租入单新建明细上下文: :4px 0 8px;font-size:13px;font-weight:600;color:#1a1a1a;">租入明细（多货品 · 计费方式：月租 / 按套）

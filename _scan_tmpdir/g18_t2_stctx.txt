@@ -1,0 +1,95 @@
+===== 我的待办.html =====
+  340:   </div></aside>
+  341:   <div class="main-col">
+  342: <div class="tabs">
+  343:   <span class="tab active">我的待办 <span class="close">×</span></span><span class="tab">采购入库 <span class="close">×</span></span><span class="tab">库存查询 <span class="close">×<
+  344:   <span class="tab">租赁出库 <span class="close">×</span></span>
+  345:   <span class="tab">库存查询 <span class="close">×</span></span>
+  346: </div>
+  347:     <div class="content">
+  348: <div class="stat-grid" style="margin-bottom:12px;" data-note="1">
+  349:   <div class="stat"><div class="st-label"><span>我的待办</span></div><div class="st-num"><b id="todoCount">15</b><span class="unit">单</span></div><div class="st-foot">覆盖 15 类
+  350:   <div class="stat"><div class="st-label"><span>待审核</span></div><div class="st-num">11<span class="unit">单</span></div><div class="st-foot">订单/出入库/租赁/盘点等</div></div>
+  351:   <div class="stat"><div class="st-label"><span>待验收</span></div><div class="st-num">1<span class="unit">单</span></div><div class="st-foot">采购入库到货验收</div></div>
+  352:   <div class="stat"><div class="st-label"><span>待确认</span></div><div class="st-num">2<span class="unit">单</span></div><div class="st-foot">付款 / 收款登记确认</div></div>
+  353:   <div class="stat"><div class="st-label"><span>待入库</span></div><div class="st-num">1<span class="unit">单</span></div><div class="st-foot">租入入库 · 确认后计租入资产库存</div></div>
+  354: </div>
+  355: <div class="filter-card" id="filterCard">
+===== 首页/项目看板.html =====
+  335:   <span class="tab">项目损益 <span class="close">×</span></span>
+  336:   <span class="tab">销售订单 <span class="close">×</span></span>
+  337: </div>
+  338:     <div class="content submit-pad">
+  339: <div class="stat-grid">
+  340:   <div class="stat">
+  341:     <div class="st-label"><span>在租资产总量</span></div>
+  342:     <div class="st-num">12,480<span class="unit">只</span></div>
+  343:     <div class="st-foot">较上月 <em>+3.2%</em> · 覆盖 4 个项目</div>
+  344:   </div>
+  345:   <div class="stat">
+  346:     <div class="st-label"><span>本月组合出库</span></div>
+  347:     <div class="st-num">2,984<span class="unit">件</span></div>
+  348:     <div class="st-foot">较上月 <em>+8.6%</em> · 一箱一件交付</div>
+  349:   </div>
+  350:   <div class="stat">
+  351:     <div class="st-label"><span>本月收款</span></div>
+  352:     <div class="st-num">1,856,300<span class="unit">元</span></div>
+  353:     <div class="st-foot">较上月 <em>+12.4%</em> · 收款核销 5 笔</div>
+  354:   </div>
+  355:   <div class="stat">
+  356:     <div class="st-label"><span>应收余额</span></div>
+  357:     <div class="st-num">2,341,780<span class="unit">元</span></div>
+  358:     <div class="st-foot">其中逾期 <em class='down'>318,600 元</em></div>
+  359:   </div>
+  360: </div>
+  361: 
+===== 项目管理/项目详情.html =====
+  368: </div>
+  369: 
+  370: <div class="stat-grid">
+  371:   <div class="stat">
+  372:     <div class="st-label"><span>在租数量</span></div>
+  373:     <div class="st-num">3,860<span class="unit">只</span></div>
+  374:     <div class="st-foot">围板箱 3,120 / 托盘 740</div>
+  375:   </div>
+  376:   <div class="stat">
+  377:     <div class="st-label"><span>本月出库</span></div>
+  378:     <div class="st-num">1,240<span class="unit">件</span></div>
+  379:     <div class="st-foot">组合件 1,120 / 散件 120</div>
+  380:   </div>
+  381:   <div class="stat">
+  382:     <div class="st-label"><span>本月营收</span></div>
+  383:     <div class="st-num">486,200<span class="unit">元</span></div>
+  384:     <div class="st-foot">已开票 <em>312,000</em> 元</div>
+  385:   </div>
+  386:   <div class="stat">
+  387:     <div class="st-label"><span>累计毛利</span></div>
+  388:     <div class="st-num">212,400<span class="unit">元</span></div>
+  389:     <div class="st-foot">毛利率 <em>21.8%</em></div>
+  390:   </div>
+  391: </div>
+===== 财务协同/盈亏报表.html =====
+  348: </div>
+  349:     <div class="content">
+  350: <div class="stat-grid">
+  351:   <div class="stat">
+  352:     <div class="st-label"><span>本月营业收入</span></div>
+  353:     <div class="st-num">1,138,900<span class="unit">元</span></div>
+  354:     <div class="st-foot">租赁 990,700 / 组装 130,000 / 赔偿 18,200</div>
+  355:   </div>
+  356:   <div class="stat">
+  357:     <div class="st-label"><span>本月营业成本</span></div>
+  358:     <div class="st-num">659,500<span class="unit">元</span></div>
+  359:     <div class="st-foot">器具摊销 505,200 / 仓储 154,300</div>
+  360:   </div>
+  361:   <div class="stat">
+  362:     <div class="st-label"><span>本月毛利</span></div>
+  363:     <div class="st-num">479,400<span class="unit">元</span></div>
+  364:     <div class="st-foot">毛利率 <em>42.1%</em></div>
+  365:   </div>
+  366:   <div class="stat">
+  367:     <div class="st-label"><span>亏损项目</span></div>
+  368:     <div class="st-num">1<span class="unit">个</span></div>
+  369:     <div class="st-foot">PRJ-2604 <em class='down'>-18,600</em> 元（已暂停）</div>
+  370:   </div>
+  371: </div>

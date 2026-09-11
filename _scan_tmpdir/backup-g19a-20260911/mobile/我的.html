@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>P3-R01-M05 · 我的</title>
+<link rel="stylesheet" href="_m.css">
+</head>
+<body>
+<div class="m-page" id="m-app">
+
+  <div class="m-header">
+    <div class="m-hd-title">我的</div>
+    <div class="m-hd-sub">移动端 · 企业微信 H5（演示）</div>
+  </div>
+
+  <div class="m-body">
+    <div class="m-card m-me-card">
+      <div class="m-avatar">琳</div>
+      <div>
+        <div class="m-me-name" id="m-me-name">—</div>
+        <span class="m-me-role" id="m-me-role">—</span>
+        <div class="m-me-sub" id="m-me-sub">免二次登录已开启 · 本机记住登录状态</div>
+      </div>
+    </div>
+
+    <div class="m-cell"><span>📷 企业微信</span><span class="m-cell-val">已绑定 · 消息点开即审（演示）</span></div>
+    <div class="m-cell"><span>🗄 数据来源</span><span class="m-cell-val">demo-data.js · 37 实体只读</span></div>
+    <div class="m-cell"><span>🖥 PC 端</span><span class="m-cell-val">P3-R01 管理后台原型（108 页）</span></div>
+    <div class="m-cell"><span>ℹ️ 版本信息</span><span class="m-cell-val">P3-R01 移动端 H5 · v1.0 · 2026-09-11</span></div>
+
+    <button class="m-btn m-btn-danger" id="m-btn-logout" style="margin-top:14px;">退出登录</button>
+  </div>
+
+  <div class="m-tabbar">
+    <a href="待办审批.html"><span class="m-tab-ico">☑</span>待办</a>
+    <a href="库存查询.html"><span class="m-tab-ico">📦</span>库存</a>
+    <a href="我的.html" class="active"><span class="m-tab-ico">👤</span>我的</a>
+  </div>
+
+</div>
+<script src="../_data/demo-data.js"></script>
+<script src="_m.js"></script>
+<script>
+/* ---- 我的：登录人卡片（roles 实体取角色名）+ 退出登录（清 m-auth） ---- */
+(function () {
+  var u = mUser() || { name: '王琳', role: '商务主管' };
+
+  /* 角色名从 roles 实体校验取数（王琳=todoItems 审核人，users 实体无此演示账号，角色按商务主管取） */
+  var roleName = u.role;
+  mRows('roles').forEach(function (r) {
+    if (r.row.fields && r.row.fields.name === u.role) roleName = r.row.fields.name;
+  });
+
+  document.getElementById('m-me-name').textContent = u.name;
+  document.getElementById('m-me-role').textContent = roleName;
+  document.getElementById('m-me-sub').textContent = roleName + ' · 免二次登录已开启 · 本机记住登录状态';
+
+  document.getElementById('m-btn-logout').onclick = function () {
+    mLogout();                                   // 清 m-auth / m-done
+    mToast('已退出登录 · 下次访问需重新验证');
+    setTimeout(function () { go('登录.html'); }, 600);
+  };
+
+  mGuard();   // 免二次登录守卫：未登录跳 登录.html
+})();
+</script>
+</body>
+</html>

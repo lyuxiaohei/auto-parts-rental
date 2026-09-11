@@ -378,8 +378,8 @@ th.td-num { text-align:right; }
 </div>
 <div class="card">
   <div class="card-head">
-    <h3 class="card-title" data-note="1">应收账单</h3>
-    <div class="head-btns"><button class="btn btn-default btn-sm">批量导出</button><button class="btn btn-sm" onclick="openModal('createModal')" data-note="2">手动生成账单</button></div>
+    <h3 class="card-title">应收账单</h3>
+    <div class="head-btns"><button class="btn btn-default btn-sm">批量导出</button><button class="btn btn-sm" onclick="openModal('createModal')">手动生成账单</button></div>
   </div>
 <div class="stabs">
   <span class="stab active">全部<span class="stab-count">96</span></span>
@@ -425,7 +425,7 @@ th.td-num { text-align:right; }
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
-          <td><span class="lk">AR-2026-09-PRJ2601-S1</span></td>
+          <td data-note="1"><span class="lk">AR-2026-09-PRJ2601-S1</span></td>
           <td>2026-09</td>
           <td>PRJ-2601</td>
           <td>一汽解放汽车有限公司</td>
@@ -470,7 +470,7 @@ th.td-num { text-align:right; }
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
-          <td><span class="lk">AR-2026-08-PRJ2601</span></td>
+          <td data-note="2"><span class="lk">AR-2026-08-PRJ2601</span></td>
           <td>2026-08</td>
           <td>PRJ-2601</td>
           <td>一汽解放汽车有限公司</td>
@@ -530,7 +530,7 @@ th.td-num { text-align:right; }
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
-          <td><span class="lk">BS-20260828-004</span></td>
+          <td data-note="3"><span class="lk">BS-20260828-004</span></td>
           <td>2026-08</td>
           <td>PRJ-2601</td>
           <td>一汽解放汽车有限公司</td>
@@ -968,6 +968,18 @@ function toggleUsageGen(usage) { var h = document.getElementById('usageHint'); i
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 <style id="proto-notes-style">
 body.proto-notes-on [data-note]{position:relative}
 body.proto-notes-on [data-note]::after{content:attr(data-note);position:absolute;top:1px;right:1px;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600;box-shadow:0 0 0 1.5px #fff;cursor:pointer;opacity:.75;transition:opacity .15s}
@@ -989,8 +1001,9 @@ body.proto-notes-on .proto-pin.pn-open{display:block}
 body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 .pn-fab .pn-fab-n{font-family:Consolas,monospace;font-weight:600}
 </style>
-<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>应收账单自动生成</div><div class="pnp-d">出入库数据按项目/客户自动生成应收——告别手工对账</div><div class="pnp-b"><span class="pnp-tag">FP6-01 · 应收账单生成</span><span class="pnp-tag">REQ-08 · 财务开票同步</span></div><div class="pnp-src"><div class="src-item"><b>FP6-01 应收账单生成</b>：出入库数据按项目/客户自动汇总生成应收</div><div class="src-item"><b>REQ-08 财务开票同步</b>：出入库数据同步财务端生成应收、开票</div></div></div>
-<div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>手动生成账单</div><div class="pnp-d">以自动生成为主，特殊情况可手工补开账单</div><div class="pnp-b"><span class="pnp-tag">FP6-01 · 应收账单生成</span><span class="pnp-tag">REQ-08 · 财务开票同步</span></div><div class="pnp-src"><div class="src-item"><b>FP6-01 应收账单生成</b>：出入库数据按项目/客户自动汇总生成应收</div><div class="src-item"><b>REQ-08 财务开票同步</b>：出入库数据同步财务端生成应收、开票</div></div></div>
+<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>B1 销售线 · 步骤 3/5 应收账单（销售费）</div><div class="pnp-d">按销售出库自动汇总，关联 XSCK-20260902-015 等 2 单。<br>下一步 → 开票登记 → 回款 → 水单核销。</div></div>
+<div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>L1/L2 · 租赁费应收（财务汇合点）</div><div class="pnp-d">按组合出库自动汇总——租赁线与买卖线在账单层汇合，共用同一条 开票→回款→核销 通道（袁丽晶 43:24）。</div></div>
+<div class="proto-pin" id="proto-pin-3"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">3</span>S4 · 赔偿转应收</div><div class="pnp-d">丢损赔偿不走独立赔偿单，直接生成应收/应付账单（2026-09-04 拍板 · 2026-09-08 移除赔偿单模块）：<br>自有器具 → 客户赔付进应收；租入器具 → 供应商赔付进应付（见应付账单）。</div></div>
 <div class="pn-fab" id="protoNotesFab">标注</div></div>
 <script id="proto-notes-js">
 (function(){

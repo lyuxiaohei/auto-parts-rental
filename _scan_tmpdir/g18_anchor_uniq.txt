@@ -1,0 +1,14 @@
+仓储作业/库存调拨列表.html | <h3 class="card-title">库存调拨单</h3> | 1 次
+财务协同/银行水单核销.html | <h3 class="card-title">② 待核销单据</h3> | 1 次
+财务协同/应付账单.html | <h3 class="card-title">应付账单</h3> | 1 次
+项目管理/项目档案.html | <h3 class="modal-title">项目上下游绑定</h3> | 1 次
+项目管理/项目详情.html | <h3 class="modal-title">项目上下游绑定</h3> | 1 次
+项目管理/弹窗/上下游绑定.html | <h3 class="modal-title">项目上下游绑定</h3> | 1 次
+系统管理/角色管理.html | <h3 class="modal-title"><span id="rolePermTitle">权 | 1 次
+系统管理/弹窗/权限配置.html | <h3 class="modal-title"><span id="rolePermTitle">权 | 1 次
+租赁管理/弹窗/租入单新建.html | <th>计费方式</th> | 1 次
+租赁管理/弹窗/租入单新建.html | 租入明细（多货品 | 1 次
+租赁管理/弹窗/租赁单新建.html | 押金(元) | 1 次
+
+roleModal checkbox 区前 300 字：
+t-sec" style="margin-top:18px;">可审单据</div>⏎      <div id="auditPermMatrix" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px 16px;padding:4px 0 2px;">⏎        <span class="checkbox checked" data-audit="采购订单"><span class="box">✓</span>采购订单</span>⏎        <span class="checkbox checked" data-audit="销售订单"

@@ -771,7 +771,43 @@ document.querySelectorAll('.tab').forEach(function (t) {
     if (amt) amt.value = (num(q('qty')) * num(q('incl'))).toLocaleString('zh-CN', {minimumFractionDigits: 2, maximumFractionDigits: 2});
   });
 })();
-</script><style id="proto-notes-style">
+</script>
+
+
+<script>/* G13 演示 toast（背靠背草稿链 / 三步入口反馈） */
+function showToast(msg) {
+  var t = document.getElementById('g13Toast');
+  if (!t) { t = document.createElement('div'); t.id = 'g13Toast'; t.style.cssText = 'position:fixed;top:56px;left:50%;transform:translateX(-50%);z-index:1200;background:#fff;border:1px solid #1677ff;color:#1677ff;padding:8px 16px;border-radius:6px;font-size:13px;box-shadow:0 4px 12px rgba(0,0,0,.12);max-width:80vw;'; document.body.appendChild(t); }
+  t.textContent = msg; t.style.display = 'block';
+  clearTimeout(window.__g13ToastT); window.__g13ToastT = setTimeout(function () { t.style.display = 'none'; }, 3200);
+}</script>
+
+<script>/* 项目→绑定供应商联动（一对多多对多 · 2026-09-11 落地） */
+(function(){
+  var PRJ_SUPPLIERS = {
+    'PRJ-2601': ['路凯包装运营（上海）有限公司', '宁波华塑包装制品有限公司'],
+    'PRJ-2602': ['路凯包装运营（上海）有限公司', '常州正大塑料托盘厂'],
+    'PRJ-2603': ['路凯包装运营（上海）有限公司'],
+    'PRJ-2604': ['宁波华塑包装制品有限公司'],
+    'PRJ-2605': ['路凯包装运营（上海）有限公司'],
+    'PRJ-2606': ['路凯包装运营（上海）有限公司', '苏州联恒五金制品有限公司']
+  };
+  var prjSel = document.getElementById('cmProject'), supSel = document.getElementById('cmSupplier');
+  if (!prjSel || !supSel) return;
+  function syncSuppliers(){
+    var list = PRJ_SUPPLIERS[prjSel.value] || [];
+    supSel.innerHTML = list.length
+      ? list.map(function(n, i){ return '<option' + (i === 0 ? ' selected' : '') + '>' + n + '</option>'; }).join('')
+      : '<option selected>（该项目未绑定供应商，请先在项目档案完成上下游绑定）</option>';
+  }
+  prjSel.addEventListener('change', syncSuppliers);
+  syncSuppliers();
+})();
+</script>
+
+
+
+<style id="proto-notes-style">
 body.proto-notes-on [data-note]{position:relative}
 body.proto-notes-on [data-note]::after{content:attr(data-note);position:absolute;top:1px;right:1px;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600;box-shadow:0 0 0 1.5px #fff;cursor:pointer;opacity:.75;transition:opacity .15s}
 body.proto-notes-on [data-note]:hover::after{opacity:1}
@@ -795,7 +831,7 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 <div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>L3 · 步骤 1/8 租入单</div><div class="pnp-d">L3 租入转租起点：向路凯租入围板箱×30（日租金 400）。<br>状态流：待审核→履行中→部分归还→已归还。操作列可按月生成租金应付。<br>2026-09-04 拍板第一期实现（原会议暂缓）。</div></div>
 <div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>L4 · 步骤 3/10 租入单（混合侧）</div><div class="pnp-d">租入大箱×10 与自购隔板组成混合配方 → ZH-2604-D×40 套按 BOM 组合出库（无组装单·2026-09-08）。</div></div>
 <div class="proto-pin" id="proto-pin-3"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">3</span>租入计费口径</div><div class="pnp-d">计费＝月租金 + 按套数单价（无日租金，2026-09-08 会议）；应付生成方式取决于租入单模式（静态租入 / 背靠背）。</div></div>
-<style id="f01-fab-style">.fab-row{position:fixed;right:12px;bottom:12px;z-index:880;display:flex;align-items:center;gap:6px}.fab-row .pn-fab{position:static}.f01-fab{display:flex;text-decoration:none;align-items:center;height:24px;padding:0 10px;border-radius:4px;background:#fff;border:1px solid #d9d9d9;color:#8c8c8c;font-size:11px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.06);opacity:.6;transition:opacity .15s}.f01-fab:hover{opacity:1;border-color:#722ed1;color:#722ed1}</style><div class="fab-row"><a class="f01-fab" href="../P3-R01-F01-业务流程导航图.html">流程图</a><div class="pn-fab" id="protoNotesFab">标注</div></div></div>
+<div class="pn-fab" id="protoNotesFab">标注</div></div>
 <script id="proto-notes-js">
 (function(){
   var KEY='proto-notes-on';
@@ -842,36 +878,6 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
     }
   });
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply);else apply();
-})();
-</script>
-<script>/* G13 演示 toast（背靠背草稿链 / 三步入口反馈） */
-function showToast(msg) {
-  var t = document.getElementById('g13Toast');
-  if (!t) { t = document.createElement('div'); t.id = 'g13Toast'; t.style.cssText = 'position:fixed;top:56px;left:50%;transform:translateX(-50%);z-index:1200;background:#fff;border:1px solid #1677ff;color:#1677ff;padding:8px 16px;border-radius:6px;font-size:13px;box-shadow:0 4px 12px rgba(0,0,0,.12);max-width:80vw;'; document.body.appendChild(t); }
-  t.textContent = msg; t.style.display = 'block';
-  clearTimeout(window.__g13ToastT); window.__g13ToastT = setTimeout(function () { t.style.display = 'none'; }, 3200);
-}</script>
-
-<script>/* 项目→绑定供应商联动（一对多多对多 · 2026-09-11 落地） */
-(function(){
-  var PRJ_SUPPLIERS = {
-    'PRJ-2601': ['路凯包装运营（上海）有限公司', '宁波华塑包装制品有限公司'],
-    'PRJ-2602': ['路凯包装运营（上海）有限公司', '常州正大塑料托盘厂'],
-    'PRJ-2603': ['路凯包装运营（上海）有限公司'],
-    'PRJ-2604': ['宁波华塑包装制品有限公司'],
-    'PRJ-2605': ['路凯包装运营（上海）有限公司'],
-    'PRJ-2606': ['路凯包装运营（上海）有限公司', '苏州联恒五金制品有限公司']
-  };
-  var prjSel = document.getElementById('cmProject'), supSel = document.getElementById('cmSupplier');
-  if (!prjSel || !supSel) return;
-  function syncSuppliers(){
-    var list = PRJ_SUPPLIERS[prjSel.value] || [];
-    supSel.innerHTML = list.length
-      ? list.map(function(n, i){ return '<option' + (i === 0 ? ' selected' : '') + '>' + n + '</option>'; }).join('')
-      : '<option selected>（该项目未绑定供应商，请先在项目档案完成上下游绑定）</option>';
-  }
-  prjSel.addEventListener('change', syncSuppliers);
-  syncSuppliers();
 })();
 </script>
 </body>

@@ -370,7 +370,7 @@ th.td-num { text-align:right; }
 </div>
 <div class="card">
   <div class="card-head">
-    <h3 class="card-title">应付账单</h3>
+    <h3 class="card-title" data-note="5">应付账单</h3>
     <div class="head-btns"><button class="btn btn-default btn-sm">批量导出</button><button class="btn btn-sm" onclick="openModal('createModal')">新建应付账单</button></div>
   </div>
 <div class="stabs">
@@ -582,7 +582,7 @@ th.td-num { text-align:right; }
     </span>
     <span class="pg-jump">跳至 <input value="" placeholder="跳转页码"> 页</span>
   </div>
-</div><div class="pn-hint" style="padding:0 4px;">应付账单可由采购入库单审核后自动生成（第一期支持手动创建）；租入业务（路凯）按周期生成应付账单。</div>
+</div>
     </div>
   </div>
 </div>
@@ -626,7 +626,7 @@ th.td-num { text-align:right; }
 <div style="margin:12px 0 4px;font-size:13px;font-weight:600;">分期付款计划（比例⇄金额互算 · 笔数不限直至付清）</div>
 <div style="display:flex;gap:8px;align-items:center;margin-bottom:6px;">
       <button class="btn btn-default btn-sm" id="cmInstAdd" type="button">+ 添加一笔</button>
-      <button class="btn btn-default btn-sm" id="cmInstFill" type="button">剩余全排</button>
+      <button class="btn btn-default btn-sm" id="cmInstFill" type="button" data-note="4">剩余全排</button>
   </div>
   <div class="table-wrap">
     <table>
@@ -758,7 +758,7 @@ th.td-num { text-align:right; }
   </div>
   <div class="table-wrap">
     <table>
-      <thead><tr><th data-note="4">笔次</th><th>比例(%)</th><th>金额(元)</th><th>计划日期</th><th>状态</th><th></th></tr></thead>
+      <thead><tr><th>笔次</th><th>比例(%)</th><th>金额(元)</th><th>计划日期</th><th>状态</th><th></th></tr></thead>
       <tbody id="instBody"></tbody>
     </table>
   </div>
@@ -975,6 +975,24 @@ document.querySelectorAll('.tab').forEach(function (t) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <style id="proto-notes-style">
 body.proto-notes-on [data-note]{position:relative}
 body.proto-notes-on [data-note]::after{content:attr(data-note);position:absolute;top:1px;right:1px;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600;box-shadow:0 0 0 1.5px #fff;cursor:pointer;opacity:.75;transition:opacity .15s}
@@ -1000,7 +1018,8 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 <div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>L4 · 步骤 10/10 多线应付（租金）</div><div class="pnp-d">L4 多线应付：采购应付（隔板）+ 租金应付（本行）+ 赔付应付 三线并存。</div></div>
 <div class="proto-pin" id="proto-pin-3"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">3</span>财务通道 · 采购应付</div><div class="pnp-d">采购应付：采购入库 → 应付账单 → 付款登记（财务通道应付行；v2.9 起 S1 支线并入）。</div></div>
 <div class="proto-pin" id="proto-pin-4"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">4</span>分期互算口径</div><div class="pnp-d">分期互算：填比例自动算金额、填金额自动算比例，末期自动补差；账单头部展示「账单金额 / 已付 / 剩余」，付款时选金额，超出账单金额拦截（2026-09-08 会议 M2/C-C）。</div></div>
-<style id="f01-fab-style">.fab-row{position:fixed;right:12px;bottom:12px;z-index:880;display:flex;align-items:center;gap:6px}.fab-row .pn-fab{position:static}.f01-fab{display:flex;text-decoration:none;align-items:center;height:24px;padding:0 10px;border-radius:4px;background:#fff;border:1px solid #d9d9d9;color:#8c8c8c;font-size:11px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.06);opacity:.6;transition:opacity .15s}.f01-fab:hover{opacity:1;border-color:#722ed1;color:#722ed1}</style><div class="fab-row"><a class="f01-fab" href="../P3-R01-F01-业务流程导航图.html">流程图</a><div class="pn-fab" id="protoNotesFab">标注</div></div></div>
+<div class="proto-pin" id="proto-pin-5"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">5</span>应付账单生成方式</div><div class="pnp-d">应付账单可由采购入库单审核后自动生成（第一期支持手动创建）；租入业务（路凯）按周期生成应付账单。</div><div class="pnp-b"><span class="pnp-tag">FP4-02</span><span class="pnp-tag">REQ-03</span></div></div>
+<div class="pn-fab" id="protoNotesFab">标注</div></div>
 <script id="proto-notes-js">
 (function(){
   var KEY='proto-notes-on';

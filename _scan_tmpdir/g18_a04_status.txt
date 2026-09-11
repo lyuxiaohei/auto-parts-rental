@@ -1,0 +1,74 @@
+A04 键：
+  销售管理/销售订单列表.html (1 条)
+  采购管理/采购订单列表.html (1 条)
+  采购管理/采购入库列表.html (3 条)
+  销售管理/销售出库列表.html (1 条)
+  财务协同/应收账单.html (3 条)
+  财务协同/开票登记.html (1 条)
+  财务协同/回款登记.html (1 条)
+  财务协同/银行水单核销.html (1 条)
+  基础数据/BOM.html (1 条)
+  租赁管理/租赁单列表.html (6 条)
+  租赁管理/组合出库列表.html (2 条)
+  租赁管理/退租入库列表.html (4 条)
+  租赁管理/租入单列表.html (3 条)
+  租赁管理/租入入库列表.html (2 条)
+  租赁管理/租入归还列表.html (2 条)
+  财务协同/应付账单.html (4 条)
+  财务协同/付款登记.html (1 条)
+  我的待办.html (1 条)
+
+当前已注入页（35）：
+  仓储作业/库存查询.html: 6 pins
+  仓储作业/盘点列表.html: 1 pins
+  仓储作业/盘点录入.html: 2 pins
+  基础数据/BOM.html: 1 pins
+  基础数据/BOM维护.html: 2 pins
+  基础数据/产品档案.html: 1 pins
+  基础数据/客商管理.html: 1 pins
+  基础数据/库位档案.html: 1 pins
+  我的待办.html: 1 pins
+  租赁管理/租入入库列表.html: 2 pins
+  租赁管理/租入单列表.html: 3 pins
+  租赁管理/租入归还列表.html: 2 pins
+  租赁管理/租赁单列表.html: 6 pins
+  租赁管理/组合出库列表.html: 2 pins
+  租赁管理/组合出库录单.html: 2 pins
+  租赁管理/退租入库列表.html: 4 pins
+  系统管理/操作日志.html: 1 pins
+  系统管理/数据字典.html: 2 pins
+  系统管理/用户权限.html: 2 pins
+  系统管理/角色管理.html: 0 pins
+  财务协同/付款登记.html: 1 pins
+  财务协同/回款登记.html: 2 pins
+  财务协同/应付账单.html: 4 pins
+  财务协同/应收账单.html: 2 pins
+  财务协同/开票登记.html: 1 pins
+  财务协同/盈亏报表.html: 2 pins
+  财务协同/银行水单核销.html: 3 pins
+  采购管理/采购入库列表.html: 2 pins
+  采购管理/采购入库录单.html: 2 pins
+  采购管理/采购订单列表.html: 1 pins
+  销售管理/销售出库列表.html: 1 pins
+  销售管理/销售订单列表.html: 1 pins
+  项目管理/项目档案.html: 2 pins
+  项目管理/项目详情.html: 2 pins
+  首页/项目看板.html: 3 pins
+
+A03 首页/项目看板.html:
+  id=1 项目经营总览 sel=<h3 class="card-title">项目经营总览</h3>
+  id=2 本月营收列 sel=<th>本月营收(元)</th>
+  id=3 查看盈亏明细 sel=<button class="btn btn-default btn-sm" onclick="go('../财
+
+A03 财务协同/盈亏报表.html:
+  id=1 项目损益表 sel=<h3 class="card-title">项目损益</h3>
+  id=2 演示链数据对齐 sel=<div class="pager">
+
+A03 项目管理/项目详情.html:
+  id=1 上下游关系（详情维护） sel=<div class="card-title" style="font-size:14px;margin-bot
+  id=2 项目单据查询 sel=<h3 class="card-title">项目单据查询</h3>
+  id=3 上下游绑定关系口径 sel=<h3 class="modal-title">项目上下游绑定</h3>
+
+A03 系统管理/用户权限.html:
+  id=1 用户与权限 sel=<h3 class="card-title">用户与权限</h3>
+  id=2 数据权限范围 sel=<th>数据权限范围</th>

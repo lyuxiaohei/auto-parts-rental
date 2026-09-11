@@ -1,0 +1,27 @@
+A04 _meta 键: ['project', 'source', 'date', 'desc']
+A04 codes 数: 0
+A04 我的待办[0]: {"id": 1, "selector": "<div class=\"stat-grid\" style=\"margin-bottom:12px;\">", "title": "S6 · 我的待办（审核聚合入口）", "note": "S6 审核与待办支线：18 类单据统一进待办，搜索/类型速滤后「去审核」跳转列表页并自动弹出审核弹窗（?audit=1）。"}
+A04 银行水单核销[0]: {"id": 1, "selector": "<td><span class=\"lk\">SD-20260830-011</span></td>", "title": "B1 销售线 · 步骤 5/5 收款核销（闭环终点）", "note": "收款闭环终点：勾对回款与应收，支持部分核销与撤销核销（确认弹窗）。"}
+A04 应付账单 ids: [1, 2, 3, 4]
+A04 我的待办 ids: [1]
+A03 盈亏 fp: [(1, 'FP6-05', 'REQ-02'), (2, 'FP6-05', 'REQ-02')]
+
+用户权限 roleModal 头: id="roleModal">⏎  <div class="modal modal-lg">⏎    <div class="modal-header">⏎      <h3 class="modal-title">角色管理</h3>⏎      <span class="modal-close" onclick="closeModal('roleModal')">×</span>⏎    </div>⏎    <div class="modal-body">⏎      <div class="table-wrap" style="border:1px
+uniq 我的待办.html | label"><span>我的待办</span></div> | 1
+uniq 我的待办.html | -label"><span>待审核</span></div> | 1
+uniq 我的待办.html | -label"><span>待验收</span></div> | 1
+uniq 我的待办.html | -label"><span>待确认</span></div> | 1
+uniq 我的待办.html | -label"><span>待入库</span></div> | 1
+uniq 首页/项目看板.html | bel"><span>在租资产总量</span></div> | 1
+uniq 首页/项目看板.html | bel"><span>本月组合出库</span></div> | 1
+uniq 首页/项目看板.html | label"><span>本月收款</span></div> | 1
+uniq 首页/项目看板.html | label"><span>应收余额</span></div> | 1
+uniq 项目管理/项目详情.html | label"><span>在租数量</span></div> | 1
+uniq 项目管理/项目详情.html | label"><span>本月出库</span></div> | 1
+uniq 项目管理/项目详情.html | label"><span>本月营收</span></div> | 1
+uniq 项目管理/项目详情.html | label"><span>累计毛利</span></div> | 1
+uniq 财务协同/盈亏报表.html | bel"><span>本月营业收入</span></div> | 1
+uniq 财务协同/盈亏报表.html | bel"><span>本月营业成本</span></div> | 1
+uniq 财务协同/盈亏报表.html | label"><span>本月毛利</span></div> | 1
+uniq 财务协同/盈亏报表.html | label"><span>亏损项目</span></div> | 1
+uniq mobile/审批详情.html | class="m-sec-title">单据摘要</div> | 1

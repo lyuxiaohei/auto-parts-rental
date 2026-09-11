@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>权限配置 - 包装租赁管理后台</title>
+<style>
+:root {
+  --primary: #1677ff;
+  --primary-bg: #e6f4ff;
+  --strip-bg: #e6f7ff;
+  --page-bg: #f5f5f5;
+  --side-bg: #fafafa;
+  --thead-bg: #fafafa;
+  --border: #f0f0f0;
+  --input-border: #d9d9d9;
+  --text: #262626;
+  --text-2: #595959;
+  --text-3: #8c8c8c;
+  --placeholder: #bfbfbf;
+  --danger: #ff4d4f;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif; background:var(--page-bg); color:var(--text); font-size:13px; line-height:1.5715; min-width:1200px; margin:0; }
+svg { display:inline-block; vertical-align:middle; }
+
+/* ===== 按钮 ===== */
+.btn { display:inline-flex; align-items:center; justify-content:center; height:30px; padding:0 14px; border-radius:6px; border:none; cursor:pointer; font-size:13px; background:var(--primary); color:#fff; white-space:nowrap; font-family:inherit; }
+.btn:hover { background:#4096ff; }
+.btn-default { background:#fff; color:var(--text); border:1px solid var(--input-border); }
+.btn-default:hover { border-color:#4096ff; color:#4096ff; background:#fff; }
+
+/* ===== 数据表格 ===== */
+.table-wrap { overflow-x:auto; }
+table { width:100%; border-collapse:collapse; font-size:12px; white-space:nowrap; }
+thead th { background:var(--thead-bg); font-weight:600; color:rgba(0,0,0,.85); text-align:left; padding:10px 12px; border-bottom:1px solid var(--border); }
+tbody td { padding:9px 12px; border-bottom:1px solid var(--border); color:rgba(0,0,0,.85); }
+tbody tr:hover td { background:#f5faff; }
+th.sticky-op, td.sticky-op { position:sticky; right:0; background:#fff; box-shadow:-6px 0 8px -6px rgba(0,0,0,.12); }
+thead th.sticky-op { background:var(--thead-bg); }
+.ops a { color:var(--primary); cursor:pointer; margin-right:10px; }
+.td-num { text-align:right; font-variant-numeric:tabular-nums; }
+
+/* ===== 表单 ===== */
+.radio, .checkbox { display:inline-flex; align-items:center; margin-right:24px; cursor:pointer; font-size:13px; color:var(--text); }
+.radio .dot { width:16px; height:16px; border-radius:50%; border:1px solid var(--input-border); margin-right:6px; position:relative; background:#fff; }
+.radio.checked .dot { border-color:var(--primary); }
+.radio.checked .dot::after { content:''; position:absolute; inset:3px; border-radius:50%; background:var(--primary); }
+.checkbox .box { width:16px; height:16px; border-radius:2px; border:1px solid var(--input-border); margin-right:6px; background:#fff; display:inline-flex; align-items:center; justify-content:center; color:#fff; font-size:11px; }
+.checkbox.checked .box { background:var(--primary); border-color:var(--primary); }
+
+/* ===== 弹窗 ===== */
+.modal-overlay { position:fixed; inset:0; background:rgba(0,0,0,.45); display:none; align-items:center; justify-content:center; z-index:1000; }
+.modal-overlay.show { display:flex; }
+.modal { background:#fff; border-radius:8px; width:640px; max-width:92vw; max-height:80vh; overflow-y:auto; box-shadow:0 6px 16px rgba(0,0,0,.12); }
+.modal-lg { width:780px; max-width:92vw; }
+.modal-header { padding:16px 24px; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
+.modal-title { font-size:16px; font-weight:600; color:#1a1a1a; margin:0; }
+.modal-close { cursor:pointer; font-size:20px; color:var(--text-3); line-height:1; }
+.modal-close:hover { color:var(--text); }
+.modal-body { padding:20px 24px; }
+.modal-footer { padding:12px 24px; border-top:1px solid var(--border); display:flex; justify-content:flex-end; gap:10px; }
+
+/* ===== 详情描述行 ===== */
+.dgrid { display:grid; grid-template-columns:repeat(2,1fr); gap:0 32px; }
+.dgrid.c3 { grid-template-columns:repeat(3,1fr); }
+.drow { display:flex; padding:8px 0; border-bottom:1px dashed var(--border); font-size:13px; min-width:0; }
+.dlabel { flex:0 0 110px; color:var(--text-3); white-space:nowrap; }
+.dval { flex:1; min-width:0; color:var(--text); overflow-wrap:break-word; }
+
+/* ===== 段落标题（同详情弹窗四段式 dt-sec） ===== */
+.dt-sec{font-size:13px;font-weight:600;color:#262626;margin:0 0 10px;padding-left:8px;border-left:3px solid #1677ff;line-height:1.3}
+.modal-body .dt-sec:not(:first-child){margin-top:18px}
+
+::-webkit-scrollbar{width:6px;height:6px}
+::-webkit-scrollbar-thumb{background:#d9d9d9;border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:#c4c4c4}
+::-webkit-scrollbar-track{background:transparent}
+</style>
+<style id="modal-css">
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:1000;align-items:center;justify-content:center}
+.modal-overlay.show{display:flex}
+.modal{background:#fff;border-radius:8px;width:640px;max-width:92vw;max-height:85vh;overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,.15)}
+.modal-lg{width:780px;max-width:92vw}
+.modal-header{padding:16px 24px;border-bottom:1px solid #f0f0f0;display:flex;justify-content:space-between;align-items:center}
+.modal-title{font-size:16px;font-weight:600;color:#262626}
+.modal-close{cursor:pointer;font-size:20px;color:#8c8c8c;line-height:1}
+.modal-close:hover{color:#262626}
+.modal-body{padding:20px 24px}
+.modal-footer{padding:12px 24px;border-top:1px solid #f0f0f0;display:flex;justify-content:flex-end;gap:8px}
+</style>
+</head>
+<body style="background:#f5f6f8;min-height:100vh;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif">
+<!-- 弹窗模板：权限配置（roleModal） -->
+<!-- 注入标记：系统管理/角色管理.html -->
+<div class="modal-overlay" id="roleModal">
+  <div class="modal modal-lg">
+    <div class="modal-header">
+      <h3 class="modal-title"><span id="rolePermTitle">权限配置 · 系统管理员</span></h3>
+      <span class="modal-close" onclick="closeModal('roleModal')">×</span>
+    </div>
+    <div class="modal-body">
+      <div class="dgrid c3" style="margin-bottom:8px;">
+        <div class="drow"><span class="dlabel">角色名</span><span class="dval" id="rpName">系统管理员</span></div>
+        <div class="drow"><span class="dlabel">说明</span><span class="dval" id="rpDesc">全部功能 + 系统管理</span></div>
+        <div class="drow"><span class="dlabel">账号数</span><span class="dval" id="rpAccts">2</span></div>
+      </div>
+      <div class="dt-sec">菜单权限</div>
+      <div id="permMatrix" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px 16px;padding:4px 0 2px;">
+        <span class="checkbox checked" data-perm="项目管理"><span class="box">✓</span>项目管理</span>
+        <span class="checkbox checked" data-perm="我的待办"><span class="box">✓</span>我的待办</span>
+        <span class="checkbox checked" data-perm="基础资料"><span class="box">✓</span>基础资料</span>
+        <span class="checkbox checked" data-perm="采购管理"><span class="box">✓</span>采购管理</span>
+        <span class="checkbox checked" data-perm="销售管理"><span class="box">✓</span>销售管理</span>
+        <span class="checkbox checked" data-perm="租赁管理"><span class="box">✓</span>租赁管理</span>
+        <span class="checkbox checked" data-perm="仓储管理"><span class="box">✓</span>仓储管理</span>
+        <span class="checkbox checked" data-perm="财务管理"><span class="box">✓</span>财务管理</span>
+        <span class="checkbox checked" data-perm="系统管理"><span class="box">✓</span>系统管理</span>
+      </div>
+      <div class="dt-sec">数据权限范围</div>
+      <div style="display:flex;padding:4px 0 2px;">
+        <span class="radio checked" data-scope="全部项目"><span class="dot"></span>全部项目</span>
+        <span class="radio" data-scope="所属客户"><span class="dot"></span>所属客户</span>
+        <span class="radio" data-scope="所属供应商"><span class="dot"></span>所属供应商</span>
+      </div>
+      <div class="dt-sec" style="margin-top:18px;">可审单据</div>
+      <div id="auditPermMatrix" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px 16px;padding:4px 0 2px;">
+        <span class="checkbox checked" data-audit="采购订单"><span class="box">✓</span>采购订单</span>
+        <span class="checkbox checked" data-audit="销售订单"><span class="box">✓</span>销售订单</span>
+        <span class="checkbox checked" data-audit="租赁单"><span class="box">✓</span>租赁单</span>
+        <span class="checkbox checked" data-audit="租入单"><span class="box">✓</span>租入单</span>
+        <span class="checkbox checked" data-audit="销售出库"><span class="box">✓</span>销售出库</span>
+        <span class="checkbox checked" data-audit="租赁出库"><span class="box">✓</span>租赁出库</span>
+        <span class="checkbox" data-audit="采购入库"><span class="box"></span>采购入库</span>
+        <span class="checkbox" data-audit="租入入库"><span class="box"></span>租入入库</span>
+        <span class="checkbox checked" data-audit="退租入库"><span class="box">✓</span>退租入库</span>
+        <span class="checkbox" data-audit="其他入库"><span class="box"></span>其他入库</span>
+        <span class="checkbox" data-audit="其他出库"><span class="box"></span>其他出库</span>
+        <span class="checkbox checked" data-audit="盘点"><span class="box">✓</span>盘点</span>
+        <span class="checkbox" data-audit="库存调拨"><span class="box"></span>库存调拨</span>
+        <span class="checkbox" data-audit="租入归还"><span class="box"></span>租入归还</span>
+      </div>
+      <div style="font-size:12px;color:#8c8c8c;padding-top:6px;line-height:1.7;">勾选该角色可审核的单据类型；各审核弹窗「审核人（按角色匹配）」据此匹配（G13 · 纪要十.1）。</div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-default" onclick="closeModal('roleModal')">取消</button>
+      <button class="btn" onclick="closeModal('roleModal')">保存</button>
+    </div>
+  </div>
+</div>
+<script>
+function openModal(id) { document.getElementById(id).classList.add('show'); }
+function closeModal(id) { document.getElementById(id).classList.remove('show'); }
+document.querySelectorAll('.modal-overlay').forEach(function (ov) {
+  ov.addEventListener('click', function (e) { if (e.target === ov) closeModal(ov.id); });
+});
+document.querySelectorAll('.radio').forEach(function (r) {
+  r.addEventListener('click', function () {
+    var box = r.parentElement;
+    box.querySelectorAll('.radio').forEach(function (x) { x.classList.remove('checked'); });
+    r.classList.add('checked');
+  });
+});
+document.querySelectorAll('.checkbox').forEach(function (c) {
+  c.addEventListener('click', function () { c.classList.toggle('checked'); });
+});
+document.querySelector('.modal-overlay').classList.add('show');
+</script>
+<script>/*ia-fix: tab-switch + btn-feedback (2026-09-04)*/
+/* R3 顶部页签切换（点击换 active；× 不做关闭跳转——原型不销毁页签） */
+document.querySelectorAll('.tab').forEach(function (t) {
+  t.addEventListener('click', function () {
+    document.querySelectorAll('.tab').forEach(function (x) { x.classList.remove('active'); });
+    t.classList.add('active');
+  });
+});
+/* R1 死按钮全局反馈：无 onclick 的 button/a 给按压视觉态；「重置」清空所在筛选卡 */
+(function () {
+  document.addEventListener('click', function (e) {
+    var el = e.target.closest ? e.target.closest('button, a, .sm-link') : null;
+    if (!el) return;
+    if (el.getAttribute('onclick')) return;
+    var h = el.getAttribute('href');
+    if (el.tagName === 'A' && h && h !== '#' && !/^javascript:/i.test(h)) return;
+    if (el.disabled) return;
+    var txt = (el.textContent || '').trim();
+    if (txt === '重置') {
+      var card = el.closest('.filter-card') || el.closest('.card');
+      if (card) {
+        card.querySelectorAll('input:not([type=checkbox]):not([type=radio])').forEach(function (i) { if (!i.readOnly && !i.disabled) i.value = ''; });
+        card.querySelectorAll('select').forEach(function (s) { if (!s.disabled) s.selectedIndex = 0; });
+      }
+    }
+    el.style.transition = 'transform .08s';
+    el.style.transform = 'scale(.96)';
+    setTimeout(function () { el.style.transform = ''; }, 160);
+  }, true);
+})();
+</script>
+<style id="f01-fab-style">.f01-fab{position:fixed;right:12px;bottom:12px;z-index:1001;display:flex;align-items:center;height:24px;padding:0 10px;border-radius:4px;background:#fff;border:1px solid #d9d9d9;color:#8c8c8c;font-size:11px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.06);opacity:.6;transition:opacity .15s}.f01-fab:hover{opacity:1;border-color:#722ed1;color:#722ed1}</style>
+<a class="f01-fab" href="../../P3-R01-F01-业务流程导航图.html">流程图</a>
+</body>
+</html>

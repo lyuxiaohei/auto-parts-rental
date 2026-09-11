@@ -1,0 +1,33 @@
+项目管理/项目档案.html:
+  id=1 fp=FP1-01 req=REQ-01 title=新建项目（弹窗） selector=<button class="btn btn-sm" onclick="openModal('createModal')
+  id=3 fp=FP2-02 req=REQ-01 title=上下游绑定（弹窗） selector=<button class="btn btn-default btn-sm" onclick="openModal('b
+项目管理/项目详情.html:
+  id=1 fp=FP2-02 req=REQ-01 title=上下游关系（详情维护） selector=<div class="card-title" style="font-size:14px;margin-bottom:
+  id=2 fp=FP2-04 req=REQ-02 title=项目单据查询 selector=<h3 class="card-title">项目单据查询</h3>
+系统管理/用户权限.html:
+  id=1 fp=FP7-01 req=REQ-01 title=用户与权限 selector=<h3 class="card-title">用户与权限</h3>
+  id=2 fp=FP7-01 req=None title=数据权限范围 selector=<th>数据权限范围</th>
+财务协同/银行水单核销.html:
+  id=1 fp=FP6-04 req=REQ-09 title=银行回单（左栏） selector=<h3 class="card-title">① 银行回单</h3>
+  id=2 fp=FP6-04 req=REQ-09 title=自动匹配建议 selector=<button class="btn btn-default btn-sm">自动匹配建议</button>
+  id=3 fp=FP6-04 req=REQ-09 title=生成核销记录 selector=<button class="btn btn-sm">生成核销记录</button>
+财务协同/应收账单.html:
+  id=1 fp=FP6-01 req=REQ-08 title=应收账单自动生成 selector=<h3 class="card-title">应收账单</h3>
+  id=2 fp=FP6-01 req=REQ-08 title=手动生成账单 selector=<button class="btn btn-sm" onclick="openModal('createModal')
+
+codes 相关：
+  FP1-01: 项目档案 — 项目编码、名称、状态、起止日期
+  FP2-01: 项目编码规则 — 自动编码、规则可配置
+  FP2-03: 项目看板 — 出入库流量、营收、盈利汇总
+  FP2-04: 项目明细查看明细 — 从看板点开查看到单据
+  FP3-04: 退租入库验收单 — 回收入库，按零件核对缺损并记明细
+  FP4-01: 租赁单·退回进度 — 按单跟踪租出与已退回数量（原租出台账 2026-09-10 
+  FP6-01: 应收账单生成 — 出入库数据按项目/客户自动汇总生成应收
+  FP6-04: 银行回单核销 ★补缺 — 水单↔单据逐笔勾对，支持部分核销
+  FP6-05: 项目盈亏报表 — 项目维度营收成本汇总
+  FP7-01: 组织与权限 — 用户/角色/数据权限（我方/客户区分）
+  REQ-01: 多项目统一管理 — 所有项目整合进一个系统，按项目建立编码，绑定上下游关系
+  REQ-02: 项目维度经营分析 — 按项目看出入库、营收、盈利情况
+  REQ-03: 包材租赁循环管理 — 出库、退租、循环使用状态跟踪（围板箱/托盘/料箱）
+  REQ-08: 财务开票同步 — 出入库数据同步财务端生成应收、开票
+  REQ-09: 银行回单核销 — 客户付款后单据与银行回单勾对核销

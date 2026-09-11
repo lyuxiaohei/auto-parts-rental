@@ -629,7 +629,7 @@
   "problems": [],
   "stats": {
    "buttons": 6,
-   "links": 19,
+   "links": 18,
    "onclickEls": 61,
    "modals": 1,
    "modalTitles": [
@@ -981,7 +981,7 @@
   "problems": [],
   "stats": {
    "buttons": 1,
-   "links": 13,
+   "links": 12,
    "onclickEls": 60,
    "modals": 0,
    "modalTitles": [],
@@ -1397,7 +1397,7 @@
   ],
   "stats": {
    "buttons": 7,
-   "links": 7,
+   "links": 6,
    "onclickEls": 44,
    "modals": 2,
    "modalTitles": [
@@ -1459,7 +1459,7 @@
   ],
   "stats": {
    "buttons": 11,
-   "links": 15,
+   "links": 14,
    "onclickEls": 51,
    "modals": 3,
    "modalTitles": [
@@ -1494,7 +1494,7 @@
   ],
   "stats": {
    "buttons": 10,
-   "links": 6,
+   "links": 5,
    "onclickEls": 47,
    "modals": 3,
    "modalTitles": [
@@ -1557,7 +1557,7 @@
   ],
   "stats": {
    "buttons": 15,
-   "links": 32,
+   "links": 31,
    "onclickEls": 73,
    "modals": 4,
    "modalTitles": [
@@ -1649,7 +1649,7 @@
   ],
   "stats": {
    "buttons": 7,
-   "links": 11,
+   "links": 10,
    "onclickEls": 43,
    "modals": 2,
    "modalTitles": [
@@ -1915,7 +1915,7 @@
   "problems": [],
   "stats": {
    "buttons": 7,
-   "links": 10,
+   "links": 9,
    "onclickEls": 48,
    "modals": 2,
    "modalTitles": [
@@ -1950,7 +1950,7 @@
   ],
   "stats": {
    "buttons": 13,
-   "links": 10,
+   "links": 9,
    "onclickEls": 44,
    "modals": 3,
    "modalTitles": [
@@ -2020,7 +2020,7 @@
   ],
   "stats": {
    "buttons": 17,
-   "links": 29,
+   "links": 28,
    "onclickEls": 59,
    "modals": 4,
    "modalTitles": [
@@ -2674,7 +2674,7 @@
   ],
   "stats": {
    "buttons": 12,
-   "links": 16,
+   "links": 15,
    "onclickEls": 51,
    "modals": 3,
    "modalTitles": [
@@ -2867,7 +2867,7 @@
   ],
   "stats": {
    "buttons": 12,
-   "links": 14,
+   "links": 13,
    "onclickEls": 49,
    "modals": 3,
    "modalTitles": [
@@ -2930,7 +2930,7 @@
   ],
   "stats": {
    "buttons": 15,
-   "links": 17,
+   "links": 16,
    "onclickEls": 54,
    "modals": 3,
    "modalTitles": [

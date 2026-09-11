@@ -343,15 +343,15 @@ th.td-num { text-align:right; }
   <span>已选单据合计：<b>¥<span id="dzSum">0.00</span></b></span>
   <span>两侧差额：<b id="diffSum" style="color:#52c41a;">0.00</b></span>
   <span style="margin-left:auto;display:flex;gap:8px;">
-    <button class="btn btn-default btn-sm" data-note="2">自动匹配建议</button>
-    <button class="btn btn-sm" data-note="3">生成核销记录</button>
+    <button class="btn btn-default btn-sm">自动匹配建议</button>
+    <button class="btn btn-sm">生成核销记录</button>
   </span>
 </div>
 
 <div class="split">
   <div class="card">
     <div class="card-head">
-      <h3 class="card-title" data-note="1">① 银行回单</h3>
+      <h3 class="card-title">① 银行回单</h3>
       <div class="head-btns"><button class="btn btn-default btn-sm">导入回单</button></div>
     </div>
   <div class="table-wrap">
@@ -371,7 +371,7 @@ th.td-num { text-align:right; }
       <tbody>
         <tr>
           <td><input type="checkbox" class="cb" data-amt="286500.0"></td>
-          <td><span class="lk">SD-20260830-011</span></td>
+          <td data-note="1"><span class="lk">SD-20260830-011</span></td>
           <td>2026-08-30</td>
           <td>一汽解放汽车有限公司</td>
           <td><span class="td-num">286,500.00</span></td>
@@ -425,7 +425,7 @@ th.td-num { text-align:right; }
   </div>
   <div class="card">
     <div class="card-head">
-      <h3 class="card-title">② 待核销单据</h3>
+      <h3 class="card-title" data-note="2">② 待核销单据</h3>
       <div class="head-btns"><select title="类型筛选" style="height:28px;border:1px solid var(--border);border-radius:4px;padding:0 8px;font-size:12px;color:var(--text-2);background:#fff;outline:none;"><option selected>类型：全部</option><option>应收账单</option><option>丢损赔偿单</option><option>预收款</option><option>预付款</option></select><button class="btn btn-default btn-sm" onclick="go('../财务协同/应收账单.html')">应收台账</button></div>
     </div>
   <div class="table-wrap">
@@ -499,7 +499,6 @@ th.td-num { text-align:right; }
       </tbody>
     </table>
   </div>
-    <div class="mini-note">单据金额取自应收账单 / 丢损赔偿单；勾选两侧后点击「生成核销记录」，系统按回单未核销金额与单据未核销金额取小核销。</div>
   </div>
 </div>
 
@@ -754,6 +753,18 @@ document.querySelectorAll('.tab').forEach(function (t) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 <style id="proto-notes-style">
 body.proto-notes-on [data-note]{position:relative}
 body.proto-notes-on [data-note]::after{content:attr(data-note);position:absolute;top:1px;right:1px;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600;box-shadow:0 0 0 1.5px #fff;cursor:pointer;opacity:.75;transition:opacity .15s}
@@ -775,9 +786,8 @@ body.proto-notes-on .proto-pin.pn-open{display:block}
 body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 .pn-fab .pn-fab-n{font-family:Consolas,monospace;font-weight:600}
 </style>
-<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>银行回单（左栏）</div><div class="pnp-d">★ 目前靠手工核销，系统上线后自动完成：银行回单与单据左右对照勾对</div><div class="pnp-b"><span class="pnp-tag">FP6-04 · 银行回单核销 ★补缺</span><span class="pnp-tag">REQ-09 · 银行回单核销</span></div><div class="pnp-src"><div class="src-item"><b>FP6-04 银行回单核销 ★补缺</b>：水单↔单据逐笔勾对，支持部分核销</div><div class="src-item"><b>REQ-09 银行回单核销</b>：客户付款后单据与银行回单勾对核销</div></div></div>
-<div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>自动匹配建议</div><div class="pnp-d">按付款户名/金额智能推荐勾对，支持部分核销</div><div class="pnp-b"><span class="pnp-tag">FP6-04 · 银行回单核销 ★补缺</span><span class="pnp-tag">REQ-09 · 银行回单核销</span></div><div class="pnp-src"><div class="src-item"><b>FP6-04 银行回单核销 ★补缺</b>：水单↔单据逐笔勾对，支持部分核销</div><div class="src-item"><b>REQ-09 银行回单核销</b>：客户付款后单据与银行回单勾对核销</div></div></div>
-<div class="proto-pin" id="proto-pin-3"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">3</span>生成核销记录</div><div class="pnp-d">一笔回款可以分多次核销多张单据</div><div class="pnp-b"><span class="pnp-tag">FP6-04 · 银行回单核销 ★补缺</span><span class="pnp-tag">REQ-09 · 银行回单核销</span></div><div class="pnp-src"><div class="src-item"><b>FP6-04 银行回单核销 ★补缺</b>：水单↔单据逐笔勾对，支持部分核销</div><div class="src-item"><b>REQ-09 银行回单核销</b>：客户付款后单据与银行回单勾对核销</div></div></div>
+<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>B1 销售线 · 步骤 5/5 收款核销（闭环终点）</div><div class="pnp-d">收款闭环终点：勾对回款与应收，支持部分核销与撤销核销（确认弹窗）。</div></div>
+<div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>核销金额口径</div><div class="pnp-d">单据金额取自应收账单 / 丢损赔偿单；勾选两侧后点击「生成核销记录」，系统按回单未核销金额与单据未核销金额取小核销。</div><div class="pnp-b"><span class="pnp-tag">FP6-04</span><span class="pnp-tag">REQ-09</span></div></div>
 <div class="pn-fab" id="protoNotesFab">标注</div></div>
 <script id="proto-notes-js">
 (function(){

@@ -375,8 +375,8 @@ th.td-num { text-align:right; }
 
 <div class="card">
   <div class="card-head">
-    <h3 class="card-title" data-note="1">采购入库单</h3>
-    <div class="head-btns"><button class="btn btn-default btn-sm">批量导出</button><button class="btn btn-sm" onclick="go('../采购管理/采购入库录单.html')" data-note="2">新增入库单</button></div>
+    <h3 class="card-title">采购入库单</h3>
+    <div class="head-btns"><button class="btn btn-default btn-sm">批量导出</button><button class="btn btn-sm" onclick="go('../采购管理/采购入库录单.html')">新增入库单</button></div>
   </div>
 <div class="stabs">
   <span class="stab active">全部<span class="stab-count">325</span></span>
@@ -420,7 +420,7 @@ th.td-num { text-align:right; }
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
-          <td><span class="lk">CGRK-20260828-011</span></td>
+          <td data-note="2"><span class="lk">CGRK-20260828-011</span></td>
           <td>宁波华塑包装制品有限公司</td>
           <td><span class="lk">PO-20260901-017</span></td>
           <td>PRJ-2601</td>
@@ -490,7 +490,7 @@ th.td-num { text-align:right; }
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
-          <td><span class="lk">CGRK-20260824-005</span></td>
+          <td data-note="1"><span class="lk">CGRK-20260824-005</span></td>
           <td>苏州联恒五金制品有限公司</td>
           <td><span class="lk">PO-20260815-012</span></td>
           <td>PRJ-2604</td>
@@ -504,7 +504,7 @@ th.td-num { text-align:right; }
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
-          <td><span class="lk">CGRK-20260820-006</span></td>
+          <td data-note="3"><span class="lk">CGRK-20260820-006</span></td>
           <td>苏州联恒五金制品有限公司</td>
           <td><span class="lk">PO-20260815-012</span></td>
           <td>PRJ-2604</td>
@@ -759,6 +759,18 @@ document.querySelectorAll('.tab').forEach(function (t) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 <style id="proto-notes-style">
 body.proto-notes-on [data-note]{position:relative}
 body.proto-notes-on [data-note]::after{content:attr(data-note);position:absolute;top:1px;right:1px;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600;box-shadow:0 0 0 1.5px #fff;cursor:pointer;opacity:.75;transition:opacity .15s}
@@ -780,8 +792,9 @@ body.proto-notes-on .proto-pin.pn-open{display:block}
 body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 .pn-fab .pn-fab-n{font-family:Consolas,monospace;font-weight:600}
 </style>
-<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>采购入库单</div><div class="pnp-d">按零配件、以托为单位入库；入库即入零件级库存</div><div class="pnp-b"><span class="pnp-tag">FP3-01 · 采购入库单</span><span class="pnp-tag">REQ-04 · 零部件级库存</span></div><div class="pnp-src"><div class="src-item"><b>FP3-01 采购入库单</b>：按零配件、以托为单位入库</div><div class="src-item"><b>REQ-04 零部件级库存</b>：库存精确到零配件；配件多项目共用</div></div></div>
-<div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>新增入库单</div><div class="pnp-d">进入录单页面（从列表页按钮打开）</div><div class="pnp-b"><span class="pnp-tag">FP3-01 · 采购入库单</span><span class="pnp-tag">REQ-04 · 零部件级库存</span></div><div class="pnp-src"><div class="src-item"><b>FP3-01 采购入库单</b>：按零配件、以托为单位入库</div><div class="src-item"><b>REQ-04 零部件级库存</b>：库存精确到零配件；配件多项目共用</div></div></div>
+<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>B1 采购线 · 步骤 2/3 采购入库（零部件）</div><div class="pnp-d">凭采购订单到货验收——信息与物资匹配才闭环（王琳总 1:35）。进什么出什么，不参与组合（出库时按 BOM 组合扣减组件，无组装环节·2026-09-08）。<br>下一步 → 库存缓冲→ 销售线按可用量发货。</div></div>
+<div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>L1/L2 · 步骤 2 资产入库（器具采购）</div><div class="pnp-d">上一步 ← 采购订单（器具类，凭订单验收）。「采购入库是属于我的资产的一个入库」（袁丽晶 24:50）。<br>器具买断成自有资产，服务 L1 单一出租与 L2 组合出租。</div></div>
+<div class="proto-pin" id="proto-pin-3"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">3</span>L4 · 步骤 2/10 自购隔板入库</div><div class="pnp-d">混合转租的自购侧：折叠隔板×80（苏州联恒），凭采购订单 PO-20260815-012 验收入库。<br>与 RZD-20260815-005（租入大箱×10）共同组成混合配方 → 按 BOM 组合出库（无组装单·2026-09-08）。</div></div>
 <div class="pn-fab" id="protoNotesFab">标注</div></div>
 <script id="proto-notes-js">
 (function(){

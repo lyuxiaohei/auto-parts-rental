@@ -346,11 +346,11 @@ th.td-num { text-align:right; }
 </div>
     <div class="content">
 <div class="stat-grid" style="margin-bottom:12px;" data-note="1">
-  <div class="stat"><div class="st-label"><span>我的待办</span></div><div class="st-num"><b id="todoCount">15</b><span class="unit">单</span></div><div class="st-foot">覆盖 15 类单据 · 点击"去审核"直达审核弹窗</div></div>
-  <div class="stat"><div class="st-label"><span>待审核</span></div><div class="st-num">11<span class="unit">单</span></div><div class="st-foot">订单/出入库/租赁/盘点等</div></div>
-  <div class="stat"><div class="st-label"><span>待验收</span></div><div class="st-num">1<span class="unit">单</span></div><div class="st-foot">采购入库到货验收</div></div>
-  <div class="stat"><div class="st-label"><span>待确认</span></div><div class="st-num">2<span class="unit">单</span></div><div class="st-foot">付款 / 收款登记确认</div></div>
-  <div class="stat"><div class="st-label"><span>待入库</span></div><div class="st-num">1<span class="unit">单</span></div><div class="st-foot">租入入库 · 确认后计租入资产库存</div></div>
+  <div class="stat"><div class="st-label" data-note="2"><span>我的待办</span></div><div class="st-num"><b id="todoCount">15</b><span class="unit">单</span></div></div>
+  <div class="stat"><div class="st-label" data-note="3"><span>待审核</span></div><div class="st-num">11<span class="unit">单</span></div></div>
+  <div class="stat"><div class="st-label" data-note="4"><span>待验收</span></div><div class="st-num">1<span class="unit">单</span></div></div>
+  <div class="stat"><div class="st-label" data-note="5"><span>待确认</span></div><div class="st-num">2<span class="unit">单</span></div></div>
+  <div class="stat"><div class="st-label" data-note="6"><span>待入库</span></div><div class="st-num">1<span class="unit">单</span></div></div>
 </div>
 <div class="filter-card" id="filterCard">
   <div class="filter-grid">
@@ -721,6 +721,18 @@ document.querySelectorAll('.tab').forEach(function (t) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 <style id="proto-notes-style">
 body.proto-notes-on [data-note]{position:relative}
 body.proto-notes-on [data-note]::after{content:attr(data-note);position:absolute;top:1px;right:1px;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600;box-shadow:0 0 0 1.5px #fff;cursor:pointer;opacity:.75;transition:opacity .15s}
@@ -743,7 +755,12 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 .pn-fab .pn-fab-n{font-family:Consolas,monospace;font-weight:600}
 </style>
 <div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>S6 · 我的待办（审核聚合入口）</div><div class="pnp-d">S6 审核与待办支线：18 类单据统一进待办，搜索/类型速滤后「去审核」跳转列表页并自动弹出审核弹窗（?audit=1）。</div></div>
-<style id="f01-fab-style">.fab-row{position:fixed;right:12px;bottom:12px;z-index:880;display:flex;align-items:center;gap:6px}.fab-row .pn-fab{position:static}.f01-fab{display:flex;text-decoration:none;align-items:center;height:24px;padding:0 10px;border-radius:4px;background:#fff;border:1px solid #d9d9d9;color:#8c8c8c;font-size:11px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.06);opacity:.6;transition:opacity .15s}.f01-fab:hover{opacity:1;border-color:#722ed1;color:#722ed1}</style><div class="fab-row"><a class="f01-fab" href="P3-R01-F01-业务流程导航图.html">流程图</a><div class="pn-fab" id="protoNotesFab">标注</div></div></div>
+<div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>待办总量口径</div><div class="pnp-d">覆盖 15 类单据 · 点击“去审核”直达审核弹窗</div></div>
+<div class="proto-pin" id="proto-pin-3"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">3</span>待审核构成</div><div class="pnp-d">订单/出入库/租赁/盘点等</div></div>
+<div class="proto-pin" id="proto-pin-4"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">4</span>待验收含义</div><div class="pnp-d">采购入库到货验收</div></div>
+<div class="proto-pin" id="proto-pin-5"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">5</span>待确认含义</div><div class="pnp-d">付款 / 收款登记确认</div></div>
+<div class="proto-pin" id="proto-pin-6"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">6</span>待入库含义</div><div class="pnp-d">租入入库 · 确认后计租入资产库存</div></div>
+<div class="pn-fab" id="protoNotesFab">标注</div></div>
 <script id="proto-notes-js">
 (function(){
   var KEY='proto-notes-on';
