@@ -1,0 +1,5 @@
+判定1 A05 存在+37实体+行数: 351 >=200 且缺失 0
+判定2 V0.5: True · 第五节 11 项: True
+判定3 A06 存在+37实体+mermaid: 3块 缺失0 状态机True 缺口True
+判定4 node --check rc=0
+判定7 失败清单结论行: True · 索引 G16 行含哈希: True · G16 提交存在: True · 未 push 提交数: 6
