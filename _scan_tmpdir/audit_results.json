@@ -728,7 +728,7 @@
    "fakeSelects": 0,
    "radios": 0,
    "checkboxes": 0,
-   "inputs": 24,
+   "inputs": 27,
    "stabs": 0,
    "tabs": 3,
    "bgMut": 0
@@ -941,7 +941,7 @@
    "fakeSelects": 0,
    "radios": 0,
    "checkboxes": 0,
-   "inputs": 9,
+   "inputs": 12,
    "stabs": 0,
    "tabs": 0,
    "bgMut": 0
