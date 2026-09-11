@@ -110,6 +110,28 @@
   "nav_anomaly": null
  },
  {
+  "page": "P3-R01-A06-实体关系与状态机.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 0,
+   "links": 0,
+   "onclickEls": 0,
+   "modals": 0,
+   "modalTitles": [],
+   "selects": 0,
+   "fakeSelects": 0,
+   "radios": 0,
+   "checkboxes": 0,
+   "inputs": 0,
+   "stabs": 0,
+   "tabs": 0,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
   "page": "P3-R01-F01-业务流程导航图.html",
   "js_errors": [],
   "problems": [],
@@ -996,6 +1018,15 @@
   },
   "dead_links": [],
   "nav_anomaly": null
+ },
+ {
+  "page": "登录.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {},
+  "dead_links": [],
+  "nav_anomaly": null,
+  "audit_error": "Error: Page.evaluate: Execution context was destroyed, most likely because of a navigation."
  },
  {
   "page": "租赁管理\\弹窗\\器具出租履历.html",
