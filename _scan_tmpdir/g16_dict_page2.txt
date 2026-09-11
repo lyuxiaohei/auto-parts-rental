@@ -1,0 +1,28 @@
+=== dic-list HTML ===
+
+未匹配
+
+=== 脚本主体（byCat 起 1200 字符）===
+
+);
+  var items = document.querySelectorAll('.dic-list .dic-item');
+  if (!tbody) return;
+  function byCat(cat) {
+    return keysAll.filter(function (k) { return DATA[k].row.fields.category === cat; });
+  }
+  function render(cat) {
+    var keys = byCat(cat);
+    tbody.innerHTML = keys.length ? keys.map(function (k) {
+      var r = DATA[k].row;
+      var ops = r.ops.map(function (o) { return o.act ? '<a onclick="' + o.act + '">' + o.t + '</a>' : '<a>' + o.t + '</a>'; }).join('');
+      return '<tr><td>' + k + '</td>' + r.cells.map(function (c) { return '<td>' + c + '</td>'; }).join('') +
+        '<td class="sticky-op"><span class="ops">' + ops + '</span></td></tr>';
+    }).join('\n') : '<tr><td colspan="7" style="text-align:center;color:#8c8c8c;padding:24px 0;">该分类暂无字典项</td></tr>';
+    if (title) title.textContent = '字典项 · ' + cat;
+    if (pg) pg.textContent = '第 1-' + keys.length + ' 条/总共 ' + keys.length + ' 条';
+  }
+  function refreshCounts(activeCat) {
+    items.forEach(function (it) {
+      var name = it.querySelector('span').textContent.trim();
+      var cnt = it.querySelector('.cnt');
+      if (cnt) { cnt.textContent = byCat(name).length; cnt.classList.toggle('hot', name === act

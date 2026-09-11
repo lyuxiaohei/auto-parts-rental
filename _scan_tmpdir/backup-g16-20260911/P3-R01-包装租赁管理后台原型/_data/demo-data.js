@@ -15764,8 +15764,6 @@ window.DEMO_DATA = {
     'YH-03': { 'row': {"fields": {"category": "银行账户", "abbr": "BX", "name": "保证金户", "status": "启用"}, "cells": ["BX", "保证金户", "<span class=\"td-num\">3</span>", "投标/履约保证金", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
     'ZF-01': { 'row': {"fields": {"category": "支付方式", "abbr": "ZZ", "name": "银行转账", "status": "启用"}, "cells": ["ZZ", "银行转账", "<span class=\"td-num\">1</span>", "主流收付方式", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
     'ZF-02': { 'row': {"fields": {"category": "支付方式", "abbr": "CD", "name": "银行承兑", "status": "启用"}, "cells": ["CD", "银行承兑", "<span class=\"td-num\">2</span>", "承兑汇票", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
-    'WL-01': { 'row': {"fields": {"category": "物料类型", "abbr": "QJ", "name": "器具", "status": "启用"}, "cells": ["QJ", "器具", "<span class=\"td-num\">1</span>", "循环包装器具（围板箱/托盘/料箱/料架）", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
-    'WL-02': { 'row': {"fields": {"category": "物料类型", "abbr": "LBJ", "name": "零部件", "status": "启用"}, "cells": ["LBJ", "零部件", "<span class=\"td-num\">2</span>", "汽车零部件散件（对客销售件）", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
   },
 
   /* --------------------------------------------------------------------------

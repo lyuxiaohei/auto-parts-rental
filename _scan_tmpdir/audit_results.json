@@ -702,7 +702,7 @@
     "新建物料",
     "停用确认"
    ],
-   "selects": 5,
+   "selects": 6,
    "fakeSelects": 0,
    "radios": 2,
    "checkboxes": 0,
@@ -915,7 +915,7 @@
    "modalTitles": [
     "新建物料(演示页)"
    ],
-   "selects": 2,
+   "selects": 3,
    "fakeSelects": 0,
    "radios": 2,
    "checkboxes": 0,

@@ -1,0 +1,67 @@
+=== 库存查询 renderListPage 片段 ===
+renderListPage({
+  entity: 'stockFlows',
+  stabs: false,
+  filters: [
+    { label: '物料编码', field: '_key' },
+    { label: '库存状态', field: 'status' }
+  ],
+  noCheckbox: true,
+  modalId: 'flowModal'
+});
+function openTrack(key) {
+  var rec = window.DEMO_DATA && window.DEMO_DATA.assetTracks ? window.DEMO_DATA.assetTracks[key] : null;
+  if (!rec) { console.warn('[demo-data] assetTracks 无数据: ' + key); return; }
+  document.getElementById('trackTitle').textContent = (rec.title || '资产轨迹') + ' · ' + key;
+  document.getElementById('trackBody').innerHTML = window.renderGenericDetailHTML(rec, '../');
+  openModal('trackModal');
+}
+</script>
+<script>
+/* ===== 详情弹窗开关（详情落地页补齐注入） ===== */
+function openModal(id) { document.getElementById(id).classList.add('show'); }
+function closeModal(id) { document.getElementById(id).classList.remove('show'); }
+document.querySelectorAll('.modal-overlay').forEach(function (o
+
+entity refs in 库存查询: ['stockFlows']
+=== g12-whitelist 头 40 行 ===
+# G12 · B 类白名单（数据驱动豁免登记）
+
+> 生成：2026-09-10 ｜ 来源：_scan_tmpdir/g12-classify.json（T1 分类判定）
+> 规则：纯表单（新建/审核/确认/录单主体）或表格 ≤5 行演示性质 → 豁免数据驱动；**本体零改动**（git diff 交集必须为空）。
+
+## B 类业务页（3 个）
+
+- `仓储作业/盘点录入.html` — 录单表单主体（17 输入项，明细表 5 行<6，rule 3）
+- `租赁管理/组合出库录单.html` — 录单表单主体（明细表 2 行<6，rule 3）
+- `采购管理/采购入库录单.html` — 录单表单主体（明细表 3 行<6，rule 3）
+
+## B 类弹窗（43 个）
+
+统一理由：新建/审核/确认类表单弹窗，无数据表格或表格 ≤5 行（默认决策表第 4 条静态保留）。逐文件：
+
+- `仓储作业/弹窗/其他入库审核.html`
+- `仓储作业/弹窗/其他入库新建.html`
+- `仓储作业/弹窗/其他出库审核.html`
+- `仓储作业/弹窗/其他出库新建.html`
+- `仓储作业/弹窗/盘点审核.html`
+- `仓储作业/弹窗/调拨审核.html`
+- `仓储作业/弹窗/调拨新建.html`
+- `基础数据/弹窗/停用确认.html`
+- `基础数据/弹窗/新建产品.html`
+- `基础数据/弹窗/新建客商.html`
+- `基础数据/弹窗/新建库位.html`
+- `租赁管理/弹窗/租入入库确认.html`
+- `租赁管理/弹窗/租入单审核.html`
+- `租赁管理/弹窗/租入单新建.html`
+- `租赁管理/弹窗/租入归还审核.html`
+- `租赁管理/弹窗/租入归还新建.html`
+- `租赁管理/弹窗/租赁单审核.html`
+- `租赁管理/弹窗/租赁单新建.html`
+- `租赁管理/弹窗/组合出库确认.html`
+- `租赁管理/弹窗/退租入库审核.html`
+- `系统管理/弹窗/停用确认.html`
+- `系统管理/弹窗/新增字典项.html`
+- `系统管理/弹窗/新增用户.html`
+- `系统管理/弹窗/新增角色.html`
+- `系统管理/弹窗/权限配置.html`

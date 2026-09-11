@@ -1,0 +1,30 @@
+== projects.suppliers 非空 0/8：
+== 单号互引证据（字段→目标实体：样例数）==
+== 各实体状态值 ==
+  leaseOrders: 在租 / 已关闭 / 已审核 / 已退租 / 待审核
+  rentInOrders: 履行中 / 已归还 / 已终止 / 待审核 / 新建(草稿) / 部分归还
+  purchaseOrders: 已关闭 / 已完成 / 已审核 / 待审核
+  salesOrders: 已关闭 / 已完成 / 已审核 / 待发货 / 待审核
+  comboOutbounds: 已出库 / 拣货中
+  returnInbounds: 已入库 / 待审核
+  rentInReturns: 已归还 / 待审核
+  rentInbounds: 已入库 / 待入库
+  purchaseInbounds: 已入库 / 待验收
+  salesOutbounds: 已完成 / 待审核
+  otherInbounds: 已入库 / 待审核
+  otherOutbounds: 已出库 / 已完成 / 待审核
+  stocktakes: 已完成 / 待审核 / 盘点中
+  transfers: 已完成 / 待审核
+  stockFlows: 在库 / 客户端(租出) / 客户转租出 / 退租待入库
+  payableBills: 已付款 / 未付款 / 部分付款
+  receivableBills: 已收 / 已结清 / 未开票 / 部分收款
+  payments: 已确认 / 待确认
+  receipts: 已核销 / 待核销 / 部分核销
+  invoices: 停用 / 已登记 / 已红冲
+  writeoffs: 已核销 / 部分核销
+  products: 停用 / 启用
+  partners: 停用 / 正常
+  locations: 停用 / 启用
+  projects: 已完结 / 已暂停 / 筹备中 / 进行中
+  bomList: 停用 / 启用
+== bomVersions 首条 info 形态: [{'label': '父项编码', 'text': 'ZH-2601-A'}, {'label': '父项名称', 'text': '驾驶室围板箱整箱套件'}, {'label': '版本', 'text': 'V2.1'}, {'label': '生效日期', 'text': '2026-08-20'}, {'label': '配方来源', 'text': '自购'}, {'label': '更新人', 'text': '陈金'}, {'label': '变更说明', 'text': '锁扣配比 6→4，按客户产线上线反馈调整', 'full': True}]

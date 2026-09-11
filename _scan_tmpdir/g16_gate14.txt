@@ -1,0 +1,8 @@
+PASS  门1 node --check demo-data.js  ｜ 退出码 0 (node=C:\Program Files\nodejs\node.exe)
+PASS  门2a A05 存在+字段行≥200  ｜ 字段表行 351
+PASS  门2b A05 37 实体名逐一命中  ｜ 缺失 无
+PASS  门3a 术语表 V0.5+6 新词  ｜ V0.5 ✓ 6 词全 ≥1
+PASS  门3b 第五节 11 项编号  ｜ 编号 ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11']
+PASS  门4a A06 存在+37 实体命中  ｜ 缺失 无
+PASS  门4b A06 mermaid+状态机+数据缺口  ｜ mermaid×3
+== 门1-4 判定: 全过 ==

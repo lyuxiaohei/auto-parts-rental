@@ -1,0 +1,21 @@
+=== payableBills (AP-20260905-013) row 键: ['fields', 'cells', 'ops']
+  fields(8): ['supplier', 'btype', 'project', 'period', 'ref', 'inbound', 'date', 'status']
+  值例: {'supplier': '一汽解放汽车有限公司', 'btype': '对客户应付', 'project': 'PRJ-2601', 'period': '2026-09', 'ref': '—'}
+=== products (WBX-1210L) row 键: ['fields', 'cells', 'ops']
+  fields(6): ['name', 'cls', 'spec', 'src', 'status', 'date']
+  值例: {'name': '围板箱 1200×1000×970', 'cls': '围板箱', 'spec': '1200×1000×970 mm', 'src': '自有', 'status': '启用'}
+  info[0] 形态: {'label': '物料编码', 'text': 'WBX-1210L'}
+=== stockFlows (XNC-AJZX-WBX) row 键: ['fields', 'cells', 'ops']
+  fields(5): ['status', 'name', 'cls', 'project', 'area']
+  值例: {'status': '客户端(租出)', 'name': '围板箱 1200×1000×970（安吉智行·客户虚拟仓）', 'cls': '租赁器具', 'project': 'PRJ-2605', 'area': '安吉智行·客户虚拟仓'}
+  info[0] 形态: {'label': '物料编码', 'text': 'XNC-AJZX-WBX'}
+=== leaseOrders (ZL-20260823-033) row 键: ['fields', 'note', 'cells', 'ops']
+  fields(5): ['billing', 'customer', 'project', 'status', 'start']
+  值例: {'billing': '按月定期', 'customer': '一汽解放汽车有限公司', 'project': 'PRJ-2604', 'status': '已退租', 'start': '2026-08-23'}
+  info[0] 形态: {'label': '租赁单号', 'text': 'ZL-20260823-033', 'full': True}
+=== dictItems (DT-01) row 键: ['fields', 'cells', 'ops']
+  fields(4): ['category', 'abbr', 'name', 'status']
+  值例: {'category': '缺损类型', 'abbr': 'PS', 'name': '破损', 'status': '启用'}
+=== todoItems (SO-20260910-0047) row 键: ['fields']
+  fields(8): ['auditor', 'type', 'docNo', 'summary', 'project', 'submitter', 'time', 'action']
+  值例: {'auditor': '王琳', 'type': '销售订单', 'docNo': 'SO-20260910-0047', 'summary': '一汽解放 · 驾驶室围板箱 160 套', 'project': 'PRJ-2601'}

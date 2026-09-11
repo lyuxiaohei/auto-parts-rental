@@ -1,0 +1,4 @@
+bomVersions V2.1: row.fields=[]
+bomList ZH-2601-A: row.fields=['name', 'ver', 'status', 'mix', 'updater', 'update']
+purchaseOrders PO-20260902-018: row.fields=['supplier', 'mtype', 'summary', 'date', 'so', 'status']
+todoItems SO-20260910-0047: row.fields=['auditor', 'type', 'docNo', 'summary', 'project', 'submitter', 'time', 'action']

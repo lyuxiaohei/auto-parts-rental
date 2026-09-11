@@ -1,0 +1,8 @@
+=== payableBills 首条 (AP-20260905-013) 顶层键: ['row', 'title', 'billNo', 'billType', 'status', 'supplier', 'project', 'period', 'amount', 'paid', 'genMode', 'scenario', 'refs', 'fees', 'chain', 'timeline']
+=== products 首条 (WBX-1210L) 顶层键: ['row', 'title', 'info', 'feeSecTitle', 'feeCols', 'fees', 'chain', 'timeline']
+=== stockFlows 首条 (XNC-AJZX-WBX) 顶层键: ['row', 'title', 'titleNo', 'info', 'feeSecTitle', 'feeCols', 'fees', 'chain', 'timeline']
+=== dictItems 首条 (DT-01) 顶层键: ['row']
+=== todoItems 首条 (SO-20260910-0047) 顶层键: ['row', 'link']
+=== rentTracks 首条 (ZL-20260903-034) 顶层键: ['row', 'title', 'info', 'feeSecTitle', 'feeCols', 'fees', 'chain', 'timeline']
+=== assetTracks 首条 (WBX-1210L(旧)) 顶层键: ['row', 'title', 'info', 'feeSecTitle', 'feeCols', 'fees', 'chain', 'timeline']
+=== boardRows 首条 (PRJ-2601) 顶层键: ['row']
