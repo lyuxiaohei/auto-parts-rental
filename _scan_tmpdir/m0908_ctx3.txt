@@ -1,0 +1,28 @@
+== BOM维护 th ==
+['序号', '子项编码', '子项名称', '来源', '物料类型', '单位用量 *', '损耗率(%)', '供应商（带出）', '操作', '版本', '生效日期', '配方来源', '更新人', '变更说明', '操作']
+可组: 0
+套装: 0
+组合数: 0
+配成: 0
+可用: 0
+组合首现: /div></li> <li><div class="sm-link" onclick="go('../租赁管理/组合出库列表.html')">租赁出库</div></li> <li><div class="sm-link" onclick="go('../租赁管理/退租入库列表.html')">退租入库</div></li> 
+
+== 库存查询 th ==
+['编码', '名称', '物料类型', '适用项目', '在库', '退租在途', '客户端(租出)', '退租待入库', '总量', '成本单价', '单位', '库区', '操作', '父项编码', '组合单元名称', 'BOM版本', '所属项目', '在库(已组装)', '退租在途', '客户端(在租)', '退租待入库', '累计出库', '单位', '操作', '编码', '物料', '客户', '所属项目', '在租数量', '成本单价', '资产来源', '状态', '操作']
+套装: 0
+组合视图: 0
+单品: 0
+视角: 15
+按组合: 0
+
+== 租入单列表 th ==
+['租入单号', '供应商', '物料', '数量', '日租金(元)', '租期起止', '押金(元)', '累计租金应付(元)', '状态', '经办人', '申请时间', '操作', '物料', '数量', '计费方式', '未税单价(元)', '税率', '含税单价(元)', '含税金额(元)']
+
+== 租赁单列表 tab 区 ==
+ <li><div class="sm-link" onclick="go('../系统管理/数据字典.html')">数据字典</div></li> </ul> </li> </ul> <div class="side-foot"> <div class="sys-cur"> <span class="sys-badge">租</span> <span class="sys-name">包装租赁管理后台</span> </div> </div></aside> <div class="main-col"> <div class="tabs"> <span class="tab active">租赁单 <span class="close">×</span></span> <span class="tab">退租申请 <span class="close">×</span></span> <span class="tab">在租台账 <span class="close">×</span></span> </div> <div class="content"> <div class="filter-card collapsed" id="filterCard"> <div class=
+
+== 我的待办.html 日租金 ==
+ <td><span class="lk">RZD-20260902-008</span></td> <td>路凯 · 塑料托盘 1200×1000 × 50 只 · 日租金 1.20</td> <td>—</td> <td>陈金</td> <td>09-02 16:40</td> <td><span class="tag tag-orange">待审核</span></td> 
+
+== 租赁管理/弹窗/租入单审核.html 日租金 ==
+ow" style="grid-column:1/-1;"><div class="dlabel">租入内容</div><div class="dval">塑料托盘 1200×1000 × 50 只（日租金 1.20 元/只）</div></div> <div class="drow"><div class="dlabel">供应商</div><div class="dval">路凯包装运营（上海）有限公司</div></div> <div class="drow

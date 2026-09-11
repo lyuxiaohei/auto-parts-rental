@@ -352,10 +352,6 @@ th.td-num { text-align:right; }
       <select><option selected>全部</option><option>围板箱</option><option>托盘</option><option>料箱</option><option>料架</option><option>组件</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
-    <div class="ff ff-row-extra"><span class="ff-label">归属权：</span>
-      <select><option selected>全部</option><option>自有</option><option>租入</option></select>
-      <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-    </div>
     <div class="ff ff-row-extra"><span class="ff-label">状态：</span>
       <select><option selected>全部</option><option>待审核</option><option>已审核</option><option>已完成</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
@@ -383,7 +379,6 @@ th.td-num { text-align:right; }
           <th>物料分类</th>
           <th>规格</th>
           <th>单位</th>
-          <th>归属权</th>
           <th>参考单价(元)</th>
           <th>租金单价(元/天)</th>
           <th>状态</th>
@@ -617,10 +612,8 @@ th.td-num { text-align:right; }
   </div><div class="form-row">
     <span class="form-label">单位</span>
     <div class="input-box select-box"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>只</option><option>套</option><option>个</option><option>托</option><option>件</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
-  </div><div class="form-row">
-    <span class="form-label"><span class="req">*</span>归属权</span>
-    <div><span class="radio checked"><span class="dot"></span>自有</span><span class="radio"><span class="dot"></span>租入-路凯</span></div>
-  </div><div class="form-row">
+  </div>
+  <div class="form-row">
     <span class="form-label">租金单价(元/天)</span>
     <div class="input-box"><input value="2.40" placeholder="请输入"></div>
   </div><div class="form-row">
@@ -759,7 +752,6 @@ renderListPage({
     { label: '物料编码', field: '_key' },
     { label: '物料名称', field: 'name' },
     { label: '物料分类', field: 'cls' },
-    { label: '归属权', field: 'src' },
     { label: '状态', field: 'status' },
     { label: '建档时间', field: 'date', range: true }
   ]
@@ -773,7 +765,7 @@ renderListPage({
       <span class="modal-close" onclick="closeModal('stopModal')">×</span>
     </div>
     <div class="modal-body">
-      <div class="dgrid"><div class="drow"><div class="dlabel">物料编码</div><div class="dval">WBX-1210L</div></div><div class="drow"><div class="dlabel">名称</div><div class="dval">围板箱 1200×1000×970</div></div><div class="drow"><div class="dlabel">资产来源</div><div class="dval">自有</div></div><div class="drow"><div class="dlabel">状态</div><div class="dval"><span class="tag tag-green">启用</span></div></div></div>
+      <div class="dgrid"><div class="drow"><div class="dlabel">物料编码</div><div class="dval">WBX-1210L</div></div><div class="drow"><div class="dlabel">名称</div><div class="dval">围板箱 1200×1000×970</div></div><div class="drow"><div class="dlabel">状态</div><div class="dval"><span class="tag tag-green">启用</span></div></div></div>
       <div style="height:14px;"></div>
       <p style="font-size:13px;color:#262626;line-height:1.7;">确认停用该物料（WBX-1210L）？<br>停用后不可再出租、不可新增租赁单；在租与库存数据不受影响。</p></div>
     <div class="modal-footer">

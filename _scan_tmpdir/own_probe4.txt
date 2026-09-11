@@ -1,0 +1,17 @@
+products 行数: 12 / keys: ['WBX-1210L', 'WBX-1210M', 'PLT-1210W', 'PLT-1210P', 'BTC-6040S', 'BTC-6040', 'LJ-A100', 'LJ-B200', 'LJ-C300', 'LJ-D400', 'LJ-E500', 'LJ-F600']
+fields.src 形态: {'自有"', '租入-路凯"'}
+cells 归属权格形态: {'<span class=\\"tag tag-blue\\">组件</span>', '<span class=\\"tag tag-orange\\">租入-路凯</span>', '<span class=\\"tag tag-orange\\">料箱</span>', '<span class=\\"tag tag-green\\">托盘</span>', '<span class=\\"tag tag-green\\">启用</span>', '<span class=\\"tag tag-gray\\">停用</span>', '<span class=\\"tag tag-blue\\">围板箱</span>', '<span class=\\"tag tag-green\\">自有</span>'}
+info 归属权 text: 自有（另有租入-路凯在库 · 见租入台账）
+info 归属权 text: 自有
+info 归属权 text: 自有
+info 归属权 text: 租入-路凯（供应商资产 · 计租见租入单）
+info 归属权 text: 否（停用 · 不可再出租）
+info 归属权 text: 租入-路凯（供应商资产 · 计租见租入单）
+info 归属权 text: 自有
+info 归属权 text: 自有
+info 归属权 text: 自有
+info 归属权 text: 自有
+info 归属权 text: 自有
+info 归属权 text: 自有
+cells 格数样例: 14~14
+cells 格数样例: 0~0

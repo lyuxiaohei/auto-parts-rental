@@ -1,0 +1,28 @@
+renderListPage({
+  entity: 'products',
+  filters: [
+    { label: '物料编码', field: '_key' },
+    { label: '物料名称', field: 'name' },
+    { label: '物料分类', field: 'cls' },
+    { label: '归属权', field: 'src' },
+    { label: '状态', field: 'status' },
+    { label: '建档时间', field: 'date', range: true }
+  ]
+});
+</script>
+<!-- 操作确认弹窗 · 详情落地页补齐 2026-09-04 -->
+<div class="modal-overlay" id="stopModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3 class="modal-title">停用确认</h3>
+      <span class="modal-close" onclick="closeModal('stopModal')">×</span>
+    </div>
+    <div class="modal-body">
+      <div class="dgrid"><div class="drow"><div class="dlabel">物料编码</div><div class="dval">WBX-1210L</div></div><div class="drow"><div class="dlabel">名称</div><div class="dval">围板箱 1200×1000×970</div></div><div class="drow"><div class="dlabel">资产来源</div><div class="dval">自有</div></div><div class="drow"><div class="dlabel">状态</div><div class="dval"><span class="tag tag-green">启用</span></div></div></div>
+      <div style="height:14px;"></div>
+      <p style="font-size:13px;color:#262626;line-height:1.7;">确认停用该物料（WBX-1210L）？<br>停用后不可再出租、不可新增租赁单；在租与库存数据不受影响。</p></div>
+    <div class="modal-footer">
+      <button class="btn btn-default" onclick="closeModal('stopModal')">取 消</button>
+      <button class
+=====
+products 首行: products: {⏎    'WBX-1210L': {⏎      'row': {"fields": {"name": "围板箱 1200×1000×970", "cls": "围板箱", "spec": "1200×1000×970 mm", "src": "自有", "status": "启用", "date": "2026-01-06"}, "cells": ["围板箱 1200×1000×970", "<span class=\"tag tag-blue\">围板箱</span>", "1200×1000×970 mm", "只", "<span class=\"tag tag-green\">自有</span>", "<span class=\"td-num\">38.00</span>", "<span class=\"td-num\">38.00</span>", "<span class=\"tag tag-green\">启用</span>", "2026-01-06"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]},⏎      'title': '物料详情',⏎      'info': [⏎        {⏎          'label': '物料编码',⏎          'text': 'WBX-1210L'⏎        },⏎        {⏎          'label': '名称',⏎          'text': '围板箱 1200×1000×970',⏎          'full': true⏎        },⏎        {⏎          'label': '分类',⏎          'text': '围板箱'⏎        },⏎        {⏎          'label': '规格',⏎          'text': '1200×1000×970 mm',⏎          'full': true⏎        },⏎        {⏎          'label': '计量单位',⏎          'text': '只'⏎        },⏎        {⏎          'label': '归属权',⏎          'text': '自有（另有租入-路凯在库 · 见租入台账）',⏎          'full': true⏎        },⏎        {⏎          'labe

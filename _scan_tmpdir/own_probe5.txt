@@ -1,0 +1,25 @@
+归属权 label 块: 12
+---
+"          'label': '计量单位',\n          'text': '只'\n        },\n        {\n          'label': '归属权',\n          'text': '自有（另有租入-路凯在库 · 见租入台账）',\n          'full': true\n        },\n        {\n          'label': '日租金',\n          'text': '38.00 元 / 只 / 日'\n        },\n        {\n          'label': '状态',\n   "
+---
+"          'label': '计量单位',\n          'text': '只'\n        },\n        {\n          'label': '归属权',\n          'text': '自有',\n          'full': true\n        },\n        {\n          'label': '日租金',\n          'text': '32.00 元 / 只 / 日'\n        },\n        {\n          'label': '状态',\n          'tag': '启用'\n"
+---
+"          'label': '计量单位',\n          'text': '块'\n        },\n        {\n          'label': '归属权',\n          'text': '自有',\n          'full': true\n        },\n        {\n          'label': '日租金',\n          'text': '12.00 元 / 块 / 日'\n        },\n        {\n          'label': '状态',\n          'tag': '启用'\n"
+---
+"          'label': '计量单位',\n          'text': '块'\n        },\n        {\n          'label': '归属权',\n          'text': '租入-路凯（供应商资产 · 计租见租入单）',\n          'full': true\n        },\n        {\n          'label': '日租金',\n          'text': '18.00 元 / 块 / 日'\n        },\n        {\n          'label': '状态',\n   "
+---
+"          'label': '计量单位',\n          'text': '只'\n        },\n        {\n          'label': '归属权',\n          'text': '否（停用 · 不可再出租）',\n          'full': true\n        },\n        {\n          'label': '日租金',\n          'text': '7.80 元 / 只 / 日'\n        },\n        {\n          'label': '状态',\n          't"
+---
+"          'label': '计量单位',\n          'text': '只'\n        },\n        {\n          'label': '归属权',\n          'text': '租入-路凯（供应商资产 · 计租见租入单）',\n          'full': true\n        },\n        {\n          'label': '日租金',\n          'text': '8.50 元 / 只 / 日'\n        },\n        {\n          'label': '状态',\n    "
+---
+"          'label': '计量单位',\n          'text': '件'\n        },\n        {\n          'label': '归属权',\n          'text': '自有'\n        },\n        {\n          'label': '参考单价',\n          'text': '6.80 元'\n        },\n        {\n          'label': '租金单价',\n          'text': '—（采购件不计租金）'\n        },\n        {\n"
+---
+"          'label': '计量单位',\n          'text': '件'\n        },\n        {\n          'label': '归属权',\n          'text': '自有'\n        },\n        {\n          'label': '参考单价',\n          'text': '4.20 元'\n        },\n        {\n          'label': '租金单价',\n          'text': '—（采购件不计租金）'\n        },\n        {\n"
+---
+"          'label': '计量单位',\n          'text': '件'\n        },\n        {\n          'label': '归属权',\n          'text': '自有'\n        },\n        {\n          'label': '参考单价',\n          'text': '52.00 元'\n        },\n        {\n          'label': '租金单价',\n          'text': '—（采购件不计租金）'\n        },\n        {"
+---
+"          'label': '计量单位',\n          'text': '件'\n        },\n        {\n          'label': '归属权',\n          'text': '自有'\n        },\n        {\n          'label': '参考单价',\n          'text': '36.00 元'\n        },\n        {\n          'label': '租金单价',\n          'text': '—（采购件不计租金）'\n        },\n        {"
+---
+"          'label': '计量单位',\n          'text': '件'\n        },\n        {\n          'label': '归属权',\n          'text': '自有'\n        },\n        {\n          'label': '参考单价',\n          'text': '78.00 元'\n        },\n        {\n          'label': '租金单价',\n          'text': '—（采购件不计租金）'\n        },\n        {"
+---
+"          'label': '计量单位',\n          'text': '件'\n        },\n        {\n          'label': '归属权',\n          'text': '自有'\n        },\n        {\n          'label': '参考单价',\n          'text': '15.50 元'\n        },\n        {\n          'label': '租金单价',\n          'text': '—（采购件不计租金）'\n        },\n        {"
