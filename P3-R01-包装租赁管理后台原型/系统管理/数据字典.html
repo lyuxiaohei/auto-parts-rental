@@ -341,7 +341,7 @@ th.td-num { text-align:right; }
     <div class="card-title" style="font-size:14px;margin:6px 6px 10px;" data-note="1">字典分类</div>
     <div class="dic-item"><span>单据状态</span><span class="cnt">32</span></div>
     <div class="dic-item active"><span>缺损类型</span><span class="cnt hot">5</span></div>
-    <div class="dic-item"><span>计费方式</span><span class="cnt">3</span></div>
+    <div class="dic-item"><span>计费方式</span><span class="cnt">5</span></div>
     <div class="dic-item"><span>计量单位</span><span class="cnt">8</span></div>
     <div class="dic-item"><span>项目状态</span><span class="cnt">4</span></div>
     <div class="dic-item"><span>单据类型</span><span class="cnt">12</span></div>
@@ -454,14 +454,14 @@ th.td-num { text-align:right; }
           <td>按月</td>
           <td>按月计租</td>
           <td>月租金 / 按套数单价</td>
-          <td>围板箱/托盘租赁（暂估）</td>
+          <td>围板箱/托盘租赁</td>
           <td><span class="tag tag-green">启用</span></td>
         </tr>
         <tr>
           <td>按次</td>
           <td>按次计费</td>
           <td>出库/退租次数 × 次单价</td>
-          <td>组装服务费（暂估）</td>
+          <td>组装服务费 / 按次租价</td>
           <td><span class="tag tag-green">启用</span></td>
         </tr>
         <tr>
@@ -469,6 +469,20 @@ th.td-num { text-align:right; }
           <td>按张计费</td>
           <td>在租张数 × 张单价</td>
           <td>托盘/料箱备用口径</td>
+          <td><span class="tag tag-gray">停用</span></td>
+        </tr>
+        <tr>
+          <td>按年</td>
+          <td>按年计租</td>
+          <td>年租金 × 租期年数</td>
+          <td>长周期备用口径</td>
+          <td><span class="tag tag-green">启用</span></td>
+        </tr>
+        <tr>
+          <td>按日</td>
+          <td>按日计租</td>
+          <td>日租金 × 在租天数</td>
+          <td>短期备用口径（本期无日租金业务）</td>
           <td><span class="tag tag-green">启用</span></td>
         </tr>
       </tbody>
@@ -681,6 +695,9 @@ document.querySelectorAll('.tab').forEach(function (t) {
 
 
 <script src="../_data/pc-auth.js"></script>
+
+
+
 <style id="proto-notes-style">
 body.proto-notes-on [data-note]{position:relative}
 body.proto-notes-on [data-note]::after{content:attr(data-note);position:absolute;top:1px;right:1px;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600;box-shadow:0 0 0 1.5px #fff;cursor:pointer;opacity:.75;transition:opacity .15s}
@@ -703,7 +720,7 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 .pn-fab .pn-fab-n{font-family:Consolas,monospace;font-weight:600}
 </style>
 <div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>数据字典</div><div class="pnp-d">常用选项与参数集中设置</div><div class="pnp-b"><span class="pnp-tag">FP7-03 · 数据字典</span></div><div class="pnp-src"><div class="src-item"><b>FP7-03 数据字典</b>：常用选项与参数配置</div></div></div>
-<div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>计费方式（预留）</div><div class="pnp-d">租金计费规则确认后在此设置（当前为预留）</div><div class="pnp-b"><span class="pnp-tag">REQ-03 · 包材租赁循环管理</span></div><div class="pnp-src"><div class="src-item"><b>REQ-03 包材租赁循环管理</b>：出库、退租、循环使用状态跟踪（围板箱/托盘/料箱）</div></div></div>
+<div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>计费方式</div><div class="pnp-d">租金计费规则已确认（2026-09-11 拍板）：按次 / 按时间周期（年·月·日，默认月）；物料档案租价与租入单明细「计费方式」列均以本字典为值源。</div><div class="pnp-b"><span class="pnp-tag">REQ-03 · 包材租赁循环管理</span></div><div class="pnp-src"><div class="src-item"><b>REQ-03 包材租赁循环管理</b>：出库、退租、循环使用状态跟踪（围板箱/托盘/料箱）</div></div></div>
 <div class="pn-fab" id="protoNotesFab">标注</div></div>
 <script id="proto-notes-js">
 (function(){

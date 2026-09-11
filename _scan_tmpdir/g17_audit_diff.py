@@ -14,7 +14,7 @@ def pkey(p):
 
 basemap = {}
 for r in base:
-    basemap.setdefault(r['page'], set()).update(pkey(p) for p in r['problems'])
+    basemap.setdefault(r['page'].replace('\\', '/'), set()).update(pkey(p) for p in r['problems'])
 
 new_probs, new_dl, new_js, exempt = [], [], [], []
 tot_dl = tot_js = 0
@@ -22,7 +22,7 @@ mobile = [r for r in post if r['page'].replace('/', '\\').startswith('mobile\\')
 pc = [r for r in post if not r['page'].replace('/', '\\').startswith('mobile\\')]
 
 for r in post:
-    page = r['page']
+    page = r['page'].replace('\\', '/')  # G21：跨机页键归一（基线 Windows \ 与副机 / 等价）
     for p in r['problems']:
         if pkey(p) not in basemap.get(page, set()):
             new_probs.append((page, pkey(p)))
@@ -49,6 +49,6 @@ for r in mobile:
     for p in r['problems'][:5]: print("     ·", pkey(p))
 
 mobile_ok = len(mobile) == 5 and all(len(r['dead_links']) == 0 and len(r['js_errors']) == 0 for r in mobile)
-ok = len(post) == 113 and len(base) == 108 and tot_dl == 0 and len(new_js) == 0 and len(new_probs) == 0 and mobile_ok
-print('\n==== audit 门：', 'PASS（113 页·死链0·JS0·diff 新增 0·mobile 5 页各自 0/0）====' if ok else 'FAIL ====')
+ok = len(post) == 115 and len(base) == 113 and tot_dl == 0 and len(new_js) == 0 and len(new_probs) == 0 and mobile_ok
+print('\n==== audit 门：', 'PASS（115 页·死链0·JS0·diff 新增 0·mobile 5 页各自 0/0）====' if ok else 'FAIL ====')
 sys.exit(0 if ok else 1)
