@@ -6,3 +6,4 @@ T3=done 主图例两行(5+4)+主viewBox 0 0 880 2184
 T4=done 支SVG：S1切4+3、S5切3+3、S2/S3/S4+44、S5+44、S6+76、图例+108、viewBox 0 0 880 846（S6注记落点偏差见失败清单）
 T5=done g15_gates.py 四门首轮 ALL PASS（溢出0/重叠0/href92=text3137字一致/grep 残留0）
 T6=done 审计113页死链0/JS0 + g14 diff 既有108页新增0 + mobile 5页0/0（门5 PASS）
+T7=done 截图 g15-f01-after.png + 三件套回写 + 提交 fca99e8（工作）+本批（回写）
