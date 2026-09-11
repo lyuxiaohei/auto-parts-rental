@@ -253,7 +253,7 @@ th.td-num { text-align:right; }
     <span class="form-label"><span class="req">*</span>单据类型</span>
     <div class="input-box select-box" style="width:350px;"><select onchange="var n=document.getElementById('bbNote');if(n)n.style.display=(this.value=='背靠背')?'block':'none'" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>常规</option><option>背靠背</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
   </div>
-  <div id="bbNote" style="display:none;margin:0 0 8px 128px;font-size:12px;color:#d4380d;">背靠背：租赁单确认后自动生成租入单草稿（供应商自选 → 新建状态 → 修改 → 提交）</div>
+  <div id="bbNote" style="display:none;margin:0 0 8px 128px;font-size:12px;color:#d4380d;">背靠背：租赁单确认后自动生成租入单草稿（供应商从所属项目绑定的供应商中选 → 新建状态 → 修改 → 提交；一对多绑定见项目档案上下游绑定）</div>
 <div class="form-row">
     <span class="form-label"><span class="req">*</span>所属项目</span>
     <div class="input-box select-box" style="width:350px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>PRJ-2601 一汽解放·长春基地</option><option>PRJ-2601 一汽解放</option><option>PRJ-2602 上汽大众</option><option>PRJ-2603 小鹏</option><option>PRJ-2604 东风本田</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>

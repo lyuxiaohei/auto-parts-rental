@@ -500,8 +500,12 @@ th.td-num { text-align:right; }
     </div>
     <div class="modal-body">
       <div class="form-row">
+        <span class="form-label"><span class="req">*</span>所属项目</span>
+        <div class="select-box input-box"><select id="cmProject" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option value="PRJ-2601" selected>PRJ-2601 一汽解放·长春基地 围板箱租赁</option><option value="PRJ-2602">PRJ-2602 一汽解放·青岛基地 料架租赁</option><option value="PRJ-2603">PRJ-2603 东风锂电·电池包周转箱</option><option value="PRJ-2604">PRJ-2604 上汽通用五菱·座椅周转箱（试点）</option><option value="PRJ-2605">PRJ-2605 一汽解放·蔚山基地 扩建</option><option value="PRJ-2606">PRJ-2606 东风锂电·二期扩容</option></select><span class="caret">▾</span></div>
+      </div>
+      <div class="form-row">
         <span class="form-label"><span class="req">*</span>供应商</span>
-        <div class="select-box input-box"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>路凯包装运营（上海）有限公司</option><option>其他（演示）</option></select><span class="caret">▾</span></div>
+        <div class="select-box input-box"><select id="cmSupplier" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>路凯包装运营（上海）有限公司</option><option>其他（演示）</option></select><span class="caret">▾</span></div>
       </div>
       <div class="form-row">
         <span class="form-label"><span class="req">*</span>租期起止</span>
@@ -847,5 +851,28 @@ function showToast(msg) {
   t.textContent = msg; t.style.display = 'block';
   clearTimeout(window.__g13ToastT); window.__g13ToastT = setTimeout(function () { t.style.display = 'none'; }, 3200);
 }</script>
+
+<script>/* 项目→绑定供应商联动（一对多多对多 · 2026-09-11 落地） */
+(function(){
+  var PRJ_SUPPLIERS = {
+    'PRJ-2601': ['路凯包装运营（上海）有限公司', '宁波华塑包装制品有限公司'],
+    'PRJ-2602': ['路凯包装运营（上海）有限公司', '常州正大塑料托盘厂'],
+    'PRJ-2603': ['路凯包装运营（上海）有限公司'],
+    'PRJ-2604': ['宁波华塑包装制品有限公司'],
+    'PRJ-2605': ['路凯包装运营（上海）有限公司'],
+    'PRJ-2606': ['路凯包装运营（上海）有限公司', '苏州联恒五金制品有限公司']
+  };
+  var prjSel = document.getElementById('cmProject'), supSel = document.getElementById('cmSupplier');
+  if (!prjSel || !supSel) return;
+  function syncSuppliers(){
+    var list = PRJ_SUPPLIERS[prjSel.value] || [];
+    supSel.innerHTML = list.length
+      ? list.map(function(n, i){ return '<option' + (i === 0 ? ' selected' : '') + '>' + n + '</option>'; }).join('')
+      : '<option selected>（该项目未绑定供应商，请先在项目档案完成上下游绑定）</option>';
+  }
+  prjSel.addEventListener('change', syncSuppliers);
+  syncSuppliers();
+})();
+</script>
 </body>
 </html>

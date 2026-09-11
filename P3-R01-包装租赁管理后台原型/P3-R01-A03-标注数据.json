@@ -222,7 +222,7 @@
       "id": 3,
       "selector": "<button class=\"btn btn-default btn-sm\" onclick=\"openModal('bindModal')\">上下游绑定</button>",
       "title": "上下游绑定（弹窗）",
-      "note": "项目↔客户↔运营方↔供应商关系维护，项目数据按此自动汇总",
+      "note": "项目↔客户↔供应商关系维护（一对多/多对多，2026-09-11 落地：单项目可绑定多家供应商，勾选含租入/采购角色）；单据按此带出候选供应商",
       "fp": "FP2-02",
       "req": "REQ-01"
     }
@@ -232,7 +232,7 @@
       "id": 1,
       "selector": "<div class=\"card-title\" style=\"font-size:14px;margin-bottom:10px;\">上下游关系</div>",
       "title": "上下游关系（详情维护）",
-      "note": "在单个项目页内维护上下游，与项目档案共用同一份数据",
+      "note": "在单个项目页内维护上下游（供应商多选绑定），与项目档案共用同一份数据",
       "fp": "FP2-02",
       "req": "REQ-01"
     },
