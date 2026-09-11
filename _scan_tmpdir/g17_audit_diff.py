@@ -4,13 +4,23 @@
 import io, sys, json
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 from pathlib import Path
-OUT = Path(r"D:\工作台-吕道远\5-【ACTIVE】汽车物流包装租赁\_scan_tmpdir")
+# G22 跨机归一（沿本脚本 G21 页键归一先例）：OUT 改按脚本位置解析，双机通用
+OUT = Path(__file__).resolve().parent
 base = json.load(open(OUT / 'audit_results_g17baseline.json', encoding='utf-8'))
 post = json.load(open(OUT / 'audit_results.json', encoding='utf-8'))
 
 def pkey(p):
     w = p.get('where') or {}
     return '|'.join([str(p.get('cat','')), str(p.get('type','')), str(w.get('tag','')), str(w.get('id','')), str(w.get('row',''))[:24], str(w.get('text',''))[:16], str(p.get('detail',''))[:24]])
+
+# G22：4 页改名映射（基线旧键 → 现行键）；改名页问题键文本含「租赁出库」须归一回「组合出库」比对
+RENAMES = {
+  '租赁管理/组合出库列表.html': '租赁管理/租赁出库列表.html',
+  '租赁管理/组合出库录单.html': '租赁管理/租赁出库录单.html',
+  '租赁管理/弹窗/组合出库单详情.html': '租赁管理/弹窗/租赁出库单详情.html',
+  '租赁管理/弹窗/组合出库确认.html': '租赁管理/弹窗/租赁出库确认.html',
+}
+legacy_page = {v: k for k, v in RENAMES.items()}
 
 basemap = {}
 for r in base:
@@ -23,9 +33,11 @@ pc = [r for r in post if not r['page'].replace('/', '\\').startswith('mobile\\')
 
 for r in post:
     page = r['page'].replace('\\', '/')  # G21：跨机页键归一（基线 Windows \ 与副机 / 等价）
+    basekey = legacy_page.get(page, page)  # G22：改名页按基线旧键比对
     for p in r['problems']:
-        if pkey(p) not in basemap.get(page, set()):
-            new_probs.append((page, pkey(p)))
+        k = pkey(p)
+        if k not in basemap.get(basekey, set()) and k.replace('租赁出库', '组合出库') not in basemap.get(basekey, set()):
+            new_probs.append((page, k))
     tot_dl += len(r['dead_links'])
     new_dl += [(page, d) for d in r['dead_links']]
     for e in r['js_errors']:
@@ -48,7 +60,25 @@ for r in mobile:
     print(f"  {r['page']}  死链:{len(r['dead_links'])}  JS错:{len(r['js_errors'])}  问题:{len(r['problems'])}  异常:{r.get('audit_error','无')[:60]}  nav_anomaly:{r.get('nav_anomaly') is not None}")
     for p in r['problems'][:5]: print("     ·", pkey(p))
 
+# G22：页键改名对账——基线消失键=4 改名旧键+G20 角色模板下线；post 新增键=4 改名新键+G16a/G19b/G20 三新页；改名页三项≤基线水平
+base_keys = {r['page'].replace('\\', '/') for r in base}
+post_keys = {r['page'].replace('\\', '/') for r in post}
+disappeared = base_keys - post_keys
+appeared = post_keys - base_keys
+expect_disappear = set(RENAMES) | {'系统管理/弹窗/角色管理.html'}
+expect_appear = set(RENAMES.values()) | {'P3-R01-A06-实体关系与状态机.html', '登录.html', '租赁管理/弹窗/退租入库新建.html'}
+rename_ok = disappeared == expect_disappear and appeared == expect_appear
+postcnt = {r['page'].replace('\\', '/'): r for r in post}
+for oldk, newk in RENAMES.items():
+    b = next(r for r in base if r['page'].replace('\\', '/') == oldk)
+    if len(postcnt[newk]['problems']) > len(b['problems']):
+        rename_ok = False
+        print(f"  [改名页超基线] {newk}: post {len(postcnt[newk]['problems'])} > base {len(b['problems'])}")
+print(f"页键对账: 消失 {sorted(disappeared)}")
+print(f"页键对账: 新增 {sorted(appeared)}")
+print(f"页键改名对账: {'PASS（4 对改名+既有增删页与 G16a/G19b/G20 沿革一致）' if rename_ok else 'FAIL'}")
+
 mobile_ok = len(mobile) == 5 and all(len(r['dead_links']) == 0 and len(r['js_errors']) == 0 for r in mobile)
-ok = len(post) == 115 and len(base) == 113 and tot_dl == 0 and len(new_js) == 0 and len(new_probs) == 0 and mobile_ok
+ok = len(post) == 115 and len(base) == 113 and tot_dl == 0 and len(new_js) == 0 and len(new_probs) == 0 and mobile_ok and rename_ok
 print('\n==== audit 门：', 'PASS（115 页·死链0·JS0·diff 新增 0·mobile 5 页各自 0/0）====' if ok else 'FAIL ====')
 sys.exit(0 if ok else 1)

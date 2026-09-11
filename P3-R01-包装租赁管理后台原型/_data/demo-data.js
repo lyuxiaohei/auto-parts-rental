@@ -564,7 +564,7 @@ window.DEMO_DATA = {
 
     /* ===== 租赁费（一汽解放 · 部分收款） ===== */
     'AR-2026-08-PRJ2601': {
-      'row': {"fields": {"period": "2026-08", "project": "PRJ-2601", "customer": "一汽解放汽车有限公司", "btype": "租赁费（按组合出库自动汇总）", "docs": "租赁出库 26 张", "gen": "自动生成", "date": "2026-08-31", "status": "部分收款"}, "note": "2", "cells": ["2026-08", "PRJ-2601", "一汽解放汽车有限公司", "租赁费（按组合出库自动汇总）", "租赁出库 26 张", "<span class=\"td-num\"><b>486,200.00</b></span>", "<span class=\"td-num\">186,200.00</span>", "<span class=\"tag tag-orange\">部分收款</span>", "<span class=\"tag tag-blue\">自动生成</span>", "2026-08-31 00:05"], "ops": [{"t": "账单确认", "act": "openModal('auditModal')"}, {"t": "详情", "detail": true}, {"t": "开票", "act": "go('../财务协同/开票登记.html')"}, {"t": "核销", "act": "go('../财务协同/银行水单核销.html')"}]},
+      'row': {"fields": {"period": "2026-08", "project": "PRJ-2601", "customer": "一汽解放汽车有限公司", "btype": "租赁费（按租赁出库自动汇总）", "docs": "租赁出库 26 张", "gen": "自动生成", "date": "2026-08-31", "status": "部分收款"}, "note": "2", "cells": ["2026-08", "PRJ-2601", "一汽解放汽车有限公司", "租赁费（按租赁出库自动汇总）", "租赁出库 26 张", "<span class=\"td-num\"><b>486,200.00</b></span>", "<span class=\"td-num\">186,200.00</span>", "<span class=\"tag tag-orange\">部分收款</span>", "<span class=\"tag tag-blue\">自动生成</span>", "2026-08-31 00:05"], "ops": [{"t": "账单确认", "act": "openModal('auditModal')"}, {"t": "详情", "detail": true}, {"t": "开票", "act": "go('../财务协同/开票登记.html')"}, {"t": "核销", "act": "go('../财务协同/银行水单核销.html')"}]},
       billNo: 'AR-2026-08-PRJ2601',
       billType: '租赁费',
       status: '部分收款',
@@ -575,18 +575,18 @@ window.DEMO_DATA = {
       verified: 186200,
       genMode: '自动生成',
       genDate: '2026-08-31',
-      feeType: '租赁费（按组合出库自动汇总）',
+      feeType: '租赁费（按租赁出库自动汇总）',
       fees: [
-        { src: '组合出库单 ×26', desc: '租赁费 · 2026-08 账期（按组合出库自动汇总）', qty: '—', price: '—', amount: 486200, url: '租赁管理/组合出库列表.html' }
+        { src: '租赁出库单 ×26', desc: '租赁费 · 2026-08 账期（按租赁出库自动汇总）', qty: '—', price: '—', amount: 486200, url: '租赁管理/租赁出库列表.html' }
       ],
       chain: [
-        { role: '组合出库', name: '组合出库 ×26 张', url: '租赁管理/组合出库列表.html' },
+        { role: '租赁出库', name: '租赁出库 ×26 张', url: '租赁管理/租赁出库列表.html' },
         { role: '应收账单（本单）', name: 'AR-2026-08-PRJ2601 · 租赁费', self: true },
         { role: '开票登记', name: '已开票', url: '财务协同/开票登记.html' },
         { role: '回款 / 核销', name: '部分核销 186,200.00', url: '财务协同/银行水单核销.html' }
       ],
       timeline: [
-        { t: '08-31', text: '账单自动生成 · 组合出库汇总 26 张', who: '系统' },
+        { t: '08-31', text: '账单自动生成 · 租赁出库汇总 26 张', who: '系统' },
         { t: '09-02', text: '开票登记', who: '王芳' },
         { t: '09-05', text: '回款 186,200.00 元 · 水单核销', who: '财务' },
         { t: '—', text: '待收尾款 300,000.00 元', off: true }
@@ -595,7 +595,7 @@ window.DEMO_DATA = {
 
     /* ===== 租赁费（上汽大众宁波 · 未开票） ===== */
     'AR-2026-08-PRJ2602': {
-      'row': {"fields": {"period": "2026-08", "project": "PRJ-2602", "customer": "上汽大众宁波分公司", "btype": "租赁费（按组合出库自动汇总）", "docs": "租赁出库 26 张", "gen": "自动生成", "date": "2026-08-31", "status": "未开票"}, "cells": ["2026-08", "PRJ-2602", "上汽大众宁波分公司", "租赁费（按组合出库自动汇总）", "租赁出库 26 张", "<span class=\"td-num\"><b>358,900.00</b></span>", "<span class=\"td-num\">0.00</span>", "<span class=\"tag tag-orange\">未开票</span>", "<span class=\"tag tag-blue\">自动生成</span>", "2026-08-31 00:05"], "ops": [{"t": "账单确认", "act": "openModal('auditModal')"}, {"t": "详情", "detail": true}, {"t": "开票", "act": "go('../财务协同/开票登记.html')"}, {"t": "核销", "act": "go('../财务协同/银行水单核销.html')"}]},
+      'row': {"fields": {"period": "2026-08", "project": "PRJ-2602", "customer": "上汽大众宁波分公司", "btype": "租赁费（按租赁出库自动汇总）", "docs": "租赁出库 26 张", "gen": "自动生成", "date": "2026-08-31", "status": "未开票"}, "cells": ["2026-08", "PRJ-2602", "上汽大众宁波分公司", "租赁费（按租赁出库自动汇总）", "租赁出库 26 张", "<span class=\"td-num\"><b>358,900.00</b></span>", "<span class=\"td-num\">0.00</span>", "<span class=\"tag tag-orange\">未开票</span>", "<span class=\"tag tag-blue\">自动生成</span>", "2026-08-31 00:05"], "ops": [{"t": "账单确认", "act": "openModal('auditModal')"}, {"t": "详情", "detail": true}, {"t": "开票", "act": "go('../财务协同/开票登记.html')"}, {"t": "核销", "act": "go('../财务协同/银行水单核销.html')"}]},
       billNo: 'AR-2026-08-PRJ2602',
       billType: '租赁费',
       status: '未开票',
@@ -606,25 +606,25 @@ window.DEMO_DATA = {
       verified: 0,
       genMode: '自动生成',
       genDate: '2026-08-31',
-      feeType: '租赁费（按组合出库自动汇总）',
+      feeType: '租赁费（按租赁出库自动汇总）',
       fees: [
-        { src: '组合出库单 ×26', desc: '租赁费 · 2026-08 账期（按组合出库自动汇总）', qty: '—', price: '—', amount: 358900, url: '租赁管理/组合出库列表.html' }
+        { src: '租赁出库单 ×26', desc: '租赁费 · 2026-08 账期（按租赁出库自动汇总）', qty: '—', price: '—', amount: 358900, url: '租赁管理/租赁出库列表.html' }
       ],
       chain: [
-        { role: '组合出库', name: '组合出库 ×26 张', url: '租赁管理/组合出库列表.html' },
+        { role: '租赁出库', name: '租赁出库 ×26 张', url: '租赁管理/租赁出库列表.html' },
         { role: '应收账单（本单）', name: 'AR-2026-08-PRJ2602 · 租赁费', self: true },
         { role: '开票登记', name: '待开票', url: '财务协同/开票登记.html' },
         { role: '回款 / 核销', name: '回款登记 → 银行水单核销', url: '财务协同/银行水单核销.html' }
       ],
       timeline: [
-        { t: '08-31', text: '账单自动生成 · 组合出库汇总 26 张', who: '系统' },
+        { t: '08-31', text: '账单自动生成 · 租赁出库汇总 26 张', who: '系统' },
         { t: '—', text: '待开票 → 回款 → 水单核销', off: true }
       ]
     },
 
     /* ===== 租赁费（小鹏汽车 · 未开票） ===== */
     'AR-2026-08-PRJ2603': {
-      'row': {"fields": {"period": "2026-08", "project": "PRJ-2603", "customer": "小鹏汽车科技有限公司", "btype": "租赁费（按组合出库自动汇总）", "docs": "租赁出库 26 张", "gen": "自动生成", "date": "2026-08-31", "status": "未开票"}, "cells": ["2026-08", "PRJ-2603", "小鹏汽车科技有限公司", "租赁费（按组合出库自动汇总）", "租赁出库 26 张", "<span class=\"td-num\"><b>241,500.00</b></span>", "<span class=\"td-num\">0.00</span>", "<span class=\"tag tag-orange\">未开票</span>", "<span class=\"tag tag-blue\">自动生成</span>", "2026-08-31 00:05"], "ops": [{"t": "账单确认", "act": "openModal('auditModal')"}, {"t": "详情", "detail": true}, {"t": "开票", "act": "go('../财务协同/开票登记.html')"}, {"t": "核销", "act": "go('../财务协同/银行水单核销.html')"}]},
+      'row': {"fields": {"period": "2026-08", "project": "PRJ-2603", "customer": "小鹏汽车科技有限公司", "btype": "租赁费（按租赁出库自动汇总）", "docs": "租赁出库 26 张", "gen": "自动生成", "date": "2026-08-31", "status": "未开票"}, "cells": ["2026-08", "PRJ-2603", "小鹏汽车科技有限公司", "租赁费（按租赁出库自动汇总）", "租赁出库 26 张", "<span class=\"td-num\"><b>241,500.00</b></span>", "<span class=\"td-num\">0.00</span>", "<span class=\"tag tag-orange\">未开票</span>", "<span class=\"tag tag-blue\">自动生成</span>", "2026-08-31 00:05"], "ops": [{"t": "账单确认", "act": "openModal('auditModal')"}, {"t": "详情", "detail": true}, {"t": "开票", "act": "go('../财务协同/开票登记.html')"}, {"t": "核销", "act": "go('../财务协同/银行水单核销.html')"}]},
       billNo: 'AR-2026-08-PRJ2603',
       billType: '租赁费',
       status: '未开票',
@@ -635,25 +635,25 @@ window.DEMO_DATA = {
       verified: 0,
       genMode: '自动生成',
       genDate: '2026-08-31',
-      feeType: '租赁费（按组合出库自动汇总）',
+      feeType: '租赁费（按租赁出库自动汇总）',
       fees: [
-        { src: '组合出库单 ×26', desc: '租赁费 · 2026-08 账期（按组合出库自动汇总）', qty: '—', price: '—', amount: 241500, url: '租赁管理/组合出库列表.html' }
+        { src: '租赁出库单 ×26', desc: '租赁费 · 2026-08 账期（按租赁出库自动汇总）', qty: '—', price: '—', amount: 241500, url: '租赁管理/租赁出库列表.html' }
       ],
       chain: [
-        { role: '组合出库', name: '组合出库 ×26 张', url: '租赁管理/组合出库列表.html' },
+        { role: '租赁出库', name: '租赁出库 ×26 张', url: '租赁管理/租赁出库列表.html' },
         { role: '应收账单（本单）', name: 'AR-2026-08-PRJ2603 · 租赁费', self: true },
         { role: '开票登记', name: '待开票', url: '财务协同/开票登记.html' },
         { role: '回款 / 核销', name: '回款登记 → 银行水单核销', url: '财务协同/银行水单核销.html' }
       ],
       timeline: [
-        { t: '08-31', text: '账单自动生成 · 组合出库汇总 26 张', who: '系统' },
+        { t: '08-31', text: '账单自动生成 · 租赁出库汇总 26 张', who: '系统' },
         { t: '—', text: '待开票 → 回款 → 水单核销', off: true }
       ]
     },
 
     /* ===== 租赁费（一汽解放 · 已结清） ===== */
     'AR-2026-07-PRJ2601': {
-      'row': {"fields": {"period": "2026-07", "project": "PRJ-2601", "customer": "一汽解放汽车有限公司", "btype": "租赁费（按组合出库自动汇总）", "docs": "租赁出库 26 张", "gen": "自动生成", "date": "2026-07-31", "status": "已结清"}, "cells": ["2026-07", "PRJ-2601", "一汽解放汽车有限公司", "租赁费（按组合出库自动汇总）", "租赁出库 26 张", "<span class=\"td-num\"><b>442,800.00</b></span>", "<span class=\"td-num\">442,800.00</span>", "<span class=\"tag tag-green\">已结清</span>", "<span class=\"tag tag-blue\">自动生成</span>", "2026-07-31 00:05"], "ops": [{"t": "账单确认", "act": "openModal('auditModal')"}, {"t": "详情", "detail": true}, {"t": "开票", "act": "go('../财务协同/开票登记.html')"}, {"t": "核销", "act": "go('../财务协同/银行水单核销.html')"}]},
+      'row': {"fields": {"period": "2026-07", "project": "PRJ-2601", "customer": "一汽解放汽车有限公司", "btype": "租赁费（按租赁出库自动汇总）", "docs": "租赁出库 26 张", "gen": "自动生成", "date": "2026-07-31", "status": "已结清"}, "cells": ["2026-07", "PRJ-2601", "一汽解放汽车有限公司", "租赁费（按租赁出库自动汇总）", "租赁出库 26 张", "<span class=\"td-num\"><b>442,800.00</b></span>", "<span class=\"td-num\">442,800.00</span>", "<span class=\"tag tag-green\">已结清</span>", "<span class=\"tag tag-blue\">自动生成</span>", "2026-07-31 00:05"], "ops": [{"t": "账单确认", "act": "openModal('auditModal')"}, {"t": "详情", "detail": true}, {"t": "开票", "act": "go('../财务协同/开票登记.html')"}, {"t": "核销", "act": "go('../财务协同/银行水单核销.html')"}]},
       billNo: 'AR-2026-07-PRJ2601',
       billType: '租赁费',
       status: '已结清',
@@ -664,18 +664,18 @@ window.DEMO_DATA = {
       verified: 442800,
       genMode: '自动生成',
       genDate: '2026-07-31',
-      feeType: '租赁费（按组合出库自动汇总）',
+      feeType: '租赁费（按租赁出库自动汇总）',
       fees: [
-        { src: '组合出库单 ×26', desc: '租赁费 · 2026-07 账期（按组合出库自动汇总）', qty: '—', price: '—', amount: 442800, url: '租赁管理/组合出库列表.html' }
+        { src: '租赁出库单 ×26', desc: '租赁费 · 2026-07 账期（按租赁出库自动汇总）', qty: '—', price: '—', amount: 442800, url: '租赁管理/租赁出库列表.html' }
       ],
       chain: [
-        { role: '组合出库', name: '组合出库 ×26 张', url: '租赁管理/组合出库列表.html' },
+        { role: '租赁出库', name: '租赁出库 ×26 张', url: '租赁管理/租赁出库列表.html' },
         { role: '应收账单（本单）', name: 'AR-2026-07-PRJ2601 · 租赁费', self: true },
         { role: '开票登记', name: '已开票', url: '财务协同/开票登记.html' },
         { role: '回款 / 核销', name: '已核销结清', url: '财务协同/银行水单核销.html' }
       ],
       timeline: [
-        { t: '07-31', text: '账单自动生成 · 组合出库汇总 26 张', who: '系统' },
+        { t: '07-31', text: '账单自动生成 · 租赁出库汇总 26 张', who: '系统' },
         { t: '08-05', text: '开票登记', who: '王芳' },
         { t: '08-20', text: '回款核销 442,800.00 元 · 结清', who: '财务' }
       ]
@@ -714,7 +714,7 @@ window.DEMO_DATA = {
 
     /* ===== 租赁费（上汽大众宁波 · 部分收款） ===== */
     'AR-2026-07-PRJ2602': {
-      'row': {"fields": {"period": "2026-07", "project": "PRJ-2602", "customer": "上汽大众宁波分公司", "btype": "租赁费（按组合出库自动汇总）", "docs": "租赁出库 26 张", "gen": "自动生成", "date": "2026-07-31", "status": "部分收款"}, "cells": ["2026-07", "PRJ-2602", "上汽大众宁波分公司", "租赁费（按组合出库自动汇总）", "租赁出库 26 张", "<span class=\"td-num\"><b>366,200.00</b></span>", "<span class=\"td-num\">186,200.00</span>", "<span class=\"tag tag-orange\">部分收款</span>", "<span class=\"tag tag-blue\">自动生成</span>", "2026-07-31 00:05"], "ops": [{"t": "账单确认", "act": "openModal('auditModal')"}, {"t": "详情", "detail": true}, {"t": "开票", "act": "go('../财务协同/开票登记.html')"}, {"t": "核销", "act": "go('../财务协同/银行水单核销.html')"}]},
+      'row': {"fields": {"period": "2026-07", "project": "PRJ-2602", "customer": "上汽大众宁波分公司", "btype": "租赁费（按租赁出库自动汇总）", "docs": "租赁出库 26 张", "gen": "自动生成", "date": "2026-07-31", "status": "部分收款"}, "cells": ["2026-07", "PRJ-2602", "上汽大众宁波分公司", "租赁费（按租赁出库自动汇总）", "租赁出库 26 张", "<span class=\"td-num\"><b>366,200.00</b></span>", "<span class=\"td-num\">186,200.00</span>", "<span class=\"tag tag-orange\">部分收款</span>", "<span class=\"tag tag-blue\">自动生成</span>", "2026-07-31 00:05"], "ops": [{"t": "账单确认", "act": "openModal('auditModal')"}, {"t": "详情", "detail": true}, {"t": "开票", "act": "go('../财务协同/开票登记.html')"}, {"t": "核销", "act": "go('../财务协同/银行水单核销.html')"}]},
       billNo: 'AR-2026-07-PRJ2602',
       billType: '租赁费',
       status: '部分收款',
@@ -725,18 +725,18 @@ window.DEMO_DATA = {
       verified: 186200,
       genMode: '自动生成',
       genDate: '2026-07-31',
-      feeType: '租赁费（按组合出库自动汇总）',
+      feeType: '租赁费（按租赁出库自动汇总）',
       fees: [
-        { src: '组合出库单 ×26', desc: '租赁费 · 2026-07 账期（按组合出库自动汇总）', qty: '—', price: '—', amount: 366200, url: '租赁管理/组合出库列表.html' }
+        { src: '租赁出库单 ×26', desc: '租赁费 · 2026-07 账期（按租赁出库自动汇总）', qty: '—', price: '—', amount: 366200, url: '租赁管理/租赁出库列表.html' }
       ],
       chain: [
-        { role: '组合出库', name: '组合出库 ×26 张', url: '租赁管理/组合出库列表.html' },
+        { role: '租赁出库', name: '租赁出库 ×26 张', url: '租赁管理/租赁出库列表.html' },
         { role: '应收账单（本单）', name: 'AR-2026-07-PRJ2602 · 租赁费', self: true },
         { role: '开票登记', name: '已开票', url: '财务协同/开票登记.html' },
         { role: '回款 / 核销', name: '部分核销 186,200.00', url: '财务协同/银行水单核销.html' }
       ],
       timeline: [
-        { t: '07-31', text: '账单自动生成 · 组合出库汇总 26 张', who: '系统' },
+        { t: '07-31', text: '账单自动生成 · 租赁出库汇总 26 张', who: '系统' },
         { t: '08-05', text: '开票登记', who: '王芳' },
         { t: '08-25', text: '回款 186,200.00 元 · 水单核销', who: '财务' },
         { t: '—', text: '待收尾款 180,000.00 元', off: true }
@@ -745,7 +745,7 @@ window.DEMO_DATA = {
 
     /* ===== 租赁费（上汽大众宁波 · 已结清） ===== */
     'AR-2026-06-PRJ2602': {
-      'row': {"fields": {"period": "2026-06", "project": "PRJ-2602", "customer": "上汽大众宁波分公司", "btype": "租赁费（按组合出库自动汇总）", "docs": "租赁出库 26 张", "gen": "自动生成", "date": "2026-06-30", "status": "已结清"}, "cells": ["2026-06", "PRJ-2602", "上汽大众宁波分公司", "租赁费（按组合出库自动汇总）", "租赁出库 26 张", "<span class=\"td-num\"><b>358,900.00</b></span>", "<span class=\"td-num\">358,900.00</span>", "<span class=\"tag tag-green\">已结清</span>", "<span class=\"tag tag-blue\">自动生成</span>", "2026-06-30 00:05"], "ops": [{"t": "账单确认", "act": "openModal('auditModal')"}, {"t": "详情", "detail": true}, {"t": "开票", "act": "go('../财务协同/开票登记.html')"}, {"t": "核销", "act": "go('../财务协同/银行水单核销.html')"}]},
+      'row': {"fields": {"period": "2026-06", "project": "PRJ-2602", "customer": "上汽大众宁波分公司", "btype": "租赁费（按租赁出库自动汇总）", "docs": "租赁出库 26 张", "gen": "自动生成", "date": "2026-06-30", "status": "已结清"}, "cells": ["2026-06", "PRJ-2602", "上汽大众宁波分公司", "租赁费（按租赁出库自动汇总）", "租赁出库 26 张", "<span class=\"td-num\"><b>358,900.00</b></span>", "<span class=\"td-num\">358,900.00</span>", "<span class=\"tag tag-green\">已结清</span>", "<span class=\"tag tag-blue\">自动生成</span>", "2026-06-30 00:05"], "ops": [{"t": "账单确认", "act": "openModal('auditModal')"}, {"t": "详情", "detail": true}, {"t": "开票", "act": "go('../财务协同/开票登记.html')"}, {"t": "核销", "act": "go('../财务协同/银行水单核销.html')"}]},
       billNo: 'AR-2026-06-PRJ2602',
       billType: '租赁费',
       status: '已结清',
@@ -756,18 +756,18 @@ window.DEMO_DATA = {
       verified: 358900,
       genMode: '自动生成',
       genDate: '2026-06-30',
-      feeType: '租赁费（按组合出库自动汇总）',
+      feeType: '租赁费（按租赁出库自动汇总）',
       fees: [
-        { src: '组合出库单 ×26', desc: '租赁费 · 2026-06 账期（按组合出库自动汇总）', qty: '—', price: '—', amount: 358900, url: '租赁管理/组合出库列表.html' }
+        { src: '租赁出库单 ×26', desc: '租赁费 · 2026-06 账期（按租赁出库自动汇总）', qty: '—', price: '—', amount: 358900, url: '租赁管理/租赁出库列表.html' }
       ],
       chain: [
-        { role: '组合出库', name: '组合出库 ×26 张', url: '租赁管理/组合出库列表.html' },
+        { role: '租赁出库', name: '租赁出库 ×26 张', url: '租赁管理/租赁出库列表.html' },
         { role: '应收账单（本单）', name: 'AR-2026-06-PRJ2602 · 租赁费', self: true },
         { role: '开票登记', name: '已开票', url: '财务协同/开票登记.html' },
         { role: '回款 / 核销', name: '已核销结清', url: '财务协同/银行水单核销.html' }
       ],
       timeline: [
-        { t: '06-30', text: '账单自动生成 · 组合出库汇总 26 张', who: '系统' },
+        { t: '06-30', text: '账单自动生成 · 租赁出库汇总 26 张', who: '系统' },
         { t: '07-05', text: '开票登记', who: '王芳' },
         { t: '07-18', text: '回款核销 358,900.00 元 · 结清', who: '财务' }
       ]
@@ -786,10 +786,10 @@ window.DEMO_DATA = {
       genDate: '2026-09-08',
       feeType: '租赁费（按实际使用量生成 · 按客户对账量录入）',
       fees: [
-        { src: '客户对账量 ×26 张', desc: '租赁费 · 2026-09（按实际使用量：46,600 套·日 × 4.00 元）', qty: '46,600', price: '4.00', amount: 186400, url: '租赁管理/组合出库列表.html' }
+        { src: '客户对账量 ×26 张', desc: '租赁费 · 2026-09（按实际使用量：46,600 套·日 × 4.00 元）', qty: '46,600', price: '4.00', amount: 186400, url: '租赁管理/租赁出库列表.html' }
       ],
       chain: [
-        { role: '组合出库', name: '实际使用量 ×26 张', url: '租赁管理/组合出库列表.html' },
+        { role: '租赁出库', name: '实际使用量 ×26 张', url: '租赁管理/租赁出库列表.html' },
         { role: '应收账单（本单）', name: 'AR-2026-09-PRJ2603-U1 · 按实际使用量', self: true },
         { role: '开票登记', name: '待开票', url: '财务协同/开票登记.html' },
         { role: '回款 / 核销', name: '回款登记 → 银行水单核销', url: '财务协同/银行水单核销.html' }
@@ -1433,7 +1433,7 @@ window.DEMO_DATA = {
   /* 租金标准 8.00 元/套/日为默认决策待确认；押金口径待客户 */
   leaseOrders: {
     'ZL-20260823-033': {
-      'row': {"fields": {"billing": "按月定期", "customer": "一汽解放汽车有限公司", "project": "PRJ-2604", "status": "已退租", "start": "2026-08-23"}, "note": "1", "cells": ["一汽解放汽车有限公司", "PRJ-2604", "ZH-2604-D 混合组合套件", "<span class=\"tag tag-orange\">混合（自购 + 租入-路凯）</span> <span class=\"lk\" onclick=\"go('../租赁管理/租入单列表.html')\">RZD-20260815-005</span>", "<span class=\"td-num\">40 套</span>", "2026-08-23", "<span class=\"td-num\">40/40 套</span>", "<span class=\"tag tag-green\">已退租</span>"], "ops": [{"t": "退回对比", "act": "openModal('cmpModal')"}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "审核", "act": "openModal('auditModal')"}, {"t": "关闭"}]},
+      'row': {"fields": {"billing": "按月定期", "customer": "一汽解放汽车有限公司", "project": "PRJ-2604", "status": "已退租", "start": "2026-08-23"}, "note": "1", "cells": ["一汽解放汽车有限公司", "PRJ-2604", "ZH-2604-D 混合组合套件", "<span class=\"tag tag-orange\">混合（自购 + 租入）</span> <span class=\"lk\" onclick=\"go('../租赁管理/租入单列表.html')\">RZD-20260815-005</span>", "<span class=\"td-num\">40 套</span>", "2026-08-23", "<span class=\"td-num\">40/40 套</span>", "<span class=\"tag tag-green\">已退租</span>"], "ops": [{"t": "退回对比", "act": "openModal('cmpModal')"}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "审核", "act": "openModal('auditModal')"}, {"t": "关闭"}]},
       'title': '租赁单详情',
       'info': [
         {
@@ -1470,7 +1470,7 @@ window.DEMO_DATA = {
         },
         {
           'label': '资产来源',
-          'text': '混合（自购 + 租入-路凯  · RZD-20260815-005',
+          'text': '混合（自购 + 租入  · RZD-20260815-005',
           'full': true,
           'url': '租赁管理/租入单列表.html'
         },
@@ -1515,9 +1515,9 @@ window.DEMO_DATA = {
           'self': true
         },
         {
-          'role': '组合出库',
+          'role': '租赁出库',
           'name': 'CK-20260824-009',
-          'url': '租赁管理/组合出库列表.html'
+          'url': '租赁管理/租赁出库列表.html'
         },
         {
           'role': '退租入库',
@@ -1538,7 +1538,7 @@ window.DEMO_DATA = {
         },
         {
           't': '08-24',
-          'text': '组合出库 · CK-20260824-009（40 套）',
+          'text': '租赁出库 · CK-20260824-009（40 套）',
           'who': '张伟'
         },
         {
@@ -1631,9 +1631,9 @@ window.DEMO_DATA = {
           'self': true
         },
         {
-          'role': '组合出库',
+          'role': '租赁出库',
           'name': '审核通过后出库',
-          'url': '租赁管理/组合出库列表.html'
+          'url': '租赁管理/租赁出库列表.html'
         }
       ],
       'timeline': [
@@ -1644,14 +1644,14 @@ window.DEMO_DATA = {
         },
         {
           't': '—',
-          'text': '审核通过 → 组合出库 · 09-05 起租',
+          'text': '审核通过 → 租赁出库 · 09-05 起租',
           'who': '系统',
           'off': true
         }
       ]
     },
     'ZL-20260828-031': {
-      'row': {"fields": {"billing": "按月定期", "customer": "上汽大众汽车有限公司宁波分公司", "project": "PRJ-2602", "status": "已审核", "start": "2026-09-01"}, "note": "3", "cells": ["上汽大众汽车有限公司宁波分公司", "PRJ-2602", "ZH-2602-B 冲压件料箱组套", "<span class=\"tag tag-gray\">自有</span>", "<span class=\"td-num\">120 套</span>", "2026-09-01", "<span class=\"td-num\">0/120 套</span>", "<span class=\"tag tag-blue\">已审核</span>"], "ops": [{"t": "退回对比", "act": "openModal('cmpModal')"}, {"t": "出库", "act": "go('../租赁管理/组合出库列表.html')"}, {"t": "详情", "detail": true}, {"t": "关闭"}]},
+      'row': {"fields": {"billing": "按月定期", "customer": "上汽大众汽车有限公司宁波分公司", "project": "PRJ-2602", "status": "已审核", "start": "2026-09-01"}, "note": "3", "cells": ["上汽大众汽车有限公司宁波分公司", "PRJ-2602", "ZH-2602-B 冲压件料箱组套", "<span class=\"tag tag-gray\">自有</span>", "<span class=\"td-num\">120 套</span>", "2026-09-01", "<span class=\"td-num\">0/120 套</span>", "<span class=\"tag tag-blue\">已审核</span>"], "ops": [{"t": "退回对比", "act": "openModal('cmpModal')"}, {"t": "出库", "act": "go('../租赁管理/租赁出库列表.html')"}, {"t": "详情", "detail": true}, {"t": "关闭"}]},
       'title': '租赁单详情',
       'info': [
         {
@@ -1728,9 +1728,9 @@ window.DEMO_DATA = {
           'self': true
         },
         {
-          'role': '组合出库',
+          'role': '租赁出库',
           'name': 'CK-20260830-014 · 拣货中',
-          'url': '租赁管理/组合出库列表.html'
+          'url': '租赁管理/租赁出库列表.html'
         }
       ],
       'timeline': [
@@ -1753,7 +1753,7 @@ window.DEMO_DATA = {
       ]
     },
     'ZL-20260816-029': {
-      'row': {"fields": {"billing": "按次套数", "customer": "上汽大众汽车有限公司宁波分公司", "project": "PRJ-2603", "status": "已退租", "start": "2026-08-16"}, "note": "2", "cells": ["上汽大众汽车有限公司宁波分公司", "PRJ-2603", "WBX-1210L 围板箱 1200×1000×970", "<span class=\"tag tag-orange\">租入-路凯</span> <span class=\"lk\" onclick=\"go('../租赁管理/租入单列表.html')\">RZD-20260815-003</span>", "<span class=\"td-num\">30 只</span>", "2026-08-16", "<span class=\"td-num\">30/30 只</span>", "<span class=\"tag tag-green\">已退租</span>"], "ops": [{"t": "退回对比", "act": "openModal('cmpModal')"}, {"t": "详情", "detail": true}, {"t": "退租入库", "act": "go('../租赁管理/退租入库列表.html')"}]},
+      'row': {"fields": {"billing": "按次套数", "customer": "上汽大众汽车有限公司宁波分公司", "project": "PRJ-2603", "status": "已退租", "start": "2026-08-16"}, "note": "2", "cells": ["上汽大众汽车有限公司宁波分公司", "PRJ-2603", "WBX-1210L 围板箱 1200×1000×970", "<span class=\"tag tag-orange\">租入</span> <span class=\"lk\" onclick=\"go('../租赁管理/租入单列表.html')\">RZD-20260815-003</span>", "<span class=\"td-num\">30 只</span>", "2026-08-16", "<span class=\"td-num\">30/30 只</span>", "<span class=\"tag tag-green\">已退租</span>"], "ops": [{"t": "退回对比", "act": "openModal('cmpModal')"}, {"t": "详情", "detail": true}, {"t": "退租入库", "act": "go('../租赁管理/退租入库列表.html')"}]},
       'title': '租赁单详情',
       'info': [
         {
@@ -1790,7 +1790,7 @@ window.DEMO_DATA = {
         },
         {
           'label': '资产来源',
-          'text': '租入-路凯  · RZD-20260815-003',
+          'text': '租入  · RZD-20260815-003',
           'full': true,
           'url': '租赁管理/租入单列表.html'
         },
@@ -1875,7 +1875,7 @@ window.DEMO_DATA = {
       ]
     },
     'ZL-20260815-028': {
-      'row': {"fields": {"billing": "按月定期", "customer": "一汽解放汽车有限公司", "project": "PRJ-2601", "status": "在租", "start": "2026-08-20"}, "note": "5", "cells": ["一汽解放汽车有限公司", "PRJ-2601", "WBX-1210L 围板箱 1200×1000×970", "<span class=\"tag tag-orange\">租入-路凯</span> <span class=\"lk\" onclick=\"go('../租赁管理/租入单列表.html')\">RZD-20260815-003</span>", "<span class=\"td-num\">300 只</span>", "2026-08-20", "<span class=\"td-num\">0/300 只</span>", "<span class=\"tag tag-blue\">在租</span>"], "ops": [{"t": "退回对比", "act": "openModal('cmpModal')"}, {"t": "出库", "act": "go('../租赁管理/组合出库列表.html')"}, {"t": "详情", "detail": true}, {"t": "退租入库", "act": "go('../租赁管理/退租入库列表.html')"}]},
+      'row': {"fields": {"billing": "按月定期", "customer": "一汽解放汽车有限公司", "project": "PRJ-2601", "status": "在租", "start": "2026-08-20"}, "note": "5", "cells": ["一汽解放汽车有限公司", "PRJ-2601", "WBX-1210L 围板箱 1200×1000×970", "<span class=\"tag tag-orange\">租入</span> <span class=\"lk\" onclick=\"go('../租赁管理/租入单列表.html')\">RZD-20260815-003</span>", "<span class=\"td-num\">300 只</span>", "2026-08-20", "<span class=\"td-num\">0/300 只</span>", "<span class=\"tag tag-blue\">在租</span>"], "ops": [{"t": "退回对比", "act": "openModal('cmpModal')"}, {"t": "出库", "act": "go('../租赁管理/租赁出库列表.html')"}, {"t": "详情", "detail": true}, {"t": "退租入库", "act": "go('../租赁管理/退租入库列表.html')"}]},
       'title': '租赁单详情',
       'info': [
         {
@@ -1912,7 +1912,7 @@ window.DEMO_DATA = {
         },
         {
           'label': '资产来源',
-          'text': '租入-路凯  · RZD-20260815-003',
+          'text': '租入  · RZD-20260815-003',
           'full': true,
           'url': '租赁管理/租入单列表.html'
         },
@@ -1958,9 +1958,9 @@ window.DEMO_DATA = {
           'self': true
         },
         {
-          'role': '组合出库',
+          'role': '租赁出库',
           'name': 'CK-20260828-010',
-          'url': '租赁管理/组合出库列表.html'
+          'url': '租赁管理/租赁出库列表.html'
         },
         {
           'role': '库存查询·客户在租',
@@ -1981,7 +1981,7 @@ window.DEMO_DATA = {
         },
         {
           't': '08-28',
-          'text': '组合出库 · CK-20260828-010（200 套）',
+          'text': '租赁出库 · CK-20260828-010（200 套）',
           'who': '张伟'
         },
         {
@@ -1993,7 +1993,7 @@ window.DEMO_DATA = {
       ]
     },
     'ZL-20260720-022': {
-      'row': {"fields": {"billing": "按月定期", "customer": "小鹏汽车科技有限公司", "project": "PRJ-2603", "status": "在租", "start": "2026-07-25"}, "cells": ["小鹏汽车科技有限公司", "PRJ-2603", "ZH-2603-C 电池托盘护角套件", "<span class=\"tag tag-gray\">自有</span>", "<span class=\"td-num\">60 套</span>", "2026-07-25", "<span class=\"td-num\">20/60 套</span>", "<span class=\"tag tag-blue\">在租</span>"], "ops": [{"t": "退回对比", "act": "openModal('cmpModal')"}, {"t": "出库", "act": "go('../租赁管理/组合出库列表.html')"}, {"t": "详情", "detail": true}, {"t": "退租入库", "act": "go('../租赁管理/退租入库列表.html')"}]},
+      'row': {"fields": {"billing": "按月定期", "customer": "小鹏汽车科技有限公司", "project": "PRJ-2603", "status": "在租", "start": "2026-07-25"}, "cells": ["小鹏汽车科技有限公司", "PRJ-2603", "ZH-2603-C 电池托盘护角套件", "<span class=\"tag tag-gray\">自有</span>", "<span class=\"td-num\">60 套</span>", "2026-07-25", "<span class=\"td-num\">20/60 套</span>", "<span class=\"tag tag-blue\">在租</span>"], "ops": [{"t": "退回对比", "act": "openModal('cmpModal')"}, {"t": "出库", "act": "go('../租赁管理/租赁出库列表.html')"}, {"t": "详情", "detail": true}, {"t": "退租入库", "act": "go('../租赁管理/退租入库列表.html')"}]},
       'title': '租赁单详情',
       'info': [
         {
@@ -2095,7 +2095,7 @@ window.DEMO_DATA = {
       ]
     },
     'ZL-20260610-015': {
-      'row': {"fields": {"billing": "按次套数", "customer": "一汽解放汽车有限公司", "project": "PRJ-2601", "status": "在租", "start": "2026-06-15"}, "cells": ["一汽解放汽车有限公司", "PRJ-2601", "BTC-6040 料箱 600×400×340", "<span class=\"tag tag-gray\">自有</span>", "<span class=\"td-num\">500 只</span>", "2026-06-15", "<span class=\"td-num\">0/500 只</span>", "<span class=\"tag tag-blue\">在租</span>"], "ops": [{"t": "退回对比", "act": "openModal('cmpModal')"}, {"t": "出库", "act": "go('../租赁管理/组合出库列表.html')"}, {"t": "详情", "detail": true}, {"t": "退租入库", "act": "go('../租赁管理/退租入库列表.html')"}]},
+      'row': {"fields": {"billing": "按次套数", "customer": "一汽解放汽车有限公司", "project": "PRJ-2601", "status": "在租", "start": "2026-06-15"}, "cells": ["一汽解放汽车有限公司", "PRJ-2601", "BTC-6040 料箱 600×400×340", "<span class=\"tag tag-gray\">自有</span>", "<span class=\"td-num\">500 只</span>", "2026-06-15", "<span class=\"td-num\">0/500 只</span>", "<span class=\"tag tag-blue\">在租</span>"], "ops": [{"t": "退回对比", "act": "openModal('cmpModal')"}, {"t": "出库", "act": "go('../租赁管理/租赁出库列表.html')"}, {"t": "详情", "detail": true}, {"t": "退租入库", "act": "go('../租赁管理/退租入库列表.html')"}]},
       'title': '租赁单详情',
       'info': [
         {
@@ -2172,9 +2172,9 @@ window.DEMO_DATA = {
           'self': true
         },
         {
-          'role': '组合出库',
+          'role': '租赁出库',
           'name': 'CK-20260830-015（180 套）',
-          'url': '租赁管理/组合出库列表.html'
+          'url': '租赁管理/租赁出库列表.html'
         },
         {
           'role': '退租入库',
@@ -2934,12 +2934,109 @@ window.DEMO_DATA = {
   },
 
   /* -------------------------------------------------------------------------- */
-  /* 组合出库单 comboOutbounds：键 = CK 出库单号（租赁管理/组合出库列表.html 8 行全量） */
+  /* 租赁出库单 comboOutbounds：键 = CK 出库单号（租赁管理/租赁出库列表.html 8 行全量） */
   /* 关联租赁单/销售订单双关联；租入件无 SO 用 —（租赁出库） */
   comboOutbounds: {
+    'CK-20260910-022': {
+      'row': {"fields": {"project": "PRJ-2603", "customer": "上汽大众宁波分公司", "zl": "ZL-20260910-040", "combo": "ZH-2603-B × 30 套", "so": "—（租赁出库）", "addr": "宁波杭州湾基地", "status": "待审核", "date": "2026-09-10"}, "cells": ["PRJ-2603", "上汽大众宁波分公司", "<span class=\"lk\">ZL-20260910-040</span>", "ZH-2603-B × 30 套", "—（租赁出库）", "宁波杭州湾基地", "<span class=\"tag tag-orange\">待审核</span>", "2026-09-10 15:20"], "ops": [{"t": "详情", "detail": true}, {"t": "审核", "act": "openModal('exitConfirmModal')"}]},
+      'title': '租赁出库单详情',
+      'info': [
+        {
+          'label': '出库单号',
+          'text': 'CK-20260910-022',
+          'full': true
+        },
+        {
+          'label': '状态',
+          'tag': '待审核'
+        },
+        {
+          'label': '关联租赁单',
+          'text': 'ZL-20260910-040',
+          'url': '租赁管理/租赁单列表.html'
+        },
+        {
+          'label': '关联销售订单',
+          'text': '—（租赁出库）',
+          'full': true
+        },
+        {
+          'label': '客户',
+          'text': '上汽大众宁波分公司',
+          'full': true
+        },
+        {
+          'label': '所属项目',
+          'text': 'PRJ-2603'
+        },
+        {
+          'label': '出库内容',
+          'text': 'ZH-2603-B × 30 套',
+          'full': true
+        },
+        {
+          'label': '出库库区',
+          'text': '成品区 RB'
+        },
+        {
+          'label': '送达地点',
+          'text': '宁波杭州湾基地'
+        },
+        {
+          'label': '制单人',
+          'text': '赵磊'
+        },
+        {
+          'label': '提交时间',
+          'text': '2026-09-10 15:20'
+        },
+        {
+          'label': '出库方式',
+          'text': '一箱一件 · 逐件核对（扫码口预留）',
+          'full': true
+        }
+      ],
+      'feeSecTitle': '器具 / 组合件清单',
+      'feeCols': ['序号', '组合件编码', '名称', '单位', '数量', '未税单价(元)', '税率', '含税单价(元)', '含税金额(元)', '库位'],
+      'fees': [
+        {
+          'cells': ['1', 'ZH-2603-B', '冲压件料箱组套', '套', '30', '1.00', '13%', '1.13', '33.90', 'RB-B-02-03']
+        }
+      ],
+      'chain': [
+        {
+          'role': '租赁单',
+          'name': 'ZL-20260910-040',
+          'url': '租赁管理/租赁单列表.html'
+        },
+        {
+          'role': '租赁出库（本单）',
+          'name': 'CK-20260910-022',
+          'self': true
+        },
+        {
+          'role': '库存查询·客户在租 / 应收',
+          'name': '审核通过出库后起租',
+          'url': '仓储作业/库存查询.html'
+        }
+      ],
+      'timeline': [
+        {
+          't': '09-10 15:20',
+          'text': '录单提交 · 待审核',
+          'who': '赵磊'
+        },
+        {
+          't': '—',
+          'text': '审核通过后出库 · 起租计费',
+          'who': '系统',
+          'off': true
+        }
+      ]
+    },
     'CK-20260903-016': {
-      'row': {"fields": {"project": "PRJ-2601", "customer": "一汽解放汽车有限公司", "zl": "ZL-20260903-034", "combo": "ZH-2601-A × 60 套（退租回库件循环出库）", "so": "—（租赁出库）", "addr": "长春基地一号门", "status": "已出库", "date": "2026-09-03"}, "cells": ["PRJ-2601", "一汽解放汽车有限公司", "<span class=\"lk\">ZL-20260903-034</span>", "ZH-2601-A × 60 套（退租回库件循环出库）", "—（租赁出库）", "长春基地一号门", "<span class=\"tag tag-green\">已出库</span>", "2026-09-03 09:15"], "ops": [{"t": "详情", "detail": true}, {"t": "打印出货单", "act": "window.print();this.classList.toggle('printed')"}, {"t": "出库确认", "act": "openModal('exitConfirmModal')"}]},
-      'title': '组合出库单详情',
+      'row': {"fields": {"project": "PRJ-2601", "customer": "一汽解放汽车有限公司", "zl": "ZL-20260903-034", "combo": "ZH-2601-A × 60 套（退租回库件循环出库）", "so": "—（租赁出库）", "addr": "长春基地一号门", "status": "已出库", "date": "2026-09-03"}, "cells": ["PRJ-2601", "一汽解放汽车有限公司", "<span class=\"lk\">ZL-20260903-034</span>", "ZH-2601-A × 60 套（退租回库件循环出库）", "—（租赁出库）", "长春基地一号门", "<span class=\"tag tag-green\">已出库</span>", "2026-09-03 09:15"], "ops": [{"t": "详情", "detail": true}, {"t": "打印出货单", "act": "window.print();this.classList.toggle('printed')"}, {"t": "审核", "act": "openModal('exitConfirmModal')"}]},
+      'title': '租赁出库单详情',
       'info': [
         {
           'label': '出库单号',
@@ -3010,7 +3107,7 @@ window.DEMO_DATA = {
           'url': '租赁管理/租赁单列表.html'
         },
         {
-          'role': '组合出库（本单）',
+          'role': '租赁出库（本单）',
           'name': 'CK-20260903-016',
           'self': true
         },
@@ -3039,8 +3136,8 @@ window.DEMO_DATA = {
       ]
     },
     'CK-20260830-015': {
-      'row': {"fields": {"project": "PRJ-2601", "customer": "一汽解放汽车有限公司", "zl": "ZL-20260610-015", "combo": "ZH-2601-A × 180 套", "so": "SO-20260830-0041", "addr": "长春基地一号门", "status": "已出库", "date": "2026-08-30"}, "note": "2", "cells": ["PRJ-2601", "一汽解放汽车有限公司", "<span class=\"lk\">ZL-20260610-015</span>", "ZH-2601-A × 180 套", "SO-20260830-0041", "长春基地一号门", "<span class=\"tag tag-green\">已出库</span>", "2026-08-30 17:20"], "ops": [{"t": "详情", "detail": true}, {"t": "打印出货单", "act": "window.print();this.classList.toggle('printed')"}, {"t": "出库确认", "act": "openModal('exitConfirmModal')"}]},
-      'title': '组合出库单详情',
+      'row': {"fields": {"project": "PRJ-2601", "customer": "一汽解放汽车有限公司", "zl": "ZL-20260610-015", "combo": "ZH-2601-A × 180 套", "so": "SO-20260830-0041", "addr": "长春基地一号门", "status": "已出库", "date": "2026-08-30"}, "note": "2", "cells": ["PRJ-2601", "一汽解放汽车有限公司", "<span class=\"lk\">ZL-20260610-015</span>", "ZH-2601-A × 180 套", "SO-20260830-0041", "长春基地一号门", "<span class=\"tag tag-green\">已出库</span>", "2026-08-30 17:20"], "ops": [{"t": "详情", "detail": true}, {"t": "打印出货单", "act": "window.print();this.classList.toggle('printed')"}, {"t": "审核", "act": "openModal('exitConfirmModal')"}]},
+      'title': '租赁出库单详情',
       'info': [
         {
           'label': '出库单号',
@@ -3117,7 +3214,7 @@ window.DEMO_DATA = {
           'url': '销售管理/销售订单列表.html'
         },
         {
-          'role': '组合出库（本单）',
+          'role': '租赁出库（本单）',
           'name': 'CK-20260830-015',
           'self': true
         },
@@ -3146,8 +3243,8 @@ window.DEMO_DATA = {
       ]
     },
     'CK-20260830-014': {
-      'row': {"fields": {"project": "PRJ-2602", "customer": "上汽大众宁波分公司", "zl": "ZL-20260828-031", "combo": "ZH-2602-B × 120 套", "so": "SO-20260829-0038", "addr": "宁波工厂 C 门", "status": "拣货中", "date": "—"}, "cells": ["PRJ-2602", "上汽大众宁波分公司", "<span class=\"lk\">ZL-20260828-031</span>", "ZH-2602-B × 120 套", "SO-20260829-0038", "宁波工厂 C 门", "<span class=\"tag tag-blue\">拣货中</span>", "—"], "ops": [{"t": "详情", "detail": true}, {"t": "打印出货单", "act": "window.print();this.classList.toggle('printed')"}, {"t": "出库确认", "act": "openModal('exitConfirmModal')"}]},
-      'title': '组合出库单详情',
+      'row': {"fields": {"project": "PRJ-2602", "customer": "上汽大众宁波分公司", "zl": "ZL-20260828-031", "combo": "ZH-2602-B × 120 套", "so": "SO-20260829-0038", "addr": "宁波工厂 C 门", "status": "拣货中", "date": "—"}, "cells": ["PRJ-2602", "上汽大众宁波分公司", "<span class=\"lk\">ZL-20260828-031</span>", "ZH-2602-B × 120 套", "SO-20260829-0038", "宁波工厂 C 门", "<span class=\"tag tag-blue\">拣货中</span>", "—"], "ops": [{"t": "详情", "detail": true}, {"t": "打印出货单", "act": "window.print();this.classList.toggle('printed')"}, {"t": "审核", "act": "openModal('exitConfirmModal')"}]},
+      'title': '租赁出库单详情',
       'info': [
         {
           'label': '出库单号',
@@ -3224,7 +3321,7 @@ window.DEMO_DATA = {
           'url': '销售管理/销售订单列表.html'
         },
         {
-          'role': '组合出库（本单）',
+          'role': '租赁出库（本单）',
           'name': 'CK-20260830-014',
           'self': true
         },
@@ -3249,8 +3346,8 @@ window.DEMO_DATA = {
       ]
     },
     'CK-20260829-013': {
-      'row': {"fields": {"project": "PRJ-2603", "customer": "小鹏汽车科技有限公司", "zl": "ZL-20260610-015", "combo": "ZH-2603-C × 60 套", "so": "SO-20260828-0035", "addr": "广州工厂收货口", "status": "已出库", "date": "2026-08-29"}, "cells": ["PRJ-2603", "小鹏汽车科技有限公司", "<span class=\"lk\">ZL-20260610-015</span>", "ZH-2603-C × 60 套", "SO-20260828-0035", "广州工厂收货口", "<span class=\"tag tag-green\">已出库</span>", "2026-08-29 16:05"], "ops": [{"t": "详情", "detail": true}, {"t": "打印出货单", "act": "window.print();this.classList.toggle('printed')"}, {"t": "出库确认", "act": "openModal('exitConfirmModal')"}]},
-      'title': '组合出库单详情',
+      'row': {"fields": {"project": "PRJ-2603", "customer": "小鹏汽车科技有限公司", "zl": "ZL-20260610-015", "combo": "ZH-2603-C × 60 套", "so": "SO-20260828-0035", "addr": "广州工厂收货口", "status": "已出库", "date": "2026-08-29"}, "cells": ["PRJ-2603", "小鹏汽车科技有限公司", "<span class=\"lk\">ZL-20260610-015</span>", "ZH-2603-C × 60 套", "SO-20260828-0035", "广州工厂收货口", "<span class=\"tag tag-green\">已出库</span>", "2026-08-29 16:05"], "ops": [{"t": "详情", "detail": true}, {"t": "打印出货单", "act": "window.print();this.classList.toggle('printed')"}, {"t": "审核", "act": "openModal('exitConfirmModal')"}]},
+      'title': '租赁出库单详情',
       'info': [
         {
           'label': '出库单号',
@@ -3327,7 +3424,7 @@ window.DEMO_DATA = {
           'url': '销售管理/销售订单列表.html'
         },
         {
-          'role': '组合出库（本单）',
+          'role': '租赁出库（本单）',
           'name': 'CK-20260829-013',
           'self': true
         },
@@ -3356,8 +3453,8 @@ window.DEMO_DATA = {
       ]
     },
     'CK-20260829-012': {
-      'row': {"fields": {"project": "PRJ-2601", "customer": "一汽解放汽车有限公司", "zl": "ZL-20260301-006", "combo": "ZH-2601-A × 120 套", "so": "SO-20260827-0036", "addr": "长春基地一号门", "status": "已出库", "date": "2026-08-29"}, "cells": ["PRJ-2601", "一汽解放汽车有限公司", "<span class=\"lk\">ZL-20260301-006</span>", "ZH-2601-A × 120 套", "SO-20260827-0036", "长春基地一号门", "<span class=\"tag tag-green\">已出库</span>", "2026-08-29 10:42"], "ops": [{"t": "详情", "detail": true}, {"t": "打印出货单", "act": "window.print();this.classList.toggle('printed')"}, {"t": "出库确认", "act": "openModal('exitConfirmModal')"}]},
-      'title': '组合出库单详情',
+      'row': {"fields": {"project": "PRJ-2601", "customer": "一汽解放汽车有限公司", "zl": "ZL-20260301-006", "combo": "ZH-2601-A × 120 套", "so": "SO-20260827-0036", "addr": "长春基地一号门", "status": "已出库", "date": "2026-08-29"}, "cells": ["PRJ-2601", "一汽解放汽车有限公司", "<span class=\"lk\">ZL-20260301-006</span>", "ZH-2601-A × 120 套", "SO-20260827-0036", "长春基地一号门", "<span class=\"tag tag-green\">已出库</span>", "2026-08-29 10:42"], "ops": [{"t": "详情", "detail": true}, {"t": "打印出货单", "act": "window.print();this.classList.toggle('printed')"}, {"t": "审核", "act": "openModal('exitConfirmModal')"}]},
+      'title': '租赁出库单详情',
       'info': [
         {
           'label': '出库单号',
@@ -3434,7 +3531,7 @@ window.DEMO_DATA = {
           'url': '销售管理/销售订单列表.html'
         },
         {
-          'role': '组合出库（本单）',
+          'role': '租赁出库（本单）',
           'name': 'CK-20260829-012',
           'self': true
         },
@@ -3463,8 +3560,8 @@ window.DEMO_DATA = {
       ]
     },
     'CK-20260828-011': {
-      'row': {"fields": {"project": "PRJ-2604", "customer": "东风本田汽车有限公司", "zl": "ZL-20260828-031", "combo": "ZH-2601-A × 96 套", "so": "SO-20260826-0033", "addr": "武汉工厂 2 号门", "status": "已出库", "date": "2026-08-28"}, "cells": ["PRJ-2604", "东风本田汽车有限公司", "<span class=\"lk\">ZL-20260828-031</span>", "ZH-2601-A × 96 套", "SO-20260826-0033", "武汉工厂 2 号门", "<span class=\"tag tag-green\">已出库</span>", "2026-08-28 14:55"], "ops": [{"t": "详情", "detail": true}, {"t": "打印出货单", "act": "window.print();this.classList.toggle('printed')"}, {"t": "出库确认", "act": "openModal('exitConfirmModal')"}]},
-      'title': '组合出库单详情',
+      'row': {"fields": {"project": "PRJ-2604", "customer": "东风本田汽车有限公司", "zl": "ZL-20260828-031", "combo": "ZH-2601-A × 96 套", "so": "SO-20260826-0033", "addr": "武汉工厂 2 号门", "status": "已出库", "date": "2026-08-28"}, "cells": ["PRJ-2604", "东风本田汽车有限公司", "<span class=\"lk\">ZL-20260828-031</span>", "ZH-2601-A × 96 套", "SO-20260826-0033", "武汉工厂 2 号门", "<span class=\"tag tag-green\">已出库</span>", "2026-08-28 14:55"], "ops": [{"t": "详情", "detail": true}, {"t": "打印出货单", "act": "window.print();this.classList.toggle('printed')"}, {"t": "审核", "act": "openModal('exitConfirmModal')"}]},
+      'title': '租赁出库单详情',
       'info': [
         {
           'label': '出库单号',
@@ -3541,7 +3638,7 @@ window.DEMO_DATA = {
           'url': '销售管理/销售订单列表.html'
         },
         {
-          'role': '组合出库（本单）',
+          'role': '租赁出库（本单）',
           'name': 'CK-20260828-011',
           'self': true
         },
@@ -3570,8 +3667,8 @@ window.DEMO_DATA = {
       ]
     },
     'CK-20260824-009': {
-      'row': {"fields": {"project": "PRJ-2604", "customer": "一汽解放汽车有限公司", "zl": "ZL-20260823-033", "combo": "ZH-2604-D 混合组合套件 × 40 套", "so": "—", "addr": "长春基地一号门", "status": "已出库", "date": "2026-08-24"}, "note": "1", "cells": ["PRJ-2604", "一汽解放汽车有限公司", "<span class=\"lk\">ZL-20260823-033</span>", "ZH-2604-D 混合组合套件 × 40 套", "—", "长春基地一号门", "<span class=\"tag tag-green\">已出库</span>", "2026-08-24 16:40"], "ops": [{"t": "详情", "detail": true}, {"t": "打印出货单", "act": "window.print();this.classList.toggle('printed')"}, {"t": "出库确认", "act": "openModal('exitConfirmModal')"}]},
-      'title': '组合出库单详情',
+      'row': {"fields": {"project": "PRJ-2604", "customer": "一汽解放汽车有限公司", "zl": "ZL-20260823-033", "combo": "ZH-2604-D 混合组合套件 × 40 套", "so": "—", "addr": "长春基地一号门", "status": "已出库", "date": "2026-08-24"}, "note": "1", "cells": ["PRJ-2604", "一汽解放汽车有限公司", "<span class=\"lk\">ZL-20260823-033</span>", "ZH-2604-D 混合组合套件 × 40 套", "—", "长春基地一号门", "<span class=\"tag tag-green\">已出库</span>", "2026-08-24 16:40"], "ops": [{"t": "详情", "detail": true}, {"t": "打印出货单", "act": "window.print();this.classList.toggle('printed')"}, {"t": "审核", "act": "openModal('exitConfirmModal')"}]},
+      'title': '租赁出库单详情',
       'info': [
         {
           'label': '出库单号',
@@ -3642,7 +3739,7 @@ window.DEMO_DATA = {
           'url': '租赁管理/租赁单列表.html'
         },
         {
-          'role': '组合出库（本单）',
+          'role': '租赁出库（本单）',
           'name': 'CK-20260824-009',
           'self': true
         },
@@ -3671,8 +3768,8 @@ window.DEMO_DATA = {
       ]
     },
     'CK-20260828-010': {
-      'row': {"fields": {"project": "PRJ-2602", "customer": "上汽大众宁波分公司", "zl": "ZL-20260815-028", "combo": "ZH-2602-B × 200 套", "so": "SO-20260826-0032", "addr": "宁波工厂 C 门", "status": "已出库", "date": "2026-08-28"}, "cells": ["PRJ-2602", "上汽大众宁波分公司", "<span class=\"lk\">ZL-20260815-028</span>", "ZH-2602-B × 200 套", "SO-20260826-0032", "宁波工厂 C 门", "<span class=\"tag tag-green\">已出库</span>", "2026-08-28 09:30"], "ops": [{"t": "详情", "detail": true}, {"t": "打印出货单", "act": "window.print();this.classList.toggle('printed')"}, {"t": "出库确认", "act": "openModal('exitConfirmModal')"}]},
-      'title': '组合出库单详情',
+      'row': {"fields": {"project": "PRJ-2602", "customer": "上汽大众宁波分公司", "zl": "ZL-20260815-028", "combo": "ZH-2602-B × 200 套", "so": "SO-20260826-0032", "addr": "宁波工厂 C 门", "status": "已出库", "date": "2026-08-28"}, "cells": ["PRJ-2602", "上汽大众宁波分公司", "<span class=\"lk\">ZL-20260815-028</span>", "ZH-2602-B × 200 套", "SO-20260826-0032", "宁波工厂 C 门", "<span class=\"tag tag-green\">已出库</span>", "2026-08-28 09:30"], "ops": [{"t": "详情", "detail": true}, {"t": "打印出货单", "act": "window.print();this.classList.toggle('printed')"}, {"t": "审核", "act": "openModal('exitConfirmModal')"}]},
+      'title': '租赁出库单详情',
       'info': [
         {
           'label': '出库单号',
@@ -3749,7 +3846,7 @@ window.DEMO_DATA = {
           'url': '销售管理/销售订单列表.html'
         },
         {
-          'role': '组合出库（本单）',
+          'role': '租赁出库（本单）',
           'name': 'CK-20260828-010',
           'self': true
         },
@@ -3784,7 +3881,7 @@ window.DEMO_DATA = {
   /* 拆散去向：自有回库 / 租入件转归还；缺损/丢失联动丢损赔偿 */
   returnInbounds: {
     'TZRK-20260902-010': {
-      'row': {"fields": {"customer": "一汽解放汽车有限公司", "project": "PRJ-2604", "appliance": "ZH-2604-D 混合组合套件（自购隔板 + 租入大箱）", "dest": "自有回库 租入件转归还", "warehouse": "成品区 RB", "date": "2026-09-02", "result": "缺损", "status": "待审核"}, "note": "1", "cells": ["一汽解放汽车有限公司", "PRJ-2604", "ZH-2604-D 混合组合套件（自购隔板 + 租入大箱）", "<span class=\"td-num\">40 套</span>", "隔板×80（自购）/ 大箱×10（租入-路凯，其中 4 只缺损）", "<span class=\"tag tag-gray\">自有回库</span> <span class=\"tag tag-orange\" onclick=\"go('../租赁管理/租入归还列表.html')\" style=\"cursor:pointer\">租入件转归还</span>", "成品区 RB", "2026-09-02", "<span class=\"tag tag-orange\">缺损</span>", "<span class=\"tag tag-orange\">待审核</span>"], "ops": [{"t": "详情", "detail": true}, {"t": "审核", "act": "openModal('auditModal')"}]},
+      'row': {"fields": {"customer": "一汽解放汽车有限公司", "project": "PRJ-2604", "appliance": "ZH-2604-D 混合组合套件（自购隔板 + 租入大箱）", "dest": "自有回库 租入件转归还", "warehouse": "成品区 RB", "date": "2026-09-02", "result": "缺损", "status": "待审核"}, "note": "1", "cells": ["一汽解放汽车有限公司", "PRJ-2604", "ZH-2604-D 混合组合套件（自购隔板 + 租入大箱）", "<span class=\"td-num\">40 套</span>", "隔板×80（自购）/ 大箱×10（租入，其中 4 只缺损）", "<span class=\"tag tag-gray\">自有回库</span> <span class=\"tag tag-orange\" onclick=\"go('../租赁管理/租入归还列表.html')\" style=\"cursor:pointer\">租入件转归还</span>", "成品区 RB", "2026-09-02", "<span class=\"tag tag-orange\">缺损</span>", "<span class=\"tag tag-orange\">待审核</span>"], "ops": [{"t": "详情", "detail": true}, {"t": "审核", "act": "openModal('auditModal')"}]},
       'title': '退租入库单详情',
       'info': [
         {
@@ -3884,7 +3981,7 @@ window.DEMO_DATA = {
       ]
     },
     'TZRK-20260903-009': {
-      'row': {"fields": {"customer": "上汽大众汽车有限公司宁波分公司", "project": "PRJ-2603", "appliance": "WBX-1210L 围板箱 1200×1000×970（租入-路凯）", "dest": "租入件转归还", "warehouse": "外购区 RW", "date": "2026-09-03", "result": "完好", "status": "待审核"}, "note": "2", "cells": ["上汽大众汽车有限公司宁波分公司", "PRJ-2603", "WBX-1210L 围板箱 1200×1000×970（租入-路凯）", "<span class=\"td-num\">30 只</span>", "整箱退回（租入资产，不拆散）", "<span class=\"tag tag-orange\" onclick=\"go('../租赁管理/租入归还列表.html')\" style=\"cursor:pointer\">租入件转归还</span>", "外购区 RW", "2026-09-03", "<span class=\"tag tag-green\">完好</span>", "<span class=\"tag tag-orange\">待审核</span>"], "ops": [{"t": "详情", "detail": true}, {"t": "审核", "act": "openModal('auditModal')"}]},
+      'row': {"fields": {"customer": "上汽大众汽车有限公司宁波分公司", "project": "PRJ-2603", "appliance": "WBX-1210L 围板箱 1200×1000×970（租入）", "dest": "租入件转归还", "warehouse": "外购区 RW", "date": "2026-09-03", "result": "完好", "status": "待审核"}, "note": "2", "cells": ["上汽大众汽车有限公司宁波分公司", "PRJ-2603", "WBX-1210L 围板箱 1200×1000×970（租入）", "<span class=\"td-num\">30 只</span>", "整箱退回（租入资产，不拆散）", "<span class=\"tag tag-orange\" onclick=\"go('../租赁管理/租入归还列表.html')\" style=\"cursor:pointer\">租入件转归还</span>", "外购区 RW", "2026-09-03", "<span class=\"tag tag-green\">完好</span>", "<span class=\"tag tag-orange\">待审核</span>"], "ops": [{"t": "详情", "detail": true}, {"t": "审核", "act": "openModal('auditModal')"}]},
       'title': '退租入库单详情',
       'info': [
         {
@@ -3912,7 +4009,7 @@ window.DEMO_DATA = {
         },
         {
           'label': '退租内容',
-          'text': 'WBX-1210L 围板箱 1200×1000×970（租入-路凯） × 30 只',
+          'text': 'WBX-1210L 围板箱 1200×1000×970（租入） × 30 只',
           'full': true
         },
         {
@@ -9730,9 +9827,9 @@ window.DEMO_DATA = {
       'feeCols': ['日期', '类型', '单据号', '方向数量', '结存'],
       'fees': [
         {
-          'cells': ['09-02', '组合出库', 'CK-20260824-009', '+640', '640'],
+          'cells': ['09-02', '租赁出库', 'CK-20260824-009', '+640', '640'],
           'links': {
-            2: '租赁管理/组合出库列表.html'
+            2: '租赁管理/租赁出库列表.html'
           }
         }
       ],
@@ -9743,9 +9840,9 @@ window.DEMO_DATA = {
           'url': '租赁管理/租赁单列表.html'
         },
         {
-          'role': '组合出库',
+          'role': '租赁出库',
           'name': 'CK-20260824-009 · 出库至客户',
-          'url': '租赁管理/组合出库列表.html'
+          'url': '租赁管理/租赁出库列表.html'
         },
         {
           'role': '客户虚拟仓（本仓）',
@@ -9756,7 +9853,7 @@ window.DEMO_DATA = {
       'timeline': [
         {
           't': '09-02',
-          'text': '组合出库 640 只至安吉智行 · 按客户归集记客户虚拟仓（on-hire）',
+          'text': '租赁出库 640 只至安吉智行 · 按客户归集记客户虚拟仓（on-hire）',
           'who': '张伟'
         }
       ]
@@ -10327,9 +10424,9 @@ window.DEMO_DATA = {
           'self': true
         },
         {
-          'role': '组合出库 / 租出',
+          'role': '租赁出库 / 租出',
           'name': '去向 · ZH-2601-A 组装与出租',
-          'url': '租赁管理/组合出库列表.html'
+          'url': '租赁管理/租赁出库列表.html'
         }
       ],
       'timeline': [
@@ -10665,18 +10762,18 @@ window.DEMO_DATA = {
           'cells': ['09-04', '组装入库', 'ZZ-20260904-007', '+32', '640']
         },
         {
-          'cells': ['09-03', '组合出库', 'CK-20260903-016', '-60', '608'],
+          'cells': ['09-03', '租赁出库', 'CK-20260903-016', '-60', '608'],
           'links': {
-            2: '租赁管理/组合出库列表.html'
+            2: '租赁管理/租赁出库列表.html'
           }
         },
         {
           'cells': ['09-02', '拆卸出库', 'CX-20260902-006', '-50', '668']
         },
         {
-          'cells': ['08-30', '组合出库', 'CK-20260830-015', '-180', '718'],
+          'cells': ['08-30', '租赁出库', 'CK-20260830-015', '-180', '718'],
           'links': {
-            2: '租赁管理/组合出库列表.html'
+            2: '租赁管理/租赁出库列表.html'
           }
         },
         {
@@ -10694,9 +10791,9 @@ window.DEMO_DATA = {
           'self': true
         },
         {
-          'role': '组合出库',
+          'role': '租赁出库',
           'name': '租出 · CK 系列出库',
-          'url': '租赁管理/组合出库列表.html'
+          'url': '租赁管理/租赁出库列表.html'
         }
       ],
       'timeline': [
@@ -10766,9 +10863,9 @@ window.DEMO_DATA = {
           'cells': ['08-30', '拆卸出库', 'CX-20260830-005', '-40', '820']
         },
         {
-          'cells': ['08-28', '组合出库', 'CK-20260828-010', '-200', '860'],
+          'cells': ['08-28', '租赁出库', 'CK-20260828-010', '-200', '860'],
           'links': {
-            2: '租赁管理/组合出库列表.html'
+            2: '租赁管理/租赁出库列表.html'
           }
         },
         {
@@ -10786,15 +10883,15 @@ window.DEMO_DATA = {
           'self': true
         },
         {
-          'role': '组合出库',
+          'role': '租赁出库',
           'name': '租出 · CK 系列出库',
-          'url': '租赁管理/组合出库列表.html'
+          'url': '租赁管理/租赁出库列表.html'
         }
       ],
       'timeline': [
         {
           't': '08-28',
-          'text': '组合出库 -200 · CK-20260828-010',
+          'text': '租赁出库 -200 · CK-20260828-010',
           'who': '张伟'
         },
         {
@@ -10855,9 +10952,9 @@ window.DEMO_DATA = {
       'feeCols': ['日期', '类型', '单据号', '方向数量', '结存'],
       'fees': [
         {
-          'cells': ['08-29', '组合出库', 'CK-20260829-013', '-60', '150'],
+          'cells': ['08-29', '租赁出库', 'CK-20260829-013', '-60', '150'],
           'links': {
-            2: '租赁管理/组合出库列表.html'
+            2: '租赁管理/租赁出库列表.html'
           }
         },
         {
@@ -10878,9 +10975,9 @@ window.DEMO_DATA = {
           'self': true
         },
         {
-          'role': '组合出库',
+          'role': '租赁出库',
           'name': '租出 · CK-20260829-013',
-          'url': '租赁管理/组合出库列表.html'
+          'url': '租赁管理/租赁出库列表.html'
         }
       ],
       'timeline': [
@@ -10891,7 +10988,7 @@ window.DEMO_DATA = {
         },
         {
           't': '08-29',
-          'text': '组合出库 -60 · CK-20260829-013',
+          'text': '租赁出库 -60 · CK-20260829-013',
           'who': '张伟'
         }
       ]
@@ -10941,9 +11038,9 @@ window.DEMO_DATA = {
       'feeCols': ['日期', '类型', '单据号', '方向数量', '结存'],
       'fees': [
         {
-          'cells': ['09-06', '组合出库·转租', 'CK-20260905-012', '+240', '240'],
+          'cells': ['09-06', '租赁出库·转租', 'CK-20260905-012', '+240', '240'],
           'links': {
-            2: '租赁管理/组合出库列表.html'
+            2: '租赁管理/租赁出库列表.html'
           }
         }
       ],
@@ -11017,9 +11114,9 @@ window.DEMO_DATA = {
       'feeCols': ['日期', '类型', '单据号', '方向数量', '结存'],
       'fees': [
         {
-          'cells': ['09-06', '组合出库·转租', 'CK-20260905-012', '+120', '120'],
+          'cells': ['09-06', '租赁出库·转租', 'CK-20260905-012', '+120', '120'],
           'links': {
-            2: '租赁管理/组合出库列表.html'
+            2: '租赁管理/租赁出库列表.html'
           }
         }
       ],
@@ -11093,9 +11190,9 @@ window.DEMO_DATA = {
       'feeCols': ['日期', '类型', '单据号', '方向数量', '结存'],
       'fees': [
         {
-          'cells': ['09-06', '组合出库·转租', 'CK-20260905-012', '+360', '360'],
+          'cells': ['09-06', '租赁出库·转租', 'CK-20260905-012', '+360', '360'],
           'links': {
-            2: '租赁管理/组合出库列表.html'
+            2: '租赁管理/租赁出库列表.html'
           }
         }
       ],
@@ -11651,7 +11748,7 @@ window.DEMO_DATA = {
       ]
     },
     'ZL-20260108-0031': {
-      'row': {"fields": {"project": "PRJ-2601", "customer": "一汽解放汽车有限公司", "combo": "WBX-1210L × 300 只", "src": "租入-路凯", "date": "2026-01-08", "back": "2026-08-31", "status": "超期未还"}, "cells": ["PRJ-2601", "一汽解放汽车有限公司", "WBX-1210L × 300 只", "<span class=\"tag tag-orange\">租入-路凯</span>", "<span class=\"td-num\">2026-01-08</span>", "2026-08-31", "<span class=\"td-num\">0 只</span>", "<span class=\"tag tag-red\">超期未还</span>", "—"], "ops": [{"t": "详情", "detail": true}, {"t": "退租", "act": "go('../租赁管理/退租入库列表.html')"}]},
+      'row': {"fields": {"project": "PRJ-2601", "customer": "一汽解放汽车有限公司", "combo": "WBX-1210L × 300 只", "src": "租入", "date": "2026-01-08", "back": "2026-08-31", "status": "超期未还"}, "cells": ["PRJ-2601", "一汽解放汽车有限公司", "WBX-1210L × 300 只", "<span class=\"tag tag-orange\">租入</span>", "<span class=\"td-num\">2026-01-08</span>", "2026-08-31", "<span class=\"td-num\">0 只</span>", "<span class=\"tag tag-red\">超期未还</span>", "—"], "ops": [{"t": "详情", "detail": true}, {"t": "退租", "act": "go('../租赁管理/退租入库列表.html')"}]},
       'title': '器具出租履历',
       'info': [
         {
@@ -11679,7 +11776,7 @@ window.DEMO_DATA = {
         },
         {
           'label': '资产来源',
-          'text': '租入-路凯'
+          'text': '租入'
         },
         {
           'label': '起租日期',
@@ -12122,7 +12219,7 @@ window.DEMO_DATA = {
         },
         {
           'label': '资产构成',
-          'text': '自有 2,120 + 租入-路凯 1,000',
+          'text': '自有 2,120 + 租入 1,000',
           'full': true
         }
       ],
@@ -12142,9 +12239,9 @@ window.DEMO_DATA = {
           }
         },
         {
-          'cells': ['08-24', 'CK-20260824-009', '组合出库 · ZH-2604-D × 40 套（配比含围板箱）', '租出 40 套'],
+          'cells': ['08-24', 'CK-20260824-009', '租赁出库 · ZH-2604-D × 40 套（配比含围板箱）', '租出 40 套'],
           'links': {
-            1: '租赁管理/组合出库列表.html'
+            1: '租赁管理/租赁出库列表.html'
           }
         },
         {
@@ -12567,7 +12664,7 @@ window.DEMO_DATA = {
         {
           'cells': ['09-03', 'CK-20260903-016', '循环再出租 · 退租回库件', '-60 套'],
           'links': {
-            1: '租赁管理/组合出库列表.html'
+            1: '租赁管理/租赁出库列表.html'
           }
         },
         {
@@ -12577,9 +12674,9 @@ window.DEMO_DATA = {
           }
         },
         {
-          'cells': ['08-30', 'CK-20260830-015', '组合出库 · 租出 180 套', '-180 套'],
+          'cells': ['08-30', 'CK-20260830-015', '租赁出库 · 租出 180 套', '-180 套'],
           'links': {
-            1: '租赁管理/组合出库列表.html'
+            1: '租赁管理/租赁出库列表.html'
           }
         }
       ],
@@ -12602,7 +12699,7 @@ window.DEMO_DATA = {
       'timeline': [
         {
           't': '08-30',
-          'text': '组合出库 -180',
+          'text': '租赁出库 -180',
           'who': '张伟'
         },
         {
@@ -12662,9 +12759,9 @@ window.DEMO_DATA = {
           'cells': ['08-30', 'CX-20260830-005', '拆卸出库 · 散件需求', '-40 套']
         },
         {
-          'cells': ['08-28', 'CK-20260828-010', '组合出库 · 租出 200 套', '-200 套'],
+          'cells': ['08-28', 'CK-20260828-010', '租赁出库 · 租出 200 套', '-200 套'],
           'links': {
-            1: '租赁管理/组合出库列表.html'
+            1: '租赁管理/租赁出库列表.html'
           }
         }
       ],
@@ -12687,7 +12784,7 @@ window.DEMO_DATA = {
       'timeline': [
         {
           't': '08-28',
-          'text': '组合出库 -200',
+          'text': '租赁出库 -200',
           'who': '张伟'
         },
         {
@@ -12743,9 +12840,9 @@ window.DEMO_DATA = {
       'feeCols': ['日期', '单据', '事项', '数量'],
       'fees': [
         {
-          'cells': ['08-29', 'CK-20260829-013', '组合出库 · 租出 60 套', '-60 套'],
+          'cells': ['08-29', 'CK-20260829-013', '租赁出库 · 租出 60 套', '-60 套'],
           'links': {
-            1: '租赁管理/组合出库列表.html'
+            1: '租赁管理/租赁出库列表.html'
           }
         },
         {
@@ -14719,9 +14816,9 @@ window.DEMO_DATA = {
           'url': '租赁管理/租赁单列表.html'
         },
         {
-          'role': '组合出库',
+          'role': '租赁出库',
           'name': 'CK-20260824-009',
-          'url': '租赁管理/组合出库列表.html'
+          'url': '租赁管理/租赁出库列表.html'
         },
         {
           'role': '客户虚拟仓（本仓）',
@@ -14732,7 +14829,7 @@ window.DEMO_DATA = {
       'timeline': [
         {
           't': '09-02',
-          'text': '组合出库 640 只至安吉智行 · 记客户虚拟仓（on-hire）',
+          'text': '租赁出库 640 只至安吉智行 · 记客户虚拟仓（on-hire）',
           'who': '张伟'
         },
         {
@@ -15732,7 +15829,7 @@ window.DEMO_DATA = {
    * ------------------------------------------------------------------------ */
   roles: {
     'RL-01': { 'row': {"fields": {"name": "系统管理员", "desc": "全部功能 + 系统管理", "scope": "全部项目", "accts": "2"}, "keyHtml": "<b>系统管理员</b>", "cells": ["全部功能 + 系统管理", "全部项目", "<span class=\"td-num\">2</span>"], "ops": [{"t": "权限配置", "act": "openRolePerm('系统管理员')"}]} },
-    'RL-02': { 'row': {"fields": {"name": "财务", "desc": "财务应收/应付/财务看板", "scope": "全部项目", "accts": "1"}, "keyHtml": "<b>财务</b>", "cells": ["财务应收/应付/财务看板", "全部项目", "<span class=\"td-num\">1</span>"], "ops": [{"t": "权限配置", "act": "openRolePerm('财务')"}]} },
+    'RL-02': { 'row': {"fields": {"name": "财务", "desc": "财务管理（应收/应付/财务看板）", "scope": "全部项目", "accts": "1"}, "keyHtml": "<b>财务</b>", "cells": ["财务管理（应收/应付/财务看板）", "全部项目", "<span class=\"td-num\">1</span>"], "ops": [{"t": "权限配置", "act": "openRolePerm('财务')"}]} },
     'RL-03': { 'row': {"fields": {"name": "财务主管", "desc": "财务全模块 + 付款/回款确认审核", "scope": "全部项目", "accts": "1"}, "keyHtml": "<b>财务主管</b>", "cells": ["财务全模块 + 付款/回款确认审核", "全部项目", "<span class=\"td-num\">1</span>"], "ops": [{"t": "权限配置", "act": "openRolePerm('财务主管')"}]} },
     'RL-04': { 'row': {"fields": {"name": "商务", "desc": "订单/租赁全流程", "scope": "全部项目", "accts": "2"}, "keyHtml": "<b>商务</b>", "cells": ["订单/租赁全流程", "全部项目", "<span class=\"td-num\">2</span>"], "ops": [{"t": "权限配置", "act": "openRolePerm('商务')"}]} },
     'RL-05': { 'row': {"fields": {"name": "商务主管", "desc": "订单/租赁全流程 + 单据审核", "scope": "全部项目", "accts": "1"}, "keyHtml": "<b>商务主管</b>", "cells": ["订单/租赁全流程 + 单据审核", "全部项目", "<span class=\"td-num\">1</span>"], "ops": [{"t": "权限配置", "act": "openRolePerm('商务主管')"}]} },
@@ -15749,14 +15846,14 @@ window.DEMO_DATA = {
   opLogs: {
     'LOG-20260910-0912': { 'row': {"fields": {"user": "admin", "module": "系统管理", "opType": "登录", "time": "2026-09-10 09:12:05", "summary": "用户 admin 登录系统"}, "cells": ["2026-09-10 09:12:05", "admin", "系统管理", "<span class=\"tag tag-gray\">登录</span>", "用户 admin 登录系统", "10.8.*.*", "<span class=\"tag tag-green\">成功</span>"]} },
     'LOG-20260910-0910': { 'row': {"fields": {"user": "王强", "module": "项目管理", "opType": "新增", "time": "2026-09-10 09:02:41", "summary": "新增项目档案 PRJ-2605（一汽解放·蔚山基地围板箱租赁扩建）"}, "cells": ["2026-09-10 09:02:41", "王强", "项目管理", "<span class=\"tag tag-blue\">新增</span>", "新增项目档案 PRJ-2605（一汽解放·蔚山基地围板箱租赁扩建）", "10.8.*.*", "<span class=\"tag tag-green\">成功</span>"]} },
-    'LOG-20260910-0908': { 'row': {"fields": {"user": "陈金", "module": "基础资料", "opType": "编辑", "time": "2026-09-10 08:47:19", "summary": "编辑 BOM ZH-2602-B 子项配比（锁扣 2→4）"}, "cells": ["2026-09-10 08:47:19", "陈金", "基础资料", "<span class=\"tag tag-blue\">编辑</span>", "编辑 BOM ZH-2602-B 子项配比（锁扣 2→4）", "192.168.*.*", "<span class=\"tag tag-green\">成功</span>"]} },
-    'LOG-20260909-0906': { 'row': {"fields": {"user": "李静", "module": "财务应收", "opType": "审核", "time": "2026-09-09 17:36:02", "summary": "审核通过应收账单 AR-20260907-0031（PRJ-2602 · 8 月租金）"}, "cells": ["2026-09-09 17:36:02", "李静", "财务应收", "<span class=\"tag tag-orange\">审核</span>", "审核通过应收账单 AR-20260907-0031（PRJ-2602 · 8 月租金）", "192.168.*.*", "<span class=\"tag tag-green\">成功</span>"]} },
-    'LOG-20260909-0903': { 'row': {"fields": {"user": "李国栋", "module": "仓储作业", "opType": "新增", "time": "2026-09-09 16:20:44", "summary": "新建其他入库单 QT-20260909-002（华东中心仓 · 托盘余量回库 40 张）"}, "cells": ["2026-09-09 16:20:44", "李国栋", "仓储作业", "<span class=\"tag tag-blue\">新增</span>", "新建其他入库单 QT-20260909-002（华东中心仓 · 托盘余量回库 40 张）", "10.8.*.*", "<span class=\"tag tag-green\">成功</span>"]} },
-    'LOG-20260909-0899': { 'row': {"fields": {"user": "袁明（客户账号）", "module": "订单管理", "opType": "新增", "time": "2026-09-09 14:05:37", "summary": "提交销售订单 SO-20260909-0045（ZH-2601-A × 160 套）"}, "cells": ["2026-09-09 14:05:37", "袁明（客户账号）", "订单管理", "<span class=\"tag tag-blue\">新增</span>", "提交销售订单 SO-20260909-0045（ZH-2601-A × 160 套）", "112.18.*.*", "<span class=\"tag tag-green\">成功</span>"]} },
-    'LOG-20260909-0895': { 'row': {"fields": {"user": "王强", "module": "包装管理", "opType": "审核", "time": "2026-09-09 11:42:10", "summary": "审核通过租赁单 LZ-20260908-012（一汽解放 · 围板箱续租 200 只）"}, "cells": ["2026-09-09 11:42:10", "王强", "包装管理", "<span class=\"tag tag-orange\">审核</span>", "审核通过租赁单 LZ-20260908-012（一汽解放 · 围板箱续租 200 只）", "10.8.*.*", "<span class=\"tag tag-green\">成功</span>"]} },
-    'LOG-20260908-0890': { 'row': {"fields": {"user": "李静", "module": "财务应收", "opType": "删除", "time": "2026-09-08 16:55:23", "summary": "删除应收账单 AR-20260831-0028 失败（该账单已核销，不可删除）"}, "cells": ["2026-09-08 16:55:23", "李静", "财务应收", "<span class=\"tag tag-red\">删除</span>", "删除应收账单 AR-20260831-0028 失败（该账单已核销，不可删除）", "192.168.*.*", "<span class=\"tag tag-red\">失败</span>"]} },
-    'LOG-20260908-0887': { 'row': {"fields": {"user": "陈金", "module": "基础资料", "opType": "新增", "time": "2026-09-08 15:30:08", "summary": "新增客商档案（东风锂电科技 · 客户）"}, "cells": ["2026-09-08 15:30:08", "陈金", "基础资料", "<span class=\"tag tag-blue\">新增</span>", "新增客商档案（东风锂电科技 · 客户）", "10.8.*.*", "<span class=\"tag tag-green\">成功</span>"]} },
-    'LOG-20260908-0881': { 'row': {"fields": {"user": "路凯对接（供应商账号）", "module": "仓储作业", "opType": "编辑", "time": "2026-09-08 10:18:44", "summary": "回执租入库单 RZ-20260905-004 发货明细（围板箱 300 只）"}, "cells": ["2026-09-08 10:18:44", "路凯对接（供应商账号）", "仓储作业", "<span class=\"tag tag-blue\">编辑</span>", "回执租入库单 RZ-20260905-004 发货明细（围板箱 300 只）", "58.34.*.*", "<span class=\"tag tag-green\">成功</span>"]} },
+    'LOG-20260910-0908': { 'row': {"fields": {"user": "陈金", "module": "基础数据", "opType": "编辑", "time": "2026-09-10 08:47:19", "summary": "编辑 BOM ZH-2602-B 子项配比（锁扣 2→4）"}, "cells": ["2026-09-10 08:47:19", "陈金", "基础数据", "<span class=\"tag tag-blue\">编辑</span>", "编辑 BOM ZH-2602-B 子项配比（锁扣 2→4）", "192.168.*.*", "<span class=\"tag tag-green\">成功</span>"]} },
+    'LOG-20260909-0906': { 'row': {"fields": {"user": "李静", "module": "财务管理", "opType": "审核", "time": "2026-09-09 17:36:02", "summary": "审核通过应收账单 AR-20260907-0031（PRJ-2602 · 8 月租金）"}, "cells": ["2026-09-09 17:36:02", "李静", "财务管理", "<span class=\"tag tag-orange\">审核</span>", "审核通过应收账单 AR-20260907-0031（PRJ-2602 · 8 月租金）", "192.168.*.*", "<span class=\"tag tag-green\">成功</span>"]} },
+    'LOG-20260909-0903': { 'row': {"fields": {"user": "李国栋", "module": "仓储管理", "opType": "新增", "time": "2026-09-09 16:20:44", "summary": "新建其他入库单 QT-20260909-002（华东中心仓 · 托盘余量回库 40 张）"}, "cells": ["2026-09-09 16:20:44", "李国栋", "仓储管理", "<span class=\"tag tag-blue\">新增</span>", "新建其他入库单 QT-20260909-002（华东中心仓 · 托盘余量回库 40 张）", "10.8.*.*", "<span class=\"tag tag-green\">成功</span>"]} },
+    'LOG-20260909-0899': { 'row': {"fields": {"user": "袁明（客户账号）", "module": "销售管理", "opType": "新增", "time": "2026-09-09 14:05:37", "summary": "提交销售订单 SO-20260909-0045（ZH-2601-A × 160 套）"}, "cells": ["2026-09-09 14:05:37", "袁明（客户账号）", "销售管理", "<span class=\"tag tag-blue\">新增</span>", "提交销售订单 SO-20260909-0045（ZH-2601-A × 160 套）", "112.18.*.*", "<span class=\"tag tag-green\">成功</span>"]} },
+    'LOG-20260909-0895': { 'row': {"fields": {"user": "王强", "module": "租赁管理", "opType": "审核", "time": "2026-09-09 11:42:10", "summary": "审核通过租赁单 LZ-20260908-012（一汽解放 · 围板箱续租 200 只）"}, "cells": ["2026-09-09 11:42:10", "王强", "租赁管理", "<span class=\"tag tag-orange\">审核</span>", "审核通过租赁单 LZ-20260908-012（一汽解放 · 围板箱续租 200 只）", "10.8.*.*", "<span class=\"tag tag-green\">成功</span>"]} },
+    'LOG-20260908-0890': { 'row': {"fields": {"user": "李静", "module": "财务管理", "opType": "删除", "time": "2026-09-08 16:55:23", "summary": "删除应收账单 AR-20260831-0028 失败（该账单已核销，不可删除）"}, "cells": ["2026-09-08 16:55:23", "李静", "财务管理", "<span class=\"tag tag-red\">删除</span>", "删除应收账单 AR-20260831-0028 失败（该账单已核销，不可删除）", "192.168.*.*", "<span class=\"tag tag-red\">失败</span>"]} },
+    'LOG-20260908-0887': { 'row': {"fields": {"user": "陈金", "module": "基础数据", "opType": "新增", "time": "2026-09-08 15:30:08", "summary": "新增客商档案（东风锂电科技 · 客户）"}, "cells": ["2026-09-08 15:30:08", "陈金", "基础数据", "<span class=\"tag tag-blue\">新增</span>", "新增客商档案（东风锂电科技 · 客户）", "10.8.*.*", "<span class=\"tag tag-green\">成功</span>"]} },
+    'LOG-20260908-0881': { 'row': {"fields": {"user": "路凯对接（供应商账号）", "module": "仓储管理", "opType": "编辑", "time": "2026-09-08 10:18:44", "summary": "回执租入库单 RZ-20260905-004 发货明细（围板箱 300 只）"}, "cells": ["2026-09-08 10:18:44", "路凯对接（供应商账号）", "仓储管理", "<span class=\"tag tag-blue\">编辑</span>", "回执租入库单 RZ-20260905-004 发货明细（围板箱 300 只）", "58.34.*.*", "<span class=\"tag tag-green\">成功</span>"]} },
     'LOG-20260907-0876': { 'row': {"fields": {"user": "王琳", "module": "项目管理", "opType": "新增", "time": "2026-09-07 09:50:31", "summary": "提交销售订单 SO-20260907-0044（ZH-2603-C × 80 套）"}, "cells": ["2026-09-07 09:50:31", "王琳", "项目管理", "<span class=\"tag tag-blue\">新增</span>", "提交销售订单 SO-20260907-0044（ZH-2603-C × 80 套）", "10.8.*.*", "<span class=\"tag tag-green\">成功</span>"]} },
     'LOG-20260906-0870': { 'row': {"fields": {"user": "admin", "module": "系统管理", "opType": "编辑", "time": "2026-09-06 17:22:15", "summary": "调整用户权限（赵磊 · 停用账号）"}, "cells": ["2026-09-06 17:22:15", "admin", "系统管理", "<span class=\"tag tag-blue\">编辑</span>", "调整用户权限（赵磊 · 停用账号）", "10.8.*.*", "<span class=\"tag tag-green\">成功</span>"]} },
   },
@@ -15815,7 +15912,7 @@ window.DEMO_DATA = {
     'LX-01': { 'row': {"fields": {"category": "单据类型", "abbr": "SO", "name": "销售订单", "status": "启用"}, "cells": ["SO", "销售订单", "<span class=\"td-num\">1</span>", "项目经理代下单", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
     'LX-02': { 'row': {"fields": {"category": "单据类型", "abbr": "PO", "name": "采购订单", "status": "启用"}, "cells": ["PO", "采购订单", "<span class=\"td-num\">2</span>", "自购器具采购", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
     'LX-03': { 'row': {"fields": {"category": "单据类型", "abbr": "LZ", "name": "租赁单", "status": "启用"}, "cells": ["LZ", "租赁单", "<span class=\"td-num\">3</span>", "客户租赁主单", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
-    'LX-04': { 'row': {"fields": {"category": "单据类型", "abbr": "CK", "name": "组合出库单", "status": "启用"}, "cells": ["CK", "组合出库单", "<span class=\"td-num\">4</span>", "租赁组合出库", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
+    'LX-04': { 'row': {"fields": {"category": "单据类型", "abbr": "CK", "name": "租赁出库单", "status": "启用"}, "cells": ["CK", "租赁出库单", "<span class=\"td-num\">4</span>", "租赁租赁出库", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
     'LX-05': { 'row': {"fields": {"category": "单据类型", "abbr": "TK", "name": "退租入库单", "status": "启用"}, "cells": ["TK", "退租入库单", "<span class=\"td-num\">5</span>", "客户退租入库", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
     'LX-06': { 'row': {"fields": {"category": "单据类型", "abbr": "RZ", "name": "租入单", "status": "启用"}, "cells": ["RZ", "租入单", "<span class=\"td-num\">6</span>", "向供应商租入", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
     'XH-01': { 'row': {"fields": {"category": "循环状态", "abbr": "ZK", "name": "在库", "status": "启用"}, "cells": ["ZK", "在库", "<span class=\"td-num\">1</span>", "库存待租", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
@@ -15844,7 +15941,7 @@ window.DEMO_DATA = {
     'SO-20260910-0047': { 'row': {"fields": {"auditor": "王琳", "type": "销售订单", "docNo": "SO-20260910-0047", "summary": "一汽解放 · 驾驶室围板箱 160 套", "project": "PRJ-2601", "submitter": "王琳", "time": "09-10 09:20", "action": "待审核"}}, 'link': '销售管理/销售订单列表.html?audit=1' },
     'PO-20260910-019': { 'row': {"fields": {"auditor": "徐蔚", "type": "采购订单", "docNo": "PO-20260910-019", "summary": "华塑包装 · 围板箱 120 只", "project": "PRJ-2601", "submitter": "李国栋", "time": "09-10 08:55", "action": "待审核"}}, 'link': '采购管理/采购订单列表.html?audit=1' },
     'LZ-20260909-012': { 'row': {"fields": {"auditor": "王琳", "type": "租赁单", "docNo": "LZ-20260909-012", "summary": "一汽解放 · 围板箱续租 200 只", "project": "PRJ-2601", "submitter": "王琳", "time": "09-09 15:40", "action": "待审核"}}, 'link': '租赁管理/租赁单列表.html?audit=1' },
-    'CK-20260909-021': { 'row': {"fields": {"auditor": "陈金", "type": "销售出库", "docNo": "CK-20260909-021", "summary": "组合出库 · 驾驶室围板箱 160 套", "project": "PRJ-2601", "submitter": "陈金", "time": "09-09 14:05", "action": "待审核"}}, 'link': '销售管理/销售出库列表.html?audit=1' },
+    'CK-20260909-021': { 'row': {"fields": {"auditor": "陈金", "type": "销售出库", "docNo": "CK-20260909-021", "summary": "租赁出库 · 驾驶室围板箱 160 套", "project": "PRJ-2601", "submitter": "陈金", "time": "09-09 14:05", "action": "待审核"}}, 'link': '销售管理/销售出库列表.html?audit=1' },
     'TK-20260908-006': { 'row': {"fields": {"auditor": "袁明", "type": "退租入库", "docNo": "TK-20260908-006", "summary": "一汽解放 · 退租围板箱 86 只（含缺损 3 只）", "project": "PRJ-2601", "submitter": "袁明", "time": "09-08 16:30", "action": "待审核"}}, 'link': '租赁管理/退租入库列表.html?audit=1' },
     'PD-20260907-003': { 'row': {"fields": {"auditor": "李国栋", "type": "盘点", "docNo": "PD-20260907-003", "summary": "华东中心仓 9 月初盘点（差异 5 只）", "project": "华东中心仓", "submitter": "李国栋", "time": "09-07 10:12", "action": "待审核"}}, 'link': '仓储作业/盘点列表.html?audit=1' },
     'RK-20260906-014': { 'row': {"fields": {"auditor": "袁丽晶", "type": "采购入库", "docNo": "RK-20260906-014", "summary": "华塑包装 · 围板箱到货 200 只", "project": "PRJ-2601", "submitter": "李国栋", "time": "09-06 09:45", "action": "待验收"}}, 'link': '采购管理/采购入库列表.html?audit=1' },
@@ -15856,6 +15953,7 @@ window.DEMO_DATA = {
     'QTCK-20260904-003': { 'row': {"fields": {"auditor": "李国栋", "type": "其他出库", "docNo": "QTCK-20260904-003", "summary": "华东中心仓 · 报废隔板 12 块", "project": "华东中心仓", "submitter": "赵磊", "time": "09-04 10:05", "action": "待审核"}}, 'link': '仓储作业/其他出库列表.html?audit=1' },
     'DB-20260906-008': { 'row': {"fields": {"auditor": "李国栋", "type": "库存调拨", "docNo": "DB-20260906-008", "summary": "华东中心仓→华南中心仓 · 围板箱 50 只", "project": "华东中心仓", "submitter": "赵磊", "time": "09-06 11:40", "action": "待审核"}}, 'link': '仓储作业/库存调拨列表.html?audit=1' },
     'RZD-20260909-010': { 'row': {"fields": {"auditor": "王强", "type": "租入单", "docNo": "RZD-20260909-010", "summary": "路凯 · 大箱租入 40 只（月租）", "project": "PRJ-2603", "submitter": "王强", "time": "09-09 09:50", "action": "待审核"}}, 'link': '租赁管理/租入单列表.html?audit=1' },
+    'CK-20260910-022': { 'row': {"fields": {"auditor": "李国栋", "type": "租赁出库", "docNo": "CK-20260910-022", "summary": "上汽大众宁波 · 围板箱套件 30 套", "project": "PRJ-2603", "submitter": "赵磊", "time": "09-10 15:20", "action": "待审核"}}, 'link': '租赁管理/租赁出库列表.html?audit=1' },
   },
 
   /* --------------------------------------------------------------------------
@@ -15878,9 +15976,9 @@ window.DEMO_DATA = {
  *   fields: type/summary/qty/status/date/ref；stab=单据类型（全部单据/租赁出库单/退租入库单/采购入库单/销售订单/应收账单）
  * ------------------------------------------------------------------------ */
   projectDocs: {
-    'CK-20260828-012': { 'row': {"fields": {"type": "租赁出库单", "summary": "ZH-2601-A 驾驶室围板箱整箱套件", "qty": "180 套", "status": "已出库", "date": "2026-08-28", "ref": "SO-20260827-0036"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../租赁管理/组合出库列表.html')\">CK-20260828-012</span>", "cells": ["ZH-2601-A 驾驶室围板箱整箱套件", "<span class=\"td-num\">180 套</span>", "<span class=\"tag tag-green\">已出库</span>", "2026-08-28", "SO-20260827-0036"], "ops": [{"t": "查看单据", "act": "go('../租赁管理/组合出库列表.html')"}]} },
-    'CK-20260822-010': { 'row': {"fields": {"type": "租赁出库单", "summary": "ZH-2601-A 驾驶室围板箱整箱套件", "qty": "120 套", "status": "已出库", "date": "2026-08-22", "ref": "SO-20260820-0033"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../租赁管理/组合出库列表.html')\">CK-20260822-010</span>", "cells": ["ZH-2601-A 驾驶室围板箱整箱套件", "<span class=\"td-num\">120 套</span>", "<span class=\"tag tag-green\">已出库</span>", "2026-08-22", "SO-20260820-0033"], "ops": [{"t": "查看单据", "act": "go('../租赁管理/组合出库列表.html')"}]} },
-    'CK-20260815-008': { 'row': {"fields": {"type": "租赁出库单", "summary": "ZH-2602-B 保险杠料架套件", "qty": "90 套", "status": "已出库", "date": "2026-08-15", "ref": "SO-20260813-0031"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../租赁管理/组合出库列表.html')\">CK-20260815-008</span>", "cells": ["ZH-2602-B 保险杠料架套件", "<span class=\"td-num\">90 套</span>", "<span class=\"tag tag-green\">已出库</span>", "2026-08-15", "SO-20260813-0031"], "ops": [{"t": "查看单据", "act": "go('../租赁管理/组合出库列表.html')"}]} },
+    'CK-20260828-012': { 'row': {"fields": {"type": "租赁出库单", "summary": "ZH-2601-A 驾驶室围板箱整箱套件", "qty": "180 套", "status": "已出库", "date": "2026-08-28", "ref": "SO-20260827-0036"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../租赁管理/租赁出库列表.html')\">CK-20260828-012</span>", "cells": ["ZH-2601-A 驾驶室围板箱整箱套件", "<span class=\"td-num\">180 套</span>", "<span class=\"tag tag-green\">已出库</span>", "2026-08-28", "SO-20260827-0036"], "ops": [{"t": "查看单据", "act": "go('../租赁管理/租赁出库列表.html')"}]} },
+    'CK-20260822-010': { 'row': {"fields": {"type": "租赁出库单", "summary": "ZH-2601-A 驾驶室围板箱整箱套件", "qty": "120 套", "status": "已出库", "date": "2026-08-22", "ref": "SO-20260820-0033"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../租赁管理/租赁出库列表.html')\">CK-20260822-010</span>", "cells": ["ZH-2601-A 驾驶室围板箱整箱套件", "<span class=\"td-num\">120 套</span>", "<span class=\"tag tag-green\">已出库</span>", "2026-08-22", "SO-20260820-0033"], "ops": [{"t": "查看单据", "act": "go('../租赁管理/租赁出库列表.html')"}]} },
+    'CK-20260815-008': { 'row': {"fields": {"type": "租赁出库单", "summary": "ZH-2602-B 保险杠料架套件", "qty": "90 套", "status": "已出库", "date": "2026-08-15", "ref": "SO-20260813-0031"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../租赁管理/租赁出库列表.html')\">CK-20260815-008</span>", "cells": ["ZH-2602-B 保险杠料架套件", "<span class=\"td-num\">90 套</span>", "<span class=\"tag tag-green\">已出库</span>", "2026-08-15", "SO-20260813-0031"], "ops": [{"t": "查看单据", "act": "go('../租赁管理/租赁出库列表.html')"}]} },
     'TK-20260830-005': { 'row': {"fields": {"type": "退租入库单", "summary": "一汽解放 · 退租围板箱 86 只（缺损 3 只）", "qty": "86 只", "status": "已入库", "date": "2026-08-30", "ref": "CK-20260828-012"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../租赁管理/退租入库列表.html')\">TK-20260830-005</span>", "cells": ["一汽解放 · 退租围板箱 86 只（缺损 3 只）", "<span class=\"td-num\">86 只</span>", "<span class=\"tag tag-green\">已入库</span>", "2026-08-30", "CK-20260828-012"], "ops": [{"t": "查看单据", "act": "go('../租赁管理/退租入库列表.html')"}]} },
     'TK-20260818-003': { 'row': {"fields": {"type": "退租入库单", "summary": "一汽解放 · 退租保险杠料架 54 套", "qty": "54 套", "status": "已入库", "date": "2026-08-18", "ref": "CK-20260815-008"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../租赁管理/退租入库列表.html')\">TK-20260818-003</span>", "cells": ["一汽解放 · 退租保险杠料架 54 套", "<span class=\"td-num\">54 套</span>", "<span class=\"tag tag-green\">已入库</span>", "2026-08-18", "CK-20260815-008"], "ops": [{"t": "查看单据", "act": "go('../租赁管理/退租入库列表.html')"}]} },
     'RK-20260826-016': { 'row': {"fields": {"type": "采购入库单", "summary": "华塑包装 · 围板箱到货", "qty": "200 只", "status": "已入库", "date": "2026-08-26", "ref": "PO-20260824-016"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../采购管理/采购入库列表.html')\">RK-20260826-016</span>", "cells": ["华塑包装 · 围板箱到货", "<span class=\"td-num\">200 只</span>", "<span class=\"tag tag-green\">已入库</span>", "2026-08-26", "PO-20260824-016"], "ops": [{"t": "查看单据", "act": "go('../采购管理/采购入库列表.html')"}]} },
@@ -15922,10 +16020,10 @@ window.DEMO_DATA = {
  *   fields: name/ver/status/mix/updater/update 供筛选（父项编码/名称/版本/状态/更新时间区间）
  * ------------------------------------------------------------------------ */
   bomList: {
-    'ZH-2601-A': { 'row': {"fields": {"name": "驾驶室围板箱整箱套件", "ver": "V2.1", "status": "启用", "mix": "围板箱×1（租入-路凯）+ 围板×4（自购）+ 箱盖×1（自购）+ 锁扣×4（自购）+ 铰链×2（自购）", "updater": "陈金", "update": "2026-08-20"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../基础数据/BOM维护.html')\">ZH-2601-A</span>", "cells": ["驾驶室围板箱整箱套件", "<span class=\"tag tag-green\">启用</span>", "<span class=\"td-num\">5</span>", "围板箱×1（租入-路凯）+ 围板×4（自购）+ 箱盖×1（自购）+ 锁扣×4（自购）+ 铰链×2（自购）", "陈金", "2026-08-20"], "ops": [{"t": "维护", "act": "go('../基础数据/BOM维护.html')"}, {"t": "查看", "act": "go('../基础数据/BOM维护.html')"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
-    'ZH-2602-B': { 'row': {"fields": {"name": "保险杠料架套件", "ver": "V1.3", "status": "启用", "mix": "料架×1（租入-路凯）+ 支撑臂×2（自购）+ 锁扣×2（自购）", "updater": "陈金", "update": "2026-07-14"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../基础数据/BOM维护.html')\">ZH-2602-B</span>", "cells": ["保险杠料架套件", "<span class=\"tag tag-green\">启用</span>", "<span class=\"td-num\">4</span>", "料架×1（租入-路凯）+ 支撑臂×2（自购）+ 锁扣×2（自购）", "陈金", "2026-07-14"], "ops": [{"t": "维护", "act": "go('../基础数据/BOM维护.html')"}, {"t": "查看", "act": "go('../基础数据/BOM维护.html')"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
-    'ZH-2603-C': { 'row': {"fields": {"name": "电池包周转箱套件", "ver": "V1.0", "status": "启用", "mix": "周转箱×1（租入-路凯）+ 内衬×4（自购）+ 绑带×2（自购）+ 锁扣×4（自购）+ 铰链×2（自购）+ 标签×1（自购）", "updater": "王琳", "update": "2026-06-30"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../基础数据/BOM维护.html')\">ZH-2603-C</span>", "cells": ["电池包周转箱套件", "<span class=\"tag tag-green\">启用</span>", "<span class=\"td-num\">6</span>", "周转箱×1（租入-路凯）+ 内衬×4（自购）+ 绑带×2（自购）+ 锁扣×4（自购）+ 铰链×2（自购）+ 标签×1（自购）", "王琳", "2026-06-30"], "ops": [{"t": "维护", "act": "go('../基础数据/BOM维护.html')"}, {"t": "查看", "act": "go('../基础数据/BOM维护.html')"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
-    'ZT-2201': { 'row': {"fields": {"name": "座椅周转箱套件", "ver": "V1.0", "status": "启用", "mix": "周转箱×1（租入-路凯）+ 隔板×2（自购）", "updater": "陈金", "update": "2026-05-18"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../基础数据/BOM维护.html')\">ZT-2201</span>", "cells": ["座椅周转箱套件", "<span class=\"tag tag-green\">启用</span>", "<span class=\"td-num\">3</span>", "周转箱×1（租入-路凯）+ 隔板×2（自购）", "陈金", "2026-05-18"], "ops": [{"t": "维护", "act": "go('../基础数据/BOM维护.html')"}, {"t": "查看", "act": "go('../基础数据/BOM维护.html')"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
+    'ZH-2601-A': { 'row': {"fields": {"name": "驾驶室围板箱整箱套件", "ver": "V2.1", "status": "启用", "mix": "围板箱×1（租入）+ 围板×4（自购）+ 箱盖×1（自购）+ 锁扣×4（自购）+ 铰链×2（自购）", "updater": "陈金", "update": "2026-08-20"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../基础数据/BOM维护.html')\">ZH-2601-A</span>", "cells": ["驾驶室围板箱整箱套件", "<span class=\"tag tag-green\">启用</span>", "<span class=\"td-num\">5</span>", "围板箱×1（租入）+ 围板×4（自购）+ 箱盖×1（自购）+ 锁扣×4（自购）+ 铰链×2（自购）", "陈金", "2026-08-20"], "ops": [{"t": "维护", "act": "go('../基础数据/BOM维护.html')"}, {"t": "查看", "act": "go('../基础数据/BOM维护.html')"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
+    'ZH-2602-B': { 'row': {"fields": {"name": "保险杠料架套件", "ver": "V1.3", "status": "启用", "mix": "料架×1（租入）+ 支撑臂×2（自购）+ 锁扣×2（自购）", "updater": "陈金", "update": "2026-07-14"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../基础数据/BOM维护.html')\">ZH-2602-B</span>", "cells": ["保险杠料架套件", "<span class=\"tag tag-green\">启用</span>", "<span class=\"td-num\">4</span>", "料架×1（租入）+ 支撑臂×2（自购）+ 锁扣×2（自购）", "陈金", "2026-07-14"], "ops": [{"t": "维护", "act": "go('../基础数据/BOM维护.html')"}, {"t": "查看", "act": "go('../基础数据/BOM维护.html')"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
+    'ZH-2603-C': { 'row': {"fields": {"name": "电池包周转箱套件", "ver": "V1.0", "status": "启用", "mix": "周转箱×1（租入）+ 内衬×4（自购）+ 绑带×2（自购）+ 锁扣×4（自购）+ 铰链×2（自购）+ 标签×1（自购）", "updater": "王琳", "update": "2026-06-30"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../基础数据/BOM维护.html')\">ZH-2603-C</span>", "cells": ["电池包周转箱套件", "<span class=\"tag tag-green\">启用</span>", "<span class=\"td-num\">6</span>", "周转箱×1（租入）+ 内衬×4（自购）+ 绑带×2（自购）+ 锁扣×4（自购）+ 铰链×2（自购）+ 标签×1（自购）", "王琳", "2026-06-30"], "ops": [{"t": "维护", "act": "go('../基础数据/BOM维护.html')"}, {"t": "查看", "act": "go('../基础数据/BOM维护.html')"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
+    'ZT-2201': { 'row': {"fields": {"name": "座椅周转箱套件", "ver": "V1.0", "status": "启用", "mix": "周转箱×1（租入）+ 隔板×2（自购）", "updater": "陈金", "update": "2026-05-18"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../基础数据/BOM维护.html')\">ZT-2201</span>", "cells": ["座椅周转箱套件", "<span class=\"tag tag-green\">启用</span>", "<span class=\"td-num\">3</span>", "周转箱×1（租入）+ 隔板×2（自购）", "陈金", "2026-05-18"], "ops": [{"t": "维护", "act": "go('../基础数据/BOM维护.html')"}, {"t": "查看", "act": "go('../基础数据/BOM维护.html')"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
     'JP-3105': { 'row': {"fields": {"name": "仪表板周转架套件", "ver": "V1.3", "status": "启用", "mix": "周转架×1（自购）+ 支撑×2（自购）+ 锁扣×1（自购）", "updater": "陈金", "update": "2026-04-22"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../基础数据/BOM维护.html')\">JP-3105</span>", "cells": ["仪表板周转架套件", "<span class=\"tag tag-green\">启用</span>", "<span class=\"td-num\">4</span>", "周转架×1（自购）+ 支撑×2（自购）+ 锁扣×1（自购）", "陈金", "2026-04-22"], "ops": [{"t": "维护", "act": "go('../基础数据/BOM维护.html')"}, {"t": "查看", "act": "go('../基础数据/BOM维护.html')"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
     'WBX-1210L': { 'row': {"fields": {"name": "围板箱 1200×1000×970（单件）", "ver": "V1.0", "status": "停用", "mix": "—（单件器具，无子项组合）", "updater": "陈金", "update": "2026-03-02"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../基础数据/BOM维护.html')\">WBX-1210L</span>", "cells": ["围板箱 1200×1000×970（单件）", "<span class=\"tag tag-gray\">停用</span>", "<span class=\"td-num\">0</span>", "—（单件器具，无子项组合）", "陈金", "2026-03-02"], "ops": [{"t": "维护", "act": "go('../基础数据/BOM维护.html')"}, {"t": "查看", "act": "go('../基础数据/BOM维护.html')"}, {"t": "停用", "act": "openModal('stopModal')"}]} },  },
   productTaxes: {

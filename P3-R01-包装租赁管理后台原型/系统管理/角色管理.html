@@ -295,7 +295,7 @@ th.td-num { text-align:right; }
    <ul class="sm-sub">
    <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">租赁</li>
    <li><div class="sm-link" onclick="go('../租赁管理/租赁单列表.html')">租赁单</div></li>
-   <li><div class="sm-link" onclick="go('../租赁管理/组合出库列表.html')">租赁出库</div></li>
+   <li><div class="sm-link" onclick="go('../租赁管理/租赁出库列表.html')">租赁出库</div></li>
    <li><div class="sm-link" onclick="go('../租赁管理/退租入库列表.html')">退租入库</div></li>
          <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">租入</li>
    <li><div class="sm-link" onclick="go('../租赁管理/租入单列表.html')">租入单</div></li>
@@ -375,7 +375,7 @@ th.td-num { text-align:right; }
       <thead><tr><th>角色</th><th>备注</th><th>数据权限</th><th>账号数</th><th class="sticky-op">操作</th></tr></thead>
       <tbody>
             <tr><td><b>系统管理员</b></td><td>全部功能 + 系统管理</td><td>全部项目</td><td><span class="td-num">2</span></td><td class="sticky-op"><span class="ops"><a onclick="openRolePerm('系统管理员')">权限配置</a></span></td></tr>
-            <tr><td><b>财务</b></td><td>财务应收/应付/财务看板</td><td>全部项目</td><td><span class="td-num">1</span></td><td class="sticky-op"><span class="ops"><a onclick="openRolePerm('财务')">权限配置</a></span></td></tr>
+            <tr><td><b>财务</b></td><td>财务管理（应收/应付/财务看板）</td><td>全部项目</td><td><span class="td-num">1</span></td><td class="sticky-op"><span class="ops"><a onclick="openRolePerm('财务')">权限配置</a></span></td></tr>
             <tr><td><b>财务主管</b></td><td>财务全模块 + 付款/回款确认审核</td><td>全部项目</td><td><span class="td-num">1</span></td><td class="sticky-op"><span class="ops"><a onclick="openRolePerm('财务主管')">权限配置</a></span></td></tr>
             <tr><td><b>商务</b></td><td>订单/租赁全流程</td><td>全部项目</td><td><span class="td-num">2</span></td><td class="sticky-op"><span class="ops"><a onclick="openRolePerm('商务')">权限配置</a></span></td></tr>
             <tr><td><b>商务主管</b></td><td>订单/租赁全流程 + 单据审核</td><td>全部项目</td><td><span class="td-num">1</span></td><td class="sticky-op"><span class="ops"><a onclick="openRolePerm('商务主管')">权限配置</a></span></td></tr>
@@ -500,7 +500,7 @@ th.td-num { text-align:right; }
 <script>
 window.ROLE_PERM = {
   '系统管理员': { desc:'全部功能 + 系统管理', accts:'2', scope:'全部项目', perms:['项目管理','我的待办','基础资料','采购管理','销售管理','租赁管理','仓储管理','财务管理','系统管理'] },
-  '财务': { desc:'财务应收/应付/财务看板', accts:'1', scope:'全部项目', perms:['我的待办','财务管理'] },
+  '财务': { desc:'财务管理（应收/应付/财务看板）', accts:'1', scope:'全部项目', perms:['我的待办','财务管理'] },
   '财务主管': { desc:'财务全模块 + 付款/回款确认审核', accts:'1', scope:'全部项目', perms:['我的待办','财务管理'] },
   '商务': { desc:'订单/租赁全流程', accts:'2', scope:'全部项目', perms:['我的待办','基础资料','采购管理','销售管理','租赁管理'] },
   '商务主管': { desc:'订单/租赁全流程 + 单据审核', accts:'1', scope:'全部项目', perms:['我的待办','基础资料','采购管理','销售管理','租赁管理'] },
@@ -601,6 +601,9 @@ document.querySelectorAll('.tab').forEach(function (t) {
 
 
 <script src="../_data/pc-auth.js"></script>
+
+
+
 
 
 
