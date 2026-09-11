@@ -1,0 +1,93 @@
+===== ① dictItems BF 行现状 =====
+'BF-01': { 'row': {"fields": {"category": "计费方式", "abbr": "按月", "name": "按月计租", "status": "启用"}, "cells": ["按月", "按月计租", "<span class=\"td-num\">1</span>", "月租金 / 按套数单价 · 围板箱/托盘租赁", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
+'BF-02': { 'row': {"fields": {"category": "计费方式", "abbr": "按次", "name": "按次计费", "status": "启用"}, "cells": ["按次", "按次计费", "<span class=\"td-num\">2</span>", "出库/退租次数 × 次单价 · 组装服务费", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
+'BF-03': { 'row': {"fields": {"category": "计费方式", "abbr": "按张", "name": "按张计费", "status": "启用"}, "cells": ["按张", "按张计费", "<span class=\"td-num\">3</span>", "在租张数 × 张单价 · 托盘/料箱备用口径", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
+
+rentInMode 命中: 0
+
+===== ② feeSecTitle / 月租 / 按套 在 demo-data =====
+feeSecTitle 月租/按套串: 5
+feeSecTitle 按月/按次串: 0
+2470: 'feeSecTitle': '租入明细（多货品 · 月租/按套 · 无日租金）',
+2585: 'feeSecTitle': '租入明细（多货品 · 月租/按套 · 无日租金）',
+2698: 'feeSecTitle': '租入明细（多货品 · 月租/按套 · 无日租金）',
+2787: 'feeSecTitle': '租入明细（多货品 · 月租/按套 · 无日租金）',
+2880: 'feeSecTitle': '租入明细（多货品 · 月租/按套 · 无日租金）',
+
+===== ③ 关键文件计数 =====
+租赁管理/弹窗/租入单新建.html: {'月租 / 按套': 1, '按月 / 按次': 0, '<option selected>月租</option>': 1, '<option>月租</option><option selected>按套</option>': 1, '按天': 0, '按张': 0, '计费方式（预留）': 0, '（暂估）': 0}
+租赁管理/租入单列表.html: {'月租 / 按套': 1, '按月 / 按次': 0, '<option selected>月租</option>': 1, '<option>月租</option><option selected>按套</option>': 1, '按天': 0, '按张': 0, '计费方式（预留）': 0, '（暂估）': 0}
+租赁管理/弹窗/租入单审核.html: {'月租 / 按套': 0, '按月 / 按次': 0, '<option selected>月租</option>': 0, '<option>月租</option><option selected>按套</option>': 0, '按天': 0, '按张': 0, '计费方式（预留）': 0, '（暂估）': 0}
+我的待办.html: {'月租 / 按套': 0, '按月 / 按次': 0, '<option selected>月租</option>': 0, '<option>月租</option><option selected>按套</option>': 0, '按天': 0, '按张': 0, '计费方式（预留）': 0, '（暂估）': 0}
+项目管理/项目详情.html: {'月租 / 按套': 0, '按月 / 按次': 0, '<option selected>月租</option>': 0, '<option>月租</option><option selected>按套</option>': 0, '按天': 1, '按张': 1, '计费方式（预留）': 0, '（暂估）': 0}
+系统管理/数据字典.html: {'月租 / 按套': 0, '按月 / 按次': 0, '<option selected>月租</option>': 0, '<option>月租</option><option selected>按套</option>': 0, '按天': 0, '按张': 2, '计费方式（预留）': 1, '（暂估）': 2}
+
+===== ④ 数据字典.html 卡片区现状 =====
+="跳转页码"> 页</span>
+  </div>
+</div>
+    <div class="card">
+      <h3 class="card-title" data-note="2">计费方式</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>简码</th>
+          <th>名称</th>
+          <th>计费基准</th>
+          <th>当前用途</th>
+          <th>状态</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>按月</td>
+          <td>按月计租</td>
+          <td>月租金 / 按套数单价</td>
+          <td>围板箱/托盘租赁（暂估）</td>
+          <td><span class="tag tag-green">启用</span></td>
+        </tr>
+        <tr>
+          <td>按次</td>
+          <td>按次计费</td>
+          <td>出库/退租次数 × 次单价</td>
+          <td>组装服务费（暂估）</td>
+          <td><span class="tag tag-green">启用</span></td>
+        </tr>
+        <tr>
+          <td>按张</td>
+          <td>按张计费</td>
+          <td>在租张数 × 张单价</td>
+          <td>托盘/料箱备用口径</td>
+          <td><span class="tag tag-green">启用</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+      </div>
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+<!-- 弹窗已提取到 弹窗/新增字典项.html，构建时注入 -->
+<div class="modal-overlay" id="createModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3 class="modal-title">新增字典项</h3>
+      <span class="modal-close" onclick="closeModal('createModal')">×</span>
+    </div>
+    <div class="modal-body">
+<div class="form-row">
+    <span class="form-label"><span class="req">*</span>字典分类</span>
+    <div class="input-box select-box"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>缺损类型</option><option>全部</option><option>待定选项（演示数据）</option></select><span class=
+分类计数行: </span></div>
+    <div class="dic-item"><span>计费方式</span><span class="cnt">3</span></div>
+    <div class="dic-item"><spa

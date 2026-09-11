@@ -1,0 +1,8 @@
+2c 新建弹窗 option: ['WBX-1210L(旧) 围板箱 旧箱体批次', 'WBX-1210L 围板箱', 'PLT-1210P 塑料托盘', 'BTC-6040 料箱', 'LJ-A100 护角', '成品区 RB', '华东中心仓（WH-01）', '华南仓（WH-02）']
+2d 页内弹窗 option: []
+4c demo 顶层 BOM 相关键: ['bomVersions', 'bomList']
+5c 可审单据段: 可审单据</div>
+      <div id="auditPermMatrix" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px 16px;padding:4px 0 2px;">
+        <span class="checkbox checked" data-audit="采购订单"><span class="box">✓</span>采购订单</span>
+        <span class="checkbox checked" data-audit="销售订单"><span class="box">✓</span>销售订单</span>
+        <span class="checkbox checked" data-audit="租赁单"><span class="box">✓<
