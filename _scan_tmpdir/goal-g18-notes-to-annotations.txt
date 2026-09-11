@@ -1,0 +1,20 @@
+【G18 · 原型全量说明文字清理转标注层 · B 形态整段执行】
+
+项目根（本机）：D:\工作台-吕道远\5-【ACTIVE】汽车物流包装租赁\
+原型根：D:\工作台-吕道远\5-【ACTIVE】汽车物流包装租赁\P3-R01-包装租赁管理后台原型\
+任务书（必读，含 12 条 A 类清单/默认决策表/验证门/失败清单路径）：D:\工作台-吕道远\5-【ACTIVE】汽车物流包装租赁\agent-handoff\20260911-G18-说明文字清理转标注.md
+基线（必读）：D:\工作台-吕道远\5-【ACTIVE】汽车物流包装租赁\agent-handoff\_AGENT基线.md
+标注注入器：C:\Users\Administrator\.claude\skills\原型标注\scripts\annotate.py
+A03 数据：D:\工作台-吕道远\5-【ACTIVE】汽车物流包装租赁\P3-R01-包装租赁管理后台原型\P3-R01-A03-标注数据.json
+失败清单：D:\工作台-吕道远\5-【ACTIVE】汽车物流包装租赁\_scan_tmpdir\goal-failures-g18.md
+
+【前置校验】
+1. os.path.exists 对上述 6 条路径全 True（输出贴对话）
+2. git status 非 clean 时：仅当存在 G18 标记文件 _scan_tmpdir\g18-done.flag 才跳过重跑；否则视为断点续跑，先读失败清单续做
+3. _data\demo-data.js mtime 距今 ≥30 分钟（单写者互斥）；不满足则停止写失败清单
+
+【任务】按任务书 T1→T4 顺序执行：A类12条清理转标注 → 全量复扫回填 → annotate 全站重注入 → 收尾回写。不需要也不得向用户提问；拿不准条目按任务书默认决策表第2条进失败清单继续。
+
+【完成判定】任务书验证门 6 条全部满足（grep 断言输出/Playwright 5页PASS清单/annotate OK无告警/audit 基线/菜单门14/14/失败清单结论行），证据输出贴对话。
+
+【约束】任务书纪律段全条适用；一 goal 至少一提交（git add -A，禁 push）；zip 不打包（必须道远点名）；or stop after 40 turns

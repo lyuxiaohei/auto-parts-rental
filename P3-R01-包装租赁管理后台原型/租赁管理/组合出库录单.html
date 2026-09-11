@@ -257,7 +257,7 @@ th.td-num { text-align:right; }
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></span>基础资料<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
    <li><div class="sm-link" onclick="go('../基础数据/客商管理.html')">客商管理</div></li>
-   <li><div class="sm-link" onclick="go('../基础数据/产品档案.html')">产品档案</div></li>
+   <li><div class="sm-link" onclick="go('../基础数据/产品档案.html')">物料档案</div></li>
    <li><div class="sm-link" onclick="go('../基础数据/BOM.html')">BOM</div></li>
    <li><div class="sm-link" onclick="go('../基础数据/库位档案.html')">库位档案</div></li>
    </ul>
@@ -294,7 +294,7 @@ th.td-num { text-align:right; }
    <ul class="sm-sub">
    <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">库存管理</li>
    <li><div class="sm-link" onclick="go('../仓储作业/库存查询.html')">库存查询</div></li>
-   <li><div class="sm-link" onclick="go('../仓储作业/盘点列表.html')">盘点</div></li>
+   <li><div class="sm-link" onclick="go('../仓储作业/盘点列表.html')">盘点记录</div></li>
    <li><div class="sm-link" onclick="go('../仓储作业/库存调拨列表.html')">库存调拨</div></li>
    <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">入库类</li>
    <li><div class="sm-link" onclick="go('../仓储作业/其他入库列表.html')">其他入库</div></li>
@@ -540,7 +540,13 @@ document.querySelectorAll('.tab').forEach(function (t) {
     if (amt) amt.value = (num(q('qty')) * num(q('incl'))).toLocaleString('zh-CN', {minimumFractionDigits: 2, maximumFractionDigits: 2});
   });
 })();
-</script><style id="proto-notes-style">
+</script>
+
+
+
+
+
+<style id="proto-notes-style">
 body.proto-notes-on [data-note]{position:relative}
 body.proto-notes-on [data-note]::after{content:attr(data-note);position:absolute;top:1px;right:1px;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600;box-shadow:0 0 0 1.5px #fff;cursor:pointer;opacity:.75;transition:opacity .15s}
 body.proto-notes-on [data-note]:hover::after{opacity:1}
@@ -563,7 +569,7 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 </style>
 <div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>可用量校验</div><div class="pnp-d">出库前自动核对可用库存，避免超量发货</div><div class="pnp-b"><span class="pnp-tag">FP3-03 · 组合出库单</span><span class="pnp-tag">REQ-03 · 包材租赁循环管理</span></div><div class="pnp-src"><div class="src-item"><b>FP3-03 组合出库单</b>：按组合件出库（一箱一件），关联项目与订单</div><div class="src-item"><b>REQ-03 包材租赁循环管理</b>：出库、退租、循环使用状态跟踪（围板箱/托盘/料箱）</div></div></div>
 <div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>提交出库</div><div class="pnp-d">出库后成品库存自动减少、租赁单列表退回进度自动登记（原租出台账并入）、应收按项目自动汇总</div><div class="pnp-b"><span class="pnp-tag">FP3-03 · 组合出库单</span><span class="pnp-tag">REQ-03 · 包材租赁循环管理</span></div><div class="pnp-src"><div class="src-item"><b>FP3-03 组合出库单</b>：按组合件出库（一箱一件），关联项目与订单</div><div class="src-item"><b>REQ-03 包材租赁循环管理</b>：出库、退租、循环使用状态跟踪（围板箱/托盘/料箱）</div></div></div>
-<style id="f01-fab-style">.fab-row{position:fixed;right:12px;bottom:12px;z-index:880;display:flex;align-items:center;gap:6px}.fab-row .pn-fab{position:static}.f01-fab{display:flex;text-decoration:none;align-items:center;height:24px;padding:0 10px;border-radius:4px;background:#fff;border:1px solid #d9d9d9;color:#8c8c8c;font-size:11px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.06);opacity:.6;transition:opacity .15s}.f01-fab:hover{opacity:1;border-color:#722ed1;color:#722ed1}</style><div class="fab-row"><a class="f01-fab" href="../P3-R01-F01-业务流程导航图.html">流程图</a><div class="pn-fab" id="protoNotesFab">标注</div></div></div>
+<div class="pn-fab" id="protoNotesFab">标注</div></div>
 <script id="proto-notes-js">
 (function(){
   var KEY='proto-notes-on';

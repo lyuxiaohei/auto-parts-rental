@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<title>产品档案 - 包装租赁管理后台</title>
+<title>物料档案 - 包装租赁管理后台</title>
 <style>
 :root {
   --primary: #1677ff;
@@ -263,7 +263,7 @@ th.td-num { text-align:right; }
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></span>基础资料<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
    <li><div class="sm-link" onclick="go('../基础数据/客商管理.html')">客商管理</div></li>
-   <li><div class="sm-link selected">产品档案</div></li>
+   <li><div class="sm-link selected">物料档案</div></li>
    <li><div class="sm-link" onclick="go('../基础数据/BOM.html')">BOM</div></li>
    <li><div class="sm-link" onclick="go('../基础数据/库位档案.html')">库位档案</div></li>
    </ul>
@@ -300,7 +300,7 @@ th.td-num { text-align:right; }
    <ul class="sm-sub">
    <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">库存管理</li>
    <li><div class="sm-link" onclick="go('../仓储作业/库存查询.html')">库存查询</div></li>
-   <li><div class="sm-link" onclick="go('../仓储作业/盘点列表.html')">盘点</div></li>
+   <li><div class="sm-link" onclick="go('../仓储作业/盘点列表.html')">盘点记录</div></li>
    <li><div class="sm-link" onclick="go('../仓储作业/库存调拨列表.html')">库存调拨</div></li>
    <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">入库类</li>
    <li><div class="sm-link" onclick="go('../仓储作业/其他入库列表.html')">其他入库</div></li>
@@ -339,15 +339,15 @@ th.td-num { text-align:right; }
   </div></aside>
   <div class="main-col">
 <div class="tabs">
-  <span class="tab active">产品档案 <span class="close">×</span></span>
+  <span class="tab active">物料档案 <span class="close">×</span></span>
   <span class="tab">BOM <span class="close">×</span></span>
   <span class="tab">库存查询 <span class="close">×</span></span>
 </div>
     <div class="content">
 <div class="filter-card collapsed" id="filterCard">
   <div class="filter-grid">
-    <div class="ff"><span class="ff-label">产品编码：</span><input placeholder="请输入"></div>
-    <div class="ff"><span class="ff-label">产品名称：</span><input placeholder="请输入"></div>
+    <div class="ff"><span class="ff-label">物料编码：</span><input placeholder="请输入"></div>
+    <div class="ff"><span class="ff-label">物料名称：</span><input placeholder="请输入"></div>
     <div class="ff"><span class="ff-label">分类：</span>
       <select><option selected>全部</option><option>围板箱</option><option>托盘</option><option>料箱</option><option>料架</option><option>组件</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
@@ -370,16 +370,16 @@ th.td-num { text-align:right; }
 </div>
 <div class="card">
   <div class="card-head">
-    <h3 class="card-title">产品档案</h3>
-    <div class="head-btns"><button class="btn btn-default btn-sm">批量导出</button><button class="btn btn-sm" onclick="openModal('createModal')">新建产品</button></div>
+    <h3 class="card-title">物料档案</h3>
+    <div class="head-btns"><button class="btn btn-default btn-sm">批量导出</button><button class="btn btn-sm" onclick="openModal('createModal')">新建物料</button></div>
   </div>
   <div class="table-wrap">
     <table>
       <thead>
         <tr>
           <th></th>
-          <th>产品编码</th>
-          <th>产品名称</th>
+          <th>物料编码</th>
+          <th>物料名称</th>
           <th>分类</th>
           <th>规格</th>
           <th>单位</th>
@@ -594,15 +594,15 @@ th.td-num { text-align:right; }
 <div class="modal-overlay" id="createModal">
   <div class="modal">
     <div class="modal-header">
-      <h3 class="modal-title">新建产品</h3>
+      <h3 class="modal-title">新建物料</h3>
       <span class="modal-close" onclick="closeModal('createModal')">×</span>
     </div>
     <div class="modal-body">
 <div class="form-row">
-    <span class="form-label"><span class="req">*</span>产品编码</span>
+    <span class="form-label"><span class="req">*</span>物料编码</span>
     <div class="input-box"><input placeholder="如 WBX-1210L"></div>
   </div><div class="form-row">
-    <span class="form-label"><span class="req">*</span>产品名称</span>
+    <span class="form-label"><span class="req">*</span>物料名称</span>
     <div class="input-box"><input placeholder="如 围板箱 1200×1000×970"></div>
   </div><div class="form-row">
     <span class="form-label">分类</span>
@@ -613,10 +613,9 @@ th.td-num { text-align:right; }
   </div><div class="form-row">
     <span class="form-label">单位</span>
     <div class="input-box select-box"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>只</option><option>套</option><option>个</option><option>托</option><option>件</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
-      <div class="form-row">
-        <span class="form-label"><span class="req">*</span>归属权</span>
-        <div><span class="radio checked"><span class="dot"></span>自有</span>        <span class="radio"><span class="dot"></span>租入-路凯</span></div>
-      </div>
+  </div><div class="form-row">
+    <span class="form-label"><span class="req">*</span>归属权</span>
+    <div><span class="radio checked"><span class="dot"></span>自有</span><span class="radio"><span class="dot"></span>租入-路凯</span></div>
   </div><div class="form-row">
     <span class="form-label">租金单价(元/天)</span>
     <div class="input-box"><input value="2.40" placeholder="请输入"></div>
@@ -699,7 +698,7 @@ th.td-num { text-align:right; }
 <div class="modal-overlay" id="detailModal">
   <div class="modal modal-lg" style="width:780px;">
     <div class="modal-header">
-      <h3 class="modal-title" id="detailTitle">产品详情</h3>
+      <h3 class="modal-title" id="detailTitle">物料详情</h3>
       <span class="modal-close" onclick="closeModal('detailModal')">×</span>
     </div>
     <div class="modal-body" id="detailBody"><!-- 内容由 _data/detail-generic.js 按单号渲染 --></div>
@@ -716,7 +715,7 @@ th.td-num { text-align:right; }
   <div class="table-wrap">
     <table>
       <thead>
-        <tr><th>产品编码</th><th>产品名称</th><th>分类</th><th>供应商</th><th>税率</th><th>结算周期</th></tr>
+        <tr><th>物料编码</th><th>物料名称</th><th>分类</th><th>供应商</th><th>税率</th><th>结算周期</th></tr>
       </thead>
       <tbody>
         <tr><td>WBX-1210L</td><td>围板箱 1200×1000×970</td><td>围板箱</td><td>宁波华塑包装制品有限公司</td><td><span class="td-num">13%</span></td><td>月结 30 天</td></tr>
@@ -737,8 +736,8 @@ th.td-num { text-align:right; }
 renderListPage({
   entity: 'products',
   filters: [
-    { label: '产品编码', field: '_key' },
-    { label: '产品名称', field: 'name' },
+    { label: '物料编码', field: '_key' },
+    { label: '物料名称', field: 'name' },
     { label: '分类', field: 'cls' },
     { label: '归属权', field: 'src' },
     { label: '状态', field: 'status' },
@@ -754,7 +753,7 @@ renderListPage({
       <span class="modal-close" onclick="closeModal('stopModal')">×</span>
     </div>
     <div class="modal-body">
-      <div class="dgrid"><div class="drow"><div class="dlabel">产品编码</div><div class="dval">WBX-1210L</div></div><div class="drow"><div class="dlabel">名称</div><div class="dval">围板箱 1200×1000×970</div></div><div class="drow"><div class="dlabel">资产来源</div><div class="dval">自有</div></div><div class="drow"><div class="dlabel">当前状态</div><div class="dval"><span class="tag tag-green">启用</span></div></div></div>
+      <div class="dgrid"><div class="drow"><div class="dlabel">物料编码</div><div class="dval">WBX-1210L</div></div><div class="drow"><div class="dlabel">名称</div><div class="dval">围板箱 1200×1000×970</div></div><div class="drow"><div class="dlabel">资产来源</div><div class="dval">自有</div></div><div class="drow"><div class="dlabel">当前状态</div><div class="dval"><span class="tag tag-green">启用</span></div></div></div>
       <div style="height:14px;"></div>
       <p style="font-size:13px;color:#262626;line-height:1.7;">确认停用该器具（WBX-1210L）？<br>停用后不可再出租、不可新增租赁单；在租与库存数据不受影响。</p></div>
     <div class="modal-footer">
@@ -825,6 +824,15 @@ document.querySelectorAll('.tab').forEach(function (t) {
   }, true);
 })();
 </script>
+
+
+
+
+
+
+
+
+
 <style id="proto-notes-style">
 body.proto-notes-on [data-note]{position:relative}
 body.proto-notes-on [data-note]::after{content:attr(data-note);position:absolute;top:1px;right:1px;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600;box-shadow:0 0 0 1.5px #fff;cursor:pointer;opacity:.75;transition:opacity .15s}
@@ -846,8 +854,8 @@ body.proto-notes-on .proto-pin.pn-open{display:block}
 body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 .pn-fab .pn-fab-n{font-family:Consolas,monospace;font-weight:600}
 </style>
-<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>税率口径与档案合并</div><div class="pnp-d">口径：同一产品可按供应商维护不同税率（默认 13%；运费/杂费后续可能 6%/9%）；单据明细税率默认带出、可手动覆盖。产品档案 = 器具档案 + 零部件档案合并（2026-09-08 会议 N4）。</div></div>
-<style id="f01-fab-style">.fab-row{position:fixed;right:12px;bottom:12px;z-index:880;display:flex;align-items:center;gap:6px}.fab-row .pn-fab{position:static}.f01-fab{display:flex;text-decoration:none;align-items:center;height:24px;padding:0 10px;border-radius:4px;background:#fff;border:1px solid #d9d9d9;color:#8c8c8c;font-size:11px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.06);opacity:.6;transition:opacity .15s}.f01-fab:hover{opacity:1;border-color:#722ed1;color:#722ed1}</style><div class="fab-row"><a class="f01-fab" href="../P3-R01-F01-业务流程导航图.html">流程图</a><div class="pn-fab" id="protoNotesFab">标注</div></div></div>
+<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>税率口径与档案合并</div><div class="pnp-d">口径：同一物料可按供应商维护不同税率（默认 13%；运费/杂费后续可能 6%/9%）；单据明细税率默认带出、可手动覆盖。物料档案 = 器具档案 + 零部件档案合并（2026-09-08 会议 N4）。</div></div>
+<div class="pn-fab" id="protoNotesFab">标注</div></div>
 <script id="proto-notes-js">
 (function(){
   var KEY='proto-notes-on';

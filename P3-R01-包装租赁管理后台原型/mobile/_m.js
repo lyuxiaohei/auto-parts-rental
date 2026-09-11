@@ -81,7 +81,7 @@ function mBadgeCls(status) {
   var s = String(status || '');
   if (s === '已通过' || s === '在库' || s === '已提交') return 'm-badge-green';
   if (s === '已驳回') return 'm-badge-red';
-  if (s === '客户端(转租)') return 'm-badge-purple';
+  if (s === '客户转租出') return 'm-badge-purple';
   if (s === '客户端(租出)') return 'm-badge-blue';
   if (s.indexOf('待') === 0) return 'm-badge-orange';
   return 'm-badge-gray';

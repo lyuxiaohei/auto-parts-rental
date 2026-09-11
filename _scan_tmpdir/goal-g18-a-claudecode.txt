@@ -1,0 +1,23 @@
+【G18 · 原型全量说明文字清理转标注层 · Claude Code /goal 条件式】
+
+【前置校验】
+1. 逐条 os.path.exists 并输出结果，任一 False 立即停止：
+   - D:\工作台-吕道远\5-【ACTIVE】汽车物流包装租赁\agent-handoff\20260911-G18-说明文字清理转标注.md（任务书·本 goal 唯一执行依据）
+   - D:\工作台-吕道远\5-【ACTIVE】汽车物流包装租赁\agent-handoff\_AGENT基线.md（口径纪律八条铁律）
+   - C:\Users\Administrator\.claude\skills\原型标注\scripts\annotate.py
+   - D:\工作台-吕道远\5-【ACTIVE】汽车物流包装租赁\P3-R01-包装租赁管理后台原型\P3-R01-A03-标注数据.json
+2. 读任务书头部状态：已含 ✅ 标记 → 输出"已完成"停止；⏳ → 继续
+3. 单写者互斥：原型 _data\demo-data.js mtime 距今 <30 分钟 → 停止并写失败清单
+4. git status 有未提交改动 → 照常执行（M:N 会话工作区已由道远确认并存档 86675fc），但本 goal 提交时与既有改动一并 git add -A
+
+【任务】
+读任务书全文后按 T1→T4 顺序整段执行：
+- T1：A 类 12 条说明文字（任务书含逐条文件:行+原文）清理本体→A03 加标注条目→挂锚
+- T2：全量复扫（38 业务页+69 弹窗+mobile 5，任务书口径词典）命中回填表 11-12 行同批处理
+- T3：annotate.py 全站重注入（勿用 --remove；--only 对 remove 不生效缺陷见技能 SKILL.md）
+- T4：收尾回写三件（任务文档 ✅+执行记录 / _索引.md 挂 G18 行与 commit 哈希 / _AGENT基线.md 快照滚动）
+不需要也不得向用户提问；拿不准条目按任务书默认决策表第 2 条进失败清单继续。
+
+【完成判定】任务书验证门 6 条全部满足，证据输出贴对话：grep 12 条原文特征串 0 命中断言 / Playwright 5 页默认态+开启态 PASS 清单 / annotate 全 OK 无告警 / audit 死链0·JS0·问题数=34 基线（readonly 豁免口径） / 菜单门 14/14 / 失败清单结论行（可为空）。
+
+【约束】任务书纪律段全条适用（备份 backup-g18-20260912 / 精确替换+assert / A03 json.load 校验 / 一 goal 至少一提交禁 push / zip 不打包）；or stop after 40 turns

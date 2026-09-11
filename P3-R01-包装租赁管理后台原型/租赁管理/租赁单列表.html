@@ -263,7 +263,7 @@ th.td-num { text-align:right; }
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></span>基础资料<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
    <li><div class="sm-link" onclick="go('../基础数据/客商管理.html')">客商管理</div></li>
-   <li><div class="sm-link" onclick="go('../基础数据/产品档案.html')">产品档案</div></li>
+   <li><div class="sm-link" onclick="go('../基础数据/产品档案.html')">物料档案</div></li>
    <li><div class="sm-link" onclick="go('../基础数据/BOM.html')">BOM</div></li>
    <li><div class="sm-link" onclick="go('../基础数据/库位档案.html')">库位档案</div></li>
    </ul>
@@ -300,7 +300,7 @@ th.td-num { text-align:right; }
    <ul class="sm-sub">
    <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">库存管理</li>
    <li><div class="sm-link" onclick="go('../仓储作业/库存查询.html')">库存查询</div></li>
-   <li><div class="sm-link" onclick="go('../仓储作业/盘点列表.html')">盘点</div></li>
+   <li><div class="sm-link" onclick="go('../仓储作业/盘点列表.html')">盘点记录</div></li>
    <li><div class="sm-link" onclick="go('../仓储作业/库存调拨列表.html')">库存调拨</div></li>
    <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">入库类</li>
    <li><div class="sm-link" onclick="go('../仓储作业/其他入库列表.html')">其他入库</div></li>
@@ -560,7 +560,7 @@ th.td-num { text-align:right; }
   <div id="billingHint" style="display:none;margin:-12px 0 12px 128px;font-size:12px;color:#595959;">按次套数对账：不按月生成应收，客户验收后按实际使用套数对账开单（G13 演示注记）。</div><div style="margin:4px 0 8px;font-size:13px;font-weight:600;color:#1a1a1a;">租赁器具明细</div>
   <div class="table-wrap" style="border:1px solid var(--border);border-radius:6px;">
     <table class="edit-tbl">
-      <thead><tr><th>产品</th><th>产品名称</th><th>单位</th><th>数量</th><th style="font-size:13.5px;font-weight:700;">未税单价(元)</th><th style="font-size:13.5px;font-weight:700;">税率</th><th style="font-size:13.5px;font-weight:700;">含税单价(元)</th><th>含税金额(元)</th></tr></thead>
+      <thead><tr><th>物料</th><th>物料名称</th><th>单位</th><th>数量</th><th style="font-size:13.5px;font-weight:700;">未税单价(元)</th><th style="font-size:13.5px;font-weight:700;">税率</th><th style="font-size:13.5px;font-weight:700;">含税单价(元)</th><th>含税金额(元)</th></tr></thead>
       <tbody><tr><td><select style="width:100%;min-width:0;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option>WBX-1210L 围板箱 1200×1000×970</option><option>WBX-1210M 围板箱 1200×1000×590</option><option>PLT-1210W 木托盘 1200×1000</option><option>PLT-1210P 塑料托盘 1200×1000</option><option>BTC-6040 料箱 600×400×340</option><option>LJ-A100 锁扣组件</option><option>LJ-C300 围板</option><option>LJ-D400 箱盖</option><option>LJ-F600 内衬</option><option selected>ZH-2601-A 驾驶室围板箱整箱套件</option><option>ZH-2602-B 冲压件料箱组套</option><option>ZH-2603-C 电池托盘护角套件</option><option>ZH-2604-D 混合组合套件</option></select></td><td><input value="驾驶室围板箱整箱套件"></td><td><input value="套" style="width:48px;"></td><td><input data-tax="qty" value="180"></td><td><input data-tax="excl" value="2.40"></td><td><input data-tax="rate" value="13%" style="width:56px;"></td><td><input data-tax="incl" value="2.71"></td><td><input data-tax="amt" class="auto" value="487.80" readonly></td></tr><tr><td><select style="width:100%;min-width:0;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option>WBX-1210L 围板箱 1200×1000×970</option><option>WBX-1210M 围板箱 1200×1000×590</option><option>PLT-1210W 木托盘 1200×1000</option><option selected>PLT-1210P 塑料托盘 1200×1000</option><option>BTC-6040 料箱 600×400×340</option><option>LJ-A100 锁扣组件</option><option>LJ-C300 围板</option><option>LJ-D400 箱盖</option><option>LJ-F600 内衬</option><option>ZH-2601-A 驾驶室围板箱整箱套件</option><option>ZH-2602-B 冲压件料箱组套</option><option>ZH-2603-C 电池托盘护角套件</option><option>ZH-2604-D 混合组合套件</option></select></td><td><input value="塑料托盘 1200×1000"></td><td><input value="块" style="width:48px;"></td><td><input data-tax="qty" value="180"></td><td><input data-tax="excl" value="0.15"></td><td><input data-tax="rate" value="13%" style="width:56px;"></td><td><input data-tax="incl" value="0.17"></td><td><input data-tax="amt" class="auto" value="30.60" readonly></td></tr><tr><td colspan="7" style="text-align:right;font-weight:700;">租赁总价（含税 · 逐行加总）</td><td class="td-num" style="font-weight:700;">518.40</td></tr></tbody>
     </table>
   </div>
@@ -855,7 +855,7 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 <div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>L4 · 步骤 5/10 租赁单（混合来源）</div><div class="pnp-d">混合组合套件出租：资产来源=自购+租入-路凯，来源列可点跳租入单 RZD-20260815-005。<br>下一步 → 组合出库 CK-20260824-009。</div></div>
 <div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>L3 · 步骤 3/8 租赁单（转租）</div><div class="pnp-d">租入资产转租客户：RZD-20260815-003（路凯围板箱×30）入库后直接转租。<br>退租后整箱归还运营方。</div></div>
 <div class="proto-pin" id="proto-pin-3"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">3</span>L2 · 步骤 5/10 租赁单（组合件 C）</div><div class="pnp-d">A+B→C 组合出租，租金按套计费。<br>下一步 → 组合出库。</div></div>
-<div class="proto-pin" id="proto-pin-4"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">4</span>L1 · 步骤 3/8 租赁单（单一器具）</div><div class="pnp-d">L1 单一出租：采购 A → 出租 A，单一产品直接出租（不经组合）。<br>塑料托盘 400 块直接出租。</div></div>
+<div class="proto-pin" id="proto-pin-4"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">4</span>L1 · 步骤 3/8 租赁单（单一器具）</div><div class="pnp-d">L1 单一出租：采购 A → 出租 A，单一物料直接出租（不经组合）。<br>塑料托盘 400 块直接出租。</div></div>
 <div class="proto-pin" id="proto-pin-5"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">5</span>L3 · 转租（批量示例）</div><div class="pnp-d">租入-路凯围板箱×300 批量转租，来源列可点跳租入单 RZD-20260815-003。</div></div>
 <div class="proto-pin" id="proto-pin-6"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">6</span>押金预留字段</div><div class="pnp-d">押金为设计预留字段——两次会议均未涉及，收退与计价商务口径待客户确认（F01 财务通道注记同步）。</div></div>
 <style id="f01-fab-style">.fab-row{position:fixed;right:12px;bottom:12px;z-index:880;display:flex;align-items:center;gap:6px}.fab-row .pn-fab{position:static}.f01-fab{display:flex;text-decoration:none;align-items:center;height:24px;padding:0 10px;border-radius:4px;background:#fff;border:1px solid #d9d9d9;color:#8c8c8c;font-size:11px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.06);opacity:.6;transition:opacity .15s}.f01-fab:hover{opacity:1;border-color:#722ed1;color:#722ed1}</style><div class="fab-row"><a class="f01-fab" href="../P3-R01-F01-业务流程导航图.html">流程图</a><div class="pn-fab" id="protoNotesFab">标注</div></div></div>
@@ -916,7 +916,7 @@ function showToast(msg) {
 }</script>
 <script>/* G13 ⑥ 租出计费方式切换 */
 function toggleBillingMode(byUsage) { var h = document.getElementById('billingHint'); if (h) h.style.display = byUsage ? 'block' : 'none'; }</script>
-<script>/* G13 ⑦ 新建优先查库存：选产品行内「可用库存 N 套」+不足红色提示条+生成采购订单/租入单（道远拍板） */
+<script>/* G13 ⑦ 新建优先查库存：选物料行内「可用库存 N 套」+不足红色提示条+生成采购订单/租入单（道远拍板） */
 (function () {
   var STOCK_MAP = { 'WBX-1210L': [2120, '只'], 'WBX-1210M': [860, '只'], 'PLT-1210W': [60, '块'], 'PLT-1210P': [1410, '块'], 'BTC-6040': [3300, '只'], 'LJ-A100': [5260, '件'], 'LJ-B200': [2640, '件'], 'LJ-C300': [1860, '件'], 'LJ-D400': [980, '件'], 'LJ-F600': [1520, '件'], 'ZH-2601-A': [640, '套'], 'ZH-2602-B': [820, '套'], 'ZH-2603-C': [150, '套'], 'ZH-2604-D': [0, '套'] };
   var GOBASE = '../';

@@ -256,7 +256,7 @@ th.td-num { text-align:right; }
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></span>基础资料<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
    <li><div class="sm-link" onclick="go('../基础数据/客商管理.html')">客商管理</div></li>
-   <li><div class="sm-link" onclick="go('../基础数据/产品档案.html')">产品档案</div></li>
+   <li><div class="sm-link" onclick="go('../基础数据/产品档案.html')">物料档案</div></li>
    <li><div class="sm-link" onclick="go('../基础数据/BOM.html')">BOM</div></li>
    <li><div class="sm-link" onclick="go('../基础数据/库位档案.html')">库位档案</div></li>
    </ul>
@@ -293,7 +293,7 @@ th.td-num { text-align:right; }
    <ul class="sm-sub">
    <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">库存管理</li>
    <li><div class="sm-link" onclick="go('../仓储作业/库存查询.html')">库存查询</div></li>
-   <li><div class="sm-link" onclick="go('../仓储作业/盘点列表.html')">盘点</div></li>
+   <li><div class="sm-link" onclick="go('../仓储作业/盘点列表.html')">盘点记录</div></li>
    <li><div class="sm-link" onclick="go('../仓储作业/库存调拨列表.html')">库存调拨</div></li>
    <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">入库类</li>
    <li><div class="sm-link" onclick="go('../仓储作业/其他入库列表.html')">其他入库</div></li>
@@ -343,15 +343,15 @@ th.td-num { text-align:right; }
   <span>已选单据合计：<b>¥<span id="dzSum">0.00</span></b></span>
   <span>两侧差额：<b id="diffSum" style="color:#52c41a;">0.00</b></span>
   <span style="margin-left:auto;display:flex;gap:8px;">
-    <button class="btn btn-default btn-sm">自动匹配建议</button>
-    <button class="btn btn-sm">生成核销记录</button>
+    <button class="btn btn-default btn-sm" data-note="2">自动匹配建议</button>
+    <button class="btn btn-sm" data-note="3">生成核销记录</button>
   </span>
 </div>
 
 <div class="split">
   <div class="card">
     <div class="card-head">
-      <h3 class="card-title">① 银行回单</h3>
+      <h3 class="card-title" data-note="1">① 银行回单</h3>
       <div class="head-btns"><button class="btn btn-default btn-sm">导入回单</button></div>
     </div>
   <div class="table-wrap">
@@ -371,7 +371,7 @@ th.td-num { text-align:right; }
       <tbody>
         <tr>
           <td><input type="checkbox" class="cb" data-amt="286500.0"></td>
-          <td data-note="1"><span class="lk">SD-20260830-011</span></td>
+          <td><span class="lk">SD-20260830-011</span></td>
           <td>2026-08-30</td>
           <td>一汽解放汽车有限公司</td>
           <td><span class="td-num">286,500.00</span></td>
@@ -748,6 +748,12 @@ document.querySelectorAll('.tab').forEach(function (t) {
 
 
 
+
+
+
+
+
+
 <style id="proto-notes-style">
 body.proto-notes-on [data-note]{position:relative}
 body.proto-notes-on [data-note]::after{content:attr(data-note);position:absolute;top:1px;right:1px;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600;box-shadow:0 0 0 1.5px #fff;cursor:pointer;opacity:.75;transition:opacity .15s}
@@ -769,8 +775,10 @@ body.proto-notes-on .proto-pin.pn-open{display:block}
 body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 .pn-fab .pn-fab-n{font-family:Consolas,monospace;font-weight:600}
 </style>
-<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>B1 销售线 · 步骤 5/5 收款核销（闭环终点）</div><div class="pnp-d">收款闭环终点：勾对回款与应收，支持部分核销与撤销核销（确认弹窗）。</div></div>
-<style id="f01-fab-style">.fab-row{position:fixed;right:12px;bottom:12px;z-index:880;display:flex;align-items:center;gap:6px}.fab-row .pn-fab{position:static}.f01-fab{display:flex;text-decoration:none;align-items:center;height:24px;padding:0 10px;border-radius:4px;background:#fff;border:1px solid #d9d9d9;color:#8c8c8c;font-size:11px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.06);opacity:.6;transition:opacity .15s}.f01-fab:hover{opacity:1;border-color:#722ed1;color:#722ed1}</style><div class="fab-row"><a class="f01-fab" href="../P3-R01-F01-业务流程导航图.html">流程图</a><div class="pn-fab" id="protoNotesFab">标注</div></div></div>
+<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>银行回单（左栏）</div><div class="pnp-d">★ 目前靠手工核销，系统上线后自动完成：银行回单与单据左右对照勾对</div><div class="pnp-b"><span class="pnp-tag">FP6-04 · 银行回单核销 ★补缺</span><span class="pnp-tag">REQ-09 · 银行回单核销</span></div><div class="pnp-src"><div class="src-item"><b>FP6-04 银行回单核销 ★补缺</b>：水单↔单据逐笔勾对，支持部分核销</div><div class="src-item"><b>REQ-09 银行回单核销</b>：客户付款后单据与银行回单勾对核销</div></div></div>
+<div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>自动匹配建议</div><div class="pnp-d">按付款户名/金额智能推荐勾对，支持部分核销</div><div class="pnp-b"><span class="pnp-tag">FP6-04 · 银行回单核销 ★补缺</span><span class="pnp-tag">REQ-09 · 银行回单核销</span></div><div class="pnp-src"><div class="src-item"><b>FP6-04 银行回单核销 ★补缺</b>：水单↔单据逐笔勾对，支持部分核销</div><div class="src-item"><b>REQ-09 银行回单核销</b>：客户付款后单据与银行回单勾对核销</div></div></div>
+<div class="proto-pin" id="proto-pin-3"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">3</span>生成核销记录</div><div class="pnp-d">一笔回款可以分多次核销多张单据</div><div class="pnp-b"><span class="pnp-tag">FP6-04 · 银行回单核销 ★补缺</span><span class="pnp-tag">REQ-09 · 银行回单核销</span></div><div class="pnp-src"><div class="src-item"><b>FP6-04 银行回单核销 ★补缺</b>：水单↔单据逐笔勾对，支持部分核销</div><div class="src-item"><b>REQ-09 银行回单核销</b>：客户付款后单据与银行回单勾对核销</div></div></div>
+<div class="pn-fab" id="protoNotesFab">标注</div></div>
 <script id="proto-notes-js">
 (function(){
   var KEY='proto-notes-on';

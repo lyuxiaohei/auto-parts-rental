@@ -1,0 +1,6 @@
+
+    <div class="st-num">42,860<span class="unit">件/套</span></div>
+    <div class="st-foot" data-note="2">其中组装占用 <em>3,920</em> 件</div>
+  </div>
+  <div class="stat">
+    <div class="st-label"><span>在途（退租未审核）</span></div>

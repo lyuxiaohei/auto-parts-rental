@@ -1,0 +1,11 @@
+tags:['租赁器具', '租赁器具', '租赁器具']
+html 首行:<tr>
+          <td><span class="lk">XNC-ZZ-WBX</span></td>
+          <td>围板箱 1200×1000×970（安吉智行·转租终端用户）</td>
+          <td><span class="tag tag-blue">租赁器具</span></td>
+          <td>PRJ-2605</td>
+          <td><span class="td-num">0</span></td>
+          <td><span class="td-num">0</span></td>
+          <td><span class="td-num">240</span></td>
+          <td><span class="td-num">0</span></td>
+       

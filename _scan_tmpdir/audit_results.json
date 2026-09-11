@@ -204,22 +204,39 @@
  {
   "page": "仓储作业\\库存查询.html",
   "js_errors": [],
-  "problems": [],
+  "problems": [
+   {
+    "cat": "输入框",
+    "type": "input-not-editable",
+    "phase": "modal",
+    "where": {
+     "tag": "input",
+     "id": "",
+     "cls": "auto",
+     "text": "",
+     "row": "",
+     "inModal": "zzRegModal"
+    },
+    "detail": "readonly 不可输入（预填:安吉智行物流）"
+   }
+  ],
   "stats": {
-   "buttons": 6,
-   "links": 45,
-   "onclickEls": 73,
-   "modals": 3,
+   "buttons": 10,
+   "links": 52,
+   "onclickEls": 87,
+   "modals": 5,
    "modalTitles": [
     "库存流水",
     "客户在租明细",
-    "资产轨迹 · XNC-ZZ-WBX(演示页)"
+    "资产轨迹 · XNC-ZZ-WBX(演示页)",
+    "客户转租登记",
+    "转租还回"
    ],
-   "selects": 1,
+   "selects": 3,
    "fakeSelects": 0,
    "radios": 0,
    "checkboxes": 0,
-   "inputs": 3,
+   "inputs": 8,
    "stabs": 0,
    "tabs": 3,
    "bgMut": 0
@@ -566,8 +583,8 @@
   ],
   "stats": {
    "buttons": 8,
-   "links": 16,
-   "onclickEls": 49,
+   "links": 20,
+   "onclickEls": 52,
    "modals": 2,
    "modalTitles": [
     "审核确认"
@@ -590,7 +607,7 @@
   "problems": [],
   "stats": {
    "buttons": 5,
-   "links": 1,
+   "links": 0,
    "onclickEls": 34,
    "modals": 0,
    "modalTitles": [],
@@ -646,7 +663,7 @@
   ],
   "stats": {
    "buttons": 6,
-   "links": 12,
+   "links": 11,
    "onclickEls": 36,
    "modals": 1,
    "modalTitles": [],
@@ -671,18 +688,18 @@
     "type": "modal-unreachable",
     "phase": "modal",
     "where": {
-     "text": "产品详情"
+     "text": "物料详情"
     },
     "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
    }
   ],
   "stats": {
    "buttons": 11,
-   "links": 37,
+   "links": 36,
    "onclickEls": 66,
    "modals": 3,
    "modalTitles": [
-    "新建产品",
+    "新建物料",
     "停用确认"
    ],
    "selects": 5,
@@ -747,7 +764,7 @@
   ],
   "stats": {
    "buttons": 10,
-   "links": 33,
+   "links": 32,
    "onclickEls": 63,
    "modals": 3,
    "modalTitles": [
@@ -800,7 +817,7 @@
    "onclickEls": 5,
    "modals": 1,
    "modalTitles": [
-    "产品详情 · WBX-1210L(演示页)"
+    "物料详情 · WBX-1210L(演示页)"
    ],
    "selects": 0,
    "fakeSelects": 0,
@@ -896,11 +913,11 @@
    "onclickEls": 3,
    "modals": 1,
    "modalTitles": [
-    "新建产品(演示页)"
+    "新建物料(演示页)"
    ],
    "selects": 2,
    "fakeSelects": 0,
-   "radios": 0,
+   "radios": 2,
    "checkboxes": 0,
    "inputs": 5,
    "stabs": 0,
@@ -1576,7 +1593,7 @@
   ],
   "stats": {
    "buttons": 8,
-   "links": 25,
+   "links": 24,
    "onclickEls": 55,
    "modals": 2,
    "modalTitles": [
@@ -1600,7 +1617,7 @@
   "problems": [],
   "stats": {
    "buttons": 5,
-   "links": 4,
+   "links": 3,
    "onclickEls": 35,
    "modals": 0,
    "modalTitles": [],
@@ -1824,7 +1841,7 @@
   "problems": [],
   "stats": {
    "buttons": 4,
-   "links": 1,
+   "links": 0,
    "onclickEls": 33,
    "modals": 0,
    "modalTitles": [],
@@ -1846,7 +1863,7 @@
   "problems": [],
   "stats": {
    "buttons": 5,
-   "links": 13,
+   "links": 12,
    "onclickEls": 45,
    "modals": 2,
    "modalTitles": [
@@ -1871,7 +1888,7 @@
   "problems": [],
   "stats": {
    "buttons": 13,
-   "links": 58,
+   "links": 57,
    "onclickEls": 104,
    "modals": 4,
    "modalTitles": [
@@ -1968,7 +1985,7 @@
   ],
   "stats": {
    "buttons": 10,
-   "links": 17,
+   "links": 16,
    "onclickEls": 52,
    "modals": 3,
    "modalTitles": [
@@ -2039,7 +2056,7 @@
   ],
   "stats": {
    "buttons": 12,
-   "links": 53,
+   "links": 52,
    "onclickEls": 79,
    "modals": 3,
    "modalTitles": [
@@ -2074,7 +2091,7 @@
   ],
   "stats": {
    "buttons": 10,
-   "links": 23,
+   "links": 22,
    "onclickEls": 58,
    "modals": 3,
    "modalTitles": [
@@ -2387,7 +2404,7 @@
   "problems": [],
   "stats": {
    "buttons": 3,
-   "links": 1,
+   "links": 0,
    "onclickEls": 38,
    "modals": 0,
    "modalTitles": [],
@@ -2419,7 +2436,7 @@
   ],
   "stats": {
    "buttons": 8,
-   "links": 9,
+   "links": 8,
    "onclickEls": 44,
    "modals": 2,
    "modalTitles": [
@@ -2573,7 +2590,7 @@
   ],
   "stats": {
    "buttons": 8,
-   "links": 32,
+   "links": 31,
    "onclickEls": 62,
    "modals": 2,
    "modalTitles": [
@@ -2597,7 +2614,7 @@
   "problems": [],
   "stats": {
    "buttons": 5,
-   "links": 5,
+   "links": 4,
    "onclickEls": 35,
    "modals": 0,
    "modalTitles": [],
@@ -3025,7 +3042,7 @@
   ],
   "stats": {
    "buttons": 9,
-   "links": 17,
+   "links": 16,
    "onclickEls": 65,
    "modals": 2,
    "modalTitles": [
@@ -3050,7 +3067,7 @@
   "problems": [],
   "stats": {
    "buttons": 5,
-   "links": 12,
+   "links": 11,
    "onclickEls": 61,
    "modals": 1,
    "modalTitles": [
@@ -3074,7 +3091,7 @@
   "problems": [],
   "stats": {
    "buttons": 2,
-   "links": 7,
+   "links": 6,
    "onclickEls": 46,
    "modals": 0,
    "modalTitles": [],

@@ -263,7 +263,7 @@ th.td-num { text-align:right; }
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></span>基础资料<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
    <li><div class="sm-link" onclick="go('../基础数据/客商管理.html')">客商管理</div></li>
-   <li><div class="sm-link" onclick="go('../基础数据/产品档案.html')">产品档案</div></li>
+   <li><div class="sm-link" onclick="go('../基础数据/产品档案.html')">物料档案</div></li>
    <li><div class="sm-link" onclick="go('../基础数据/BOM.html')">BOM</div></li>
    <li><div class="sm-link" onclick="go('../基础数据/库位档案.html')">库位档案</div></li>
    </ul>
@@ -300,7 +300,7 @@ th.td-num { text-align:right; }
    <ul class="sm-sub">
    <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">库存管理</li>
    <li><div class="sm-link" onclick="go('../仓储作业/库存查询.html')">库存查询</div></li>
-   <li><div class="sm-link" onclick="go('../仓储作业/盘点列表.html')">盘点</div></li>
+   <li><div class="sm-link" onclick="go('../仓储作业/盘点列表.html')">盘点记录</div></li>
    <li><div class="sm-link" onclick="go('../仓储作业/库存调拨列表.html')">库存调拨</div></li>
    <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">入库类</li>
    <li><div class="sm-link" onclick="go('../仓储作业/其他入库列表.html')">其他入库</div></li>
@@ -535,7 +535,7 @@ th.td-num { text-align:right; }
     <span class="form-label"><span class="req">*</span>类别</span>
     <div class="input-box select-box" style="width:350px;"><select onchange="var r=document.getElementById('poQjRow');if(r)r.style.display=(this.options[this.selectedIndex].text=='器具')?'flex':'none'" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>零部件</option><option>器具</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
   </div><div class="form-row" id="poQjRow" style="display:none;">
-    <span class="form-label"><span class="req">*</span>产品档案</span>
+    <span class="form-label"><span class="req">*</span>物料档案</span>
     <div class="input-box select-box" style="width:350px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>WBX-1210L 围板箱</option><option>PLT-1210P 塑料托盘</option><option>BTC-6040 料箱</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
   </div><div class="form-row">
     <span class="form-label">关联销售订单号</span>
