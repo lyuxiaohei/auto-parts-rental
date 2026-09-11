@@ -1,138 +1,33 @@
-/goal 对包装租赁管理后台原型执行 G21 租价计费三段式改造（3 组任务；前置语境：G20 已收尾 ✅ 6f38c32）。全程无人值守：所有决策已由道远拍板，按本命令的默认决策表执行，不需要也不得向用户提问；拿不准的按最简合理默认执行并在收尾报告"默认决策"节注明。
+/goal 执行 G21 租价计费三段式改造（物料档案两租价结构化 + 计费方式字典落地 + 租入单域口径统一；前置语境：G20 已收尾 ✅ 6f38c32）。工作目录（命令与全部相对路径之根，不依赖会话 cwd）：`D:\工作台-吕道远\5-【ACTIVE】汽车物流包装租赁\`
 
-工作目录（命令与全部相对路径之根，不依赖会话 cwd）：`D:\工作台-吕道远\5-【ACTIVE】汽车物流包装租赁\`
+【交接文档 · 双层路由，先读全文再动手】
+- `D:\工作台-吕道远\5-【ACTIVE】汽车物流包装租赁\agent-handoff\_AGENT基线.md`——项目铁律：第四节（历史事故与真相）+ 第七节（上手清单）逐条适用
+- `D:\工作台-吕道远\5-【ACTIVE】汽车物流包装租赁\agent-handoff\20260911-G21-租价计费三段式.md`——本 goal 全量细则：前置校验 6 条 / 第 0 步阅读清单 / 任务三组 / 默认决策表 8 条 / 验证门 7 条；一切锚文本、写死字符串、计数预期以该文档为准
 
-【前置状态校验（防重复/并发执行，先于一切，任一不符即停并写失败清单）】
-1. G20 完成门槛：`agent-handoff/_索引.md` 存在 `| G20 |` 行且状态 ✅ 且 commit 列非空；不符 → 停止，记「G20 未收尾，待其完成后重跑」
-2. 防重复：`_索引.md` 无 G21 行；`P3-R01-包装租赁管理后台原型/_data/demo-data.js` 不含 `rentInMode`；`系统管理/数据字典.html` 不含「按年计租」——任一不符 → 停止，记「疑似已执行」；若仅 G21 号被占 → 取下一空号并将任务文档改名同步
-3. 单写者互斥：python 扫原型目录与 `agent-handoff/` 最近文件 mtime，距今 ≥30 分钟无变化才动手；不符 → 停止，记「疑似并行会话在写，30 分钟后可重跑」
-4. 工作区存档：`git status` 有未提交改动 → 先 `git add -A && git commit -m "存档：G21 开工前快照（不 push）"`
-5. 口径基数：原型目录 HTML 总数=115；不符 → 记偏差并以实际数为验证门基数
-6. 备份：改动前建 `backup-g21-20260911/`（项目根），按原相对路径镜像全部将改文件：`_data/demo-data.js`、`系统管理/数据字典.html`、`基础数据/产品档案.html`、`基础数据/弹窗/新建产品.html`、`租赁管理/弹窗/租入单新建.html`、`租赁管理/租入单列表.html`、`项目管理/项目详情.html`、`P3-R01-A03-标注数据.json`、`P3-R01-A04-流程链标注数据.json`、`P3-R01-A05-字段字典.md`、`P1-R04-术语表.md`（若改）
+【前置校验 · 先于一切】
+1. `_索引.md` 有 `| G20 |` 行且 ✅+commit 非空；无 G21 行
+2. `demo-data.js` 不含 `rentInMode`；`系统管理/数据字典.html` 不含「按年计租」
+3. 原型目录与 `agent-handoff/` 最近文件 mtime ≥30 分钟（单写者互斥）
+4. `git status` 有改动先存档提交（不 push）；原型 HTML 总数=115；建 `backup-g21-20260911/`
+——任一不符 → 停止并写失败清单（路径见下），逐条处理口径见任务文档前置校验节
 
-【第 0 步·上下文获取（动手前必做）】
-1. `D:\工作台-吕道远\5-【ACTIVE】汽车物流包装租赁\agent-handoff\_AGENT基线.md`——第四节（历史事故与真相）全节 + 第七节（上手清单）逐条适用
-2. `D:\工作台-吕道远\5-【ACTIVE】汽车物流包装租赁\agent-handoff\20260911-G21-租价计费三段式.md`——本 goal 任务文档（凭据与执行记录处，与本命令同口径；行号均为 2026-09-11 探测读数，执行以现状 grep 锚文本为准）
-3. `D:\工作台-吕道远\5-【ACTIVE】汽车物流包装租赁\agent-handoff\20260911-G18-说明文字清理转标注.md`——A03/A04 双轮重注入流程
-4. `D:\工作台-吕道远\5-【ACTIVE】汽车物流包装租赁\agent-handoff\20260911-G20-F01支线口径与原型必修.md`——G20 已做的日租金口径改动面（避免重锚冲突）
-5. 口径来源：`2026-09-08 汽车物流包装租赁第3次沟通原型演示/…[会议纪要-最终版].md` L70-82（月租金+按套数单价 · 无日租金 · 按月定期生成应收 · 按次/套数对账）
-6. 工具（项目根相对）：`_scan_tmpdir/audit_interaction.py`、`g17_audit_diff.py`、`v32_menu_verify.py`、`verify_listfull.py`、`g18_t1_apply.py`、`g18_t2_apply.py`
+【任务】
+- T1 计费方式字典落地为值源：dictItems 追加 BF-04 按年/BF-05 按日 + BF-03 按张停用；数据字典.html 静态卡片 5 行+去暂估+cnt 3→5；pin-2「计费方式（预留）」改文案走 A03/A04 双轮重注入
+- T2 档案两租价三段式（形态 B）：demo-data products 12 行加 `rentInMode/rentInPrice/rentalMode/rentalPrice` 四键（值表写死于文档）；产品档案 createModal 与新建产品模板两表单行→「计费方式（按时间周期/按次）+周期单位（月/年/日默认月）+数值」三段控件+单位后缀联动 JS；列表 cells 与详情 info 零改动
+- T3 租入单域口径统一：段标题×2 与明细 select×4「月租/按套→按月/按次」+ rentInOrders feeSecTitle×5 + 项目详情「按天计租 · 按张计费」残留清除；改后全站 按天=0、元/天=0
+——全部改动点、写死字符串与不动项见任务文档任务节
 
-【任务一：数据字典「计费方式」落地为值源】
+【完成判定 · 证据全部贴进对话】
+1. `python _scan_tmpdir/g21_verify.py`（新建留档）→ 逐行 PASS（逐项计数预期写死于任务文档验证门 1）
+2. `node --check P3-R01-包装租赁管理后台原型/_data/demo-data.js` → 退出码 0
+3. `python _scan_tmpdir/audit_interaction.py` → 死链 0 / JS 错 0（115 页）；`python _scan_tmpdir/g17_audit_diff.py` → 新增问题 0
+4. `python _scan_tmpdir/v32_menu_verify.py` → 14/14；`python _scan_tmpdir/verify_listfull.py` 三批 → 现行口径全过
+5. `python _scan_tmpdir/g21_pw.py`（留档）→ 5 用例 PASS/FAIL 清单 + 截图 `_scan_tmpdir/g21-*.png`（用例明细写死于任务文档验证门 6）
+6. A03→A04 双轮重注入 → 输出「零告警」行
 
-T1a `_data/demo-data.js` dictItems（锚 `'BF-01'` 所在块）：
-1. BF-03 按张停用（恰 1 处 assert）：该行内 `"status": "启用"`→`"status": "停用"`、`"<span class=\"tag tag-green\">启用</span>"`→`"<span class=\"tag tag-gray\">停用</span>"`（两处替换均限 BF-03 行内，以行锚定位）
-2. BF-03 行后追加两行（字段形态照 BF-01 逐字，恰各 1 处 assert）：
-   - `'BF-04': { 'row': {"fields": {"category": "计费方式", "abbr": "按年", "name": "按年计租", "status": "启用"}, "cells": ["按年", "按年计租", "<span class=\"td-num\">4</span>", "年租金 × 租期年数 · 长周期备用口径", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },`
-   - `'BF-05': { 'row': {"fields": {"category": "计费方式", "abbr": "按日", "name": "按日计租", "status": "启用"}, "cells": ["按日", "按日计租", "<span class=\"td-num\">5</span>", "日租金 × 在租天数 · 短期备用口径（本期无日租金业务）", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },`
-3. 改后必跑 `node --check`（末条逗号坑：新增行尾逗号风格与现有行一致）
-
-T1b `系统管理/数据字典.html` 静态卡片：
-1. 左侧分类计数：`<div class="dic-item"><span>计费方式</span><span class="cnt">3</span></div>` 的 `3`→`5`（恰 1 处；运行时 G12 接线会联动刷新，静态同步保持一致）
-2. 卡片 tbody 按张行 `<td><span class="tag tag-green">启用</span></td>`→`<td><span class="tag tag-gray">停用</span></td>`（以按张行锚，恰 1 处）
-3. 按月行「围板箱/托盘租赁（暂估）」→「围板箱/托盘租赁」；按次行「组装服务费（暂估）」→「组装服务费 / 按次租价」（恰各 1 处）
-4. tbody 末尾（按张行后）追加两行（缩进照现有行，恰各 1 处 assert）：
-   - 按年行：`<td>按年</td><td>按年计租</td><td>年租金 × 租期年数</td><td>长周期备用口径</td><td><span class="tag tag-green">启用</span></td>`
-   - 按日行：`<td>按日</td><td>按日计租</td><td>日租金 × 在租天数</td><td>短期备用口径（本期无日租金业务）</td><td><span class="tag tag-green">启用</span></td>`
-5. 标签配平自检通过
-
-T1c 字典 pin-2 文案更新（走注入流程，禁止手改页面 pin 块）：
-1. 改源：`P3-R01-A03-标注数据.json` 数据字典页 id=2 条目（锚 `"title": "计费方式（预留）"`，恰 1 处）：title → `"计费方式"`；note → `"租金计费规则已确认（2026-09-11 拍板）：按次 / 按时间周期（年·月·日，默认月）；物料档案租价与租入单明细「计费方式」列均以本字典为值源。"`
-2. 按 G18 文档所载流程双轮重注入（A03 先注→A04 后注，脚本 `_scan_tmpdir/g18_t1_apply.py`/`g18_t2_apply.py` 或该文档所载现行脚本），要求零告警
-3. 注入后 `系统管理/数据字典.html` 页内 proto-pin-2 文本=「计费方式」且无「预留」（注入产物断言）
-
-【任务二：物料档案两租价三段式（形态 B）】
-
-T2a `_data/demo-data.js` products 12 行结构化（锚：实体起始 `products: {`）：
-每行 fields 对象追加 4 键（插入位置：fields 的 `"date"` 键后；该行有 `"supplier"` 键则在其后）。键名写死：`rentInMode` / `rentInPrice` / `rentalMode` / `rentalPrice`。值表（物料名锚定位，数值写法照 `45.00` 原样文本，空值写 `null`）：
-
-| 物料（name 锚） | rentInMode | rentInPrice | rentalMode | rentalPrice |
-|---|---|---|---|---|
-| 围板箱 1200×1000×970 | 按月 | 45.00 | 按月 | 60.00 |
-| 围板箱 1200×1000×590 | null | null | 按月 | 55.00 |
-| 木托盘 1200×1000 | null | null | 按次 | 15.00 |
-| 塑料托盘 1200×1000 | 按月 | 12.00 | 按月 | 18.00 |
-| 料箱 600×400×220（带盖） | null | null | null | null |
-| 料箱 600×400×340 | 按月 | 10.00 | 按次 | 14.00 |
-| 锁扣组件 / 铰链 / 围板 / 箱盖 / 底托架 / 内衬（组件 6 行） | null | null | null | null |
-
-assert：改后 `rentInMode` 恰 12 处、`rentalMode` 恰 12 处；mode 值仅出现 按月/按次/null 三种。cells 与 info 文本零改动（列表与详情保持拼接显示，`45.00 元/只·月` 原样）——改后抽 3 行比对 cells 价格格与备份逐字节一致。改后必跑 `node --check`。
-
-T2b `基础数据/产品档案.html` createModal 两段表单行 → 三段式：
-旧块（两 form-row，锚 placeholder `如 45.00 元/只·月（无租入来源留空）` 与 `按周期或按次，如 60.00 元/只·月 / 15.00 元/块·次`）整体替换为（恰 1 处 assert）：
-
-```html
-  <div class="form-row">
-    <span class="form-label">参考未税租入价</span>
-    <div style="display:flex;gap:6px;align-items:center;">
-      <div class="input-box select-box" style="width:116px;flex:none;"><select id="rentInModeSel" onchange="g21RentHint('rentIn')" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>按时间周期</option><option>按次</option></select></div>
-      <div class="input-box select-box" style="width:72px;flex:none;"><select id="rentInUnitSel" onchange="g21RentHint('rentIn')" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>月</option><option>年</option><option>日</option></select></div>
-      <div class="input-box" style="flex:1;min-width:0;"><input placeholder="数值，如 45.00（无租入来源留空）"></div>
-      <span id="rentInHint" style="font-size:12px;color:#8c8c8c;white-space:nowrap;">元/只·月</span>
-    </div>
-  </div>
-  <div class="form-row">
-    <span class="form-label">参考未税租赁价</span>
-    <div style="display:flex;gap:6px;align-items:center;">
-      <div class="input-box select-box" style="width:116px;flex:none;"><select id="rentalModeSel" onchange="g21RentHint('rental')" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>按时间周期</option><option>按次</option></select></div>
-      <div class="input-box select-box" style="width:72px;flex:none;"><select id="rentalUnitSel" onchange="g21RentHint('rental')" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>月</option><option>年</option><option>日</option></select></div>
-      <div class="input-box" style="flex:1;min-width:0;"><input placeholder="数值，如 60.00"></div>
-      <span id="rentalHint" style="font-size:12px;color:#8c8c8c;white-space:nowrap;">元/只·月</span>
-    </div>
-  </div>
-```
-
-联动接线（同页两处+一脚本块）：
-1. 「单位」下拉（锚 `<span class="form-label">单位</span>` 所在 form-row 的 select 起标签，恰 1 处）：select 起标签内注入 `id="unitSel" onchange="g21RentHint('rentIn');g21RentHint('rental');"`
-2. createModal markup 结束后追加（恰 1 处）：`<script>/* G21 租价三段式联动：计费方式(按时间周期/按次)×周期单位(月/年/日·默认月)+数值，后缀=元/计量单位·周期（单位取同表单「单位」下拉） */ function g21RentHint(p){var m=document.getElementById(p+'ModeSel').value;var u=document.getElementById(p+'UnitSel');u.disabled=(m==='按次');var us=document.getElementById('unitSel');var unit=us?us.value:'只';document.getElementById(p+'Hint').textContent='元/'+unit+'·'+(m==='按次'?'次':u.value);}</script>`
-3. 标签配平自检；严禁触碰同弹窗税率编辑器块（tax-sec）与其他表单行
-
-T2c `基础数据/弹窗/新建产品.html` 同款替换：
-1. 同样两 form-row 旧块（placeholder 锚同 T2b）替换为 T2b 同 markup（逐字，恰 1 处）
-2. 同样「单位」下拉注入 id/onchange；createModal 结束后追加同 `<script>` 块（锚 `<span class="form-label">单位</span>` 不存在 → 跳过该项记失败清单，控件保留默认 hint）
-3. 该模板已引 demo-data.js（e7ff975 补引），不新增引用
-
-【任务三：租入单域口径统一】
-1. 段标题（恰 2 处）：`租入明细（多货品 · 计费方式：月租 / 按套）`→`租入明细（多货品 · 计费方式：按月 / 按次）`——`租赁管理/弹窗/租入单新建.html` 与 `租赁管理/租入单列表.html` 各 1
-2. 明细行计费方式 select（恰 4 处，两文件各 2）：`<option selected>月租</option><option>按套</option>`→`<option selected>按月</option><option>按次</option>`；`<option>月租</option><option selected>按套</option>`→`<option>按月</option><option selected>按次</option>`
-3. demo-data rentInOrders feeSecTitle（恰 5 处）：`租入明细（多货品 · 月租/按套 · 无日租金）`→`租入明细（多货品 · 按月/按次 · 无日租金）`；同实体块内若另有 月租/按套 命中（grep 复核）同口径替换并记数
-4. 项目详情残留（恰 1 处）：`项目管理/项目详情.html` `<div class="dval">按天计租 · 按张计费</div>`→`<div class="dval">按月计租 · 按次计费</div>`
-5. 改后全站（原型 html+demo-data.js，排除 `99-归档/`、`backup-*/`、`_scan_tmpdir/`、`.git`）：`按天`=0、`元/天`=0
-
-【默认决策表】
-1. 三段式默认态=按时间周期 + 月 + 空数值；编辑态不预填（原型惯例，createModal 新建/编辑共用占位）
-2. 描述性行文不动清单：我的待办 summary（如「月租 12.00 元/块」）、租入单详情/审核弹窗「租入内容」dval 行文、A03 租入计费口径 pin note、租赁单新建 radio「按月定期生成应收/按次套数对账」及其详情 info 行（应收生成方式概念，非租价单位）
-3. demo-data 数值键写法照 `45.00` 原样文本（JS 合法数值字面量）；空值一律 `null`，不写 `—`
-4. 字典与卡片顺序=追加不重排（按月/按次/按张[停用]/按年/按日）
-5. 术语表 `P1-R04-术语表.md`：grep「按天/按张/计费方式」，仅当含按天/按张冲突口径时修订为按月/按次口径并注记，否则不动；本 goal 不新增术语条目
-6. G20 落地后锚文本若有漂移 → 以现状新文本为准做同义替换并记偏差；锚消失 → 跳过记失败清单
-7. 复核发现已合规的项 → 记录「无改动」继续，不算失败
-8. 文档同步范围：A05 四价登记块+A05 内 dictItems 相关登记（收尾）；A02/P1-R01 附录零改动（无页面增减）
-
-【失败处理策略（无人值守铁律）】
-任何 assert 失败/锚点不匹配/预期外结构：跳过该项，记入 `D:\工作台-吕道远\5-【ACTIVE】汽车物流包装租赁\agent-handoff\goal-failures-g21.md`（字段：任务号/文件/原因），继续下一项。禁止卡住等待、禁止对不确定结构猜测性改写、禁止静默吞掉。收尾报告必须含失败清单结论行（空清单给「无失败项」）。
-
-【纪律（违反=返工）】
-- `_AGENT基线.md` 第四节（历史事故与真相）全节 + 第七节（上手清单）逐条适用，不复述
-- 原型手工维护：读取-精确替换+assert 计数+幂等；禁止裸 open('w') 整页写入
-- HTML 块改动后标签配平自检；改内嵌 JS 字符串后必跑该页 audit
-- 备份按原相对路径还原语义；中文路径一律 python 内嵌处理（禁依赖 shell 中文参数）
-- 多股改动入库一律 `git add -A`（`_data/` untracked 坑）；禁 push
-- 验证数字一律自己重跑，不引用历史报告读数
-
-【验证门（全部满足才算完成，证据形态逐条点名）】
-1. 断言脚本 `_scan_tmpdir/g21_verify.py`（新建留档）输出逐行 PASS——demo-data：`rentInMode`=12、`rentalMode`=12、`'BF-04'`=1、`'BF-05'`=1、BF-03 行含 `"status": "停用"` 且 `tag-gray`、feeSecTitle 旧串=0 新串=5；数据字典.html：按年计租=1、按日计租=1、按张行 tag-gray=1、`计费方式</span><span class="cnt">5`=1、（暂估）=0、pin-2 无「预留」；产品档案.html 与新建产品.html：`id="rentInModeSel"`=1、`id="rentalModeSel"`=1、`id="unitSel"`=1、`g21RentHint` 定义=1、两旧 placeholder 串=0；租入单新建.html 与租入单列表.html：新段标题=1、`<option selected>按月</option>`=1、`<option selected>按次</option>`=1、月租/按套 option=0；项目详情.html：「按月计租 · 按次计费」=1；全站 按天=0、元/天=0；原型 HTML 总数=115
-2. 语法：`node --check P3-R01-包装租赁管理后台原型/_data/demo-data.js` 退出码 0
-3. 全量 audit：`python _scan_tmpdir/audit_interaction.py` 重跑 → 死链 0 / JS 错 0（115 页）；`python _scan_tmpdir/g17_audit_diff.py` → 新增问题 0
-4. 菜单门：`python _scan_tmpdir/v32_menu_verify.py` → 14/14（菜单零改动回归）
-5. 列表断言：`python _scan_tmpdir/verify_listfull.py` 三批 → 期望值沿用 G18/G19b 文档所载现行口径（G14 记 103/88/43）；若口径漂移以文档实际值为准并记偏差
-6. PW 抽验 `_scan_tmpdir/g21_pw.py`（留档）+ 截图 `_scan_tmpdir/g21-*.png`：①产品档案开 createModal：三段式两字段在、租入价切「按次」→ 周期单位禁用且 hint=「元/只·次」、切回→「元/只·月」；②新建产品模板同款断言；③数据字典点「计费方式」分类 → 主表 5 行、按张行停用 tag、pin-2 无「预留」；④租入单新建明细首行计费方式 select 首项=「按月」；⑤项目详情「计费方式」dval=「按月计租 · 按次计费」。JS 错 0，输出 PASS/FAIL 清单
-7. 标注重注入：A03→A04 双轮脚本输出「零告警」行贴出
-
-【收尾（回写三件+git 批次为硬性）】
-1. 任务文档 `D:\工作台-吕道远\5-【ACTIVE】汽车物流包装租赁\agent-handoff\20260911-G21-租价计费三段式.md` 标 ✅ + 执行记录（任务逐段结果/验证门证据摘要/默认决策命中/偏差闭环）+ commit 哈希回填头部
-2. `_索引.md` 追加 G21 行：日期/G 号/任务名/状态/commit 哈希/文件名
-3. `_AGENT基线.md` 快照滚动：字典计费方式 5 值口径、档案租价三段式结构、当前任务块更新
-4. `P3-R01-A05-字段字典.md`：四价登记块更新为三段式口径（租价=方式+周期单位+数值）+ dictItems BF-03 停用/BF-04/BF-05 新增登记；统计行如涉则同步
-5. 失败清单结论行贴出；`backup-g21-20260911/` 保留不清理
-6. `git add -A && git commit`（信息前缀 G21，禁 push）；哈希回填任务文档头部与索引行
+【约束】
+- 无人值守：全程不需要也不得向用户提问；默认决策表 8 条内事项按表执行，表外按最简合理默认执行并在收尾报告注明
+- assert 失败/锚点不匹配 → 跳过该项 → 记入 `D:\工作台-吕道远\5-【ACTIVE】汽车物流包装租赁\agent-handoff\goal-failures-g21.md`（任务号/文件/原因）→ 继续下一项；禁止卡死等待、禁止猜测性改写、禁止静默吞掉；收尾必须含失败清单结论行（空清单给「无失败项」）
+- 精确替换+assert 计数+幂等；HTML 块改动配平自检；改内嵌 JS 字符串后必跑该页 audit；中文路径 python 内嵌处理；禁裸 open('w') 整页写入；验证数字自重跑
+- 收尾回写三件（硬性）：任务文档标 ✅+执行记录+commit 哈希回填头部；`_索引.md` 挂 G21 行；`_AGENT基线.md` 快照滚动；A05 四价登记块与 dictItems 变更同步
+- git 批次（硬性）：`git add -A && git commit`（信息前缀 G21，禁 push），哈希回填任务文档与索引行
