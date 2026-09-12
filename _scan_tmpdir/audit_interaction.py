@@ -10,8 +10,10 @@ from pathlib import Path
 from urllib.parse import unquote
 from playwright.sync_api import sync_playwright
 
-ROOT = Path(r"D:\工作台-吕道远\5-【ACTIVE】汽车物流包装租赁\P3-R01-包装租赁管理后台原型")
-OUT = Path(r"D:\工作台-吕道远\5-【ACTIVE】汽车物流包装租赁\_scan_tmpdir")
+# G22 跨机归一（G21 g17_audit_diff 先例）：主机 Win 原绝对路径改按脚本位置解析，双机通用
+ROOT = Path(__file__).resolve().parent.parent / "P3-R01-包装租赁管理后台原型"
+# G22 跨机归一：OUT 改按脚本位置解析，双机通用
+OUT = Path(__file__).resolve().parent
 FILTER = sys.argv[1] if len(sys.argv) > 1 else ""
 
 HARNESS = r"""

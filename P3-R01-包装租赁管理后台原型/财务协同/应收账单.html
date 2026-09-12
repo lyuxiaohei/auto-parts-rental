@@ -287,7 +287,7 @@ th.td-num { text-align:right; }
    <ul class="sm-sub">
    <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">租赁</li>
    <li><div class="sm-link" onclick="go('../租赁管理/租赁单列表.html')">租赁单</div></li>
-   <li><div class="sm-link" onclick="go('../租赁管理/组合出库列表.html')">租赁出库</div></li>
+   <li><div class="sm-link" onclick="go('../租赁管理/租赁出库列表.html')">租赁出库</div></li>
    <li><div class="sm-link" onclick="go('../租赁管理/退租入库列表.html')">退租入库</div></li>
          <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">租入</li>
    <li><div class="sm-link" onclick="go('../租赁管理/租入单列表.html')">租入单</div></li>
@@ -474,7 +474,7 @@ th.td-num { text-align:right; }
           <td>2026-08</td>
           <td>PRJ-2601</td>
           <td>一汽解放汽车有限公司</td>
-          <td>租赁费（按组合出库自动汇总）</td>
+          <td>租赁费（按租赁出库自动汇总）</td>
           <td>租赁出库 26 张</td>
           <td><span class="td-num"><b>486,200.00</b></span></td>
           <td><span class="td-num">186,200.00</span></td>
@@ -489,7 +489,7 @@ th.td-num { text-align:right; }
           <td>2026-08</td>
           <td>PRJ-2602</td>
           <td>上汽大众宁波分公司</td>
-          <td>租赁费（按组合出库自动汇总）</td>
+          <td>租赁费（按租赁出库自动汇总）</td>
           <td>租赁出库 26 张</td>
           <td><span class="td-num"><b>358,900.00</b></span></td>
           <td><span class="td-num">0.00</span></td>
@@ -504,7 +504,7 @@ th.td-num { text-align:right; }
           <td>2026-08</td>
           <td>PRJ-2603</td>
           <td>小鹏汽车科技有限公司</td>
-          <td>租赁费（按组合出库自动汇总）</td>
+          <td>租赁费（按租赁出库自动汇总）</td>
           <td>租赁出库 26 张</td>
           <td><span class="td-num"><b>241,500.00</b></span></td>
           <td><span class="td-num">0.00</span></td>
@@ -519,7 +519,7 @@ th.td-num { text-align:right; }
           <td>2026-07</td>
           <td>PRJ-2601</td>
           <td>一汽解放汽车有限公司</td>
-          <td>租赁费（按组合出库自动汇总）</td>
+          <td>租赁费（按租赁出库自动汇总）</td>
           <td>租赁出库 26 张</td>
           <td><span class="td-num"><b>442,800.00</b></span></td>
           <td><span class="td-num">442,800.00</span></td>
@@ -549,7 +549,7 @@ th.td-num { text-align:right; }
           <td>2026-07</td>
           <td>PRJ-2602</td>
           <td>上汽大众宁波分公司</td>
-          <td>租赁费（按组合出库自动汇总）</td>
+          <td>租赁费（按租赁出库自动汇总）</td>
           <td>租赁出库 26 张</td>
           <td><span class="td-num"><b>366,200.00</b></span></td>
           <td><span class="td-num">186,200.00</span></td>
@@ -564,7 +564,7 @@ th.td-num { text-align:right; }
           <td>2026-06</td>
           <td>PRJ-2602</td>
           <td>上汽大众宁波分公司</td>
-          <td>租赁费（按组合出库自动汇总）</td>
+          <td>租赁费（按租赁出库自动汇总）</td>
           <td>租赁出库 26 张</td>
           <td><span class="td-num"><b>358,900.00</b></span></td>
           <td><span class="td-num">358,900.00</span></td>
@@ -612,7 +612,7 @@ th.td-num { text-align:right; }
     <div class="modal-body">
 <div class="form-row">
     <span class="form-label"><span class="req">*</span>账单类型</span>
-    <div class="input-box select-box" style="width:350px;"><select id="cmBtype" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option value="lease" selected>租赁费（按组合出库自动汇总）</option><option value="sale">销售费（按销售出库自动汇总）</option><option value="loss">丢损赔偿（客户赔付我方）</option><option value="supplier">供应商应收（供应商赔付我方）</option><option value="prepay">预收·保证金（收客户，无订单直接建单）</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+    <div class="input-box select-box" style="width:350px;"><select id="cmBtype" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option value="lease" selected>租赁费（按租赁出库自动汇总）</option><option value="sale">销售费（按销售出库自动汇总）</option><option value="loss">丢损赔偿（客户赔付我方）</option><option value="supplier">供应商应收（供应商赔付我方）</option><option value="prepay">预收·保证金（收客户，无订单直接建单）</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
   </div><div class="pn-hint" id="cmTypeHint" style="margin:-14px 0 12px 128px;"></div><div class="form-row">
     <span class="form-label"><span class="req">*</span><span id="cmPartyLabel">客户</span></span>
     <div class="input-box select-box" style="width:350px;"><select id="cmParty" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
@@ -738,7 +738,7 @@ var cmPlan = createInstPlan({
   var CUSTOMERS = ['一汽解放汽车有限公司', '上汽大众汽车有限公司宁波分公司', '小鹏汽车科技有限公司', '东风本田汽车有限公司', '安吉智行物流'];
   var SUPPLIERS = ['路凯包装运营（上海）有限公司', '苏州联恒五金制品有限公司', '宁波华塑包装制品有限公司', '常州正大塑料托盘厂'];
   var HINTS = {
-    lease: '租赁费按组合出库自动汇总；无关联单据时手填金额。',
+    lease: '租赁费按租赁出库自动汇总；无关联单据时手填金额。',
     sale: '销售费按销售出库自动汇总；无关联单据时手填金额。',
     loss: '丢损赔偿（客户赔付我方）无关联单据可汇总，直接手动建单：选费用分类、手填金额。',
     supplier: '供应商应收（供应商赔付我方）无关联单据可汇总，直接手动建单：选费用分类、手填金额。',
@@ -993,6 +993,12 @@ function toggleUsageGen(usage) { var h = document.getElementById('usageHint'); i
 
 
 
+
+
+
+
+
+
 <style id="proto-notes-style">
 body.proto-notes-on [data-note]{position:relative}
 body.proto-notes-on [data-note]::after{content:attr(data-note);position:absolute;top:1px;right:1px;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600;box-shadow:0 0 0 1.5px #fff;cursor:pointer;opacity:.75;transition:opacity .15s}
@@ -1015,7 +1021,7 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 .pn-fab .pn-fab-n{font-family:Consolas,monospace;font-weight:600}
 </style>
 <div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>B1 销售线 · 步骤 3/5 应收账单（销售费）</div><div class="pnp-d">按销售出库自动汇总，关联 XSCK-20260902-015 等 2 单。<br>下一步 → 开票登记 → 回款 → 水单核销。</div></div>
-<div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>L1/L2 · 租赁费应收（财务汇合点）</div><div class="pnp-d">按组合出库自动汇总——租赁线与买卖线在账单层汇合，共用同一条 开票→回款→核销 通道（袁丽晶 43:24）。</div></div>
+<div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>L1/L2 · 租赁费应收（财务汇合点）</div><div class="pnp-d">按租赁出库自动汇总——租赁线与买卖线在账单层汇合，共用同一条 开票→回款→核销 通道（袁丽晶 43:24）。</div></div>
 <div class="proto-pin" id="proto-pin-3"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">3</span>S4 · 赔偿转应收</div><div class="pnp-d">丢损赔偿不走独立赔偿单，直接生成应收/应付账单（2026-09-04 拍板 · 2026-09-08 移除赔偿单模块）：<br>自有器具 → 客户赔付进应收；租入器具 → 供应商赔付进应付（见应付账单）。</div></div>
 <div class="pn-fab" id="protoNotesFab">标注</div></div>
 <script id="proto-notes-js">

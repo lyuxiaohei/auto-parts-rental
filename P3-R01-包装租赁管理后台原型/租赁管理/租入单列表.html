@@ -288,7 +288,7 @@ th.td-num { text-align:right; }
    <ul class="sm-sub">
    <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">租赁</li>
    <li><div class="sm-link" onclick="go('../租赁管理/租赁单列表.html')">租赁单</div></li>
-   <li><div class="sm-link" onclick="go('../租赁管理/组合出库列表.html')">租赁出库</div></li>
+   <li><div class="sm-link" onclick="go('../租赁管理/租赁出库列表.html')">租赁出库</div></li>
    <li><div class="sm-link" onclick="go('../租赁管理/退租入库列表.html')">退租入库</div></li>
          <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">租入</li>
    <li><div class="sm-link selected">租入单</div></li>
@@ -814,6 +814,9 @@ function showToast(msg) {
 
 
 
+
+
+
 <style id="proto-notes-style">
 body.proto-notes-on [data-note]{position:relative}
 body.proto-notes-on [data-note]::after{content:attr(data-note);position:absolute;top:1px;right:1px;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600;box-shadow:0 0 0 1.5px #fff;cursor:pointer;opacity:.75;transition:opacity .15s}
@@ -836,7 +839,7 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 .pn-fab .pn-fab-n{font-family:Consolas,monospace;font-weight:600}
 </style>
 <div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>L3 · 步骤 1/8 租入单</div><div class="pnp-d">L3 租入转租起点：向路凯租入围板箱×30（月租 45.00 元/只）。<br>状态流：待审核→履行中→部分归还→已归还。操作列可按月生成租金应付。<br>2026-09-04 拍板第一期实现（原会议暂缓）。</div></div>
-<div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>L4 · 步骤 3/10 租入单（混合侧）</div><div class="pnp-d">租入大箱×10 与自购隔板组成混合配方 → ZH-2604-D×40 套按 BOM 组合出库（无组装单·2026-09-08）。</div></div>
+<div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>L4 · 步骤 3/10 租入单（混合侧）</div><div class="pnp-d">租入大箱×10 与自购隔板组成混合配方 → ZH-2604-D×40 套按 BOM 租赁出库（无组装单·2026-09-08）。</div></div>
 <div class="proto-pin" id="proto-pin-3"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">3</span>租入计费口径</div><div class="pnp-d">计费＝月租金 + 按套数单价（无日租金，2026-09-08 会议）；应付生成方式取决于租入单模式（静态租入 / 背靠背）。</div></div>
 <div class="pn-fab" id="protoNotesFab">标注</div></div>
 <script id="proto-notes-js">

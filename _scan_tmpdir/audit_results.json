@@ -213,7 +213,7 @@
    ],
    "selects": 5,
    "fakeSelects": 0,
-   "radios": 5,
+   "radios": 6,
    "checkboxes": 0,
    "inputs": 14,
    "stabs": 3,
@@ -435,7 +435,7 @@
    ],
    "selects": 2,
    "fakeSelects": 0,
-   "radios": 3,
+   "radios": 4,
    "checkboxes": 0,
    "inputs": 3,
    "stabs": 0,
@@ -1003,8 +1003,8 @@
   "problems": [],
   "stats": {
    "buttons": 1,
-   "links": 15,
-   "onclickEls": 63,
+   "links": 16,
+   "onclickEls": 64,
    "modals": 0,
    "modalTitles": [],
    "selects": 2,
@@ -1245,6 +1245,54 @@
   "nav_anomaly": null
  },
  {
+  "page": "租赁管理/弹窗/租赁出库单详情.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 1,
+   "links": 1,
+   "onclickEls": 7,
+   "modals": 1,
+   "modalTitles": [
+    "租赁出库单详情 · CK-2026083(演示页)"
+   ],
+   "selects": 0,
+   "fakeSelects": 0,
+   "radios": 0,
+   "checkboxes": 0,
+   "inputs": 0,
+   "stabs": 0,
+   "tabs": 0,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "租赁管理/弹窗/租赁出库确认.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 2,
+   "links": 1,
+   "onclickEls": 3,
+   "modals": 1,
+   "modalTitles": [
+    "租赁出库审核(演示页)"
+   ],
+   "selects": 0,
+   "fakeSelects": 0,
+   "radios": 2,
+   "checkboxes": 0,
+   "inputs": 1,
+   "stabs": 0,
+   "tabs": 0,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
   "page": "租赁管理/弹窗/租赁单审核.html",
   "js_errors": [],
   "problems": [],
@@ -1309,54 +1357,6 @@
    "radios": 0,
    "checkboxes": 0,
    "inputs": 0,
-   "stabs": 0,
-   "tabs": 0,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "租赁管理/弹窗/组合出库单详情.html",
-  "js_errors": [],
-  "problems": [],
-  "stats": {
-   "buttons": 1,
-   "links": 1,
-   "onclickEls": 7,
-   "modals": 1,
-   "modalTitles": [
-    "组合出库单详情 · CK-2026083(演示页)"
-   ],
-   "selects": 0,
-   "fakeSelects": 0,
-   "radios": 0,
-   "checkboxes": 0,
-   "inputs": 0,
-   "stabs": 0,
-   "tabs": 0,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "租赁管理/弹窗/组合出库确认.html",
-  "js_errors": [],
-  "problems": [],
-  "stats": {
-   "buttons": 2,
-   "links": 1,
-   "onclickEls": 3,
-   "modals": 1,
-   "modalTitles": [
-    "出库确认(演示页)"
-   ],
-   "selects": 0,
-   "fakeSelects": 0,
-   "radios": 2,
-   "checkboxes": 0,
-   "inputs": 1,
    "stabs": 0,
    "tabs": 0,
    "bgMut": 0
@@ -1569,6 +1569,62 @@
   "nav_anomaly": null
  },
  {
+  "page": "租赁管理/租赁出库列表.html",
+  "js_errors": [],
+  "problems": [
+   {
+    "cat": "弹窗",
+    "type": "modal-unreachable",
+    "phase": "modal",
+    "where": {
+     "text": "租赁出库单详情"
+    },
+    "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
+   }
+  ],
+  "stats": {
+   "buttons": 8,
+   "links": 26,
+   "onclickEls": 56,
+   "modals": 2,
+   "modalTitles": [
+    "租赁出库审核"
+   ],
+   "selects": 3,
+   "fakeSelects": 0,
+   "radios": 2,
+   "checkboxes": 0,
+   "inputs": 15,
+   "stabs": 4,
+   "tabs": 4,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "租赁管理/租赁出库录单.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 5,
+   "links": 3,
+   "onclickEls": 35,
+   "modals": 0,
+   "modalTitles": [],
+   "selects": 4,
+   "fakeSelects": 0,
+   "radios": 2,
+   "checkboxes": 2,
+   "inputs": 6,
+   "stabs": 0,
+   "tabs": 4,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
   "page": "租赁管理/租赁单列表.html",
   "js_errors": [],
   "problems": [
@@ -1627,62 +1683,6 @@
    "inputs": 31,
    "stabs": 6,
    "tabs": 3,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "租赁管理/组合出库列表.html",
-  "js_errors": [],
-  "problems": [
-   {
-    "cat": "弹窗",
-    "type": "modal-unreachable",
-    "phase": "modal",
-    "where": {
-     "text": "组合出库单详情"
-    },
-    "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
-   }
-  ],
-  "stats": {
-   "buttons": 8,
-   "links": 24,
-   "onclickEls": 55,
-   "modals": 2,
-   "modalTitles": [
-    "出库确认"
-   ],
-   "selects": 3,
-   "fakeSelects": 0,
-   "radios": 2,
-   "checkboxes": 0,
-   "inputs": 14,
-   "stabs": 3,
-   "tabs": 4,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "租赁管理/组合出库录单.html",
-  "js_errors": [],
-  "problems": [],
-  "stats": {
-   "buttons": 5,
-   "links": 3,
-   "onclickEls": 35,
-   "modals": 0,
-   "modalTitles": [],
-   "selects": 4,
-   "fakeSelects": 0,
-   "radios": 2,
-   "checkboxes": 2,
-   "inputs": 6,
-   "stabs": 0,
-   "tabs": 4,
    "bgMut": 0
   },
   "dead_links": [],

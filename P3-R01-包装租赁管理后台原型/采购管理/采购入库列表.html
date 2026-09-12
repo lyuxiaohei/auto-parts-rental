@@ -288,7 +288,7 @@ th.td-num { text-align:right; }
    <ul class="sm-sub">
    <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">租赁</li>
    <li><div class="sm-link" onclick="go('../租赁管理/租赁单列表.html')">租赁单</div></li>
-   <li><div class="sm-link" onclick="go('../租赁管理/组合出库列表.html')">租赁出库</div></li>
+   <li><div class="sm-link" onclick="go('../租赁管理/租赁出库列表.html')">租赁出库</div></li>
    <li><div class="sm-link" onclick="go('../租赁管理/退租入库列表.html')">退租入库</div></li>
          <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">租入</li>
    <li><div class="sm-link" onclick="go('../租赁管理/租入单列表.html')">租入单</div></li>
@@ -784,6 +784,12 @@ document.querySelectorAll('.tab').forEach(function (t) {
 
 
 
+
+
+
+
+
+
 <style id="proto-notes-style">
 body.proto-notes-on [data-note]{position:relative}
 body.proto-notes-on [data-note]::after{content:attr(data-note);position:absolute;top:1px;right:1px;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600;box-shadow:0 0 0 1.5px #fff;cursor:pointer;opacity:.75;transition:opacity .15s}
@@ -807,7 +813,7 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 </style>
 <div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>B1 采购线 · 步骤 2/3 采购入库（零部件）</div><div class="pnp-d">凭采购订单到货验收——信息与物资匹配才闭环（王琳总 1:35）。进什么出什么，不参与组合（出库时按 BOM 组合扣减组件，无组装环节·2026-09-08）。<br>下一步 → 库存缓冲→ 销售线按可用量发货。</div></div>
 <div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>L1/L2 · 步骤 2 资产入库（器具采购）</div><div class="pnp-d">上一步 ← 采购订单（器具类，凭订单验收）。「采购入库是属于我的资产的一个入库」（袁丽晶 24:50）。<br>器具买断成自有资产，服务 L1 单一出租与 L2 组合出租。</div></div>
-<div class="proto-pin" id="proto-pin-3"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">3</span>L4 · 步骤 2/10 自购隔板入库</div><div class="pnp-d">混合转租的自购侧：折叠隔板×80（苏州联恒），凭采购订单 PO-20260815-012 验收入库。<br>与 RZD-20260815-005（租入大箱×10）共同组成混合配方 → 按 BOM 组合出库（无组装单·2026-09-08）。</div></div>
+<div class="proto-pin" id="proto-pin-3"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">3</span>L4 · 步骤 2/10 自购隔板入库</div><div class="pnp-d">混合转租的自购侧：折叠隔板×80（苏州联恒），凭采购订单 PO-20260815-012 验收入库。<br>与 RZD-20260815-005（租入大箱×10）共同组成混合配方 → 按 BOM 租赁出库（无组装单·2026-09-08）。</div></div>
 <div class="pn-fab" id="protoNotesFab">标注</div></div>
 <script id="proto-notes-js">
 (function(){

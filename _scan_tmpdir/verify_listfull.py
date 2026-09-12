@@ -18,8 +18,8 @@ B1 = [
          stabs={'全部': 3, '待入库': 1, '已入库': 2}, pin=2),
     dict(name='销售出库', file='销售管理/销售出库列表.html', entity='salesOutbounds', modalId='detailModal',
          stabs={'全部': 6, '待审核': 1, '已完成': 5}, pin=None),
-    dict(name='组合出库', file='租赁管理/组合出库列表.html', entity='comboOutbounds', modalId='detailModal',
-         stabs={'拣货中': 1}, pin=2),
+    dict(name='租赁出库', file='租赁管理/租赁出库列表.html', entity='comboOutbounds', modalId='detailModal',
+         stabs={'全部': 9, '待审核': 1, '拣货中': 1, '已出库': 7}, pin=2),  # G22：文件/称呼改名+审核落地（8+1 行）
     dict(name='其他出库', file='仓储作业/其他出库列表.html', entity='otherOutbounds', modalId='detailModal',
          stabs={'全部': 5, '待审核': 1, '已完成': 3}, pin=None),
     dict(name='租入归还', file='租赁管理/租入归还列表.html', entity='rentInReturns', modalId='detailModal',

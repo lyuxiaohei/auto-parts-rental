@@ -282,7 +282,7 @@ th.td-num { text-align:right; }
    <ul class="sm-sub">
    <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">租赁</li>
    <li><div class="sm-link" onclick="go('../租赁管理/租赁单列表.html')">租赁单</div></li>
-   <li><div class="sm-link" onclick="go('../租赁管理/组合出库列表.html')">租赁出库</div></li>
+   <li><div class="sm-link" onclick="go('../租赁管理/租赁出库列表.html')">租赁出库</div></li>
    <li><div class="sm-link" onclick="go('../租赁管理/退租入库列表.html')">退租入库</div></li>
          <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">租入</li>
    <li><div class="sm-link" onclick="go('../租赁管理/租入单列表.html')">租入单</div></li>
@@ -386,7 +386,7 @@ th.td-num { text-align:right; }
           <td>驾驶室围板箱整箱套件</td>
           <td><span class="tag tag-green">启用</span></td>
           <td><span class="td-num">5</span></td>
-          <td>围板箱×1（租入-路凯）+ 围板×4（自购）+ 箱盖×1（自购）+ 锁扣×4（自购）+ 铰链×2（自购）</td>
+          <td>围板箱×1（租入）+ 围板×4（自购）+ 箱盖×1（自购）+ 锁扣×4（自购）+ 铰链×2（自购）</td>
           <td>陈金</td>
           <td>2026-08-20</td>
           <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/BOM维护.html')">维护</a><a onclick="go('../基础数据/BOM维护.html')">查看</a><a onclick="openModal('stopModal')">停用</a></span></td>
@@ -419,7 +419,7 @@ th.td-num { text-align:right; }
           <td>保险杠围板箱套件（武汉）</td>
           <td><span class="tag tag-gray">停用</span></td>
           <td><span class="td-num">4</span></td>
-          <td>围板箱×1（租入-路凯）+ 围板×3（自购）+ 箱盖×1（自购）+ 内衬×1（自购）</td>
+          <td>围板箱×1（租入）+ 围板×3（自购）+ 箱盖×1（自购）+ 内衬×1（自购）</td>
           <td>王强</td>
           <td>2026-06-08</td>
           <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/BOM维护.html')">维护</a><a onclick="go('../基础数据/BOM维护.html')">查看</a><a onclick="openModal('stopModal')">停用</a></span></td>
@@ -588,6 +588,9 @@ document.querySelectorAll('.tab').forEach(function (t) {
 
 
 
+
+
+
 <style id="proto-notes-style">
 body.proto-notes-on [data-note]{position:relative}
 body.proto-notes-on [data-note]::after{content:attr(data-note);position:absolute;top:1px;right:1px;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600;box-shadow:0 0 0 1.5px #fff;cursor:pointer;opacity:.75;transition:opacity .15s}
@@ -609,7 +612,7 @@ body.proto-notes-on .proto-pin.pn-open{display:block}
 body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 .pn-fab .pn-fab-n{font-family:Consolas,monospace;font-weight:600}
 </style>
-<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>L2 步骤3/10 · L4 步骤4/10 BOM 配方</div><div class="pnp-d">A+B→C 组合定义（仅租赁线）。<br>ZH-2604-D 为混合配方：围板箱（租入-路凯）+ 隔板（自购）——支撑 L2 组合出租与 L4 混合转租。</div></div>
+<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>L2 步骤3/10 · L4 步骤4/10 BOM 配方</div><div class="pnp-d">A+B→C 组合定义（仅租赁线）。<br>ZH-2604-D 为混合配方：围板箱（租入）+ 隔板（自购）——支撑 L2 组合出租与 L4 混合转租。</div></div>
 <div class="pn-fab" id="protoNotesFab">标注</div></div>
 <script id="proto-notes-js">
 (function(){

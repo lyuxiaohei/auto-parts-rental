@@ -277,7 +277,7 @@ th.td-num { text-align:right; }
    <ul class="sm-sub">
    <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">租赁</li>
    <li><div class="sm-link" onclick="go('../租赁管理/租赁单列表.html')">租赁单</div></li>
-   <li><div class="sm-link" onclick="go('../租赁管理/组合出库列表.html')">租赁出库</div></li>
+   <li><div class="sm-link" onclick="go('../租赁管理/租赁出库列表.html')">租赁出库</div></li>
    <li><div class="sm-link" onclick="go('../租赁管理/退租入库列表.html')">退租入库</div></li>
          <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">租入</li>
    <li><div class="sm-link" onclick="go('../租赁管理/租入单列表.html')">租入单</div></li>
@@ -342,7 +342,7 @@ th.td-num { text-align:right; }
     <div class="st-num">12,480<span class="unit">只</span></div>
   </div>
   <div class="stat">
-    <div class="st-label" data-note="5"><span>本月组合出库</span></div>
+    <div class="st-label" data-note="5"><span>本月租赁出库</span></div>
     <div class="st-num">2,984<span class="unit">件</span></div>
   </div>
   <div class="stat">
@@ -558,6 +558,9 @@ document.querySelectorAll('.tab').forEach(function (t) {
 
 
 
+
+
+
 <style id="proto-notes-style">
 body.proto-notes-on [data-note]{position:relative}
 body.proto-notes-on [data-note]::after{content:attr(data-note);position:absolute;top:1px;right:1px;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600;box-shadow:0 0 0 1.5px #fff;cursor:pointer;opacity:.75;transition:opacity .15s}
@@ -583,7 +586,7 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 <div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>本月营收列</div><div class="pnp-d">项目维度营收汇总（租赁+服务），点开可查看盈亏明细</div><div class="pnp-b"><span class="pnp-tag">FP2-03 · 项目看板</span><span class="pnp-tag">REQ-02 · 项目维度经营分析</span></div><div class="pnp-src"><div class="src-item"><b>FP2-03 项目看板</b>：出入库流量、营收、盈利汇总</div><div class="src-item"><b>REQ-02 项目维度经营分析</b>：按项目看出入库、营收、盈利情况</div></div></div>
 <div class="proto-pin" id="proto-pin-3"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">3</span>查看盈亏明细</div><div class="pnp-d">从看板直接进入项目损益明细</div><div class="pnp-b"><span class="pnp-tag">FP2-04 · 项目明细查看明细</span><span class="pnp-tag">REQ-02 · 项目维度经营分析</span></div><div class="pnp-src"><div class="src-item"><b>FP2-04 项目明细查看明细</b>：从看板点开查看到单据</div><div class="src-item"><b>REQ-02 项目维度经营分析</b>：按项目看出入库、营收、盈利情况</div></div></div>
 <div class="proto-pin" id="proto-pin-4"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">4</span>在租资产口径</div><div class="pnp-d">较上月 +3.2% · 覆盖 4 个项目</div><div class="pnp-b"><span class="pnp-tag">FP2-03 · 项目看板</span><span class="pnp-tag">REQ-02 · 项目维度经营分析</span></div><div class="pnp-src"><div class="src-item"><b>FP2-03 项目看板</b>：出入库流量、营收、盈利汇总</div><div class="src-item"><b>REQ-02 项目维度经营分析</b>：按项目看出入库、营收、盈利情况</div></div></div>
-<div class="proto-pin" id="proto-pin-5"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">5</span>组合出库口径</div><div class="pnp-d">较上月 +8.6% · 一箱一件交付</div><div class="pnp-b"><span class="pnp-tag">FP2-03 · 项目看板</span><span class="pnp-tag">REQ-02 · 项目维度经营分析</span></div><div class="pnp-src"><div class="src-item"><b>FP2-03 项目看板</b>：出入库流量、营收、盈利汇总</div><div class="src-item"><b>REQ-02 项目维度经营分析</b>：按项目看出入库、营收、盈利情况</div></div></div>
+<div class="proto-pin" id="proto-pin-5"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">5</span>租赁出库口径</div><div class="pnp-d">较上月 +8.6% · 一箱一件交付</div><div class="pnp-b"><span class="pnp-tag">FP2-03 · 项目看板</span><span class="pnp-tag">REQ-02 · 项目维度经营分析</span></div><div class="pnp-src"><div class="src-item"><b>FP2-03 项目看板</b>：出入库流量、营收、盈利汇总</div><div class="src-item"><b>REQ-02 项目维度经营分析</b>：按项目看出入库、营收、盈利情况</div></div></div>
 <div class="proto-pin" id="proto-pin-6"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">6</span>本月收款口径</div><div class="pnp-d">较上月 +12.4% · 收款核销 5 笔</div><div class="pnp-b"><span class="pnp-tag">FP2-03 · 项目看板</span><span class="pnp-tag">REQ-02 · 项目维度经营分析</span></div><div class="pnp-src"><div class="src-item"><b>FP2-03 项目看板</b>：出入库流量、营收、盈利汇总</div><div class="src-item"><b>REQ-02 项目维度经营分析</b>：按项目看出入库、营收、盈利情况</div></div></div>
 <div class="proto-pin" id="proto-pin-7"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">7</span>应收余额口径</div><div class="pnp-d">其中逾期 318,600 元</div><div class="pnp-b"><span class="pnp-tag">FP2-03 · 项目看板</span><span class="pnp-tag">REQ-02 · 项目维度经营分析</span></div><div class="pnp-src"><div class="src-item"><b>FP2-03 项目看板</b>：出入库流量、营收、盈利汇总</div><div class="src-item"><b>REQ-02 项目维度经营分析</b>：按项目看出入库、营收、盈利情况</div></div></div>
 <div class="pn-fab" id="protoNotesFab">标注</div></div>

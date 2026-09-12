@@ -9,7 +9,8 @@ from pathlib import Path
 from urllib.parse import unquote
 from playwright.sync_api import sync_playwright
 
-ROOT = Path(r"D:\工作台-吕道远\5-【ACTIVE】汽车物流包装租赁")
+# G22 跨机归一（G21 g17_audit_diff 先例）：主机 Win 原绝对路径改按脚本位置解析，双机通用
+ROOT = Path(__file__).resolve().parent.parent
 PROTO = ROOT / "P3-R01-包装租赁管理后台原型"
 
 results = []  # (编号, 名称, 是否通过, 备注)

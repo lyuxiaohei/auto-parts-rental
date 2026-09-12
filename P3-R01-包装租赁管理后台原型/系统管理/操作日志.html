@@ -286,7 +286,7 @@ th.td-num { text-align:right; }
    <ul class="sm-sub">
    <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">租赁</li>
    <li><div class="sm-link" onclick="go('../租赁管理/租赁单列表.html')">租赁单</div></li>
-   <li><div class="sm-link" onclick="go('../租赁管理/组合出库列表.html')">租赁出库</div></li>
+   <li><div class="sm-link" onclick="go('../租赁管理/租赁出库列表.html')">租赁出库</div></li>
    <li><div class="sm-link" onclick="go('../租赁管理/退租入库列表.html')">退租入库</div></li>
          <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">租入</li>
    <li><div class="sm-link" onclick="go('../租赁管理/租入单列表.html')">租入单</div></li>
@@ -351,7 +351,7 @@ th.td-num { text-align:right; }
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
     <div class="ff"><span class="ff-label">所属模块：</span>
-      <select><option selected>全部</option><option>基础资料</option><option>仓储作业</option><option>包装管理</option><option>财务应收</option></select>
+      <select><option selected>全部</option><option>基础数据</option><option>仓储管理</option><option>租赁管理</option><option>财务管理</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
     <div class="ff"><span class="ff-label">操作类型：</span>
@@ -391,7 +391,7 @@ th.td-num { text-align:right; }
           <td><span class="lk">LOG-20260831-0866</span></td>
           <td>2026-08-31 08:12:36</td>
           <td>袁明（客户账号）</td>
-          <td>订单管理</td>
+          <td>销售管理</td>
           <td><span class="tag tag-blue">新增</span></td>
           <td>提交销售订单 SO-20260831-0042（ZH-2601-A × 180 套）</td>
           <td>112.18.*.*</td>
@@ -411,9 +411,9 @@ th.td-num { text-align:right; }
           <td><span class="lk">LOG-20260830-0864</span></td>
           <td>2026-08-30 17:22:08</td>
           <td>张伟</td>
-          <td>仓储作业</td>
+          <td>仓储管理</td>
           <td><span class="tag tag-green">出库</span></td>
-          <td>组合出库单 CK-20260830-015 出库确认（180 套）</td>
+          <td>租赁出库单 CK-20260830-015 审核出库（180 套）</td>
           <td>10.8.*.*</td>
           <td><span class="tag tag-green">成功</span></td>
         </tr>
@@ -421,7 +421,7 @@ th.td-num { text-align:right; }
           <td><span class="lk">LOG-20260830-0863</span></td>
           <td>2026-08-30 14:22:51</td>
           <td>李静</td>
-          <td>财务应收</td>
+          <td>财务管理</td>
           <td><span class="tag tag-green">核销</span></td>
           <td>生成收款核销记录 HX-20260830-012（60,000.00 元，部分核销）</td>
           <td>10.8.*.*</td>
@@ -431,7 +431,7 @@ th.td-num { text-align:right; }
           <td><span class="lk">LOG-20260830-0862</span></td>
           <td>2026-08-30 11:05:33</td>
           <td>李国栋</td>
-          <td>仓储作业</td>
+          <td>仓储管理</td>
           <td><span class="tag tag-blue">修改</span></td>
           <td>退租入库单 TZ-20260830-006 完好数量回填（锁扣 379→381）</td>
           <td>10.8.*.*</td>
@@ -441,7 +441,7 @@ th.td-num { text-align:right; }
           <td><span class="lk">LOG-20260830-0861</span></td>
           <td>2026-08-30 09:15:20</td>
           <td>王强</td>
-          <td>订单管理</td>
+          <td>销售管理</td>
           <td><span class="tag tag-blue">下发</span></td>
           <td>路凯下发批次 LK-20260830-004 下发成功（接口传输）</td>
           <td>10.8.*.*</td>
@@ -451,7 +451,7 @@ th.td-num { text-align:right; }
           <td><span class="lk">LOG-20260829-0860</span></td>
           <td>2026-08-29 16:44:02</td>
           <td>王强</td>
-          <td>订单管理</td>
+          <td>销售管理</td>
           <td><span class="tag tag-orange">审核</span></td>
           <td>驳回销售订单 SO-20260828-0037（库存不足）</td>
           <td>10.8.*.*</td>
@@ -461,7 +461,7 @@ th.td-num { text-align:right; }
           <td><span class="lk">LOG-20260829-0859</span></td>
           <td>2026-08-29 15:40:11</td>
           <td>张伟</td>
-          <td>仓储作业</td>
+          <td>仓储管理</td>
           <td><span class="tag tag-red">删除</span></td>
           <td>撤销草稿采购入库单 CGRK-20260829-D07</td>
           <td>10.8.*.*</td>
@@ -481,7 +481,7 @@ th.td-num { text-align:right; }
           <td><span class="lk">LOG-20260828-0857</span></td>
           <td>2026-08-28 11:05:09</td>
           <td>李国栋</td>
-          <td>仓储作业</td>
+          <td>仓储管理</td>
           <td><span class="tag tag-blue">新增</span></td>
           <td>登记组装单 ZZ-20260828-002（ZH-2602-B × 260 套）</td>
           <td>10.8.*.*</td>
@@ -603,6 +603,9 @@ document.querySelectorAll('.tab').forEach(function (t) {
 
 
 <script src="../_data/pc-auth.js"></script>
+
+
+
 
 
 
