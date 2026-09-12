@@ -66,17 +66,17 @@
 
   <p class="eyebrow">P3-R01-F01 · v3.6 原型业务流程导航 · 2026-09-11 支线核验修正</p>
   <h1>业务流程导航图</h1>
-  <p class="sub">包装租赁管理后台原型 v3.6（支线核验修正 · 双线制：补给线与业务线不串行 · 业务内容沿用 v3.3）· <b>38</b> 个页面 · <b>7</b> 条主线泳道：<b>B1</b> 零部件买卖 · <b>L1</b> 单一出租 · <b>L2</b> 组合出租 · <b>L3</b> 租入转租 · <b>L4</b> 混合转租 · <b>T1</b> 客户退租 · <b>T2</b> 租入归还（全部第一期实现）＋ <b>6</b> 条支线 ＋ 财务通道 F1/F2 · 节点点击直达页面 · 蓝底=库存枢纽 · 灰底=入口/出口/交棒 · 虚线节点=BOM 自动计算 · 蓝色虚线=库存缓冲衔接（非顺序）· 📎=会议依据 · 版本沿革见页脚 · Mermaid 源数据见页尾折叠区</p>
+  <p class="sub">包装租赁管理后台原型 v3.6（支线核验修正 · 双线制：补给线与业务线不串行 · 业务内容沿用 v3.3）· <b>38</b> 个页面 · <b>7</b> 条主线泳道：<b>B1</b> 物料买卖 · <b>L1</b> 单一出租 · <b>L2</b> 组合出租 · <b>L3</b> 租入转租 · <b>L4</b> 混合转租 · <b>T1</b> 客户退租 · <b>T2</b> 租入归还（全部第一期实现）＋ <b>6</b> 条支线 ＋ 财务通道 F1/F2 · 节点点击直达页面 · 蓝底=库存枢纽 · 灰底=入口/出口/交棒 · 虚线节点=BOM 自动计算 · 蓝色虚线=库存缓冲衔接（非顺序）· 📎=会议依据 · 版本沿革见页脚 · Mermaid 源数据见页尾折叠区</p>
 
   <!-- ============ 主线泳道（双线制：补给线/业务线 · 节点 140×56 · 间距 16） ============ -->
   <div class="sec-head">
-    <span class="sec-title">业务流程 · 按第2次沟通纪要</span>
+    <span class="sec-title">业务流程 · 按第3次沟通纪要</span>
     <span class="sec-note">全部流程第一期实现 · 引号内为转写原话（附时间戳）· 实体节点点击直达</span>
   </div>
 
 <svg viewBox="0 0 880 2184" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="p3r01f01-main-title p3r01f01-main-desc">
     <title id="p3r01f01-main-title">业务流程导航图 · 主线泳道（B1/L1–L4/T1/T2/F1/F2）</title>
-    <desc id="p3r01f01-main-desc">包装租赁管理后台原型的 7 条主业务线泳道导航：B1 零部件买卖、L1 单一出租、L2 组合出租、L3 租入转租、L4 混合转租、T1 客户退租、T2 租入归还，以及 F1 应收 / F2 应付财务通道；每条业务线分补给线与业务线两段，经库存缓冲衔接，非顺序发生；节点可点击跳转到对应原型页面。</desc>
+    <desc id="p3r01f01-main-desc">包装租赁管理后台原型的 7 条主业务线泳道导航：B1 物料买卖、L1 单一出租、L2 组合出租、L3 租入转租、L4 混合转租、T1 客户退租、T2 租入归还，以及 F1 应收 / F2 应付财务通道；每条业务线分补给线与业务线两段，经库存缓冲衔接，非顺序发生；节点可点击跳转到对应原型页面。</desc>
     <defs>
       <marker id="arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#4b5563"/></marker>
       <marker id="arr-blue" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2563eb"/></marker>
@@ -87,8 +87,8 @@
     <text x="40" y="44" fill="#6b7280" font-size="8" font-family="'Geist Mono',monospace">编号规则：B 买卖 · L 租赁（L1 单一 / L2 组合 / L3 租入转租 / L4 混合）· T 退租/归还（T1 客户退租 / T2 租入归还）· F 财务（F1 应收 / F2 应付）· S 支撑支线</text>
     <text x="40" y="64" fill="#6b7280" font-size="8" font-family="'Geist Mono',monospace">入库凭单验收 · 指令来源 4 种：采购入库←采购订单 ｜ 租入入库←租入单 ｜ 退租入库←客户退回直接录入 ｜ 其他入库←手工（例外）</text>
 
-    <!-- ======== B1 · 零部件买卖 ======== -->
-    <text x="40" y="92" fill="#111827" font-size="16" font-weight="700" font-family="'Geist',sans-serif">B1 · 零部件买卖（一进一出 · 无组装）</text>
+    <!-- ======== B1 · 物料买卖 ======== -->
+    <text x="40" y="92" fill="#111827" font-size="16" font-weight="700" font-family="'Geist',sans-serif">B1 · 物料买卖（一进一出 · 无组装）</text>
     <g class="src-tag" onclick="showSrc(event,'b1')" style="cursor:pointer">
       <rect x="620" y="76" width="96" height="20" rx="4" fill="#fafafa" stroke="#d1d5db" stroke-width="0.8"/>
       <text x="668" y="89" fill="#6b7280" font-size="8" font-family="'Geist Mono',monospace" text-anchor="middle">📎 会议材料 ▸</text>
@@ -154,7 +154,7 @@
     <a href="采购管理/采购订单列表.html">
       <rect x="40" y="344" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
       <text x="110" y="369" fill="#111827" font-size="12" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">采购订单</text>
-      <text x="110" y="388" fill="#4b5563" font-size="8" font-family="'Geist Mono',monospace" text-anchor="middle">器具 · 资产采购</text>
+      <text x="110" y="388" fill="#4b5563" font-size="8" font-family="'Geist Mono',monospace" text-anchor="middle">物料 · 资产采购</text>
     </a>
     <a href="采购管理/采购入库列表.html">
       <rect x="196" y="344" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
@@ -175,7 +175,7 @@
     <a href="租赁管理/租赁单列表.html">
       <rect x="40" y="444" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
       <text x="110" y="469" fill="#111827" font-size="12" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">租赁单</text>
-      <text x="110" y="488" fill="#4b5563" font-size="8" font-family="'Geist Mono',monospace" text-anchor="middle">单一器具 · 直接出租</text>
+      <text x="110" y="488" fill="#4b5563" font-size="8" font-family="'Geist Mono',monospace" text-anchor="middle">单一物料 · 直接出租</text>
     </a>
     <a href="租赁管理/租赁出库列表.html">
       <rect x="196" y="444" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
@@ -204,7 +204,7 @@
     <a href="采购管理/采购订单列表.html">
       <rect x="40" y="572" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
       <text x="110" y="597" fill="#111827" font-size="12" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">采购订单</text>
-      <text x="110" y="616" fill="#4b5563" font-size="8" font-family="'Geist Mono',monospace" text-anchor="middle">器具A/B/C 采购</text>
+      <text x="110" y="616" fill="#4b5563" font-size="8" font-family="'Geist Mono',monospace" text-anchor="middle">物料A/B/C 采购</text>
     </a>
     <a href="采购管理/采购入库列表.html">
       <rect x="196" y="572" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
@@ -252,7 +252,7 @@
     <line x1="40" y1="752" x2="840" y2="752" stroke="rgba(17,24,39,0.10)" stroke-width="1"/>
 
     <!-- ======== L3 · 租入转租 ======== -->
-    <text x="40" y="776" fill="#111827" font-size="16" font-weight="700" font-family="'Geist',sans-serif">L3 · 租赁 · 租入转租（向供应商/供应商租入 → 转租客户）</text>
+    <text x="40" y="776" fill="#111827" font-size="16" font-weight="700" font-family="'Geist',sans-serif">L3 · 租赁 · 租入转租（向供应商租入 → 转租客户）</text>
     <rect x="502" y="763" width="64" height="16" rx="4" fill="rgba(37,99,235,0.08)" stroke="#2563eb" stroke-width="0.8"/>
     <text x="534" y="774" fill="#2563eb" font-size="8" font-weight="600" font-family="'Geist Mono',monospace" text-anchor="middle">第一期实现</text>
     <g class="src-tag" onclick="showSrc(event,'l3')" style="cursor:pointer">
@@ -266,7 +266,7 @@
     <a href="租赁管理/租入单列表.html">
       <rect x="40" y="800" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
       <text x="110" y="825" fill="#111827" font-size="12" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">租入单</text>
-      <text x="110" y="844" fill="#4b5563" font-size="8" font-family="'Geist Mono',monospace" text-anchor="middle">向供应商/供应商租入</text>
+      <text x="110" y="844" fill="#4b5563" font-size="8" font-family="'Geist Mono',monospace" text-anchor="middle">向供应商租入</text>
     </a>
     <a href="租赁管理/租入入库列表.html">
       <rect x="196" y="800" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
@@ -666,7 +666,7 @@
   <details class="src-mermaid">
     <summary>Mermaid 源数据 · 信息记录（默认折叠）</summary>
     <pre>flowchart LR
-  subgraph B1["B1 · 零部件买卖（一进一出）"]
+  subgraph B1["B1 · 物料买卖（一进一出）"]
     B1a[采购订单] --> B1b[采购入库] --> B1c[(库存)]
     B1d[销售订单] --> B1e[销售出库] --> B1f[应收账单 ⇢ F1]
     B1c -. 按可用量·非顺序 .-> B1e
@@ -722,7 +722,7 @@
 <div id="srcPop"><span class="sp-close" onclick="this.parentElement.style.display='none'">×</span><div id="srcPopBody"></div></div>
 <script id="src-pop-js">
 var SRC_DATA = {
-  b1: {head:'B1 · 零部件买卖 · 会议依据', items:[
+  b1: {head:'B1 · 物料买卖 · 会议依据', items:[
     ['第2次沟通 [音频转写] · 袁丽晶 40:15','"买卖就是我进来什么我出去什么，我的租赁才会有涉及到组合"——A+B 组合只属于租赁'],
     ['第2次沟通 [音频转写] · 袁丽晶 21:46','"先销售后采购，或者我采购订单先入库之后再生成销售订单，我觉得这个可以互通关系都没问题"'],
     ['决策变更 · 第3次沟通前内部沟通 [音频转写] · 王琳总 2:18 / 2:36','"销售和采购不是匹配关系……不是以销定产，肯定不是以销定产。即使它是，也要人为把它拆开"；"这是两条线，销售直接就是销售出入，采购是单独的"'],
