@@ -1,0 +1,54 @@
+== 校验1 单写者互斥 ==
+[PASS] 原型目录 最近 30 分钟无文件改动
+[PASS] agent-handoff 最近 30 分钟无文件改动
+校验1 结论: PASS
+
+== 校验2 防重复执行 ==
+[PASS] _索引.md 无 | G23 | 行
+[PASS] 项目根无 P2-R01-产品需求文档.md
+校验2 结论: PASS
+
+== 校验3 prd-auto-generator 技能 7 文件 ==
+[PASS] SKILL.md
+[PASS] templates\version-prd.md
+[PASS] templates\prd-module-section.md
+[PASS] rules\structure-rules.md
+[PASS] rules\writing-rules.md
+[PASS] rules\flowchart-rules.md
+[PASS] rules\material-checklist.md
+校验3 结论: PASS
+
+== 校验4 需求来源 1-7 存在性 ==
+[PASS] 源1 原型目录: D:\工作台-吕道远\5-【ACTIVE】汽车物流包装租赁\P3-R01-包装租赁管理后台原型
+[PASS] 源1 demo-data: D:\工作台-吕道远\5-【ACTIVE】汽车物流包装租赁\P3-R01-包装租赁管理后台原型\_data\demo-data.js
+[PASS] 源2 _AGENT基线: D:\工作台-吕道远\5-【ACTIVE】汽车物流包装租赁\agent-handoff\_AGENT基线.md
+[PASS] 源3 会议纪要最终版: D:\工作台-吕道远\5-【ACTIVE】汽车物流包装租赁\2026-09-08 汽车物流包装租赁第3次沟通原型演示\2026-09-08 汽车物流包装租赁第3次沟通原型演示 [会议纪要-最终版].md
+[PASS] 源4 术语表: D:\工作台-吕道远\5-【ACTIVE】汽车物流包装租赁\P1-R04-术语表.md
+[PASS] 源5 P1-R01: D:\工作台-吕道远\5-【ACTIVE】汽车物流包装租赁\P1-R01-需求梳理与功能框架.md
+[PASS] 源6 A02: D:\工作台-吕道远\5-【ACTIVE】汽车物流包装租赁\P3-R01-包装租赁管理后台原型\P3-R01-A02-页面类型与入口对照表.md
+[PASS] 源6 A05: D:\工作台-吕道远\5-【ACTIVE】汽车物流包装租赁\P3-R01-包装租赁管理后台原型\P3-R01-A05-字段字典.md
+[PASS] 源6 A06: D:\工作台-吕道远\5-【ACTIVE】汽车物流包装租赁\P3-R01-包装租赁管理后台原型\P3-R01-A06-实体关系与状态机.md
+[PASS] 源6 F01: D:\工作台-吕道远\5-【ACTIVE】汽车物流包装租赁\P3-R01-包装租赁管理后台原型\P3-R01-F01-业务流程导航图.html
+[PASS] 源0 G22任务文档: D:\工作台-吕道远\5-【ACTIVE】汽车物流包装租赁\agent-handoff\20260911-G22-租赁出库称呼统一与杂项清理.md
+校验4 结论: PASS
+
+== 校验5 口径基数 ==
+原型 HTML 总数 = 115（预期 115）
+demo-data 实体数 = 0（预期 38）
+todoItems 行数(docNo 计) = 0（预期 16）
+A05 头部 12 行：
+   # P3-R01-A05 · 字段字典（实体字段总表）
+   > **版本**：V1.0（2026-09-11 · G16 生成）
+   > **统计**：实体 38 ｜ 字段行 325 ｜ 覆盖页面 35（A 类 33 列表页 + 履历/字典/待办消费页；38=37+productTaxes[供应商税率增量·见文末登记块·314+7 
+   > **来源**：`_data/demo-data.js`（37 实体 dump：`_scan_tmpdir/g16_t1_dump.js` → `g16_data_dump.json`——G16 时
+   ## 维护规则
+   1. **新增字段先登记本表**（实体章节补一行），再改 demo-data / 页面 cfg——字段字典是真值源，页面是投影。
+   2. 中文标签三级来源：`cfg filter label`（列表页筛选/列定义）＞ `info/cells 值反查`（详情弹窗标签）＞ 键语义直译（标〔待核〕，G17 命名统一后回改）。
+   3. 取值域口径：去重值 ≤8 判枚举全列；数值列给 min~max；文本列列前 5 个演示值。
+   4. 与 `P3-R01-A06-实体关系与状态机.md`（实体分域/关系/状态机）互为姊妹篇；与页面层 `系统管理/数据字典.html` 演示页的关系：**真值源=本表**，演示页只展示 dictI
+P1-R04 含「废弃」字样行数 = 5（供验证门 1 现场提取）
+
+== 总结论 ==
+校验1=True 校验2=True 校验3=True 校验4=True
+>>> 前置校验（阻塞性 1/2/3）: 全部通过
+>>> 会议纪要路径: D:\工作台-吕道远\5-【ACTIVE】汽车物流包装租赁\2026-09-08 汽车物流包装租赁第3次沟通原型演示\2026-09-08 汽车物流包装租赁第3次沟通原型演示 [会议纪要-最终版].md
