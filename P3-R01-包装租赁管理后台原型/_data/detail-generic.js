@@ -48,60 +48,69 @@
 
   window.renderGenericDetailHTML = function (rec, base) {
     base = base || '../';
+    /* 2026-09-14 双列布局（道远拍板：弹窗不出滚动条）——列1=单据信息+费用明细，列2=关联单据+时间线 */
     var h = '';
+    var h1 = '', h2 = '';
 
-    h += '<div class="dt-sec">单据信息</div><div class="dgrid c3">';
+    h1 += '<div class="dt-sec">单据信息</div><div class="dgrid c3">';
     rec.info.forEach(function (f) {
       var v;
       if (f.tag) v = '<span class="tag ' + (STATUS_CLS[f.tag] || 'tag-gray') + '">' + f.tag + '</span>';
       else v = lk(f.text, f.url, base);
-      h += drow(f.label, v, f.full);
+      h1 += drow(f.label, v, f.full);
     });
-    h += '</div>';
+    h1 += '</div>';
 
     if (rec.feeCols && rec.fees) {
-      h += '<div class="dt-sec">' + (rec.feeSecTitle || '费用明细') + '</div><div class="table-wrap"><table><thead><tr>';
+      h1 += '<div class="dt-sec">' + (rec.feeSecTitle || '费用明细') + '</div><div class="table-wrap"><table><thead><tr>';
       rec.feeCols.forEach(function (c, i) {
-        h += i === 0 ? '<th>' + c + '</th>' : '<th>' + c + '</th>';
+        h1 += i === 0 ? '<th>' + c + '</th>' : '<th>' + c + '</th>';
       });
-      h += '</tr></thead><tbody>';
+      h1 += '</tr></thead><tbody>';
       rec.fees.forEach(function (f) {
-        h += '<tr>';
+        h1 += '<tr>';
         f.cells.forEach(function (cell, ci) {
           var url = f.links && f.links[ci];
           var isNum = /^[\-—☑]?[\d,]*\.?\d{0,2}/.test(cell) && /[\d,]+\.\d{2}/.test(cell) && !url;
-          h += '<td' + (isNum ? ' class="td-num"' : '') + '>' + (url ? lk(cell, url, base) : cell) + '</td>';
+          h1 += '<td' + (isNum ? ' class="td-num"' : '') + '>' + (url ? lk(cell, url, base) : cell) + '</td>';
         });
-        h += '</tr>';
+        h1 += '</tr>';
       });
-      h += '</tbody></table></div>';
+      h1 += '</tbody></table></div>';
     }
 
     if (rec.chain) {
-      h += '<div class="dt-sec">关联单据</div><div class="chain">';
+      h2 += '<div class="dt-sec">关联单据</div><div class="chain">';
       rec.chain.forEach(function (n, i) {
-        if (i > 0) h += '<span class="link-arrow">→</span>';
-        h += '<div class="node"' + (n.self ? ' style="border-color:#1677ff;background:#e6f4ff;"' : '') +
+        if (i > 0) h2 += '<span class="link-arrow">→</span>';
+        h2 += '<div class="node"' + (n.self ? ' style="border-color:#1677ff;background:#e6f4ff;"' : '') +
           '><div class="n-role">' + n.role + '</div><div class="n-name">' +
           (n.url ? lk(n.name, n.url, base) : n.name) + '</div></div>';
       });
-      h += '</div>';
+      h2 += '</div>';
     }
 
     if (rec.timeline) {
-      h += '<div class="dt-sec">流转时间线</div><div class="tl">';
+      h2 += '<div class="dt-sec">流转时间线</div><div class="tl">';
       rec.timeline.forEach(function (t) {
-        h += '<div class="tl-i' + (t.off ? ' off' : '') + '"><span class="tl-t">' + t.t + '</span>' +
+        h2 += '<div class="tl-i' + (t.off ? ' off' : '') + '"><span class="tl-t">' + t.t + '</span>' +
           t.text + (t.who ? '<span class="tl-who">' + t.who + '</span>' : '') + '</div>';
       });
-      h += '</div>';
+      h2 += '</div>';
     }
+
+    h += '<style>.dt2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 22px;align-content:start;}' +
+      '.dt2 .dt-sec{margin-top:0;}.dt2 .dgrid.c3{grid-template-columns:repeat(2,1fr);}.dt2 .table-wrap td,.dt2 .table-wrap th{white-space:nowrap;}</style>';
+    h += '<div class="dt2"><div class="dt2-c">' + h1 + '</div><div class="dt2-c">' + h2 + '</div></div>';
     return h;
   };
 
   window.openGenericDetail = function (entity, key, base, modalId) {
     var rec = window.DEMO_DATA && window.DEMO_DATA[entity] ? window.DEMO_DATA[entity][key] : null;
     if (!rec) { console.warn('[demo-data] ' + entity + ' 无数据: ' + key); return; }
+    var mdl = document.getElementById(modalId || 'detailModal');
+    mdl = mdl ? mdl.querySelector('.modal') : null;
+    if (mdl) { mdl.style.width = '1080px'; mdl.style.maxWidth = '94vw'; } /* 2026-09-14 双列详情配套加宽 */
     document.getElementById('detailTitle').textContent = rec.title + ' · ' + (rec.titleNo || key);
     document.getElementById('detailBody').innerHTML = window.renderGenericDetailHTML(rec, base);
     openModal(modalId || 'detailModal');

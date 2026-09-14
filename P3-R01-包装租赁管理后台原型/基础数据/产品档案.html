@@ -225,7 +225,7 @@ th.td-num { text-align:right; }
 <style id="modal-css">
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:1000;align-items:center;justify-content:center}
 .modal-overlay.show{display:flex}
-.modal{background:#fff;border-radius:8px;width:640px;max-width:92vw;max-height:85vh;overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,.15)}
+.modal{background:#fff;border-radius:8px;width:640px;max-width:92vw;max-height:92vh;overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,.15)}
 .modal-lg{width:780px;max-width:92vw}
 .modal-header{padding:16px 24px;border-bottom:1px solid #f0f0f0;display:flex;justify-content:space-between;align-items:center}
 .modal-title{font-size:16px;font-weight:600;color:#262626}
@@ -589,6 +589,16 @@ th.td-num { text-align:right; }
 
 <!-- 弹窗已提取到 弹窗/新建器具.html，构建时注入 -->
 <div class="modal-overlay" id="createModal">
+  <style>
+  /* 2026-09-14 道远拍板：新建物料弹窗加宽 900px+两列布局，消除横竖滚动条（四参考价+三段式+税率区内容增量后 640px 单列溢出） */
+  #createModal .modal{width:900px;max-width:94vw;}
+  #createModal .modal-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:18px;align-content:start;}
+  #createModal .form-row{margin-bottom:14px;}
+  #createModal .form-row.g2{grid-column:1/-1;}
+  #createModal .tax-sec{grid-column:1/-1;}
+  #createModal .form-row .input-box{min-width:0;flex:1;}
+  #createModal .input-box input,#createModal .input-box select{width:100%;}
+  </style>
   <div class="modal">
     <div class="modal-header">
       <h3 class="modal-title">新建物料</h3>
@@ -623,7 +633,7 @@ th.td-num { text-align:right; }
     <span class="form-label">参考未税销售价(元)</span>
     <div class="input-box"><input placeholder="可售物料填写，不适用留空"></div>
   </div>
-  <div class="form-row">
+  <div class="form-row g2">
     <span class="form-label">参考未税租入价</span>
     <div style="display:flex;gap:6px;align-items:center;">
       <div class="input-box select-box" style="width:116px;flex:none;"><select id="rentInModeSel" onchange="g21RentHint('rentIn')" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>按时间周期</option><option>按次</option></select></div>
@@ -632,7 +642,7 @@ th.td-num { text-align:right; }
       <span id="rentInHint" style="font-size:12px;color:#8c8c8c;white-space:nowrap;">元/只·月</span>
     </div>
   </div>
-  <div class="form-row">
+  <div class="form-row g2">
     <span class="form-label">参考未税租赁价</span>
     <div style="display:flex;gap:6px;align-items:center;">
       <div class="input-box select-box" style="width:116px;flex:none;"><select id="rentalModeSel" onchange="g21RentHint('rental')" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>按时间周期</option><option>按次</option></select></div>
@@ -640,7 +650,7 @@ th.td-num { text-align:right; }
       <div class="input-box" style="flex:1;min-width:0;"><input placeholder="数值，如 60.00"></div>
       <span id="rentalHint" style="font-size:12px;color:#8c8c8c;white-space:nowrap;">元/只·月</span>
     </div>
-  </div><div class="form-row">
+  </div><div class="form-row g2">
     <span class="form-label">备注</span>
     <div class="input-box"><input placeholder="选填"></div>
   </div>

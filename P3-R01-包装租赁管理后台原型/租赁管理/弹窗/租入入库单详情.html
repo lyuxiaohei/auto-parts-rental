@@ -226,7 +226,7 @@ th.td-num { text-align:right; }
 <style id="modal-css">
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:1000;align-items:center;justify-content:center}
 .modal-overlay.show{display:flex}
-.modal{background:#fff;border-radius:8px;width:640px;max-width:92vw;max-height:85vh;overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,.15)}
+.modal{background:#fff;border-radius:8px;width:640px;max-width:92vw;max-height:92vh;overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,.15)}
 .modal-lg{width:780px;max-width:92vw}
 .modal-header{padding:16px 24px;border-bottom:1px solid #f0f0f0;display:flex;justify-content:space-between;align-items:center}
 .modal-title{font-size:16px;font-weight:600;color:#262626}
@@ -253,6 +253,13 @@ th.td-num { text-align:right; }
 .tl-i.off::before{border-color:#d9d9d9}
 .tl-i .tl-t{color:#8c8c8c;font-size:12px;margin-right:8px;font-variant-numeric:tabular-nums}
 .tl-i .tl-who{color:#8c8c8c;font-size:12px;margin-left:8px}
+</style>
+<style>
+/* 2026-09-14 道远拍板：详情弹窗双列化+加宽 900px，消除竖向滚动条 */
+#detailModal .modal{width:1080px;max-width:94vw;}
+#detailBody .dgrid.c3{grid-template-columns:repeat(2,1fr);}
+#detailBody .table-wrap td,#detailBody .table-wrap th{white-space:nowrap;}
+#detailBody .dt-sec{margin-top:0;}
 </style>
 </head>
 <body style="background:#f5f6f8;min-height:100vh;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif">
