@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>P3-R01-M02 · 待办审批</title>
+<link rel="stylesheet" href="_m.css">
+</head>
+<body>
+<div class="m-page" id="m-app">
+
+  <div class="m-header">
+    <div class="m-hd-title">待办审批</div>
+    <div class="m-hd-sub" id="m-hd-sub">— · 免二次登录</div>
+  </div>
+
+  <div class="m-body">
+    <div class="m-stat">
+      <div class="m-stat-item"><div class="m-stat-num is-danger" id="m-stat-todo">—</div><div class="m-stat-label">待审核</div></div>
+      <div class="m-stat-item"><div class="m-stat-num" id="m-stat-other">—</div><div class="m-stat-label">待验收 / 待确认 / 待入库</div></div>
+      <div class="m-stat-item"><div class="m-stat-num" id="m-stat-all">—</div><div class="m-stat-label">全部待办</div></div>
+    </div>
+    <div id="m-list"></div>
+  </div>
+
+  <div class="m-tabbar">
+    <a href="待办审批.html" class="active"><span class="m-tab-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="m9 14 2 2 4-4"/></svg></span>待办</a>
+    <a href="库存查询.html"><span class="m-tab-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg></span>库存</a>
+    <a href="我的.html"><span class="m-tab-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>我的</a>
+  </div>
+
+</div>
+<script src="../_data/demo-data.js"></script>
+<script src="_m.js"></script>
+<script>
+/* ---- 待办审批：消费 DEMO_DATA.todoItems（12 行），卡片列表 + 顶部统计 ---- */
+(function () {
+  var u = mUser() || { name: '王琳', role: '商务主管' };
+  document.getElementById('m-hd-sub').textContent = u.name + ' · ' + u.role + ' · 免二次登录';
+
+  var rows = mRows('todoItems');                 // [{id: 单号, row: {fields: {...}}}]
+  var done = mDoneMap();                         // 本机已审结果回显 { 单号: 已通过|已驳回 }
+
+  var nTodo = 0, nOther = 0;
+  rows.forEach(function (r) {
+    var act = done[r.id] || r.row.fields.action;
+    if (act === '待审核') nTodo++; else nOther++;
+  });
+  document.getElementById('m-stat-todo').textContent = nTodo;
+  document.getElementById('m-stat-other').textContent = nOther;
+  document.getElementById('m-stat-all').textContent = rows.length;
+
+  var html = rows.map(function (r) {
+    var f = r.row.fields;
+    var act = done[r.id] || f.action;
+    return '<div class="m-item" onclick="go(\'审批详情.html?id=' + encodeURIComponent(r.id) + '\')">'
+      + '<div class="m-item-top"><span class="m-badge ' + mTypeCls(f.type) + '">' + mEsc(f.type) + '</span>'
+      + '<span class="m-badge ' + mBadgeCls(act) + '">' + mEsc(act) + '</span></div>'
+      + '<div class="m-item-doc">' + mEsc(f.docNo) + '</div>'
+      + '<div class="m-item-title">' + mEsc(f.summary) + '</div>'
+      + '<div class="m-item-meta"><span>审核人 ' + mEsc(f.auditor) + '</span><span>提交 ' + mEsc(f.submitter) + '</span><span>' + mEsc(f.time) + '</span></div>'
+      + '</div>';
+  }).join('');
+
+  document.getElementById('m-list').innerHTML = html
+    || '<div class="m-empty">暂无待办事项</div>';
+
+  mGuard();   // 免二次登录守卫：未登录跳 登录.html
+})();
+</script>
+</body>
+</html>
