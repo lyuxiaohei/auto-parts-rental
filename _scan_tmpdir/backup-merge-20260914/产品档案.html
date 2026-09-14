@@ -348,8 +348,8 @@ th.td-num { text-align:right; }
   <div class="filter-grid">
     <div class="ff"><span class="ff-label">物料编码：</span><input placeholder="请输入"></div>
     <div class="ff"><span class="ff-label">物料名称：</span><input placeholder="请输入"></div>
-    <div class="ff"><span class="ff-label">物料类型：</span>
-      <select><option selected>全部</option><option>围板箱</option><option>塑料托盘</option><option>木托盘</option><option>料箱</option><option>料架</option><option>组件</option></select>
+    <div class="ff"><span class="ff-label">物料分类：</span>
+      <select><option selected>全部</option><option>围板箱</option><option>托盘</option><option>料箱</option><option>料架</option><option>组件</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
     <div class="ff ff-row-extra"><span class="ff-label">状态：</span>
@@ -376,7 +376,7 @@ th.td-num { text-align:right; }
           <th></th>
           <th>物料编码</th>
           <th>物料名称</th>
-          <th>物料类型</th>
+          <th>物料分类</th>
           <th>规格</th>
           <th>单位</th>
           <th>参考未税采购价(元)</th>
@@ -613,8 +613,11 @@ th.td-num { text-align:right; }
     <div class="input-box"><input placeholder="如 围板箱 1200×1000×970"></div>
   </div><div class="form-row">
     <span class="form-label"><span class="req">*</span>物料类型</span>
-    <div class="input-box select-box"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>围板箱</option><option>塑料托盘</option><option>木托盘</option><option>料箱</option><option>料架</option><option>组件</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+    <div class="input-box select-box"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>器具</option><option>零部件</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
   </div>
+  <div class="form-row">
+    <span class="form-label">物料分类</span>
+    <div class="input-box select-box"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>围板箱</option><option>塑料托盘</option><option>木托盘</option><option>料箱</option><option>料架</option><option>组件</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
   </div><div class="form-row">
     <span class="form-label">规格</span>
     <div class="input-box"><input value="1200×1000×970mm" placeholder="请输入"></div>
@@ -769,7 +772,7 @@ renderListPage({
   filters: [
     { label: '物料编码', field: '_key' },
     { label: '物料名称', field: 'name' },
-    { label: '物料类型', field: 'cls' },
+    { label: '物料分类', field: 'cls' },
     { label: '状态', field: 'status' },
     { label: '建档时间', field: 'date', range: true }
   ]

@@ -1,6 +1,6 @@
 [
  {
-  "page": "基础数据\\客商管理.html",
+  "page": "基础数据\\产品档案.html",
   "js_errors": [],
   "problems": [
    {
@@ -8,124 +8,27 @@
     "type": "modal-unreachable",
     "phase": "modal",
     "where": {
-     "text": "客商详情"
+     "text": "物料详情"
     },
     "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
    }
   ],
   "stats": {
-   "buttons": 12,
-   "links": 33,
-   "onclickEls": 69,
-   "modals": 4,
+   "buttons": 11,
+   "links": 38,
+   "onclickEls": 68,
+   "modals": 3,
    "modalTitles": [
-    "新建客商",
-    "开票资料",
-    "收货信息"
+    "新建物料",
+    "停用确认"
    ],
-   "selects": 5,
+   "selects": 10,
    "fakeSelects": 0,
    "radios": 0,
    "checkboxes": 0,
-   "inputs": 26,
-   "stabs": 3,
+   "inputs": 27,
+   "stabs": 0,
    "tabs": 3,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "基础数据\\弹窗\\客商开票资料.html",
-  "js_errors": [],
-  "problems": [],
-  "stats": {
-   "buttons": 2,
-   "links": 1,
-   "onclickEls": 3,
-   "modals": 1,
-   "modalTitles": [
-    "开票资料(演示页)"
-   ],
-   "selects": 2,
-   "fakeSelects": 0,
-   "radios": 0,
-   "checkboxes": 0,
-   "inputs": 5,
-   "stabs": 0,
-   "tabs": 0,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "基础数据\\弹窗\\客商收货信息.html",
-  "js_errors": [],
-  "problems": [],
-  "stats": {
-   "buttons": 2,
-   "links": 1,
-   "onclickEls": 3,
-   "modals": 1,
-   "modalTitles": [
-    "收货信息(演示页)"
-   ],
-   "selects": 0,
-   "fakeSelects": 0,
-   "radios": 0,
-   "checkboxes": 0,
-   "inputs": 3,
-   "stabs": 0,
-   "tabs": 0,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "基础数据\\弹窗\\客商详情.html",
-  "js_errors": [],
-  "problems": [],
-  "stats": {
-   "buttons": 1,
-   "links": 1,
-   "onclickEls": 8,
-   "modals": 1,
-   "modalTitles": [
-    "客商详情 · 一汽解放汽车有限公司(演示页)"
-   ],
-   "selects": 0,
-   "fakeSelects": 0,
-   "radios": 0,
-   "checkboxes": 0,
-   "inputs": 0,
-   "stabs": 0,
-   "tabs": 0,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "基础数据\\弹窗\\新建客商.html",
-  "js_errors": [],
-  "problems": [],
-  "stats": {
-   "buttons": 2,
-   "links": 1,
-   "onclickEls": 3,
-   "modals": 1,
-   "modalTitles": [
-    "新建客商(演示页)"
-   ],
-   "selects": 1,
-   "fakeSelects": 0,
-   "radios": 0,
-   "checkboxes": 0,
-   "inputs": 4,
-   "stabs": 0,
-   "tabs": 0,
    "bgMut": 0
   },
   "dead_links": [],
