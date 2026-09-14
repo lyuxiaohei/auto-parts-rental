@@ -15,6 +15,17 @@
       txt: '租赁单 ZL-20260816-029（按月计费 · 在租）本月账期将满，请跟进客户续租意向' }
   ];
   var KEY = 'pc-msg-read';
+function tagSource() {
+  var D = window.DEMO_DATA && window.DEMO_DATA.dictItems;
+  if (D) {
+    var ks = Object.keys(D).filter(function (k) { return D[k].row && D[k].row.fields.category === '消息类型'; });
+    var arr = ks.map(function (k) { return D[k].row.fields.abbr; }).filter(Boolean);
+    if (arr.length) return arr;
+  }
+  return ['账单到期', '分期付款', '押金应退', '续租跟进'];
+}
+var curTag = '全部';
+
   function readSet() {
     try { return JSON.parse(localStorage.getItem(KEY) || '[]'); } catch (e) { return []; }
   }
@@ -76,14 +87,18 @@
       var rows = [];
       for (var i = 0; i < MSGS.length; i++) {
         var m = MSGS[i];
+        if (curTag !== '全部' && m.tag !== curTag) continue;
         rows.push('<div class="pc-msg-item" data-id="' + m.id + '">'
           + '<span class="pc-msg-dot' + (isRead(m) ? ' read' : '') + '"></span>'
           + '<span class="pc-msg-tag">' + m.tag + '</span>'
           + '<span class="pc-msg-body">' + m.txt + '</span>'
           + '<span class="pc-msg-time">' + m.t + '</span></div>');
       }
-      if (!rows.length) rows.push('<div class="pc-msg-empty">暂无消息</div>');
-      panel.innerHTML = '<div class="pc-msg-hd">站内信<span data-act="all">全部标为已读</span></div>' + rows.join('');
+      if (!rows.length) rows.push('<div class="pc-msg-empty">' + (curTag === '全部' ? '暂无消息' : '该类型暂无消息') + '</div>');
+      panel.innerHTML = '<div class="pc-msg-hd">站内信<span data-act="all">全部标为已读</span></div>'
+        + '<div class="pc-msg-flt"><span>类型：</span><select id="pcMsgTag">'
+        + ['全部'].concat(tagSource()).map(function (t) { return '<option' + (t === curTag ? ' selected' : '') + '>' + t + '</option>'; }).join('')
+        + '</select></div>' + rows.join('');
     }
     function markRead(id) {
       var s = readSet();
@@ -95,6 +110,9 @@
       renderPanel();
       var show = panel.style.display !== 'block';
       panel.style.display = show ? 'block' : 'none'; /* DOM 副作用：就地开合 */
+    });
+    panel.addEventListener('change', function (ev) {
+      if (ev.target && ev.target.id === 'pcMsgTag') { curTag = ev.target.value; renderPanel(); }
     });
     panel.addEventListener('click', function (ev) {
       ev.stopPropagation();

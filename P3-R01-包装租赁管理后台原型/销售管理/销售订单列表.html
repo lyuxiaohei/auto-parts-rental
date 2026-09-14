@@ -285,26 +285,26 @@ th.td-num { text-align:right; }
       <li class="sm-item has-sub">
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5" rx="1"/><line x1="10" y1="12" x2="14" y2="12"/></svg></span>租赁管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
-   <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">租赁</li>
    <li><div class="sm-link" onclick="go('../租赁管理/租赁单列表.html')">租赁单</div></li>
    <li><div class="sm-link" onclick="go('../租赁管理/租赁出库列表.html')">租赁出库</div></li>
    <li><div class="sm-link" onclick="go('../租赁管理/退租入库列表.html')">退租入库</div></li>
-         <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">租入</li>
-   <li><div class="sm-link" onclick="go('../租赁管理/租入单列表.html')">租入单</div></li>
-   <li><div class="sm-link" onclick="go('../租赁管理/租入入库列表.html')">租入入库</div></li>
-   <li><div class="sm-link" onclick="go('../租赁管理/租入归还列表.html')">租入归还</div></li>
    </ul>
       </li>
-      <li class="sm-item has-sub">
+            <li class="sm-item has-sub">
+   <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 15 12 15 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg></span>租入管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+   <ul class="sm-sub">
+   <li><div class="sm-link" onclick="go('../租入管理/租入单列表.html')">租入单</div></li>
+   <li><div class="sm-link" onclick="go('../租入管理/租入入库列表.html')">租入入库</div></li>
+   <li><div class="sm-link" onclick="go('../租入管理/租入归还列表.html')">租入归还</div></li>
+   </ul>
+      </li>
+<li class="sm-item has-sub">
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/><line x1="10" y1="12" x2="14" y2="12"/></svg></span>仓储管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
-   <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">库存管理</li>
    <li><div class="sm-link" onclick="go('../仓储作业/库存查询.html')">库存查询</div></li>
    <li><div class="sm-link" onclick="go('../仓储作业/盘点列表.html')">盘点记录</div></li>
    <li><div class="sm-link" onclick="go('../仓储作业/库存调拨列表.html')">库存调拨</div></li>
-   <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">入库类</li>
    <li><div class="sm-link" onclick="go('../仓储作业/其他入库列表.html')">其他入库</div></li>
-   <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">出库类</li>
    <li><div class="sm-link" onclick="go('../仓储作业/其他出库列表.html')">其他出库</div></li>
    </ul>
       </li>
@@ -562,7 +562,7 @@ th.td-num { text-align:right; }
   <div id="stockWarn" style="display:none;margin-top:8px;padding:8px 12px;border:1px solid #ffa39e;background:#fff1f0;border-radius:6px;font-size:12px;color:#d4380d;line-height:1.9;">
     <span class="sw-txt">可用库存不足——可选择生成：</span>
     <button class="btn btn-sm" style="margin-left:8px;" onclick="go('../采购管理/采购订单列表.html')">生成采购订单</button>
-    <button class="btn btn-sm" style="margin-left:6px;" onclick="go('../租赁管理/租入单列表.html')">生成租入单</button>
+    <button class="btn btn-sm" style="margin-left:6px;" onclick="go('../租入管理/租入单列表.html')">生成租入单</button>
   </div>
   <div style="margin:12px 0 8px;font-size:13px;font-weight:600;color:#1a1a1a;">订单附件（PDF / 邮件截图 · 演示上传）</div>
   <div style="display:flex;gap:8px;align-items:center;margin-bottom:8px;">

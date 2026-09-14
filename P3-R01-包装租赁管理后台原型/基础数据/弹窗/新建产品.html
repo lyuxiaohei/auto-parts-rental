@@ -259,6 +259,12 @@ th.td-num { text-align:right; }
     <span class="form-label"><span class="req">*</span>物料编码</span>
     <div class="input-box"><input placeholder="如 WBX-1210L / LJ-A100"></div>
   </div><div class="form-row">
+    <span class="form-label">型号</span>
+    <div class="input-box"><input placeholder="选填"></div>
+  </div><div class="form-row">
+    <span class="form-label">内部编码</span>
+    <div class="input-box"><input placeholder="选填 · 供应商/客户方产品编码"></div>
+  </div><div class="form-row">
     <span class="form-label"><span class="req">*</span>物料名称</span>
     <div class="input-box"><input placeholder="如 围板箱 1200×1000×970"></div>
   </div><div class="form-row">
@@ -404,7 +410,7 @@ document.querySelectorAll('.tab').forEach(function (t) {
       '<div class="tax-edit-row">'
       + '<span class="tax-cell"><select class="tax-sel">' + opts + '</select></span>'
       + '<span class="tax-cell"><input class="tax-in" value="' + esc(rate || '13%') + '"></span>'
-      + '<span class="tax-cell"><input class="tax-in" value="' + esc(cyc || '月结 30 天') + '"></span>'
+      + '<span class="tax-cell"><select class="tax-sel">' + ['月结','发票后 30 天','发票后 60 天','发票后 90 天','发票后 120 天'].map(function(o){return '<option'+(o===(cyc||'月结')?' selected':'')+'>'+o+'</option>';}).join('') + '</select></span>'
       + '<span class="tax-cell" style="flex:0 0 44px;"><a href="javascript:void(0)" class="tax-del" onclick="removeTaxRow(this)">删除</a></span>'
       + '</div>');
   };

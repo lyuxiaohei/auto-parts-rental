@@ -272,26 +272,26 @@ th.td-num { text-align:right; }
       <li class="sm-item has-sub">
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5" rx="1"/><line x1="10" y1="12" x2="14" y2="12"/></svg></span>租赁管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
-   <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">租赁</li>
    <li><div class="sm-link" onclick="go('../租赁管理/租赁单列表.html')">租赁单</div></li>
    <li><div class="sm-link" onclick="go('../租赁管理/租赁出库列表.html')">租赁出库</div></li>
    <li><div class="sm-link" onclick="go('../租赁管理/退租入库列表.html')">退租入库</div></li>
-         <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">租入</li>
-   <li><div class="sm-link" onclick="go('../租赁管理/租入单列表.html')">租入单</div></li>
-   <li><div class="sm-link" onclick="go('../租赁管理/租入入库列表.html')">租入入库</div></li>
-   <li><div class="sm-link" onclick="go('../租赁管理/租入归还列表.html')">租入归还</div></li>
    </ul>
       </li>
-      <li class="sm-item has-sub open">
+            <li class="sm-item has-sub">
+   <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 15 12 15 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg></span>租入管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+   <ul class="sm-sub">
+   <li><div class="sm-link" onclick="go('../租入管理/租入单列表.html')">租入单</div></li>
+   <li><div class="sm-link" onclick="go('../租入管理/租入入库列表.html')">租入入库</div></li>
+   <li><div class="sm-link" onclick="go('../租入管理/租入归还列表.html')">租入归还</div></li>
+   </ul>
+      </li>
+<li class="sm-item has-sub open">
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/><line x1="10" y1="12" x2="14" y2="12"/></svg></span>仓储管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
-   <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">库存管理</li>
    <li><div class="sm-link" onclick="go('../仓储作业/库存查询.html')">库存查询</div></li>
    <li><div class="sm-link selected">盘点记录</div></li>
    <li><div class="sm-link" onclick="go('../仓储作业/库存调拨列表.html')">库存调拨</div></li>
-   <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">入库类</li>
    <li><div class="sm-link" onclick="go('../仓储作业/其他入库列表.html')">其他入库</div></li>
-   <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">出库类</li>
    <li><div class="sm-link" onclick="go('../仓储作业/其他出库列表.html')">其他出库</div></li>
    </ul>
       </li>
@@ -385,7 +385,7 @@ th.td-num { text-align:right; }
   </div>
   <div class="table-wrap edit-tbl">
     <table>
-      <thead><tr><th>库位</th><th>编码</th><th>名称</th><th>账面数量</th><th style="width:110px;">实盘数量 *</th><th>差异</th><th style="width:180px;">差异说明</th></tr></thead>
+      <thead><tr><th>库位</th><th>编码</th><th>名称</th><th>账面数量</th><th style="width:110px;">实盘数量 *</th><th>差异</th><th style="width:180px;">差异说明</th><th class="sticky-op" data-note="3">操作</th></tr></thead>
       <tbody>
         <tr>
           <td>RA-A-01-01</td>
@@ -395,6 +395,7 @@ th.td-num { text-align:right; }
           <td class="td-num"><input value="4,858"></td>
           <td class="td-num auto-cell"><span style="color:var(--danger)">-2</span></td>
           <td><input value="" placeholder="差异必填说明"></td>
+                  <td class="sticky-op"><a class="lk" onclick="genOtherDoc('out', 'LJ-A100')">生成其他出库</a></td>
         </tr>
         <tr>
           <td>RA-A-01-02</td>
@@ -404,6 +405,7 @@ th.td-num { text-align:right; }
           <td class="td-num"><input value="4,640"></td>
           <td class="td-num auto-cell">0</td>
           <td><input value="" placeholder="差异必填说明"></td>
+                  <td class="sticky-op"><span style="color:#8c8c8c;">—</span></td>
         </tr>
         <tr>
           <td>RA-B-02-01</td>
@@ -413,6 +415,7 @@ th.td-num { text-align:right; }
           <td class="td-num"><input value="1,860"></td>
           <td class="td-num auto-cell">0</td>
           <td><input value="" placeholder="差异必填说明"></td>
+                  <td class="sticky-op"><span style="color:#8c8c8c;">—</span></td>
         </tr>
         <tr>
           <td>RB-A-01-01</td>
@@ -422,6 +425,7 @@ th.td-num { text-align:right; }
           <td class="td-num"><input value="642"></td>
           <td class="td-num auto-cell"><span style="color:var(--primary)">+2</span></td>
           <td><input value="上月组装回填遗漏" placeholder="差异必填说明"></td>
+                  <td class="sticky-op"><span style="color:#8c8c8c;">—</span></td>
         </tr>
         <tr>
           <td>RB-A-01-02</td>
@@ -431,6 +435,7 @@ th.td-num { text-align:right; }
           <td class="td-num"><input value="700"></td>
           <td class="td-num auto-cell">0</td>
           <td><input value="" placeholder="差异必填说明"></td>
+                  <td class="sticky-op"><span style="color:#8c8c8c;">—</span></td>
         </tr>
       </tbody>
     </table>
@@ -494,6 +499,12 @@ document.querySelectorAll('.checkbox').forEach(function (c) {
 
 
 
+<script>/* G31 T7 盘点行内生成其他入/出库（D-110）：跳创建页自动带物料·按差异方向分单 */
+function genOtherDoc(dir, item) {
+  var page = dir === 'in' ? '../仓储作业/其他入库列表.html' : '../仓储作业/其他出库列表.html';
+  var type = dir === 'in' ? '盘盈' : '盘亏';
+  location.href = page + '?create=1&item=' + encodeURIComponent(item) + '&type=' + encodeURIComponent(type);
+}</script>
 <script>/*ia-fix: tab-switch + btn-feedback (2026-09-04)*/
 /* R3 顶部页签切换（点击换 active；× 不做关闭跳转——原型不销毁页签） */
 document.querySelectorAll('.tab').forEach(function (t) {
@@ -551,6 +562,30 @@ document.querySelectorAll('.tab').forEach(function (t) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <style id="proto-notes-style">
 body.proto-notes-on [data-note]{position:relative}
 body.proto-notes-on [data-note]::after{content:attr(data-note);position:absolute;top:1px;right:1px;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600;box-shadow:0 0 0 1.5px #fff;cursor:pointer;opacity:.75;transition:opacity .15s}
@@ -574,8 +609,8 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 </style>
 <div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>盘点明细</div><div class="pnp-d">账面数量自动填入，实盘手工录入，差异自动算出</div><div class="pnp-b"><span class="pnp-tag">FP3-05 · 盘点单</span><span class="pnp-tag">REQ-12 · 盘点</span></div><div class="pnp-src"><div class="src-item"><b>FP3-05 盘点单</b>：零件/组合两种方式盘点、盘盈亏调整</div><div class="src-item"><b>REQ-12 盘点</b>：支持零件/组合双视角盘点</div></div></div>
 <div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>盈亏处理</div><div class="pnp-d">盘盈亏调整入库存账</div><div class="pnp-b"><span class="pnp-tag">FP3-05 · 盘点单</span><span class="pnp-tag">REQ-12 · 盘点</span></div><div class="pnp-src"><div class="src-item"><b>FP3-05 盘点单</b>：零件/组合两种方式盘点、盘盈亏调整</div><div class="src-item"><b>REQ-12 盘点</b>：支持零件/组合双视角盘点</div></div></div>
-<style id="f01-fab-style">.fab-row{position:fixed;right:12px;bottom:12px;z-index:880;display:flex;align-items:center;gap:6px}.fab-row .pn-fab{position:static}.f01-fab{display:flex;text-decoration:none;align-items:center;height:24px;padding:0 10px;border-radius:4px;background:#fff;border:1px solid #d9d9d9;color:#8c8c8c;font-size:11px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.06);opacity:.6;transition:opacity .15s}.f01-fab:hover{opacity:1;border-color:#722ed1;color:#722ed1}</style>
-<div class="fab-row"><a class="f01-fab" href="../P3-R01-F01-业务流程导航图.html">流程图</a><div class="pn-fab" id="protoNotesFab">标注</div></div></div>
+<div class="proto-pin" id="proto-pin-3"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">3</span>盘点行内生成其他出入库</div><div class="pnp-d">D-110（2026-09-14）：每物料行内按差异方向生成其他入库（盘盈）/其他出库（盘亏），跳创建页自动带物料；类型域已补「破损/自然损耗」（保留既有赔偿核销等值）</div><div class="pnp-b"><span class="pnp-tag">FP5-02 · 订单审核</span><span class="pnp-tag">REQ-06 · 小组装管理节点</span></div><div class="pnp-src"><div class="src-item"><b>FP5-02 订单审核</b>：我方审核客户订单</div><div class="src-item"><b>REQ-06 小组装管理节点</b>：记录 A+B→C 的组装时间与数量；库存双视角（零件/组合）</div></div></div>
+<style id="f01-fab-style">.fab-row{position:fixed;right:12px;bottom:12px;z-index:880;display:flex;align-items:center;gap:6px}.fab-row .pn-fab{position:static}.f01-fab{display:flex;text-decoration:none;align-items:center;height:24px;padding:0 10px;border-radius:4px;background:#fff;border:1px solid #d9d9d9;color:#8c8c8c;font-size:11px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.06);opacity:.6;transition:opacity .15s}.f01-fab:hover{opacity:1;border-color:#722ed1;color:#722ed1}</style><div class="fab-row"><a class="f01-fab" href="../P3-R01-F01-业务流程导航图.html">流程图</a><div class="pn-fab" id="protoNotesFab">标注</div></div></div>
 <script id="proto-notes-js">
 (function(){
   var KEY='proto-notes-on';

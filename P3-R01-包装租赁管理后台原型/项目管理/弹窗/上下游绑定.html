@@ -349,6 +349,27 @@ document.querySelectorAll('.tab').forEach(function (t) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <style id="proto-notes-style">
 body.proto-notes-on [data-note]{position:relative}
 body.proto-notes-on [data-note]::after{content:attr(data-note);position:absolute;top:1px;right:1px;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600;box-shadow:0 0 0 1.5px #fff;cursor:pointer;opacity:.75;transition:opacity .15s}
@@ -371,7 +392,7 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 .pn-fab .pn-fab-n{font-family:Consolas,monospace;font-weight:600}
 </style>
 <div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>上下游绑定关系口径</div><div class="pnp-d">上下游支持一对多/多对多（2026-09-08 王总提出，2026-09-11 落地）：单项目可绑定多家供应商（勾选，含租入/采购角色），新建租入单/采购订单时按项目带出候选供应商。</div><div class="pnp-b"><span class="pnp-tag">FP2-02 · 上下游绑定</span><span class="pnp-tag">REQ-01 · 多项目统一管理</span></div><div class="pnp-src"><div class="src-item"><b>FP2-02 上下游绑定</b>：项目↔客户↔运营方↔供应商关系维护</div><div class="src-item"><b>REQ-01 多项目统一管理</b>：所有项目整合进一个系统，按项目建立编码，绑定上下游关系</div></div></div>
-<div class="pn-fab" id="protoNotesFab">标注</div></div>
+<style id="f01-fab-style">.f01-fab{position:fixed;right:12px;bottom:12px;z-index:1001;display:flex;align-items:center;height:24px;padding:0 10px;border-radius:4px;background:#fff;border:1px solid #d9d9d9;color:#8c8c8c;font-size:11px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.06);opacity:.6;transition:opacity .15s}.f01-fab:hover{opacity:1;border-color:#722ed1;color:#722ed1}</style><div class="fab-row"><a class="f01-fab" href="../../P3-R01-F01-业务流程导航图.html">流程图</a><div class="pn-fab" id="protoNotesFab">标注</div></div></div>
 <script id="proto-notes-js">
 (function(){
   var KEY='proto-notes-on';

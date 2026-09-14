@@ -285,26 +285,26 @@ th.td-num { text-align:right; }
       <li class="sm-item has-sub">
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5" rx="1"/><line x1="10" y1="12" x2="14" y2="12"/></svg></span>租赁管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
-   <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">租赁</li>
    <li><div class="sm-link" onclick="go('../租赁管理/租赁单列表.html')">租赁单</div></li>
    <li><div class="sm-link" onclick="go('../租赁管理/租赁出库列表.html')">租赁出库</div></li>
    <li><div class="sm-link" onclick="go('../租赁管理/退租入库列表.html')">退租入库</div></li>
-         <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">租入</li>
-   <li><div class="sm-link" onclick="go('../租赁管理/租入单列表.html')">租入单</div></li>
-   <li><div class="sm-link" onclick="go('../租赁管理/租入入库列表.html')">租入入库</div></li>
-   <li><div class="sm-link" onclick="go('../租赁管理/租入归还列表.html')">租入归还</div></li>
    </ul>
       </li>
-      <li class="sm-item has-sub">
+            <li class="sm-item has-sub">
+   <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 15 12 15 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg></span>租入管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+   <ul class="sm-sub">
+   <li><div class="sm-link" onclick="go('../租入管理/租入单列表.html')">租入单</div></li>
+   <li><div class="sm-link" onclick="go('../租入管理/租入入库列表.html')">租入入库</div></li>
+   <li><div class="sm-link" onclick="go('../租入管理/租入归还列表.html')">租入归还</div></li>
+   </ul>
+      </li>
+<li class="sm-item has-sub">
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/><line x1="10" y1="12" x2="14" y2="12"/></svg></span>仓储管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
-   <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">库存管理</li>
    <li><div class="sm-link" onclick="go('../仓储作业/库存查询.html')">库存查询</div></li>
    <li><div class="sm-link" onclick="go('../仓储作业/盘点列表.html')">盘点记录</div></li>
    <li><div class="sm-link" onclick="go('../仓储作业/库存调拨列表.html')">库存调拨</div></li>
-   <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">入库类</li>
    <li><div class="sm-link" onclick="go('../仓储作业/其他入库列表.html')">其他入库</div></li>
-   <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">出库类</li>
    <li><div class="sm-link" onclick="go('../仓储作业/其他出库列表.html')">其他出库</div></li>
    </ul>
       </li>
@@ -346,12 +346,8 @@ th.td-num { text-align:right; }
     <div class="content">
 <div class="filter-card collapsed" id="filterCard">
   <div class="filter-grid">
-    <div class="ff"><span class="ff-label">库房：</span>
-      <select><option selected>全部</option><option>原料区 RA</option><option>成品区 RB</option><option>外协周转区 RC</option></select>
-      <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-    </div>
-    <div class="ff"><span class="ff-label">库区：</span>
-      <select><option selected>全部</option><option>原料区 RA</option><option>成品区 RB</option><option>外协周转区 RC</option></select>
+    <div class="ff"><span class="ff-label">仓库：</span>
+      <select><option selected>全部</option><option>正品仓</option><option>次品仓</option><option>客户虚拟仓（安吉智行）</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
     <div class="ff"><span class="ff-label">库位编码：</span><input placeholder="请输入"></div>
@@ -380,9 +376,8 @@ th.td-num { text-align:right; }
       <thead>
         <tr>
           <th></th>
-          <th>库房</th>
-          <th>库区</th>
           <th>库位编码</th>
+          <th>仓库</th>
           <th>库位类型</th>
           <th>规格 / 承载</th>
           <th>占用情况</th>
@@ -391,126 +386,114 @@ th.td-num { text-align:right; }
         </tr>
       </thead>
       <tbody>
-        <tr>
+<tr>
           <td><input type="checkbox" class="cb"></td>
-          <td>华东中心仓（WH-01）</td>
-          <td>客户虚拟仓</td>
           <td><span class="lk">XNC-AJZX</span></td>
+          <td>客户虚拟仓（安吉智行）</td>
           <td>虚拟仓</td>
-          <td>按客户归集 · on-hire</td>
-          <td>安吉智行 640 只</td>
-          <td><span class="tag tag-blue">启用</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('createModal')">编辑</a></span></td>
+          <td>按客户归集</td>
+          <td>on-hire 640 只</td>
+          <td><span class="tag-green">启用</span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
         </tr>
-
-        <tr>
+<tr>
           <td><input type="checkbox" class="cb"></td>
-          <td>华东中心仓（WH-01）</td>
-          <td>原料区 RA</td>
           <td><span class="lk">RA-A-01-01</span></td>
+          <td>正品仓</td>
           <td>存储位</td>
           <td>1.2m×1.0m / 2t</td>
           <td>68%</td>
-          <td><span class="tag tag-green">启用</span></td>
+          <td><span class="tag-green">启用</span></td>
           <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
         </tr>
-        <tr>
+<tr>
           <td><input type="checkbox" class="cb"></td>
-          <td>华东中心仓（WH-01）</td>
-          <td>原料区 RA</td>
           <td><span class="lk">RA-A-01-02</span></td>
+          <td>正品仓</td>
           <td>存储位</td>
           <td>1.2m×1.0m / 2t</td>
           <td>45%</td>
-          <td><span class="tag tag-green">启用</span></td>
+          <td><span class="tag-green">启用</span></td>
           <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
         </tr>
-        <tr>
+<tr>
           <td><input type="checkbox" class="cb"></td>
-          <td>华东中心仓（WH-01）</td>
-          <td>原料区 RA</td>
           <td><span class="lk">RA-B-02-01</span></td>
+          <td>正品仓</td>
           <td>存储位</td>
           <td>1.2m×1.0m / 2t</td>
           <td>0%</td>
-          <td><span class="tag tag-green">启用</span></td>
+          <td><span class="tag-green">启用</span></td>
           <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
         </tr>
-        <tr>
+<tr>
           <td><input type="checkbox" class="cb"></td>
-          <td>华东中心仓（WH-01）</td>
-          <td>成品区 RB</td>
           <td><span class="lk">RB-A-01-01</span></td>
+          <td>正品仓</td>
           <td>存储位</td>
           <td>1.2m×1.0m / 2t</td>
           <td>82%</td>
-          <td><span class="tag tag-green">启用</span></td>
+          <td><span class="tag-green">启用</span></td>
           <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
         </tr>
-        <tr>
+<tr>
           <td><input type="checkbox" class="cb"></td>
-          <td>华东中心仓（WH-01）</td>
-          <td>成品区 RB</td>
           <td><span class="lk">RB-A-01-02</span></td>
+          <td>正品仓</td>
           <td>存储位</td>
           <td>1.2m×1.0m / 2t</td>
           <td>74%</td>
-          <td><span class="tag tag-green">启用</span></td>
+          <td><span class="tag-green">启用</span></td>
           <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
         </tr>
-        <tr>
+<tr>
           <td><input type="checkbox" class="cb"></td>
-          <td>华东中心仓（WH-01）</td>
-          <td>成品区 RB</td>
           <td><span class="lk">RB-B-01-01</span></td>
+          <td>正品仓</td>
           <td>拣选位</td>
           <td>1.2m×1.0m / 1.5t</td>
           <td>60%</td>
-          <td><span class="tag tag-green">启用</span></td>
+          <td><span class="tag-green">启用</span></td>
           <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
         </tr>
-        <tr>
+<tr>
           <td><input type="checkbox" class="cb"></td>
-          <td>华东中心仓（WH-01）</td>
-          <td>组装区 RD</td>
           <td><span class="lk">RD-01</span></td>
+          <td>正品仓</td>
           <td>组装暂存</td>
           <td>工位 1</td>
           <td>组装中</td>
-          <td><span class="tag tag-green">启用</span></td>
+          <td><span class="tag-green">启用</span></td>
           <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
         </tr>
-        <tr>
+<tr>
           <td><input type="checkbox" class="cb"></td>
-          <td>华东中心仓（WH-01）</td>
-          <td>组装区 RD</td>
           <td><span class="lk">RD-02</span></td>
+          <td>正品仓</td>
           <td>组装暂存</td>
           <td>工位 2</td>
           <td>空闲</td>
-          <td><span class="tag tag-green">启用</span></td>
+          <td><span class="tag-green">启用</span></td>
           <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
         </tr>
-        <tr>
+<tr>
           <td><input type="checkbox" class="cb"></td>
-          <td>华东中心仓（WH-01）</td>
-          <td>退货区 RC</td>
           <td><span class="lk">RC-01</span></td>
+          <td>次品仓</td>
           <td>退货暂存</td>
           <td>1.2m×1.0m / 2t</td>
           <td>36%</td>
-          <td><span class="tag tag-green">启用</span></td>
+          <td><span class="tag-green">启用</span></td>
           <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
         </tr>
-        <tr>
+<tr>
           <td><input type="checkbox" class="cb"></td>
-          <td>华东中心仓（WH-01）</td>
-          <td>退货区 RC</td>
           <td><span class="lk">RC-02</span></td>
+          <td>次品仓</td>
           <td>退货暂存</td>
           <td>1.2m×1.0m / 2t</td>
           <td>0%</td>
-          <td><span class="tag tag-gray">停用</span></td>
+          <td><span class="tag-gray">停用</span></td>
           <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
         </tr>
       </tbody>
@@ -552,11 +535,8 @@ th.td-num { text-align:right; }
     </div>
     <div class="modal-body">
 <div class="form-row">
-    <span class="form-label"><span class="req">*</span>库房</span>
-    <div class="input-box select-box"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>一号仓</option><option>华东中心仓（WH-01）</option><option>华南仓（WH-02）</option><option>西南仓（WH-03）</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
-  </div><div class="form-row">
-    <span class="form-label">库区</span>
-    <div class="input-box select-box"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>原料区 RA</option><option>成品区 RB</option><option>外购区 RW</option><option>器具区 JC</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+    <span class="form-label"><span class="req">*</span>仓库</span>
+    <div class="input-box select-box"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>正品仓</option><option>次品仓</option><option>客户虚拟仓（安吉智行）</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
   </div><div class="form-row">
     <span class="form-label"><span class="req">*</span>库位编码</span>
     <div class="input-box"><input placeholder="如 RA-A01"></div>
@@ -662,8 +642,7 @@ th.td-num { text-align:right; }
 renderListPage({
   entity: 'locations',
   filters: [
-    { label: '库房', field: 'wh' },
-    { label: '库区', field: 'area' },
+    { label: '仓库', field: 'wh' },
     { label: '库位编码', field: '_key' },
     { label: '库位类型', field: 'ltype' },
     { label: '状态', field: 'status' }
@@ -678,7 +657,7 @@ renderListPage({
       <span class="modal-close" onclick="closeModal('stopModal')">×</span>
     </div>
     <div class="modal-body">
-      <div class="dgrid"><div class="drow"><div class="dlabel">库位编码</div><div class="dval">RA-A-01-01</div></div><div class="drow"><div class="dlabel">库区</div><div class="dval">原料区 RA · 华东中心仓</div></div><div class="drow"><div class="dlabel">容量占用</div><div class="dval">68%</div></div><div class="drow"><div class="dlabel">状态</div><div class="dval"><span class="tag tag-green">启用</span></div></div></div>
+      <div class="dgrid"><div class="drow"><div class="dlabel">库位编码</div><div class="dval">RA-A-01-01</div></div><div class="drow"><div class="dlabel">仓库</div><div class="dval">正品仓 · 华东中心仓（WH-01）</div></div><div class="drow"><div class="dlabel">容量占用</div><div class="dval">68%</div></div><div class="drow"><div class="dlabel">状态</div><div class="dval"><span class="tag tag-green">启用</span></div></div></div>
       <div style="height:14px;"></div>
       <p style="font-size:13px;color:#262626;line-height:1.7;">确认停用该库位（RA-A-01-01）？<br>停用后不可再存放物料；在库物料请先调拨至其他库位。</p></div>
     <div class="modal-footer">
@@ -772,6 +751,30 @@ document.querySelectorAll('.tab').forEach(function (t) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <style id="proto-notes-style">
 body.proto-notes-on [data-note]{position:relative}
 body.proto-notes-on [data-note]::after{content:attr(data-note);position:absolute;top:1px;right:1px;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600;box-shadow:0 0 0 1.5px #fff;cursor:pointer;opacity:.75;transition:opacity .15s}
@@ -793,9 +796,8 @@ body.proto-notes-on .proto-pin.pn-open{display:block}
 body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 .pn-fab .pn-fab-n{font-family:Consolas,monospace;font-weight:600}
 </style>
-<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>库位档案</div><div class="pnp-d">仓库/库区/库位三级，支撑入库定位与盘点范围</div><div class="pnp-b"><span class="pnp-tag">FP1-06 · 库位档案</span><span class="pnp-tag">REQ-04 · 零部件级库存</span></div><div class="pnp-src"><div class="src-item"><b>FP1-06 库位档案</b>：仓库/库区/库位三级</div><div class="src-item"><b>REQ-04 零部件级库存</b>：库存精确到零配件；配件多项目共用</div></div></div>
-<style id="f01-fab-style">.fab-row{position:fixed;right:12px;bottom:12px;z-index:880;display:flex;align-items:center;gap:6px}.fab-row .pn-fab{position:static}.f01-fab{display:flex;text-decoration:none;align-items:center;height:24px;padding:0 10px;border-radius:4px;background:#fff;border:1px solid #d9d9d9;color:#8c8c8c;font-size:11px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.06);opacity:.6;transition:opacity .15s}.f01-fab:hover{opacity:1;border-color:#722ed1;color:#722ed1}</style>
-<div class="fab-row"><a class="f01-fab" href="../P3-R01-F01-业务流程导航图.html">流程图</a><div class="pn-fab" id="protoNotesFab">标注</div></div></div>
+<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>库位档案</div><div class="pnp-d">仓库/库位两级（D-102 去库区层级·2026-09-14 第4次沟通）：正品仓/次品仓按仓库层区分，实际损耗走次品仓锁定不参与拣货（D-101）；库区层级后续做大了再加</div><div class="pnp-b"><span class="pnp-tag">FP1-06 · 库位档案</span><span class="pnp-tag">REQ-04 · 零部件级库存</span></div><div class="pnp-src"><div class="src-item"><b>FP1-06 库位档案</b>：仓库/库区/库位三级</div><div class="src-item"><b>REQ-04 零部件级库存</b>：库存精确到零配件；配件多项目共用</div></div></div>
+<style id="f01-fab-style">.fab-row{position:fixed;right:12px;bottom:12px;z-index:880;display:flex;align-items:center;gap:6px}.fab-row .pn-fab{position:static}.f01-fab{display:flex;text-decoration:none;align-items:center;height:24px;padding:0 10px;border-radius:4px;background:#fff;border:1px solid #d9d9d9;color:#8c8c8c;font-size:11px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.06);opacity:.6;transition:opacity .15s}.f01-fab:hover{opacity:1;border-color:#722ed1;color:#722ed1}</style><div class="fab-row"><a class="f01-fab" href="../P3-R01-F01-业务流程导航图.html">流程图</a><div class="pn-fab" id="protoNotesFab">标注</div></div></div>
 <script id="proto-notes-js">
 (function(){
   var KEY='proto-notes-on';

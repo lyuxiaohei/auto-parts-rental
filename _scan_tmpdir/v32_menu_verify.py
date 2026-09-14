@@ -1,19 +1,19 @@
 # -*- coding: utf-8 -*-
-"""菜单重组 v3.2 · Playwright 菜单验证门（G02 文档 C 表 12 项 + 各页 0 JS 错误 = 13 项）
+"""菜单重组 v4 · Playwright 菜单验证门（G31·D-114：小标签取消+租入管理升一级）
 用法: python _scan_tmpdir/v32_menu_verify.py
 纪律：编程点击+导航等待、URL unquote()、文本断言 textContent。
+v4 断言基线：九组序（+租入管理）；租赁/仓储组小标签取消平铺；财务组小标签维持（D-114）。
 """
-import sys, io
+import sys, io, os, re
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 from pathlib import Path
 from urllib.parse import unquote
 from playwright.sync_api import sync_playwright
 
-# G22 跨机归一（G21 g17_audit_diff 先例）：主机 Win 原绝对路径改按脚本位置解析，双机通用
 ROOT = Path(__file__).resolve().parent.parent
 PROTO = ROOT / "P3-R01-包装租赁管理后台原型"
 
-results = []  # (编号, 名称, 是否通过, 备注)
+results = []
 js_errors = []
 
 def check(no, name, ok, note=''):
@@ -51,10 +51,10 @@ with sync_playwright() as pw:
     menu = pg.evaluate(MENU_JS)
     groups = [m for m in menu if m['hasSub']]
 
-    # ① 八组序
+    # ① 九组序（v4：+租入管理·紧随租赁管理）
     gnames = [g['name'] for g in groups]
-    check('①', '八组序=项目管理/基础资料/采购管理/销售管理/租赁管理/仓储管理/财务管理/系统管理',
-          gnames == ['项目管理', '基础资料', '采购管理', '销售管理', '租赁管理', '仓储管理', '财务管理', '系统管理'],
+    check('①', '九组序=项目管理/基础资料/采购管理/销售管理/租赁管理/租入管理/仓储管理/财务管理/系统管理',
+          gnames == ['项目管理', '基础资料', '采购管理', '销售管理', '租赁管理', '租入管理', '仓储管理', '财务管理', '系统管理'],
           '→'.join(gnames))
 
     # ② 一级仅我的待办
@@ -64,10 +64,10 @@ with sync_playwright() as pw:
     # ③ 项目管理组 2 项
     g_pm = next(g for g in groups if g['name'] == '项目管理')
     pm_items = [s['text'] for s in g_pm['sub'] if not s['isTag']]
-    check('③', '项目管理组恰 2 项=项目看板/项目列表（损益已移出）',
+    check('③', '项目管理组恰 2 项=项目看板/项目列表',
           pm_items == ['项目看板', '项目列表'], '→'.join(pm_items))
 
-    # ④ 财务看板=财务管理组首普通项（非小标签）（G10·v3.5：移位+改名·应收小标签之前）
+    # ④ 财务看板=财务管理组首普通项（非小标签）
     g_fin = next(g for g in groups if g['name'] == '财务管理')
     fin_first = g_fin['sub'][0]
     n_sun = pg.evaluate("() => [...document.querySelectorAll('.side-menu .sm-link')].filter(e=>e.textContent.trim()==='财务看板').length")
@@ -75,30 +75,40 @@ with sync_playwright() as pw:
           fin_first['text'] == '财务看板' and not fin_first['isTag'] and n_sun == 1,
           f"组首={fin_first['text']} isTag={fin_first['isTag']} 出现{n_sun}次")
 
-    # ⑥ 财务管理组小标签=应收(4)/应付(2)
+    # ⑥ 财务管理组小标签=应收(4)/应付(2)（D-114：财务组小标签维持）
     fin_seq = [('T' if s['isTag'] else 'I') + s['text'] for s in g_fin['sub']]
     check('⑥', '财务管理组 财务看板+应收(应收账单/开票登记/收款登记/收款核销)+应付(应付账单/付款登记)',
           fin_seq == ['I财务看板', 'T应收', 'I应收账单', 'I开票登记', 'I收款登记', 'I收款核销',
                       'T应付', 'I应付账单', 'I付款登记'], ' '.join(fin_seq))
 
-    # ⑦ 仓储管理组三小标签=库存管理(3)/入库类(1)/出库类(1)
+    # ⑦ 仓储管理组 v4 平铺（小标签取消·D-114）
     g_wh = next(g for g in groups if g['name'] == '仓储管理')
     wh_seq = [('T' if s['isTag'] else 'I') + s['text'] for s in g_wh['sub']]
-    # G17（2026-09-11）断言随 09-11 晨会话菜单改名同步：「盘点」→「盘点记录」（术语表 #21）
-    check('⑦', '仓储管理组 库存管理(库存查询/盘点记录/库存调拨)+入库类(其他入库)+出库类(其他出库)',
-          wh_seq == ['T库存管理', 'I库存查询', 'I盘点记录', 'I库存调拨',
-                     'T入库类', 'I其他入库', 'T出库类', 'I其他出库'], ' '.join(wh_seq))
+    check('⑦', 'v4 仓储管理组无小标签·5 项平铺=库存查询/盘点记录/库存调拨/其他入库/其他出库',
+          wh_seq == ['I库存查询', 'I盘点记录', 'I库存调拨', 'I其他入库', 'I其他出库'], ' '.join(wh_seq))
 
-    # ⑧ 租赁管理组两小标签=租赁(3)/租入(3)（G09·2026-09-10：退租入库移入租赁标签·退租小标签取消）
+    # ⑧ 租赁管理组 v4 平铺（小标签取消·租入 3 项迁出）
     g_lease = next(g for g in groups if g['name'] == '租赁管理')
     lease_seq = [('T' if s['isTag'] else 'I') + s['text'] for s in g_lease['sub']]
-    check('⑧', '租赁管理组 租赁(租赁单/租赁出库/退租入库)+租入(租入单/租入入库/租入归还)',
-          lease_seq == ['T租赁', 'I租赁单', 'I租赁出库', 'I退租入库',
-                        'T租入', 'I租入单', 'I租入入库', 'I租入归还'], ' '.join(lease_seq))
+    check('⑧', 'v4 租赁管理组无小标签·3 项平铺=租赁单/租赁出库/退租入库',
+          lease_seq == ['I租赁单', 'I租赁出库', 'I退租入库'], ' '.join(lease_seq))
+
+    # ⑧b 租入管理组 v4 新组（升一级·3 项）
+    g_ri = next(g for g in groups if g['name'] == '租入管理')
+    ri_seq = [('T' if s['isTag'] else 'I') + s['text'] for s in g_ri['sub']]
+    check('⑧b', 'v4 租入管理组 3 项=租入单/租入入库/租入归还（无小标签）',
+          ri_seq == ['I租入单', 'I租入入库', 'I租入归还'], ' '.join(ri_seq))
 
     # ⑨ 菜单无「盘点录入」项
     all_text = pg.evaluate("() => document.querySelector('.side-menu').textContent")
     check('⑨', '菜单无「盘点录入」项', '盘点录入' not in all_text)
+
+    # ⑮ 菜单全部 go() 目标文件存在（v4：迁移页防死链·从看板页侧边栏收集）
+    menu_html = pg.evaluate("() => document.querySelector('.side-menu').innerHTML")
+    targets = re.findall(r"go\('([^']+)'\)", menu_html)
+    missing = [t for t in set(targets)
+               if not (PROTO / '首页' / t).exists()]
+    check('⑮', f'侧边栏 {len(set(targets))} 个 go() 目标全部存在', not missing, '缺失: ' + '; '.join(missing))
 
     # ⑤ 点击财务看板落地 财务协同/盈亏报表.html
     with pg.expect_navigation():
@@ -107,20 +117,30 @@ with sync_playwright() as pw:
     url1 = unquote(pg.url)
     check('⑤', '点击财务看板落地 财务协同/盈亏报表.html',
           url1.endswith('财务协同/盈亏报表.html'), url1)
-    # 落地页 selected/open 顺带核对
     sel1 = pg.evaluate("() => { const e=document.querySelector('.sm-link.selected'); return e?e.textContent.trim():null }")
     g_fin2 = pg.evaluate(MENU_JS)
     fin_open = next(g for g in g_fin2 if g['name'] == '财务管理')['open']
     check('⑤b', '盈亏报表页 selected=财务看板 且 财务管理组 open', sel1 == '财务看板' and fin_open, f'selected={sel1} open={fin_open}')
 
-    # ⑪ 我的待办一级直达（从盈亏报表页点击）
+    # ⑪ 我的待办一级直达
     with pg.expect_navigation():
         pg.evaluate("() => [...document.querySelectorAll('.side-menu > li > .sm-link')].find(e=>e.textContent.trim()==='我的待办').click()")
     pg.wait_for_load_state('load')
     url2 = unquote(pg.url)
     check('⑪', '我的待办一级直达 我的待办.html', url2.endswith('我的待办.html'), url2)
 
-    # ⑩ 盘点录入.html 页 selected=盘点记录（G17 断言随菜单改名同步）
+    # ⑭ 租入单列表页（v4 迁移后）：selected=租入单·open=租入管理·租赁管理组不 open
+    pg.goto((PROTO / '租入管理/租入单列表.html').as_uri())
+    pg.wait_for_load_state('load')
+    sel_ri = pg.evaluate("() => { const e=document.querySelector('.sm-link.selected'); return e?e.textContent.trim():null }")
+    m_ri = pg.evaluate(MENU_JS)
+    ri_open = next(g for g in m_ri if g['name'] == '租入管理')['open']
+    lease_open = next(g for g in m_ri if g['name'] == '租赁管理')['open']
+    check('⑭', '租入单列表页 selected=租入单·open=租入管理·租赁管理组不 open',
+          sel_ri == '租入单' and ri_open and not lease_open,
+          f'selected={sel_ri} 租入组open={ri_open} 租赁组open={lease_open}')
+
+    # ⑩ 盘点录入.html 页 selected=盘点记录
     pg.goto((PROTO / '仓储作业/盘点录入.html').as_uri())
     pg.wait_for_load_state('load')
     sel2 = pg.evaluate("() => { const e=document.querySelector('.sm-link.selected'); return e?e.textContent.trim():null }")
@@ -136,12 +156,12 @@ with sync_playwright() as pw:
     check('⑫', '角色管理页 selected=角色管理·open=系统管理', sel3 == '角色管理' and sys_open, f'selected={sel3} open={sys_open}')
 
     # ⑬ 各页 0 JS 错误
-    check('⑬', '各页 0 JS 错误（项目看板/盈亏报表/我的待办/盘点录入/角色管理）', len(js_errors) == 0, '; '.join(js_errors[:3]))
+    check('⑬', '各页 0 JS 错误（看板/盈亏报表/我的待办/租入单列表/盘点录入/角色管理）', len(js_errors) == 0, '; '.join(js_errors[:3]))
 
     br.close()
 
 fails = [r for r in results if not r[2]]
 for no, name, ok, note in results:
-    print(f"{'PASS' if ok else 'FAIL'} {no} {name}" + (f'  ｜{note}' if not ok or no in ('⑤', '⑪') else ''))
-print(f"==== 菜单 v3.5 验证门：{len(results)} 项断言，失败 {len(fails)} 项 ====")
+    print(f"{'PASS' if ok else 'FAIL'} {no} {name}" + (f'  ｜{note}' if not ok or no in ('⑤', '⑪', '⑮') else ''))
+print(f"==== 菜单 v4 验证门：{len(results)} 项断言，失败 {len(fails)} 项 ====")
 sys.exit(1 if fails else 0)

@@ -286,26 +286,26 @@ th.td-num { text-align:right; }
       <li class="sm-item has-sub">
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5" rx="1"/><line x1="10" y1="12" x2="14" y2="12"/></svg></span>租赁管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
-   <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">租赁</li>
    <li><div class="sm-link" onclick="go('租赁管理/租赁单列表.html')">租赁单</div></li>
    <li><div class="sm-link" onclick="go('租赁管理/租赁出库列表.html')">租赁出库</div></li>
    <li><div class="sm-link" onclick="go('租赁管理/退租入库列表.html')">退租入库</div></li>
-   <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">租入</li>
-   <li><div class="sm-link" onclick="go('租赁管理/租入单列表.html')">租入单</div></li>
-   <li><div class="sm-link" onclick="go('租赁管理/租入入库列表.html')">租入入库</div></li>
-   <li><div class="sm-link" onclick="go('租赁管理/租入归还列表.html')">租入归还</div></li>
    </ul>
       </li>
-      <li class="sm-item has-sub">
+            <li class="sm-item has-sub">
+   <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 15 12 15 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg></span>租入管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+   <ul class="sm-sub">
+   <li><div class="sm-link" onclick="go('租入管理/租入单列表.html')">租入单</div></li>
+   <li><div class="sm-link" onclick="go('租入管理/租入入库列表.html')">租入入库</div></li>
+   <li><div class="sm-link" onclick="go('租入管理/租入归还列表.html')">租入归还</div></li>
+   </ul>
+      </li>
+<li class="sm-item has-sub">
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/><line x1="10" y1="12" x2="14" y2="12"/></svg></span>仓储管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
-   <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">库存管理</li>
    <li><div class="sm-link" onclick="go('仓储作业/库存查询.html')">库存查询</div></li>
    <li><div class="sm-link" onclick="go('仓储作业/盘点列表.html')">盘点记录</div></li>
    <li><div class="sm-link" onclick="go('仓储作业/库存调拨列表.html')">库存调拨</div></li>
-   <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">入库类</li>
    <li><div class="sm-link" onclick="go('仓储作业/其他入库列表.html')">其他入库</div></li>
-   <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">出库类</li>
    <li><div class="sm-link" onclick="go('仓储作业/其他出库列表.html')">其他出库</div></li>
    </ul>
       </li>
@@ -345,12 +345,12 @@ th.td-num { text-align:right; }
   <span class="tab">库存查询 <span class="close">×</span></span>
 </div>
     <div class="content">
-<div class="stat-grid" style="margin-bottom:12px;" data-note="1">
-  <div class="stat"><div class="st-label" data-note="2"><span>我的待办</span></div><div class="st-num"><b id="todoCount">15</b><span class="unit">单</span></div></div>
-  <div class="stat"><div class="st-label" data-note="3"><span>待审核</span></div><div class="st-num">11<span class="unit">单</span></div></div>
-  <div class="stat"><div class="st-label" data-note="4"><span>待验收</span></div><div class="st-num">1<span class="unit">单</span></div></div>
-  <div class="stat"><div class="st-label" data-note="5"><span>待确认</span></div><div class="st-num">2<span class="unit">单</span></div></div>
-  <div class="stat"><div class="st-label" data-note="6"><span>待入库</span></div><div class="st-num">1<span class="unit">单</span></div></div>
+<div class="stat-grid" style="margin-bottom:12px;">
+  <div class="stat"><div class="st-label" data-note="1"><span>我的待办</span></div><div class="st-num"><b id="todoCount">15</b><span class="unit">单</span></div></div>
+  <div class="stat"><div class="st-label" data-note="2"><span>待审核</span></div><div class="st-num">11<span class="unit">单</span></div></div>
+  <div class="stat"><div class="st-label" data-note="3"><span>待验收</span></div><div class="st-num">1<span class="unit">单</span></div></div>
+  <div class="stat"><div class="st-label" data-note="4"><span>待确认</span></div><div class="st-num">2<span class="unit">单</span></div></div>
+  <div class="stat"><div class="st-label" data-note="5"><span>待入库</span></div><div class="st-num">1<span class="unit">单</span></div></div>
 </div>
 <div class="filter-card" id="filterCard">
   <div class="filter-grid">
@@ -507,7 +507,7 @@ th.td-num { text-align:right; }
           <td>陈金</td>
           <td>09-02 16:40</td>
           <td><span class="tag tag-orange">待审核</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="go('租赁管理/租入单列表.html?audit=1')">去审核</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('租入管理/租入单列表.html?audit=1')">去审核</a></span></td>
         </tr>
         <tr data-type="租入入库">
           <td><span class="tag tag-blue">租入入库</span></td>
@@ -517,7 +517,7 @@ th.td-num { text-align:right; }
           <td>陈金</td>
           <td>09-03 09:45</td>
           <td><span class="tag tag-orange">待入库</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="go('租赁管理/租入入库列表.html?audit=1')">去审核</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('租入管理/租入入库列表.html?audit=1')">去审核</a></span></td>
         </tr>
         <tr data-type="租入归还">
           <td><span class="tag tag-blue">租入归还</span></td>
@@ -527,7 +527,7 @@ th.td-num { text-align:right; }
           <td>李国栋</td>
           <td>09-03 14:05</td>
           <td><span class="tag tag-orange">待审核</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="go('租赁管理/租入归还列表.html?audit=1')">去审核</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('租入管理/租入归还列表.html?audit=1')">去审核</a></span></td>
         </tr>
     </tbody>
   </table>
@@ -753,6 +753,27 @@ document.querySelectorAll('.tab').forEach(function (t) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <style id="proto-notes-style">
 body.proto-notes-on [data-note]{position:relative}
 body.proto-notes-on [data-note]::after{content:attr(data-note);position:absolute;top:1px;right:1px;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600;box-shadow:0 0 0 1.5px #fff;cursor:pointer;opacity:.75;transition:opacity .15s}
@@ -774,14 +795,12 @@ body.proto-notes-on .proto-pin.pn-open{display:block}
 body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 .pn-fab .pn-fab-n{font-family:Consolas,monospace;font-weight:600}
 </style>
-<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>S6 · 我的待办（审核聚合入口）</div><div class="pnp-d">S6 审核与待办支线：16 类单据统一进待办，搜索/类型速滤后「去审核」跳转列表页并自动弹出审核弹窗（?audit=1）。</div></div>
-<div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>待办总量口径</div><div class="pnp-d">覆盖 16 类单据 · 点击“去审核”直达审核弹窗</div></div>
-<div class="proto-pin" id="proto-pin-3"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">3</span>待审核构成</div><div class="pnp-d">订单/出入库/租赁/盘点等</div></div>
-<div class="proto-pin" id="proto-pin-4"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">4</span>待验收含义</div><div class="pnp-d">采购入库到货验收</div></div>
-<div class="proto-pin" id="proto-pin-5"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">5</span>待确认含义</div><div class="pnp-d">付款 / 收款登记确认</div></div>
-<div class="proto-pin" id="proto-pin-6"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">6</span>待入库含义</div><div class="pnp-d">租入入库 · 确认后计租入资产库存</div></div>
-<style id="f01-fab-style">.fab-row{position:fixed;right:12px;bottom:12px;z-index:880;display:flex;align-items:center;gap:6px}.fab-row .pn-fab{position:static}.f01-fab{display:flex;text-decoration:none;align-items:center;height:24px;padding:0 10px;border-radius:4px;background:#fff;border:1px solid #d9d9d9;color:#8c8c8c;font-size:11px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.06);opacity:.6;transition:opacity .15s}.f01-fab:hover{opacity:1;border-color:#722ed1;color:#722ed1}</style>
-<div class="fab-row"><a class="f01-fab" href="P3-R01-F01-业务流程导航图.html">流程图</a><div class="pn-fab" id="protoNotesFab">标注</div></div></div>
+<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>待办总量口径</div><div class="pnp-d">覆盖 15 类单据 · 点击“去审核”直达审核弹窗</div></div>
+<div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>待审核构成</div><div class="pnp-d">订单/出入库/租赁/盘点等</div></div>
+<div class="proto-pin" id="proto-pin-3"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">3</span>待验收含义</div><div class="pnp-d">采购入库到货验收</div></div>
+<div class="proto-pin" id="proto-pin-4"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">4</span>待确认含义</div><div class="pnp-d">付款 / 收款登记确认</div></div>
+<div class="proto-pin" id="proto-pin-5"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">5</span>待入库含义</div><div class="pnp-d">租入入库 · 确认后计租入资产库存</div></div>
+<style id="f01-fab-style">.fab-row{position:fixed;right:12px;bottom:12px;z-index:880;display:flex;align-items:center;gap:6px}.fab-row .pn-fab{position:static}.f01-fab{display:flex;text-decoration:none;align-items:center;height:24px;padding:0 10px;border-radius:4px;background:#fff;border:1px solid #d9d9d9;color:#8c8c8c;font-size:11px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.06);opacity:.6;transition:opacity .15s}.f01-fab:hover{opacity:1;border-color:#722ed1;color:#722ed1}</style><div class="fab-row"><a class="f01-fab" href="P3-R01-F01-业务流程导航图.html">流程图</a><div class="pn-fab" id="protoNotesFab">标注</div></div></div>
 <script id="proto-notes-js">
 (function(){
   var KEY='proto-notes-on';

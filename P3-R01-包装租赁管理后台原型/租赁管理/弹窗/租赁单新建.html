@@ -265,7 +265,7 @@ th.td-num { text-align:right; }
     <div class="input-box" style="width:350px;"><input value="50,000.00" placeholder="请输入"></div>
   </div>
   <div class="form-row">
-    <span class="form-label"><span class="req">*</span>计费方式</span>
+    <span class="form-label"><span class="req" data-note="2">*</span>计费方式</span>
     <div><span class="radio checked" onclick="toggleBillingMode(false)"><span class="dot"></span>按月定期生成应收</span><span class="radio" onclick="toggleBillingMode(true)"><span class="dot"></span>按次套数对账</span></div>
   </div>
   <div id="billingHint" style="display:none;margin:-12px 0 12px 128px;font-size:12px;color:#595959;">按次套数对账：不按月生成应收，客户验收后按实际使用套数对账开单（G13 演示注记）。</div><div class="form-row">
@@ -282,7 +282,7 @@ th.td-num { text-align:right; }
   <div id="stockWarn" style="display:none;margin-top:8px;padding:8px 12px;border:1px solid #ffa39e;background:#fff1f0;border-radius:6px;font-size:12px;color:#d4380d;line-height:1.9;">
     <span class="sw-txt">可用库存不足——可选择生成：</span>
     <button class="btn btn-sm" style="margin-left:8px;" onclick="go('../../采购管理/采购订单列表.html')">生成采购订单</button>
-    <button class="btn btn-sm" style="margin-left:6px;" onclick="go('../../租赁管理/租入单列表.html')">生成租入单</button>
+    <button class="btn btn-sm" style="margin-left:6px;" onclick="go('../../租入管理/租入单列表.html')">生成租入单</button>
   </div>
     </div>
     <div class="modal-footer">
@@ -418,6 +418,30 @@ function toggleBillingMode(byUsage) { var h = document.getElementById('billingHi
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <style id="proto-notes-style">
 body.proto-notes-on [data-note]{position:relative}
 body.proto-notes-on [data-note]::after{content:attr(data-note);position:absolute;top:1px;right:1px;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600;box-shadow:0 0 0 1.5px #fff;cursor:pointer;opacity:.75;transition:opacity .15s}
@@ -439,8 +463,9 @@ body.proto-notes-on .proto-pin.pn-open{display:block}
 body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 .pn-fab .pn-fab-n{font-family:Consolas,monospace;font-weight:600}
 </style>
-<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>押金=设计预留字段</div><div class="pnp-d">押金为租赁单预留字段——2026-09-14 拍板：押金收取记应收押金行、退租结清全额退还转对客户应付（走应收应付，不做独立押金模块）；金额计价商务口径仍待客户确认。</div><div class="pnp-b"><span class="pnp-tag">FP4-02 · 库存查询·客户在租</span><span class="pnp-tag">REQ-03 · 包材租赁循环管理</span></div><div class="pnp-src"><div class="src-item"><b>FP4-02 库存查询·客户在租</b>：客户端(租出)按客户/项目下钻+资产轨迹（原在租台账 2026-09-10 并入库存查询）</div><div class="src-item"><b>REQ-03 包材租赁循环管理</b>：出库、退租、循环使用状态跟踪（围板箱/托盘/料箱）</div></div></div>
-<div class="pn-fab" id="protoNotesFab">标注</div></div>
+<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>押金=设计预留字段</div><div class="pnp-d">押金为设计预留字段——两次会议均未涉及，收退与计价商务口径待客户确认（F01 财务通道注记同步）</div><div class="pnp-b"><span class="pnp-tag">FP4-02 · 库存查询·客户在租</span><span class="pnp-tag">REQ-03 · 包材租赁循环管理</span></div><div class="pnp-src"><div class="src-item"><b>FP4-02 库存查询·客户在租</b>：客户端(租出)按客户/项目下钻+资产轨迹（原在租台账 2026-09-10 并入库存查询）</div><div class="src-item"><b>REQ-03 包材租赁循环管理</b>：出库、退租、循环使用状态跟踪（围板箱/托盘/料箱）</div></div></div>
+<div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>免费借用形态</div><div class="pnp-d">D-115（2026-09-14 形态认可）：免费借用＝租赁/销售单价填 0 不结算，不加专门结构；财务合规口径袁工问财务待复</div><div class="pnp-b"><span class="pnp-tag">FP2-01 · 项目编码规则</span><span class="pnp-tag">REQ-01 · 多项目统一管理</span></div><div class="pnp-src"><div class="src-item"><b>FP2-01 项目编码规则</b>：自动编码、规则可配置</div><div class="src-item"><b>REQ-01 多项目统一管理</b>：所有项目整合进一个系统，按项目建立编码，绑定上下游关系</div></div></div>
+<style id="f01-fab-style">.f01-fab{position:fixed;right:12px;bottom:12px;z-index:1001;display:flex;align-items:center;height:24px;padding:0 10px;border-radius:4px;background:#fff;border:1px solid #d9d9d9;color:#8c8c8c;font-size:11px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.06);opacity:.6;transition:opacity .15s}.f01-fab:hover{opacity:1;border-color:#722ed1;color:#722ed1}</style><div class="fab-row"><a class="f01-fab" href="../../P3-R01-F01-业务流程导航图.html">流程图</a><div class="pn-fab" id="protoNotesFab">标注</div></div></div>
 <script id="proto-notes-js">
 (function(){
   var KEY='proto-notes-on';

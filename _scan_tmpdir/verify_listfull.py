@@ -14,7 +14,7 @@ PROTO = ROOT / 'P3-R01-包装租赁管理后台原型'
 B1 = [
     dict(name='其他入库', file='仓储作业/其他入库列表.html', entity='otherInbounds', modalId='detailModal',
          stabs={'全部': 3, '待审核': 1, '已入库': 2}, pin=None),
-    dict(name='租入入库', file='租赁管理/租入入库列表.html', entity='rentInbounds', modalId='detailModal',
+    dict(name='租入入库', file='租入管理/租入入库列表.html', entity='rentInbounds', modalId='detailModal',
          stabs={'全部': 3, '待入库': 1, '已入库': 2}, pin=2),
     dict(name='销售出库', file='销售管理/销售出库列表.html', entity='salesOutbounds', modalId='detailModal',
          stabs={'全部': 6, '待审核': 1, '已完成': 5}, pin=None),
@@ -22,7 +22,7 @@ B1 = [
          stabs={'全部': 9, '待审核': 1, '拣货中': 1, '已出库': 7}, pin=2),  # G22：文件/称呼改名+审核落地（8+1 行）
     dict(name='其他出库', file='仓储作业/其他出库列表.html', entity='otherOutbounds', modalId='detailModal',
          stabs={'全部': 5, '待审核': 1, '已完成': 3}, pin=None),
-    dict(name='租入归还', file='租赁管理/租入归还列表.html', entity='rentInReturns', modalId='detailModal',
+    dict(name='租入归还', file='租入管理/租入归还列表.html', entity='rentInReturns', modalId='detailModal',
          stabs={'全部': 3, '待审核': 1, '已归还': 2}, pin=2),
     dict(name='退租入库', file='租赁管理/退租入库列表.html', entity='returnInbounds', modalId='detailModal',
          stabs={'全部': 8, '待审核': 3, '已入库': 5}, pin=3),
@@ -49,7 +49,7 @@ B2 = [
          stabs=None, pin=None, noCheckbox=True, tsel='#hxTable tbody'),
     dict(name='采购订单', file='采购管理/采购订单列表.html', entity='purchaseOrders', modalId='detailModal',
          stabs={'全部': 7, '待审核': 2, '已审核': 2, '已完成': 2, '已关闭': 1}, pin=None),
-    dict(name='租入单', file='租赁管理/租入单列表.html', entity='rentInOrders', modalId='detailModal',
+    dict(name='租入单', file='租入管理/租入单列表.html', entity='rentInOrders', modalId='detailModal',
          stabs={'全部': 6, '新建(草稿)': 1, '待审核': 1, '履行中': 1, '部分归还': 1, '已归还': 1, '已终止': 1}, pin=2),  # G13：+草稿演示行,
     dict(name='销售订单', file='销售管理/销售订单列表.html', entity='salesOrders', modalId='detailModal',
          stabs={'全部': 8, '待审核': 2, '已审核': 1, '待发货': 2, '已完成': 2, '已关闭': 1}, pin=None),

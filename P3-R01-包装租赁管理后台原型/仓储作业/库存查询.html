@@ -285,26 +285,26 @@ th.td-num { text-align:right; }
       <li class="sm-item has-sub">
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5" rx="1"/><line x1="10" y1="12" x2="14" y2="12"/></svg></span>租赁管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
-   <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">租赁</li>
    <li><div class="sm-link" onclick="go('../租赁管理/租赁单列表.html')">租赁单</div></li>
    <li><div class="sm-link" onclick="go('../租赁管理/租赁出库列表.html')">租赁出库</div></li>
    <li><div class="sm-link" onclick="go('../租赁管理/退租入库列表.html')">退租入库</div></li>
-         <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">租入</li>
-   <li><div class="sm-link" onclick="go('../租赁管理/租入单列表.html')">租入单</div></li>
-   <li><div class="sm-link" onclick="go('../租赁管理/租入入库列表.html')">租入入库</div></li>
-   <li><div class="sm-link" onclick="go('../租赁管理/租入归还列表.html')">租入归还</div></li>
    </ul>
       </li>
-      <li class="sm-item has-sub open">
+            <li class="sm-item has-sub">
+   <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 15 12 15 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg></span>租入管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+   <ul class="sm-sub">
+   <li><div class="sm-link" onclick="go('../租入管理/租入单列表.html')">租入单</div></li>
+   <li><div class="sm-link" onclick="go('../租入管理/租入入库列表.html')">租入入库</div></li>
+   <li><div class="sm-link" onclick="go('../租入管理/租入归还列表.html')">租入归还</div></li>
+   </ul>
+      </li>
+<li class="sm-item has-sub open">
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/><line x1="10" y1="12" x2="14" y2="12"/></svg></span>仓储管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
-   <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">库存管理</li>
    <li><div class="sm-link selected">库存查询</div></li>
    <li><div class="sm-link" onclick="go('../仓储作业/盘点列表.html')">盘点记录</div></li>
    <li><div class="sm-link" onclick="go('../仓储作业/库存调拨列表.html')">库存调拨</div></li>
-   <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">入库类</li>
    <li><div class="sm-link" onclick="go('../仓储作业/其他入库列表.html')">其他入库</div></li>
-   <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">出库类</li>
    <li><div class="sm-link" onclick="go('../仓储作业/其他出库列表.html')">其他出库</div></li>
    </ul>
       </li>
@@ -374,6 +374,19 @@ th.td-num { text-align:right; }
       <select><option selected>全部</option><option>在库</option><option>客户端(租出)</option><option>客户转租出</option><option>退租待入库</option><option>租入</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
+    <div class="ff"><span class="ff-label">仓库：</span>
+      <select><option selected>全部</option><option>正品仓</option><option>次品仓</option><option>客户虚拟仓</option><option>转租终端仓</option><option>上海一号库</option></select>
+      <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+    <div class="ff"><span class="ff-label">库位：</span>
+      <select><option selected>全部</option><option>RA-A-01-01</option><option>RA-A-01-02</option><option>RB-A-01-01</option><option>RB-A-01-02</option><option>XNC-AJZX</option></select>
+      <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+    <div class="ff"><span class="ff-label">物料名称：</span><input placeholder="请输入物料名称"></div>
+    <div class="ff"><span class="ff-label">项目：</span>
+      <select><option selected>全部</option><option>PRJ-2601</option><option>PRJ-2602</option><option>PRJ-2603</option><option>PRJ-2604</option><option>PRJ-2605</option></select>
+      <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
     <div class="filter-actions">
       <button class="btn btn-default">重置</button>
       <button class="btn btn-primary">查询</button>
@@ -401,7 +414,7 @@ th.td-num { text-align:right; }
           <th>总量</th>
           <th>成本单价</th>
           <th>单位</th>
-          <th>库区</th>
+          <th>仓库</th>
           <th class="sticky-op">操作</th>
         </tr>
       </thead>
@@ -569,82 +582,22 @@ th.td-num { text-align:right; }
   </div>
   </div>
   <div id="comboView">
+  <div style="display:flex;align-items:center;gap:12px;margin:0 0 12px;flex-wrap:wrap;">
+    <span style="font-size:13px;color:#4b5563;">选用 BOM：</span>
+    <div class="input-box select-box" style="width:360px"><select id="comboBomSel" onchange="renderComboBom(this.value)" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option value="ZH-2601-A">ZH-2601-A 驾驶室围板箱整箱套件 · V2.1</option><option value="ZH-2602-B">ZH-2602-B 保险杠料架套件 · V1.3</option><option value="ZH-2603-C">ZH-2603-C 电池托盘护角套件 · V1.0</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+    <span id="comboBomSum" style="font-size:13px;font-weight:600;color:#1677ff;"></span>
+  </div>
   <div class="table-wrap">
     <table>
       <thead>
-        <tr>
-          <th>父项编码</th>
-          <th>组合单元名称</th>
-          <th>BOM版本</th>
-          <th>所属项目</th>
-          <th>在库(已组装)</th>
-          <th>退租在途</th>
-          <th>客户端(在租)</th>
-          <th>退租待入库</th>
-          <th>累计出库</th>
-          <th>单位</th>
-          <th class="sticky-op">操作</th>
-        </tr>
+        <tr><th>BOM 编码</th><th>子件</th><th>来源</th><th>单位用量</th><th>在库可用</th><th>可组成（该子件计）</th></tr>
       </thead>
-      <tbody>
-        <tr>
-          <td><span class="lk">ZH-2601-A</span></td>
-          <td>驾驶室围板箱整箱套件</td>
-          <td>V2.1</td>
-          <td>PRJ-2601</td>
-          <td><span class="td-num">640</span></td>
-          <td><span class="td-num">60</span></td>
-          <td><span class="td-num"><b>3,120</b></span></td>
-          <td><span class="td-num">80</span></td>
-          <td><span class="td-num">18,420</span></td>
-          <td>套</td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('flowModal')">库存流水</a><a onclick="go('../基础数据/BOM.html')">查看BOM</a></span></td>
-        </tr>
-        <tr>
-          <td><span class="lk">ZH-2602-B</span></td>
-          <td>冲压件料箱组套</td>
-          <td>V1.3</td>
-          <td>PRJ-2602</td>
-          <td><span class="td-num">820</span></td>
-          <td><span class="td-num">45</span></td>
-          <td><span class="td-num"><b>4,120</b></span></td>
-          <td><span class="td-num">0</span></td>
-          <td><span class="td-num">22,650</span></td>
-          <td>套</td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('flowModal')">库存流水</a><a onclick="go('../基础数据/BOM.html')">查看BOM</a></span></td>
-        </tr>
-        <tr>
-          <td><span class="lk">ZH-2603-C</span></td>
-          <td>电池托盘护角套件</td>
-          <td>V1.0</td>
-          <td>PRJ-2603</td>
-          <td><span class="td-num">150</span></td>
-          <td><span class="td-num">0</span></td>
-          <td><span class="td-num"><b>1,020</b></span></td>
-          <td><span class="td-num">20</span></td>
-          <td><span class="td-num">6,830</span></td>
-          <td>套</td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('flowModal')">库存流水</a><a onclick="go('../基础数据/BOM.html')">查看BOM</a></span></td>
-        </tr>
-      </tbody>
+      <tbody id="comboBomBody"></tbody>
     </table>
   </div>
-  <div class="pager">
-    <span class="pg-info">第 1-10 条/总共 9 条</span>
-    <span class="pg-btn">‹</span>
-    <span class="pg-btn cur">1</span>
-    <span class="pg-btn">2</span>
-    <span class="pg-btn">3</span>
-    <span class="pg-btn">4</span>
-    <span class="pg-btn">5</span>
-    <span class="pg-ellipsis">…</span>
-    <span class="pg-btn">8</span>
-    <span class="pg-btn">›</span>
-    <span class="pg-size">10 条/页
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-    </span>
-    <span class="pg-jump">跳至 <input value="" placeholder="跳转页码"> 页</span>
-  </div>
+  <div style="font-size:12px;color:#8c8c8c;margin-top:8px;">可组成套数 = 各子件「在库可用 ÷ 单位用量」取最小值（按在库量测算 · D-111）；跨 BOM 并行汇总不做（D-45 挂起）。</div>
+  <div style="margin-top:6px;"><a class="lk" onclick="openModal('flowModal')">库存流水（示例）</a></div>
+  
   </div>
 </div>
     </div>
@@ -657,7 +610,25 @@ th.td-num { text-align:right; }
   vts.forEach(function (t) { t.classList.remove('active'); });
   if (v === 'part') { part.style.display = 'block'; combo.style.display = 'none'; vts[0].classList.add('active'); }
   else { part.style.display = 'none'; combo.style.display = 'block'; vts[1].classList.add('active'); }
-}</script>
+}/* G31 T3 组合视角：按选 BOM 显示可组成套数（D-111） */
+var BOM_COMBOS = {
+  'ZH-2601-A': [ ['围板箱 1200×1000×970','租入',1,320], ['围板 LJ-C300','自购',4,1860], ['箱盖','自购',1,900], ['锁扣组件 LJ-A100','自购',4,5260], ['铰链 LJ-B200','自购',2,2640] ],
+  'ZH-2602-B': [ ['料架 1300×600','租入',1,180], ['支撑臂','自购',2,640], ['锁扣组件 LJ-A100','自购',2,5260] ],
+  'ZH-2603-C': [ ['周转箱 600×400','租入',1,410], ['内衬','自购',4,2200], ['绑带','自购',2,1580], ['锁扣组件 LJ-A100','自购',4,5260], ['铰链 LJ-B200','自购',2,2640], ['标签','自购',1,99999] ]
+};
+function renderComboBom(key) {
+  var rows = BOM_COMBOS[key] || [];
+  var minSets = null;
+  var html = rows.map(function (r) {
+    var sets = Math.floor(r[3] / r[2]);
+    if (minSets === null || sets < minSets) minSets = sets;
+    return '<tr><td>' + key + '</td><td>' + r[0] + '</td><td><span class="tag ' + (r[1] === '租入' ? 'tag-orange' : 'tag-gray') + '">' + r[1] + '</span></td><td><span class="td-num">' + r[2] + '</span></td><td><span class="td-num">' + r[3].toLocaleString() + '</span></td><td><span class="td-num"><b>' + sets + ' 套</b></span></td></tr>';
+  }).join('\n');
+  document.getElementById('comboBomBody').innerHTML = html;
+  document.getElementById('comboBomSum').textContent = key + ' 可组成 ' + (minSets || 0) + ' 套';
+}
+renderComboBom('ZH-2601-A');
+</script>
 <style id="detail-modal-css">
 /* 详情弹窗（四段式）专用样式：段落标题 / 关联链 / 流转时间线 */
 .dt-sec{font-size:13px;font-weight:600;color:#262626;margin:0 0 10px;padding-left:8px;border-left:3px solid #1677ff;line-height:1.3}
@@ -733,7 +704,11 @@ renderListPage({
   stabs: false,
   filters: [
     { label: '物料编码', field: '_key' },
-    { label: '库存状态', field: 'status' }
+    { label: '库存状态', field: 'status' },
+    { label: '仓库', field: 'area' },
+    { label: '库位', field: 'loc' },
+    { label: '物料名称', field: 'name' },
+    { label: '项目', field: 'project', match: 'contains' }
   ],
   noCheckbox: true,
   modalId: 'flowModal'
@@ -893,6 +868,27 @@ document.querySelectorAll('.tab').forEach(function (t) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <style id="proto-notes-style">
 body.proto-notes-on [data-note]{position:relative}
 body.proto-notes-on [data-note]::after{content:attr(data-note);position:absolute;top:1px;right:1px;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600;box-shadow:0 0 0 1.5px #fff;cursor:pointer;opacity:.75;transition:opacity .15s}
@@ -920,8 +916,7 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 <div class="proto-pin" id="proto-pin-4"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">4</span>客户转租（客户的客户）</div><div class="pnp-d">转租定义：物料/BOM 已租给客户 A，A 再租给客户 B（终端用户）——记为「客户转租出」，不做所有权变更。<br>演示数据：安吉智行 → 终端用户 3 批共 720 只（XNC-ZZ 客户虚拟仓归集）。<br>入口：在客户（租出）行「转租登记」；转租行「转租还回」可追回；最终可随客户 A 整体退租入库（2026-09-08 会议八.5）。</div><div class="pnp-b"><span class="pnp-tag">FP3-06 · 库存查询</span><span class="pnp-tag">REQ-06 · 小组装管理节点</span></div><div class="pnp-src"><div class="src-item"><b>FP3-06 库存查询</b>：零件/组合双视角实时库存，按项目/库位过滤</div><div class="src-item"><b>REQ-06 小组装管理节点</b>：记录 A+B→C 的组装时间与数量；库存双视角（零件/组合）</div></div></div>
 <div class="proto-pin" id="proto-pin-5"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">5</span>退租在途（无独立审核）</div><div class="pnp-d">客户已通知退租 500 件 · 退租入库待确认 7 单。<br>退租申请模块已移除（2026-09-08 会议）：退租只做两件事——在途（客户通知）→ 退租入库（改库存），无独立审核环节。</div><div class="pnp-b"><span class="pnp-tag">FP3-06 · 库存查询</span><span class="pnp-tag">REQ-06 · 小组装管理节点</span></div><div class="pnp-src"><div class="src-item"><b>FP3-06 库存查询</b>：零件/组合双视角实时库存，按项目/库位过滤</div><div class="src-item"><b>REQ-06 小组装管理节点</b>：记录 A+B→C 的组装时间与数量；库存双视角（零件/组合）</div></div></div>
 <div class="proto-pin" id="proto-pin-6"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">6</span>租入在库</div><div class="pnp-d">关联租入单 2 张 · 按月生成租金应付（路凯）；租入在库未转租计入本态，转租后计入客户态（来源标记区分）。</div><div class="pnp-b"><span class="pnp-tag">FP3-06 · 库存查询</span><span class="pnp-tag">REQ-06 · 小组装管理节点</span></div><div class="pnp-src"><div class="src-item"><b>FP3-06 库存查询</b>：零件/组合双视角实时库存，按项目/库位过滤</div><div class="src-item"><b>REQ-06 小组装管理节点</b>：记录 A+B→C 的组装时间与数量；库存双视角（零件/组合）</div></div></div>
-<style id="f01-fab-style">.fab-row{position:fixed;right:12px;bottom:12px;z-index:880;display:flex;align-items:center;gap:6px}.fab-row .pn-fab{position:static}.f01-fab{display:flex;text-decoration:none;align-items:center;height:24px;padding:0 10px;border-radius:4px;background:#fff;border:1px solid #d9d9d9;color:#8c8c8c;font-size:11px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.06);opacity:.6;transition:opacity .15s}.f01-fab:hover{opacity:1;border-color:#722ed1;color:#722ed1}</style>
-<div class="fab-row"><a class="f01-fab" href="../P3-R01-F01-业务流程导航图.html">流程图</a><div class="pn-fab" id="protoNotesFab">标注</div></div></div>
+<style id="f01-fab-style">.fab-row{position:fixed;right:12px;bottom:12px;z-index:880;display:flex;align-items:center;gap:6px}.fab-row .pn-fab{position:static}.f01-fab{display:flex;text-decoration:none;align-items:center;height:24px;padding:0 10px;border-radius:4px;background:#fff;border:1px solid #d9d9d9;color:#8c8c8c;font-size:11px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.06);opacity:.6;transition:opacity .15s}.f01-fab:hover{opacity:1;border-color:#722ed1;color:#722ed1}</style><div class="fab-row"><a class="f01-fab" href="../P3-R01-F01-业务流程导航图.html">流程图</a><div class="pn-fab" id="protoNotesFab">标注</div></div></div>
 <script id="proto-notes-js">
 (function(){
   var KEY='proto-notes-on';
