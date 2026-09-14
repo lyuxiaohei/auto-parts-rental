@@ -45,8 +45,10 @@
   var hit = null;
   mRows('todoItems').forEach(function (r) { if (r.id === id) hit = r; });
 
-  if (!hit) {   // 无效单号：空态，隐藏操作栏
-    document.getElementById('m-summary').innerHTML = '<div class="m-empty">未找到该待办单据<br>可能已处理或链接失效</div>';
+  if (!hit) {   // 无效单号：空态，隐藏操作栏；副题去占位杠 + 提供返回入口
+    document.getElementById('m-hd-doc').textContent = '单号无效或已处理';
+    document.getElementById('m-summary').innerHTML = '<div class="m-empty">未找到该待办单据<br>可能已处理或链接失效</div>'
+      + '<button class="m-btn m-btn-ghost" style="width:auto;margin:0 auto;padding:0 28px;height:38px;font-size:14px;" onclick="go(\'待办审批.html\')">返回待办列表</button>';
     document.getElementById('m-details').innerHTML = '';
     document.getElementById('m-actions').style.display = 'none';
     mGuard();

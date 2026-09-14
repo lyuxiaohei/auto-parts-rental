@@ -67,12 +67,16 @@ body {
   box-shadow: var(--shadow-card);
 }
 
-/* ---- 统计条 ---- */
+/* ---- 统计条（v1.1：卡片可点下钻过滤——active 主色描边+浅底） ---- */
 .m-stat { display: flex; gap: 8px; margin-bottom: 10px; }
 .m-stat .m-stat-item {
   flex: 1; background: var(--card-bg); border-radius: var(--radius); padding: 10px 6px;
-  box-shadow: var(--shadow-card); text-align: center;
+  box-shadow: var(--shadow-card); text-align: center; cursor: pointer;
+  border: 1px solid transparent; transition: all .15s; user-select: none;
 }
+.m-stat .m-stat-item:active { background: #f0f7ff; }
+.m-stat .m-stat-item.active { border-color: var(--primary); background: var(--primary-bg); }
+.m-stat .m-stat-item.active .m-stat-label { color: var(--primary); font-weight: 600; }
 .m-stat .m-stat-num { font-size: 22px; font-weight: 700; color: var(--primary); line-height: 1.2; }
 .m-stat .m-stat-num.is-danger { color: #fa8c16; }
 .m-stat .m-stat-label { font-size: 11px; color: var(--text-3); margin-top: 3px; line-height: 1.4; }
@@ -102,13 +106,19 @@ body {
 .m-badge-red    { background: var(--danger-bg); color: #cf1322; }
 .m-badge-purple { background: var(--purple-bg); color: var(--purple); }
 
-/* ---- 筛选 chips（padding 6 14 · 全圆角 · 选中主色边+浅底+600，规范 spec-option） ---- */
-.m-chips { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
+/* ---- 筛选 chips（v1.1：单行横滑——原生 App 惯例，超宽横向滚动不换行） ---- */
+.m-chips {
+  display: flex; gap: 8px; margin-bottom: 10px;
+  flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; padding-bottom: 2px;
+}
+.m-chips::-webkit-scrollbar { display: none; }
 .m-chip {
   font-size: 12px; padding: 6px 14px; border-radius: 999px; cursor: pointer;
   background: var(--card-bg); color: var(--text-2); border: 1px solid #ddd;
-  transition: all .15s; user-select: none;
+  transition: all .15s; user-select: none; white-space: nowrap; flex-shrink: 0;
 }
+.m-chip:active { background: #f0f7ff; }
 .m-chip.active { background: var(--primary-bg); color: var(--primary); border-color: var(--primary); font-weight: 600; }
 
 /* ---- 搜索框 ---- */
@@ -219,6 +229,7 @@ body {
 .m-tabbar a .m-tab-ico { display: block; width: 22px; height: 22px; }
 .m-tabbar a .m-tab-ico svg { width: 22px; height: 22px; display: block; }
 .m-tabbar a.active { color: var(--primary); font-weight: 600; }
+.m-tabbar a:active { opacity: .7; }
 
 /* ---- toast ---- */
 .m-toast {
