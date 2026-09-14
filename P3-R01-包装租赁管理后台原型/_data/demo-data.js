@@ -6026,7 +6026,7 @@ window.DEMO_DATA = {
   /* 订单唯一来源=项目经理代下；客户自助为演示例外 */
   salesOrders: {
     'SO-20260903-0047': {
-      'row': {"fields": {"customer": "上汽大众汽车有限公司宁波分公司", "project": "PRJ-2602", "summary": "冲压件隔板×2,400（先采后销 · 采购在途）", "mode": "项目经理代下", "status": "待发货", "agent": "王强", "date": "2026-09-03"}, "note": "1", "cells": ["上汽大众汽车有限公司宁波分公司", "PRJ-2602", "冲压件隔板×2,400（先采后销 · 采购在途）", "<span class=\"td-num\">2,400</span>", "<span class=\"td-num\">28,800.00</span>", "<span class=\"tag tag-blue\">项目经理代下</span>", "<span class=\"tag tag-blue\">待发货</span>", "王强", "2026-09-03 11:20"], "ops": [{"t": "编辑", "act": "openModal('createModal')"}, {"t": "审核", "act": "openModal('auditModal')"}, {"t": "关闭"}]},
+      'row': {"fields": {"customer": "上汽大众汽车有限公司宁波分公司", "project": "PRJ-2602", "summary": "冲压件隔板×2,400（先采后销 · 采购在途）", "status": "待发货", "agent": "王强", "date": "2026-09-03"}, "note": "1", "cells": ["上汽大众汽车有限公司宁波分公司", "PRJ-2602", "冲压件隔板×2,400（先采后销 · 采购在途）", "<span class=\"td-num\">2,400</span>", "<span class=\"td-num\">28,800.00</span>", "<span class=\"tag tag-blue\">待发货</span>", "王强", "2026-09-03 11:20"], "ops": [{"t": "编辑", "act": "openModal('createModal')"}, {"t": "审核", "act": "openModal('auditModal')"}, {"t": "关闭"}]},
       'title': '销售订单详情',
       'info': [
         {
@@ -6130,7 +6130,7 @@ window.DEMO_DATA = {
       ]
     },
     'SO-20260902-0046': {
-      'row': {"fields": {"customer": "一汽解放汽车有限公司", "project": "PRJ-2601", "summary": "锁扣组件×3,000", "mode": "项目经理代下", "status": "待审核", "agent": "王强", "date": "2026-09-02"}, "cells": ["一汽解放汽车有限公司", "PRJ-2601", "锁扣组件×3,000", "<span class=\"td-num\">3,000</span>", "<span class=\"td-num\">4,800.00</span>", "<span class=\"tag tag-blue\">项目经理代下</span>", "<span class=\"tag tag-orange\">待审核</span>", "王强", "2026-09-02 10:24"], "ops": [{"t": "编辑", "act": "openModal('createModal')"}, {"t": "审核", "act": "openModal('auditModal')"}, {"t": "关闭"}]},
+      'row': {"fields": {"customer": "一汽解放汽车有限公司", "project": "PRJ-2601", "summary": "锁扣组件×3,000", "status": "待审核", "agent": "王强", "date": "2026-09-02"}, "cells": ["一汽解放汽车有限公司", "PRJ-2601", "锁扣组件×3,000", "<span class=\"td-num\">3,000</span>", "<span class=\"td-num\">4,800.00</span>", "<span class=\"tag tag-orange\">待审核</span>", "王强", "2026-09-02 10:24"], "ops": [{"t": "编辑", "act": "openModal('createModal')"}, {"t": "审核", "act": "openModal('auditModal')"}, {"t": "关闭"}]},
       'title': '销售订单详情',
       'info': [
         {
@@ -6229,7 +6229,7 @@ window.DEMO_DATA = {
       ]
     },
     'SO-20260901-0045': {
-      'row': {"fields": {"customer": "上汽大众汽车有限公司宁波分公司", "project": "PRJ-2602", "summary": "铰链×1,200 / 箱盖×800", "mode": "客户自助", "status": "待审核", "agent": "何静", "date": "2026-09-01", "po": "—"}, "cells": ["上汽大众汽车有限公司宁波分公司", "PRJ-2602", "铰链×1,200 / 箱盖×800", "<span class=\"td-num\">2,000</span>", "<span class=\"td-num\">6,050.00</span>", "<span class=\"tag tag-gray\">客户自助</span>", "<span class=\"tag tag-orange\">待审核</span>", "何静", "2026-09-01 16:40"], "ops": [{"t": "编辑", "act": "openModal('createModal')"}, {"t": "审核", "act": "openModal('auditModal')"}, {"t": "关闭"}]},
+      'row': {"fields": {"customer": "上汽大众汽车有限公司宁波分公司", "project": "PRJ-2602", "summary": "铰链×1,200 / 箱盖×800", "status": "待审核", "agent": "何静", "date": "2026-09-01", "po": "—"}, "cells": ["上汽大众汽车有限公司宁波分公司", "PRJ-2602", "铰链×1,200 / 箱盖×800", "<span class=\"td-num\">2,000</span>", "<span class=\"td-num\">6,050.00</span>", "<span class=\"tag tag-orange\">待审核</span>", "何静", "2026-09-01 16:40"], "ops": [{"t": "编辑", "act": "openModal('createModal')"}, {"t": "审核", "act": "openModal('auditModal')"}, {"t": "关闭"}]},
       'title': '销售订单详情',
       'info': [
         {
@@ -6326,7 +6326,7 @@ window.DEMO_DATA = {
       ]
     },
     'SO-20260831-0044': {
-      'row': {"fields": {"customer": "小鹏汽车科技有限公司", "project": "PRJ-2603", "summary": "内衬 EPE 珍珠棉×5,000", "mode": "项目经理代下", "status": "已审核", "agent": "陈金", "date": "2026-08-31", "po": "—"}, "cells": ["小鹏汽车科技有限公司", "PRJ-2603", "内衬 EPE 珍珠棉×5,000", "<span class=\"td-num\">5,000</span>", "<span class=\"td-num\">9,000.00</span>", "<span class=\"tag tag-blue\">项目经理代下</span>", "<span class=\"tag tag-blue\">已审核</span>", "陈金", "2026-08-31 11:05"], "ops": [{"t": "发货", "act": "go('../销售管理/销售出库列表.html')"}, {"t": "关闭"}]},
+      'row': {"fields": {"customer": "小鹏汽车科技有限公司", "project": "PRJ-2603", "summary": "内衬 EPE 珍珠棉×5,000", "status": "已审核", "agent": "陈金", "date": "2026-08-31", "po": "—"}, "cells": ["小鹏汽车科技有限公司", "PRJ-2603", "内衬 EPE 珍珠棉×5,000", "<span class=\"td-num\">5,000</span>", "<span class=\"td-num\">9,000.00</span>", "<span class=\"tag tag-blue\">已审核</span>", "陈金", "2026-08-31 11:05"], "ops": [{"t": "发货", "act": "go('../销售管理/销售出库列表.html')"}, {"t": "关闭"}]},
       'title': '销售订单详情',
       'info': [
         {
@@ -6425,7 +6425,7 @@ window.DEMO_DATA = {
       ]
     },
     'SO-20260830-0043': {
-      'row': {"fields": {"customer": "一汽解放汽车有限公司", "project": "PRJ-2601", "summary": "箱盖 ABS 吸塑×1,500", "mode": "客户自助", "status": "待发货", "agent": "袁明", "date": "2026-08-30", "po": "—"}, "cells": ["一汽解放汽车有限公司", "PRJ-2601", "箱盖 ABS 吸塑×1,500", "<span class=\"td-num\">1,500</span>", "<span class=\"td-num\">5,400.00</span>", "<span class=\"tag tag-gray\">客户自助</span>", "<span class=\"tag tag-blue\">待发货</span>", "袁明", "2026-08-30 09:18"], "ops": [{"t": "发货", "act": "go('../销售管理/销售出库列表.html')"}, {"t": "关闭"}]},
+      'row': {"fields": {"customer": "一汽解放汽车有限公司", "project": "PRJ-2601", "summary": "箱盖 ABS 吸塑×1,500", "status": "待发货", "agent": "袁明", "date": "2026-08-30", "po": "—"}, "cells": ["一汽解放汽车有限公司", "PRJ-2601", "箱盖 ABS 吸塑×1,500", "<span class=\"td-num\">1,500</span>", "<span class=\"td-num\">5,400.00</span>", "<span class=\"tag tag-blue\">待发货</span>", "袁明", "2026-08-30 09:18"], "ops": [{"t": "发货", "act": "go('../销售管理/销售出库列表.html')"}, {"t": "关闭"}]},
       'title': '销售订单详情',
       'info': [
         {
@@ -6529,7 +6529,7 @@ window.DEMO_DATA = {
       ]
     },
     'SO-20260828-0041': {
-      'row': {"fields": {"customer": "东风本田汽车有限公司", "project": "PRJ-2604", "summary": "锁扣组件×800", "mode": "项目经理代下", "status": "已完成", "agent": "王强", "date": "2026-08-28"}, "cells": ["东风本田汽车有限公司", "PRJ-2604", "锁扣组件×800", "<span class=\"td-num\">800</span>", "<span class=\"td-num\">1,280.00</span>", "<span class=\"tag tag-blue\">项目经理代下</span>", "<span class=\"tag tag-green\">已完成</span>", "王强", "2026-08-28 15:52"], "ops": [{"t": "详情", "detail": true}]},
+      'row': {"fields": {"customer": "东风本田汽车有限公司", "project": "PRJ-2604", "summary": "锁扣组件×800", "status": "已完成", "agent": "王强", "date": "2026-08-28"}, "cells": ["东风本田汽车有限公司", "PRJ-2604", "锁扣组件×800", "<span class=\"td-num\">800</span>", "<span class=\"td-num\">1,280.00</span>", "<span class=\"tag tag-green\">已完成</span>", "王强", "2026-08-28 15:52"], "ops": [{"t": "详情", "detail": true}]},
       'title': '销售订单详情',
       'info': [
         {
@@ -6638,7 +6638,7 @@ window.DEMO_DATA = {
       ]
     },
     'SO-20260827-0039': {
-      'row': {"fields": {"customer": "一汽解放汽车有限公司", "project": "PRJ-2601", "summary": "箱盖 ABS 吸塑×2,000", "mode": "客户自助", "status": "已完成", "agent": "袁明", "date": "2026-08-27"}, "cells": ["一汽解放汽车有限公司", "PRJ-2601", "箱盖 ABS 吸塑×2,000", "<span class=\"td-num\">2,000</span>", "<span class=\"td-num\">7,200.00</span>", "<span class=\"tag tag-gray\">客户自助</span>", "<span class=\"tag tag-green\">已完成</span>", "袁明", "2026-08-27 14:03"], "ops": [{"t": "详情", "detail": true}]},
+      'row': {"fields": {"customer": "一汽解放汽车有限公司", "project": "PRJ-2601", "summary": "箱盖 ABS 吸塑×2,000", "status": "已完成", "agent": "袁明", "date": "2026-08-27"}, "cells": ["一汽解放汽车有限公司", "PRJ-2601", "箱盖 ABS 吸塑×2,000", "<span class=\"td-num\">2,000</span>", "<span class=\"td-num\">7,200.00</span>", "<span class=\"tag tag-green\">已完成</span>", "袁明", "2026-08-27 14:03"], "ops": [{"t": "详情", "detail": true}]},
       'title': '销售订单详情',
       'info': [
         {
@@ -6747,7 +6747,7 @@ window.DEMO_DATA = {
       ]
     },
     'SO-20260820-0036': {
-      'row': {"fields": {"customer": "上汽大众汽车有限公司宁波分公司", "project": "PRJ-2602", "summary": "铰链×600", "mode": "项目经理代下", "status": "已关闭", "agent": "王强", "date": "2026-08-20", "po": "—"}, "cells": ["上汽大众汽车有限公司宁波分公司", "PRJ-2602", "铰链×600", "<span class=\"td-num\">600</span>", "<span class=\"td-num\">1,890.00</span>", "<span class=\"tag tag-blue\">项目经理代下</span>", "<span class=\"tag tag-gray\">已关闭</span>", "王强", "2026-08-20 10:44"], "ops": [{"t": "详情", "detail": true}]},
+      'row': {"fields": {"customer": "上汽大众汽车有限公司宁波分公司", "project": "PRJ-2602", "summary": "铰链×600", "status": "已关闭", "agent": "王强", "date": "2026-08-20", "po": "—"}, "cells": ["上汽大众汽车有限公司宁波分公司", "PRJ-2602", "铰链×600", "<span class=\"td-num\">600</span>", "<span class=\"td-num\">1,890.00</span>", "<span class=\"tag tag-gray\">已关闭</span>", "王强", "2026-08-20 10:44"], "ops": [{"t": "详情", "detail": true}]},
       'title': '销售订单详情',
       'info': [
         {

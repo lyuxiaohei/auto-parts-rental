@@ -360,11 +360,7 @@ th.td-num { text-align:right; }
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
     <div class="ff ff-row-extra"><span class="ff-label">下单日期：</span><input placeholder="开始日期"><span class="ff-sep">→</span><input placeholder="结束日期"></div>
-    <div class="ff ff-row-extra"><span class="ff-label">下单方式：</span>
-      <select><option selected>全部</option><option>客户自助</option><option>项目经理代下</option></select>
-      <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-    </div>
-    <div class="filter-actions">
+        <div class="filter-actions">
       <button class="link-collapse" onclick="var f=document.getElementById('filterCard');f.classList.toggle('collapsed');this.querySelector('span').textContent=f.classList.contains('collapsed')?'展开':'收起'"><span>展开</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
       <button class="btn btn-default">重置</button>
       <button class="btn btn-primary">查询</button>
@@ -395,7 +391,7 @@ th.td-num { text-align:right; }
           <th>订单明细摘要</th>
           <th>数量</th>
           <th>金额(元)</th>
-          <th>是否代下单</th>
+          
           <th>订单状态</th>
           <th>下单人</th>
           <th>下单时间</th>
@@ -549,9 +545,6 @@ th.td-num { text-align:right; }
   </div><div class="form-row">
     <span class="form-label"><span class="req">*</span>所属项目</span>
     <div class="input-box select-box" style="width:350px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>PRJ-2601 一汽解放·长春基地</option><option>PRJ-2601 一汽解放</option><option>PRJ-2602 上汽大众</option><option>PRJ-2603 小鹏</option><option>PRJ-2604 东风本田</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
-  </div><div class="form-row">
-    <span class="form-label">下单方式</span>
-    <div><span class="radio"><span class="dot"></span>客户自助下单</span><span class="radio checked"><span class="dot"></span>项目经理代下单</span></div>
   </div><div class="form-row">
     <span class="form-label">要求交货日期</span>
     <div class="input-box" style="width:350px;"><input value="2026-09-12" placeholder="请输入"></div>
@@ -726,8 +719,7 @@ renderListPage({
     { label: '客户', field: 'customer' },
     { label: '所属项目', field: 'project' },
     { label: '订单状态', field: 'status' },
-    { label: '下单日期', field: 'date', range: true },
-    { label: '下单方式', field: 'mode' }
+    { label: '下单日期', field: 'date', range: true }
   ]
 });
 </script>
@@ -912,7 +904,8 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 .pn-fab .pn-fab-n{font-family:Consolas,monospace;font-weight:600}
 </style>
 <div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>B1 销售线 · 步骤 1/5 销售订单</div><div class="pnp-d">B1 销售线起点：客户 PO 由项目经理代下（订单唯一来源）。<br>销售/采购两条独立线、库存缓冲、不以销定采（2026-09-04 王琳总拍板，取代原"互通"口径）。<br>下一步 → 销售出库（按库存可用量发货）。</div></div>
-<div class="pn-fab" id="protoNotesFab">标注</div></div>
+<style id="f01-fab-style">.fab-row{position:fixed;right:12px;bottom:12px;z-index:880;display:flex;align-items:center;gap:6px}.fab-row .pn-fab{position:static}.f01-fab{display:flex;text-decoration:none;align-items:center;height:24px;padding:0 10px;border-radius:4px;background:#fff;border:1px solid #d9d9d9;color:#8c8c8c;font-size:11px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.06);opacity:.6;transition:opacity .15s}.f01-fab:hover{opacity:1;border-color:#722ed1;color:#722ed1}</style>
+<div class="fab-row"><a class="f01-fab" href="../P3-R01-F01-业务流程导航图.html">流程图</a><div class="pn-fab" id="protoNotesFab">标注</div></div></div>
 <script id="proto-notes-js">
 (function(){
   var KEY='proto-notes-on';

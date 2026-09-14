@@ -98,7 +98,23 @@ def find_block_end(html, start, tag):
             return p
 
 
+F01_STASH = ''
+
+
 def strip_injected(html):
+    global F01_STASH
+    st = ''
+    m = re.search(r'<style id="f01-fab-style">.*?</style>', html, re.S)
+    if m:
+        st += m.group(0)
+    m = re.search(r'<div class="fab-row"><a class="f01-fab"[^>]*>[^<]*</a>', html)
+    if m:
+        st += m.group(0)
+    else:
+        m = re.search(r'<a class="f01-fab"[^>]*>[^<]*</a>', html)
+        if m:
+            st += m.group(0)
+    F01_STASH = st
     for tag, marker in (('style', 'id="proto-notes-style"'), ('div', 'id="proto-pins"'), ('script', 'id="proto-notes-js"')):
         while marker in html:
             i = html.find(marker)
@@ -134,7 +150,7 @@ def mount_at(html, sel, nid):
     return html
 
 
-def build_pins(items, codes=None):
+def build_pins(items, codes=None, f01=''):
     """codes: {'FP3-02': {'name': '小组装单', 'desc': '...'}}，来自 annotations.json 的 _meta.codes。
     有映射时标签显示「编码 · 名称」，便签底部附出处块（编码全称+要点说明），避免裸代号不可读。"""
     pins = []
@@ -157,6 +173,11 @@ def build_pins(items, codes=None):
                     + ('<div class="pnp-b">' + ''.join(tags) + '</div>' if tags else '')
                     + ('<div class="pnp-src">' + ''.join(srcs) + '</div>' if srcs else '') + '</div>')
     fab = ('<div class="pn-fab" id="protoNotesFab">标注</div>')
+    if f01:
+        ms = re.search(r'(<style id="f01-fab-style">.*?</style>)', f01, re.S)
+        ma = re.search(r'(<a class="f01-fab"[^>]*>[^<]*</a>)', f01)
+        if ma:
+            fab = (ms.group(1) if ms else '') + '<div class="fab-row">' + ma.group(1) + fab + '</div>'
     return '<div id="proto-pins">' + '\n'.join(pins) + '\n' + fab + '</div>'
 
 
@@ -174,7 +195,7 @@ def inject(page_path, items, codes=None):
         else:
             hit += 1
             miss.append('!! #' + str(it['id']) + ' selector 有 ' + str(st[1]) + ' 处匹配，默认挂首个，请消歧: ' + it['selector'])
-    pins = build_pins(items, codes)
+    pins = build_pins(items, codes, f01=F01_STASH)
     html = html.replace('</body>', STYLE + '\n' + pins + '\n' + JS + '\n</body>')
     page_path.write_text(html, encoding='utf-8')
     return hit, miss
