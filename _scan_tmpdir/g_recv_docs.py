@@ -16,7 +16,7 @@ t = t.replace(A_F6, '客商管理（客户/供应商两类＋开票资料/收货
 
 A_D93 = '| ✅ |'  # 占位防误判——实际锚用 D-93 行尾+A.5 节头
 import re
-m = re.search(r'^\| D-93 \|.*\|$', t, re.M)
+m = re.search(r'^\| D-93 \|.*?\| ✅ \|', t, re.M)
 assert m, 'D-93 行未定位'
 d93 = m.group(0)
 A5 = '### A.5 维护规则'
