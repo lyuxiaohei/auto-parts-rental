@@ -381,8 +381,6 @@ th.td-num { text-align:right; }
             <tr><td><b>商务主管</b></td><td>订单/租赁全流程 + 单据审核</td><td>全部项目</td><td><span class="td-num">1</span></td><td class="sticky-op"><span class="ops"><a onclick="openRolePerm('商务主管')">权限配置</a></span></td></tr>
             <tr><td><b>物流</b></td><td>仓储作业 + 库存查询</td><td>全部项目</td><td><span class="td-num">1</span></td><td class="sticky-op"><span class="ops"><a onclick="openRolePerm('物流')">权限配置</a></span></td></tr>
             <tr><td><b>物流主管</b></td><td>仓储作业 + 库存查询 + 出/入库审核</td><td>全部项目</td><td><span class="td-num">1</span></td><td class="sticky-op"><span class="ops"><a onclick="openRolePerm('物流主管')">权限配置</a></span></td></tr>
-            <tr><td><b>客户账号</b></td><td>仅查看与下单申请</td><td>所属客户</td><td><span class="td-num">7</span></td><td class="sticky-op"><span class="ops"><a onclick="openRolePerm('客户账号')">权限配置</a></span></td></tr>
-            <tr><td><b>供应商账号</b></td><td>下发回执与对账</td><td>所属供应商</td><td><span class="td-num">3</span></td><td class="sticky-op"><span class="ops"><a onclick="openRolePerm('供应商账号')">权限配置</a></span></td></tr>
       </tbody>
     </table>
   </div>
@@ -507,9 +505,7 @@ window.ROLE_PERM = {
   '商务': { desc:'订单/租赁全流程', accts:'2', scope:'全部项目', perms:['我的待办','基础资料','采购管理','销售管理','租赁管理'] },
   '商务主管': { desc:'订单/租赁全流程 + 单据审核', accts:'1', scope:'全部项目', perms:['我的待办','基础资料','采购管理','销售管理','租赁管理'] },
   '物流': { desc:'仓储作业 + 库存查询', accts:'1', scope:'全部项目', perms:['我的待办','仓储管理'] },
-  '物流主管': { desc:'仓储作业 + 库存查询 + 出/入库审核', accts:'1', scope:'全部项目', perms:['我的待办','仓储管理'] },
-  '客户账号': { desc:'仅查看与下单申请', accts:'7', scope:'所属客户', perms:['我的待办'] },
-  '供应商账号': { desc:'下发回执与对账', accts:'3', scope:'所属供应商', perms:['我的待办'] }
+  '物流主管': { desc:'仓储作业 + 库存查询 + 出/入库审核', accts:'1', scope:'全部项目', perms:['我的待办','仓储管理'] }
 };
 function openRolePerm(name) {
   var p = window.ROLE_PERM[name] || { desc:'', accts:'', scope:'全部项目', perms:[] };

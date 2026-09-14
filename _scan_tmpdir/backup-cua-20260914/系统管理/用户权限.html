@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<title>我的待办 - 包装租赁管理后台</title>
+<title>用户权限 - 包装租赁管理后台</title>
 <style>
 :root {
   --primary: #1677ff;
@@ -72,6 +72,22 @@ svg { display:inline-block; vertical-align:middle; }
 .card-head .card-title { margin-bottom:0; }
 .card-head .head-btns { display:flex; align-items:center; gap:8px; }
 
+/* ===== 筛选区（13px 控件，样板：仓储作业/采购入库列表） ===== */
+.filter-card { background:#fff; border-radius:8px; padding:16px 18px; margin:0 0 12px; box-shadow:0 1px 3px rgba(0,0,0,0.05); }
+.filter-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; }
+.ff { display:flex; align-items:center; border:1px solid #d9d9d9; border-radius:6px; padding:0 10px; height:32px; background:#fff; transition:border-color .2s; }
+.ff:focus-within { border-color:#1677ff; }
+.ff .ff-label { flex-shrink:0; font-size:13px; color:#262626; margin-right:6px; white-space:nowrap; }
+.ff input, .ff select { flex:1; min-width:0; border:none; outline:none; height:100%; font-size:13px; color:#262626; background:transparent; font-family:inherit; }
+.ff input::placeholder { color:#bfbfbf; }
+.ff select { appearance:none; -webkit-appearance:none; color:#8c8c8c; cursor:pointer; }
+.ff .ff-chev { width:12px; height:12px; color:#8c8c8c; flex-shrink:0; pointer-events:none; }
+.ff .ff-sep { margin:0 6px; color:#8c8c8c; flex-shrink:0; }
+.filter-actions { display:flex; align-items:center; justify-content:flex-end; gap:10px; height:32px; }
+.link-collapse { display:flex; align-items:center; gap:4px; font-size:13px; color:#1677ff; cursor:pointer; background:none; border:none; font-family:inherit; }
+.link-collapse svg { width:12px; height:12px; transition:transform .2s; }
+.filter-card.collapsed .filter-grid .ff-row-extra { display:none; }
+.filter-card:not(.collapsed) .link-collapse svg { transform:rotate(180deg); }
 /* ===== 按钮（13px 体系，表单/卡片头/弹窗用；筛选区 12px 另按作用域覆盖） ===== */
 .btn { display:inline-flex; align-items:center; justify-content:center; height:30px; padding:0 14px; border-radius:6px; border:none; cursor:pointer; font-size:13px; background:var(--primary); color:#fff; white-space:nowrap; font-family:inherit; }
 .btn:hover { background:#4096ff; }
@@ -182,7 +198,7 @@ th.td-num { text-align:right; }
 .dval { flex:1; min-width:0; color:var(--text); overflow-wrap:break-word; }
 
 /* ===== 统计卡 / 进度条 ===== */
-.stat-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:16px; margin-bottom:16px; }
+.stat-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:16px; }
 .stat { background:#fff; border-radius:8px; padding:18px 20px; box-shadow:0 1px 2px rgba(0,0,0,.03); }
 .stat .st-label { font-size:13px; color:var(--text-2); display:flex; align-items:center; justify-content:space-between; }
 .stat .st-num { font-size:26px; font-weight:700; color:var(--text); margin-top:8px; font-variant-numeric:tabular-nums; }
@@ -200,23 +216,6 @@ th.td-num { text-align:right; }
 
 /* ===== 本页业务样式 ===== */
 
-
-/* ===== 参考页筛选区样式 ===== */
-.filter-card { background:#fff; border-radius:8px; padding:16px 18px; margin:0 0 12px; box-shadow:0 1px 3px rgba(0,0,0,0.05); }
-.filter-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; }
-.ff { display:flex; align-items:center; border:1px solid #d9d9d9; border-radius:6px; padding:0 10px; height:32px; background:#fff; transition:border-color .2s; }
-.ff:focus-within { border-color:#1677ff; }
-.ff .ff-label { flex-shrink:0; font-size:13px; color:#262626; margin-right:6px; white-space:nowrap; }
-.ff input, .ff select { flex:1; min-width:0; border:none; outline:none; height:100%; font-size:13px; color:#262626; background:transparent; font-family:inherit; }
-.ff input::placeholder { color:#bfbfbf; }
-.ff select { appearance:none; -webkit-appearance:none; color:#8c8c8c; cursor:pointer; }
-.ff .ff-chev { width:12px; height:12px; color:#8c8c8c; flex-shrink:0; pointer-events:none; }
-.ff .ff-sep { margin:0 6px; color:#8c8c8c; flex-shrink:0; }
-.filter-actions { display:flex; align-items:center; justify-content:flex-end; gap:10px; height:32px; }
-.link-collapse { display:flex; align-items:center; gap:4px; font-size:13px; color:#1677ff; cursor:pointer; background:none; border:none; font-family:inherit; }
-.link-collapse svg { width:12px; height:12px; transition:transform .2s; }
-.filter-card.collapsed .filter-grid .ff-row-extra { display:none; }
-.filter-card:not(.collapsed) .link-collapse svg { transform:rotate(180deg); }
 ::-webkit-scrollbar{width:6px;height:6px}
 ::-webkit-scrollbar-thumb{background:#d9d9d9;border-radius:3px}
 ::-webkit-scrollbar-thumb:hover{background:#c4c4c4}
@@ -255,81 +254,81 @@ th.td-num { text-align:right; }
       <li class="sm-item has-sub">
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></span>项目管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
-   <li><div class="sm-link" onclick="go('首页/项目看板.html')">项目看板</div></li>
-   <li><div class="sm-link" onclick="go('项目管理/项目档案.html')">项目列表</div></li>
+   <li><div class="sm-link" onclick="go('../首页/项目看板.html')">项目看板</div></li>
+   <li><div class="sm-link" onclick="go('../项目管理/项目档案.html')">项目列表</div></li>
    </ul>
       </li>
-<li class="sm-item"><div class="sm-link selected"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>我的待办</div></li>
+<li class="sm-item"><div class="sm-link" onclick="go('../我的待办.html')"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>我的待办</div></li>
       <li class="sm-item has-sub">
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></span>基础资料<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
-   <li><div class="sm-link" onclick="go('基础数据/客商管理.html')">客商管理</div></li>
-   <li><div class="sm-link" onclick="go('基础数据/产品档案.html')">物料档案</div></li>
-   <li><div class="sm-link" onclick="go('基础数据/BOM.html')">BOM</div></li>
-   <li><div class="sm-link" onclick="go('基础数据/库位档案.html')">库位档案</div></li>
+   <li><div class="sm-link" onclick="go('../基础数据/客商管理.html')">客商管理</div></li>
+   <li><div class="sm-link" onclick="go('../基础数据/产品档案.html')">物料档案</div></li>
+   <li><div class="sm-link" onclick="go('../基础数据/BOM.html')">BOM</div></li>
+   <li><div class="sm-link" onclick="go('../基础数据/库位档案.html')">库位档案</div></li>
    </ul>
       </li>
       <li class="sm-item has-sub">
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></span>采购管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
-   <li><div class="sm-link" onclick="go('采购管理/采购订单列表.html')">采购订单</div></li>
-   <li><div class="sm-link" onclick="go('采购管理/采购入库列表.html')">采购入库</div></li>
+   <li><div class="sm-link" onclick="go('../采购管理/采购订单列表.html')">采购订单</div></li>
+   <li><div class="sm-link" onclick="go('../采购管理/采购入库列表.html')">采购入库</div></li>
    </ul>
       </li>
       <li class="sm-item has-sub">
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></span>销售管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
-   <li><div class="sm-link" onclick="go('销售管理/销售订单列表.html')">销售订单</div></li>
-   <li><div class="sm-link" onclick="go('销售管理/销售出库列表.html')">销售出库</div></li>
+   <li><div class="sm-link" onclick="go('../销售管理/销售订单列表.html')">销售订单</div></li>
+   <li><div class="sm-link" onclick="go('../销售管理/销售出库列表.html')">销售出库</div></li>
    </ul>
       </li>
       <li class="sm-item has-sub">
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5" rx="1"/><line x1="10" y1="12" x2="14" y2="12"/></svg></span>租赁管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
    <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">租赁</li>
-   <li><div class="sm-link" onclick="go('租赁管理/租赁单列表.html')">租赁单</div></li>
-   <li><div class="sm-link" onclick="go('租赁管理/租赁出库列表.html')">租赁出库</div></li>
-   <li><div class="sm-link" onclick="go('租赁管理/退租入库列表.html')">退租入库</div></li>
-   <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">租入</li>
-   <li><div class="sm-link" onclick="go('租赁管理/租入单列表.html')">租入单</div></li>
-   <li><div class="sm-link" onclick="go('租赁管理/租入入库列表.html')">租入入库</div></li>
-   <li><div class="sm-link" onclick="go('租赁管理/租入归还列表.html')">租入归还</div></li>
+   <li><div class="sm-link" onclick="go('../租赁管理/租赁单列表.html')">租赁单</div></li>
+   <li><div class="sm-link" onclick="go('../租赁管理/租赁出库列表.html')">租赁出库</div></li>
+   <li><div class="sm-link" onclick="go('../租赁管理/退租入库列表.html')">退租入库</div></li>
+         <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">租入</li>
+   <li><div class="sm-link" onclick="go('../租赁管理/租入单列表.html')">租入单</div></li>
+   <li><div class="sm-link" onclick="go('../租赁管理/租入入库列表.html')">租入入库</div></li>
+   <li><div class="sm-link" onclick="go('../租赁管理/租入归还列表.html')">租入归还</div></li>
    </ul>
       </li>
       <li class="sm-item has-sub">
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/><line x1="10" y1="12" x2="14" y2="12"/></svg></span>仓储管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
    <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">库存管理</li>
-   <li><div class="sm-link" onclick="go('仓储作业/库存查询.html')">库存查询</div></li>
-   <li><div class="sm-link" onclick="go('仓储作业/盘点列表.html')">盘点记录</div></li>
-   <li><div class="sm-link" onclick="go('仓储作业/库存调拨列表.html')">库存调拨</div></li>
+   <li><div class="sm-link" onclick="go('../仓储作业/库存查询.html')">库存查询</div></li>
+   <li><div class="sm-link" onclick="go('../仓储作业/盘点列表.html')">盘点记录</div></li>
+   <li><div class="sm-link" onclick="go('../仓储作业/库存调拨列表.html')">库存调拨</div></li>
    <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">入库类</li>
-   <li><div class="sm-link" onclick="go('仓储作业/其他入库列表.html')">其他入库</div></li>
+   <li><div class="sm-link" onclick="go('../仓储作业/其他入库列表.html')">其他入库</div></li>
    <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">出库类</li>
-   <li><div class="sm-link" onclick="go('仓储作业/其他出库列表.html')">其他出库</div></li>
+   <li><div class="sm-link" onclick="go('../仓储作业/其他出库列表.html')">其他出库</div></li>
    </ul>
       </li>
       <li class="sm-item has-sub">
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></span>财务管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
-      <li><div class="sm-link" onclick="go('财务协同/盈亏报表.html')">财务看板</div></li>
+      <li><div class="sm-link" onclick="go('../财务协同/盈亏报表.html')">财务看板</div></li>
 <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">应收</li>
-   <li><div class="sm-link" onclick="go('财务协同/应收账单.html')">应收账单</div></li>
-   <li><div class="sm-link" onclick="go('财务协同/开票登记.html')">开票登记</div></li>
-   <li><div class="sm-link" onclick="go('财务协同/回款登记.html')">收款登记</div></li>
-   <li><div class="sm-link" onclick="go('财务协同/银行水单核销.html')">收款核销</div></li>
+   <li><div class="sm-link" onclick="go('../财务协同/应收账单.html')">应收账单</div></li>
+   <li><div class="sm-link" onclick="go('../财务协同/开票登记.html')">开票登记</div></li>
+   <li><div class="sm-link" onclick="go('../财务协同/回款登记.html')">收款登记</div></li>
+   <li><div class="sm-link" onclick="go('../财务协同/银行水单核销.html')">收款核销</div></li>
    <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">应付</li>
-   <li><div class="sm-link" onclick="go('财务协同/应付账单.html')">应付账单</div></li>
-   <li><div class="sm-link" onclick="go('财务协同/付款登记.html')">付款登记</div></li>
+   <li><div class="sm-link" onclick="go('../财务协同/应付账单.html')">应付账单</div></li>
+   <li><div class="sm-link" onclick="go('../财务协同/付款登记.html')">付款登记</div></li>
    </ul>
       </li>
-      <li class="sm-item has-sub">
+      <li class="sm-item has-sub open">
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h.01a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51h.01a1.65 1.65 0 0 0 1.82.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v.01a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span>系统管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
-   <li><div class="sm-link" onclick="go('系统管理/用户权限.html')">用户权限</div></li>
-   <li><div class="sm-link" onclick="go('系统管理/角色管理.html')">角色管理</div></li>
-   <li><div class="sm-link" onclick="go('系统管理/操作日志.html')">操作日志</div></li>
-   <li><div class="sm-link" onclick="go('系统管理/数据字典.html')">数据字典</div></li>
+   <li><div class="sm-link selected">用户权限</div></li>
+   <li><div class="sm-link" onclick="go('../系统管理/角色管理.html')">角色管理</div></li>
+   <li><div class="sm-link" onclick="go('../系统管理/操作日志.html')">操作日志</div></li>
+   <li><div class="sm-link" onclick="go('../系统管理/数据字典.html')">数据字典</div></li>
    </ul>
       </li>
   </ul> <div class="side-foot">
@@ -340,253 +339,384 @@ th.td-num { text-align:right; }
   </div></aside>
   <div class="main-col">
 <div class="tabs">
-  <span class="tab active">我的待办 <span class="close">×</span></span><span class="tab">采购入库 <span class="close">×</span></span><span class="tab">库存查询 <span class="close">×</span></span>
-  <span class="tab">租赁出库 <span class="close">×</span></span>
-  <span class="tab">库存查询 <span class="close">×</span></span>
+  <span class="tab active">用户权限 <span class="close">×</span></span>
+  <span class="tab">操作日志 <span class="close">×</span></span>
+  <span class="tab">数据字典 <span class="close">×</span></span>
+  <span class="tab">项目档案 <span class="close">×</span></span>
 </div>
     <div class="content">
-<div class="stat-grid" style="margin-bottom:12px;" data-note="1">
-  <div class="stat"><div class="st-label" data-note="2"><span>我的待办</span></div><div class="st-num"><b id="todoCount">15</b><span class="unit">单</span></div></div>
-  <div class="stat"><div class="st-label" data-note="3"><span>待审核</span></div><div class="st-num">11<span class="unit">单</span></div></div>
-  <div class="stat"><div class="st-label" data-note="4"><span>待验收</span></div><div class="st-num">1<span class="unit">单</span></div></div>
-  <div class="stat"><div class="st-label" data-note="5"><span>待确认</span></div><div class="st-num">2<span class="unit">单</span></div></div>
-  <div class="stat"><div class="st-label" data-note="6"><span>待入库</span></div><div class="st-num">1<span class="unit">单</span></div></div>
-</div>
-<div class="filter-card" id="filterCard">
+<div class="filter-card collapsed" id="filterCard">
   <div class="filter-grid">
-    <div class="ff"><span class="ff-label">单据类型：</span>
-      <select id="todoType" onchange="filterTodo()"><option>全部</option><option>付款登记</option><option>其他入库</option><option>其他出库</option><option>库存调拨</option><option>收款确认</option><option>盘点</option><option>租赁单</option><option>租赁出库</option><option>退租入库</option><option>采购入库</option><option>采购订单</option><option>租入单</option><option>租入入库</option><option>租入归还</option><option>销售出库</option><option>销售订单</option></select>
+    <div class="ff"><span class="ff-label">用户账号 / 姓名：</span><input placeholder="请输入"></div>
+    <div class="ff"><span class="ff-label">角色：</span>
+      <select><option selected>全部</option><option>系统管理员</option><option>财务</option><option>商务</option><option>物流</option><option>财务主管</option><option>商务主管</option><option>物流主管</option><option>客户账号</option><option>供应商账号</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
-    <div class="ff"><span class="ff-label">审核人：</span>
-      <select id="todoAuditor" onchange="filterTodo()"><option>全部</option><option>王琳</option><option>袁丽晶</option><option>徐蔚</option><option>王强</option><option>李国栋</option><option>陈金</option></select>
+    <div class="ff"><span class="ff-label">所属方：</span>
+      <select><option selected>全部</option><option>我方</option><option>客户</option><option>供应商</option></select>
+      <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
-    <div class="ff"><span class="ff-label">关键词：</span><input id="todoKw" placeholder="单据编号 / 客户 / 项目 / 摘要" oninput="filterTodo()"></div>
+    <div class="ff ff-row-extra"><span class="ff-label">状态：</span>
+      <select><option selected>全部</option><option>全部用户</option><option>我方</option><option>客户</option><option>供应商</option></select>
+      <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+    <div class="ff ff-row-extra"><span class="ff-label">数据权限范围：</span><input placeholder="请输入"></div>
     <div class="filter-actions">
-      <button class="btn btn-default" onclick="document.getElementById('todoKw').value='';document.getElementById('todoType').value='全部';document.getElementById('todoAuditor').value='全部';filterTodo()">重置</button>
+      <button class="link-collapse" onclick="var f=document.getElementById('filterCard');f.classList.toggle('collapsed');this.querySelector('span').textContent=f.classList.contains('collapsed')?'展开':'收起'"><span>展开</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <button class="btn btn-default">重置</button>
+      <button class="btn btn-primary">查询</button>
     </div>
   </div>
 </div>
-<style>.todo-chip{display:inline-block;margin:0 8px 6px 0;padding:2px 10px;border:1px solid #d9d9d9;border-radius:12px;font-size:12px;color:#4b5563;cursor:pointer;background:#fff}.todo-chip:hover{border-color:#1677ff;color:#1677ff}</style>
 <div class="card">
   <div class="card-head">
-    <h3 class="card-title">类型速滤</h3>
-    <div><span class="todo-chip" onclick="pickType('付款登记')">付款登记</span> <span class="todo-chip" onclick="pickType('其他入库')">其他入库</span> <span class="todo-chip" onclick="pickType('其他出库')">其他出库</span> <span class="todo-chip" onclick="pickType('库存调拨')">库存调拨</span> <span class="todo-chip" onclick="pickType('收款确认')">收款确认</span> <span class="todo-chip" onclick="pickType('盘点')">盘点</span> <span class="todo-chip" onclick="pickType('租赁单')">租赁单</span> <span class="todo-chip" onclick="pickType('退租入库')">退租入库</span> <span class="todo-chip" onclick="pickType('采购入库')">采购入库</span> <span class="todo-chip" onclick="pickType('采购订单')">采购订单</span> <span class="todo-chip" onclick="pickType('租入单')">租入单</span> <span class="todo-chip" onclick="pickType('租入入库')">租入入库</span> <span class="todo-chip" onclick="pickType('租入归还')">租入归还</span> <span class="todo-chip" onclick="pickType('销售出库')">销售出库</span> <span class="todo-chip" onclick="pickType('销售订单')">销售订单</span></div>
+    <h3 class="card-title" data-note="1">用户与权限</h3>
+    <div class="head-btns"><button class="btn btn-default btn-sm" onclick="openModal('roleModal')">角色管理</button><button class="btn btn-sm" onclick="openModal('createModal')">新增用户</button></div>
   </div>
-<div class="table-wrap">
-  <table id="todoTable">
-    <thead><tr>
-      <th>单据类型</th><th>单据编号</th><th>摘要</th><th>所属项目</th><th>提交人</th><th>提交时间</th><th>待办动作</th><th class="sticky-op">操作</th>
-    </tr></thead>
-    <tbody id="todoBody">
-        <tr data-type="销售订单">
-          <td><span class="tag tag-blue">销售订单</span></td>
-          <td><span class="lk">SO-20260902-0046</span></td>
-          <td>一汽解放 · 驾驶室围板箱 180 套</td>
-          <td>PRJ-2601</td>
-          <td>王琳</td>
-          <td>09-02 10:05</td>
-          <td><span class="tag tag-orange">待审核</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="go('销售管理/销售订单列表.html?audit=1')">去审核</a></span></td>
-        </tr>
-        <tr data-type="采购订单">
-          <td><span class="tag tag-blue">采购订单</span></td>
-          <td><span class="lk">PO-20260902-018</span></td>
-          <td>华塑包装 · 围板箱 200 只</td>
-          <td>PRJ-2601</td>
-          <td>李国栋</td>
-          <td>09-02 14:20</td>
-          <td><span class="tag tag-orange">待审核</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="go('采购管理/采购订单列表.html?audit=1')">去审核</a></span></td>
-        </tr>
-        <tr data-type="采购入库">
-          <td><span class="tag tag-blue">采购入库</span></td>
-          <td><span class="lk">CGRK-20260827-009</span></td>
-          <td>华塑包装 · 零部件 12 托</td>
-          <td>PRJ-2601</td>
-          <td>李国栋</td>
-          <td>08-27 09:20</td>
-          <td><span class="tag tag-blue">待验收</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="go('采购管理/采购入库列表.html?audit=1')">去审核</a></span></td>
-        </tr>
-        <tr data-type="销售出库">
-          <td><span class="tag tag-blue">销售出库</span></td>
-          <td><span class="lk">XSCK-20260902-015</span></td>
-          <td>一汽解放 · 围板箱套件 60 套</td>
-          <td>PRJ-2601</td>
-          <td>张伟</td>
-          <td>09-02 11:30</td>
-          <td><span class="tag tag-orange">待审核</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="go('销售管理/销售出库列表.html?audit=1')">去审核</a></span></td>
-        </tr>
-        <tr data-type="退租入库">
-          <td><span class="tag tag-blue">退租入库</span></td>
-          <td><span class="lk">TZRK-20260902-008</span></td>
-          <td>小鹏汽车 · 电池托盘护角 60 套</td>
-          <td>PRJ-2603</td>
-          <td>张伟</td>
-          <td>09-02 16:40</td>
-          <td><span class="tag tag-orange">待审核</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="go('租赁管理/退租入库列表.html?audit=1')">去审核</a></span></td>
-        </tr>
-        <tr data-type="租赁单">
-          <td><span class="tag tag-blue">租赁单</span></td>
-          <td><span class="lk">ZL-20260901-032</span></td>
-          <td>小鹏汽车 · 护角套件 200 套起租</td>
-          <td>PRJ-2603</td>
-          <td>王琳</td>
-          <td>09-01 15:10</td>
-          <td><span class="tag tag-orange">待审核</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="go('租赁管理/租赁单列表.html?audit=1')">去审核</a></span></td>
-        </tr>
-        <tr data-type="盘点">
-          <td><span class="tag tag-blue">盘点</span></td>
-          <td><span class="lk">PD-202608-02</span></td>
-          <td>8 月全仓盘点 · 差异 12 项</td>
-          <td>PRJ-2602</td>
-          <td>陈金</td>
-          <td>08-31 18:00</td>
-          <td><span class="tag tag-orange">待审核</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="go('仓储作业/盘点列表.html?audit=1')">去审核</a></span></td>
-        </tr>
-        <tr data-type="库存调拨">
-          <td><span class="tag tag-blue">库存调拨</span></td>
-          <td><span class="lk">DB-20260901-003</span></td>
-          <td>外购区 RW → 成品区 RB 300 只</td>
-          <td>PRJ-2602</td>
-          <td>赵芳</td>
-          <td>09-01 11:00</td>
-          <td><span class="tag tag-orange">待审核</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="go('仓储作业/库存调拨列表.html?audit=1')">去审核</a></span></td>
-        </tr>
-        <tr data-type="其他入库">
-          <td><span class="tag tag-blue">其他入库</span></td>
-          <td><span class="lk">QTRK-20260901-003</span></td>
-          <td>调拨余量回库 24 只</td>
-          <td>PRJ-2604</td>
-          <td>赵芳</td>
-          <td>09-01 14:30</td>
-          <td><span class="tag tag-orange">待审核</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="go('仓储作业/其他入库列表.html?audit=1')">去审核</a></span></td>
-        </tr>
-        <tr data-type="其他出库">
-          <td><span class="tag tag-blue">其他出库</span></td>
-          <td><span class="lk">QTCK-20260901-004</span></td>
-          <td>报废申请 · 破损围板 15 只</td>
-          <td>PRJ-2604</td>
-          <td>赵芳</td>
-          <td>09-01 15:50</td>
-          <td><span class="tag tag-orange">待审核</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="go('仓储作业/其他出库列表.html?audit=1')">去审核</a></span></td>
-        </tr>
-        <tr data-type="付款登记">
-          <td><span class="tag tag-blue">付款登记</span></td>
-          <td><span class="lk">PAY-20260902-005</span></td>
-          <td>华塑包装 · 货款 60,000 元</td>
-          <td>PRJ-2601</td>
-          <td>财务-周敏</td>
-          <td>09-02 16:05</td>
-          <td><span class="tag tag-orange">待确认</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="go('财务协同/付款登记.html?audit=1')">去审核</a></span></td>
-        </tr>
-        <tr data-type="收款确认">
-          <td><span class="tag tag-blue">收款确认</span></td>
-          <td><span class="lk">HK-20260830-014</span></td>
-          <td>一汽解放 · 租赁费回款 286,500 元</td>
-          <td>PRJ-2601</td>
-          <td>财务-周敏</td>
-          <td>08-30 10:35</td>
-          <td><span class="tag tag-orange">待确认</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="go('财务协同/回款登记.html?audit=1')">去审核</a></span></td>
-        </tr>
-        <tr data-type="租入单">
-          <td><span class="tag tag-blue">租入单</span></td>
-          <td><span class="lk">RZD-20260902-008</span></td>
-          <td>路凯 · 塑料托盘 1200×1000 × 50 只 · 月租 12.00 元/块</td>
-          <td>—</td>
-          <td>陈金</td>
-          <td>09-02 16:40</td>
-          <td><span class="tag tag-orange">待审核</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="go('租赁管理/租入单列表.html?audit=1')">去审核</a></span></td>
-        </tr>
-        <tr data-type="租入入库">
-          <td><span class="tag tag-blue">租入入库</span></td>
-          <td><span class="lk">RZRK-20260903-023</span></td>
-          <td>路凯 · 塑料托盘 1200×1000 × 50 只（关联 RZD-20260902-008）</td>
-          <td>—</td>
-          <td>陈金</td>
-          <td>09-03 09:45</td>
-          <td><span class="tag tag-orange">待入库</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="go('租赁管理/租入入库列表.html?audit=1')">去审核</a></span></td>
-        </tr>
-        <tr data-type="租入归还">
-          <td><span class="tag tag-blue">租入归还</span></td>
-          <td><span class="lk">GHCK-20260903-002</span></td>
-          <td>路凯 · 围板箱 × 4 只 · 分流归还（关联 RZD-20260815-005）</td>
-          <td>PRJ-2604</td>
-          <td>李国栋</td>
-          <td>09-03 14:05</td>
-          <td><span class="tag tag-orange">待审核</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="go('租赁管理/租入归还列表.html?audit=1')">去审核</a></span></td>
-        </tr>
-    </tbody>
-  </table>
+<div class="stabs">
+  <span class="stab active">全部用户<span class="stab-count">18</span></span>
+  <span class="stab">我方<span class="stab-count">8</span></span>
+  <span class="stab">客户<span class="stab-count">7</span></span>
+  <span class="stab">供应商<span class="stab-count">3</span></span>
 </div>
-  <div class="pager"><span class="pg-info">第 1-15 条 / 总共 15 条待办</span></div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th>用户账号</th>
+          <th>姓名</th>
+          <th>角色</th>
+          <th>所属方</th>
+          <th data-note="2">数据权限范围</th>
+          <th>手机号</th>
+          <th>状态</th>
+          <th>最近登录</th>
+          <th class="sticky-op">操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><input type="checkbox" class="cb"></td>
+          <td><span class="lk">admin</span></td>
+          <td>系统管理员</td>
+          <td><span class="tag tag-blue">系统管理员</span></td>
+          <td><span class="tag tag-blue">我方</span></td>
+          <td>全部数据</td>
+          <td>138****0001</td>
+          <td><span class="tag tag-green">启用</span></td>
+          <td>2026-08-31 08:00</td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('roleModal')">权限配置</a><a onclick="openModal('resetModal')">重置密码</a><a onclick="openModal('stopModal')">停用</a></span></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" class="cb"></td>
+          <td><span class="lk">chenjin</span></td>
+          <td>陈金</td>
+          <td><span class="tag tag-blue">系统管理员</span></td>
+          <td><span class="tag tag-blue">我方</span></td>
+          <td>全部数据</td>
+          <td>139****2266</td>
+          <td><span class="tag tag-green">启用</span></td>
+          <td>2026-08-31 09:12</td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('roleModal')">权限配置</a><a onclick="openModal('resetModal')">重置密码</a><a onclick="openModal('stopModal')">停用</a></span></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" class="cb"></td>
+          <td><span class="lk">zhangwei</span></td>
+          <td>张伟</td>
+          <td><span class="tag tag-green">物流</span></td>
+          <td><span class="tag tag-blue">我方</span></td>
+          <td>全部项目 · 仓储作业</td>
+          <td>137****4455</td>
+          <td><span class="tag tag-green">启用</span></td>
+          <td>2026-08-31 07:45</td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('roleModal')">权限配置</a><a onclick="openModal('resetModal')">重置密码</a><a onclick="openModal('stopModal')">停用</a></span></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" class="cb"></td>
+          <td><span class="lk">liguodong</span></td>
+          <td>李国栋</td>
+          <td><span class="tag tag-green">物流主管</span></td>
+          <td><span class="tag tag-blue">我方</span></td>
+          <td>全部项目 · 仓储作业 + 出/入库审核</td>
+          <td>136****7789</td>
+          <td><span class="tag tag-green">启用</span></td>
+          <td>2026-08-30 19:20</td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('roleModal')">权限配置</a><a onclick="openModal('resetModal')">重置密码</a><a onclick="openModal('stopModal')">停用</a></span></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" class="cb"></td>
+          <td><span class="lk">lijing</span></td>
+          <td>李静</td>
+          <td><span class="tag tag-orange">财务</span></td>
+          <td><span class="tag tag-blue">我方</span></td>
+          <td>全部项目 · 财务管理</td>
+          <td>135****9911</td>
+          <td><span class="tag tag-green">启用</span></td>
+          <td>2026-08-31 08:30</td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('roleModal')">权限配置</a><a onclick="openModal('resetModal')">重置密码</a><a onclick="openModal('stopModal')">停用</a></span></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" class="cb"></td>
+          <td><span class="lk">zhoumin</span></td>
+          <td>周敏</td>
+          <td><span class="tag tag-orange">财务主管</span></td>
+          <td><span class="tag tag-blue">我方</span></td>
+          <td>全部项目 · 财务 + 付款/回款确认</td>
+          <td>135****8024</td>
+          <td><span class="tag tag-green">启用</span></td>
+          <td>2026-08-30 16:40</td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('roleModal')">权限配置</a><a onclick="openModal('resetModal')">重置密码</a><a onclick="openModal('stopModal')">停用</a></span></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" class="cb"></td>
+          <td><span class="lk">wangqiang</span></td>
+          <td>王强</td>
+          <td><span class="tag tag-green">商务</span></td>
+          <td><span class="tag tag-blue">我方</span></td>
+          <td>全部项目 · 订单/项目</td>
+          <td>133****6678</td>
+          <td><span class="tag tag-green">启用</span></td>
+          <td>2026-08-30 17:05</td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('roleModal')">权限配置</a><a onclick="openModal('resetModal')">重置密码</a><a onclick="openModal('stopModal')">停用</a></span></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" class="cb"></td>
+          <td><span class="lk">wanglin</span></td>
+          <td>王琳</td>
+          <td><span class="tag tag-green">商务主管</span></td>
+          <td><span class="tag tag-blue">我方</span></td>
+          <td>全部项目 · 订单 + 租赁单审核</td>
+          <td>137****2950</td>
+          <td><span class="tag tag-green">启用</span></td>
+          <td>2026-08-31 08:55</td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('roleModal')">权限配置</a><a onclick="openModal('resetModal')">重置密码</a><a onclick="openModal('stopModal')">停用</a></span></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" class="cb"></td>
+          <td><span class="lk">yuanming</span></td>
+          <td>袁明</td>
+          <td><span class="tag tag-gray">客户用户</span></td>
+          <td><span class="tag tag-gray">客户</span></td>
+          <td>仅 PRJ-2601 · 客户下单</td>
+          <td>138****6621</td>
+          <td><span class="tag tag-green">启用</span></td>
+          <td>2026-08-31 08:12</td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('roleModal')">权限配置</a><a onclick="openModal('resetModal')">重置密码</a><a onclick="openModal('stopModal')">停用</a></span></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" class="cb"></td>
+          <td><span class="lk">hejing</span></td>
+          <td>何静</td>
+          <td><span class="tag tag-gray">客户用户</span></td>
+          <td><span class="tag tag-gray">客户</span></td>
+          <td>仅 PRJ-2602 · 客户下单</td>
+          <td>139****0233</td>
+          <td><span class="tag tag-green">启用</span></td>
+          <td>2026-08-30 10:02</td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('roleModal')">权限配置</a><a onclick="openModal('resetModal')">重置密码</a><a onclick="openModal('stopModal')">停用</a></span></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" class="cb"></td>
+          <td><span class="lk">zhoumin_lk</span></td>
+          <td>周敏（路凯）</td>
+          <td><span class="tag tag-orange">供应商账号</span></td>
+          <td><span class="tag tag-orange">供应商</span></td>
+          <td>PRJ-2601/02/04 · 下发回执</td>
+          <td>021-66****</td>
+          <td><span class="tag tag-green">启用</span></td>
+          <td>2026-08-31 08:40</td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('roleModal')">权限配置</a><a onclick="openModal('resetModal')">重置密码</a><a onclick="openModal('stopModal')">停用</a></span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="pager">
+    <span class="pg-info">第 1-11 条/总共 18 条</span>
+    <span class="pg-btn">‹</span>
+    <span class="pg-btn cur">1</span>
+    <span class="pg-btn">2</span>
+    <span class="pg-btn">3</span>
+    <span class="pg-btn">4</span>
+    <span class="pg-btn">5</span>
+    <span class="pg-ellipsis">…</span>
+    <span class="pg-btn">8</span>
+    <span class="pg-btn">›</span>
+    <span class="pg-size">10 条/页
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    </span>
+    <span class="pg-jump">跳至 <input value="" placeholder="跳转页码"> 页</span>
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal-overlay" id="roleModal">
+  <div class="modal modal-lg">
+    <div class="modal-header">
+      <h3 class="modal-title" data-note="3">角色管理</h3>
+      <span class="modal-close" onclick="closeModal('roleModal')">×</span>
+    </div>
+    <div class="modal-body">
+      <div class="table-wrap" style="border:1px solid var(--border);border-radius:6px;">
+        <table>
+          <thead><tr><th>角色</th><th>备注</th><th>数据权限</th><th>账号数</th><th class="sticky-op">操作</th></tr></thead>
+          <tbody>
+                        <tr><td><b>系统管理员</b></td><td>全部功能 + 系统管理</td><td>全部项目</td><td><span class="td-num">2</span></td><td class="sticky-op"><span class="ops"><a onclick="openModal('roleModal')">权限配置</a></span></td></tr>
+            <tr><td><b>财务</b></td><td>财务管理（应收/应付/财务看板）</td><td>全部项目</td><td><span class="td-num">1</span></td><td class="sticky-op"><span class="ops"><a onclick="openModal('roleModal')">权限配置</a></span></td></tr>
+            <tr><td><b>财务主管</b></td><td>财务全模块 + 付款/回款确认审核</td><td>全部项目</td><td><span class="td-num">1</span></td><td class="sticky-op"><span class="ops"><a onclick="openModal('roleModal')">权限配置</a></span></td></tr>
+            <tr><td><b>商务</b></td><td>订单/租赁全流程</td><td>全部项目</td><td><span class="td-num">2</span></td><td class="sticky-op"><span class="ops"><a onclick="openModal('roleModal')">权限配置</a></span></td></tr>
+            <tr><td><b>商务主管</b></td><td>订单/租赁全流程 + 单据审核</td><td>全部项目</td><td><span class="td-num">1</span></td><td class="sticky-op"><span class="ops"><a onclick="openModal('roleModal')">权限配置</a></span></td></tr>
+            <tr><td><b>物流</b></td><td>仓储作业 + 库存查询</td><td>全部项目</td><td><span class="td-num">1</span></td><td class="sticky-op"><span class="ops"><a onclick="openModal('roleModal')">权限配置</a></span></td></tr>
+            <tr><td><b>物流主管</b></td><td>仓储作业 + 库存查询 + 出/入库审核</td><td>全部项目</td><td><span class="td-num">1</span></td><td class="sticky-op"><span class="ops"><a onclick="openModal('roleModal')">权限配置</a></span></td></tr>
+            <tr><td><b>客户账号</b></td><td>仅查看与下单申请</td><td>所属客户</td><td><span class="td-num">7</span></td><td class="sticky-op"><span class="ops"><a onclick="openModal('roleModal')">权限配置</a></span></td></tr>
+            <tr><td><b>供应商账号</b></td><td>下发回执与对账</td><td>所属供应商</td><td><span class="td-num">3</span></td><td class="sticky-op"><span class="ops"><a onclick="openModal('roleModal')">权限配置</a></span></td></tr></tbody>
+        </table>
+      </div>
+      <div class="dt-sec" style="margin-top:18px;">可审单据</div>
+      <div id="auditPermMatrix" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px 16px;padding:4px 0 2px;">
+        <span class="checkbox checked" data-audit="采购订单"><span class="box">✓</span>采购订单</span>
+        <span class="checkbox checked" data-audit="销售订单"><span class="box">✓</span>销售订单</span>
+        <span class="checkbox checked" data-audit="租赁单"><span class="box">✓</span>租赁单</span>
+        <span class="checkbox checked" data-audit="租入单"><span class="box">✓</span>租入单</span>
+        <span class="checkbox checked" data-audit="销售出库"><span class="box">✓</span>销售出库</span>
+        <span class="checkbox checked" data-audit="租赁出库"><span class="box">✓</span>租赁出库</span>
+        <span class="checkbox" data-audit="采购入库"><span class="box"></span>采购入库</span>
+        <span class="checkbox" data-audit="租入入库"><span class="box"></span>租入入库</span>
+        <span class="checkbox checked" data-audit="退租入库"><span class="box">✓</span>退租入库</span>
+        <span class="checkbox" data-audit="其他入库"><span class="box"></span>其他入库</span>
+        <span class="checkbox" data-audit="其他出库"><span class="box"></span>其他出库</span>
+        <span class="checkbox checked" data-audit="盘点"><span class="box">✓</span>盘点</span>
+        <span class="checkbox" data-audit="库存调拨"><span class="box"></span>库存调拨</span>
+        <span class="checkbox" data-audit="租入归还"><span class="box"></span>租入归还</span>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-default" onclick="closeModal('roleModal')">关闭</button>
+      <button class="btn" onclick="closeModal('roleModal')">新增角色</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<!-- 弹窗已提取到 弹窗/新增用户.html，构建时注入 -->
+<div class="modal-overlay" id="createModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3 class="modal-title">新增用户</h3>
+      <span class="modal-close" onclick="closeModal('createModal')">×</span>
+    </div>
+    <div class="modal-body">
+<div class="form-row">
+    <span class="form-label"><span class="req">*</span>姓名</span>
+    <div class="input-box"><input placeholder="真实姓名"></div>
+  </div><div class="form-row">
+    <span class="form-label"><span class="req">*</span>手机号</span>
+    <div class="input-box"><input placeholder="登录账号"></div>
+  </div><div class="form-row">
+    <span class="form-label"><span class="req">*</span>角色</span>
+    <div class="input-box select-box"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>项目经理</option><option>全部</option><option>待定选项（演示数据）</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+  </div><div class="form-row">
+    <span class="form-label">所属方</span>
+    <div class="input-box select-box"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>我方（系统运营）</option><option>全部</option><option>待定选项（演示数据）</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+  </div><div class="form-row">
+    <span class="form-label">数据权限范围</span>
+    <div class="input-box select-box"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>全部项目</option><option>全部</option><option>待定选项（演示数据）</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+  </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-default" onclick="closeModal('createModal')">取消</button>
+      <button class="btn" onclick="closeModal('createModal')">保存</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+<style id="detail-modal-css">
+/* 详情弹窗（四段式）专用样式：段落标题 / 关联链 / 流转时间线 */
+.dt-sec{font-size:13px;font-weight:600;color:#262626;margin:0 0 10px;padding-left:8px;border-left:3px solid #1677ff;line-height:1.3}
+.modal-body .dt-sec:not(:first-child){margin-top:18px}
+.chain{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.chain .node{border:1px solid #f0f0f0;border-radius:6px;padding:8px 12px;background:#fafafa;min-width:126px}
+.chain .node .n-role{font-size:11px;color:#8c8c8c}
+.chain .node .n-name{font-size:12.5px;font-weight:600;margin-top:2px;word-break:break-all}
+.chain .link-arrow{color:#8c8c8c}
+.tl{position:relative;padding-left:16px}
+.tl::before{content:'';position:absolute;left:4px;top:6px;bottom:6px;width:2px;background:#e6f4ff}
+.tl-i{position:relative;padding:0 0 12px 6px;font-size:12.5px;color:#262626}
+.tl-i:last-child{padding-bottom:0}
+.tl-i::before{content:'';position:absolute;left:-16px;top:5px;width:7px;height:7px;border-radius:50%;background:#fff;border:2px solid #1677ff}
+.tl-i.off::before{border-color:#d9d9d9}
+.tl-i .tl-t{color:#8c8c8c;font-size:12px;margin-right:8px;font-variant-numeric:tabular-nums}
+.tl-i .tl-who{color:#8c8c8c;font-size:12px;margin-left:8px}
+</style>
+<!-- 操作确认弹窗 · 详情落地页补齐 2026-09-04 -->
+<div class="modal-overlay" id="stopModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3 class="modal-title">停用确认</h3>
+      <span class="modal-close" onclick="closeModal('stopModal')">×</span>
+    </div>
+    <div class="modal-body">
+      <div class="dgrid"><div class="drow"><div class="dlabel">用户账号</div><div class="dval">admin</div></div><div class="drow"><div class="dlabel">姓名 / 角色</div><div class="dval">系统管理员 · 系统管理员</div></div><div class="drow"><div class="dlabel">所属方</div><div class="dval">我方</div></div><div class="drow"><div class="dlabel">状态</div><div class="dval"><span class="tag tag-green">启用</span></div></div></div>
+      <div style="height:14px;"></div>
+      <p style="font-size:13px;color:#262626;line-height:1.7;">确认停用该用户（admin · 系统管理员）？<br>停用后该用户无法登录系统，历史操作日志保留。</p></div>
+    <div class="modal-footer">
+      <button class="btn btn-default" onclick="closeModal('stopModal')">取 消</button>
+      <button class="btn" style="background:#ff4d4f;" onclick="closeModal('stopModal')">确认停用</button>
+    </div>
+  </div>
+</div>
+<!-- 操作确认弹窗 · 详情落地页补齐 2026-09-04 -->
+<div class="modal-overlay" id="resetModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3 class="modal-title">重置密码确认</h3>
+      <span class="modal-close" onclick="closeModal('resetModal')">×</span>
+    </div>
+    <div class="modal-body">
+      <div class="dgrid"><div class="drow"><div class="dlabel">用户账号</div><div class="dval">admin</div></div><div class="drow"><div class="dlabel">姓名</div><div class="dval">系统管理员</div></div><div class="drow"><div class="dlabel">手机号</div><div class="dval">138****0001</div></div><div class="drow"><div class="dlabel">状态</div><div class="dval"><span class="tag tag-green">启用</span></div></div></div>
+      <div style="height:14px;"></div>
+      <p style="font-size:13px;color:#262626;line-height:1.7;">确认将该用户（admin）的密码重置为初始密码？<br>重置后该用户首次登录时须修改密码。</p></div>
+    <div class="modal-footer">
+      <button class="btn btn-default" onclick="closeModal('resetModal')">取 消</button>
+      <button class="btn" style="" onclick="closeModal('resetModal')">确认重置</button>
+    </div>
+  </div>
 </div>
 <script>
-function filterTodo(){
-  var kw = document.getElementById('todoKw').value.trim().toLowerCase();
-  var ty = document.getElementById('todoType').value;
-  var auEl = document.getElementById('todoAuditor');
-  var au = auEl ? auEl.value : '全部';
-  var shown = 0;
-  document.querySelectorAll('#todoBody tr').forEach(function(tr){
-    var ok = (!ty || ty === '全部' || ty === tr.getAttribute('data-type')) && (au === '全部' || au === tr.getAttribute('data-auditor')) && (!kw || tr.innerText.toLowerCase().indexOf(kw) > -1);
-    tr.style.display = ok ? '' : 'none';
-    if (ok) shown++;
-  });
-  document.getElementById('todoCount').textContent = shown;
-}
-function pickType(t){
-  document.getElementById('todoType').value = t;
-  filterTodo();
-}
+function openModal(id) { document.getElementById(id).classList.add('show'); }
+function closeModal(id) { document.getElementById(id).classList.remove('show'); }
+document.querySelectorAll('.modal-overlay').forEach(function (ov) {
+  ov.addEventListener('click', function (e) { if (e.target === ov) ov.classList.remove('show'); });
+});
 </script>
-    <script src="_data/demo-data.js"></script>
+<script src="../_data/demo-data.js"></script>
+<script src="../_data/list-generic.js"></script>
 <script>
-/* G12 数据驱动接线（2026-09-10）：#todoBody 由 todoItems 实体重建，filterTodo()/pickType() 原逻辑不变 */
-(function () {
-  var DATA = window.DEMO_DATA && window.DEMO_DATA.todoItems;
-  if (!DATA) return;
-  var tbody = document.getElementById('todoBody');
-  if (!tbody) return;
-  var keys = Object.keys(DATA);
-  var html = '';
-  keys.forEach(function (k) {
-    var rec = DATA[k], f = rec.row.fields;
-    html += '<tr data-type="' + f.type + '" data-auditor="' + (f.auditor || '') + '"><td><span class="tag tag-blue">' + f.type + '</span></td>' +
-      '<td><span class="lk">' + k + '</span></td><td>' + f.summary + '</td><td>' + f.project + '</td>' +
-      '<td>' + f.submitter + '</td><td>' + f.time + '</td><td><span class="tag tag-orange">' + f.action + '</span></td>' +
-      '<td class="sticky-op"><span class="ops"><a onclick="go(\'' + rec.link + '\')">去审核</a></span></td></tr>' + '\n';
-  });
-  tbody.innerHTML = html;
-  /* 统计卡计数联动（首卡 todoCount 由 filterTodo 维护） */
-  var acts = {}, types = {};
-  keys.forEach(function (k) { var f = DATA[k].row.fields; acts[f.action] = (acts[f.action] || 0) + 1; types[f.type] = 1; });
-  var nums = document.querySelectorAll('.stat-grid .stat .st-num');
-  if (nums.length >= 5) {
-    nums[1].innerHTML = (acts['待审核'] || 0) + '<span class="unit">单</span>';
-    nums[2].innerHTML = (acts['待验收'] || 0) + '<span class="unit">单</span>';
-    nums[3].innerHTML = (acts['待确认'] || 0) + '<span class="unit">单</span>';
-    nums[4].innerHTML = (acts['待入库'] || 0) + '<span class="unit">单</span>';
-  }
-  var foot0 = document.querySelector('.stat-grid .stat .st-foot');
-  if (foot0) foot0.textContent = '覆盖 ' + Object.keys(types).length + ' 类单据 · 点击"去审核"直达审核弹窗';
-  var pg = document.querySelector('.pg-info');
-  if (pg) pg.textContent = '第 1-' + keys.length + ' 条 / 总共 ' + keys.length + ' 条待办';
-  if (typeof filterTodo === 'function') filterTodo();
-})();
+/* G12 数据驱动接线（2026-09-10）：tbody 实体渲染 + 真筛选 + stab 计数 */
+renderListPage({
+  entity: 'users',
+  stabs: true,
+  stabField: 'side',
+  filters: [
+    { label: '用户账号 / 姓名', field: 'search' },
+    { label: '角色', field: 'role' },
+    { label: '所属方', field: 'side' },
+    { label: '数据权限范围', field: 'scope' }
+  ]
+});
 </script>
 
 <script>
@@ -613,77 +743,6 @@ document.querySelectorAll('.checkbox').forEach(function (c) {
   c.addEventListener('click', function () { c.classList.toggle('checked'); });
 });
 </script>
-
-
-
-<script>
-/* ===== 弹窗开关（构建注入） ===== */
-function openModal(id) { document.getElementById(id).classList.add('show'); }
-function closeModal(id) { document.getElementById(id).classList.remove('show'); }
-document.querySelectorAll('.modal-overlay').forEach(function (ov) {
-  ov.addEventListener('click', function (e) { if (e.target === ov) ov.classList.remove('show'); });
-});
-</script>
-
-<script id="batch-btn-js">
-(function(){
-  // 找到所有批量按钮，初始禁用
-  var batchBtns = document.querySelectorAll('button[class*="btn"]');
-  var batchKeywords = ['批量'];
-  batchBtns.forEach(function(btn){
-    var txt = btn.textContent.trim();
-    if(batchKeywords.some(function(k){return txt.indexOf(k)>-1})){
-      btn.style.opacity = '.45';
-      btn.style.cursor = 'not-allowed';
-      btn.setAttribute('data-batch','true');
-      btn.addEventListener('click',function(e){
-        if(btn.style.opacity==='.45')e.preventDefault();
-      });
-    }
-  });
-  // 监听表格复选框
-  var checkboxes = document.querySelectorAll('tbody input[type="checkbox"]');
-  checkboxes.forEach(function(cb){
-    cb.addEventListener('change',function(){
-      var anyChecked = document.querySelectorAll('tbody input[type="checkbox"]:checked').length > 0;
-      batchBtns.forEach(function(btn){
-        if(btn.getAttribute('data-batch')){
-          btn.style.opacity = anyChecked ? '1' : '.45';
-          btn.style.cursor = anyChecked ? 'pointer' : 'not-allowed';
-        }
-      });
-    });
-  });
-  // 全选复选框
-  var selectAll = document.querySelector('thead input[type="checkbox"]');
-  if(selectAll){
-    selectAll.addEventListener('change',function(){
-      var anyChecked = selectAll.checked;
-      batchBtns.forEach(function(btn){
-        if(btn.getAttribute('data-batch')){
-          btn.style.opacity = anyChecked ? '1' : '.45';
-          btn.style.cursor = anyChecked ? 'pointer' : 'not-allowed';
-        }
-      });
-    });
-  }
-})();
-</script>
-<script>
-/* ?audit=1 自动打开审核弹窗（我的待办跳转支持） */
-(function(){
-  if (location.search.indexOf("audit=1") < 0) return;
-  var t = setInterval(function(){
-    if (typeof openModal === "function" && document.getElementById("auditModal")) {
-      clearInterval(t); openModal("auditModal");
-    }
-  }, 120);
-  setTimeout(function(){ clearInterval(t); }, 4000);
-})();
-</script>
-
-
-
 <script>/*ia-fix: tab-switch + btn-feedback (2026-09-04)*/
 /* R3 顶部页签切换（点击换 active；× 不做关闭跳转——原型不销毁页签） */
 document.querySelectorAll('.tab').forEach(function (t) {
@@ -730,23 +789,8 @@ document.querySelectorAll('.tab').forEach(function (t) {
 
 
 
-
-
-
-
-
-
-<script src="_data/pc-auth.js"></script>
-<script src="_data/pc-msg.js"></script>
-
-
-
-
-
-
-
-
-
+<script src="../_data/pc-auth.js"></script>
+<script src="../_data/pc-msg.js"></script>
 
 
 
@@ -774,12 +818,9 @@ body.proto-notes-on .proto-pin.pn-open{display:block}
 body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 .pn-fab .pn-fab-n{font-family:Consolas,monospace;font-weight:600}
 </style>
-<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>S6 · 我的待办（审核聚合入口）</div><div class="pnp-d">S6 审核与待办支线：16 类单据统一进待办，搜索/类型速滤后「去审核」跳转列表页并自动弹出审核弹窗（?audit=1）。</div></div>
-<div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>待办总量口径</div><div class="pnp-d">覆盖 16 类单据 · 点击“去审核”直达审核弹窗</div></div>
-<div class="proto-pin" id="proto-pin-3"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">3</span>待审核构成</div><div class="pnp-d">订单/出入库/租赁/盘点等</div></div>
-<div class="proto-pin" id="proto-pin-4"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">4</span>待验收含义</div><div class="pnp-d">采购入库到货验收</div></div>
-<div class="proto-pin" id="proto-pin-5"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">5</span>待确认含义</div><div class="pnp-d">付款 / 收款登记确认</div></div>
-<div class="proto-pin" id="proto-pin-6"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">6</span>待入库含义</div><div class="pnp-d">租入入库 · 确认后计租入资产库存</div></div>
+<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>用户与权限</div><div class="pnp-d">我方/客户/运营方三类账号体系——客户端登录即在此配置</div><div class="pnp-b"><span class="pnp-tag">FP7-01 · 组织与权限</span><span class="pnp-tag">REQ-01 · 多项目统一管理</span></div><div class="pnp-src"><div class="src-item"><b>FP7-01 组织与权限</b>：用户/角色/数据权限（我方/客户区分）</div><div class="src-item"><b>REQ-01 多项目统一管理</b>：所有项目整合进一个系统，按项目建立编码，绑定上下游关系</div></div></div>
+<div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>数据权限范围</div><div class="pnp-d">按项目与所属方划分权限，客户只能看到自己的单据</div><div class="pnp-b"><span class="pnp-tag">FP7-01 · 组织与权限</span></div><div class="pnp-src"><div class="src-item"><b>FP7-01 组织与权限</b>：用户/角色/数据权限（我方/客户区分）</div></div></div>
+<div class="proto-pin" id="proto-pin-3"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">3</span>可审单据同源同步</div><div class="pnp-d">与角色管理页·权限配置「可审单据」同源同步（双层同步 · G13）；正式版按所选角色加载勾选态。</div><div class="pnp-b"><span class="pnp-tag">FP7-01 · 组织与权限</span><span class="pnp-tag">REQ-01 · 多项目统一管理</span></div><div class="pnp-src"><div class="src-item"><b>FP7-01 组织与权限</b>：用户/角色/数据权限（我方/客户区分）</div><div class="src-item"><b>REQ-01 多项目统一管理</b>：所有项目整合进一个系统，按项目建立编码，绑定上下游关系</div></div></div>
 <div class="pn-fab" id="protoNotesFab">标注</div></div>
 <script id="proto-notes-js">
 (function(){
