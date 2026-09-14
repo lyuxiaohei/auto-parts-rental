@@ -557,7 +557,10 @@ th.td-num { text-align:right; }
     <span class="form-label"><span class="req">*</span>计费方式</span>
     <div><span class="radio checked" onclick="toggleBillingMode(false)"><span class="dot"></span>按月定期生成应收</span><span class="radio" onclick="toggleBillingMode(true)"><span class="dot"></span>按次套数对账</span></div>
   </div>
-  <div id="billingHint" style="display:none;margin:-12px 0 12px 128px;font-size:12px;color:#595959;">按次套数对账：不按月生成应收，客户验收后按实际使用套数对账开单（G13 演示注记）。</div><div style="margin:4px 0 8px;font-size:13px;font-weight:600;color:#1a1a1a;">租赁器具明细</div>
+  <div id="billingHint" style="display:none;margin:-12px 0 12px 128px;font-size:12px;color:#595959;">按次套数对账：不按月生成应收，客户验收后按实际使用套数对账开单（G13 演示注记）。</div><div class="form-row">
+    <span class="form-label">备注</span>
+    <div class="input-box" style="width:350px;"><input placeholder="选填"></div>
+  </div><div style="margin:4px 0 8px;font-size:13px;font-weight:600;color:#1a1a1a;">租赁器具明细</div>
   <div class="table-wrap" style="border:1px solid var(--border);border-radius:6px;">
     <table class="edit-tbl">
       <thead><tr><th>物料</th><th>物料名称</th><th>单位</th><th>数量</th><th style="font-size:13.5px;font-weight:700;">未税单价(元)</th><th style="font-size:13.5px;font-weight:700;">税率</th><th style="font-size:13.5px;font-weight:700;">含税单价(元)</th><th>含税金额(元)</th></tr></thead>
@@ -569,9 +572,6 @@ th.td-num { text-align:right; }
     <span class="sw-txt">可用库存不足——可选择生成：</span>
     <button class="btn btn-sm" style="margin-left:8px;" onclick="go('../采购管理/采购订单列表.html')">生成采购订单</button>
     <button class="btn btn-sm" style="margin-left:6px;" onclick="go('../租赁管理/租入单列表.html')">生成租入单</button>
-  </div><div class="form-row">
-    <span class="form-label">备注</span>
-    <div class="input-box" style="width:350px;"><input placeholder="选填"></div>
   </div>
     </div>
     <div class="modal-footer">

@@ -260,6 +260,9 @@ th.td-num { text-align:right; }
   </div><div class="form-row">
     <span class="form-label">出库日期</span>
     <div class="input-box" style="width:350px;"><input value="2026-09-03" placeholder="请输入"></div>
+  </div><div class="form-row">
+    <span class="form-label">备注</span>
+    <div class="input-box" style="width:350px;"><input placeholder="选填"></div>
   </div><div style="margin:4px 0 8px;font-size:13px;font-weight:600;color:#1a1a1a;">出库明细</div>
   <div class="table-wrap" style="border:1px solid var(--border);border-radius:6px;">
     <table class="edit-tbl">
@@ -267,10 +270,7 @@ th.td-num { text-align:right; }
       <tbody><tr><td><select data-tax="prod" style="width:100%;min-width:0;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option>WBX-1210L 围板箱 1200×1000×970</option><option>WBX-1210M 围板箱 1200×1000×590</option><option>PLT-1210W 木托盘 1200×1000</option><option>PLT-1210P 塑料托盘 1200×1000</option><option>BTC-6040 料箱 600×400×340</option><option>LJ-A100 锁扣组件</option><option>LJ-C300 围板</option><option>LJ-D400 箱盖</option><option selected>LJ-F600 内衬</option></select></td><td><input value="内衬 EPE 珍珠棉"></td><td><input value="件"></td><td><input data-tax="qty" value="5,000"></td><td><input data-tax="excl" value="15.50"></td><td><input data-tax="rate" value="13%" style="width:56px;"></td><td><input data-tax="incl" value="17.51"></td><td><input data-tax="amt" class="auto" value="87,550.00" readonly></td><td><input value="" placeholder="选填"></td></tr></tbody>
     </table>
   </div>
-  <button class="btn btn-dashed btn-sm" style="width:100%;margin-top:8px;">+ 添加一行</button><div class="form-row">
-    <span class="form-label">备注</span>
-    <div class="input-box" style="width:350px;"><input placeholder="选填"></div>
-  </div>
+  <button class="btn btn-dashed btn-sm" style="width:100%;margin-top:8px;">+ 添加一行</button>
     </div>
     <div class="modal-footer">
       <button class="btn btn-default" onclick="closeModal('createModal')">取消</button>
