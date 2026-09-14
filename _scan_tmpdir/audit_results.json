@@ -1783,7 +1783,7 @@
    "modalTitles": [
     "新增用户(演示页)"
    ],
-   "selects": 3,
+   "selects": 2,
    "fakeSelects": 0,
    "radios": 0,
    "checkboxes": 0,
@@ -1920,8 +1920,8 @@
   "problems": [],
   "stats": {
    "buttons": 13,
-   "links": 57,
-   "onclickEls": 104,
+   "links": 31,
+   "onclickEls": 78,
    "modals": 4,
    "modalTitles": [
     "角色管理",
@@ -1929,11 +1929,11 @@
     "停用确认",
     "重置密码确认"
    ],
-   "selects": 6,
+   "selects": 4,
    "fakeSelects": 0,
    "radios": 0,
    "checkboxes": 14,
-   "inputs": 17,
+   "inputs": 11,
    "stabs": 4,
    "tabs": 4,
    "bgMut": 0
@@ -1947,8 +1947,8 @@
   "problems": [],
   "stats": {
    "buttons": 7,
-   "links": 9,
-   "onclickEls": 48,
+   "links": 7,
+   "onclickEls": 46,
    "modals": 2,
    "modalTitles": [
     "权限配置 · 系统管理员(演示页)",
@@ -2052,8 +2052,8 @@
   ],
   "stats": {
    "buttons": 17,
-   "links": 28,
-   "onclickEls": 59,
+   "links": 30,
+   "onclickEls": 60,
    "modals": 4,
    "modalTitles": [
     "新建应付账单",
@@ -2064,7 +2064,7 @@
    "fakeSelects": 0,
    "radios": 0,
    "checkboxes": 0,
-   "inputs": 36,
+   "inputs": 37,
    "stabs": 4,
    "tabs": 3,
    "bgMut": 0
@@ -2088,7 +2088,7 @@
   ],
   "stats": {
    "buttons": 12,
-   "links": 52,
+   "links": 53,
    "onclickEls": 79,
    "modals": 3,
    "modalTitles": [
@@ -2099,7 +2099,7 @@
    "fakeSelects": 0,
    "radios": 2,
    "checkboxes": 0,
-   "inputs": 28,
+   "inputs": 29,
    "stabs": 5,
    "tabs": 4,
    "bgMut": 0
