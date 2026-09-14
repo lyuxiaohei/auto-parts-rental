@@ -259,6 +259,14 @@ th.td-num { text-align:right; }
         <span class="form-label"><span class="req">*</span>租期起止</span>
         <div style="display:flex;gap:10px"><div class="input-box" style="width:170px"><input placeholder="开始日期"></div><div class="input-box" style="width:170px"><input placeholder="结束日期"></div></div>
       </div>
+      <div class="form-row">
+        <span class="form-label">押金（元）</span>
+        <div class="input-box"><input placeholder="选填"></div>
+      </div>
+      <div class="form-row">
+        <span class="form-label">备注</span>
+        <div class="input-box"><input placeholder="选填"></div>
+      </div>
       <div style="margin:4px 0 8px;font-size:13px;font-weight:600;color:#1a1a1a;">租入明细（多货品 · 计费方式：按月 / 按次）</div>
   <div class="table-wrap" style="border:1px solid var(--border);border-radius:6px;">
     <table class="edit-tbl">
@@ -267,15 +275,6 @@ th.td-num { text-align:right; }
     </table>
   </div>
   <button class="btn btn-dashed btn-sm" style="width:100%;margin-top:8px;">+ 添加明细行</button>
-
-  <div class="form-row">
-        <span class="form-label">押金（元）</span>
-        <div class="input-box"><input placeholder="选填"></div>
-      </div>
-      <div class="form-row">
-        <span class="form-label">备注</span>
-        <div class="input-box"><input placeholder="选填"></div>
-      </div>
     </div>
     <div class="modal-footer">
       <button class="btn btn-default" onclick="closeModal('createModal')">取消</button>
@@ -377,6 +376,18 @@ document.querySelectorAll('.tab').forEach(function (t) {
   syncSuppliers();
 })();
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -13044,7 +13044,7 @@ window.DEMO_DATA = {
   /* 四段语义映射：档案信息/往来统计/关联链/操作记录；统计数取既有实体真实单号 */
   partners: {
     'DW-0001': {
-      'row': {"fields": {"name": "一汽解放汽车有限公司", "type": "客户", "contact": "袁明", "status": "正常", "date": "2026-08-12"}, "cells": ["一汽解放汽车有限公司", "<span class=\"tag tag-blue\">客户</span>", "袁明", "138****6621", "增值税专票 13%", "<span class=\"tag tag-green\">正常</span>", "2026-08-12"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "开票资料", "act": "openModal('createModal')"}]},
+      'row': {"fields": {"name": "一汽解放汽车有限公司", "type": "客户", "contact": "袁明", "status": "正常", "date": "2026-08-12"}, "cells": ["一汽解放汽车有限公司", "<span class=\"tag tag-blue\">客户</span>", "袁明", "138****6621", "增值税专票 13%", "<span class=\"tag tag-green\">正常</span>", "2026-08-12"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "开票资料", "act": "openModal('invoiceInfoModal')"}]},
       'title': '客商详情',
       'titleNo': '一汽解放汽车有限公司',
       'info': [
@@ -13150,7 +13150,7 @@ window.DEMO_DATA = {
       ]
     },
     'DW-0002': {
-      'row': {"fields": {"name": "上汽大众汽车有限公司宁波分公司", "type": "客户", "contact": "何静", "status": "正常", "date": "2026-08-05"}, "cells": ["上汽大众汽车有限公司宁波分公司", "<span class=\"tag tag-blue\">客户</span>", "何静", "139****0233", "增值税专票 13%", "<span class=\"tag tag-green\">正常</span>", "2026-08-05"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "开票资料", "act": "openModal('createModal')"}]},
+      'row': {"fields": {"name": "上汽大众汽车有限公司宁波分公司", "type": "客户", "contact": "何静", "status": "正常", "date": "2026-08-05"}, "cells": ["上汽大众汽车有限公司宁波分公司", "<span class=\"tag tag-blue\">客户</span>", "何静", "139****0233", "增值税专票 13%", "<span class=\"tag tag-green\">正常</span>", "2026-08-05"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "开票资料", "act": "openModal('invoiceInfoModal')"}]},
       'title': '客商详情',
       'titleNo': '上汽大众汽车有限公司宁波分公司',
       'info': [
@@ -13246,7 +13246,7 @@ window.DEMO_DATA = {
       ]
     },
     'DW-0003': {
-      'row': {"fields": {"name": "小鹏汽车科技有限公司", "type": "客户", "contact": "林芳", "status": "正常", "date": "2026-07-28"}, "cells": ["小鹏汽车科技有限公司", "<span class=\"tag tag-blue\">客户</span>", "林芳", "137****8845", "增值税专票 13%", "<span class=\"tag tag-green\">正常</span>", "2026-07-28"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "开票资料", "act": "openModal('createModal')"}]},
+      'row': {"fields": {"name": "小鹏汽车科技有限公司", "type": "客户", "contact": "林芳", "status": "正常", "date": "2026-07-28"}, "cells": ["小鹏汽车科技有限公司", "<span class=\"tag tag-blue\">客户</span>", "林芳", "137****8845", "增值税专票 13%", "<span class=\"tag tag-green\">正常</span>", "2026-07-28"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "开票资料", "act": "openModal('invoiceInfoModal')"}]},
       'title': '客商详情',
       'titleNo': '小鹏汽车科技有限公司',
       'info': [
@@ -13342,7 +13342,7 @@ window.DEMO_DATA = {
       ]
     },
     'DW-0004': {
-      'row': {"fields": {"name": "东风本田汽车有限公司", "type": "客户", "contact": "赵磊", "status": "停用", "date": "2026-06-30"}, "cells": ["东风本田汽车有限公司", "<span class=\"tag tag-blue\">客户</span>", "赵磊", "136****3312", "增值税专票 13%", "<span class=\"tag tag-gray\">停用</span>", "2026-06-30"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "开票资料", "act": "openModal('createModal')"}]},
+      'row': {"fields": {"name": "东风本田汽车有限公司", "type": "客户", "contact": "赵磊", "status": "停用", "date": "2026-06-30"}, "cells": ["东风本田汽车有限公司", "<span class=\"tag tag-blue\">客户</span>", "赵磊", "136****3312", "增值税专票 13%", "<span class=\"tag tag-gray\">停用</span>", "2026-06-30"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "开票资料", "act": "openModal('invoiceInfoModal')"}]},
       'title': '客商详情',
       'titleNo': '东风本田汽车有限公司',
       'info': [
@@ -13426,7 +13426,7 @@ window.DEMO_DATA = {
       ]
     },
     'DW-0101': {
-      'row': {"fields": {"name": "宁波华塑包装制品有限公司", "type": "供应商", "contact": "孙建军", "status": "正常", "date": "2026-08-18"}, "cells": ["宁波华塑包装制品有限公司", "<span class=\"tag tag-green\">供应商</span>", "孙建军", "135****7790", "增值税专票 13%", "<span class=\"tag tag-green\">正常</span>", "2026-08-18"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "开票资料", "act": "openModal('createModal')"}]},
+      'row': {"fields": {"name": "宁波华塑包装制品有限公司", "type": "供应商", "contact": "孙建军", "status": "正常", "date": "2026-08-18"}, "cells": ["宁波华塑包装制品有限公司", "<span class=\"tag tag-green\">供应商</span>", "孙建军", "135****7790", "增值税专票 13%", "<span class=\"tag tag-green\">正常</span>", "2026-08-18"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "开票资料", "act": "openModal('invoiceInfoModal')"}]},
       'title': '客商详情',
       'titleNo': '宁波华塑包装制品有限公司',
       'info': [
@@ -13518,7 +13518,7 @@ window.DEMO_DATA = {
       ]
     },
     'DW-0102': {
-      'row': {"fields": {"name": "苏州联恒五金制品有限公司", "type": "供应商", "contact": "吴海涛", "status": "正常", "date": "2026-08-18"}, "cells": ["苏州联恒五金制品有限公司", "<span class=\"tag tag-green\">供应商</span>", "吴海涛", "133****5567", "增值税专票 13%", "<span class=\"tag tag-green\">正常</span>", "2026-08-18"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "开票资料", "act": "openModal('createModal')"}]},
+      'row': {"fields": {"name": "苏州联恒五金制品有限公司", "type": "供应商", "contact": "吴海涛", "status": "正常", "date": "2026-08-18"}, "cells": ["苏州联恒五金制品有限公司", "<span class=\"tag tag-green\">供应商</span>", "吴海涛", "133****5567", "增值税专票 13%", "<span class=\"tag tag-green\">正常</span>", "2026-08-18"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "开票资料", "act": "openModal('invoiceInfoModal')"}]},
       'title': '客商详情',
       'titleNo': '苏州联恒五金制品有限公司',
       'info': [
@@ -13610,7 +13610,7 @@ window.DEMO_DATA = {
       ]
     },
     'DW-0103': {
-      'row': {"fields": {"name": "常州正大塑料托盘厂", "type": "供应商", "contact": "郑卫东", "status": "正常", "date": "2026-07-15"}, "cells": ["常州正大塑料托盘厂", "<span class=\"tag tag-green\">供应商</span>", "郑卫东", "138****2245", "增值税专票 13%", "<span class=\"tag tag-green\">正常</span>", "2026-07-15"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "开票资料", "act": "openModal('createModal')"}]},
+      'row': {"fields": {"name": "常州正大塑料托盘厂", "type": "供应商", "contact": "郑卫东", "status": "正常", "date": "2026-07-15"}, "cells": ["常州正大塑料托盘厂", "<span class=\"tag tag-green\">供应商</span>", "郑卫东", "138****2245", "增值税专票 13%", "<span class=\"tag tag-green\">正常</span>", "2026-07-15"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "开票资料", "act": "openModal('invoiceInfoModal')"}]},
       'title': '客商详情',
       'titleNo': '常州正大塑料托盘厂',
       'info': [
@@ -13702,7 +13702,7 @@ window.DEMO_DATA = {
       ]
     },
     'DW-0201': {
-      'row': {"fields": {"name": "路凯包装运营（上海）有限公司", "type": "供应商", "contact": "路凯对接组", "status": "正常", "date": "2026-08-30"}, "cells": ["路凯包装运营（上海）有限公司", "<span class=\"tag tag-blue\">供应商</span>", "路凯对接组", "021-66****", "结算对账专用", "<span class=\"tag tag-green\">正常</span>", "2026-08-30"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "开票资料", "act": "openModal('createModal')"}]},
+      'row': {"fields": {"name": "路凯包装运营（上海）有限公司", "type": "供应商", "contact": "路凯对接组", "status": "正常", "date": "2026-08-30"}, "cells": ["路凯包装运营（上海）有限公司", "<span class=\"tag tag-blue\">供应商</span>", "路凯对接组", "021-66****", "结算对账专用", "<span class=\"tag tag-green\">正常</span>", "2026-08-30"], "ops": [{"t": "详情", "detail": true}, {"t": "编辑", "act": "openModal('createModal')"}, {"t": "开票资料", "act": "openModal('invoiceInfoModal')"}]},
       'title': '客商详情',
       'titleNo': '路凯包装运营（上海）有限公司',
       'info': [

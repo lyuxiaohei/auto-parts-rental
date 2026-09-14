@@ -1,46 +1,32 @@
 [
  {
-  "page": "销售管理\\销售出库列表.html",
+  "page": "基础数据\\客商管理.html",
   "js_errors": [],
   "problems": [
-   {
-    "cat": "输入框",
-    "type": "input-not-editable",
-    "phase": "modal",
-    "where": {
-     "tag": "input",
-     "id": "",
-     "cls": "auto",
-     "text": "",
-     "row": "WBX-1210L 围板箱 12",
-     "inModal": "createModal"
-    },
-    "detail": "readonly 不可输入（预填:87,550.00）"
-   },
    {
     "cat": "弹窗",
     "type": "modal-unreachable",
     "phase": "modal",
     "where": {
-     "text": "销售出库单详情"
+     "text": "客商详情"
     },
     "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
    }
   ],
   "stats": {
-   "buttons": 12,
-   "links": 13,
-   "onclickEls": 49,
+   "buttons": 10,
+   "links": 24,
+   "onclickEls": 58,
    "modals": 3,
    "modalTitles": [
-    "新增销售出库单",
-    "审核确认"
+    "新建客商",
+    "开票资料"
    ],
-   "selects": 6,
+   "selects": 5,
    "fakeSelects": 0,
-   "radios": 2,
+   "radios": 0,
    "checkboxes": 0,
-   "inputs": 22,
+   "inputs": 23,
    "stabs": 3,
    "tabs": 3,
    "bgMut": 0
