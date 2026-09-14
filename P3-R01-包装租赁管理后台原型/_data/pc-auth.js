@@ -60,7 +60,8 @@
     function place() {
       var r = avatar.getBoundingClientRect(), h = host.getBoundingClientRect();
       menu.style.top = (r.bottom - h.top + host.scrollTop + 6) + 'px';
-      menu.style.left = (r.right - h.left + host.scrollLeft - menu.offsetWidth) + 'px';
+      /* 右缘锚定头像右缘·向左展开（隐藏态 offsetWidth=0 不可用 left 定位——旧法曾致菜单溢出页外） */
+      menu.style.right = Math.max(0, h.right - r.right - host.scrollLeft) + 'px';
     }
     avatar.addEventListener('click', function (ev) {
       ev.stopPropagation();
