@@ -36,9 +36,9 @@ B1 = [
 BATCHES = dict(batch1=B1)
 B2 = [
     dict(name='应付账单', file='财务协同/应付账单.html', entity='payableBills', modalId='detailModal',
-         stabs={'全部': 11, '未付款': 6, '部分付款': 1, '已付款': 4}, pin=3),
+         stabs={'全部': 12, '未付款': 7, '部分付款': 1, '已付款': 4}, pin=3),  # 20260914：+押金退还行（对客户应付·未付款）
     dict(name='应收账单', file='财务协同/应收账单.html', entity='receivableBills', modalId='detailModal',
-         stabs={'全部': 14, '未开票': 7, '已开票': 14, '部分收款': 2, '已结清': 4}, pin=3),  # G13：+usage 演示行,
+         stabs={'全部': 15, '未开票': 7, '已开票': 15, '部分收款': 2, '已结清': 4}, pin=3),  # G13：+usage 演示行；20260914：+押金行（已收）
     dict(name='付款登记', file='财务协同/付款登记.html', entity='payments', modalId='detailModal',
          stabs={'全部': 5, '待确认': 1, '已确认': 4}, pin=None),
     dict(name='回款登记', file='财务协同/回款登记.html', entity='receipts', modalId='detailModal',

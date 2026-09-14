@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>应付账单新建 - 包装租赁管理后台</title>
+<title>租赁单新建 - 包装租赁管理后台</title>
 <style>
 :root {
   --primary: #1677ff;
@@ -236,55 +236,54 @@ th.td-num { text-align:right; }
 </style>
 </head>
 <body style="background:#f5f6f8;min-height:100vh;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif">
-<!-- 弹窗模板：新建应付账单（createModal） -->
-<!-- 注入标记：财务协同/应付账单.html -->
+<!-- 弹窗模板：新建租赁单（createModal） -->
+<!-- 注入标记：租赁管理/租赁单列表.html -->
 <div class="modal-overlay" id="createModal">
-  <div class="modal" style="width:720px;">
+  <div class="modal modal-lg">
     <div class="modal-header">
-      <h3 class="modal-title">新建应付账单</h3>
+      <h3 class="modal-title">新建租赁单</h3>
       <span class="modal-close" onclick="closeModal('createModal')">×</span>
     </div>
     <div class="modal-body">
 <div class="form-row">
-    <span class="form-label"><span class="req">*</span>账单类型</span>
-    <div class="input-box select-box" style="width:350px;"><select id="cmBtype" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option value="purchase" selected>采购应付（按采购订单自动汇总）</option><option value="rent">租金应付（按租入单自动汇总）</option><option value="loss">丢损赔偿（赔付供应商）</option><option value="customer">对客户应付（赔付客户：交付延误·断产·回款违约金；押金退还）</option><option value="prepay">无订单预付款（付供应商保证金，T2 挂账侧待财务确认）</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
-  </div><div class="pn-hint" id="cmTypeHint" style="margin:-14px 0 12px 128px;"></div><div class="form-row">
-    <span class="form-label"><span class="req">*</span><span id="cmPartyLabel">供应商</span></span>
-    <div class="input-box select-box" style="width:350px;"><select id="cmParty" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
-  </div><div class="form-row" id="cmRefPo">
-    <span class="form-label">关联采购订单号</span>
-    <div class="input-box" style="width:350px;"><input value="PO-20260901-017" placeholder="请输入"></div>
-  </div><div class="form-row" id="cmRefRent" style="display:none;">
-    <span class="form-label">关联租入单号</span>
-    <div class="input-box" style="width:350px;"><input placeholder="请输入"></div>
-  </div><div class="form-row" id="cmFeeCatRow" style="display:none;">
-    <span class="form-label">费用分类</span>
-    <div class="input-box select-box" style="width:350px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>丢损缺损赔偿</option><option>违约金</option><option>断产赔偿</option><option>交付延误</option><option>回款违约金</option><option>保证金</option><option>预付款</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+    <span class="form-label"><span class="req">*</span>客户</span>
+    <div class="input-box select-box" style="width:350px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>一汽解放汽车有限公司</option><option>上汽大众汽车有限公司宁波分公司</option><option>小鹏汽车科技有限公司</option><option>东风本田汽车有限公司</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+  </div>
+  <div class="form-row">
+    <span class="form-label"><span class="req">*</span>单据类型</span>
+    <div class="input-box select-box" style="width:350px;"><select onchange="var n=document.getElementById('bbNote');if(n)n.style.display=(this.value=='背靠背')?'block':'none'" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>常规</option><option>背靠背</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+  </div>
+  <div id="bbNote" style="display:none;margin:0 0 8px 128px;font-size:12px;color:#d4380d;">背靠背：租赁单确认后自动生成租入单草稿（供应商从所属项目绑定的供应商中选 → 新建状态 → 修改 → 提交；一对多绑定见项目档案上下游绑定）</div>
+<div class="form-row">
+    <span class="form-label"><span class="req">*</span>所属项目</span>
+    <div class="input-box select-box" style="width:350px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>PRJ-2601 一汽解放·长春基地</option><option>PRJ-2601 一汽解放</option><option>PRJ-2602 上汽大众</option><option>PRJ-2603 小鹏</option><option>PRJ-2604 东风本田</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
   </div><div class="form-row">
-    <span class="form-label"><span class="req">*</span>账单金额(元)</span>
-    <div class="input-box" style="width:350px;"><input id="cmAmt" value="84,000.00" placeholder="请输入"></div>
+    <span class="form-label"><span class="req">*</span>建单日期</span>
+    <div class="input-box" style="width:350px;"><input value="2026-09-05" placeholder="请输入"></div>
   </div><div class="form-row">
-    <span class="form-label">账单日期</span>
-    <div class="input-box" style="width:350px;"><input value="2026-09-03" placeholder="请输入"></div>
-  </div><div class="form-row">
-    <span class="form-label">到期日</span>
-    <div class="input-box" style="width:350px;"><input value="2026-10-03" placeholder="请输入"></div>
+    <span class="form-label" data-note="1">押金(元)</span>
+    <div class="input-box" style="width:350px;"><input value="50,000.00" placeholder="请输入"></div>
+  </div>
+  <div class="form-row">
+    <span class="form-label"><span class="req">*</span>计费方式</span>
+    <div><span class="radio checked" onclick="toggleBillingMode(false)"><span class="dot"></span>按月定期生成应收</span><span class="radio" onclick="toggleBillingMode(true)"><span class="dot"></span>按次套数对账</span></div>
+  </div>
+  <div id="billingHint" style="display:none;margin:-12px 0 12px 128px;font-size:12px;color:#595959;">按次套数对账：不按月生成应收，客户验收后按实际使用套数对账开单（G13 演示注记）。</div><div style="margin:4px 0 8px;font-size:13px;font-weight:600;color:#1a1a1a;">租赁器具明细</div>
+  <div class="table-wrap" style="border:1px solid var(--border);border-radius:6px;">
+    <table class="edit-tbl">
+      <thead><tr><th>物料</th><th>物料名称</th><th>单位</th><th>数量</th><th style="font-size:13.5px;font-weight:700;">未税单价(元)</th><th style="font-size:13.5px;font-weight:700;">税率</th><th style="font-size:13.5px;font-weight:700;">含税单价(元)</th><th>含税金额(元)</th></tr></thead>
+      <tbody><tr><td><select style="width:100%;min-width:0;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option>WBX-1210L 围板箱 1200×1000×970</option><option>WBX-1210M 围板箱 1200×1000×590</option><option>PLT-1210W 木托盘 1200×1000</option><option>PLT-1210P 塑料托盘 1200×1000</option><option>BTC-6040 料箱 600×400×340</option><option>LJ-A100 锁扣组件</option><option>LJ-C300 围板</option><option>LJ-D400 箱盖</option><option>LJ-F600 内衬</option><option selected>ZH-2601-A 驾驶室围板箱整箱套件</option><option>ZH-2602-B 冲压件料箱组套</option><option>ZH-2603-C 电池托盘护角套件</option><option>ZH-2604-D 混合组合套件</option></select></td><td><input value="驾驶室围板箱整箱套件"></td><td><input value="套" style="width:48px;"></td><td><input data-tax="qty" value="180"></td><td><input data-tax="excl" value="2.40"></td><td><input data-tax="rate" value="13%" style="width:56px;"></td><td><input data-tax="incl" value="2.71"></td><td><input data-tax="amt" class="auto" value="487.80" readonly></td></tr><tr><td><select style="width:100%;min-width:0;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option>WBX-1210L 围板箱 1200×1000×970</option><option>WBX-1210M 围板箱 1200×1000×590</option><option>PLT-1210W 木托盘 1200×1000</option><option selected>PLT-1210P 塑料托盘 1200×1000</option><option>BTC-6040 料箱 600×400×340</option><option>LJ-A100 锁扣组件</option><option>LJ-C300 围板</option><option>LJ-D400 箱盖</option><option>LJ-F600 内衬</option><option>ZH-2601-A 驾驶室围板箱整箱套件</option><option>ZH-2602-B 冲压件料箱组套</option><option>ZH-2603-C 电池托盘护角套件</option><option>ZH-2604-D 混合组合套件</option></select></td><td><input value="塑料托盘 1200×1000"></td><td><input value="块" style="width:48px;"></td><td><input data-tax="qty" value="180"></td><td><input data-tax="excl" value="0.15"></td><td><input data-tax="rate" value="13%" style="width:56px;"></td><td><input data-tax="incl" value="0.17"></td><td><input data-tax="amt" class="auto" value="30.60" readonly></td></tr><tr><td colspan="7" style="text-align:right;font-weight:700;">租赁总价（含税 · 逐行加总）</td><td class="td-num" style="font-weight:700;">518.40</td></tr></tbody>
+    </table>
+  </div>
+  <button class="btn btn-dashed btn-sm" style="width:100%;margin-top:8px;">+ 添加一行</button>
+  <div id="stockWarn" style="display:none;margin-top:8px;padding:8px 12px;border:1px solid #ffa39e;background:#fff1f0;border-radius:6px;font-size:12px;color:#d4380d;line-height:1.9;">
+    <span class="sw-txt">可用库存不足——可选择生成：</span>
+    <button class="btn btn-sm" style="margin-left:8px;" onclick="go('../../采购管理/采购订单列表.html')">生成采购订单</button>
+    <button class="btn btn-sm" style="margin-left:6px;" onclick="go('../../租赁管理/租入单列表.html')">生成租入单</button>
   </div><div class="form-row">
     <span class="form-label">备注</span>
     <div class="input-box" style="width:350px;"><input placeholder="选填"></div>
   </div>
-<div style="margin:12px 0 4px;font-size:13px;font-weight:600;">分期付款计划（比例⇄金额互算 · 笔数不限直至付清）</div>
-<div style="display:flex;gap:8px;align-items:center;margin-bottom:6px;">
-      <button class="btn btn-default btn-sm" id="cmInstAdd" type="button">+ 添加一笔</button>
-      <button class="btn btn-default btn-sm" id="cmInstFill" type="button">剩余全排</button>
-  </div>
-  <div class="table-wrap">
-    <table>
-      <thead><tr><th>笔次</th><th>比例(%)</th><th>金额(元)</th><th>计划日期</th><th>状态</th><th></th></tr></thead>
-      <tbody id="cmInstBody"></tbody>
-    </table>
-  </div>
-<div style="font-size:12px;color:#8c8c8c;margin-top:4px;">填比例算金额 / 填金额算比例；「+ 添加一笔」自由加笔，「剩余全排」把剩余填入最后一笔；合计超账单金额红框拦截。</div>
     </div>
     <div class="modal-footer">
       <button class="btn btn-default" onclick="closeModal('createModal')">取消</button>
@@ -293,119 +292,6 @@ th.td-num { text-align:right; }
     </div>
   </div>
 </div>
-<script>/*C-C/D 分期比例⇄金额互算工厂 · meeting0908 批3 · 2026-09-10 自由笔数版（笔数不限直至付清）*/
-function createInstPlan(cfg) {
-  function num(v){ var x = parseFloat(String(v).replace(/,/g,'')); return isNaN(x)?0:x; }
-  function fmt(x){ return x.toLocaleString('zh-CN', {minimumFractionDigits:2, maximumFractionDigits:2}); }
-  var root = document.getElementById(cfg.root);
-  var rates = (cfg.defs || [60, 40]).slice();
-  function tb(){ return document.getElementById(cfg.bodyId); }
-  function base(){ return cfg.base(); }
-  function rowDate(i){ var m = 9 + i, y = 2026 + Math.floor((m - 1) / 12); m = (m - 1) % 12 + 1; return y + '-' + (m < 10 ? '0' : '') + m + '-20'; }
-  function amt(i){ return base() * rates[i] / 100; }
-  function refreshSum(){
-    var b = base(), s = 0, k;
-    for (k = 0; k < rates.length; k++) s += amt(k);
-    var over = s > b + 0.005;
-    var sumEl = document.getElementById(cfg.sumId);
-    var restEl = document.getElementById(cfg.restId);
-    var baseEl = document.getElementById(cfg.baseTxtId);
-    if (sumEl) { sumEl.textContent = fmt(s); sumEl.style.color = over ? '#ff4d4f' : ''; }
-    if (restEl) { restEl.textContent = fmt(b - s); restEl.style.color = over ? '#ff4d4f' : ''; }
-    if (baseEl) baseEl.textContent = fmt(b);
-    return over;
-  }
-  function render() {
-    var body = tb(); if (!body) return;
-    var rows = '';
-    for (var i = 0; i < rates.length; i++) {
-      rows += '<tr><td>第 ' + (i + 1) + ' 笔</td>'
-        + '<td><input data-i="' + i + '" data-k="rate" value="' + rates[i].toFixed(2) + '" style="width:76px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 6px;"></td>'
-        + '<td><input data-i="' + i + '" data-k="amt" value="' + fmt(amt(i)) + '" style="width:110px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 6px;text-align:right;"></td>'
-        + '<td>' + rowDate(i) + '</td>'
-        + '<td>' + (i === 0 ? '<span class="tag tag-orange">' + cfg.status + '</span>' : '<span class="tag tag-gray">未开始</span>') + '</td>'
-        + '<td>' + (rates.length > 1 ? '<a data-del="' + i + '" style="color:#8c8c8c;cursor:pointer;" title="删除本笔">×</a>' : '<span style="color:#d9d9d9;" title="至少保留 1 笔">×</span>') + '</td></tr>';
-    }
-    rows += '<tr><td style="font-weight:700;" colspan="2">已排合计（超账单金额红框拦截）</td>'
-      + '<td class="td-num" style="font-weight:700;" id="' + cfg.sumId + '">0.00</td>'
-      + '<td colspan="3">剩余 <b id="' + cfg.restId + '">0.00</b> / 账单金额 <span id="' + cfg.baseTxtId + '"></span></td></tr>';
-    body.innerHTML = rows;
-    refreshSum();
-  }
-  root.addEventListener('input', function (e) {
-    var i = e.target;
-    if (!i.matches || !i.matches('input[data-i]')) return;
-    var idx = parseInt(i.getAttribute('data-i'), 10), kind = i.getAttribute('data-k');
-    var b = base(), body = tb(); if (!body) return;
-    if (kind === 'rate') rates[idx] = num(i.value);
-    else rates[idx] = b > 0 ? num(i.value) / b * 100 : 0;
-    var rEl = body.querySelector('input[data-i="' + idx + '"][data-k="rate"]');
-    var aEl = body.querySelector('input[data-i="' + idx + '"][data-k="amt"]');
-    if (rEl && kind !== 'rate') rEl.value = rates[idx].toFixed(2);
-    if (aEl && kind !== 'amt') aEl.value = fmt(amt(idx));
-    i.style.borderColor = refreshSum() ? '#ff4d4f' : '#d9d9d9';
-  });
-  root.addEventListener('click', function (e) {
-    var t = e.target;
-    if (t.matches && t.matches('a[data-del]') && rates.length > 1) {
-      rates.splice(parseInt(t.getAttribute('data-del'), 10), 1);
-      render();
-    }
-  });
-  var addBtn = document.getElementById(cfg.addId);
-  if (addBtn) addBtn.addEventListener('click', function () { rates.push(0); render(); });
-  var fillBtn = document.getElementById(cfg.fillId);
-  if (fillBtn) fillBtn.addEventListener('click', function () {
-    var b = base(), rest = 0, k;
-    for (k = 0; k < rates.length - 1; k++) rest += amt(k);
-    rates[rates.length - 1] = b > 0 ? Math.max(0, b - rest) / b * 100 : 0;
-    render();
-  });
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', render); else render();
-  return { render: render };
-}
-var cmPlan = createInstPlan({
-  root: 'createModal', bodyId: 'cmInstBody', addId: 'cmInstAdd', fillId: 'cmInstFill',
-  sumId: 'cmInstSum', restId: 'cmInstRest', baseTxtId: 'cmInstBaseTxt', status: '待付款',
-  base: function () { var el = document.getElementById('cmAmt'); var x = parseFloat(String(el ? el.value : '').replace(/,/g,'')); return isNaN(x) ? 0 : x; }
-});
-</script>
-<script>/*新建应付账单：账单类型联动（4v4 · 2026-09-08 会议）*/
-(function () {
-  var SUPPLIERS = ['路凯包装运营（上海）有限公司', '苏州联恒五金制品有限公司', '宁波华塑包装制品有限公司', '常州正大塑料托盘厂'];
-  var CUSTOMERS = ['一汽解放汽车有限公司', '上汽大众汽车有限公司宁波分公司', '小鹏汽车科技有限公司', '东风本田汽车有限公司'];
-  var HINTS = {
-    purchase: '按采购订单自动汇总金额；关联采购订单号带入，异常时可手填修正。',
-    rent: '按租入单（路凯周期）自动汇总金额；关联租入单号带入，异常时可手填修正。',
-    loss: '丢损赔偿（赔付供应商）无关联单据可汇总，直接手动建单：选费用分类、手填金额。',
-    customer: '对客户应付（我方赔付客户：交付延误/断产/回款违约金；押金退还——退租结清退押金转来，2026-09-14 拍板）直接建单或押金联动。',
-    prepay: '无订单直接建单承载（付供应商保证金/预付款）；T2 挂应收还是应付侧待财务确认（原型注记）。'
-  };
-  var btype = document.getElementById('cmBtype');
-  var party = document.getElementById('cmParty');
-  function setOptions(list) {
-    party.innerHTML = '';
-    list.forEach(function (name) {
-      var op = document.createElement('option');
-      op.textContent = name;
-      party.appendChild(op);
-    });
-  }
-  function sync() {
-    var t = btype.value;
-    var isCustomer = t === 'customer';
-    document.getElementById('cmPartyLabel').textContent = isCustomer ? '客户' : '供应商';
-    setOptions(isCustomer ? CUSTOMERS : SUPPLIERS);
-    document.getElementById('cmRefPo').style.display = t === 'purchase' ? '' : 'none';
-    document.getElementById('cmRefRent').style.display = t === 'rent' ? '' : 'none';
-    document.getElementById('cmFeeCatRow').style.display = (t === 'loss' || t === 'customer' || t === 'prepay') ? '' : 'none';
-    document.getElementById('cmTypeHint').textContent = HINTS[t] || '';
-  }
-  btype.addEventListener('change', sync);
-  sync();
-  document.getElementById('cmAmt').addEventListener('input', function () { cmPlan.render(); });
-})();
-</script>
 <script>
 function openModal(id) { document.getElementById(id).classList.add('show'); }
 function closeModal(id) { document.getElementById(id).classList.remove('show'); }
@@ -455,7 +341,153 @@ document.querySelectorAll('.tab').forEach(function (t) {
   }, true);
 })();
 </script>
-<style id="f01-fab-style">.f01-fab{position:fixed;right:12px;bottom:12px;z-index:1001;display:flex;align-items:center;height:24px;padding:0 10px;border-radius:4px;background:#fff;border:1px solid #d9d9d9;color:#8c8c8c;font-size:11px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.06);opacity:.6;transition:opacity .15s}.f01-fab:hover{opacity:1;border-color:#722ed1;color:#722ed1}</style>
+<script>/*F-A 税率三件套双向换算 · meeting0908 批3*/
+(function () {
+  function num(v){ var x = parseFloat(String(v).replace(/,/g,'')); return isNaN(x)?0:x; }
+  document.addEventListener('input', function (e) {
+    var i = e.target;
+    if (!i.matches || !i.matches('input[data-tax]')) return;
+    var tr = i.closest('tr'); if (!tr) return;
+    function q(r){ var el = tr.querySelector('input[data-tax="'+r+'"]'); return el ? String(el.value).replace(/,/g,'') : '0'; }
+    var rate = num(q('rate')) / 100;
+    if (i.getAttribute('data-tax') === 'incl') {
+      var ex = rate > 0 ? num(q('incl')) / (1 + rate) : num(q('incl'));
+      var exEl = tr.querySelector('input[data-tax="excl"]'); if (exEl) exEl.value = ex.toFixed(2);
+    } else {
+      var inc = num(q('excl')) * (1 + rate);
+      var incEl = tr.querySelector('input[data-tax="incl"]'); if (incEl) incEl.value = inc.toFixed(2);
+    }
+    var amt = tr.querySelector('input[data-tax="amt"]');
+    if (amt) amt.value = (num(q('qty')) * num(q('incl'))).toLocaleString('zh-CN', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+  });
+})();
+</script><style id="f01-fab-style">.f01-fab{position:fixed;right:12px;bottom:12px;z-index:1001;display:flex;align-items:center;height:24px;padding:0 10px;border-radius:4px;background:#fff;border:1px solid #d9d9d9;color:#8c8c8c;font-size:11px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.06);opacity:.6;transition:opacity .15s}.f01-fab:hover{opacity:1;border-color:#722ed1;color:#722ed1}</style>
 <a class="f01-fab" href="../../P3-R01-F01-业务流程导航图.html">流程图</a>
+<script>/* G13 ⑥ 租出计费方式切换 */
+function toggleBillingMode(byUsage) { var h = document.getElementById('billingHint'); if (h) h.style.display = byUsage ? 'block' : 'none'; }</script>
+<script>/* G13 ⑦ 新建优先查库存：选物料行内「可用库存 N 套」+不足红色提示条+生成采购订单/租入单（道远拍板） */
+(function () {
+  var STOCK_MAP = { 'WBX-1210L': [2120, '只'], 'WBX-1210M': [860, '只'], 'PLT-1210W': [60, '块'], 'PLT-1210P': [1410, '块'], 'BTC-6040': [3300, '只'], 'LJ-A100': [5260, '件'], 'LJ-B200': [2640, '件'], 'LJ-C300': [1860, '件'], 'LJ-D400': [980, '件'], 'LJ-F600': [1520, '件'], 'ZH-2601-A': [640, '套'], 'ZH-2602-B': [820, '套'], 'ZH-2603-C': [150, '套'], 'ZH-2604-D': [0, '套'] };
+  var GOBASE = '../../';
+  function num(v) { var x = parseFloat(String(v).replace(/,/g, '')); return isNaN(x) ? 0 : x; }
+  function keyOf(text) { var m = String(text || '').trim().match(/^([A-Za-z]+-[\w.-]+)/); return m ? m[1] : ''; }
+  function rowQty(tr) { var q = tr.querySelector('input[data-tax="qty"]'); return num(q ? q.value : 0); }
+  function updRow(tr) {
+    var sel = tr.querySelector('td select'); if (!sel) return;
+    var k = keyOf(sel.value || (sel.options[sel.selectedIndex] || {}).text);
+    var td = sel.closest('td');
+    var hint = td.querySelector('.stock-hint');
+    if (!hint) { hint = document.createElement('div'); hint.className = 'stock-hint'; hint.style.cssText = 'font-size:11px;color:#52c41a;margin-top:3px;white-space:nowrap;'; td.appendChild(hint); }
+    var st = STOCK_MAP[k];
+    if (!st) { hint.textContent = '可用库存 —（无库存记录）'; hint.style.color = '#8c8c8c'; return; }
+    hint.textContent = '可用库存 ' + st[0] + ' ' + st[1];
+    hint.style.color = rowQty(tr) > st[0] ? '#ff4d4f' : '#52c41a';
+  }
+  function refresh() {
+    var lack = null;
+    document.querySelectorAll('.edit-tbl tbody tr').forEach(function (tr) {
+      if (!tr.querySelector('td select')) return;
+      updRow(tr);
+      var sel = tr.querySelector('td select');
+      var k = keyOf(sel.value || (sel.options[sel.selectedIndex] || {}).text);
+      var st = STOCK_MAP[k];
+      if (st && rowQty(tr) > st[0]) lack = { name: k, need: rowQty(tr), have: st[0], unit: st[1] };
+    });
+    var w = document.getElementById('stockWarn');
+    if (!w) return;
+    if (lack) {
+      w.style.display = 'block';
+      var t = w.querySelector('.sw-txt');
+      if (t) t.textContent = '可用库存不足（' + lack.name + '：需求 ' + lack.need + ' · 可用 ' + lack.have + ' ' + lack.unit + '）——可选择生成：';
+    } else { w.style.display = 'none'; }
+  }
+  document.addEventListener('change', function (e) { if (e.target.matches && e.target.matches('.edit-tbl td select, .edit-tbl input[data-tax="qty"]')) refresh(); });
+  document.addEventListener('input', function (e) { if (e.target.matches && e.target.matches('.edit-tbl input[data-tax="qty"]')) refresh(); });
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', refresh); else refresh();
+})();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<style id="proto-notes-style">
+body.proto-notes-on [data-note]{position:relative}
+body.proto-notes-on [data-note]::after{content:attr(data-note);position:absolute;top:1px;right:1px;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600;box-shadow:0 0 0 1.5px #fff;cursor:pointer;opacity:.75;transition:opacity .15s}
+body.proto-notes-on [data-note]:hover::after{opacity:1}
+@keyframes pn-blink{0%{box-shadow:0 0 0 2px #722ed1}25%{box-shadow:0 0 0 5px rgba(114,46,209,.35)}100%{box-shadow:0 0 0 2px transparent}}
+.proto-pin{display:none;position:absolute;width:300px;background:#fff;border:1px solid #f0f0f0;border-top:2px solid #722ed1;border-radius:6px;box-shadow:0 4px 14px rgba(0,0,0,.13);z-index:890;padding:10px 12px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;font-size:12px;color:#262626}
+body.proto-notes-on .proto-pin.pn-open{display:block}
+.proto-pin .pnp-close{position:absolute;top:6px;right:8px;cursor:pointer;color:#8c8c8c;font-size:14px;line-height:1;padding:2px}
+.proto-pin .pnp-close:hover{color:#262626}
+.proto-pin .pnp-t{display:flex;align-items:center;gap:6px;font-weight:600;font-size:13px;color:#262626;padding-right:16px}
+.proto-pin .pnp-n{flex:none;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600}
+.proto-pin .pnp-d{margin-top:5px;color:#595959;line-height:1.6}
+.proto-pin .pnp-b{margin-top:6px;display:flex;gap:4px;flex-wrap:wrap}
+.proto-pin .pnp-tag{background:#f9f0ff;color:#722ed1;border-radius:3px;padding:0 6px;font-size:11px;line-height:20px}
+.proto-pin .pnp-src{margin-top:8px;padding-top:7px;border-top:1px dashed #e5dff0;font-size:11px;color:#595959;line-height:1.65}
+.proto-pin .pnp-src b{color:#722ed1;font-weight:600}
+.pn-fab{position:fixed;right:12px;bottom:12px;z-index:880;display:flex;align-items:center;gap:5px;height:24px;padding:0 10px;border-radius:4px;background:#fff;border:1px solid #ddd0ec;color:#722ed1;font-size:11px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.06);opacity:.6;transition:opacity .15s}
+.pn-fab:hover{opacity:1;border-color:#722ed1}
+body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
+.pn-fab .pn-fab-n{font-family:Consolas,monospace;font-weight:600}
+</style>
+<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>押金=设计预留字段</div><div class="pnp-d">押金为设计预留字段——两次会议均未涉及，收退与计价商务口径待客户确认（F01 财务通道注记同步）</div><div class="pnp-b"><span class="pnp-tag">FP4-02 · 库存查询·客户在租</span><span class="pnp-tag">REQ-03 · 包材租赁循环管理</span></div><div class="pnp-src"><div class="src-item"><b>FP4-02 库存查询·客户在租</b>：客户端(租出)按客户/项目下钻+资产轨迹（原在租台账 2026-09-10 并入库存查询）</div><div class="src-item"><b>REQ-03 包材租赁循环管理</b>：出库、退租、循环使用状态跟踪（围板箱/托盘/料箱）</div></div></div>
+<div class="pn-fab" id="protoNotesFab">标注</div></div>
+<script id="proto-notes-js">
+(function(){
+  var KEY='proto-notes-on';
+  function on(){return location.search.indexOf('notes=1')>-1||localStorage.getItem(KEY)==='1'}
+  function apply(){
+    document.body.classList.toggle('proto-notes-on',on());
+    var fab=document.getElementById('protoNotesFab');
+    if(fab){fab.innerHTML=on()?'收起':'标注 <span class="pn-fab-n">'+(document.querySelectorAll('[data-note]').length)+'</span>';fab.title=on()?'收起标注（Alt+N）':'显示标注（Alt+N）'}
+  }
+  function toggle(){var v=!on();localStorage.setItem(KEY,v?'1':'0');apply()}
+  document.addEventListener('keydown',function(e){if(e.altKey&&(e.key==='n'||e.key==='N')){e.preventDefault();toggle()}});
+  function place(el,pin){
+    var r=el.getBoundingClientRect(),sx=window.scrollX||0,sy=window.scrollY||0;
+    var w=pin.offsetWidth||248,h=pin.offsetHeight||90,vw=document.documentElement.clientWidth;
+    var x=r.right+sx+12;
+    if(x+w>sx+vw-8){var xl=r.left+sx-w-12;x=xl>=sx+8?xl:(sx+vw-w-8)}
+    var y=r.top+sy;
+    if(y+h>sy+document.documentElement.clientHeight-8)y=Math.max(sy+52,r.bottom+sy-h);
+    pin.style.left=x+'px';pin.style.top=y+'px';
+  }
+  document.addEventListener('click',function(e){
+    if(!on())return;
+    var tgt=e.target.closest?e.target.closest('[data-note]'):null;
+    if(tgt){
+      var r=tgt.getBoundingClientRect();
+      if(e.clientX>r.right-24&&e.clientY<r.top+22){
+        e.stopPropagation();e.preventDefault();
+        var pin=document.getElementById('proto-pin-'+tgt.getAttribute('data-note'));
+        if(pin){
+          if(pin.classList.contains('pn-open')){pin.classList.remove('pn-open')}
+          else{pin.classList.add('pn-open');place(tgt,pin)}
+        }
+      }
+    }
+  },true);
+  document.addEventListener('click',function(e){
+    var t=e.target;
+    var fab=t.closest?t.closest('.pn-fab'):null;
+    if(fab){toggle();return}
+    var pc=t.closest?t.closest('.proto-pin'):null;
+    if(pc){
+      if(t.classList&&t.classList.contains('pnp-close'))pc.classList.remove('pn-open');
+      return;
+    }
+  });
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply);else apply();
+})();
+</script>
 </body>
 </html>

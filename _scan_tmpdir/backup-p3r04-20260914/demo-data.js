@@ -88,37 +88,7 @@ window.DEMO_DATA = {
       ],
       timeline: [
         { t: '09-05', text: '预付款支付 · 记预付（路凯 ¥30,000）', who: '财务' },
-        { t: '09-12', text: '预付款部分退款 · 供应商退回 ¥10,000（啥都没买·原路退回，冲减预付）', who: '财务' },
         { t: '—', text: '每月 预付冲抵 · 租金应付生成后自预付冲抵', who: '系统', off: true }
-      ]
-    },
-   'AP-20260912-PRJ2601-YJT': {
-      'row': {"fields": {"supplier": "安吉智行物流", "btype": "对客户应付押金退还（ZL-20260901-032 结清·关联押金应收）", "project": "PRJ-2601", "period": "2026-09", "ref": "AR-20260910-PRJ2601-YJ", "inbound": "—", "date": "2026-09-12", "status": "未付款"}, "cells": ["安吉智行物流", "<span class=\"tag tag-purple\">对客户应付</span><div style=\"color:#8c8c8c;font-size:11px;\">押金退还（退客户·押金应收结清转来）</div>", "PRJ-2601", "2026-09", "<span class=\"lk\">AR-20260910-PRJ2601-YJ</span>", "—", "<span class=\"td-num\">30,000.00</span>", "<span class=\"td-num\">0.00</span>", "<span class=\"td-num\" style=\"color:var(--danger)\">30,000.00</span>", "2026-09-12", "2026-09-30", "<span class=\"tag tag-red\">未付款</span>"], "ops": [{"t": "账单确认", "act": "openModal('auditModal')"}, {"t": "详情", "detail": true}]},
-      billNo: 'AP-20260912-PRJ2601-YJT',
-      billType: '对客户应付',
-      status: '未付款',
-      supplier: '安吉智行物流',
-      project: 'PRJ-2601',
-      period: '2026-09',
-      amount: 30000,
-      paid: 0,
-      genMode: '押金退还联动',
-      scenario: '押金收退 · 应收应付承载（2026-09-14 拍板）',
-      refs: [
-        { label: '关联押金应收', no: 'AR-20260910-PRJ2601-YJ', url: '财务协同/应收账单.html' }
-      ],
-      fees: [
-        { src: 'AR-20260910-PRJ2601-YJ', desc: '租赁押金退还（ZL-20260901-032 退租结清）', amount: 30000, url: '财务协同/应收账单.html' }
-      ],
-      chain: [
-        { role: '押金应收', name: 'AR-20260910-PRJ2601-YJ · 押金', url: '财务协同/应收账单.html' },
-        { role: '应付账单（本单）', name: 'AP-20260912-PRJ2601-YJT · 押金退还', self: true },
-        { role: '付款登记', name: '待付款', url: '财务协同/付款登记.html' }
-      ],
-      timeline: [
-        { t: '09-10', text: '押金收取 · 记应收押金（AR-20260910-PRJ2601-YJ ¥30,000）', who: '财务' },
-        { t: '09-12', text: '退租结清 · 押金全额退还 → 生成对客户应付（本单）', who: '系统' },
-        { t: '—', text: '付款登记 · 确认后押金退清', who: '财务', off: true }
       ]
     },
 
@@ -497,33 +467,6 @@ window.DEMO_DATA = {
       timeline: [
         { t: '09-05', text: '预收款到账 · 记预收（安吉智行 ¥50,000）', who: '财务' },
         { t: '每月', text: '租金自预收冲抵 · 月度账单生成后自动冲抵', who: '系统', off: true }
-      ]
-    },
-   'AR-20260910-PRJ2601-YJ': {
-      'row': {"fields": {"period": "2026-09", "project": "PRJ-2601", "customer": "安吉智行物流", "btype": "押金客户交付租赁押金（ZL-20260901-032），退租结清后全额退还", "docs": "ZL-20260901-032", "gen": "手动登记", "date": "2026-09-10", "status": "已收"}, "cells": ["2026-09", "PRJ-2601", "安吉智行物流", "<span class=\"tag tag-orange\">押金</span><div style=\"color:#8c8c8c;font-size:11px;\">租赁押金 · 退时转对客户应付</div>", "ZL-20260901-032", "<span class=\"td-num\"><b>30,000.00</b></span>", "<span class=\"td-num\">0.00</span>", "<span class=\"tag tag-green\">已收</span>", "<span class=\"tag tag-blue\">手动登记</span>", "2026-09-10 14:30"], "ops": [{"t": "详情", "detail": true}]},
-      billNo: 'AR-20260910-PRJ2601-YJ',
-      billType: '押金',
-      status: '已收',
-      customer: '安吉智行物流',
-      project: 'PRJ-2601',
-      period: '2026-09',
-      amount: 30000,
-      verified: 0,
-      genMode: '手动登记',
-      genDate: '2026-09-10',
-      feeType: '押金（客户交付租赁押金 · ZL-20260901-032）',
-      scenario: '押金收退 · 应收应付承载（2026-09-14 拍板）',
-      fees: [
-        { src: 'ZL-20260901-032', desc: '租赁押金收取（退租结清后全额退还）', qty: '—', price: '—', amount: 30000 }
-      ],
-      chain: [
-        { role: '租赁单', name: 'ZL-20260901-032', url: '租赁管理/租赁单列表.html' },
-        { role: '应收账单（本单）', name: 'AR-20260910-PRJ2601-YJ · 押金', self: true },
-        { role: '对客户应付（退还）', name: 'AP-20260912-PRJ2601-YJT · 押金退还', url: '财务协同/应付账单.html' }
-      ],
-      timeline: [
-        { t: '09-10', text: '押金收取 · 记应收押金（安吉智行 ¥30,000）', who: '财务' },
-        { t: '09-12', text: '退租结清 · 押金全额退还 → 转对客户应付 AP-20260912-PRJ2601-YJT（待付款）', who: '系统' }
       ]
     },
 
