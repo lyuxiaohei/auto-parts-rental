@@ -1,19 +1,21 @@
 [
  {
-  "page": "mobile\\登录.html",
+  "page": "采购管理\\弹窗\\新建采购订单.html",
   "js_errors": [],
   "problems": [],
   "stats": {
-   "buttons": 2,
-   "links": 0,
-   "onclickEls": 0,
-   "modals": 0,
-   "modalTitles": [],
-   "selects": 0,
+   "buttons": 4,
+   "links": 1,
+   "onclickEls": 4,
+   "modals": 1,
+   "modalTitles": [
+    "新建采购订单(演示页)"
+   ],
+   "selects": 6,
    "fakeSelects": 0,
    "radios": 0,
    "checkboxes": 0,
-   "inputs": 2,
+   "inputs": 19,
    "stabs": 0,
    "tabs": 0,
    "bgMut": 0
@@ -22,12 +24,114 @@
   "nav_anomaly": null
  },
  {
-  "page": "登录.html",
+  "page": "采购管理\\弹窗\\采购订单审核.html",
   "js_errors": [],
   "problems": [],
-  "stats": {},
+  "stats": {
+   "buttons": 2,
+   "links": 1,
+   "onclickEls": 3,
+   "modals": 1,
+   "modalTitles": [
+    "审核确认(演示页)"
+   ],
+   "selects": 0,
+   "fakeSelects": 0,
+   "radios": 2,
+   "checkboxes": 0,
+   "inputs": 1,
+   "stabs": 0,
+   "tabs": 0,
+   "bgMut": 0
+  },
   "dead_links": [],
-  "nav_anomaly": null,
-  "audit_error": "Error: Page.evaluate: Execution context was destroyed, most likely because of a navigation."
+  "nav_anomaly": null
+ },
+ {
+  "page": "采购管理\\弹窗\\采购订单详情.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 1,
+   "links": 1,
+   "onclickEls": 6,
+   "modals": 1,
+   "modalTitles": [
+    "采购订单详情 · PO-20260902(演示页)"
+   ],
+   "selects": 0,
+   "fakeSelects": 0,
+   "radios": 0,
+   "checkboxes": 0,
+   "inputs": 0,
+   "stabs": 0,
+   "tabs": 0,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "采购管理\\采购订单列表.html",
+  "js_errors": [],
+  "problems": [
+   {
+    "cat": "输入框",
+    "type": "input-not-editable",
+    "phase": "modal",
+    "where": {
+     "tag": "input",
+     "id": "",
+     "cls": "auto",
+     "text": "",
+     "row": "WBX-1210L 围板箱 12",
+     "inModal": "createModal"
+    },
+    "detail": "readonly 不可输入（预填:7,250.00）"
+   },
+   {
+    "cat": "输入框",
+    "type": "input-not-editable",
+    "phase": "modal",
+    "where": {
+     "tag": "input",
+     "id": "",
+     "cls": "auto",
+     "text": "",
+     "row": "LJ-B200WBX-1210L",
+     "inModal": "createModal"
+    },
+    "detail": "readonly 不可输入（预填:3,720.00）"
+   },
+   {
+    "cat": "弹窗",
+    "type": "modal-unreachable",
+    "phase": "modal",
+    "where": {
+     "text": "采购订单详情"
+    },
+    "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
+   }
+  ],
+  "stats": {
+   "buttons": 12,
+   "links": 15,
+   "onclickEls": 51,
+   "modals": 3,
+   "modalTitles": [
+    "新建采购订单",
+    "审核确认"
+   ],
+   "selects": 10,
+   "fakeSelects": 0,
+   "radios": 2,
+   "checkboxes": 0,
+   "inputs": 31,
+   "stabs": 5,
+   "tabs": 3,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
  }
 ]
