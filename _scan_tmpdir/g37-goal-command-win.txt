@@ -1,0 +1,43 @@
+/goal 移动端样板风样式优化（G37）：mobile/ 五页+共享件按 Axure 样板风优化，全程无人值守。工作目录（命令与交接文档全部相对路径之根，不依赖会话 cwd）：D:\工作台-吕道远\5-【ACTIVE】汽车物流包装租赁\
+
+【交接文档 · 双层路由，先读全文再动手】
+D:\工作台-吕道远\5-【ACTIVE】汽车物流包装租赁\agent-handoff\_AGENT基线.md（项目上下文与铁律，常驻滚动）
+D:\工作台-吕道远\5-【ACTIVE】汽车物流包装租赁\agent-handoff\20260915-G37-移动端样板风样式优化.md（本 goal 任务全量细则：样式基准/锚点图清单/任务组 T0~T8/默认决策表/验证门/独立验收提示词）
+
+【前置校验 · 先于一切】
+1. _AGENT基线.md 无 G37 完成追记（grep 命中 0 或仅索引待执行行）
+2. backup-g37-20260915\ 与 _scan_tmpdir\goal-failures-g37.md 均不存在
+3. 原型目录最近文件 mtime ≥30 分钟无变化（单写者互斥，含 G35/G36 并行检测）
+任一不符 = 已执行/并发 → 写失败清单（D:\工作台-吕道远\5-【ACTIVE】汽车物流包装租赁\_scan_tmpdir\goal-failures-g37.md）后收尾，禁止重做
+
+【任务】
+T0 备份 mobile/ → backup-g37-20260915\mobile\ + 核对样式锚点图 12 张（_scan_tmpdir\g37_ref\）
+T1 _m.css 三组件增量（.m-banner 状态横幅/.m-timeline 审批进度/.m-hero 我的头部）
+T2 待办审批卡片对齐样板（统计卡下钻交互零变更）
+T3 审批详情状态横幅+审批进度时间线（静态两节点，不造数据）
+T4 我的 hero+统计三格实算+cell 分组卡+版本 v1.2
+T5 库存查询视觉抛光（卡片形态/交互/数据零变更）
+T6 登录 hero 抛光+版本 v1.2（m-auth 逻辑零改动）
+T7 _m.js 默认零改动，改则必跑 node --check
+T8 验证门取证→独立验收→回写三件
+
+【完成判定 · 证据全部贴进对话】
+1. python _scan_tmpdir\audit_interaction.py → 输出「128 页 0/0/0」+mobile 五页各自 0/0+与执行时最新 baseline 逐键 diff 新增 0（输出贴出）
+2. node --check mobile\_m.js → 退出码 0（未改动则注明跳过）
+3. Playwright 五页断言清单全 PASS（任务书第九节第 3 条逐项清单）+全页截图 5 张存 _scan_tmpdir\g37_after\ → PW 输出逐页 PASS/FAIL 清单贴出
+4. grep mobile/ PC 类名命中 0 + go( 调用次数五页不减少（输出贴出）
+5. 独立验收：派子 agent（只读）按 1~4 逐项复验（自查取证不引用执行者自述），其逐项 [PASS/FAIL] 结论与总判定行原样贴进对话
+6. 失败清单结论行贴出（空清单给「无失败项」结论）
+
+【约束】
+- 只写 mobile\ 五页+_m.css+_m.js 与自有产物；PC 页面/demo-data/菜单/A02~A06/F01 零改动
+- 无人值守：不提问，按任务书默认决策表执行，拿不准按最简合理默认+收尾注明
+- 企微 H5 骨架件（状态栏/胶囊/手机外框/小程序导航栏）不引入；主色 #1677ff 不变，禁新造蓝色
+- m-auth/m-done/go()/mGuard 键名与逻辑零改动；类名 m- 前缀，禁 PC 类名（.modal/.btn/.filter-bar 等）
+- 读取-精确替换+assert 计数+幂等，禁裸整页写；改后标签配平自检；新增 onclick 自带 DOM 副作用
+- 完成判定不得自证：独立子 agent 只读复验，判 FAIL 修复后重派（同一项最多 2 轮），仍不过记失败清单并保留原状
+- 执行完成后回写三件（硬性）：任务文档标完成+执行记录+commit 哈希回填；_索引.md G37 行挂哈希；_AGENT基线.md 追记 G37 段
+- git 批次（硬性）：git add -A 一次提交，禁 push
+- assert 失败 → 跳过 → 记失败清单 → 继续
+
+or stop after 80 turns

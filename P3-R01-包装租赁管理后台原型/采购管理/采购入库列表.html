@@ -352,7 +352,7 @@ th.td-num { text-align:right; }
   <div class="filter-grid">
     <div class="ff"><span class="ff-label">入库单号：</span><input placeholder="请输入入库单号"></div>
     <div class="ff"><span class="ff-label">供应商：</span>
-      <select><option value="">全部</option><option>宁波华塑包装制品有限公司</option><option>苏州联恒五金制品有限公司</option><option>常州正大塑料托盘厂</option><option>路凯包装运营（上海）有限公司</option></select>
+      <select><option value="">全部</option><option>甬城塑业包装制品有限公司</option><option>吴越联合五金制品有限公司</option><option>延陵塑料托盘厂</option><option>环通循环包装运营（上海）有限公司</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
     <div class="ff"><span class="ff-label">所属项目：</span>
@@ -364,6 +364,8 @@ th.td-num { text-align:right; }
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
     <div class="ff ff-row-extra"><span class="ff-label">入库时间：</span><input placeholder="开始日期"><span class="ff-sep">→</span><input placeholder="结束日期"></div>
+    <div class="ff ff-row-extra"><span class="ff-label">制单人：</span><select id="g35MakerSel"><option selected>全部</option></select><svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+    <div class="ff ff-row-extra"><span class="ff-label">入库库区：</span><select id="g35AreaSel"><option selected>全部</option></select><svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
     <div class="filter-actions">
       <button class="link-collapse" onclick="var f=document.getElementById('filterCard');f.classList.toggle('collapsed');this.querySelector('span').textContent=f.classList.contains('collapsed')?'展开':'收起'"><span>展开</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
       <button class="btn btn-default">重置</button>
@@ -406,112 +408,112 @@ th.td-num { text-align:right; }
         <tr>
           <td><input type="checkbox" class="cb"></td>
           <td><span class="lk">CGRK-20260828-012</span></td>
-          <td>苏州联恒五金制品有限公司</td>
+          <td>吴越联合五金制品有限公司</td>
           <td><span class="lk">PO-20260828-015</span></td>
           <td>PRJ-2601</td>
           <td>零部件采购</td>
           <td><span class="td-num">40 托</span></td>
           <td>原料区 RA</td>
           <td><span class="tag tag-green">已入库</span></td>
-          <td>张伟</td>
+          <td>张帆</td>
           <td>2026-08-28 14:32</td>
           <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('auditModal')">验收</a><a onclick="window.print();this.classList.toggle('printed')">打印</a><a onclick="go('../财务协同/应付账单.html')">应付账单</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
           <td data-note="2"><span class="lk">CGRK-20260828-011</span></td>
-          <td>宁波华塑包装制品有限公司</td>
+          <td>甬城塑业包装制品有限公司</td>
           <td><span class="lk">PO-20260901-017</span></td>
           <td>PRJ-2601</td>
           <td>器具采购</td>
           <td><span class="td-num">25 托</span></td>
           <td>原料区 RA</td>
           <td><span class="tag tag-green">已入库</span></td>
-          <td>张伟</td>
+          <td>张帆</td>
           <td>2026-08-28 10:05</td>
           <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('auditModal')">验收</a><a onclick="window.print();this.classList.toggle('printed')">打印</a><a onclick="go('../财务协同/应付账单.html')">应付账单</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
           <td><span class="lk">CGRK-20260827-010</span></td>
-          <td>常州正大塑料托盘厂</td>
+          <td>延陵塑料托盘厂</td>
           <td><span class="lk">PO-20260820-013</span></td>
           <td>PRJ-2602</td>
           <td>器具采购</td>
           <td><span class="td-num">18 托</span></td>
           <td>成品区 RB</td>
           <td><span class="tag tag-green">已入库</span></td>
-          <td>李国栋</td>
+          <td>林国栋</td>
           <td>2026-08-27 16:44</td>
           <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('auditModal')">验收</a><a onclick="window.print();this.classList.toggle('printed')">打印</a><a onclick="go('../财务协同/应付账单.html')">应付账单</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
           <td><span class="lk">CGRK-20260827-009</span></td>
-          <td>苏州联恒五金制品有限公司</td>
+          <td>吴越联合五金制品有限公司</td>
           <td><span class="lk">PO-20260902-018</span></td>
           <td>PRJ-2602</td>
           <td>零部件采购</td>
           <td><span class="td-num">12 托</span></td>
           <td>原料区 RA</td>
           <td><span class="tag tag-orange">待验收</span></td>
-          <td>李国栋</td>
+          <td>林国栋</td>
           <td>2026-08-27 09:20</td>
           <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('auditModal')">验收</a><a onclick="window.print();this.classList.toggle('printed')">打印</a><a onclick="go('../财务协同/应付账单.html')">应付账单</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
           <td><span class="lk">CGRK-20260826-008</span></td>
-          <td>宁波华塑包装制品有限公司</td>
+          <td>甬城塑业包装制品有限公司</td>
           <td><span class="lk">PO-20260825-014</span></td>
           <td>PRJ-2603</td>
           <td>器具采购</td>
           <td><span class="td-num">9 托</span></td>
           <td>原料区 RA</td>
           <td><span class="tag tag-green">已入库</span></td>
-          <td>张伟</td>
+          <td>张帆</td>
           <td>2026-08-26 15:10</td>
           <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('auditModal')">验收</a><a onclick="window.print();this.classList.toggle('printed')">打印</a><a onclick="go('../财务协同/应付账单.html')">应付账单</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
           <td><span class="lk">CGRK-20260825-006</span></td>
-          <td>常州正大塑料托盘厂</td>
+          <td>延陵塑料托盘厂</td>
           <td><span class="lk">PO-20260830-016</span></td>
           <td>PRJ-2603</td>
           <td>器具采购</td>
           <td><span class="td-num">22 托</span></td>
           <td>成品区 RB</td>
           <td><span class="tag tag-green">已入库</span></td>
-          <td>张伟</td>
+          <td>张帆</td>
           <td>2026-08-25 11:02</td>
           <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('auditModal')">验收</a><a onclick="window.print();this.classList.toggle('printed')">打印</a><a onclick="go('../财务协同/应付账单.html')">应付账单</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
           <td data-note="1"><span class="lk">CGRK-20260824-005</span></td>
-          <td>苏州联恒五金制品有限公司</td>
+          <td>吴越联合五金制品有限公司</td>
           <td><span class="lk">PO-20260815-012</span></td>
           <td>PRJ-2604</td>
           <td>零部件采购</td>
           <td><span class="td-num">6 托</span></td>
           <td>原料区 RA</td>
           <td><span class="tag tag-green">已入库</span></td>
-          <td>李国栋</td>
+          <td>林国栋</td>
           <td>2026-08-24 14:18</td>
           <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('auditModal')">验收</a><a onclick="window.print();this.classList.toggle('printed')">打印</a><a onclick="go('../财务协同/应付账单.html')">应付账单</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
           <td data-note="3"><span class="lk">CGRK-20260820-006</span></td>
-          <td>苏州联恒五金制品有限公司</td>
+          <td>吴越联合五金制品有限公司</td>
           <td><span class="lk">PO-20260815-012</span></td>
           <td>PRJ-2604</td>
           <td>器具采购</td>
           <td><span class="td-num">80 件（折叠隔板）</span></td>
           <td>原料区 RA</td>
           <td><span class="tag tag-green">已入库</span></td>
-          <td>张伟</td>
+          <td>张帆</td>
           <td>2026-08-20 14:30</td>
           <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('auditModal')">验收</a><a onclick="window.print();this.classList.toggle('printed')">打印</a></span></td>
         </tr>
@@ -551,8 +553,8 @@ th.td-num { text-align:right; }
         <div class="drow"><div class="dlabel">单据编号</div><div class="dval">CGRK-20260827-009</div></div>
         <div class="drow"><div class="dlabel">单据类型</div><div class="dval">采购入库单</div></div>
         <div class="drow"><div class="dlabel">到货数量</div><div class="dval">12 托（零部件）</div></div>
-        <div class="drow"><div class="dlabel">提交人 / 时间</div><div class="dval">李国栋 / 2026-08-27 09:20</div></div>
-        <div class="drow"><div class="dlabel">审核人（按角色配置）</div><div class="dval">物流主管 · 李国栋</div></div>
+        <div class="drow"><div class="dlabel">提交人 / 时间</div><div class="dval">林国栋 / 2026-08-27 09:20</div></div>
+        <div class="drow"><div class="dlabel">审核人（按角色配置）</div><div class="dval">物流主管 · 林国栋</div></div>
         <div class="drow" style="grid-column:1/-1;"><div class="dlabel">备注</div><div class="dval">验收通过后库存入账，并可生成应付账单</div></div>
       </div>
       <div class="form-row">
@@ -615,9 +617,32 @@ renderListPage({
     { label: '供应商', field: 'supplier' },
     { label: '所属项目', field: 'project' },
     { label: '入库状态', field: 'status' },
-    { label: '入库时间', field: 'inTime', range: true }
+    { label: '入库时间', field: 'inTime', range: true },
+    { label: '制单人', field: 'maker' },
+    { label: '入库库区', field: 'area' }
   ]
 });
+</script>
+<script>/* G35 筛选值域动态渲染（实体/字典取值·渲染失败保留静态兜底） */
+(function () {
+  var D = window.DEMO_DATA || {};
+  function fill(id, vals) {
+    if (!vals || !vals.length) return;
+    var s = document.getElementById(id);
+    if (s) s.innerHTML = '<option selected>全部</option>' + vals.map(function (o) { return '<option>' + o + '</option>'; }).join('');
+  }
+  function ent(e, fld) {
+    var out = [];
+    Object.keys(D[e] || {}).forEach(function (k) {
+      var f = (D[e][k].row || {}).fields || {};
+      var v = f[fld];
+      if (v && out.indexOf(v) < 0) out.push(v);
+    });
+    return out;
+  }
+  fill('g35MakerSel', ent('purchaseInbounds', 'maker'));
+  fill('g35AreaSel', ent('purchaseInbounds', 'area'));
+})();
 </script>
 <script>
 /* ===== 菜单折叠 / 页签与表单视觉态（统一脚本） ===== */
@@ -849,9 +874,9 @@ body.proto-notes-on .proto-pin.pn-open{display:block}
 body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 .pn-fab .pn-fab-n{font-family:Consolas,monospace;font-weight:600}
 </style>
-<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>B1 采购线 · 步骤 2/3 采购入库（零部件）</div><div class="pnp-d">凭采购订单到货验收——信息与物资匹配才闭环（王琳总 1:35）。进什么出什么，不参与组合（出库时按 BOM 组合扣减组件，无组装环节·2026-09-08）。<br>下一步 → 库存缓冲→ 销售线按可用量发货。</div></div>
-<div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>L1/L2 · 步骤 2 资产入库（器具采购）</div><div class="pnp-d">上一步 ← 采购订单（器具类，凭订单验收）。「采购入库是属于我的资产的一个入库」（袁丽晶 24:50）。<br>器具买断成自有资产，服务 L1 单一出租与 L2 组合出租。</div></div>
-<div class="proto-pin" id="proto-pin-3"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">3</span>L4 · 步骤 2/10 自购隔板入库</div><div class="pnp-d">混合转租的自购侧：折叠隔板×80（苏州联恒），凭采购订单 PO-20260815-012 验收入库。<br>与 RZD-20260815-005（租入大箱×10）共同组成混合配方 → 按 BOM 租赁出库（无组装单·2026-09-08）。</div></div>
+<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>B1 采购线 · 步骤 2/3 采购入库（零部件）</div><div class="pnp-d">凭采购订单到货验收——信息与物资匹配才闭环（沈总 1:35）。进什么出什么，不参与组合（出库时按 BOM 组合扣减组件，无组装环节·2026-09-08）。<br>下一步 → 库存缓冲→ 销售线按可用量发货。</div></div>
+<div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>L1/L2 · 步骤 2 资产入库（器具采购）</div><div class="pnp-d">上一步 ← 采购订单（器具类，凭订单验收）。「采购入库是属于我的资产的一个入库」（严丽 24:50）。<br>器具买断成自有资产，服务 L1 单一出租与 L2 组合出租。</div></div>
+<div class="proto-pin" id="proto-pin-3"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">3</span>L4 · 步骤 2/10 自购隔板入库</div><div class="pnp-d">混合转租的自购侧：折叠隔板×80（吴越联合），凭采购订单 PO-20260815-012 验收入库。<br>与 RZD-20260815-005（租入大箱×10）共同组成混合配方 → 按 BOM 租赁出库（无组装单·2026-09-08）。</div></div>
 <style id="f01-fab-style">.fab-row{position:fixed;right:12px;bottom:12px;z-index:880;display:flex;align-items:center;gap:6px}.fab-row .pn-fab{position:static}.f01-fab{display:flex;text-decoration:none;align-items:center;height:24px;padding:0 10px;border-radius:4px;background:#fff;border:1px solid #d9d9d9;color:#8c8c8c;font-size:11px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.06);opacity:.6;transition:opacity .15s}.f01-fab:hover{opacity:1;border-color:#722ed1;color:#722ed1}</style><div class="fab-row"><a class="f01-fab" href="../P3-R01-F01-业务流程导航图.html">流程图</a><div class="pn-fab" id="protoNotesFab">标注</div></div></div>
 <script id="proto-notes-js">
 (function(){

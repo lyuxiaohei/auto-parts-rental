@@ -408,8 +408,8 @@ th.td-num { text-align:right; }
         </tr>
             <tr>
           <td><input type="checkbox" class="cb"></td>
-          <td><span class="lk">chenjin</span></td>
-          <td>陈金</td>
+          <td><span class="lk">chenfeng</span></td>
+          <td>陈锋</td>
           <td><span class="tag tag-blue">系统管理员</span></td>
           
           <td>全部数据</td>
@@ -421,7 +421,7 @@ th.td-num { text-align:right; }
             <tr>
           <td><input type="checkbox" class="cb"></td>
           <td><span class="lk">zhangwei</span></td>
-          <td>张伟</td>
+          <td>张帆</td>
           <td><span class="tag tag-green">物流</span></td>
           
           <td>全部项目 · 仓储作业</td>
@@ -432,8 +432,8 @@ th.td-num { text-align:right; }
         </tr>
             <tr>
           <td><input type="checkbox" class="cb"></td>
-          <td><span class="lk">liguodong</span></td>
-          <td>李国栋</td>
+          <td><span class="lk">linguodong</span></td>
+          <td>林国栋</td>
           <td><span class="tag tag-green">物流主管</span></td>
           
           <td>全部项目 · 仓储作业 + 出/入库审核</td>
@@ -445,7 +445,7 @@ th.td-num { text-align:right; }
             <tr>
           <td><input type="checkbox" class="cb"></td>
           <td><span class="lk">lijing</span></td>
-          <td>李静</td>
+          <td>李婧</td>
           <td><span class="tag tag-orange">财务</span></td>
           
           <td>全部项目 · 财务管理</td>
@@ -468,8 +468,8 @@ th.td-num { text-align:right; }
         </tr>
             <tr>
           <td><input type="checkbox" class="cb"></td>
-          <td><span class="lk">wangqiang</span></td>
-          <td>王强</td>
+          <td><span class="lk">jiangqiang</span></td>
+          <td>江强</td>
           <td><span class="tag tag-green">商务</span></td>
           
           <td>全部项目 · 订单/项目</td>
@@ -481,7 +481,7 @@ th.td-num { text-align:right; }
             <tr>
           <td><input type="checkbox" class="cb"></td>
           <td><span class="lk">wanglin</span></td>
-          <td>王琳</td>
+          <td>沈婷</td>
           <td><span class="tag tag-green">商务主管</span></td>
           
           <td>全部项目 · 订单 + 租赁单审核</td>
@@ -679,29 +679,10 @@ renderListPage({
     { label: '角色', field: 'role' },
     { label: '状态', field: 'status' },
     { label: '状态', field: 'status' },
+    { label: '状态', field: 'status' },
     { label: '数据权限范围', field: 'scope' }
   ]
 });
-</script>
-<script>/* G35 筛选值域动态渲染（实体/字典取值·渲染失败保留静态兜底） */
-(function () {
-  var D = window.DEMO_DATA || {};
-  function fill(id, vals) {
-    if (!vals || !vals.length) return;
-    var s = document.getElementById(id);
-    if (s) s.innerHTML = '<option selected>全部</option>' + vals.map(function (o) { return '<option>' + o + '</option>'; }).join('');
-  }
-  function ent(e, fld) {
-    var out = [];
-    Object.keys(D[e] || {}).forEach(function (k) {
-      var f = (D[e][k].row || {}).fields || {};
-      var v = f[fld];
-      if (v && out.indexOf(v) < 0) out.push(v);
-    });
-    return out;
-  }
-  fill('g35StatusSel', ent('users', 'status'));
-})();
 </script>
 <script>/* G35 筛选值域动态渲染（实体/字典取值·渲染失败保留静态兜底） */
 (function () {

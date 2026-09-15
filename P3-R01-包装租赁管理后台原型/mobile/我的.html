@@ -44,9 +44,9 @@
 <script>
 /* ---- 我的：登录人卡片（roles 实体取角色名）+ 退出登录（清 m-auth） ---- */
 (function () {
-  var u = mUser() || { name: '王琳', role: '商务主管' };
+  var u = mUser() || { name: '沈婷', role: '商务主管' };
 
-  /* 角色名从 roles 实体校验取数（王琳=todoItems 审核人，users 实体无此演示账号，角色按商务主管取） */
+  /* 角色名从 roles 实体校验取数（沈婷=todoItems 审核人，users 实体无此演示账号，角色按商务主管取） */
   var roleName = u.role;
   mRows('roles').forEach(function (r) {
     if (r.row.fields && r.row.fields.name === u.role) roleName = r.row.fields.name;

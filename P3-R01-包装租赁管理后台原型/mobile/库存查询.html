@@ -83,7 +83,7 @@ function mPick(el) {   // chip 点击：切换 active + 重渲染（DOM 副作�
 document.getElementById('m-q').oninput = function () { mState.q = this.value.trim(); mRender(); };
 
 (function () {
-  var u = mUser() || { name: '王琳', role: '商务主管' };
+  var u = mUser() || { name: '沈婷', role: '商务主管' };
   document.getElementById('m-hd-sub').textContent = u.name + ' · ' + mStockRows.length + ' 种物料';
   mRender();
   mGuard();   // 免二次登录守卫

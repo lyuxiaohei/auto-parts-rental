@@ -135,7 +135,7 @@ JOBS = [
   "  fill('g35WhSel', ent('returnInbounds', 'warehouse'));\n"),
  ('采购管理\\采购入库列表.html',
   [('    <div class="filter-actions">', sel_ff('制单人', 'g35MakerSel') + sel_ff('入库库区', 'g35AreaSel'))],
-  [("    { label: '业务类型', field: 'bizType' }\n", "    { label: '业务类型', field: 'bizType' },\n    { label: '制单人', field: 'maker' },\n    { label: '入库库区', field: 'area' }\n")],
+  [("    { label: '入库时间', field: 'inTime', range: true }\n", "    { label: '入库时间', field: 'inTime', range: true },\n    { label: '制单人', field: 'maker' },\n    { label: '入库库区', field: 'area' }\n")],
   "  fill('g35MakerSel', ent('purchaseInbounds', 'maker'));\n  fill('g35AreaSel', ent('purchaseInbounds', 'area'));\n"),
  ('销售管理\\销售出库列表.html',
   [('    <div class="filter-actions">', sel_ff('出库库房', 'g35WhSel'))],
@@ -184,7 +184,18 @@ t2, ok2 = rep(p, t2,
               '<select><option selected>全部</option><option>全部用户</option><option>我方</option><option>客户</option><option>供应商</option></select>',
               '<select id="g35StatusSel"><option selected>全部</option></select>', 1, 'users select')
 if ok1 and ok2:
-    t2, ok3 = insert_fill_after_cfg(p, t2, "  fill('g35StatusSel', ent('users', 'status'));\n", 'users fill')
+    ok3 = True
+    # 重复 fill 脚本去重（并行会话覆写期可能引入双份）
+    if t2.count(FILL_MARK) > 1:
+        eol = eol_of(t2)
+        ff = eolize(fill_body_js("  fill('g35StatusSel', ent('users', 'status'));\n").rstrip('\n'), eol)
+        first = t2.find(ff)
+        second = t2.find(ff, first + 1)
+        if second > -1:
+            t2 = t2[:second].rstrip() + t2[second + len(ff):]
+            print('  用户权限 fill 脚本去重完成')
+    if FILL_MARK not in t2:
+        t2, ok3 = insert_fill_after_cfg(p, t2, "  fill('g35StatusSel', ent('users', 'status'));\n", 'users fill')
     if ok3:
         wr(p, t2)
         print('  OK 用户权限 状态接线')
@@ -274,26 +285,31 @@ else:
         cj = l.find('"cells": [') + len('"cells": [')
         ce = l.find(', "ops"', cj)
         cells = [re.sub(r'<[^>]+>', '', m.group(1)) for m in CELL.finditer(l[cj:ce if ce > -1 else l.find(']} ', cj)])]
-        assert len(cells) >= 9, 'PI cells 不足: %d' % len(cells)
+        # D-129 后 cells 去第 4 格（业务类型）：[supplier,PO,project,qty,area,status,maker,time] → area=4, maker=6
+        assert len(cells) >= 8, 'PI cells 不足: %d' % len(cells)
         m2 = re.search(r'("inTime": "[^"]*")\}', l)
         assert m2, 'PI inTime 锚未命中: ' + l[:60]
-        return l.replace(m2.group(0), m2.group(1) + ', "maker": "%s", "area": "%s"}' % (cells[7], cells[5]))
+        return l.replace(m2.group(0), m2.group(1) + ', "maker": "%s", "area": "%s"}' % (cells[6], cells[4]))
 
     try:
-        already = '"result": "成功"' in t and '"result": "失败"' in t
-        if already:
-            print('opLogs result 已补过，跳过')
+        def blk_count(header, key):
+            i0 = next(i for i, l in enumerate(lines) if l.startswith(header))
+            i1 = next(i for i, l in enumerate(lines) if i > i0 and l == '  },')
+            return sum(1 for l in lines[i0:i1] if "'row'" in l and key in l)
+        op_done = blk_count('  opLogs: {', '"result"')
+        if op_done >= 10:
+            print('opLogs result 已补过(%d)，跳过' % op_done)
         else:
             lines, op_n = patch_block(lines, '  opLogs: {',
-                lambda l: "'row': {\"fields\"" in l and 'LOG-' in l and '"result"' not in l, op_patch, 10)
-            print('opLogs rows patched:', op_n)
-        already2 = '"maker": "' in t.split('purchaseInbounds: {')[1].split('\n  },')[0] if 'purchaseInbounds: {' in t else False
-        if already2:
-            print('purchaseInbounds maker/area 已补过，跳过')
+                lambda l: "'row': {\"fields\"" in l and 'LOG-' in l and '"result"' not in l, op_patch, 10 - op_done)
+            print('opLogs rows patched:', op_n, '(已存在 %d)' % op_done)
+        pi_done = blk_count('  purchaseInbounds: {', '"maker"')
+        if pi_done >= 8:
+            print('purchaseInbounds maker/area 已补过(%d)，跳过' % pi_done)
         else:
             lines, pi_n = patch_block(lines, '  purchaseInbounds: {',
-                lambda l: "'row': {\"fields\"" in l and '"inTime"' in l and '"maker"' not in l, pi_patch, 8)
-            print('purchaseInbounds rows patched:', pi_n)
+                lambda l: "'row': {\"fields\"" in l and '"inTime"' in l and '"maker"' not in l, pi_patch, 8 - pi_done)
+            print('purchaseInbounds rows patched:', pi_n, '(已存在 %d)' % pi_done)
         wr(p, eol.join(lines))
         print('demo-data written')
     except AssertionError as e:

@@ -593,7 +593,7 @@ th.td-num { text-align:right; }
 <!-- 弹窗已提取到 弹窗/新建器具.html，构建时注入 -->
 <div class="modal-overlay" id="createModal">
   <style>
-  /* 2026-09-14 道远拍板：新建物料弹窗加宽 900px+两列布局，消除横竖滚动条（四参考价+三段式+税率区内容增量后 640px 单列溢出） */
+  /* 2026-09-14 陆鸣拍板：新建物料弹窗加宽 900px+两列布局，消除横竖滚动条（四参考价+三段式+税率区内容增量后 640px 单列溢出） */
   #createModal .modal{width:900px;max-width:94vw;}
   #createModal .modal-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:18px;align-content:start;}
   #createModal .form-row{margin-bottom:14px;}
@@ -690,7 +690,7 @@ th.td-num { text-align:right; }
     </div>
   </div>
 
-<script>/* G21 租价三段式联动：计费方式(按时间周期/按次)×周期单位(月/年/日·默认月)+数值，后缀=元/计量单位·周期（单位取同表单「单位」下拉）；按次→周期单位隐藏（2026-09-14 道远拍板·原为禁用置灰） */ function g21RentHint(p){var m=document.getElementById(p+'ModeSel').value;var u=document.getElementById(p+'UnitSel');u.disabled=(m==='按次');var ub=document.getElementById(p+'UnitBox');if(ub)ub.style.display=(m==='按次')?'none':'';var us=document.getElementById('unitSel');var unit=us?us.value:'只';document.getElementById(p+'Hint').textContent='元/'+unit+'·'+(m==='按次'?'次':u.value);};
+<script>/* G21 租价三段式联动：计费方式(按时间周期/按次)×周期单位(月/年/日·默认月)+数值，后缀=元/计量单位·周期（单位取同表单「单位」下拉）；按次→周期单位隐藏（2026-09-14 陆鸣拍板·原为禁用置灰） */ function g21RentHint(p){var m=document.getElementById(p+'ModeSel').value;var u=document.getElementById(p+'UnitSel');u.disabled=(m==='按次');var ub=document.getElementById(p+'UnitBox');if(ub)ub.style.display=(m==='按次')?'none':'';var us=document.getElementById('unitSel');var unit=us?us.value:'只';document.getElementById(p+'Hint').textContent='元/'+unit+'·'+(m==='按次'?'次':u.value);};
 /* G34 T4（D-127）：物料备注字数计数（maxlength=200·满额标红） */
 window.g34TaCount=function(ta,cid,mx){var el=document.getElementById(cid);if(!el)return;var n=ta.value.length;el.textContent=n+'/'+mx;el.classList.toggle('over',n>=mx);};</script></div>
 
