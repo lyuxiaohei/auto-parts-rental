@@ -25,7 +25,13 @@ with sync_playwright() as p:
     print('=== 采购订单新建.html ===')
     pg.goto(NEW.as_uri()); pg.wait_for_timeout(900)
     chk('JS 错误为 0', len(errs) == 0, str(errs[:2]))
-    chk('三卡结构', pg.evaluate("document.querySelectorAll('.content .card').length") == 3)
+    chk('两卡结构（订单信息/采购明细）', pg.evaluate("document.querySelectorAll('.content .card').length") == 2)
+    _ta = pg.evaluate("""() => { const ta=document.querySelector('textarea'); if(!ta) return null;
+      const card=ta.closest('.card'); const rows=[...card.querySelectorAll('.form-row')];
+      return {h:Math.round(ta.getBoundingClientRect().height), card:card.querySelector('.card-title').textContent.trim(),
+              isLast: rows[rows.length-1]===ta.closest('.form-row')}; }""")
+    chk('备注=文本域·高72px·在表单卡末尾', bool(_ta) and _ta['h'] >= 60 and _ta['card'] == '订单信息' and _ta['isLast'], str(_ta))
+    chk('「随附信息」独立卡已删', pg.evaluate("""() => !document.body.innerHTML.includes('随附信息')"""))
     chk('明细行=2', pg.evaluate("document.querySelectorAll('.edit-tbl tbody tr').length") == 2)
     chk('明细列=11', pg.evaluate("document.querySelectorAll('.edit-tbl tbody tr')[0].querySelectorAll('td').length") == 11)
 
