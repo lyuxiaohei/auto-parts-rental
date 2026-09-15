@@ -375,7 +375,7 @@ th.td-num { text-align:right; }
 <div class="card">
   <div class="card-head">
     <h3 class="card-title">字典项 · 缺损类型</h3>
-    <div class="head-btns"><button class="btn btn-sm" onclick="openModal('createModal')">新增字典项</button></div>
+    <div class="head-btns"><button class="btn btn-sm" onclick="go('../系统管理/字典项新建.html')">新增字典项</button></div>
   </div>
   <div class="table-wrap">
     <table>
@@ -521,41 +521,7 @@ th.td-num { text-align:right; }
 
 
 
-<!-- 弹窗已提取到 弹窗/新增字典项.html，构建时注入 -->
-<div class="modal-overlay" id="createModal">
-  <div class="modal">
-    <div class="modal-header">
-      <h3 class="modal-title">新增字典项</h3>
-      <span class="modal-close" onclick="closeModal('createModal')">×</span>
-    </div>
-    <div class="modal-body">
-<div class="form-row">
-    <span class="form-label"><span class="req">*</span>字典分类</span>
-    <div class="input-box select-box"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>缺损类型</option><option>全部</option><option>待定选项（演示数据）</option><option>库存状态</option><option>入库类型</option><option>出库类型</option><option>应收账单类型</option><option>应付账单类型</option><option>费用分类</option><option>发票类型</option><option>客商类型</option><option>数据权限范围</option><option>盘点口径</option><option>周期单位</option><option>物料分类</option><option>待办单据类型</option><option>消息类型</option><option>退货类型</option><option>退款类型</option><option>供应商税率</option><option>结算周期</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
-  </div><div class="form-row">
-    <span class="form-label"><span class="req">*</span>字典项编码</span>
-    <div class="input-box"><input placeholder="如 DAMAGE-05"></div>
-  </div><div class="form-row">
-    <span class="form-label">简码</span>
-    <div class="input-box"><input value="QS" placeholder="请输入"></div>
-  </div><div class="form-row">
-    <span class="form-label"><span class="req">*</span>名称</span>
-    <div class="input-box"><input placeholder="如 箱体划痕"></div>
-  </div><div class="form-row">
-    <span class="form-label">排序</span>
-    <div class="input-box"><input value="5" placeholder="请输入"></div>
-  </div><div class="form-row">
-    <span class="form-label">备注</span>
-    <div class="input-box"><input placeholder="选填"></div>
-  </div>
-    </div>
-    <div class="modal-footer">
-      <button class="btn btn-default" onclick="closeModal('createModal')">取消</button>
-      <button class="btn" onclick="closeModal('createModal')">保存</button>
-    </div>
-  </div>
-</div>
-
+<!-- G36 B5：弹窗已页面化 -->
 <style id="detail-modal-css">
 /* 详情弹窗（四段式）专用样式：段落标题 / 关联链 / 流转时间线 */
 .dt-sec{font-size:13px;font-weight:600;color:#262626;margin:0 0 10px;padding-left:8px;border-left:3px solid #1677ff;line-height:1.3}

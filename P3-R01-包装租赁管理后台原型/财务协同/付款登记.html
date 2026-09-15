@@ -370,7 +370,7 @@ th.td-num { text-align:right; }
 <div class="card">
   <div class="card-head">
     <h3 class="card-title">付款登记</h3>
-    <div class="head-btns"><button class="btn btn-default btn-sm">批量导出</button><button class="btn btn-sm" onclick="openModal('createModal')">新建付款登记</button></div>
+    <div class="head-btns"><button class="btn btn-default btn-sm">批量导出</button><button class="btn btn-sm" onclick="go('../财务协同/付款新建.html')">新建付款登记</button></div>
   </div>
 <div class="stabs">
   <span class="stab active">全部<span class="stab-count">11</span></span>
@@ -402,7 +402,7 @@ th.td-num { text-align:right; }
           <td>2026-09-02</td>
           <td>招商银行苏州分行 1109××××8821</td>
           <td><span class="tag tag-orange">待确认</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('auditModal')">确认</a><a onclick="openModal('detailModal')">详情</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../财务协同/付款确认.html')">确认</a><a onclick="go('../财务协同/付款详情.html')">详情</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
@@ -413,7 +413,7 @@ th.td-num { text-align:right; }
           <td>2026-08-31</td>
           <td>中国银行常州分行 3325××××0067</td>
           <td><span class="tag tag-green">已确认</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../财务协同/付款详情.html')">详情</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
@@ -424,7 +424,7 @@ th.td-num { text-align:right; }
           <td>2026-08-28</td>
           <td>工商银行宁波分行 4402××××5531</td>
           <td><span class="tag tag-green">已确认</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../财务协同/付款详情.html')">详情</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
@@ -435,7 +435,7 @@ th.td-num { text-align:right; }
           <td>2026-08-25</td>
           <td>招商银行苏州分行 1109××××8821</td>
           <td><span class="tag tag-green">已确认</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../财务协同/付款详情.html')">详情</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
@@ -446,7 +446,7 @@ th.td-num { text-align:right; }
           <td>2026-08-18</td>
           <td>建设银行上海分行 6217××××9045</td>
           <td><span class="tag tag-green">已确认</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../财务协同/付款详情.html')">详情</a></span></td>
         </tr>
       </tbody>
     </table>
@@ -464,173 +464,11 @@ th.td-num { text-align:right; }
   </div>
 </div>
 
-<!-- 弹窗已提取到 弹窗/付款登记新建.html，构建时注入 -->
-<div class="modal-overlay" id="createModal">
-  <div class="modal">
-    <div class="modal-header">
-      <h3 class="modal-title">新建付款登记</h3>
-      <span class="modal-close" onclick="closeModal('createModal')">×</span>
-    </div>
-    <div class="modal-body">
-<div class="form-row">
-    <span class="form-label"><span class="req">*</span>供应商</span>
-    <div class="input-box select-box" style="width:350px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option>环通循环包装运营（上海）有限公司</option><option selected>吴越联合五金制品有限公司</option><option>甬城塑业包装制品有限公司</option><option>延陵塑料托盘厂</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
-  </div><div class="form-row">
-    <span class="form-label"><span class="req">*</span>关联应付账单</span>
-    <div class="input-box select-box" style="width:350px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>AP-20260830-007（未付 6,700.00）</option><option>AP-20260903-009（租金应付）</option><option>AP-20260901-008（采购应付）</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
-  </div><div class="form-row">
-    <span class="form-label"><span class="req">*</span>付款金额(元)</span>
-    <div class="input-box" style="width:350px;"><input value="6,700.00" placeholder="请输入"></div>
-  </div><div class="form-row">
-    <span class="form-label">付款日期</span>
-    <div class="input-box" style="width:350px;"><input value="2026-09-03" placeholder="请输入"></div>
-  </div><div class="form-row">
-    <span class="form-label">付款银行</span>
-    <div class="input-box select-box" style="width:350px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>招商银行苏州分行 1109××××8821</option><option>全部</option><option>待定选项（演示数据）</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
-  </div><div class="form-row">
-    <span class="form-label">付款方式</span>
-    <div class="input-box select-box" style="width:350px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>银行转账</option><option>承兑</option><option>现金</option><option>票据</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
-  </div><div class="form-row">
-    <span class="form-label">备注</span>
-    <div class="input-box" style="width:350px;"><input placeholder="选填"></div>
-  </div>
-    </div>
-
-<div style="margin:12px 0 4px;font-size:13px;font-weight:600;">分期付款计划（比例⇄金额互算 · 笔数不限直至付清）</div>
-<div style="display:flex;gap:8px;align-items:center;margin-bottom:6px;">
-      <button class="btn btn-default btn-sm" id="instAddM" type="button">+ 添加一笔</button>
-      <button class="btn btn-default btn-sm" id="instFillM" type="button">剩余全排</button>
-      <input id="instBaseM" value="68,400.00" style="border:1px solid #d9d9d9;border-radius:4px;padding:2px 8px;font:inherit;width:120px;text-align:right;" title="账单金额">
-  </div>
-  <div class="table-wrap">
-    <table>
-      <thead><tr><th>笔次</th><th>比例(%)</th><th>金额(元)</th><th>计划日期</th><th>状态</th><th></th></tr></thead>
-      <tbody id="instBodyM"></tbody>
-    </table>
-  </div></div>
-<div style="font-size:12px;color:#8c8c8c;margin-top:4px;">填比例算金额 / 填金额算比例；「+ 添加一笔」自由加笔，「剩余全排」把剩余填入最后一笔；付款金额超出账单金额拦截（账单金额/已付/剩余 头部展示）。</div>
-<script>/*C-C/D 分期比例⇄金额互算工厂 · meeting0908 批3 · 2026-09-10 自由笔数版（笔数不限直至付清）*/
-function createInstPlan(cfg) {
-  function num(v){ var x = parseFloat(String(v).replace(/,/g,'')); return isNaN(x)?0:x; }
-  function fmt(x){ return x.toLocaleString('zh-CN', {minimumFractionDigits:2, maximumFractionDigits:2}); }
-  var root = document.getElementById(cfg.root);
-  var rates = (cfg.defs || [60, 40]).slice();
-  function tb(){ return document.getElementById(cfg.bodyId); }
-  function base(){ return cfg.base(); }
-  function rowDate(i){ var m = 9 + i, y = 2026 + Math.floor((m - 1) / 12); m = (m - 1) % 12 + 1; return y + '-' + (m < 10 ? '0' : '') + m + '-20'; }
-  function amt(i){ return base() * rates[i] / 100; }
-  function refreshSum(){
-    var b = base(), s = 0, k;
-    for (k = 0; k < rates.length; k++) s += amt(k);
-    var over = s > b + 0.005;
-    var sumEl = document.getElementById(cfg.sumId);
-    var restEl = document.getElementById(cfg.restId);
-    var baseEl = document.getElementById(cfg.baseTxtId);
-    if (sumEl) { sumEl.textContent = fmt(s); sumEl.style.color = over ? '#ff4d4f' : ''; }
-    if (restEl) { restEl.textContent = fmt(b - s); restEl.style.color = over ? '#ff4d4f' : ''; }
-    if (baseEl) baseEl.textContent = fmt(b);
-    return over;
-  }
-  function render() {
-    var body = tb(); if (!body) return;
-    var rows = '';
-    for (var i = 0; i < rates.length; i++) {
-      rows += '<tr><td>第 ' + (i + 1) + ' 笔</td>'
-        + '<td><input data-i="' + i + '" data-k="rate" value="' + rates[i].toFixed(2) + '" style="width:76px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 6px;"></td>'
-        + '<td><input data-i="' + i + '" data-k="amt" value="' + fmt(amt(i)) + '" style="width:110px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 6px;text-align:right;"></td>'
-        + '<td>' + rowDate(i) + '</td>'
-        + '<td>' + (i === 0 ? '<span class="tag tag-orange">' + cfg.status + '</span>' : '<span class="tag tag-gray">未开始</span>') + '</td>'
-        + '<td>' + (rates.length > 1 ? '<a data-del="' + i + '" style="color:#8c8c8c;cursor:pointer;" title="删除本笔">×</a>' : '<span style="color:#d9d9d9;" title="至少保留 1 笔">×</span>') + '</td></tr>';
-    }
-    rows += '<tr><td style="font-weight:700;" colspan="2">已排合计（超账单金额红框拦截）</td>'
-      + '<td class="td-num" style="font-weight:700;" id="' + cfg.sumId + '">0.00</td>'
-      + '<td colspan="3">剩余 <b id="' + cfg.restId + '">0.00</b> / 账单金额 <span id="' + cfg.baseTxtId + '"></span></td></tr>';
-    body.innerHTML = rows;
-    refreshSum();
-  }
-  root.addEventListener('input', function (e) {
-    var i = e.target;
-    if (!i.matches || !i.matches('input[data-i]')) return;
-    var idx = parseInt(i.getAttribute('data-i'), 10), kind = i.getAttribute('data-k');
-    var b = base(), body = tb(); if (!body) return;
-    if (kind === 'rate') rates[idx] = num(i.value);
-    else rates[idx] = b > 0 ? num(i.value) / b * 100 : 0;
-    var rEl = body.querySelector('input[data-i="' + idx + '"][data-k="rate"]');
-    var aEl = body.querySelector('input[data-i="' + idx + '"][data-k="amt"]');
-    if (rEl && kind !== 'rate') rEl.value = rates[idx].toFixed(2);
-    if (aEl && kind !== 'amt') aEl.value = fmt(amt(idx));
-    i.style.borderColor = refreshSum() ? '#ff4d4f' : '#d9d9d9';
-  });
-  root.addEventListener('click', function (e) {
-    var t = e.target;
-    if (t.matches && t.matches('a[data-del]') && rates.length > 1) {
-      rates.splice(parseInt(t.getAttribute('data-del'), 10), 1);
-      render();
-    }
-  });
-  var addBtn = document.getElementById(cfg.addId);
-  if (addBtn) addBtn.addEventListener('click', function () { rates.push(0); render(); });
-  var fillBtn = document.getElementById(cfg.fillId);
-  if (fillBtn) fillBtn.addEventListener('click', function () {
-    var b = base(), rest = 0, k;
-    for (k = 0; k < rates.length - 1; k++) rest += amt(k);
-    rates[rates.length - 1] = b > 0 ? Math.max(0, b - rest) / b * 100 : 0;
-    render();
-  });
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', render); else render();
-  return { render: render };
-}
-var mPlan = createInstPlan({
-  root: 'createModal', bodyId: 'instBodyM', addId: 'instAddM', fillId: 'instFillM',
-  sumId: 'instSumM', restId: 'instRestM', baseTxtId: 'instBaseTxtM', status: '待付款',
-  base: function () { var el = document.getElementById('instBaseM'); var x = parseFloat(String(el ? el.value : '').replace(/,/g,'')); return isNaN(x) ? 0 : x; }
-});
-document.getElementById('instBaseM').addEventListener('input', function () { mPlan.render(); });
-</script>
-
-    <div class="modal-footer">
-      <button class="btn btn-default" onclick="closeModal('createModal')">取消</button>
-      <button class="btn btn-default" onclick="closeModal('createModal')">保存草稿</button>
-      <button class="btn" onclick="closeModal('createModal')">提交审核</button>
-    </div>
-  </div>
+<!-- G36 B5：弹窗已页面化 -->
 </div>
 
 
-<!-- 弹窗已提取到 弹窗/付款确认.html，构建时注入 -->
-<div class="modal-overlay" id="auditModal">
-  <div class="modal">
-    <div class="modal-header">
-      <h3 class="modal-title">确认付款</h3>
-      <span class="modal-close" onclick="closeModal('auditModal')">×</span>
-    </div>
-    <div class="modal-body">
-      <div class="dgrid" style="margin-bottom:16px;">
-        <div class="drow"><div class="dlabel">单据编号</div><div class="dval">PAY-20260902-005</div></div>
-        <div class="drow"><div class="dlabel">单据类型</div><div class="dval">付款登记</div></div>
-        <div class="drow"><div class="dlabel">付款金额</div><div class="dval">6,000.00 元</div></div>
-        <div class="drow"><div class="dlabel">付款方式</div><div class="dval">银行转账</div></div>
-        <div class="drow"><div class="dlabel">提交人 / 时间</div><div class="dval">财务·周敏 / 2026-09-02 13:26</div></div>
-        <div class="drow"><div class="dlabel">审核人（按角色匹配）</div><div class="dval">财务主管 · 周敏</div></div>
-        
-      </div>
-      <div class="form-row">
-        <span class="form-label"><span class="req">*</span>审核结论</span>
-        <div><span class="radio checked"><span class="dot"></span>通过</span><span class="radio"><span class="dot"></span>驳回</span></div>
-      </div>
-      <div class="form-row">
-        <span class="form-label">审核意见</span>
-        <div class="input-box"><input placeholder="选填，驳回时建议填写原因"></div>
-      </div>
-    </div>
-    <div class="modal-footer">
-      <button class="btn btn-default" onclick="closeModal('auditModal')">取消</button>
-      <button class="btn" onclick="closeModal('auditModal')">确认提交</button>
-    </div>
-  </div>
-</div>
-
-
+<!-- G36 B5：弹窗已页面化 -->
 <script id="batch-btn-js">
 (function(){
   // 找到所有批量按钮，初始禁用
@@ -675,18 +513,7 @@ document.getElementById('instBaseM').addEventListener('input', function () { mPl
   }
 })();
 </script>
-<script>
-/* ?audit=1 自动打开审核弹窗（我的待办跳转支持） */
-(function(){
-  if (location.search.indexOf("audit=1") < 0) return;
-  var t = setInterval(function(){
-    if (typeof openModal === "function" && document.getElementById("auditModal")) {
-      clearInterval(t); openModal("auditModal");
-    }
-  }, 120);
-  setTimeout(function(){ clearInterval(t); }, 4000);
-})();
-</script>
+
 
 
 
@@ -709,18 +536,6 @@ document.getElementById('instBaseM').addEventListener('input', function () { mPl
 .tl-i .tl-who{color:#8c8c8c;font-size:12px;margin-left:8px}
 </style>
 <!-- 详情弹窗（四段式：单据头/明细/关联单据互溯链/流转时间线）· 详情落地页补齐 2026-09-04 -->
-<div class="modal-overlay" id="detailModal">
-  <div class="modal modal-lg" style="width:780px;">
-    <div class="modal-header">
-      <h3 class="modal-title" id="detailTitle">付款登记详情</h3>
-      <span class="modal-close" onclick="closeModal('detailModal')">×</span>
-    </div>
-    <div class="modal-body" id="detailBody"><!-- 内容由 _data/detail-generic.js 按单号渲染 --></div>
-    <div class="modal-footer">
-      <button class="btn btn-default" onclick="closeModal('detailModal')">关 闭</button>
-    </div>
-  </div>
-</div>
 <script src="../_data/demo-data.js"></script>
 <script src="../_data/detail-generic.js"></script><script src="../_data/list-generic.js"></script>
 

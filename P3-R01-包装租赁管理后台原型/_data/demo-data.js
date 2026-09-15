@@ -871,7 +871,7 @@ window.DEMO_DATA = {
   /* 付款登记（键 = PAY 付款单号） */
   payments: {
     'PAY-20260902-005': {
-      'row': {"fields": {"supplier": "吴越联合五金制品有限公司", "ref": "AP-20260830-007", "bank": "招商银行苏州分行 1109××××8821", "date": "2026-09-02", "status": "待确认"}, "note": "1", "cells": ["吴越联合五金制品有限公司", "<span class=\"lk\">AP-20260830-007</span>", "<span class=\"td-num\">6,000.00</span>", "2026-09-02", "招商银行苏州分行 1109××××8821", "<span class=\"tag tag-orange\">待确认</span>"], "ops": [{"t": "确认", "act": "openModal('auditModal')"}, {"t": "详情", "detail": true}]},
+      'row': {"fields": {"supplier": "吴越联合五金制品有限公司", "ref": "AP-20260830-007", "bank": "招商银行苏州分行 1109××××8821", "date": "2026-09-02", "status": "待确认"}, "note": "1", "cells": ["吴越联合五金制品有限公司", "<span class=\"lk\">AP-20260830-007</span>", "<span class=\"td-num\">6,000.00</span>", "2026-09-02", "招商银行苏州分行 1109××××8821", "<span class=\"tag tag-orange\">待确认</span>"], "ops": [{"t": "确认", "act": "go('../财务协同/付款确认.html?id=PAY-20260902-005')"}, {"t": "详情", "act": "go('../财务协同/付款详情.html?id=PAY-20260902-005')"}]},
       title: '付款登记详情',
       info: [
         { label: '付款单号', text: 'PAY-20260902-005', full: true },
@@ -900,7 +900,7 @@ window.DEMO_DATA = {
       ]
     },
     'PAY-20260831-004': {
-      'row': {"fields": {"supplier": "延陵塑料托盘厂", "ref": "AP-20260828-006", "bank": "中国银行常州分行 3325××××0067", "date": "2026-08-31", "status": "已确认"}, "cells": ["延陵塑料托盘厂", "<span class=\"lk\">AP-20260828-006</span>", "<span class=\"td-num\">42,500.00</span>", "2026-08-31", "中国银行常州分行 3325××××0067", "<span class=\"tag tag-green\">已确认</span>"], "ops": [{"t": "详情", "detail": true}]},
+      'row': {"fields": {"supplier": "延陵塑料托盘厂", "ref": "AP-20260828-006", "bank": "中国银行常州分行 3325××××0067", "date": "2026-08-31", "status": "已确认"}, "cells": ["延陵塑料托盘厂", "<span class=\"lk\">AP-20260828-006</span>", "<span class=\"td-num\">42,500.00</span>", "2026-08-31", "中国银行常州分行 3325××××0067", "<span class=\"tag tag-green\">已确认</span>"], "ops": [{"t": "详情", "act": "go('../财务协同/付款详情.html?id=PAY-20260831-004')"}]},
       title: '付款登记详情',
       info: [
         { label: '付款单号', text: 'PAY-20260831-004', full: true },
@@ -929,7 +929,7 @@ window.DEMO_DATA = {
       ]
     },
     'PAY-20260828-003': {
-      'row': {"fields": {"supplier": "甬城塑业包装制品有限公司", "ref": "AP-20260815-003", "bank": "工商银行宁波分行 4402××××5531", "date": "2026-08-28", "status": "已确认"}, "cells": ["甬城塑业包装制品有限公司", "<span class=\"lk\">AP-20260815-003</span>", "<span class=\"td-num\">35,200.00</span>", "2026-08-28", "工商银行宁波分行 4402××××5531", "<span class=\"tag tag-green\">已确认</span>"], "ops": [{"t": "详情", "detail": true}]},
+      'row': {"fields": {"supplier": "甬城塑业包装制品有限公司", "ref": "AP-20260815-003", "bank": "工商银行宁波分行 4402××××5531", "date": "2026-08-28", "status": "已确认"}, "cells": ["甬城塑业包装制品有限公司", "<span class=\"lk\">AP-20260815-003</span>", "<span class=\"td-num\">35,200.00</span>", "2026-08-28", "工商银行宁波分行 4402××××5531", "<span class=\"tag tag-green\">已确认</span>"], "ops": [{"t": "详情", "act": "go('../财务协同/付款详情.html?id=PAY-20260828-003')"}]},
       title: '付款登记详情',
       info: [
         { label: '付款单号', text: 'PAY-20260828-003', full: true },
@@ -958,7 +958,7 @@ window.DEMO_DATA = {
       ]
     },
     'PAY-20260825-002': {
-      'row': {"fields": {"supplier": "吴越联合五金制品有限公司", "ref": "AP-20260820-004", "bank": "招商银行苏州分行 1109××××8821", "date": "2026-08-25", "status": "已确认"}, "cells": ["吴越联合五金制品有限公司", "<span class=\"lk\">AP-20260820-004</span>", "<span class=\"td-num\">6,300.00</span>", "2026-08-25", "招商银行苏州分行 1109××××8821", "<span class=\"tag tag-green\">已确认</span>"], "ops": [{"t": "详情", "detail": true}]},
+      'row': {"fields": {"supplier": "吴越联合五金制品有限公司", "ref": "AP-20260820-004", "bank": "招商银行苏州分行 1109××××8821", "date": "2026-08-25", "status": "已确认"}, "cells": ["吴越联合五金制品有限公司", "<span class=\"lk\">AP-20260820-004</span>", "<span class=\"td-num\">6,300.00</span>", "2026-08-25", "招商银行苏州分行 1109××××8821", "<span class=\"tag tag-green\">已确认</span>"], "ops": [{"t": "详情", "act": "go('../财务协同/付款详情.html?id=PAY-20260825-002')"}]},
       title: '付款登记详情',
       info: [
         { label: '付款单号', text: 'PAY-20260825-002', full: true },
@@ -987,7 +987,7 @@ window.DEMO_DATA = {
       ]
     },
     'PAY-20260818-001': {
-      'row': {"fields": {"supplier": "环通循环包装运营（上海）有限公司", "ref": "AP-20260810-002", "bank": "建设银行上海分行 6217××××9045", "date": "2026-08-18", "status": "已确认"}, "cells": ["环通循环包装运营（上海）有限公司", "<span class=\"lk\">AP-20260810-002</span>", "<span class=\"td-num\">58,000.00</span>", "2026-08-18", "建设银行上海分行 6217××××9045", "<span class=\"tag tag-green\">已确认</span>"], "ops": [{"t": "详情", "detail": true}]},
+      'row': {"fields": {"supplier": "环通循环包装运营（上海）有限公司", "ref": "AP-20260810-002", "bank": "建设银行上海分行 6217××××9045", "date": "2026-08-18", "status": "已确认"}, "cells": ["环通循环包装运营（上海）有限公司", "<span class=\"lk\">AP-20260810-002</span>", "<span class=\"td-num\">58,000.00</span>", "2026-08-18", "建设银行上海分行 6217××××9045", "<span class=\"tag tag-green\">已确认</span>"], "ops": [{"t": "详情", "act": "go('../财务协同/付款详情.html?id=PAY-20260818-001')"}]},
       title: '付款登记详情',
       info: [
         { label: '付款单号', text: 'PAY-20260818-001', full: true },
@@ -1020,7 +1020,7 @@ window.DEMO_DATA = {
   /* 回款登记（键 = HK 回款单号） */
   receipts: {
     'HK-20260830-014': {
-      'row': {"fields": {"customer": "华骏重卡汽车有限公司", "ref": "AR-2026-08-PRJ2601", "bank": "招行基本户 1209****8866", "receipt": "已上传", "date": "2026-08-30", "status": "待核销"}, "note": "1", "cells": ["华骏重卡汽车有限公司", "AR-2026-08-PRJ2601", "<span class=\"td-num\"><b>286,500.00</b></span>", "2026-08-30", "招行基本户 1209****8866", "<span class=\"tag tag-green\">已上传</span>", "<span class=\"tag tag-orange\">待核销</span>"], "ops": [{"t": "确认收款", "act": "openModal('auditModal')"}, {"t": "详情", "detail": true}, {"t": "去核销", "act": "go('../财务协同/银行水单核销.html')"}]},
+      'row': {"fields": {"customer": "华骏重卡汽车有限公司", "ref": "AR-2026-08-PRJ2601", "bank": "招行基本户 1209****8866", "receipt": "已上传", "date": "2026-08-30", "status": "待核销"}, "note": "1", "cells": ["华骏重卡汽车有限公司", "AR-2026-08-PRJ2601", "<span class=\"td-num\"><b>286,500.00</b></span>", "2026-08-30", "招行基本户 1209****8866", "<span class=\"tag tag-green\">已上传</span>", "<span class=\"tag tag-orange\">待核销</span>"], "ops": [{"t": "确认收款", "act": "openModal('auditModal')"}, {"t": "详情", "act": "go('../财务协同/回款详情.html?id=HK-20260830-014')"}, {"t": "去核销", "act": "go('../财务协同/银行水单核销.html')"}]},
       title: '回款登记详情',
       info: [
         { label: '回款单号', text: 'HK-20260830-014', full: true },
@@ -1051,7 +1051,7 @@ window.DEMO_DATA = {
       ]
     },
     'HK-20260828-013': {
-      'row': {"fields": {"customer": "东海商用宁波分公司", "ref": "AR-2026-07-PRJ2602", "bank": "建行一般户 3321****0417", "receipt": "已上传", "date": "2026-08-28", "status": "待核销"}, "cells": ["东海商用宁波分公司", "AR-2026-07-PRJ2602", "<span class=\"td-num\"><b>158,420.50</b></span>", "2026-08-28", "建行一般户 3321****0417", "<span class=\"tag tag-green\">已上传</span>", "<span class=\"tag tag-orange\">待核销</span>"], "ops": [{"t": "确认收款", "act": "openModal('auditModal')"}, {"t": "详情", "detail": true}, {"t": "去核销", "act": "go('../财务协同/银行水单核销.html')"}]},
+      'row': {"fields": {"customer": "东海商用宁波分公司", "ref": "AR-2026-07-PRJ2602", "bank": "建行一般户 3321****0417", "receipt": "已上传", "date": "2026-08-28", "status": "待核销"}, "cells": ["东海商用宁波分公司", "AR-2026-07-PRJ2602", "<span class=\"td-num\"><b>158,420.50</b></span>", "2026-08-28", "建行一般户 3321****0417", "<span class=\"tag tag-green\">已上传</span>", "<span class=\"tag tag-orange\">待核销</span>"], "ops": [{"t": "确认收款", "act": "openModal('auditModal')"}, {"t": "详情", "act": "go('../财务协同/回款详情.html?id=HK-20260828-013')"}, {"t": "去核销", "act": "go('../财务协同/银行水单核销.html')"}]},
       title: '回款登记详情',
       info: [
         { label: '回款单号', text: 'HK-20260828-013', full: true },
@@ -1082,7 +1082,7 @@ window.DEMO_DATA = {
       ]
     },
     'HK-20260825-012': {
-      'row': {"fields": {"customer": "华骏重卡汽车有限公司", "ref": "AR-2026-07-PRJ2601", "bank": "招行基本户 1209****8866", "receipt": "已上传", "date": "2026-08-25", "status": "部分核销"}, "cells": ["华骏重卡汽车有限公司", "AR-2026-07-PRJ2601", "<span class=\"td-num\"><b>98,000.00</b></span>", "2026-08-25", "招行基本户 1209****8866", "<span class=\"tag tag-green\">已上传</span>", "<span class=\"tag tag-blue\">部分核销</span>"], "ops": [{"t": "确认收款", "act": "openModal('auditModal')"}, {"t": "详情", "detail": true}, {"t": "去核销", "act": "go('../财务协同/银行水单核销.html')"}]},
+      'row': {"fields": {"customer": "华骏重卡汽车有限公司", "ref": "AR-2026-07-PRJ2601", "bank": "招行基本户 1209****8866", "receipt": "已上传", "date": "2026-08-25", "status": "部分核销"}, "cells": ["华骏重卡汽车有限公司", "AR-2026-07-PRJ2601", "<span class=\"td-num\"><b>98,000.00</b></span>", "2026-08-25", "招行基本户 1209****8866", "<span class=\"tag tag-green\">已上传</span>", "<span class=\"tag tag-blue\">部分核销</span>"], "ops": [{"t": "确认收款", "act": "openModal('auditModal')"}, {"t": "详情", "act": "go('../财务协同/回款详情.html?id=HK-20260825-012')"}, {"t": "去核销", "act": "go('../财务协同/银行水单核销.html')"}]},
       title: '回款登记详情',
       info: [
         { label: '回款单号', text: 'HK-20260825-012', full: true },
@@ -1114,7 +1114,7 @@ window.DEMO_DATA = {
       ]
     },
     'HK-20260822-011': {
-      'row': {"fields": {"customer": "星途新能源汽车科技有限公司", "ref": "AR-2026-07-PRJ2603", "bank": "工行一般户 0200****5533", "receipt": "补传回单", "date": "2026-08-22", "status": "已核销"}, "cells": ["星途新能源汽车科技有限公司", "AR-2026-07-PRJ2603", "<span class=\"td-num\"><b>65,320.00</b></span>", "2026-08-22", "工行一般户 0200****5533", "<span class=\"ops\"><a>补传回单</a></span>", "<span class=\"tag tag-green\">已核销</span>"], "ops": [{"t": "确认收款", "act": "openModal('auditModal')"}, {"t": "详情", "detail": true}, {"t": "去核销", "act": "go('../财务协同/银行水单核销.html')"}]},
+      'row': {"fields": {"customer": "星途新能源汽车科技有限公司", "ref": "AR-2026-07-PRJ2603", "bank": "工行一般户 0200****5533", "receipt": "补传回单", "date": "2026-08-22", "status": "已核销"}, "cells": ["星途新能源汽车科技有限公司", "AR-2026-07-PRJ2603", "<span class=\"td-num\"><b>65,320.00</b></span>", "2026-08-22", "工行一般户 0200****5533", "<span class=\"ops\"><a>补传回单</a></span>", "<span class=\"tag tag-green\">已核销</span>"], "ops": [{"t": "确认收款", "act": "openModal('auditModal')"}, {"t": "详情", "act": "go('../财务协同/回款详情.html?id=HK-20260822-011')"}, {"t": "去核销", "act": "go('../财务协同/银行水单核销.html')"}]},
       title: '回款登记详情',
       info: [
         { label: '回款单号', text: 'HK-20260822-011', full: true },
@@ -1145,7 +1145,7 @@ window.DEMO_DATA = {
       ]
     },
     'HK-20260818-010': {
-      'row': {"fields": {"customer": "华骏重卡汽车有限公司", "ref": "BS-20260802-001", "bank": "招行基本户 1209****8866", "receipt": "已上传", "date": "2026-08-18", "status": "已核销"}, "cells": ["华骏重卡汽车有限公司", "BS-20260802-001", "<span class=\"td-num\"><b>860.00</b></span>", "2026-08-18", "招行基本户 1209****8866", "<span class=\"tag tag-green\">已上传</span>", "<span class=\"tag tag-green\">已核销</span>"], "ops": [{"t": "确认收款", "act": "openModal('auditModal')"}, {"t": "详情", "detail": true}, {"t": "去核销", "act": "go('../财务协同/银行水单核销.html')"}]},
+      'row': {"fields": {"customer": "华骏重卡汽车有限公司", "ref": "BS-20260802-001", "bank": "招行基本户 1209****8866", "receipt": "已上传", "date": "2026-08-18", "status": "已核销"}, "cells": ["华骏重卡汽车有限公司", "BS-20260802-001", "<span class=\"td-num\"><b>860.00</b></span>", "2026-08-18", "招行基本户 1209****8866", "<span class=\"tag tag-green\">已上传</span>", "<span class=\"tag tag-green\">已核销</span>"], "ops": [{"t": "确认收款", "act": "openModal('auditModal')"}, {"t": "详情", "act": "go('../财务协同/回款详情.html?id=HK-20260818-010')"}, {"t": "去核销", "act": "go('../财务协同/银行水单核销.html')"}]},
       title: '回款登记详情',
       info: [
         { label: '回款单号', text: 'HK-20260818-010', full: true },
@@ -1179,7 +1179,7 @@ window.DEMO_DATA = {
   /* 开票登记（键 = INV 登记单号） */
   invoices: {
     'INV-20260902-013': {
-      'row': {"fields": {"no": "26119800421390", "itype": "专票", "buyer": "东海商用汽车有限公司宁波分公司", "ref": "AR-2026-08-PRJ2603", "date": "2026-09-02", "status": "已红冲"}, "cells": ["26119800421390", "<span class=\"tag tag-blue\">专票</span>", "东海商用汽车有限公司宁波分公司", "AR-2026-08-PRJ2603", "<span class=\"td-num\"><b>-46,800.00</b></span>", "13%", "2026-09-02", "<span class=\"tag tag-red\">已红冲</span>"], "ops": [{"t": "详情", "detail": true}, {"t": "查看账单", "act": "go('../财务协同/应收账单.html')"}]},
+      'row': {"fields": {"no": "26119800421390", "itype": "专票", "buyer": "东海商用汽车有限公司宁波分公司", "ref": "AR-2026-08-PRJ2603", "date": "2026-09-02", "status": "已红冲"}, "cells": ["26119800421390", "<span class=\"tag tag-blue\">专票</span>", "东海商用汽车有限公司宁波分公司", "AR-2026-08-PRJ2603", "<span class=\"td-num\"><b>-46,800.00</b></span>", "13%", "2026-09-02", "<span class=\"tag tag-red\">已红冲</span>"], "ops": [{"t": "详情", "act": "go('../财务协同/开票详情.html?id=INV-20260902-013')"}, {"t": "查看账单", "act": "go('../财务协同/应收账单.html')"}]},
       title: '开票登记详情',
       info: [
         { label: '登记单号', text: 'INV-20260902-013', full: true },
@@ -1209,7 +1209,7 @@ window.DEMO_DATA = {
       ]
     },
     'INV-20260830-012': {
-      'row': {"fields": {"no": "26119800421376", "itype": "专票", "buyer": "华骏重卡汽车有限公司", "ref": "AR-2026-08-PRJ2601", "date": "2026-08-30", "status": "已登记"}, "note": "1", "cells": ["26119800421376", "<span class=\"tag tag-blue\">专票</span>", "华骏重卡汽车有限公司", "AR-2026-08-PRJ2601", "<span class=\"td-num\"><b>186,200.00</b></span>", "13%", "2026-08-30", "<span class=\"tag tag-green\">已登记</span>"], "ops": [{"t": "开票确认", "act": "openModal('auditModal')"}, {"t": "详情", "detail": true}, {"t": "查看账单", "act": "go('../财务协同/应收账单.html')"}, {"t": "回款", "act": "go('../财务协同/回款登记.html')"}]},
+      'row': {"fields": {"no": "26119800421376", "itype": "专票", "buyer": "华骏重卡汽车有限公司", "ref": "AR-2026-08-PRJ2601", "date": "2026-08-30", "status": "已登记"}, "note": "1", "cells": ["26119800421376", "<span class=\"tag tag-blue\">专票</span>", "华骏重卡汽车有限公司", "AR-2026-08-PRJ2601", "<span class=\"td-num\"><b>186,200.00</b></span>", "13%", "2026-08-30", "<span class=\"tag tag-green\">已登记</span>"], "ops": [{"t": "开票确认", "act": "openModal('auditModal')"}, {"t": "详情", "act": "go('../财务协同/开票详情.html?id=INV-20260830-012')"}, {"t": "查看账单", "act": "go('../财务协同/应收账单.html')"}, {"t": "回款", "act": "go('../财务协同/回款登记.html')"}]},
       title: '开票登记详情',
       info: [
         { label: '登记单号', text: 'INV-20260830-012', full: true },
@@ -1240,7 +1240,7 @@ window.DEMO_DATA = {
       ]
     },
     'INV-20260826-011': {
-      'row': {"fields": {"no": "26119800420988", "itype": "专票", "buyer": "东海商用宁波分公司", "ref": "AR-2026-07-PRJ2602", "date": "2026-08-26", "status": "已登记"}, "cells": ["26119800420988", "<span class=\"tag tag-blue\">专票</span>", "东海商用宁波分公司", "AR-2026-07-PRJ2602", "<span class=\"td-num\"><b>186,200.00</b></span>", "13%", "2026-08-26", "<span class=\"tag tag-green\">已登记</span>"], "ops": [{"t": "开票确认", "act": "openModal('auditModal')"}, {"t": "详情", "detail": true}, {"t": "查看账单", "act": "go('../财务协同/应收账单.html')"}, {"t": "回款", "act": "go('../财务协同/回款登记.html')"}]},
+      'row': {"fields": {"no": "26119800420988", "itype": "专票", "buyer": "东海商用宁波分公司", "ref": "AR-2026-07-PRJ2602", "date": "2026-08-26", "status": "已登记"}, "cells": ["26119800420988", "<span class=\"tag tag-blue\">专票</span>", "东海商用宁波分公司", "AR-2026-07-PRJ2602", "<span class=\"td-num\"><b>186,200.00</b></span>", "13%", "2026-08-26", "<span class=\"tag tag-green\">已登记</span>"], "ops": [{"t": "开票确认", "act": "openModal('auditModal')"}, {"t": "详情", "act": "go('../财务协同/开票详情.html?id=INV-20260826-011')"}, {"t": "查看账单", "act": "go('../财务协同/应收账单.html')"}, {"t": "回款", "act": "go('../财务协同/回款登记.html')"}]},
       title: '开票登记详情',
       info: [
         { label: '登记单号', text: 'INV-20260826-011', full: true },
@@ -1271,7 +1271,7 @@ window.DEMO_DATA = {
       ]
     },
     'INV-20260820-010': {
-      'row': {"fields": {"no": "26119800419501", "itype": "专票", "buyer": "华骏重卡汽车有限公司", "ref": "AR-2026-07-PRJ2601", "date": "2026-08-20", "status": "已登记"}, "cells": ["26119800419501", "<span class=\"tag tag-blue\">专票</span>", "华骏重卡汽车有限公司", "AR-2026-07-PRJ2601", "<span class=\"td-num\"><b>256,600.00</b></span>", "13%", "2026-08-20", "<span class=\"tag tag-green\">已登记</span>"], "ops": [{"t": "开票确认", "act": "openModal('auditModal')"}, {"t": "详情", "detail": true}, {"t": "查看账单", "act": "go('../财务协同/应收账单.html')"}, {"t": "回款", "act": "go('../财务协同/回款登记.html')"}]},
+      'row': {"fields": {"no": "26119800419501", "itype": "专票", "buyer": "华骏重卡汽车有限公司", "ref": "AR-2026-07-PRJ2601", "date": "2026-08-20", "status": "已登记"}, "cells": ["26119800419501", "<span class=\"tag tag-blue\">专票</span>", "华骏重卡汽车有限公司", "AR-2026-07-PRJ2601", "<span class=\"td-num\"><b>256,600.00</b></span>", "13%", "2026-08-20", "<span class=\"tag tag-green\">已登记</span>"], "ops": [{"t": "开票确认", "act": "openModal('auditModal')"}, {"t": "详情", "act": "go('../财务协同/开票详情.html?id=INV-20260820-010')"}, {"t": "查看账单", "act": "go('../财务协同/应收账单.html')"}, {"t": "回款", "act": "go('../财务协同/回款登记.html')"}]},
       title: '开票登记详情',
       info: [
         { label: '登记单号', text: 'INV-20260820-010', full: true },
@@ -1302,7 +1302,7 @@ window.DEMO_DATA = {
       ]
     },
     'INV-20260815-009': {
-      'row': {"fields": {"no": "26119800418233", "itype": "普票", "buyer": "星途新能源汽车科技有限公司", "ref": "AR-2026-07-PRJ2603", "date": "2026-08-15", "status": "已登记"}, "cells": ["26119800418233", "<span class=\"tag tag-gray\">普票</span>", "星途新能源汽车科技有限公司", "AR-2026-07-PRJ2603", "<span class=\"td-num\"><b>98,000.00</b></span>", "13%", "2026-08-15", "<span class=\"tag tag-green\">已登记</span>"], "ops": [{"t": "开票确认", "act": "openModal('auditModal')"}, {"t": "详情", "detail": true}, {"t": "查看账单", "act": "go('../财务协同/应收账单.html')"}, {"t": "回款", "act": "go('../财务协同/回款登记.html')"}]},
+      'row': {"fields": {"no": "26119800418233", "itype": "普票", "buyer": "星途新能源汽车科技有限公司", "ref": "AR-2026-07-PRJ2603", "date": "2026-08-15", "status": "已登记"}, "cells": ["26119800418233", "<span class=\"tag tag-gray\">普票</span>", "星途新能源汽车科技有限公司", "AR-2026-07-PRJ2603", "<span class=\"td-num\"><b>98,000.00</b></span>", "13%", "2026-08-15", "<span class=\"tag tag-green\">已登记</span>"], "ops": [{"t": "开票确认", "act": "openModal('auditModal')"}, {"t": "详情", "act": "go('../财务协同/开票详情.html?id=INV-20260815-009')"}, {"t": "查看账单", "act": "go('../财务协同/应收账单.html')"}, {"t": "回款", "act": "go('../财务协同/回款登记.html')"}]},
       title: '开票登记详情',
       info: [
         { label: '登记单号', text: 'INV-20260815-009', full: true },
@@ -1333,7 +1333,7 @@ window.DEMO_DATA = {
       ]
     },
     'INV-20260802-008': {
-      'row': {"fields": {"no": "26119800417077", "itype": "专票", "buyer": "华骏重卡汽车有限公司", "ref": "AR-2026-06-PRJ2601", "date": "2026-08-02", "status": "停用"}, "cells": ["26119800417077", "<span class=\"tag tag-blue\">专票</span>", "华骏重卡汽车有限公司", "AR-2026-06-PRJ2601", "<span class=\"td-num\"><b>442,800.00</b></span>", "13%", "2026-08-02", "<span class=\"tag tag-gray\">停用</span>"], "ops": [{"t": "开票确认", "act": "openModal('auditModal')"}, {"t": "详情", "detail": true}, {"t": "查看账单", "act": "go('../财务协同/应收账单.html')"}, {"t": "回款", "act": "go('../财务协同/回款登记.html')"}]},
+      'row': {"fields": {"no": "26119800417077", "itype": "专票", "buyer": "华骏重卡汽车有限公司", "ref": "AR-2026-06-PRJ2601", "date": "2026-08-02", "status": "停用"}, "cells": ["26119800417077", "<span class=\"tag tag-blue\">专票</span>", "华骏重卡汽车有限公司", "AR-2026-06-PRJ2601", "<span class=\"td-num\"><b>442,800.00</b></span>", "13%", "2026-08-02", "<span class=\"tag tag-gray\">停用</span>"], "ops": [{"t": "开票确认", "act": "openModal('auditModal')"}, {"t": "详情", "act": "go('../财务协同/开票详情.html?id=INV-20260802-008')"}, {"t": "查看账单", "act": "go('../财务协同/应收账单.html')"}, {"t": "回款", "act": "go('../财务协同/回款登记.html')"}]},
       title: '开票登记详情',
       info: [
         { label: '登记单号', text: 'INV-20260802-008', full: true },
@@ -1368,7 +1368,7 @@ window.DEMO_DATA = {
   /* 水单核销记录（键 = HX 核销单号；弹窗按水单维度展示，titleNo = SD 水单号） */
   writeoffs: {
     'HX-20260830-012': {
-      'row': {"fields": {"sd": "SD-20260825-009", "ref": "AR-2026-07-PRJ2601", "status": "部分核销", "time": "2026-08-30 14:22", "who": "李婧"}, "cells": ["SD-20260825-009", "AR-2026-07-PRJ2601", "<span class=\"td-num\"><b>60,000.00</b></span>", "<span class=\"tag tag-blue\">部分核销</span>", "2026-08-30 14:22", "李婧"], "ops": [{"t": "详情", "detail": true}, {"t": "撤销核销", "act": "openModal('undoModal')"}]},
+      'row': {"fields": {"sd": "SD-20260825-009", "ref": "AR-2026-07-PRJ2601", "status": "部分核销", "time": "2026-08-30 14:22", "who": "李婧"}, "cells": ["SD-20260825-009", "AR-2026-07-PRJ2601", "<span class=\"td-num\"><b>60,000.00</b></span>", "<span class=\"tag tag-blue\">部分核销</span>", "2026-08-30 14:22", "李婧"], "ops": [{"t": "详情", "act": "go('../财务协同/水单核销详情.html?id=HX-20260830-012')"}, {"t": "撤销核销", "act": "openModal('undoModal')"}]},
       title: '水单核销详情', titleNo: 'SD-20260825-009',
       info: [
         { label: '水单号', text: 'SD-20260825-009', full: true },
@@ -1398,7 +1398,7 @@ window.DEMO_DATA = {
       ]
     },
     'HX-20260828-011': {
-      'row': {"fields": {"sd": "SD-20260822-008", "ref": "AR-2026-07-PRJ2603", "status": "已核销", "time": "2026-08-28 10:05", "who": "李婧"}, "cells": ["SD-20260822-008", "AR-2026-07-PRJ2603", "<span class=\"td-num\"><b>65,320.00</b></span>", "<span class=\"tag tag-green\">已核销</span>", "2026-08-28 10:05", "李婧"], "ops": [{"t": "详情", "detail": true}, {"t": "撤销核销", "act": "openModal('undoModal')"}]},
+      'row': {"fields": {"sd": "SD-20260822-008", "ref": "AR-2026-07-PRJ2603", "status": "已核销", "time": "2026-08-28 10:05", "who": "李婧"}, "cells": ["SD-20260822-008", "AR-2026-07-PRJ2603", "<span class=\"td-num\"><b>65,320.00</b></span>", "<span class=\"tag tag-green\">已核销</span>", "2026-08-28 10:05", "李婧"], "ops": [{"t": "详情", "act": "go('../财务协同/水单核销详情.html?id=HX-20260828-011')"}, {"t": "撤销核销", "act": "openModal('undoModal')"}]},
       title: '水单核销详情', titleNo: 'SD-20260822-008',
       info: [
         { label: '水单号', text: 'SD-20260822-008', full: true },
@@ -1427,7 +1427,7 @@ window.DEMO_DATA = {
       ]
     },
     'HX-20260826-010': {
-      'row': {"fields": {"sd": "SD-20260818-006", "ref": "BS-20260802-001", "status": "已核销", "time": "2026-08-26 16:40", "who": "李婧"}, "cells": ["SD-20260818-006", "BS-20260802-001", "<span class=\"td-num\"><b>860.00</b></span>", "<span class=\"tag tag-green\">已核销</span>", "2026-08-26 16:40", "李婧"], "ops": [{"t": "详情", "detail": true}, {"t": "撤销核销", "act": "openModal('undoModal')"}]},
+      'row': {"fields": {"sd": "SD-20260818-006", "ref": "BS-20260802-001", "status": "已核销", "time": "2026-08-26 16:40", "who": "李婧"}, "cells": ["SD-20260818-006", "BS-20260802-001", "<span class=\"td-num\"><b>860.00</b></span>", "<span class=\"tag tag-green\">已核销</span>", "2026-08-26 16:40", "李婧"], "ops": [{"t": "详情", "act": "go('../财务协同/水单核销详情.html?id=HX-20260826-010')"}, {"t": "撤销核销", "act": "openModal('undoModal')"}]},
       title: '水单核销详情', titleNo: 'SD-20260818-006',
       info: [
         { label: '水单号', text: 'SD-20260818-006', full: true },
@@ -1456,7 +1456,7 @@ window.DEMO_DATA = {
       ]
     },
     'HX-20260822-009': {
-      'row': {"fields": {"sd": "SD-20260815-005", "ref": "AR-2026-06-PRJ2602", "status": "已核销", "time": "2026-08-22 09:30", "who": "李婧"}, "cells": ["SD-20260815-005", "AR-2026-06-PRJ2602", "<span class=\"td-num\"><b>358,900.00</b></span>", "<span class=\"tag tag-green\">已核销</span>", "2026-08-22 09:30", "李婧"], "ops": [{"t": "详情", "detail": true}, {"t": "撤销核销", "act": "openModal('undoModal')"}]},
+      'row': {"fields": {"sd": "SD-20260815-005", "ref": "AR-2026-06-PRJ2602", "status": "已核销", "time": "2026-08-22 09:30", "who": "李婧"}, "cells": ["SD-20260815-005", "AR-2026-06-PRJ2602", "<span class=\"td-num\"><b>358,900.00</b></span>", "<span class=\"tag tag-green\">已核销</span>", "2026-08-22 09:30", "李婧"], "ops": [{"t": "详情", "act": "go('../财务协同/水单核销详情.html?id=HX-20260822-009')"}, {"t": "撤销核销", "act": "openModal('undoModal')"}]},
       title: '水单核销详情', titleNo: 'SD-20260815-005',
       info: [
         { label: '水单号', text: 'SD-20260815-005', full: true },
@@ -15954,13 +15954,13 @@ window.DEMO_DATA = {
    *   fields: name=角色名 desc=说明 scope=数据权限 accts=账号数；cells 不含外层 td
    * ------------------------------------------------------------------------ */
   roles: {
-    'RL-01': { 'row': {"fields": {"name": "系统管理员", "desc": "全部功能 + 系统管理", "scope": "全部项目", "accts": "2"}, "keyHtml": "<b>系统管理员</b>", "cells": ["全部功能 + 系统管理", "全部项目", "<span class=\"td-num\">2</span>"], "ops": [{"t": "权限配置", "act": "openRolePerm('系统管理员')"}]} },
-    'RL-02': { 'row': {"fields": {"name": "财务", "desc": "财务管理（应收/应付/财务看板）", "scope": "全部项目", "accts": "1"}, "keyHtml": "<b>财务</b>", "cells": ["财务管理（应收/应付/财务看板）", "全部项目", "<span class=\"td-num\">1</span>"], "ops": [{"t": "权限配置", "act": "openRolePerm('财务')"}]} },
-    'RL-03': { 'row': {"fields": {"name": "财务主管", "desc": "财务全模块 + 付款/回款确认审核", "scope": "全部项目", "accts": "1"}, "keyHtml": "<b>财务主管</b>", "cells": ["财务全模块 + 付款/回款确认审核", "全部项目", "<span class=\"td-num\">1</span>"], "ops": [{"t": "权限配置", "act": "openRolePerm('财务主管')"}]} },
-    'RL-04': { 'row': {"fields": {"name": "商务", "desc": "订单/租赁全流程", "scope": "全部项目", "accts": "2"}, "keyHtml": "<b>商务</b>", "cells": ["订单/租赁全流程", "全部项目", "<span class=\"td-num\">2</span>"], "ops": [{"t": "权限配置", "act": "openRolePerm('商务')"}]} },
-    'RL-05': { 'row': {"fields": {"name": "商务主管", "desc": "订单/租赁全流程 + 单据审核", "scope": "全部项目", "accts": "1"}, "keyHtml": "<b>商务主管</b>", "cells": ["订单/租赁全流程 + 单据审核", "全部项目", "<span class=\"td-num\">1</span>"], "ops": [{"t": "权限配置", "act": "openRolePerm('商务主管')"}]} },
-    'RL-06': { 'row': {"fields": {"name": "物流", "desc": "仓储作业 + 库存查询", "scope": "全部项目", "accts": "1"}, "keyHtml": "<b>物流</b>", "cells": ["仓储作业 + 库存查询", "全部项目", "<span class=\"td-num\">1</span>"], "ops": [{"t": "权限配置", "act": "openRolePerm('物流')"}]} },
-    'RL-07': { 'row': {"fields": {"name": "物流主管", "desc": "仓储作业 + 库存查询 + 出/入库审核", "scope": "全部项目", "accts": "1"}, "keyHtml": "<b>物流主管</b>", "cells": ["仓储作业 + 库存查询 + 出/入库审核", "全部项目", "<span class=\"td-num\">1</span>"], "ops": [{"t": "权限配置", "act": "openRolePerm('物流主管')"}]} }
+    'RL-01': { 'row': {"fields": {"name": "系统管理员", "desc": "全部功能 + 系统管理", "scope": "全部项目", "accts": "2"}, "keyHtml": "<b>系统管理员</b>", "cells": ["全部功能 + 系统管理", "全部项目", "<span class=\"td-num\">2</span>"], "ops": [{"t": "权限配置", "act": "go('../系统管理/权限配置.html?role=系统管理员')"}]} },
+    'RL-02': { 'row': {"fields": {"name": "财务", "desc": "财务管理（应收/应付/财务看板）", "scope": "全部项目", "accts": "1"}, "keyHtml": "<b>财务</b>", "cells": ["财务管理（应收/应付/财务看板）", "全部项目", "<span class=\"td-num\">1</span>"], "ops": [{"t": "权限配置", "act": "go('../系统管理/权限配置.html?role=财务')"}]} },
+    'RL-03': { 'row': {"fields": {"name": "财务主管", "desc": "财务全模块 + 付款/回款确认审核", "scope": "全部项目", "accts": "1"}, "keyHtml": "<b>财务主管</b>", "cells": ["财务全模块 + 付款/回款确认审核", "全部项目", "<span class=\"td-num\">1</span>"], "ops": [{"t": "权限配置", "act": "go('../系统管理/权限配置.html?role=财务主管')"}]} },
+    'RL-04': { 'row': {"fields": {"name": "商务", "desc": "订单/租赁全流程", "scope": "全部项目", "accts": "2"}, "keyHtml": "<b>商务</b>", "cells": ["订单/租赁全流程", "全部项目", "<span class=\"td-num\">2</span>"], "ops": [{"t": "权限配置", "act": "go('../系统管理/权限配置.html?role=商务')"}]} },
+    'RL-05': { 'row': {"fields": {"name": "商务主管", "desc": "订单/租赁全流程 + 单据审核", "scope": "全部项目", "accts": "1"}, "keyHtml": "<b>商务主管</b>", "cells": ["订单/租赁全流程 + 单据审核", "全部项目", "<span class=\"td-num\">1</span>"], "ops": [{"t": "权限配置", "act": "go('../系统管理/权限配置.html?role=商务主管')"}]} },
+    'RL-06': { 'row': {"fields": {"name": "物流", "desc": "仓储作业 + 库存查询", "scope": "全部项目", "accts": "1"}, "keyHtml": "<b>物流</b>", "cells": ["仓储作业 + 库存查询", "全部项目", "<span class=\"td-num\">1</span>"], "ops": [{"t": "权限配置", "act": "go('../系统管理/权限配置.html?role=物流')"}]} },
+    'RL-07': { 'row': {"fields": {"name": "物流主管", "desc": "仓储作业 + 库存查询 + 出/入库审核", "scope": "全部项目", "accts": "1"}, "keyHtml": "<b>物流主管</b>", "cells": ["仓储作业 + 库存查询 + 出/入库审核", "全部项目", "<span class=\"td-num\">1</span>"], "ops": [{"t": "权限配置", "act": "go('../系统管理/权限配置.html?role=物流主管')"}]} }
   },
 
   /* --------------------------------------------------------------------------
@@ -15985,12 +15985,12 @@ window.DEMO_DATA = {
  *   fields: search(账号+姓名 联合模糊)/role/scope/status（side/所属方 2026-09-14 拍板随客户/供应商账号移除）
  * ------------------------------------------------------------------------ */
   users: {
-    'admin': { 'row': {"fields": {"search": "admin 系统管理员", "role": "系统管理员", "scope": "全部数据", "status": "启用"}, "cells": ["系统管理员", "<span class=\"tag tag-blue\">系统管理员</span>", "全部数据", "138****0001", "<span class=\"tag tag-green\">启用</span>", "2026-09-10 09:12"], "ops": [{"t": "编辑", "act": "openModal('createModal')"}, {"t": "权限配置", "act": "openModal('roleModal')"}, {"t": "重置密码", "act": "openModal('resetModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
-    'jiangqiang': { 'row': {"fields": {"search": "jiangqiang 江强", "role": "商务主管", "scope": "全部数据", "status": "启用"}, "cells": ["江强", "<span class=\"tag tag-blue\">商务主管</span>", "全部数据", "139****0102", "<span class=\"tag tag-green\">启用</span>", "2026-09-10 08:40"], "ops": [{"t": "编辑", "act": "openModal('createModal')"}, {"t": "权限配置", "act": "openModal('roleModal')"}, {"t": "重置密码", "act": "openModal('resetModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
-    'chenfeng': { 'row': {"fields": {"search": "chenfeng 陈锋", "role": "商务", "scope": "华东区", "status": "启用"}, "cells": ["陈锋", "<span class=\"tag tag-blue\">商务</span>", "华东区", "137****2031", "<span class=\"tag tag-green\">启用</span>", "2026-09-09 18:22"], "ops": [{"t": "编辑", "act": "openModal('createModal')"}, {"t": "权限配置", "act": "openModal('roleModal')"}, {"t": "重置密码", "act": "openModal('resetModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
-    'lijing': { 'row': {"fields": {"search": "lijing 李婧", "role": "财务主管", "scope": "全部数据", "status": "启用"}, "cells": ["李婧", "<span class=\"tag tag-blue\">财务主管</span>", "全部数据", "136****3345", "<span class=\"tag tag-green\">启用</span>", "2026-09-10 09:05"], "ops": [{"t": "编辑", "act": "openModal('createModal')"}, {"t": "权限配置", "act": "openModal('roleModal')"}, {"t": "重置密码", "act": "openModal('resetModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
-    'linguodong': { 'row': {"fields": {"search": "linguodong 林国栋", "role": "物流主管", "scope": "华东区", "status": "启用"}, "cells": ["林国栋", "<span class=\"tag tag-blue\">物流主管</span>", "华东区", "135****4567", "<span class=\"tag tag-green\">启用</span>", "2026-09-10 08:15"], "ops": [{"t": "编辑", "act": "openModal('createModal')"}, {"t": "权限配置", "act": "openModal('roleModal')"}, {"t": "重置密码", "act": "openModal('resetModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
-    'shaolei': { 'row': {"fields": {"search": "shaolei 邵磊", "role": "物流", "scope": "华东中心仓", "status": "停用"}, "cells": ["邵磊", "<span class=\"tag tag-blue\">物流</span>", "华东中心仓", "133****5689", "<span class=\"tag tag-gray\">停用</span>", "2026-08-30 17:44"], "ops": [{"t": "编辑", "act": "openModal('createModal')"}, {"t": "权限配置", "act": "openModal('roleModal')"}, {"t": "重置密码", "act": "openModal('resetModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]} }
+    'admin': { 'row': {"fields": {"search": "admin 系统管理员", "role": "系统管理员", "scope": "全部数据", "status": "启用"}, "cells": ["系统管理员", "<span class=\"tag tag-blue\">系统管理员</span>", "全部数据", "138****0001", "<span class=\"tag tag-green\">启用</span>", "2026-09-10 09:12"], "ops": [{"t": "编辑", "act": "go('../系统管理/用户新建.html')"}, {"t": "权限配置", "act": "go('../系统管理/权限配置.html')"}, {"t": "重置密码", "act": "openModal('resetModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
+    'jiangqiang': { 'row': {"fields": {"search": "jiangqiang 江强", "role": "商务主管", "scope": "全部数据", "status": "启用"}, "cells": ["江强", "<span class=\"tag tag-blue\">商务主管</span>", "全部数据", "139****0102", "<span class=\"tag tag-green\">启用</span>", "2026-09-10 08:40"], "ops": [{"t": "编辑", "act": "go('../系统管理/用户新建.html')"}, {"t": "权限配置", "act": "go('../系统管理/权限配置.html')"}, {"t": "重置密码", "act": "openModal('resetModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
+    'chenfeng': { 'row': {"fields": {"search": "chenfeng 陈锋", "role": "商务", "scope": "华东区", "status": "启用"}, "cells": ["陈锋", "<span class=\"tag tag-blue\">商务</span>", "华东区", "137****2031", "<span class=\"tag tag-green\">启用</span>", "2026-09-09 18:22"], "ops": [{"t": "编辑", "act": "go('../系统管理/用户新建.html')"}, {"t": "权限配置", "act": "go('../系统管理/权限配置.html')"}, {"t": "重置密码", "act": "openModal('resetModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
+    'lijing': { 'row': {"fields": {"search": "lijing 李婧", "role": "财务主管", "scope": "全部数据", "status": "启用"}, "cells": ["李婧", "<span class=\"tag tag-blue\">财务主管</span>", "全部数据", "136****3345", "<span class=\"tag tag-green\">启用</span>", "2026-09-10 09:05"], "ops": [{"t": "编辑", "act": "go('../系统管理/用户新建.html')"}, {"t": "权限配置", "act": "go('../系统管理/权限配置.html')"}, {"t": "重置密码", "act": "openModal('resetModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
+    'linguodong': { 'row': {"fields": {"search": "linguodong 林国栋", "role": "物流主管", "scope": "华东区", "status": "启用"}, "cells": ["林国栋", "<span class=\"tag tag-blue\">物流主管</span>", "华东区", "135****4567", "<span class=\"tag tag-green\">启用</span>", "2026-09-10 08:15"], "ops": [{"t": "编辑", "act": "go('../系统管理/用户新建.html')"}, {"t": "权限配置", "act": "go('../系统管理/权限配置.html')"}, {"t": "重置密码", "act": "openModal('resetModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
+    'shaolei': { 'row': {"fields": {"search": "shaolei 邵磊", "role": "物流", "scope": "华东中心仓", "status": "停用"}, "cells": ["邵磊", "<span class=\"tag tag-blue\">物流</span>", "华东中心仓", "133****5689", "<span class=\"tag tag-gray\">停用</span>", "2026-08-30 17:44"], "ops": [{"t": "编辑", "act": "go('../系统管理/用户新建.html')"}, {"t": "权限配置", "act": "go('../系统管理/权限配置.html')"}, {"t": "重置密码", "act": "openModal('resetModal')"}, {"t": "停用", "act": "openModal('stopModal')"}]} }
   },
 
   /* --------------------------------------------------------------------------
@@ -16160,14 +16160,14 @@ window.DEMO_DATA = {
     'RZ-20260905-004': { 'row': {"fields": {"auditor": "江强", "type": "租入入库", "docNo": "RZ-20260905-004", "summary": "环通 · 围板箱租入 300 只", "project": "PRJ-2603", "submitter": "江强", "time": "09-05 11:20", "action": "待入库"}}, 'link': '租入管理/租入入库确认.html?id=RZ-20260905-004' },
     'GH-20260904-002': { 'row': {"fields": {"auditor": "江强", "type": "租入归还", "docNo": "GH-20260904-002", "summary": "环通 · 归还围板箱 100 只", "project": "PRJ-2603", "submitter": "江强", "time": "09-04 15:08", "action": "待审核"}}, 'link': '租入管理/租入归还审核.html?id=GH-20260904-002' },
     'QT-20260903-001': { 'row': {"fields": {"auditor": "徐文", "type": "其他入库", "docNo": "QT-20260903-001", "summary": "调拨余量回库 · 托盘 40 张", "project": "华东中心仓", "submitter": "邵磊", "time": "09-03 14:22", "action": "待审核"}}, 'link': '仓储作业/其他入库审核.html?id=QT-20260903-001' },
-    'FK-20260902-005': { 'row': {"fields": {"auditor": "严丽", "type": "付款登记", "docNo": "FK-20260902-005", "summary": "甬城塑业包装 · 8 月应付结算", "project": "PRJ-2601", "submitter": "李婧", "time": "09-02 10:30", "action": "待确认"}}, 'link': '财务协同/付款登记.html?audit=1' },
+    'FK-20260902-005': { 'row': {"fields": {"auditor": "严丽", "type": "付款登记", "docNo": "FK-20260902-005", "summary": "甬城塑业包装 · 8 月应付结算", "project": "PRJ-2601", "submitter": "李婧", "time": "09-02 10:30", "action": "待确认"}}, 'link': '财务协同/付款确认.html?id=FK-20260902-005' },
     'SK-20260901-003': { 'row': {"fields": {"auditor": "严丽", "type": "收款确认", "docNo": "SK-20260901-003", "summary": "华骏重卡 · 8 月租金回款", "project": "PRJ-2601", "submitter": "李婧", "time": "09-01 09:15", "action": "待确认"}}, 'link': '财务协同/回款登记.html?audit=1' },
     'QTCK-20260904-003': { 'row': {"fields": {"auditor": "林国栋", "type": "其他出库", "docNo": "QTCK-20260904-003", "summary": "华东中心仓 · 报废隔板 12 块", "project": "华东中心仓", "submitter": "邵磊", "time": "09-04 10:05", "action": "待审核"}}, 'link': '仓储作业/其他出库审核.html?id=QTCK-20260904-003' },
     'DB-20260906-008': { 'row': {"fields": {"auditor": "林国栋", "type": "库存调拨", "docNo": "DB-20260906-008", "summary": "华东中心仓→华南中心仓 · 围板箱 50 只", "project": "华东中心仓", "submitter": "邵磊", "time": "09-06 11:40", "action": "待审核"}}, 'link': '仓储作业/调拨审核.html?id=DB-20260906-008' },
     'RZD-20260909-010': { 'row': {"fields": {"auditor": "江强", "type": "租入单", "docNo": "RZD-20260909-010", "summary": "环通 · 大箱租入 40 只（月租）", "project": "PRJ-2603", "submitter": "江强", "time": "09-09 09:50", "action": "待审核"}}, 'link': '租入管理/租入单审核.html?id=RZD-20260909-010' },
     'CK-20260910-022': { 'row': {"fields": {"auditor": "林国栋", "type": "租赁出库", "docNo": "CK-20260910-022", "summary": "东海商用宁波 · 围板箱套件 30 套", "project": "PRJ-2603", "submitter": "邵磊", "time": "09-10 15:20", "action": "待审核"}}, 'link': '租赁管理/租赁出库确认.html?id=CK-20260910-022' },
-    'CGTH-20260910-003': { 'row': {"fields": {"auditor": "徐文", "type": "采购退货单", "docNo": "CGTH-20260910-003", "summary": "延陵托盘 · 塑料托盘退货 40 张（入库后）", "project": "PRJ-2602", "submitter": "林国栋", "time": "09-10 11:05", "action": "待审核"}}, 'link': '采购管理/采购退货单列表.html?audit=1' },
-    'XSTH-20260911-003': { 'row': {"fields": {"auditor": "沈婷", "type": "销售退货单", "docNo": "XSTH-20260911-003", "summary": "东海商用宁波 · 内衬退货 300 件（拒收）", "project": "PRJ-2602", "submitter": "沈婷", "time": "09-11 14:30", "action": "待审核"}}, 'link': '销售管理/销售退货单列表.html?audit=1' },
+    'CGTH-20260910-003': { 'row': {"fields": {"auditor": "徐文", "type": "采购退货单", "docNo": "CGTH-20260910-003", "summary": "延陵托盘 · 塑料托盘退货 40 张（入库后）", "project": "PRJ-2602", "submitter": "林国栋", "time": "09-10 11:05", "action": "待审核"}}, 'link': '采购管理/采购退货审核.html?id=CGTH-20260910-003' },
+    'XSTH-20260911-003': { 'row': {"fields": {"auditor": "沈婷", "type": "销售退货单", "docNo": "XSTH-20260911-003", "summary": "东海商用宁波 · 内衬退货 300 件（拒收）", "project": "PRJ-2602", "submitter": "沈婷", "time": "09-11 14:30", "action": "待审核"}}, 'link': '销售管理/销售退货审核.html?id=XSTH-20260911-003' },
     'TKD-20260914-001': { 'row': {"fields": {"auditor": "严丽", "type": "退款登记", "docNo": "TKD-20260914-001", "summary": "甬城塑业 · 采购退货应付退款 2,000.00", "project": "PRJ-2601", "submitter": "李婧", "time": "09-14 10:15", "action": "待审核"}}, 'link': '财务协同/退款登记.html?audit=1' },
   },
 
@@ -16429,7 +16429,7 @@ window.DEMO_DATA = {
  * ------------------------------------------------------------------------ */
   refunds: {
     'TKD-20260914-001': {
-      'row': {"fields": {"type": "应付退款", "ref": "CGTH-20260912-002", "partner": "甬城塑业包装制品有限公司", "amount": "2,000.00", "direction": "收款（供应商退回）", "status": "待审核", "date": "2026-09-14"}, "cells": ["应付退款（对供应商）", "<span class=\"lk\">CGTH-20260912-002</span>", "甬城塑业包装制品有限公司", "<span class=\"td-num\">2,000.00</span>", "收款（供应商退回）", "<span class=\"tag tag-orange\">待审核</span>", "2026-09-14"], "ops": [{"t": "确认", "act": "openModal('auditModal')"}, {"t": "详情", "act": "openRetDetail('refunds', 'TKD-20260914-001')"}]},
+      'row': {"fields": {"type": "应付退款", "ref": "CGTH-20260912-002", "partner": "甬城塑业包装制品有限公司", "amount": "2,000.00", "direction": "收款（供应商退回）", "status": "待审核", "date": "2026-09-14"}, "cells": ["应付退款（对供应商）", "<span class=\"lk\">CGTH-20260912-002</span>", "甬城塑业包装制品有限公司", "<span class=\"td-num\">2,000.00</span>", "收款（供应商退回）", "<span class=\"tag tag-orange\">待审核</span>", "2026-09-14"], "ops": [{"t": "确认", "act": "openModal('auditModal')"}, {"t": "详情", "act": "go('../财务协同/退款详情.html?id=TKD-20260914-001')"}]},
       title: '退款登记详情',
       info: [
         { label: '退款单号', text: 'TKD-20260914-001', full: true },
@@ -16456,7 +16456,7 @@ window.DEMO_DATA = {
       ]
     },
     'TKD-20260913-002': {
-      'row': {"fields": {"type": "应收退款", "ref": "XSTH-20260913-001", "partner": "华骏重卡汽车有限公司", "amount": "3,600.00", "direction": "付款（退回客户）", "status": "已确认", "date": "2026-09-13"}, "cells": ["应收退款（对客户）", "<span class=\"lk\">XSTH-20260913-001</span>", "华骏重卡汽车有限公司", "<span class=\"td-num\">3,600.00</span>", "付款（退回客户）", "<span class=\"tag tag-green\">已确认</span>", "2026-09-13"], "ops": [{"t": "详情", "act": "openRetDetail('refunds', 'TKD-20260913-002')"}]},
+      'row': {"fields": {"type": "应收退款", "ref": "XSTH-20260913-001", "partner": "华骏重卡汽车有限公司", "amount": "3,600.00", "direction": "付款（退回客户）", "status": "已确认", "date": "2026-09-13"}, "cells": ["应收退款（对客户）", "<span class=\"lk\">XSTH-20260913-001</span>", "华骏重卡汽车有限公司", "<span class=\"td-num\">3,600.00</span>", "付款（退回客户）", "<span class=\"tag tag-green\">已确认</span>", "2026-09-13"], "ops": [{"t": "详情", "act": "go('../财务协同/退款详情.html?id=TKD-20260913-002')"}]},
       title: '退款登记详情',
       info: [
         { label: '退款单号', text: 'TKD-20260913-002', full: true },
@@ -16483,7 +16483,7 @@ window.DEMO_DATA = {
       ]
     },
     'TKD-20260912-003': {
-      'row': {"fields": {"type": "应付退款", "ref": "CGTH-20260914-001", "partner": "吴越联合五金制品有限公司", "amount": "4,800.00", "direction": "收款（供应商退回）", "status": "已确认", "date": "2026-09-12"}, "cells": ["应付退款（对供应商）", "<span class=\"lk\">CGTH-20260914-001</span>", "吴越联合五金制品有限公司", "<span class=\"td-num\">4,800.00</span>", "收款（供应商退回）", "<span class=\"tag tag-green\">已确认</span>", "2026-09-12"], "ops": [{"t": "详情", "act": "openRetDetail('refunds', 'TKD-20260912-003')"}]},
+      'row': {"fields": {"type": "应付退款", "ref": "CGTH-20260914-001", "partner": "吴越联合五金制品有限公司", "amount": "4,800.00", "direction": "收款（供应商退回）", "status": "已确认", "date": "2026-09-12"}, "cells": ["应付退款（对供应商）", "<span class=\"lk\">CGTH-20260914-001</span>", "吴越联合五金制品有限公司", "<span class=\"td-num\">4,800.00</span>", "收款（供应商退回）", "<span class=\"tag tag-green\">已确认</span>", "2026-09-12"], "ops": [{"t": "详情", "act": "go('../财务协同/退款详情.html?id=TKD-20260912-003')"}]},
       title: '退款登记详情',
       info: [
         { label: '退款单号', text: 'TKD-20260912-003', full: true },

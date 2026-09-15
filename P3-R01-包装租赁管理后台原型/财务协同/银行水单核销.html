@@ -534,7 +534,7 @@ th.td-num { text-align:right; }
           <td><span class="tag tag-blue">部分核销</span></td>
           <td>2026-08-30 14:22</td>
           <td>李婧</td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('undoModal')">撤销核销</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../财务协同/水单核销详情.html')">详情</a><a onclick="openModal('undoModal')">撤销核销</a></span></td>
         </tr>
         <tr>
           <td><span class="lk">HX-20260828-011</span></td>
@@ -544,7 +544,7 @@ th.td-num { text-align:right; }
           <td><span class="tag tag-green">已核销</span></td>
           <td>2026-08-28 10:05</td>
           <td>李婧</td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('undoModal')">撤销核销</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../财务协同/水单核销详情.html')">详情</a><a onclick="openModal('undoModal')">撤销核销</a></span></td>
         </tr>
         <tr>
           <td><span class="lk">HX-20260826-010</span></td>
@@ -554,7 +554,7 @@ th.td-num { text-align:right; }
           <td><span class="tag tag-green">已核销</span></td>
           <td>2026-08-26 16:40</td>
           <td>李婧</td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('undoModal')">撤销核销</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../财务协同/水单核销详情.html')">详情</a><a onclick="openModal('undoModal')">撤销核销</a></span></td>
         </tr>
         <tr>
           <td><span class="lk">HX-20260822-009</span></td>
@@ -564,7 +564,7 @@ th.td-num { text-align:right; }
           <td><span class="tag tag-green">已核销</span></td>
           <td>2026-08-22 09:30</td>
           <td>李婧</td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('undoModal')">撤销核销</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../财务协同/水单核销详情.html')">详情</a><a onclick="openModal('undoModal')">撤销核销</a></span></td>
         </tr>
       </tbody>
     </table>
@@ -652,18 +652,6 @@ th.td-num { text-align:right; }
 .tl-i .tl-who{color:#8c8c8c;font-size:12px;margin-left:8px}
 </style>
 <!-- 详情弹窗（四段式：单据头/明细/关联单据互溯链/流转时间线）· 详情落地页补齐 2026-09-04 -->
-<div class="modal-overlay" id="detailModal">
-  <div class="modal modal-lg" style="width:780px;">
-    <div class="modal-header">
-      <h3 class="modal-title" id="detailTitle">水单核销详情</h3>
-      <span class="modal-close" onclick="closeModal('detailModal')">×</span>
-    </div>
-    <div class="modal-body" id="detailBody"><!-- 内容由 _data/detail-generic.js 按单号渲染 --></div>
-    <div class="modal-footer">
-      <button class="btn btn-default" onclick="closeModal('detailModal')">关 闭</button>
-    </div>
-  </div>
-</div>
 <script src="../_data/demo-data.js"></script>
 <script src="../_data/detail-generic.js"></script><script src="../_data/list-generic.js"></script>
 
