@@ -346,33 +346,35 @@ th.td-num { text-align:right; }
   </div>
 
       <div class="form-row">
-        <span class="form-label"><span class="req">*</span>退货类型</span>
+        <div class="form-label"><span class="req">*</span>退货类型：</div>
         <div><span class="radio checked"><span class="dot"></span>收货拒收（未入库直接退）</span><span class="radio"><span class="dot"></span>入库后退货（已入库再退）</span></div>
       </div>
       <div class="form-row">
-        <span class="form-label"><span class="req">*</span>客户</span>
-        <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option>华骏重卡汽车有限公司</option><option>东海商用汽车有限公司宁波分公司</option><option>星途新能源汽车科技有限公司</option><option>长风汽车制造有限公司</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+        <div class="form-label"><span class="req">*</span>客户：</div>
+        <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option>华骏重卡汽车有限公司</option><option>东海商用汽车有限公司宁波分公司</option><option>星途新能源汽车科技有限公司</option><option>长风汽车制造有限公司</option></select><span class="caret">▾</span></div>
       </div>
       <div class="form-row">
-        <span class="form-label"><span class="req">*</span>关联原单</span>
-        <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>XSCK-20260902-015（华骏重卡 · 可退 200 件）</option><option>XSCK-20260901-014（长风汽制 · 可退 100 套）</option><option>XSCK-20260826-012（东海商用宁波 · 可退 300 件）</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+        <div class="form-label"><span class="req">*</span>关联原单：</div>
+        <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>XSCK-20260902-015（华骏重卡 · 可退 200 件）</option><option>XSCK-20260901-014（长风汽制 · 可退 100 套）</option><option>XSCK-20260826-012（东海商用宁波 · 可退 300 件）</option></select><span class="caret">▾</span></div>
         <div class="form-tip" style="margin-left:12px;">选择原单后带出物料行与可退上限</div>
       </div>
       <div class="form-row">
-        <span class="form-label"><span class="req">*</span>退货日期</span>
-        <div class="input-box" style="width:380px;"><input value="2026-09-15" placeholder="请输入"></div>
+        <div class="form-label"><span class="req">*</span>退货日期：</div>
+        <div class="input-box" style="width:380px;"><input type="date" value="2026-09-15"></div>
       </div>
       <div class="form-row">
-        <span class="form-label">退货原因</span>
+        <div class="form-label">退货原因：</div>
         <div class="input-box" style="width:380px;"><input placeholder="选填"></div>
       </div>
-      <div class="form-row">
-        <span class="form-label">备注</span>
-        <div class="input-box" style="width:380px;"><input placeholder="选填"></div>
+      <div class="form-row" style="align-items:flex-start;">
+        <div class="form-label" style="padding-top:6px;">备注：</div>
+        <div>
+          <div class="input-box" style="width:380px;height:auto;padding:6px 11px;"><textarea placeholder="选填" style="width:100%;border:none;outline:none;background:transparent;font:inherit;color:inherit;resize:vertical;min-height:72px;line-height:1.6;"></textarea></div>
+        </div>
       </div>
       <div style="margin:12px 0 8px;font-size:13px;font-weight:600;">退货明细（可退上限内填写）</div>
-      <div class="table-wrap">
-        <table class="edit-tbl">
+      <div class="table-wrap edit-tbl">
+        <table>
           <thead><tr><th>物料</th><th>可退上限</th><th>退货数量</th><th>单价(元)</th><th>金额(元)</th></tr></thead>
           <tbody id="retItems">
             <tr><td class="auto-cell">箱盖 ABS 吸塑</td><td class="auto-cell">200 件</td><td><input value="200"></td><td><input value="18.00"></td><td class="auto-cell">3,600.00</td></tr>
@@ -382,7 +384,6 @@ th.td-num { text-align:right; }
       <div style="margin-top:8px;"><button class="btn btn-dashed btn-sm" onclick="addRetRow()">+ 添加一行</button></div>
     
 </div>
-<style>.form-row .input-box{width:380px;}</style>
 
 <div class="submit-bar"><button class="btn btn-default" onclick="go('../销售管理/销售退货单列表.html')">取消</button><button class="btn">保存草稿</button><button class="btn">提交审核</button></div>
     </div>

@@ -347,32 +347,34 @@ th.td-num { text-align:right; }
 <div id="createModal">
 
 <div class="form-row">
-    <span class="form-label"><span class="req">*</span>账单类型</span>
-    <div class="input-box select-box" style="width:380px;"><select id="cmBtype" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option value="lease" selected>租赁费（按租赁出库自动汇总）</option><option value="sale">销售费（按销售出库自动汇总）</option><option value="loss">丢损赔偿（客户赔付我方）</option><option value="supplier">供应商应收（供应商赔付我方）</option><option value="deposit">押金（收客户·租赁押金，退时转对客户应付）</option><option value="prepay">预收·保证金（收客户，无订单直接建单）</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+    <div class="form-label"><span class="req">*</span>账单类型：</div>
+    <div class="input-box select-box" style="width:380px;"><select id="cmBtype" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option value="lease" selected>租赁费（按租赁出库自动汇总）</option><option value="sale">销售费（按销售出库自动汇总）</option><option value="loss">丢损赔偿（客户赔付我方）</option><option value="supplier">供应商应收（供应商赔付我方）</option><option value="deposit">押金（收客户·租赁押金，退时转对客户应付）</option><option value="prepay">预收·保证金（收客户，无订单直接建单）</option></select><span class="caret">▾</span></div>
   </div><div class="pn-hint" id="cmTypeHint" style="margin:-14px 0 12px 128px;"></div><div class="form-row">
-    <span class="form-label"><span class="req">*</span><span id="cmPartyLabel">客户</span></span>
-    <div class="input-box select-box" style="width:380px;"><select id="cmParty" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+    <div class="form-label"><span class="req">*</span><span id="cmPartyLabel">客户</span>：</div>
+    <div class="input-box select-box" style="width:380px;"><select id="cmParty" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"></select><span class="caret">▾</span></div>
   </div><div class="form-row">
-    <span class="form-label"><span class="req">*</span>所属项目</span>
-    <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>PRJ-2601 华骏重卡·长春基地</option><option>PRJ-2601 华骏重卡</option><option>PRJ-2602 东海商用</option><option>PRJ-2603 星途</option><option>PRJ-2604 长风汽制</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+    <div class="form-label"><span class="req">*</span>所属项目：</div>
+    <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>PRJ-2601 华骏重卡·长春基地</option><option>PRJ-2601 华骏重卡</option><option>PRJ-2602 东海商用</option><option>PRJ-2603 星途</option><option>PRJ-2604 长风汽制</option></select><span class="caret">▾</span></div>
   </div><div class="form-row">
-    <span class="form-label">账期</span>
+    <div class="form-label">账期：</div>
     <div class="input-box" style="width:380px;"><input value="2026-09" placeholder="请输入"></div>
   </div><div class="form-row" id="cmFeeCatRow" style="display:none;">
-    <span class="form-label">费用分类</span>
-    <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>丢损缺损赔偿</option><option>违约金</option><option>保证金</option><option>预付款</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+    <div class="form-label">费用分类：</div>
+    <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>丢损缺损赔偿</option><option>违约金</option><option>保证金</option><option>预付款</option></select><span class="caret">▾</span></div>
   </div><div class="form-row">
-    <span class="form-label"><span class="req">*</span>生成方式</span>
+    <div class="form-label"><span class="req">*</span>生成方式：</div>
     <div><span class="radio checked" onclick="toggleUsageGen(false)"><span class="dot"></span>按月定期（现有默认）</span><span class="radio" onclick="toggleUsageGen(true)"><span class="dot"></span>按实际使用量</span></div>
   </div>
   <div id="usageHint" style="display:none;margin:-12px 0 12px 128px;font-size:12px;color:#595959;line-height:1.7;background:#fafafa;border:1px dashed #d9d9d9;border-radius:6px;padding:8px 12px;max-width:560px;">按实际使用量生成：按 <b>数量 × 单价</b> 计费，<b>按客户对账量录入</b>（以客户确认的对账量为准，非按月汇总）；示例：46,600 套·日 × 4.00 元 = 186,400.00 元。</div>
 <div class="form-row">
-    <span class="form-label"><span class="req">*</span>账单金额(元)</span>
+    <div class="form-label"><span class="req">*</span>账单金额(元)：</div>
     <div class="input-box" style="width:380px;"><input id="cmAmt" value="126,800.00" placeholder="请输入"></div>
-  </div><div class="form-row">
-    <span class="form-label">备注</span>
-    <div class="input-box" style="width:380px;"><input placeholder="选填"></div>
-  </div>
+  </div><div class="form-row" style="align-items:flex-start;">
+        <div class="form-label" style="padding-top:6px;">备注：</div>
+        <div>
+          <div class="input-box" style="width:380px;height:auto;padding:6px 11px;"><textarea placeholder="选填" style="width:100%;border:none;outline:none;background:transparent;font:inherit;color:inherit;resize:vertical;min-height:72px;line-height:1.6;"></textarea></div>
+        </div>
+      </div>
 <div style="margin:12px 0 4px;font-size:13px;font-weight:600;">分期收款计划（比例⇄金额互算 · 笔数不限直至收清）</div>
 <div style="display:flex;gap:8px;align-items:center;margin-bottom:6px;">
       <button class="btn btn-default btn-sm" id="cmInstAdd" type="button">+ 添加一笔</button>
@@ -388,7 +390,6 @@ th.td-num { text-align:right; }
     
 </div>
 </div>
-<style>.form-row .input-box{width:380px;}</style>
 
 <div class="submit-bar"><button class="btn btn-default" onclick="go('../财务协同/应收账单.html')">取消</button><button class="btn">保存</button></div>
     </div>
