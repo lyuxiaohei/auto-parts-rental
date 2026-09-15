@@ -265,11 +265,13 @@ th.td-num { text-align:right; }
     <div class="input-box"><input placeholder="选填 · 收付款账号可与开票账号不一致"></div>
   </div><div class="form-row">
     <span class="form-label"><span class="req">*</span>结算周期</span>
-    <div class="input-box select-box"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>月结</option><option>发票后 30 天</option><option>发票后 60 天</option><option>发票后 90 天</option><option>发票后 120 天</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+    <div class="input-box select-box"><select id="invSettleSel" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>月结</option><option>发票后 30 天</option><option>发票后 60 天</option><option>发票后 90 天</option><option>发票后 120 天</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
   </div><div class="form-row">
     <span class="form-label">备注</span>
     <div class="input-box"><input placeholder="选填"></div>
-  </div>    <div class="modal-footer">
+  </div>
+    </div>
+    <div class="modal-footer">
       <button class="btn btn-default" onclick="closeModal('createModal')">取消</button>
       <button class="btn" onclick="closeModal('createModal')">保存</button>
     </div>
@@ -326,5 +328,20 @@ document.querySelectorAll('.tab').forEach(function (t) {
 </script>
 <style id="f01-fab-style">.f01-fab{position:fixed;right:12px;bottom:12px;z-index:1001;display:flex;align-items:center;height:24px;padding:0 10px;border-radius:4px;background:#fff;border:1px solid #d9d9d9;color:#8c8c8c;font-size:11px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.06);opacity:.6;transition:opacity .15s}.f01-fab:hover{opacity:1;border-color:#722ed1;color:#722ed1}</style>
 <a class="f01-fab" href="../../P3-R01-F01-业务流程导航图.html">流程图</a>
+<script src="../../_data/demo-data.js"></script>
+<script>/* G34 T6（D-127）：结算周期=字典 JSQ 渲染（客商开票资料与物料供应商税率区共用同一字典组）；渲染失败保留静态兜底 */
+(function () {
+  var J = [];
+  try {
+    var D = (window.DEMO_DATA || {}).dictItems || {};
+    Object.keys(D).forEach(function (k) { var f = (D[k].row || {}).fields || {}; if (f.category === '结算周期') J.push(f.name); });
+  } catch (e) {}
+  if (!J.length) return;
+  var s = document.getElementById('invSettleSel');
+  if (!s) return;
+  var cur = s.value;
+  s.innerHTML = J.map(function (o) { return '<option' + (o === cur ? ' selected' : '') + '>' + o + '</option>'; }).join('');
+})();
+</script>
 </body>
 </html>

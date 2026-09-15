@@ -612,32 +612,31 @@ th.td-num { text-align:right; }
     <span class="form-label"><span class="req">*</span>物料编码</span>
     <div class="input-box"><input placeholder="如 WBX-1210L"></div>
   </div><div class="form-row">
-    <span class="form-label">型号</span>
-    <div class="input-box"><input placeholder="选填"></div>
-  </div><div class="form-row">
-    <span class="form-label">内部编码</span>
-    <div class="input-box"><input placeholder="选填 · 供应商/客户方产品编码"></div>
-  </div><div class="form-row">
     <span class="form-label"><span class="req">*</span>物料名称</span>
     <div class="input-box"><input placeholder="如 围板箱 1200×1000×970"></div>
   </div><div class="form-row">
     <span class="form-label"><span class="req">*</span>物料类型</span>
     <div class="input-box select-box"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>围板箱</option><option>塑料托盘</option><option>木托盘</option><option>料箱</option><option>料架</option><option>组件</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
-  </div>
+  </div><div class="form-row">
+    <span class="form-label">供应商内部编码</span>
+    <div class="input-box"><input placeholder="选填 · 供应商/客户方产品编码"></div>
+  </div><div class="form-row">
+    <span class="form-label">物料型号</span>
+    <div class="input-box"><input placeholder="选填"></div>
   </div><div class="form-row">
     <span class="form-label">规格</span>
-    <div class="input-box"><input value="1200×1000×970mm" placeholder="请输入"></div>
+    <div class="input-box" style="width:220px;flex:none;"><input value="1200×1000×970mm" placeholder="请输入"></div>
   </div><div class="form-row">
     <span class="form-label">单位</span>
-    <div class="input-box select-box"><select id="unitSel" onchange="g21RentHint('rentIn');g21RentHint('rental');" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>只</option><option>套</option><option>个</option><option>托</option><option>件</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+    <div class="input-box select-box" style="width:220px;flex:none;"><select id="unitSel" onchange="g21RentHint('rentIn');g21RentHint('rental');" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>只</option><option>套</option><option>个</option><option>托</option><option>件</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
   </div>
   <div class="form-row">
     <span class="form-label">参考未税采购价(元)</span>
-    <div class="input-box"><input value="380.00" placeholder="采购参考单价"></div>
+    <div class="input-box" style="width:220px;flex:none;"><input value="380.00" placeholder="采购参考单价"></div>
   </div>
   <div class="form-row">
     <span class="form-label">参考未税销售价(元)</span>
-    <div class="input-box"><input placeholder="可售物料填写，不适用留空"></div>
+    <div class="input-box" style="width:220px;flex:none;"><input placeholder="可售物料填写，不适用留空"></div>
   </div>
   <div class="form-row g2">
     <span class="form-label">参考未税租入价</span>
@@ -658,7 +657,10 @@ th.td-num { text-align:right; }
     </div>
   </div><div class="form-row g2">
     <span class="form-label">备注</span>
-    <div class="input-box"><input placeholder="选填"></div>
+    <div class="input-box" style="height:72px;align-items:stretch;padding:6px 11px;position:relative;">
+      <textarea id="prodRemarkTa" maxlength="200" placeholder="选填" oninput="g34TaCount(this,'prodRemarkCnt',200)" style="flex:1;min-width:0;height:100%;border:none;outline:none;background:transparent;font:inherit;color:inherit;resize:none;padding:0;line-height:1.6;"></textarea>
+      <span class="char-count" id="prodRemarkCnt" style="position:absolute;right:10px;bottom:6px;font-size:12px;color:#8c8c8c;background:rgba(255,255,255,.92);">0/200</span>
+    </div>
   </div>
   <style>
   .tax-sec{margin:2px 0 6px;}
@@ -688,7 +690,9 @@ th.td-num { text-align:right; }
     </div>
   </div>
 
-<script>/* G21 租价三段式联动：计费方式(按时间周期/按次)×周期单位(月/年/日·默认月)+数值，后缀=元/计量单位·周期（单位取同表单「单位」下拉）；按次→周期单位隐藏（2026-09-14 道远拍板·原为禁用置灰） */ function g21RentHint(p){var m=document.getElementById(p+'ModeSel').value;var u=document.getElementById(p+'UnitSel');u.disabled=(m==='按次');var ub=document.getElementById(p+'UnitBox');if(ub)ub.style.display=(m==='按次')?'none':'';var us=document.getElementById('unitSel');var unit=us?us.value:'只';document.getElementById(p+'Hint').textContent='元/'+unit+'·'+(m==='按次'?'次':u.value);}</script></div>
+<script>/* G21 租价三段式联动：计费方式(按时间周期/按次)×周期单位(月/年/日·默认月)+数值，后缀=元/计量单位·周期（单位取同表单「单位」下拉）；按次→周期单位隐藏（2026-09-14 道远拍板·原为禁用置灰） */ function g21RentHint(p){var m=document.getElementById(p+'ModeSel').value;var u=document.getElementById(p+'UnitSel');u.disabled=(m==='按次');var ub=document.getElementById(p+'UnitBox');if(ub)ub.style.display=(m==='按次')?'none':'';var us=document.getElementById('unitSel');var unit=us?us.value:'只';document.getElementById(p+'Hint').textContent='元/'+unit+'·'+(m==='按次'?'次':u.value);};
+/* G34 T4（D-127）：物料备注字数计数（maxlength=200·满额标红） */
+window.g34TaCount=function(ta,cid,mx){var el=document.getElementById(cid);if(!el)return;var n=ta.value.length;el.textContent=n+'/'+mx;el.classList.toggle('over',n>=mx);};</script></div>
 
 
 <script id="batch-btn-js">
@@ -893,6 +897,18 @@ document.querySelectorAll('.tab').forEach(function (t) {
     });
   } catch (e) {}
   function esc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
+  /* G34 T5/T6（D-127）：默认税率/结算周期下拉=数据字典 SL/JSQ 渲染，字典缺失回退硬编码 */
+  var SL = [], JSQ = [];
+  try {
+    var DICT = (window.DEMO_DATA || {}).dictItems || {};
+    Object.keys(DICT).forEach(function (k) {
+      var df = (DICT[k].row || {}).fields || {};
+      if (df.category === '供应商税率') SL.push(df.name);
+      else if (df.category === '结算周期') JSQ.push(df.name);
+    });
+  } catch (e) {}
+  if (!SL.length) SL = ['0%','1%','3%','6%','9%','13%'];
+  if (!JSQ.length) JSQ = ['月结','发票后 30 天','发票后 60 天','发票后 90 天','发票后 120 天'];
   window.addTaxRow = function (sup, rate, cyc) {
     var box = document.getElementById('taxEditRows');
     if (!box) return;
@@ -902,8 +918,8 @@ document.querySelectorAll('.tab').forEach(function (t) {
     box.insertAdjacentHTML('beforeend',
       '<div class="tax-edit-row">'
       + '<span class="tax-cell"><select class="tax-sel">' + opts + '</select></span>'
-      + '<span class="tax-cell"><input class="tax-in" value="' + esc(rate || '13%') + '"></span>'
-      + '<span class="tax-cell"><select class="tax-sel">' + ['月结','发票后 30 天','发票后 60 天','发票后 90 天','发票后 120 天'].map(function(o){return '<option'+(o===(cyc||'月结')?' selected':'')+'>'+o+'</option>';}).join('') + '</select></span>'
+      + '<span class="tax-cell"><select class="tax-sel">' + SL.map(function(o){return '<option'+(o===(rate||'13%')?' selected':'')+'>'+o+'</option>';}).join('') + '</select></span>'
+      + '<span class="tax-cell"><select class="tax-sel">' + JSQ.map(function(o){return '<option'+(o===(cyc||'月结')?' selected':'')+'>'+o+'</option>';}).join('') + '</select></span>'
       + '<span class="tax-cell" style="flex:0 0 44px;"><a href="javascript:void(0)" class="tax-del" onclick="removeTaxRow(this)">删除</a></span>'
       + '</div>');
   };
