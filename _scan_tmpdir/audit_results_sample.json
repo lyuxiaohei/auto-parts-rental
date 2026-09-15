@@ -1,21 +1,24 @@
 [
  {
-  "page": "租赁管理\\出货单打印.html",
+  "page": "财务协同\\应付账单.html",
   "js_errors": [],
   "problems": [],
   "stats": {
-   "buttons": 2,
-   "links": 0,
-   "onclickEls": 2,
-   "modals": 0,
-   "modalTitles": [],
-   "selects": 0,
+   "buttons": 11,
+   "links": 25,
+   "onclickEls": 57,
+   "modals": 2,
+   "modalTitles": [
+    "账单确认",
+    "分期付款计划 · AP-20260905"
+   ],
+   "selects": 5,
    "fakeSelects": 0,
    "radios": 0,
    "checkboxes": 0,
-   "inputs": 0,
-   "stabs": 0,
-   "tabs": 0,
+   "inputs": 19,
+   "stabs": 4,
+   "tabs": 3,
    "bgMut": 0
   },
   "dead_links": [],

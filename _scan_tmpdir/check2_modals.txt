@@ -1,0 +1,15 @@
+[DIR] 仓储作业\弹窗/  files=[]
+[DIR] 基础数据\弹窗/  files=['停用确认.html']
+[DIR] 系统管理\弹窗/  files=['停用确认.html', '重置密码确认.html']
+[DIR] 财务协同\弹窗/  files=[]
+actual modal files: ['基础数据\\弹窗\\停用确认.html', '系统管理\\弹窗\\停用确认.html', '系统管理\\弹窗\\重置密码确认.html']
+expected modal files: ['基础数据\\弹窗\\停用确认.html', '系统管理\\弹窗\\停用确认.html', '系统管理\\弹窗\\重置密码确认.html']
+extra: []
+missing-from-expected: []
+BANNED-DIR 采购管理/弹窗 NOT EXISTS
+BANNED-DIR 销售管理/弹窗 NOT EXISTS
+BANNED-DIR 租赁管理/弹窗 NOT EXISTS
+BANNED-DIR 租入管理/弹窗 NOT EXISTS
+BANNED-DIR 仓储作业/弹窗 exists, contents=[]
+BANNED-DIR 财务协同/弹窗 exists, contents=[]
+BANNED-DIR 项目管理/弹窗 NOT EXISTS

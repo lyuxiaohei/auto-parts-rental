@@ -1,0 +1,27 @@
+perr=0 cerr=0 audit1OnclickCount=2
+  ROW=收款确认	SK-20260901-003	华骏重卡 · 8 月租金回款	PRJ-2601	李婧	09-01 09:15	
+  ONCLICK=go('财务协同/回款登记.html?audit=1')
+  ROW=退款登记	TKD-20260914-001	甬城塑业 · 采购退货应付退款 2,000.00	PRJ-2601	李婧	0
+  ONCLICK=go('财务协同/退款登记.html?audit=1')
+non-audit nav onclicks sample:
+    go('首页/项目看板.html')
+    go('项目管理/项目档案.html')
+    go('基础数据/客商管理.html')
+    go('基础数据/产品档案.html')
+    go('基础数据/BOM.html')
+    go('基础数据/库位档案.html')
+    go('采购管理/采购订单列表.html')
+    go('采购管理/采购入库列表.html')
+    go('采购管理/采购退货单列表.html')
+    go('销售管理/销售订单列表.html')
+    go('销售管理/销售出库列表.html')
+    go('销售管理/销售退货单列表.html')
+    go('租赁管理/租赁单列表.html')
+    go('租赁管理/租赁出库列表.html')
+    go('租赁管理/退租入库列表.html')
+    go('租入管理/租入单列表.html')
+    go('租入管理/租入入库列表.html')
+    go('租入管理/租入归还列表.html')
+    go('仓储作业/库存查询.html')
+    go('仓储作业/盘点列表.html')
+DONE check9

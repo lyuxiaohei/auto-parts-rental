@@ -1,0 +1,5 @@
+[租入单详情 RZD-20260902-008] perr=0 hasRZRK=True hasCK=True
+[租赁出库详情 CK-20260914-023] perr=0 bodyHasRZRK=True
+  fullBodyHasRZRK=True fullBodyHasRZD=True
+[租入入库确认 RZRK-20260903-023] perr=0 cbCount=1 firstCbChecked=True
+DONE check6
