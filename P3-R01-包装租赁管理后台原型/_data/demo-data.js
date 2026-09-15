@@ -7742,7 +7742,7 @@ window.DEMO_DATA = {
   /* 按库存可用量发货；销售费应收按出库自动汇总 */
   salesOutbounds: {
     'XSCK-20260902-015': {
-      'row': {"fields": {"so": "SO-20260830-0043", "customer": "华骏重卡汽车有限公司", "project": "PRJ-2601", "summary": "箱盖 ABS 吸塑×1,500", "warehouse": "原料区 RA", "date": "2026-09-02", "status": "待审核"}, "note": "1", "cells": ["<span class=\"lk\">SO-20260830-0043</span>", "华骏重卡汽车有限公司", "PRJ-2601", "箱盖 ABS 吸塑×1,500", "<span class=\"td-num\">1,500</span>", "原料区 RA", "2026-09-02", "<span class=\"tag tag-orange\">待审核</span>"], "ops": [{"t": "审核", "act": "openModal('auditModal')"}, {"t": "详情", "detail": true}, {"t": "打印出货单", "act": "window.print();this.classList.toggle('printed')"}]},
+      'row': {"fields": {"so": "SO-20260830-0043", "customer": "华骏重卡汽车有限公司", "project": "PRJ-2601", "summary": "箱盖 ABS 吸塑×1,500", "warehouse": "原料区 RA", "date": "2026-09-02", "status": "待审核"}, "note": "1", "cells": ["<span class=\"lk\">SO-20260830-0043</span>", "华骏重卡汽车有限公司", "PRJ-2601", "箱盖 ABS 吸塑×1,500", "<span class=\"td-num\">1,500</span>", "原料区 RA", "2026-09-02", "<span class=\"tag tag-orange\">待审核</span>"], "ops": [{"t": "审核", "act": "openModal('auditModal')"}, {"t": "详情", "detail": true}, {"t": "打印出货单", "act": "go('../租赁管理/出货单打印.html?key=XSCK-20260902-015')"}]},
       'title': '销售出库单详情',
       'info': [
         {
@@ -7833,7 +7833,7 @@ window.DEMO_DATA = {
       ]
     },
     'XSCK-20260901-014': {
-      'row': {"fields": {"so": "SO-20260828-0041", "customer": "长风汽车制造有限公司", "project": "PRJ-2604", "summary": "锁扣组件×800", "warehouse": "原料区 RA", "date": "2026-09-01", "status": "已完成"}, "cells": ["<span class=\"lk\">SO-20260828-0041</span>", "长风汽车制造有限公司", "PRJ-2604", "锁扣组件×800", "<span class=\"td-num\">800</span>", "原料区 RA", "2026-09-01", "<span class=\"tag tag-green\">已完成</span>"], "ops": [{"t": "详情", "detail": true}, {"t": "打印出货单", "act": "window.print();this.classList.toggle('printed')"}]},
+      'row': {"fields": {"so": "SO-20260828-0041", "customer": "长风汽车制造有限公司", "project": "PRJ-2604", "summary": "锁扣组件×800", "warehouse": "原料区 RA", "date": "2026-09-01", "status": "已完成"}, "cells": ["<span class=\"lk\">SO-20260828-0041</span>", "长风汽车制造有限公司", "PRJ-2604", "锁扣组件×800", "<span class=\"td-num\">800</span>", "原料区 RA", "2026-09-01", "<span class=\"tag tag-green\">已完成</span>"], "ops": [{"t": "详情", "detail": true}, {"t": "打印出货单", "act": "go('../租赁管理/出货单打印.html?key=XSCK-20260901-014')"}]},
       'title': '销售出库单详情',
       'info': [
         {
@@ -7929,7 +7929,7 @@ window.DEMO_DATA = {
       ]
     },
     'XSCK-20260829-013': {
-      'row': {"fields": {"so": "SO-20260827-0039", "customer": "华骏重卡汽车有限公司", "project": "PRJ-2601", "summary": "箱盖 ABS 吸塑×2,000", "warehouse": "原料区 RA", "date": "2026-08-29", "status": "已完成"}, "cells": ["<span class=\"lk\">SO-20260827-0039</span>", "华骏重卡汽车有限公司", "PRJ-2601", "箱盖 ABS 吸塑×2,000", "<span class=\"td-num\">2,000</span>", "原料区 RA", "2026-08-29", "<span class=\"tag tag-green\">已完成</span>"], "ops": [{"t": "详情", "detail": true}, {"t": "打印出货单", "act": "window.print();this.classList.toggle('printed')"}]},
+      'row': {"fields": {"so": "SO-20260827-0039", "customer": "华骏重卡汽车有限公司", "project": "PRJ-2601", "summary": "箱盖 ABS 吸塑×2,000", "warehouse": "原料区 RA", "date": "2026-08-29", "status": "已完成"}, "cells": ["<span class=\"lk\">SO-20260827-0039</span>", "华骏重卡汽车有限公司", "PRJ-2601", "箱盖 ABS 吸塑×2,000", "<span class=\"td-num\">2,000</span>", "原料区 RA", "2026-08-29", "<span class=\"tag tag-green\">已完成</span>"], "ops": [{"t": "详情", "detail": true}, {"t": "打印出货单", "act": "go('../租赁管理/出货单打印.html?key=XSCK-20260829-013')"}]},
       'title': '销售出库单详情',
       'info': [
         {
@@ -8025,7 +8025,7 @@ window.DEMO_DATA = {
       ]
     },
     'XSCK-20260826-012': {
-      'row': {"fields": {"so": "SO-20260822-0038", "customer": "东海商用汽车有限公司宁波分公司", "project": "PRJ-2602", "summary": "铰链×900 / 内衬×400", "warehouse": "原料区 RA", "date": "2026-08-26", "status": "已完成"}, "cells": ["<span class=\"lk\">SO-20260822-0038</span>", "东海商用汽车有限公司宁波分公司", "PRJ-2602", "铰链×900 / 内衬×400", "<span class=\"td-num\">1,300</span>", "原料区 RA", "2026-08-26", "<span class=\"tag tag-green\">已完成</span>"], "ops": [{"t": "详情", "detail": true}, {"t": "打印出货单", "act": "window.print();this.classList.toggle('printed')"}]},
+      'row': {"fields": {"so": "SO-20260822-0038", "customer": "东海商用汽车有限公司宁波分公司", "project": "PRJ-2602", "summary": "铰链×900 / 内衬×400", "warehouse": "原料区 RA", "date": "2026-08-26", "status": "已完成"}, "cells": ["<span class=\"lk\">SO-20260822-0038</span>", "东海商用汽车有限公司宁波分公司", "PRJ-2602", "铰链×900 / 内衬×400", "<span class=\"td-num\">1,300</span>", "原料区 RA", "2026-08-26", "<span class=\"tag tag-green\">已完成</span>"], "ops": [{"t": "详情", "detail": true}, {"t": "打印出货单", "act": "go('../租赁管理/出货单打印.html?key=XSCK-20260826-012')"}]},
       'title': '销售出库单详情',
       'info': [
         {
@@ -8124,7 +8124,7 @@ window.DEMO_DATA = {
       ]
     },
     'XSCK-20260822-011': {
-      'row': {"fields": {"so": "SO-20260819-0035", "customer": "星途新能源汽车科技有限公司", "project": "PRJ-2603", "summary": "锁扣组件×1,200", "warehouse": "原料区 RA", "date": "2026-08-22", "status": "已完成"}, "cells": ["<span class=\"lk\">SO-20260819-0035</span>", "星途新能源汽车科技有限公司", "PRJ-2603", "锁扣组件×1,200", "<span class=\"td-num\">1,200</span>", "原料区 RA", "2026-08-22", "<span class=\"tag tag-green\">已完成</span>"], "ops": [{"t": "详情", "detail": true}, {"t": "打印出货单", "act": "window.print();this.classList.toggle('printed')"}]},
+      'row': {"fields": {"so": "SO-20260819-0035", "customer": "星途新能源汽车科技有限公司", "project": "PRJ-2603", "summary": "锁扣组件×1,200", "warehouse": "原料区 RA", "date": "2026-08-22", "status": "已完成"}, "cells": ["<span class=\"lk\">SO-20260819-0035</span>", "星途新能源汽车科技有限公司", "PRJ-2603", "锁扣组件×1,200", "<span class=\"td-num\">1,200</span>", "原料区 RA", "2026-08-22", "<span class=\"tag tag-green\">已完成</span>"], "ops": [{"t": "详情", "detail": true}, {"t": "打印出货单", "act": "go('../租赁管理/出货单打印.html?key=XSCK-20260822-011')"}]},
       'title': '销售出库单详情',
       'info': [
         {
@@ -8220,7 +8220,7 @@ window.DEMO_DATA = {
       ]
     },
     'XSCK-20260818-010': {
-      'row': {"fields": {"so": "SO-20260815-0032", "customer": "华骏重卡汽车有限公司", "project": "PRJ-2601", "summary": "箱盖 ABS 吸塑×600", "warehouse": "原料区 RA", "date": "2026-08-18", "status": "已完成"}, "cells": ["<span class=\"lk\">SO-20260815-0032</span>", "华骏重卡汽车有限公司", "PRJ-2601", "箱盖 ABS 吸塑×600", "<span class=\"td-num\">600</span>", "原料区 RA", "2026-08-18", "<span class=\"tag tag-green\">已完成</span>"], "ops": [{"t": "详情", "detail": true}, {"t": "打印出货单", "act": "window.print();this.classList.toggle('printed')"}]},
+      'row': {"fields": {"so": "SO-20260815-0032", "customer": "华骏重卡汽车有限公司", "project": "PRJ-2601", "summary": "箱盖 ABS 吸塑×600", "warehouse": "原料区 RA", "date": "2026-08-18", "status": "已完成"}, "cells": ["<span class=\"lk\">SO-20260815-0032</span>", "华骏重卡汽车有限公司", "PRJ-2601", "箱盖 ABS 吸塑×600", "<span class=\"td-num\">600</span>", "原料区 RA", "2026-08-18", "<span class=\"tag tag-green\">已完成</span>"], "ops": [{"t": "详情", "detail": true}, {"t": "打印出货单", "act": "go('../租赁管理/出货单打印.html?key=XSCK-20260818-010')"}]},
       'title': '销售出库单详情',
       'info': [
         {

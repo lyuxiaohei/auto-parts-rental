@@ -84,10 +84,14 @@ body { font-family:"Microsoft YaHei","PingFang SC",sans-serif; background:#f0f2f
 function go(url) { location.href = url; }
 /* D-144：数据驱动填充——?key=CK-xxx 取租赁出库行；无参默认首行（渲染失败保留占位 —） */
 (function () {
+  /* D-144 扩展：租赁出库（comboOutbounds·key=CK-）与销售出库（salesOutbounds·key=XSCK-）双实体自动识别 */
   var D = (window.DEMO_DATA || {}).comboOutbounds || {};
+  var D2 = (window.DEMO_DATA || {}).salesOutbounds || {};
   var BOM = (window.DEMO_DATA || {}).bomList || {};
   var key = decodeURIComponent((location.search.match(/[?&]key=([^&]+)/) || [])[1] || '');
   var rec = D[key] || {};
+  var isSales = false;
+  if (!(rec.row || {}).fields && (D2[key] || {}).row) { rec = D2[key]; isSales = true; }
   var f = rec.row ? (rec.row.fields || {}) : {};
   var first = Object.keys(D)[0];
   if (!rec.row && first) { key = first; rec = D[key] || {}; f = rec.row ? rec.row.fields : {}; }
@@ -102,18 +106,25 @@ function go(url) { location.href = url; }
     var p = d.split('-');
     document.getElementById('dnDate').textContent = parseInt(p[0], 10) + ' 年 ' + parseInt(p[1], 10) + ' 月 ' + parseInt(p[2], 10) + ' 日';
   }
-  /* 明细行：组合件「ZH-xxx × N 套」→ 编码/名称/数量；固定 3 行（不足补空行） */
-  var combo = String(f.combo || '');
-  var parts = combo.split('×');
-  var code = (parts[0] || '').trim();
-  var qty = ((parts[1] || '').match(/\d+/) || [''])[0];
-  var brec = BOM[code] || {};
-  var name = (brec.row && brec.row.fields && brec.row.fields.name) ? brec.row.fields.name : code;
-  var desc = code ? (name + (qty ? ('（' + qty + ' 套）') : '')) : '—';
-  var so = String(f.so || '');
+  /* 明细行：租赁=组合件「ZH-xxx × N 套」→ BOM 名称+套数；销售=summary 摘要+cells 数量列；固定 3 行（不足补空行） */
   var rows = [];
-  if (code) {
-    rows.push({ no: 1, so: so.indexOf('—') === 0 ? '—' : so, desc: desc, qty: qty || '—', memo: '1托' });
+  if (isSales) {
+    var scells = (rec.row.cells || []).map(function (c) { return String(c).replace(/<[^>]+>/g, ''); });
+    var sqty = (scells[4] || '').replace(/,/g, '').trim();
+    var sso = String(f.so || '');
+    rows.push({ no: 1, so: sso, desc: String(f.summary || '—'), qty: sqty || '—', memo: '1托' });
+  } else {
+    var combo = String(f.combo || '');
+    var parts = combo.split('×');
+    var code = (parts[0] || '').trim();
+    var qty = ((parts[1] || '').match(/\d+/) || [''])[0];
+    var brec = BOM[code] || {};
+    var name = (brec.row && brec.row.fields && brec.row.fields.name) ? brec.row.fields.name : code;
+    var desc = code ? (name + (qty ? ('（' + qty + ' 套）') : '')) : '—';
+    var so = String(f.so || '');
+    if (code) {
+      rows.push({ no: 1, so: so.indexOf('—') === 0 ? '—' : so, desc: desc, qty: qty || '—', memo: '1托' });
+    }
   }
   while (rows.length < 3) rows.push({ no: rows.length + 1, so: '', desc: '', qty: '', memo: '' });
   document.getElementById('dnBody').innerHTML = rows.map(function (r) {
