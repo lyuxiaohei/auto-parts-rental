@@ -1,63 +1,304 @@
 [
  {
-  "page": "mobile\\库存查询.html",
+  "page": "采购管理\\弹窗\\新建采购退货单.html",
   "js_errors": [],
   "problems": [],
   "stats": {
-   "buttons": 2,
-   "links": 0,
-   "onclickEls": 0,
-   "modals": 0,
-   "modalTitles": [],
-   "selects": 0,
+   "buttons": 4,
+   "links": 1,
+   "onclickEls": 5,
+   "modals": 1,
+   "modalTitles": [
+    "新建采购退货单(演示页)"
+   ],
+   "selects": 2,
    "fakeSelects": 0,
-   "radios": 0,
+   "radios": 2,
    "checkboxes": 0,
-   "inputs": 2,
+   "inputs": 5,
    "stabs": 0,
    "tabs": 0,
    "bgMut": 0
   },
   "dead_links": [],
-  "nav_anomaly": "file:///D:/%E5%B7%A5%E4%BD%9C%E5%8F%B0-%E5%90%95%E9%81%93%E8%BF%9C/5-%E3%80%90ACTIVE%E3%80%91%E6%B1%BD%E8%BD%A6%E7%89%A9%E6%B5%81%E5%8C%85%E8%A3%85%E7%A7%9F%E8%B5%81/P3-R01-%E5%8C%85%E8%A3%85%E7%A7%9F%E8%B5%81%E7%AE%A1%E7%90%86%E5%90%8E%E5%8F%B0%E5%8E%9F%E5%9E%8B/mobile/%E7%99%BB%E5%BD%95.html"
+  "nav_anomaly": null
  },
  {
-  "page": "仓储作业\\库存查询.html",
+  "page": "采购管理\\弹窗\\采购入库单详情.html",
   "js_errors": [],
-  "problems": [
-   {
-    "cat": "输入框",
-    "type": "input-not-editable",
-    "phase": "modal",
-    "where": {
-     "tag": "input",
-     "id": "",
-     "cls": "auto",
-     "text": "",
-     "row": "",
-     "inModal": "zzRegModal"
-    },
-    "detail": "readonly 不可输入（预填:安吉智行物流）"
-   }
-  ],
+  "problems": [],
   "stats": {
-   "buttons": 10,
-   "links": 49,
-   "onclickEls": 82,
-   "modals": 5,
+   "buttons": 1,
+   "links": 1,
+   "onclickEls": 6,
+   "modals": 1,
    "modalTitles": [
-    "库存流水",
-    "客户在租明细",
-    "资产轨迹 · XNC-ZZ-WBX(演示页)",
-    "客户转租登记",
-    "转租还回"
+    "采购入库单详情 · CGRK-20260(演示页)"
    ],
-   "selects": 7,
+   "selects": 0,
    "fakeSelects": 0,
    "radios": 0,
    "checkboxes": 0,
-   "inputs": 8,
+   "inputs": 0,
    "stabs": 0,
+   "tabs": 0,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "采购管理\\弹窗\\采购入库审核.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 2,
+   "links": 1,
+   "onclickEls": 3,
+   "modals": 1,
+   "modalTitles": [
+    "审核确认(演示页)"
+   ],
+   "selects": 0,
+   "fakeSelects": 0,
+   "radios": 2,
+   "checkboxes": 0,
+   "inputs": 1,
+   "stabs": 0,
+   "tabs": 0,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "采购管理\\弹窗\\采购订单审核.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 2,
+   "links": 1,
+   "onclickEls": 3,
+   "modals": 1,
+   "modalTitles": [
+    "审核确认(演示页)"
+   ],
+   "selects": 0,
+   "fakeSelects": 0,
+   "radios": 2,
+   "checkboxes": 0,
+   "inputs": 1,
+   "stabs": 0,
+   "tabs": 0,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "采购管理\\弹窗\\采购订单详情.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 1,
+   "links": 1,
+   "onclickEls": 6,
+   "modals": 1,
+   "modalTitles": [
+    "采购订单详情 · PO-20260902(演示页)"
+   ],
+   "selects": 0,
+   "fakeSelects": 0,
+   "radios": 0,
+   "checkboxes": 0,
+   "inputs": 0,
+   "stabs": 0,
+   "tabs": 0,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "采购管理\\弹窗\\采购退货单详情.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 1,
+   "links": 1,
+   "onclickEls": 6,
+   "modals": 1,
+   "modalTitles": [
+    "采购退货单详情 · CGTH-20260(演示页)"
+   ],
+   "selects": 0,
+   "fakeSelects": 0,
+   "radios": 0,
+   "checkboxes": 0,
+   "inputs": 0,
+   "stabs": 0,
+   "tabs": 0,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "采购管理\\弹窗\\采购退货审核.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 2,
+   "links": 1,
+   "onclickEls": 3,
+   "modals": 1,
+   "modalTitles": [
+    "审核确认(演示页)"
+   ],
+   "selects": 0,
+   "fakeSelects": 0,
+   "radios": 2,
+   "checkboxes": 0,
+   "inputs": 1,
+   "stabs": 0,
+   "tabs": 0,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "采购管理\\采购入库列表.html",
+  "js_errors": [],
+  "problems": [
+   {
+    "cat": "弹窗",
+    "type": "modal-unreachable",
+    "phase": "modal",
+    "where": {
+     "text": "采购入库单详情"
+    },
+    "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
+   }
+  ],
+  "stats": {
+   "buttons": 8,
+   "links": 32,
+   "onclickEls": 65,
+   "modals": 2,
+   "modalTitles": [
+    "审核确认"
+   ],
+   "selects": 4,
+   "fakeSelects": 0,
+   "radios": 2,
+   "checkboxes": 0,
+   "inputs": 13,
+   "stabs": 3,
+   "tabs": 3,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "采购管理\\采购入库录单.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 5,
+   "links": 5,
+   "onclickEls": 38,
+   "modals": 0,
+   "modalTitles": [],
+   "selects": 4,
+   "fakeSelects": 0,
+   "radios": 5,
+   "checkboxes": 3,
+   "inputs": 15,
+   "stabs": 0,
+   "tabs": 3,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "采购管理\\采购订单列表.html",
+  "js_errors": [],
+  "problems": [
+   {
+    "cat": "弹窗",
+    "type": "modal-unreachable",
+    "phase": "modal",
+    "where": {
+     "text": "采购订单详情"
+    },
+    "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
+   }
+  ],
+  "stats": {
+   "buttons": 8,
+   "links": 16,
+   "onclickEls": 50,
+   "modals": 2,
+   "modalTitles": [
+    "审核确认"
+   ],
+   "selects": 4,
+   "fakeSelects": 0,
+   "radios": 2,
+   "checkboxes": 0,
+   "inputs": 12,
+   "stabs": 5,
+   "tabs": 3,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "采购管理\\采购订单新建.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 5,
+   "links": 4,
+   "onclickEls": 38,
+   "modals": 0,
+   "modalTitles": [],
+   "selects": 6,
+   "fakeSelects": 0,
+   "radios": 0,
+   "checkboxes": 0,
+   "inputs": 25,
+   "stabs": 0,
+   "tabs": 3,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "采购管理\\采购退货单列表.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 12,
+   "links": 7,
+   "onclickEls": 53,
+   "modals": 3,
+   "modalTitles": [
+    "新建采购退货单",
+    "审核确认",
+    "采购退货单详情(演示页)"
+   ],
+   "selects": 5,
+   "fakeSelects": 0,
+   "radios": 4,
+   "checkboxes": 0,
+   "inputs": 17,
+   "stabs": 4,
    "tabs": 3,
    "bgMut": 0
   },

@@ -377,7 +377,7 @@ th.td-num { text-align:right; }
 <div class="card">
   <div class="card-head">
     <h3 class="card-title">采购订单</h3>
-    <div class="head-btns"><button class="btn btn-default btn-sm">批量导出</button><button class="btn btn-sm" onclick="go('../采购管理/采购订单新建.html')">新建采购订单</button></div>
+    <div class="head-btns"><button class="btn btn-default btn-sm">批量导出</button><button class="btn btn-sm" onclick="openModal('createModal')">新建采购订单</button></div>
   </div>
 <div class="stabs">
   <span class="stab active">全部<span class="stab-count">18</span></span>
@@ -417,7 +417,7 @@ th.td-num { text-align:right; }
           <td>2026-09-10</td>
           <td><span class="lk">SO-20260831-0042</span></td>
           <td><span class="tag tag-orange">待审核</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="go('../采购管理/采购订单新建.html?mode=edit')">编辑</a><a onclick="openModal('auditModal')">审核</a><a>关闭</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('auditModal')">审核</a><a>关闭</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
@@ -431,7 +431,7 @@ th.td-num { text-align:right; }
           <td>2026-09-15</td>
           <td>—</td>
           <td><span class="tag tag-orange">待审核</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="go('../采购管理/采购订单新建.html?mode=edit')">编辑</a><a onclick="openModal('auditModal')">审核</a><a>关闭</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('auditModal')">审核</a><a>关闭</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
@@ -518,6 +518,57 @@ th.td-num { text-align:right; }
     </div>
   </div>
 </div>
+
+<!-- 弹窗已提取到 弹窗/新建采购订单.html，构建时注入 -->
+<div class="modal-overlay" id="createModal">
+  <div class="modal modal-lg">
+    <div class="modal-header">
+      <h3 class="modal-title">新建采购订单</h3>
+      <span class="modal-close" onclick="closeModal('createModal')">×</span>
+    </div>
+    <div class="modal-body">
+<div class="form-row">
+        <span class="form-label"><span class="req">*</span>所属项目</span>
+        <div class="select-box input-box"><select id="cmProject" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option value="PRJ-2601" selected>PRJ-2601 一汽解放·长春基地 围板箱租赁</option><option value="PRJ-2602">PRJ-2602 一汽解放·青岛基地 料架租赁</option><option value="PRJ-2603">PRJ-2603 东风锂电·电池包周转箱</option><option value="PRJ-2604">PRJ-2604 上汽通用五菱·座椅周转箱（试点）</option><option value="PRJ-2605">PRJ-2605 一汽解放·蔚山基地 扩建</option><option value="PRJ-2606">PRJ-2606 东风锂电·二期扩容</option></select><span class="caret">▾</span></div>
+      </div>
+      <div class="form-row">
+    <span class="form-label"><span class="req">*</span>供应商</span>
+    <div class="input-box select-box" style="width:350px;"><select id="cmSupplier" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option>路凯包装运营（上海）有限公司</option><option selected>苏州联恒五金制品有限公司</option><option>宁波华塑包装制品有限公司</option><option>常州正大塑料托盘厂</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+  </div><div class="form-row">
+    <span class="form-label"><span class="req">*</span>物料类型</span>
+    <div class="input-box select-box" style="width:350px;"><select onchange="var r=document.getElementById('poQjRow');if(r)r.style.display=(this.options[this.selectedIndex].text=='器具')?'flex':'none'" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>零部件</option><option>器具</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+  </div><div class="form-row" id="poQjRow" style="display:none;">
+    <span class="form-label"><span class="req">*</span>物料档案</span>
+    <div class="input-box select-box" style="width:350px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>WBX-1210L 围板箱</option><option>PLT-1210P 塑料托盘</option><option>BTC-6040 料箱</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+  </div><div class="form-row">
+    <span class="form-label">关联销售订单号</span>
+    <div class="input-box" style="width:350px;position:relative;"><input id="poSoInput" placeholder="输入单号/客户搜索 · 选填 · 可直接手输" oninput="poSoSearch(this.value)" onfocus="poSoSearch(this.value)" autocomplete="off"><div id="poSoDrop" style="display:none;position:absolute;top:36px;left:0;width:100%;background:#fff;border:1px solid var(--border);border-radius:6px;box-shadow:0 4px 12px rgba(0,0,0,.08);z-index:30;max-height:220px;overflow:auto;font-size:12.5px;"></div></div>
+  </div><div class="form-row" id="poSoCustRow" style="display:none;">
+    <span class="form-label">客户（带出）</span>
+    <div class="input-box" style="width:350px;"><input id="poSoCust" readonly style="background:#f5f7fa;"></div>
+  </div><div class="form-row">
+    <span class="form-label">预计到货日期</span>
+    <div class="input-box" style="width:350px;"><input value="2026-09-15" placeholder="请输入"></div>
+  </div><div class="form-row">
+    <span class="form-label">备注</span>
+    <div class="input-box" style="width:350px;"><input placeholder="选填"></div>
+  </div><div style="margin:4px 0 8px;font-size:13px;font-weight:600;color:#1a1a1a;">采购明细</div>
+  <div class="table-wrap" style="border:1px solid var(--border);border-radius:6px;">
+    <table class="edit-tbl">
+      <thead><tr><th>物料编码</th><th>物料名称</th><th>规格</th><th>单位</th><th>数量</th><th style="font-size:13.5px;font-weight:700;">未税单价(元)</th><th style="font-size:13.5px;font-weight:700;">税率</th><th style="font-size:13.5px;font-weight:700;">含税单价(元)</th><th>含税金额(元)</th></tr></thead>
+      <tbody><tr><td><select data-tax="prod" style="width:100%;min-width:0;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option>WBX-1210L 围板箱 1200×1000×970</option><option>WBX-1210M 围板箱 1200×1000×590</option><option>PLT-1210W 木托盘 1200×1000</option><option>PLT-1210P 塑料托盘 1200×1000</option><option>BTC-6040 料箱 600×400×340</option><option selected>LJ-A100 锁扣组件</option><option>LJ-C300 围板</option><option>LJ-D400 箱盖</option><option>LJ-F600 内衬</option></select></td><td><input value="锁扣组件"></td><td><input value="不锈钢 304"></td><td><input value="件"></td><td><input data-tax="qty" value="5,000"></td><td><input data-tax="excl" value="1.28"></td><td><input data-tax="rate" value="13%" style="width:56px;"></td><td><input data-tax="incl" value="1.45"></td><td><input data-tax="amt" class="auto" value="7,250.00" readonly></td></tr><tr><td><select data-tax="prod" style="width:100%;min-width:0;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option selected>LJ-B200</option><option>WBX-1210L 围板箱 1200×1000×970</option><option>WBX-1210M 围板箱 1200×1000×590</option><option>PLT-1210W 木托盘 1200×1000</option><option>PLT-1210P 塑料托盘 1200×1000</option><option>BTC-6040 料箱 600×400×340</option><option>LJ-A100 锁扣组件</option><option>LJ-C300 围板</option><option>LJ-D400 箱盖</option><option>LJ-F600 内衬</option></select></td><td><input value="铰链"></td><td><input value="锌合金 65mm"></td><td><input value="件"></td><td><input data-tax="qty" value="2,000"></td><td><input data-tax="excl" value="1.65"></td><td><input data-tax="rate" value="13%" style="width:56px;"></td><td><input data-tax="incl" value="1.86"></td><td><input data-tax="amt" class="auto" value="3,720.00" readonly></td></tr></tbody>
+    </table>
+  </div>
+  <button class="btn btn-dashed btn-sm" style="width:100%;margin-top:8px;">+ 添加一行</button>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-default" onclick="closeModal('createModal')">取消</button>
+      <button class="btn btn-default" onclick="closeModal('createModal')">保存草稿</button>
+      <button class="btn" onclick="closeModal('createModal')">提交审核</button>
+    </div>
+  </div>
+</div>
+
 
 <!-- 弹窗已提取到 弹窗/采购订单审核.html，构建时注入 -->
 <div class="modal-overlay" id="auditModal">
@@ -608,6 +659,7 @@ th.td-num { text-align:right; }
   setTimeout(function(){ clearInterval(t); }, 4000);
 })();
 </script>
+
 
 
 <style id="detail-modal-css">
@@ -721,8 +773,116 @@ document.querySelectorAll('.tab').forEach(function (t) {
 </script>
 
 
+
+
+
+
+<script>/*F-A 税率三件套双向换算 · meeting0908 批3*/
+(function () {
+  function num(v){ var x = parseFloat(String(v).replace(/,/g,'')); return isNaN(x)?0:x; }
+  document.addEventListener('input', function (e) {
+    var i = e.target;
+    if (!i.matches || !i.matches('input[data-tax]')) return;
+    var tr = i.closest('tr'); if (!tr) return;
+    function q(r){ var el = tr.querySelector('input[data-tax="'+r+'"]'); return el ? String(el.value).replace(/,/g,'') : '0'; }
+    var rate = num(q('rate')) / 100;
+    if (i.getAttribute('data-tax') === 'incl') {
+      var ex = rate > 0 ? num(q('incl')) / (1 + rate) : num(q('incl'));
+      var exEl = tr.querySelector('input[data-tax="excl"]'); if (exEl) exEl.value = ex.toFixed(2);
+    } else {
+      var inc = num(q('excl')) * (1 + rate);
+      var incEl = tr.querySelector('input[data-tax="incl"]'); if (incEl) incEl.value = inc.toFixed(2);
+    }
+    var amt = tr.querySelector('input[data-tax="amt"]');
+    if (amt) amt.value = fmtAmt(num(q('qty')) * num(q('incl')));
+    function fmtAmt(x){ return x.toLocaleString('zh-CN', {minimumFractionDigits: 2, maximumFractionDigits: 2}); }
+  });
+})();
+</script>
+
+
+
+<script>/* G31 T5 关联销售订单搜索下拉（D-104）：选中带出客户+销售明细；可手输；未选恢复默认明细 */
+var PO_SO_SRC = [['SO-20260903-0047', '上汽大众汽车有限公司宁波分公司', '冲压件隔板×2,400（先采后销 · 采购在途）'], ['SO-20260902-0046', '一汽解放汽车有限公司', '锁扣组件×3,000'], ['SO-20260901-0045', '上汽大众汽车有限公司宁波分公司', '铰链×1,200 / 箱盖×800']];
+var poSoDefaultRows = null;
+function poSoSearch(v) {
+  var drop = document.getElementById('poSoDrop');
+  if (!v || !v.trim()) { drop.style.display = 'none'; poSoReset(); return; }
+  var hits = PO_SO_SRC.filter(function (s) { return s[0].indexOf(v.trim()) > -1 || s[1].indexOf(v.trim()) > -1; });
+  if (!hits.length) { drop.innerHTML = '<div style="padding:8px 12px;color:#8c8c8c;">无匹配销售订单（可保留手输单号）</div>'; drop.style.display = 'block'; return; }
+  drop.innerHTML = hits.map(function (s) {
+    return '<div style="padding:8px 12px;cursor:pointer;border-bottom:1px solid #f0f0f0;" onmousedown="poSoPick(\'' + s[0] + '\')"><b>' + s[0] + '</b> · ' + s[1] + '<div style="color:#8c8c8c;margin-top:2px;">' + s[2] + '</div></div>';
+  }).join('');
+  drop.style.display = 'block';
+}
+function poSoPick(no) {
+  var s = PO_SO_SRC.find(function (x) { return x[0] === no; });
+  document.getElementById('poSoInput').value = no;
+  document.getElementById('poSoDrop').style.display = 'none';
+  var cr = document.getElementById('poSoCustRow');
+  if (cr) { cr.style.display = ''; document.getElementById('poSoCust').value = s ? s[1] : ''; }
+  /* 带出销售明细 → 采购明细表（可编辑，未选/清空恢复默认行） */
+  var tb = document.querySelector('.modal .edit-tbl tbody');
+  if (tb) {
+    if (!poSoDefaultRows) poSoDefaultRows = tb.innerHTML;
+    var items = s ? s[2].split('+') : [];
+    tb.innerHTML = items.map(function (it, idx) {
+      var mth = it.match(/^(.+?)[×x]\s*([\d,]+)元?/) || [null, it.trim(), '1'];
+      return '<tr><td>' + (idx + 1) + '</td><td><input value=""></td><td><input value="' + mth[1] + '"></td><td class="td-num"><input value="' + String(mth[2]).replace(/,/g, '') + '"></td><td class="td-num"><input value="13%"></td><td class="td-num"><span class="td-num">自动计算</span></td></tr>';
+    }).join('') || poSoDefaultRows;
+  }
+}
+function poSoReset() {
+  var cr = document.getElementById('poSoCustRow');
+  if (cr) cr.style.display = 'none';
+  var tb = document.querySelector('.modal .edit-tbl tbody');
+  if (tb && poSoDefaultRows) tb.innerHTML = poSoDefaultRows;
+}
+document.addEventListener('click', function (e) { var d = document.getElementById('poSoDrop'); if (d && !d.parentElement.contains(e.target)) d.style.display = 'none'; });
+</script>
+<script>/* 项目→绑定供应商联动（一对多多对多 · 2026-09-11 落地） */
+(function(){
+  var PRJ_SUPPLIERS = {
+    'PRJ-2601': ['路凯包装运营（上海）有限公司', '宁波华塑包装制品有限公司'],
+    'PRJ-2602': ['路凯包装运营（上海）有限公司', '常州正大塑料托盘厂'],
+    'PRJ-2603': ['路凯包装运营（上海）有限公司'],
+    'PRJ-2604': ['宁波华塑包装制品有限公司'],
+    'PRJ-2605': ['路凯包装运营（上海）有限公司'],
+    'PRJ-2606': ['路凯包装运营（上海）有限公司', '苏州联恒五金制品有限公司']
+  };
+  var prjSel = document.getElementById('cmProject'), supSel = document.getElementById('cmSupplier');
+  if (!prjSel || !supSel) return;
+  function syncSuppliers(){
+    var list = PRJ_SUPPLIERS[prjSel.value] || [];
+    supSel.innerHTML = list.length
+      ? list.map(function(n, i){ return '<option' + (i === 0 ? ' selected' : '') + '>' + n + '</option>'; }).join('')
+      : '<option selected>（该项目未绑定供应商，请先在项目档案完成上下游绑定）</option>';
+  }
+  prjSel.addEventListener('change', syncSuppliers);
+  syncSuppliers();
+})();
+</script>
+
+
+
+
+
+
 <script src="../_data/pc-auth.js"></script>
 <script src="../_data/pc-msg.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <style id="proto-notes-style">
