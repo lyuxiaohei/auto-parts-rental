@@ -372,7 +372,14 @@ th.td-num { text-align:right; }
           <div class="input-box" style="width:380px;height:auto;padding:6px 11px;"><textarea placeholder="选填" style="width:100%;border:none;outline:none;background:transparent;font:inherit;color:inherit;resize:vertical;min-height:72px;line-height:1.6;"></textarea></div>
         </div>
       </div>
-      <div style="margin:12px 0 8px;font-size:13px;font-weight:600;">退货明细（可退上限内填写）</div>
+      </div>
+<div class="card">
+  <div class="card-head">
+    <h3 class="card-title">退货明细</h3>
+    <div class="head-btns"><button class="btn btn-dashed btn-sm" onclick="addRetRow()">添加一行</button></div>
+  </div>
+  <div class="pn-hint">可退上限内填写</div>
+
       <div class="table-wrap edit-tbl">
         <table>
           <thead><tr><th>物料</th><th>可退上限</th><th>退货数量</th><th>单价(元)</th><th>金额(元)</th></tr></thead>
@@ -381,7 +388,7 @@ th.td-num { text-align:right; }
           </tbody>
         </table>
       </div>
-      <div style="margin-top:8px;"><button class="btn btn-dashed btn-sm" onclick="addRetRow()">+ 添加一行</button></div>
+      <div style="margin-top:8px;"></div>
     
 </div>
 

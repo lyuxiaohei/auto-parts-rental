@@ -354,9 +354,18 @@ th.td-num { text-align:right; }
         <div><span class="radio checked"><span class="dot"></span>整退归还（该租入单全部归还）</span><span class="radio"><span class="dot"></span>分流归还（退租拆散后部分归还）</span></div>
       </div>
       
-      <div class="form-row" id="riDetailRow">
-        <div class="form-label"><span class="req">*</span>归还明细：</div>
-        <div style="flex:1;min-width:0;">
+      <div class="form-row" style="align-items:flex-start;">
+        <div class="form-label" style="padding-top:6px;">备注：</div>
+        <div>
+          <div class="input-box" style="width:380px;height:auto;padding:6px 11px;"><textarea placeholder="选填，如：退租拆散后 4 只破损归还，6 只留用循环" style="width:100%;border:none;outline:none;background:transparent;font:inherit;color:inherit;resize:vertical;min-height:72px;line-height:1.6;"></textarea></div>
+        </div>
+      </div>
+</div>
+<div class="card" id="riDetailRow">
+  <div class="card-head">
+    <h3 class="card-title">归还明细</h3>
+  </div>
+  <div style="flex:1;min-width:0;">
           <div class="table-wrap edit-tbl" style="border:1px solid var(--border);border-radius:6px;">
             <table>
               <thead><tr><th>货品</th><th>租入数量</th><th>已归还</th><th>本次归还数量</th></tr></thead>
@@ -365,14 +374,8 @@ th.td-num { text-align:right; }
           </div>
         </div>
       </div>
-      <div class="form-row" style="align-items:flex-start;">
-        <div class="form-label" style="padding-top:6px;">备注：</div>
-        <div>
-          <div class="input-box" style="width:380px;height:auto;padding:6px 11px;"><textarea placeholder="选填，如：退租拆散后 4 只破损归还，6 只留用循环" style="width:100%;border:none;outline:none;background:transparent;font:inherit;color:inherit;resize:vertical;min-height:72px;line-height:1.6;"></textarea></div>
-        </div>
-      </div>
+      
     
-</div>
 
 <div class="submit-bar"><button class="btn btn-default" onclick="go('../租入管理/租入归还列表.html')">取消</button><button class="btn">提交审核</button></div>
     </div>

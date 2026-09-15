@@ -347,14 +347,13 @@ th.td-num { text-align:right; }
 
 <div class="form-row">
     <div class="form-label"><span class="req">*</span>关联销售订单：</div>
-    <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>SO-20260831-0044 星途新能源汽车科技有限公司</option><option>SO-20260903-0047</option><option>SO-20260902-0046</option><option>SO-20260901-0045</option></select><span class="caret">▾</span></div>
-  </div><div class="form-row">
-    <div class="form-label">：</div>
-    <div style="font-size:12px;color:#8c8c8c;line-height:1.7;">库存可用量：内衬 EPE 珍珠棉（LJ-F600）在库 <b style="color:#1677ff;">1,520</b> 件 · 原料区 RA —— 按库存可用量发货，超量需先入库</div>
-  </div><div class="form-row">
-    <div class="form-label">：</div>
-    <div style="font-size:12px;color:#fa8c16;line-height:1.7;font-weight:600;">库存可用量不足：本次申请 5,000 件 &gt; 可用 1,520 件，无法提交 —— 请先补货入库或调减出库数量</div>
-  </div><div class="form-row">
+    <div>
+      <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>SO-20260831-0044 星途新能源汽车科技有限公司</option><option>SO-20260903-0047</option><option>SO-20260902-0046</option><option>SO-20260901-0045</option></select><span class="caret">▾</span></div>
+      <div class="pn-hint">库存可用量：内衬 EPE 珍珠棉（LJ-F600）在库 <b style="color:#1677ff;">1,520</b> 件 · 原料区 RA —— 按库存可用量发货，超量需先入库</div>
+      <div class="pn-hint" style="color:#fa8c16;font-weight:600;">库存可用量不足：本次申请 5,000 件 &gt; 可用 1,520 件，无法提交 —— 请先补货入库或调减出库数量</div>
+    </div>
+  </div>
+<div class="form-row">
     <div class="form-label"><span class="req">*</span>出库库房：</div>
     <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>原料区 RA</option><option>华东中心仓（WH-01）</option><option>华南仓（WH-02）</option><option>西南仓（WH-03）</option></select><span class="caret">▾</span></div>
   </div><div class="form-row">
@@ -365,14 +364,20 @@ th.td-num { text-align:right; }
         <div>
           <div class="input-box" style="width:380px;height:auto;padding:6px 11px;"><textarea placeholder="选填" style="width:100%;border:none;outline:none;background:transparent;font:inherit;color:inherit;resize:vertical;min-height:72px;line-height:1.6;"></textarea></div>
         </div>
-      </div><div style="margin:4px 0 8px;font-size:13px;font-weight:600;color:#1a1a1a;">出库明细</div>
+      </div></div>
+<div class="card">
+  <div class="card-head">
+    <h3 class="card-title">出库明细</h3>
+    <div class="head-btns"><button class="btn btn-dashed btn-sm">添加一行</button></div>
+  </div>
+
   <div class="table-wrap edit-tbl" style="border:1px solid var(--border);border-radius:6px;">
     <table>
       <thead><tr><th>物料</th><th>物料名称</th><th>单位</th><th>出库数量</th><th style="font-size:13.5px;font-weight:700;">未税单价(元)</th><th style="font-size:13.5px;font-weight:700;">税率</th><th style="font-size:13.5px;font-weight:700;">含税单价(元)</th><th>含税金额(元)</th><th>备注</th></tr></thead>
       <tbody><tr><td><select data-tax="prod" style="width:100%;min-width:0;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option>WBX-1210L 围板箱 1200×1000×970</option><option>WBX-1210M 围板箱 1200×1000×590</option><option>PLT-1210W 木托盘 1200×1000</option><option>PLT-1210P 塑料托盘 1200×1000</option><option>BTC-6040 料箱 600×400×340</option><option>LJ-A100 锁扣组件</option><option>LJ-C300 围板</option><option>LJ-D400 箱盖</option><option selected>LJ-F600 内衬</option></select></td><td><input value="内衬 EPE 珍珠棉"></td><td><input value="件"></td><td><input data-tax="qty" value="5,000"></td><td><input data-tax="excl" value="15.50"></td><td><input data-tax="rate" value="13%" style="width:56px;"></td><td><input data-tax="incl" value="17.51"></td><td><input style="background:#fafafa;color:#8c8c8c;" data-tax="amt" class="auto" value="87,550.00"></td><td><input value="" placeholder="选填"></td></tr></tbody>
     </table>
   </div>
-  <button class="btn btn-dashed btn-sm" style="width:100%;margin-top:8px;">+ 添加一行</button>
+  
     
 </div>
 
