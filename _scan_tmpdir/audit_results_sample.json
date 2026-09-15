@@ -1,21 +1,21 @@
 [
  {
-  "page": "项目管理\\项目新建.html",
+  "page": "租赁管理\\出货单打印.html",
   "js_errors": [],
   "problems": [],
   "stats": {
    "buttons": 2,
-   "links": 1,
-   "onclickEls": 36,
+   "links": 0,
+   "onclickEls": 2,
    "modals": 0,
    "modalTitles": [],
-   "selects": 2,
+   "selects": 0,
    "fakeSelects": 0,
    "radios": 0,
    "checkboxes": 0,
-   "inputs": 7,
+   "inputs": 0,
    "stabs": 0,
-   "tabs": 2,
+   "tabs": 0,
    "bgMut": 0
   },
   "dead_links": [],

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>出货单打印</title>
+<style>
+:root { --primary:#1677ff; --text:#1a1a1a; --text-2:#595959; --text-3:#8c8c8c; --border:#e8e8e8; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:"Microsoft YaHei","PingFang SC",sans-serif; background:#f0f2f5; color:var(--text); }
+.topbar { height:48px; background:#fff; border-bottom:1px solid var(--border); display:flex; align-items:center; padding:0 20px; gap:12px; }
+.topbar .ttl { font-size:15px; font-weight:600; flex:1; }
+.btn { display:inline-flex; align-items:center; justify-content:center; height:30px; padding:0 14px; border-radius:6px; border:none; cursor:pointer; font-size:13px; background:var(--primary); color:#fff; white-space:nowrap; font-family:inherit; }
+.btn:hover { background:#4096ff; }
+.btn-default { background:#fff; color:var(--text); border:1px solid #d9d9d9; }
+.btn-default:hover { border-color:#4096ff; color:#4096ff; background:#fff; }
+.wrap { padding:20px; display:flex; justify-content:center; }
+.sheet { background:#fff; width:1100px; padding:46px 52px 40px; box-shadow:0 2px 10px rgba(0,0,0,.08); }
+/* ===== 送货单版式（道远 09-15 图样） ===== */
+.dn-title { font-family:SimHei,"Microsoft YaHei",sans-serif; font-size:34px; font-weight:900; text-align:center; letter-spacing:6px; }
+.dn-co { font-family:SimHei,"Microsoft YaHei",sans-serif; font-size:21px; text-align:center; margin:22px 0 26px; letter-spacing:2px; }
+.dn-row { display:flex; font-size:14.5px; margin-bottom:12px; align-items:baseline; }
+.dn-row .lbl { font-weight:700; }
+.dn-row .val { font-weight:600; border-bottom:1px solid #000; padding:0 26px 2px; min-width:120px; }
+.dn-row .sp { flex:1; }
+.dn-tbl { width:100%; border-collapse:collapse; margin-top:10px; }
+.dn-tbl th, .dn-tbl td { border:1.6px solid #000; text-align:center; font-size:14.5px; height:40px; padding:4px 8px; font-weight:600; }
+.dn-tbl th { height:44px; font-size:15px; }
+.dn-tbl .note-line { border:none; }
+.dn-note { border:1.6px solid #000; border-top:none; text-align:center; font-size:14.5px; font-weight:600; padding:11px 0; }
+.dn-sign { display:flex; margin-top:42px; font-size:15px; }
+.dn-sign .half { flex:1; }
+.dn-sign .blank { display:inline-block; border-bottom:1px solid #000; width:200px; height:20px; vertical-align:bottom; }
+@media print {
+  @page { size:A4 landscape; margin:12mm; }
+  body { background:#fff; }
+  .topbar, .wrap { padding:0; }
+  .no-print { display:none !important; }
+  .sheet { box-shadow:none; width:100%; padding:0; }
+}
+</style>
+</head>
+<body>
+<div class="topbar no-print">
+  <button class="btn btn-default" onclick="go('租赁出库列表.html')">返回列表</button>
+  <div class="ttl">出货单打印（单据版式：送货单·D-144）</div>
+  <button class="btn" onclick="this.classList.toggle('printed');window.print()">打 印</button>
+</div>
+<div class="wrap">
+  <div class="sheet" id="sheet">
+    <div class="dn-title">送货单</div>
+    <div class="dn-co">环通循环包装运营（上海）有限公司</div>
+    <div class="dn-row">
+      <span class="lbl">收货单位：</span><span class="val" id="dnCustomer">—</span>
+      <span class="sp"></span>
+      <span class="lbl">送货日期：</span><span class="val" id="dnDate" style="min-width:150px;text-align:center;">—</span>
+    </div>
+    <div class="dn-row">
+      <span class="lbl">收货地址：</span><span class="val" id="dnAddr" style="min-width:300px;">—</span>
+      <span class="sp"></span>
+      <span class="lbl">收货人：</span><span class="val" style="min-width:110px;">&nbsp;</span>
+      <span class="sp"></span>
+      <span class="lbl">送货单号：</span><span class="val" id="dnNo" style="min-width:150px;">—</span>
+    </div>
+    <table class="dn-tbl">
+      <thead>
+        <tr><th style="width:90px;">序号</th><th style="width:280px;">订单号</th><th>Description/物料描述</th><th style="width:170px;">送货箱数</th><th style="width:190px;">备注</th></tr>
+      </thead>
+      <tbody id="dnBody"></tbody>
+      <tr><td colspan="5" class="dn-note">本送货单一式三联：第一联仓库留存，第二联环通留存，第三联客户留存</td></tr>
+    </table>
+    <div class="dn-sign">
+      <div class="half">送货司机签字：<span class="blank"></span></div>
+      <div class="half">收货人 签字：<span class="blank"></span></div>
+    </div>
+    <div class="dn-sign" style="margin-top:30px;">
+      <div class="half">送货车牌号：<span class="blank"></span></div>
+      <div class="half">签 收 日 期：<span class="blank"></span></div>
+    </div>
+  </div>
+</div>
+<script src="../_data/demo-data.js"></script>
+<script>
+function go(url) { location.href = url; }
+/* D-144：数据驱动填充——?key=CK-xxx 取租赁出库行；无参默认首行（渲染失败保留占位 —） */
+(function () {
+  var D = (window.DEMO_DATA || {}).comboOutbounds || {};
+  var BOM = (window.DEMO_DATA || {}).bomList || {};
+  var key = decodeURIComponent((location.search.match(/[?&]key=([^&]+)/) || [])[1] || '');
+  var rec = D[key] || {};
+  var f = rec.row ? (rec.row.fields || {}) : {};
+  var first = Object.keys(D)[0];
+  if (!rec.row && first) { key = first; rec = D[key] || {}; f = rec.row ? rec.row.fields : {}; }
+  /* 送货单号：S + 出库日期紧凑 + 单号尾序（演示派生·非业务前缀） */
+  var seq = (key.match(/(\d+)$/) || [,'000'])[1].slice(-3);
+  var ymd = String(f.date || '').replace(/-/g, '');
+  document.getElementById('dnNo').textContent = ymd ? ('S' + ymd + seq) : '—';
+  document.getElementById('dnCustomer').textContent = f.customer || '—';
+  document.getElementById('dnAddr').textContent = f.addr || '—';
+  var d = String(f.date || '');
+  if (/^\d{4}-\d{2}-\d{2}$/.test(d)) {
+    var p = d.split('-');
+    document.getElementById('dnDate').textContent = parseInt(p[0], 10) + ' 年 ' + parseInt(p[1], 10) + ' 月 ' + parseInt(p[2], 10) + ' 日';
+  }
+  /* 明细行：组合件「ZH-xxx × N 套」→ 编码/名称/数量；固定 3 行（不足补空行） */
+  var combo = String(f.combo || '');
+  var parts = combo.split('×');
+  var code = (parts[0] || '').trim();
+  var qty = ((parts[1] || '').match(/\d+/) || [''])[0];
+  var brec = BOM[code] || {};
+  var name = (brec.row && brec.row.fields && brec.row.fields.name) ? brec.row.fields.name : code;
+  var desc = code ? (name + (qty ? ('（' + qty + ' 套）') : '')) : '—';
+  var so = String(f.so || '');
+  var rows = [];
+  if (code) {
+    rows.push({ no: 1, so: so.indexOf('—') === 0 ? '—' : so, desc: desc, qty: qty || '—', memo: '1托' });
+  }
+  while (rows.length < 3) rows.push({ no: rows.length + 1, so: '', desc: '', qty: '', memo: '' });
+  document.getElementById('dnBody').innerHTML = rows.map(function (r) {
+    return '<tr><td>' + r.no + '</td><td>' + r.so + '</td><td>' + r.desc + '</td><td>' + r.qty + '</td><td>' + r.memo + '</td></tr>';
+  }).join('');
+})();
+</script>
+</body>
+</html>
