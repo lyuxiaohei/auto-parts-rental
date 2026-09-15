@@ -283,6 +283,7 @@ th.td-num { text-align:right; }
    <ul class="sm-sub">
    <li><div class="sm-link" onclick="go('../租赁管理/租赁单列表.html')">租赁单</div></li>
    <li><div class="sm-link" onclick="go('../租赁管理/租赁出库列表.html')">租赁出库</div></li>
+   <li><div class="sm-link" onclick="go('../租赁管理/转移出库列表.html')">转移出库</div></li>
    <li><div class="sm-link" onclick="go('../租赁管理/退租入库列表.html')">退租入库</div></li>
    </ul>
       </li>
@@ -584,12 +585,11 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 <script>
 window.ROLE_PERM = {
   '系统管理员': { desc:'全部功能 + 系统管理', accts:'2', scope:'全部项目', perms:['项目管理','我的待办','基础资料','采购管理','销售管理','租赁管理','仓储管理','财务管理','系统管理'] },
-  '财务': { desc:'财务管理（应收/应付/财务看板）', accts:'1', scope:'全部项目', perms:['我的待办','财务管理'] },
-  '财务主管': { desc:'财务全模块 + 付款/回款确认审核', accts:'1', scope:'全部项目', perms:['我的待办','财务管理'] },
-  '商务': { desc:'订单/租赁全流程', accts:'2', scope:'全部项目', perms:['我的待办','基础资料','采购管理','销售管理','租赁管理'] },
-  '商务主管': { desc:'订单/租赁全流程 + 单据审核', accts:'1', scope:'全部项目', perms:['我的待办','基础资料','采购管理','销售管理','租赁管理'] },
-  '物流': { desc:'仓储作业 + 库存查询', accts:'1', scope:'全部项目', perms:['我的待办','仓储管理'] },
-  '物流主管': { desc:'仓储作业 + 库存查询 + 出/入库审核', accts:'1', scope:'全部项目', perms:['我的待办','仓储管理'] }
+  '财务': { desc:'财务全模块 + 付款/收款确认审核（主管职责并入）', accts:'2', scope:'全部项目', perms:['我的待办','财务管理'] },
+  '商务': { desc:'订单/租赁全流程 + 单据审核（主管职责并入）', accts:'2', scope:'全部项目', perms:['我的待办','基础资料','采购管理','销售管理','租赁管理'] },
+  '物流': { desc:'仓储作业 + 库存查询 + 出/入库审核（主管职责并入）', accts:'2', scope:'全部项目', perms:['我的待办','仓储管理'] },
+  '采购': { desc:'采购全流程（订单/入库/退货）+ 供应商税率维护', accts:'1', scope:'全部项目', perms:['我的待办','基础资料','采购管理'] },
+  '项目经理': { desc:'项目管理 + 销售订单代下 + 转移出库', accts:'1', scope:'所属项目', perms:['项目管理','我的待办','销售管理','租赁管理'] }
 };
 function openRolePerm(name) {
   var p = window.ROLE_PERM[name] || { desc:'', accts:'', scope:'全部项目', perms:[] };

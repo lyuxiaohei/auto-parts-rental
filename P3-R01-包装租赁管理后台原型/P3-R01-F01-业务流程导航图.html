@@ -515,13 +515,13 @@
     </a>
     <a href="财务协同/回款登记.html">
       <rect x="352" y="1920" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
-      <text x="422" y="1945" fill="#111827" font-size="12" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">回款登记</text>
-      <text x="422" y="1964" fill="#4b5563" font-size="8" font-family="'Geist Mono',monospace" text-anchor="middle">回款录入 · 待审核</text>
+      <text x="422" y="1945" fill="#111827" font-size="12" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">收款登记</text>
+      <text x="422" y="1964" fill="#4b5563" font-size="8" font-family="'Geist Mono',monospace" text-anchor="middle">收款录入 · 待审核</text>
     </a>
     <a href="财务协同/银行水单核销.html">
       <rect x="508" y="1920" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
       <text x="578" y="1945" fill="#111827" font-size="12" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">收款核销</text>
-      <text x="578" y="1964" fill="#4b5563" font-size="8" font-family="'Geist Mono',monospace" text-anchor="middle">水单勾对 · 部分/撤销</text>
+      <text x="578" y="1964" fill="#4b5563" font-size="8" font-family="'Geist Mono',monospace" text-anchor="middle">银行回单勾对 · 部分/撤销</text>
     </a>
     <text x="680" y="1952" fill="#6b7280" font-size="8" font-family="'Geist Mono',monospace">来源 5 类：B1 销售费 · L1~L4 租赁费 · 丢损赔偿（对客户）·</text>
     <text x="680" y="1966" fill="#6b7280" font-size="8" font-family="'Geist Mono',monospace">供应商应收 · 预收款（保证金）</text>
@@ -703,7 +703,7 @@
   end
   T1i -. T1 交棒 .-> T2a
   subgraph F1["F1 · 应收（5 来源：B1 销售费/L1~L4 租赁费/丢损赔偿/供应商应收/预收款）"]
-    F1a[应收账单] --> F1b[开票登记] --> F1c[回款登记] --> F1d[收款核销]
+    F1a[应收账单] --> F1b[开票登记] --> F1c[收款登记] --> F1d[收款核销]
   end
   subgraph F2["F2 · 应付（5 来源：采购应付/租金应付/赔付应付/对客户应付/预付款）"]
     F2a[应付账单] --> F2b[付款登记]

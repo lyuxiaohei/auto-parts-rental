@@ -297,6 +297,7 @@ th.td-num { text-align:right; }
    <ul class="sm-sub">
    <li><div class="sm-link" onclick="go('../租赁管理/租赁单列表.html')">租赁单</div></li>
    <li><div class="sm-link" onclick="go('../租赁管理/租赁出库列表.html')">租赁出库</div></li>
+   <li><div class="sm-link" onclick="go('../租赁管理/转移出库列表.html')">转移出库</div></li>
    <li><div class="sm-link" onclick="go('../租赁管理/退租入库列表.html')">退租入库</div></li>
    </ul>
       </li>
@@ -378,13 +379,12 @@ th.td-num { text-align:right; }
       <thead><tr><th>角色</th><th>备注</th><th>数据权限</th><th>账号数</th><th class="sticky-op">操作</th></tr></thead>
       <tbody>
             <tr><td><b>系统管理员</b></td><td>全部功能 + 系统管理</td><td>全部项目</td><td><span class="td-num">2</span></td><td class="sticky-op"><span class="ops"><a onclick="go('../系统管理/权限配置.html?role=系统管理员')">权限配置</a></span></td></tr>
-            <tr><td><b>财务</b></td><td>财务管理（应收/应付/财务看板）</td><td>全部项目</td><td><span class="td-num">1</span></td><td class="sticky-op"><span class="ops"><a onclick="go('../系统管理/权限配置.html?role=财务')">权限配置</a></span></td></tr>
-            <tr><td><b>财务主管</b></td><td>财务全模块 + 付款/回款确认审核</td><td>全部项目</td><td><span class="td-num">1</span></td><td class="sticky-op"><span class="ops"><a onclick="go('../系统管理/权限配置.html?role=财务主管')">权限配置</a></span></td></tr>
-            <tr><td><b>商务</b></td><td>订单/租赁全流程</td><td>全部项目</td><td><span class="td-num">2</span></td><td class="sticky-op"><span class="ops"><a onclick="go('../系统管理/权限配置.html?role=商务')">权限配置</a></span></td></tr>
-            <tr><td><b>商务主管</b></td><td>订单/租赁全流程 + 单据审核</td><td>全部项目</td><td><span class="td-num">1</span></td><td class="sticky-op"><span class="ops"><a onclick="go('../系统管理/权限配置.html?role=商务主管')">权限配置</a></span></td></tr>
-            <tr><td><b>物流</b></td><td>仓储作业 + 库存查询</td><td>全部项目</td><td><span class="td-num">1</span></td><td class="sticky-op"><span class="ops"><a onclick="go('../系统管理/权限配置.html?role=物流')">权限配置</a></span></td></tr>
-            <tr><td><b>物流主管</b></td><td>仓储作业 + 库存查询 + 出/入库审核</td><td>全部项目</td><td><span class="td-num">1</span></td><td class="sticky-op"><span class="ops"><a onclick="go('../系统管理/权限配置.html?role=物流主管')">权限配置</a></span></td></tr>
-      </tbody>
+            <tr><td><b>财务</b></td><td>财务全模块 + 付款/收款确认审核（主管职责并入）</td><td>全部项目</td><td><span class="td-num">2</span></td><td class="sticky-op"><span class="ops"><a onclick="go('../系统管理/权限配置.html?role=财务')">权限配置</a></span></td></tr>
+            <tr><td><b>商务</b></td><td>订单/租赁全流程 + 单据审核（主管职责并入）</td><td>全部项目</td><td><span class="td-num">2</span></td><td class="sticky-op"><span class="ops"><a onclick="go('../系统管理/权限配置.html?role=商务')">权限配置</a></span></td></tr>
+            <tr><td><b>物流</b></td><td>仓储作业 + 库存查询 + 出/入库审核（主管职责并入）</td><td>全部项目</td><td><span class="td-num">2</span></td><td class="sticky-op"><span class="ops"><a onclick="go('../系统管理/权限配置.html?role=物流')">权限配置</a></span></td></tr>
+            <tr><td><b>采购</b></td><td>采购全流程（订单/入库/退货）+ 供应商税率维护</td><td>全部项目</td><td><span class="td-num">1</span></td><td class="sticky-op"><span class="ops"><a onclick="go('../系统管理/权限配置.html?role=采购')">权限配置</a></span></td></tr>
+            <tr><td><b>项目经理</b></td><td>项目管理 + 销售订单代下 + 转移出库</td><td>所属项目</td><td><span class="td-num">1</span></td><td class="sticky-op"><span class="ops"><a onclick="go('../系统管理/权限配置.html?role=项目经理')">权限配置</a></span></td></tr>
+          </tbody>
     </table>
   </div>
   <div class="pager">

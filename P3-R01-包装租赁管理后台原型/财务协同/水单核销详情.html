@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<title>水单核销详情 · SD - 包装租赁管理后台</title>
+<title>银行回单核销详情 · SD - 包装租赁管理后台</title>
 <style>
 :root {
   --primary: #1677ff;
@@ -299,6 +299,7 @@ th.td-num { text-align:right; }
    <ul class="sm-sub">
    <li><div class="sm-link" onclick="go('../租赁管理/租赁单列表.html')">租赁单</div></li>
    <li><div class="sm-link" onclick="go('../租赁管理/租赁出库列表.html')">租赁出库</div></li>
+   <li><div class="sm-link" onclick="go('../租赁管理/转移出库列表.html')">转移出库</div></li>
    <li><div class="sm-link" onclick="go('../租赁管理/退租入库列表.html')">退租入库</div></li>
    </ul>
       </li>
@@ -353,12 +354,12 @@ th.td-num { text-align:right; }
   <div class="main-col">
 <div class="tabs">
   <span class="tab">收款核销 <span class="close">×</span></span>
-  <span class="tab active">水单核销详情 <span class="close">×</span></span>
+  <span class="tab active">银行回单核销详情 <span class="close">×</span></span>
 </div>
     <div class="content submit-pad">
 <div class="card">
   <div class="card-head">
-    <h3 class="card-title" id="dtTitle">水单核销详情 · SD</h3>
+    <h3 class="card-title" id="dtTitle">银行回单核销详情 · SD</h3>
     <div class="head-btns"><button class="btn btn-default btn-sm" onclick="go('../财务协同/银行水单核销.html')">返回列表</button></div>
   </div>
   <div id="detailBody"><!-- 内容由 _data/detail-generic.js 按单号渲染 --></div>
@@ -379,7 +380,7 @@ th.td-num { text-align:right; }
   if (!D[k]) k = Object.keys(D).filter(function (x) { return D[x] && JSON.stringify(D[x]).replace(/\s/g, "").indexOf('"tag":"待') > -1; })[0]    || Object.keys(D).filter(function (x) { return D[x] && (D[x].info || D[x].title); })[0] || DEF;
   var rec = D[k] || {};
   var t = document.getElementById("dtTitle");
-  if (t) t.textContent = (rec.title || '水单核销详情 · SD') + " · " + (rec.titleNo || k);
+  if (t) t.textContent = (rec.title || '银行回单核销详情 · SD') + " · " + (rec.titleNo || k);
   var el = document.getElementById("detailBody");
   if (el && window.renderGenericDetailHTML) el.innerHTML = window.renderGenericDetailHTML(rec, "../");
 })();

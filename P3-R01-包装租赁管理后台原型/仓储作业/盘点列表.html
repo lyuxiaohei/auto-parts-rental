@@ -289,6 +289,7 @@ th.td-num { text-align:right; }
    <ul class="sm-sub">
    <li><div class="sm-link" onclick="go('../租赁管理/租赁单列表.html')">租赁单</div></li>
    <li><div class="sm-link" onclick="go('../租赁管理/租赁出库列表.html')">租赁出库</div></li>
+   <li><div class="sm-link" onclick="go('../租赁管理/转移出库列表.html')">转移出库</div></li>
    <li><div class="sm-link" onclick="go('../租赁管理/退租入库列表.html')">退租入库</div></li>
    </ul>
       </li>
@@ -395,7 +396,7 @@ th.td-num { text-align:right; }
           <th>盘点范围</th>
           <th>盘点口径</th>
           <th>盘点项数</th>
-          <th>盈亏合计</th>
+          <th>损益合计</th>
           <th>关联单据</th>
           <th>状态</th>
           <th>盘点人</th>
@@ -657,7 +658,7 @@ document.querySelectorAll('.tab').forEach(function (t) {
 .docs-pop .dp-ok{color:#52c41a;font-weight:600}
 </style>
 <div class="docs-pop" id="docsPop"></div>
-<script id="docs-pop-js">/* 盘点关联单据 +N 气泡 & 盘盈亏生成出入库 · 2026-09-11 · 无蒙层小弹窗（数据驱动版） */
+<script id="docs-pop-js">/* 盘点关联单据 +N 气泡 & 盘损益生成出入库 · 2026-09-11 · 无蒙层小弹窗（数据驱动版） */
 (function () {
   var DOCS = {
     'PD-202608-02': { dir: 'in',  list: [
@@ -797,7 +798,7 @@ body.proto-notes-on .proto-pin.pn-open{display:block}
 body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 .pn-fab .pn-fab-n{font-family:Consolas,monospace;font-weight:600}
 </style>
-<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>盘点单（两种方式）</div><div class="pnp-d">可按零件或组合两种方式盘点</div><div class="pnp-b"><span class="pnp-tag">FP3-05 · 盘点单</span><span class="pnp-tag">REQ-12 · 盘点</span></div><div class="pnp-src"><div class="src-item"><b>FP3-05 盘点单</b>：零件/组合两种方式盘点、盘盈亏调整</div><div class="src-item"><b>REQ-12 盘点</b>：支持零件/组合双视角盘点</div></div></div>
+<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>盘点单（两种方式）</div><div class="pnp-d">可按零件或组合两种方式盘点</div><div class="pnp-b"><span class="pnp-tag">FP3-05 · 盘点单</span><span class="pnp-tag">REQ-12 · 盘点</span></div><div class="pnp-src"><div class="src-item"><b>FP3-05 盘点单</b>：零件/组合两种方式盘点、盘损益调整</div><div class="src-item"><b>REQ-12 盘点</b>：支持零件/组合双视角盘点</div></div></div>
 <style id="f01-fab-style">.fab-row{position:fixed;right:12px;bottom:12px;z-index:880;display:flex;align-items:center;gap:6px}.fab-row .pn-fab{position:static}.f01-fab{display:flex;text-decoration:none;align-items:center;height:24px;padding:0 10px;border-radius:4px;background:#fff;border:1px solid #d9d9d9;color:#8c8c8c;font-size:11px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.06);opacity:.6;transition:opacity .15s}.f01-fab:hover{opacity:1;border-color:#722ed1;color:#722ed1}</style><div class="fab-row"><a class="f01-fab" href="../P3-R01-F01-业务流程导航图.html">流程图</a><div class="pn-fab" id="protoNotesFab">标注</div></div></div>
 <script id="proto-notes-js">
 (function(){

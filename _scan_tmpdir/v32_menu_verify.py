@@ -91,9 +91,9 @@ with sync_playwright() as pw:
     sal_items = [s2['text'] for s2 in g_sal['sub'] if not s2['isTag']]
     check('⑥c', 'v5 销售管理组 3 项=销售订单/销售出库/销售退货', sal_items == ['销售订单', '销售出库', '销售退货'], '→'.join(sal_items))
 
-    # ⑥d 菜单项合计 36（v5：33+3）
+    # ⑥d 菜单项合计 37（v6：36+转移出库）
     n_items = pg.evaluate("() => document.querySelectorAll('.sm-sub .sm-link').length + document.querySelectorAll('.side-menu > li:not(.has-sub) > .sm-link').length")
-    check('⑥d', '菜单项合计 36（v5：33+3）', n_items == 36, f'实测 {n_items}')
+    check('⑥d', '菜单项合计 37（v6：36+1）', n_items == 37, f'实测 {n_items}')
 
     # ⑦ 仓储管理组 v4 平铺（小标签取消·D-114）
     g_wh = next(g for g in groups if g['name'] == '仓储管理')
@@ -101,11 +101,11 @@ with sync_playwright() as pw:
     check('⑦', 'v4 仓储管理组无小标签·5 项平铺=库存查询/盘点记录/库存调拨/其他入库/其他出库',
           wh_seq == ['I库存查询', 'I盘点记录', 'I库存调拨', 'I其他入库', 'I其他出库'], ' '.join(wh_seq))
 
-    # ⑧ 租赁管理组 v4 平铺（小标签取消·租入 3 项迁出）
+    # ⑧ 租赁管理组 v6 平铺（G37：+转移出库·退租入库前）
     g_lease = next(g for g in groups if g['name'] == '租赁管理')
     lease_seq = [('T' if s['isTag'] else 'I') + s['text'] for s in g_lease['sub']]
-    check('⑧', 'v4 租赁管理组无小标签·3 项平铺=租赁单/租赁出库/退租入库',
-          lease_seq == ['I租赁单', 'I租赁出库', 'I退租入库'], ' '.join(lease_seq))
+    check('⑧', 'v6 租赁管理组无小标签·4 项平铺=租赁单/租赁出库/转移出库/退租入库',
+          lease_seq == ['I租赁单', 'I租赁出库', 'I转移出库', 'I退租入库'], ' '.join(lease_seq))
 
     # ⑧b 租入管理组 v4 新组（升一级·3 项）
     g_ri = next(g for g in groups if g['name'] == '租入管理')
@@ -123,6 +123,15 @@ with sync_playwright() as pw:
     missing = [t for t in set(targets)
                if not (PROTO / '首页' / t).exists()]
     check('⑮', f'侧边栏 {len(set(targets))} 个 go() 目标全部存在', not missing, '缺失: ' + '; '.join(missing))
+
+    # ⑯ 转移出库菜单项直达（G37 v6）
+    with pg.expect_navigation():
+        pg.evaluate("() => [...document.querySelectorAll('.sm-link')].find(e=>e.textContent.trim()==='转移出库').click()")
+    pg.wait_for_load_state('load')
+    url_zy = unquote(pg.url)
+    check('⑯', '点击转移出库落地 租赁管理/转移出库列表.html', url_zy.endswith('租赁管理/转移出库列表.html'), url_zy)
+    sel_zy = pg.evaluate("() => { const e=document.querySelector('.sm-link.selected'); return e?e.textContent.trim():null }")
+    check('⑯b', '转移出库列表页 selected=转移出库', sel_zy == '转移出库', f'selected={sel_zy}')
 
     # ⑤ 点击财务看板落地 财务协同/盈亏报表.html
     with pg.expect_navigation():
@@ -177,5 +186,5 @@ with sync_playwright() as pw:
 fails = [r for r in results if not r[2]]
 for no, name, ok, note in results:
     print(f"{'PASS' if ok else 'FAIL'} {no} {name}" + (f'  ｜{note}' if not ok or no in ('⑤', '⑪', '⑮') else ''))
-print(f"==== 菜单 v5 验证门：{len(results)} 项断言，失败 {len(fails)} 项 ====")
+print(f"==== 菜单 v6 验证门：{len(results)} 项断言，失败 {len(fails)} 项 ====")
 sys.exit(1 if fails else 0)

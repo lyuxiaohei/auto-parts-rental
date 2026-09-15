@@ -283,6 +283,7 @@ th.td-num { text-align:right; }
    <ul class="sm-sub">
    <li><div class="sm-link" onclick="go('../租赁管理/租赁单列表.html')">租赁单</div></li>
    <li><div class="sm-link" onclick="go('../租赁管理/租赁出库列表.html')">租赁出库</div></li>
+   <li><div class="sm-link" onclick="go('../租赁管理/转移出库列表.html')">转移出库</div></li>
    <li><div class="sm-link" onclick="go('../租赁管理/退租入库列表.html')">退租入库</div></li>
    </ul>
       </li>
@@ -384,6 +385,13 @@ th.td-num { text-align:right; }
     <div class="form-label">项目负责人：</div>
     <div>
       <div class="input-box select-box" style="width:380px;"><select id="prjOwner" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>江强</option><option>江强·其他</option></select><span class="caret">▾</span></div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-label">转租结算方式：</div>
+    <div>
+      <div><span class="radio checked"><span class="dot"></span>按租出结算</span><span class="radio" style="margin-right:0;"><span class="dot"></span>按终端结算</span></div>
+      <div class="pn-hint">客户转租（转移出库）后的租金结算主体：按租出结算＝租金仍向直接客户计收（默认·转移单不进财务链路）；按终端结算＝转移生效后后续账单主体切换为终端客户（历史账单不回改）。转移出库单可按单覆盖此默认值。</div>
     </div>
   </div>
 </div>
