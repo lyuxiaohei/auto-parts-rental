@@ -100,6 +100,9 @@ body {
 .content { padding:16px 20px 32px; }
 .card { background:#fff; border-radius:8px; padding:20px 24px; margin-bottom:16px; box-shadow:0 1px 2px rgba(0,0,0,.03); }
 .card-title { font-size:16px; font-weight:600; color:#1a1a1a; margin-bottom:20px; }
+.card-head { display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; flex-wrap:wrap; gap:10px; }
+.card-head .card-title { margin-bottom:0; }
+.card-head .head-btns { display:flex; align-items:center; gap:8px; }
 ```
 
 ## 要点
@@ -108,4 +111,5 @@ body {
 - 组件规范自带色不算新造蓝色：表格行 hover `#f5faff`（data-table.md）、按钮 hover `#4096ff`（modal.md）
 - 菜单/页签/表格等 hover 文字色用 `var(--primary)`
 - 侧栏宽 208px 固定；顶栏 44px 固定；正文 13px，菜单 14px，卡片标题 16px
+- **卡片标题一律走 `.card-head` 包裹**（`<div class="card-head"><h3 class="card-title">…</h3></div>`）：卡头下间距 14px、裸 `.card-title` 是 20px，两种写法并存会看出不齐；本卡动作按钮放卡头右侧 `.head-btns`
 - 状态色：成功/通过 `#52c41a` 系、失败/驳回 `var(--danger)`、警示橙 `#fa8c16` 系（与已有页面标签一致）
