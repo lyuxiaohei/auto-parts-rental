@@ -1,1 +1,24 @@
-[]
+[
+ {
+  "page": "项目管理\\项目档案.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 6,
+   "links": 17,
+   "onclickEls": 64,
+   "modals": 0,
+   "modalTitles": [],
+   "selects": 3,
+   "fakeSelects": 0,
+   "radios": 0,
+   "checkboxes": 0,
+   "inputs": 14,
+   "stabs": 0,
+   "tabs": 4,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ }
+]
