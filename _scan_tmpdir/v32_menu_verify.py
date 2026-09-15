@@ -2,7 +2,7 @@
 """菜单重组 v4 · Playwright 菜单验证门（G31·D-114：小标签取消+租入管理升一级）
 用法: python _scan_tmpdir/v32_menu_verify.py
 纪律：编程点击+导航等待、URL unquote()、文本断言 textContent。
-v4 断言基线：九组序（+租入管理）；租赁/仓储组小标签取消平铺；财务组小标签维持（D-114）。
+v5 断言基线（G33·D-123）：v4 基础上 采购管理+采购退货／销售管理+销售退货／财务管理+退款登记；菜单项 33→36。
 """
 import sys, io, os, re
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
@@ -77,9 +77,23 @@ with sync_playwright() as pw:
 
     # ⑥ 财务管理组小标签=应收(4)/应付(2)（D-114：财务组小标签维持）
     fin_seq = [('T' if s['isTag'] else 'I') + s['text'] for s in g_fin['sub']]
-    check('⑥', '财务管理组 财务看板+应收(应收账单/开票登记/收款登记/收款核销)+应付(应付账单/付款登记)',
+    check('⑥', '财务管理组 财务看板+应收(4)+应付(应付账单/付款登记)+退款登记（G33 v5）',
           fin_seq == ['I财务看板', 'T应收', 'I应收账单', 'I开票登记', 'I收款登记', 'I收款核销',
-                      'T应付', 'I应付账单', 'I付款登记'], ' '.join(fin_seq))
+                      'T应付', 'I应付账单', 'I付款登记', 'I退款登记'], ' '.join(fin_seq))
+
+    # ⑥b 采购管理组 v5：+采购退货（G33）
+    g_pur = next(g for g in groups if g['name'] == '采购管理')
+    pur_items = [s2['text'] for s2 in g_pur['sub'] if not s2['isTag']]
+    check('⑥b', 'v5 采购管理组 3 项=采购订单/采购入库/采购退货', pur_items == ['采购订单', '采购入库', '采购退货'], '→'.join(pur_items))
+
+    # ⑥c 销售管理组 v5：+销售退货（G33）
+    g_sal = next(g for g in groups if g['name'] == '销售管理')
+    sal_items = [s2['text'] for s2 in g_sal['sub'] if not s2['isTag']]
+    check('⑥c', 'v5 销售管理组 3 项=销售订单/销售出库/销售退货', sal_items == ['销售订单', '销售出库', '销售退货'], '→'.join(sal_items))
+
+    # ⑥d 菜单项合计 36（v5：33+3）
+    n_items = pg.evaluate("() => document.querySelectorAll('.sm-sub .sm-link').length + document.querySelectorAll('.side-menu > li:not(.has-sub) > .sm-link').length")
+    check('⑥d', '菜单项合计 36（v5：33+3）', n_items == 36, f'实测 {n_items}')
 
     # ⑦ 仓储管理组 v4 平铺（小标签取消·D-114）
     g_wh = next(g for g in groups if g['name'] == '仓储管理')
@@ -163,5 +177,5 @@ with sync_playwright() as pw:
 fails = [r for r in results if not r[2]]
 for no, name, ok, note in results:
     print(f"{'PASS' if ok else 'FAIL'} {no} {name}" + (f'  ｜{note}' if not ok or no in ('⑤', '⑪', '⑮') else ''))
-print(f"==== 菜单 v4 验证门：{len(results)} 项断言，失败 {len(fails)} 项 ====")
+print(f"==== 菜单 v5 验证门：{len(results)} 项断言，失败 {len(fails)} 项 ====")
 sys.exit(1 if fails else 0)

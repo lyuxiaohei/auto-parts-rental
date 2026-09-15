@@ -281,6 +281,7 @@ th.td-num { text-align:right; }
    <ul class="sm-sub">
    <li><div class="sm-link" onclick="go('../采购管理/采购订单列表.html')">采购订单</div></li>
    <li><div class="sm-link" onclick="go('../采购管理/采购入库列表.html')">采购入库</div></li>
+<li><div class="sm-link" onclick="go('../采购管理/采购退货单列表.html')">采购退货</div></li>
    </ul>
       </li>
       <li class="sm-item has-sub">
@@ -288,6 +289,7 @@ th.td-num { text-align:right; }
    <ul class="sm-sub">
    <li><div class="sm-link" onclick="go('../销售管理/销售订单列表.html')">销售订单</div></li>
    <li><div class="sm-link" onclick="go('../销售管理/销售出库列表.html')">销售出库</div></li>
+<li><div class="sm-link" onclick="go('../销售管理/销售退货单列表.html')">销售退货</div></li>
    </ul>
       </li>
       <li class="sm-item has-sub">
@@ -328,6 +330,7 @@ th.td-num { text-align:right; }
    <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">应付</li>
    <li><div class="sm-link" onclick="go('../财务协同/应付账单.html')">应付账单</div></li>
    <li><div class="sm-link" onclick="go('../财务协同/付款登记.html')">付款登记</div></li>
+<li><div class="sm-link" onclick="go('../财务协同/退款登记.html')">退款登记</div></li>
    </ul>
       </li>
       <li class="sm-item has-sub open">
@@ -440,6 +443,9 @@ th.td-num { text-align:right; }
         <span class="checkbox checked" data-audit="租入单"><span class="box">✓</span>租入单</span>
         <span class="checkbox checked" data-audit="销售出库"><span class="box">✓</span>销售出库</span>
         <span class="checkbox checked" data-audit="租赁出库"><span class="box">✓</span>租赁出库</span>
+        <span class="checkbox checked" data-audit="采购退货单"><span class="box">✓</span>采购退货单</span>
+        <span class="checkbox checked" data-audit="销售退货单"><span class="box">✓</span>销售退货单</span>
+        <span class="checkbox checked" data-audit="退款登记"><span class="box">✓</span>退款登记</span>
         <span class="checkbox" data-audit="采购入库"><span class="box"></span>采购入库</span>
         <span class="checkbox" data-audit="租入入库"><span class="box"></span>租入入库</span>
         <span class="checkbox checked" data-audit="退租入库"><span class="box">✓</span>退租入库</span>
@@ -600,6 +606,15 @@ document.querySelectorAll('.tab').forEach(function (t) {
 
 <script src="../_data/pc-auth.js"></script>
 <script src="../_data/pc-msg.js"></script>
+
+
+
+
+
+
+
+
+
 
 
 

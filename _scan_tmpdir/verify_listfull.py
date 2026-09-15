@@ -19,7 +19,7 @@ B1 = [
     dict(name='销售出库', file='销售管理/销售出库列表.html', entity='salesOutbounds', modalId='detailModal',
          stabs={'全部': 6, '待审核': 1, '已完成': 5}, pin=None),
     dict(name='租赁出库', file='租赁管理/租赁出库列表.html', entity='comboOutbounds', modalId='detailModal',
-         stabs={'全部': 9, '待审核': 1, '拣货中': 1, '已出库': 7}, pin=2),  # G22：文件/称呼改名+审核落地（8+1 行）
+         stabs={'全部': 10, '待审核': 2, '拣货中': 1, '已出库': 7}, pin=2),  # G22 改名+审核落地；G31 T6 +CK-20260914-023 溯源行未随更新，G33 按实测 10 行补正
     dict(name='其他出库', file='仓储作业/其他出库列表.html', entity='otherOutbounds', modalId='detailModal',
          stabs={'全部': 5, '待审核': 1, '已完成': 3}, pin=None),
     dict(name='租入归还', file='租入管理/租入归还列表.html', entity='rentInReturns', modalId='detailModal',
@@ -53,6 +53,12 @@ B2 = [
          stabs={'全部': 6, '新建(草稿)': 1, '待审核': 1, '履行中': 1, '部分归还': 1, '已归还': 1, '已终止': 1}, pin=2),  # G13：+草稿演示行,
     dict(name='销售订单', file='销售管理/销售订单列表.html', entity='salesOrders', modalId='detailModal',
          stabs={'全部': 8, '待审核': 2, '已审核': 1, '待发货': 2, '已完成': 2, '已关闭': 1}, pin=None),
+    dict(name='采购退货', file='采购管理/采购退货单列表.html', entity='purchaseReturns', modalId='detailModal',
+         stabs={'全部': 3, '待审核': 1, '已审核': 1, '已退款': 1}, pin=None),  # G33 方案 B
+    dict(name='销售退货', file='销售管理/销售退货单列表.html', entity='salesReturns', modalId='detailModal',
+         stabs={'全部': 3, '待审核': 1, '已审核': 1, '已退款': 1}, pin=None),  # G33 方案 B
+    dict(name='退款登记', file='财务协同/退款登记.html', entity='refunds', modalId='detailModal',
+         stabs={'全部': 3, '待审核': 1, '已确认': 2}, pin=None),  # G33 一页双向
 ]
 BATCHES['batch2'] = B2
 B3 = [

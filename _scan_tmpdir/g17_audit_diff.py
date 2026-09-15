@@ -78,7 +78,12 @@ post_keys = {r['page'].replace('\\', '/') for r in post}
 disappeared = base_keys - post_keys
 appeared = post_keys - base_keys
 expect_disappear = set(RENAMES) | {'系统管理/弹窗/角色管理.html'}
-expect_appear = set(RENAMES.values()) | {'P3-R01-A06-实体关系与状态机.html', '登录.html', '租赁管理/弹窗/退租入库新建.html', '基础数据/弹窗/客商开票资料.html', '基础数据/弹窗/客商收货信息.html'}
+expect_appear = (set(RENAMES.values())
+    | {'P3-R01-A06-实体关系与状态机.html', '登录.html', '租赁管理/弹窗/退租入库新建.html', '基础数据/弹窗/客商开票资料.html', '基础数据/弹窗/客商收货信息.html'}
+    # G33：+3 列表页+8 弹窗模板（退货退款闭环）
+    | {'采购管理/采购退货单列表.html', '采购管理/弹窗/新建采购退货单.html', '采购管理/弹窗/采购退货审核.html', '采购管理/弹窗/采购退货单详情.html',
+       '销售管理/销售退货单列表.html', '销售管理/弹窗/新建销售退货单.html', '销售管理/弹窗/销售退货审核.html', '销售管理/弹窗/销售退货单详情.html',
+       '财务协同/退款登记.html', '财务协同/弹窗/退款登记新建.html', '财务协同/弹窗/退款登记详情.html'})
 rename_ok = disappeared == expect_disappear and appeared == expect_appear
 postcnt = {r['page'].replace('\\', '/'): r for r in post}
 for oldk, newk in RENAMES.items():
@@ -91,6 +96,6 @@ print(f"页键对账: 新增 {sorted(appeared)}")
 print(f"页键改名对账: {'PASS（4 对改名+既有增删页与 G16a/G19b/G20 沿革一致）' if rename_ok else 'FAIL'}")
 
 mobile_ok = len(mobile) == 5 and all(len(r['dead_links']) == 0 and len(r['js_errors']) == 0 for r in mobile)
-ok = len(post) == 117 and len(base) == 113 and tot_dl == 0 and len(new_js) == 0 and len(new_probs) == 0 and mobile_ok and rename_ok  # G31: 115→117（+客商开票/收货两模板·A06 渲染页计入 PC 112）
-print('\n==== audit 门：', 'PASS（117 页·死链0·JS0·diff 新增 0·mobile 5 页各自 0/0）====' if ok else 'FAIL ====')
+ok = len(post) == 128 and len(base) == 113 and tot_dl == 0 and len(new_js) == 0 and len(new_probs) == 0 and mobile_ok and rename_ok  # G33: 117→128（+3 列表页+8 弹窗模板·PC 123）
+print('\n==== audit 门：', 'PASS（128 页·死链0·JS0·diff 新增 0·mobile 5 页各自 0/0）====' if ok else 'FAIL ====')
 sys.exit(0 if ok else 1)

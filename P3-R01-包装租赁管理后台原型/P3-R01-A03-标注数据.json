@@ -343,7 +343,7 @@
       "req": "REQ-05"
     },
     {
-      "selector": "<div style=\"margin:4px 0 8px;font-size:13px;font-weight:600;color:#1a1a1a;\">配方行",
+      "selector": "<th>配方来源</th>",
       "title": "BOM 维护时点",
       "note": "D-118（2026-09-14·以转写原文为准）：BOM 在物料建档后即可维护，采购前或采购后均可，按实际情况；损耗率字段已按 D-101 移除，实际损耗走库位（次品仓）区分",
       "fp": "FP1-05",
@@ -859,6 +859,60 @@
       "selector": "<tbody id=\"riItemsBody\">",
       "title": "分批归还口径",
       "note": "支持分批归还：多张归还单可对应同一租入单；逐货品填写本次归还数量，「已归还」为该租入单历史累计。\n归还明细行随所选租入单的明细行数联动展示。"
+    }
+  ],
+  "采购管理/采购退货单列表.html": [
+    {
+      "id": 1,
+      "selector": "<h3 class=\"card-title\">采购退货单</h3>",
+      "title": "采购退货单（方案 B）",
+      "note": "双退货单之一：收货拒收（未入库直接退·不产生库存流水）／入库后退货（已入库再退·凭退货单自身冲减，不修改原入库单 D-109）。审核后可登记应付退款（对供应商）。",
+      "fp": "",
+      "req": ""
+    },
+    {
+      "id": 2,
+      "selector": "<button class=\"btn btn-sm\" onclick=\"openModal('createModal')\">新建退货单</button>",
+      "title": "新建退货单",
+      "note": "选择关联原单（采购入库单）自动带出物料行与可退上限；退货类型两值（THC 字典）。",
+      "fp": "",
+      "req": ""
+    }
+  ],
+  "销售管理/销售退货单列表.html": [
+    {
+      "id": 1,
+      "selector": "<h3 class=\"card-title\">销售退货单</h3>",
+      "title": "销售退货单（方案 B）",
+      "note": "客户退货统一单据：收货拒收（客户未收货直接退回）／入库后退货（客户收货使用后退货回仓）。审核后可登记应收退款（对客户）。",
+      "fp": "",
+      "req": ""
+    },
+    {
+      "id": 2,
+      "selector": "<button class=\"btn btn-sm\" onclick=\"openModal('createModal')\">新建退货单</button>",
+      "title": "新建退货单",
+      "note": "选择关联销售出库单自动带出物料行与可退上限。",
+      "fp": "",
+      "req": ""
+    }
+  ],
+  "财务协同/退款登记.html": [
+    {
+      "id": 1,
+      "selector": "<h3 class=\"card-title\">退款登记</h3>",
+      "title": "退款登记（一页双向）",
+      "note": "退款从核销散记升级为独立可查可审单据（G32-T1 方案 B·D-123）。方向映射固定：采购退货→应付退款（对供应商·收款）；销售退货→应收退款（对客户·付款）。「供应商应收」既有行（AR-20260904-015·赔付用途）不动。",
+      "fp": "",
+      "req": ""
+    },
+    {
+      "id": 2,
+      "selector": "<button class=\"btn btn-sm\" onclick=\"openModal('createModal')\">新建退款单</button>",
+      "title": "新建退款单",
+      "note": "退款类型（TKL 字典）决定往来单位方向与资金方向；关联退货单带出可退金额。",
+      "fp": "",
+      "req": ""
     }
   ]
 }
