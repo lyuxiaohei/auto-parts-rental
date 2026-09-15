@@ -178,7 +178,7 @@ th.td-num { text-align:right; }
 .modal-footer { padding:12px 24px; border-top:1px solid var(--border); display:flex; justify-content:flex-end; gap:10px; }
 
 /* ===== 固定提交条（表单页） ===== */
-.submit-bar { position:fixed; left:208px; right:0; bottom:0; background:#fff; border-top:1px solid var(--border); padding:10px 160px 10px 24px; display:flex; justify-content:flex-end; align-items:center; gap:10px; z-index:50; box-shadow:0 -2px 8px rgba(0,0,0,.04); }
+.submit-bar { position:fixed; left:208px; right:0; bottom:0; background:#fff; border-top:1px solid var(--border); padding:10px 24px; display:flex; justify-content:center; align-items:center; gap:10px; z-index:50; box-shadow:0 -2px 8px rgba(0,0,0,.04); }
 .content.submit-pad { padding-bottom:72px; }
 
 /* ===== 详情描述行 ===== */
@@ -379,13 +379,13 @@ th.td-num { text-align:right; }
   <div class="form-row">
     <div class="form-label">预计到货日期：</div>
     <div>
-      <div class="input-box" style="width:180px;"><input type="text" value="2026-09-15" placeholder="请输入"></div>
+      <div class="input-box" style="width:380px;"><input type="date" value="2026-09-15"></div>
     </div>
   </div>
   <div class="form-row" style="align-items:flex-start;">
     <div class="form-label" style="padding-top:6px;">备注：</div>
     <div>
-      <div class="input-box" style="width:520px;height:auto;padding:6px 11px;"><textarea placeholder="选填" style="width:100%;border:none;outline:none;background:transparent;font:inherit;color:inherit;resize:vertical;min-height:72px;line-height:1.6;"></textarea></div>
+      <div class="input-box" style="width:380px;height:auto;padding:6px 11px;"><textarea placeholder="选填" style="width:100%;border:none;outline:none;background:transparent;font:inherit;color:inherit;resize:vertical;min-height:72px;line-height:1.6;"></textarea></div>
     </div>
   </div>
 </div>
@@ -407,7 +407,7 @@ th.td-num { text-align:right; }
           <td><select data-unit style="width:100%;min-width:70px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"></select></td>
           <td class="td-num"><input data-tax="qty" value="5,000"></td>
           <td class="td-num"><input data-tax="excl" value="1.28"></td>
-          <td><select data-tax="rate" style="width:80px;"></select></td>
+          <td><select data-tax="rate" style="width:100%;min-width:80px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"></select></td>
           <td class="td-num"><input data-tax="incl" value="1.45"></td>
           <td class="td-num auto-cell" data-tax="amt">7,250.00</td>
           <td class="ops sticky-op"><a>删除</a></td>
@@ -420,7 +420,7 @@ th.td-num { text-align:right; }
           <td><select data-unit style="width:100%;min-width:70px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"></select></td>
           <td class="td-num"><input data-tax="qty" value="2,000"></td>
           <td class="td-num"><input data-tax="excl" value="1.65"></td>
-          <td><select data-tax="rate" style="width:80px;"></select></td>
+          <td><select data-tax="rate" style="width:100%;min-width:80px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"></select></td>
           <td class="td-num"><input data-tax="incl" value="1.86"></td>
           <td class="td-num auto-cell" data-tax="amt">3,720.00</td>
           <td class="ops sticky-op"><a>删除</a></td>
@@ -482,7 +482,7 @@ function poSoPick(no) {
         + '<td><select data-unit style="width:100%;min-width:70px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"></select></td>'
         + '<td class="td-num"><input data-tax="qty" value="' + String(mth[2]).replace(/,/g, '') + '"></td>'
         + '<td class="td-num"><input data-tax="excl" value=""></td>'
-        + '<td><select data-tax="rate" style="width:80px;"></select></td>'
+        + '<td><select data-tax="rate" style="width:100%;min-width:80px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"></select></td>'
         + '<td class="td-num"><input data-tax="incl" value=""></td>'
         + '<td class="td-num auto-cell" data-tax="amt"></td>'
         + '<td class="ops sticky-op"><a>删除</a></td></tr>';
