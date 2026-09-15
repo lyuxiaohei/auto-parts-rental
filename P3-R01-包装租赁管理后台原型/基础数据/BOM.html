@@ -355,6 +355,7 @@ th.td-num { text-align:right; }
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
     <div class="ff ff-row-extra"><span class="ff-label">更新时间：</span><input placeholder="开始时间"><span class="ff-sep">→</span><input placeholder="结束时间"></div>
+    <div class="ff ff-row-extra"><span class="ff-label">更新人：</span><select id="g35UpdaterSel"><option selected>全部</option></select><svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
     <div class="filter-actions">
       <button class="link-collapse" onclick="var f=document.getElementById('filterCard');f.classList.toggle('collapsed');this.querySelector('span').textContent=f.classList.contains('collapsed')?'展开':'收起'"><span>展开</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
       <button class="btn btn-default">重置</button>
@@ -506,9 +507,30 @@ renderListPage({
     { label: '父项名称', field: 'name' },
     { label: '版本', field: 'ver' },
     { label: '状态', field: 'status' },
-    { label: '更新时间', field: 'update', range: true }
+    { label: '更新时间', field: 'update', range: true },
+    { label: '更新人', field: 'updater' }
   ]
 });
+</script>
+<script>/* G35 筛选值域动态渲染（实体/字典取值·渲染失败保留静态兜底） */
+(function () {
+  var D = window.DEMO_DATA || {};
+  function fill(id, vals) {
+    if (!vals || !vals.length) return;
+    var s = document.getElementById(id);
+    if (s) s.innerHTML = '<option selected>全部</option>' + vals.map(function (o) { return '<option>' + o + '</option>'; }).join('');
+  }
+  function ent(e, fld) {
+    var out = [];
+    Object.keys(D[e] || {}).forEach(function (k) {
+      var f = (D[e][k].row || {}).fields || {};
+      var v = f[fld];
+      if (v && out.indexOf(v) < 0) out.push(v);
+    });
+    return out;
+  }
+  fill('g35UpdaterSel', ent('bomList', 'updater'));
+})();
 </script>
 
 <script>

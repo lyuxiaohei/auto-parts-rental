@@ -395,7 +395,7 @@ th.td-num { text-align:right; }
 <div class="card">
   <div class="card-head">
     <h3 class="card-title" data-note="1">子项明细</h3>
-    <div class="head-btns"><button class="btn btn-dashed btn-sm">添加子项</button></div>
+    <div class="head-btns"><button class="btn btn-dashed btn-sm" onclick="addBomRow(this)">添加子项</button></div>
   </div>
   <div class="table-wrap edit-tbl">
     <table>
@@ -554,6 +554,26 @@ renderListPage({
 /* ===== 详情弹窗开关（详情落地页补齐注入） ===== */
 function openModal(id) { document.getElementById(id).classList.add('show'); }
 function closeModal(id) { document.getElementById(id).classList.remove('show'); }
+
+/* 添加子项：克隆末行→清空待填→重编号（道远 09-15 报"按钮无反应"修复） */
+function addBomRow(btn) {
+  var card = btn.closest('.card');
+  var tbody = card ? card.querySelector('tbody') : null;
+  if (!tbody) return;
+  var last = tbody.querySelector('tr:last-child');
+  if (!last) return;
+  var row = last.cloneNode(true);
+  row.querySelectorAll('input').forEach(function (i) { i.value = ''; });
+  row.querySelectorAll('.v').forEach(function (v) { v.textContent = '选择子项'; });
+  var tds = row.querySelectorAll('td');
+  if (tds[2]) tds[2].innerHTML = '';
+  if (tds[3]) tds[3].innerHTML = '<span class="tag tag-gray">自购</span>';
+  if (tds[4]) tds[4].textContent = '—';
+  if (tds[6]) tds[6].innerHTML = '<span style="color:var(--text-2)">—</span>';
+  tbody.appendChild(row);
+  var rows = tbody.querySelectorAll('tr');
+  rows.forEach(function (r, i) { r.cells[0].textContent = i + 1; });
+}
 document.querySelectorAll('.modal-overlay').forEach(function (ov) {
   ov.addEventListener('click', function (e) { if (e.target === ov) ov.classList.remove('show'); });
 });

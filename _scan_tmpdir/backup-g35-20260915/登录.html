@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>登录 - 包装租赁管理后台</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root { --primary: #1677ff; --primary-deep: #0958d9; --bg: #f0f2f5; --text: #262626; --text-sub: #8c8c8c; --border: #e8e8e8; }
+body { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; background: var(--bg); min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 32px 16px; }
+.login-card { display: flex; width: 900px; max-width: 94vw; background: #fff; border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,.18); overflow: hidden; }
+/* ===== 左栏 · 品牌区（参考供应链平台登录页样式·主色沿用项目 #1677ff） ===== */
+.brand { flex: 1; background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%); padding: 48px 36px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+.logo-icon { width: 56px; height: 56px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-deep) 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; box-shadow: 0 6px 16px rgba(22,119,255,.35); }
+.logo-icon svg { width: 28px; height: 28px; stroke: #fff; }
+.brand-title { font-size: 26px; font-weight: 700; color: var(--text); letter-spacing: 1px; }
+.brand-sub { margin-top: 12px; font-size: 13px; line-height: 1.8; color: #666; }
+.brand-tags { margin-top: 20px; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+.brand-tag { font-size: 12px; padding: 3px 10px; border: 1px solid rgba(22,119,255,.35); color: var(--primary-deep); background: rgba(22,119,255,.06); border-radius: 10px; }
+.brand-illus { margin-top: 28px; width: 100%; max-width: 340px; }
+/* ===== 右栏 · 表单区 ===== */
+.form-side { flex: 1; padding: 48px 44px 36px; display: flex; flex-direction: column; justify-content: center; }
+.form-title { font-size: 22px; font-weight: 700; color: var(--text); }
+.form-desc { font-size: 12px; color: var(--text-sub); margin: 8px 0 26px; }
+.f-row { margin-bottom: 16px; }
+.f-label { font-size: 13px; color: var(--text); margin-bottom: 6px; }
+.input-wrap { position: relative; }
+.input-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); width: 16px; height: 16px; stroke: #bfbfbf; pointer-events: none; transition: stroke .3s ease; }
+.input-wrap:focus-within .input-icon { stroke: var(--primary); }
+.f-input { width: 100%; height: 44px; border: 1px solid var(--border); border-radius: 8px; padding: 0 14px 0 42px; font-size: 14px; background: #fafafa; outline: none; transition: all .3s ease; }
+.f-input:focus { border-color: var(--primary); background: #fff; box-shadow: 0 0 0 3px rgba(22,119,255,.12); }
+.f-err { font-size: 12px; color: #ff4d4f; margin-top: 5px; display: none; }
+.f-err.show { display: block; }
+.f-mid { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; font-size: 13px; }
+.f-check { display: inline-flex; align-items: center; gap: 6px; color: var(--text-sub); cursor: pointer; }
+.f-check input { accent-color: var(--primary); }
+.btn-login { width: 100%; height: 44px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-deep) 100%); color: #fff; border: none; border-radius: 8px; font-size: 15px; font-weight: 600; letter-spacing: 6px; cursor: pointer; transition: all .3s ease; box-shadow: 0 4px 15px rgba(22,119,255,.35); }
+.btn-login:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(22,119,255,.45); }
+.btn-login:active { transform: translateY(0); }
+/* ===== divider + 企微扫码圆钮 ===== */
+.divider { display: flex; align-items: center; margin: 22px 0 16px; color: #999; font-size: 12px; white-space: nowrap; }
+.divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.divider::before { margin-right: 12px; }
+.divider::after { margin-left: 12px; }
+.wecom-row { display: flex; justify-content: center; }
+.btn-wecom { width: 44px; height: 44px; padding: 0; background: #fff; border: 1px solid var(--border); border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all .3s ease; box-shadow: 0 2px 8px rgba(0,0,0,.06); }
+.btn-wecom:hover { transform: translateY(-2px); box-shadow: 0 4px 14px rgba(0,0,0,.12); border-color: var(--primary); }
+.btn-wecom:active { transform: translateY(0); }
+.wecom-tip { text-align: center; font-size: 12px; color: #999; margin-top: 10px; }
+/* ===== 扫码视图 ===== */
+.view-back { display: inline-flex; align-items: center; gap: 4px; font-size: 13px; color: #999; cursor: pointer; margin-bottom: 18px; transition: color .2s ease; }
+.view-back:hover { color: var(--primary); }
+.qr-login { display: flex; flex-direction: column; align-items: center; padding: 4px 0; }
+.qr-frame { position: relative; width: 196px; height: 196px; padding: 12px; border: 1px solid var(--border); border-radius: 12px; background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,.06); cursor: pointer; transition: box-shadow .3s ease; }
+.qr-frame:hover { box-shadow: 0 4px 18px rgba(22,119,255,.18); }
+.qr-img { width: 100%; height: 100%; }
+.qr-scan-hint { margin-top: 14px; font-size: 14px; font-weight: 600; color: var(--text); }
+.qr-scan-sub { margin-top: 6px; font-size: 12px; color: #999; }
+.qr-scan-demo { margin-top: 16px; font-size: 12px; color: var(--primary); background: rgba(22,119,255,.08); border: 1px dashed rgba(22,119,255,.4); border-radius: 6px; padding: 6px 14px; }
+/* ===== toast ===== */
+.toast { position: fixed; top: 24px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,.72); color: #fff; font-size: 13px; padding: 8px 18px; border-radius: 4px; display: none; z-index: 99; }
+.toast.show { display: block; }
+@media (max-width: 860px) { .brand { display: none; } .form-side { padding: 40px 32px; } }
+</style>
+</head>
+<body>
+<div class="login-card">
+  <!-- 左栏 · 品牌 -->
+  <div class="brand">
+    <div class="logo-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5v8l9 5 9-5V8z"/><path d="M3.5 8.5L12 13l8.5-4.5"/><path d="M12 13v8"/></svg>
+    </div>
+    <div class="brand-title">包装租赁管理后台</div>
+    <div class="brand-sub">汽车物流循环包装的一体化租赁运营平台<br>租赁 · 租入 · 库存 · 结算 全流程在线</div>
+    <div class="brand-tags">
+      <span class="brand-tag">围板箱 / 托盘 / 料箱</span>
+      <span class="brand-tag">器具 · 零部件双档案</span>
+      <span class="brand-tag">路凯 · 吉客云协同</span>
+    </div>
+    <svg class="brand-illus" viewBox="0 0 340 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="340" height="220" rx="16" fill="#e6f0ff"/>
+      <circle cx="286" cy="44" r="26" fill="#1677ff" opacity=".08"/>
+      <circle cx="286" cy="44" r="16" fill="#1677ff" opacity=".14"/>
+      <circle cx="286" cy="44" r="7" fill="#1677ff" opacity=".55"/>
+      <rect x="34" y="26" width="16" height="16" rx="4" fill="#0958d9" opacity=".18" transform="rotate(45 42 34)"/>
+      <!-- 库存枢纽 -->
+      <circle cx="170" cy="96" r="34" fill="#1677ff" opacity=".12"/>
+      <circle cx="170" cy="96" r="24" fill="#1677ff"/>
+      <path d="M181 90l-9-5-9 5v9l9 5 9-5v-9z" stroke="#fff" stroke-width="1.6" fill="none" stroke-linejoin="round"/>
+      <path d="M173.5 90.5l-6.5 3.5-6.5-3.5" stroke="#fff" stroke-width="1.2" fill="none"/>
+      <!-- 围板箱（左·波纹箱体） -->
+      <g transform="translate(36,102)">
+        <rect x="0" y="0" width="52" height="44" rx="6" fill="#1677ff"/>
+        <path d="M8 10v24M18 10v24M28 10v24M38 10v24" stroke="#fff" stroke-width="1.4" opacity=".55"/>
+        <rect x="0" y="0" width="52" height="10" rx="6" fill="#0958d9"/>
+      </g>
+      <!-- 托盘（右下·三横杆） -->
+      <g transform="translate(238,128)">
+        <rect x="0" y="0" width="56" height="8" rx="3" fill="#1677ff"/>
+        <rect x="4" y="12" width="48" height="6" rx="3" fill="#1677ff" opacity=".65"/>
+        <rect x="6" y="22" width="44" height="5" rx="2.5" fill="#1677ff" opacity=".4"/>
+      </g>
+      <!-- 料箱（右上小箱） -->
+      <g transform="translate(242,66)">
+        <rect x="0" y="0" width="34" height="26" rx="5" fill="#0958d9" opacity=".85"/>
+        <rect x="11" y="-3" width="12" height="6" rx="2" fill="#0958d9"/>
+      </g>
+      <!-- 流转虚线 -->
+      <g stroke="#1677ff" stroke-width="1.6" opacity=".4" stroke-dasharray="5,5">
+        <path d="M92 122 C118 118 132 112 148 104"/>
+        <path d="M196 104 C216 112 228 120 244 130"/>
+        <path d="M186 78 C202 72 216 70 240 74"/>
+      </g>
+      <text x="170" y="196" text-anchor="middle" fill="#0958d9" font-size="11" font-family="'Microsoft YaHei',sans-serif" opacity=".7">循环包装 · 租入租出 · 一箱一码全流转</text>
+    </svg>
+  </div>
+  <!-- 右栏 · 表单 -->
+  <div class="form-side">
+    <!-- 账号登录视图 -->
+    <div id="accountView">
+      <div class="form-title">账号登录</div>
+      <div class="form-desc">演示原型 · 账号已预填，直接点「登录」进入</div>
+      <div class="f-row">
+        <div class="f-label">账号</div>
+        <div class="input-wrap">
+          <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+          <input class="f-input" id="loginUser" value="liu.dy" placeholder="请输入账号">
+        </div>
+        <div class="f-err" id="errUser">请输入账号</div>
+      </div>
+      <div class="f-row">
+        <div class="f-label">密码</div>
+        <div class="input-wrap">
+          <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg>
+          <input class="f-input" id="loginPwd" type="password" value="123456" placeholder="请输入密码">
+        </div>
+        <div class="f-err" id="errPwd">请输入密码</div>
+      </div>
+      <div class="f-mid">
+        <label class="f-check"><input type="checkbox" checked>记住登录</label>
+      </div>
+      <button class="btn-login" id="btnLogin" type="button">登 录</button>
+      <div class="divider">其他登录方式</div>
+      <div class="wecom-row">
+        <button class="btn-wecom" id="btnWecom" type="button" title="企微扫码登录">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M12 4c-4.6 0-8.3 3-8.3 6.8 0 2.1 1.1 4 2.9 5.2l-.7 2.6 2.9-1.5c1 .3 2.1.5 3.2.5 4.6 0 8.3-3 8.3-6.8S16.6 4 12 4z" stroke="#1677ff" stroke-width="1.5" fill="rgba(22,119,255,.08)"/>
+            <circle cx="9" cy="10.4" r="1" fill="#faad14"/>
+            <circle cx="12.5" cy="10.4" r="1" fill="#52c41a"/>
+            <circle cx="16" cy="10.4" r="1" fill="#1677ff"/>
+          </svg>
+        </button>
+      </div>
+      <div class="wecom-tip">企业微信扫码登录</div>
+    </div>
+    <!-- 企微扫码视图 -->
+    <div id="wechatView" style="display:none">
+      <div class="view-back" id="backToAccount">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 19l-7-7 7-7"/></svg>
+        <span>返回账号登录</span>
+      </div>
+      <div class="qr-login">
+        <div class="qr-frame" id="qrFrame" title="点击模拟扫码成功">
+          <svg class="qr-img" viewBox="0 0 172 172" xmlns="http://www.w3.org/2000/svg">
+            <rect width="172" height="172" fill="#fff"/>
+            <g fill="#262626">
+              <rect x="8" y="8" width="40" height="40" fill="none" stroke="#262626" stroke-width="6"/><rect x="20" y="20" width="16" height="16"/>
+              <rect x="124" y="8" width="40" height="40" fill="none" stroke="#262626" stroke-width="6"/><rect x="136" y="20" width="16" height="16"/>
+              <rect x="8" y="124" width="40" height="40" fill="none" stroke="#262626" stroke-width="6"/><rect x="20" y="136" width="16" height="16"/>
+              <rect x="60" y="8" width="8" height="8"/><rect x="76" y="8" width="8" height="8"/><rect x="100" y="8" width="8" height="8"/>
+              <rect x="60" y="24" width="8" height="8"/><rect x="92" y="24" width="8" height="8"/><rect x="108" y="24" width="8" height="8"/>
+              <rect x="68" y="40" width="8" height="8"/><rect x="84" y="40" width="16" height="8"/><rect x="60" y="56" width="8" height="8"/>
+              <rect x="84" y="56" width="8" height="8"/><rect x="100" y="56" width="16" height="8"/><rect x="8" y="60" width="8" height="8"/>
+              <rect x="24" y="60" width="8" height="8"/><rect x="40" y="60" width="8" height="8"/><rect x="24" y="76" width="8" height="8"/>
+              <rect x="48" y="76" width="8" height="8"/><rect x="8" y="92" width="16" height="8"/><rect x="36" y="92" width="8" height="8"/>
+              <rect x="60" y="76" width="16" height="16"/><rect x="88" y="80" width="8" height="8"/><rect x="104" y="76" width="8" height="8"/>
+              <rect x="120" y="76" width="8" height="8"/><rect x="136" y="76" width="16" height="8"/><rect x="60" y="104" width="8" height="8"/>
+              <rect x="76" y="104" width="8" height="8"/><rect x="96" y="104" width="16" height="8"/><rect x="120" y="100" width="8" height="8"/>
+              <rect x="136" y="104" width="8" height="8"/><rect x="152" y="104" width="8" height="8"/><rect x="60" y="124" width="8" height="8"/>
+              <rect x="84" y="124" width="8" height="8"/><rect x="100" y="124" width="8" height="8"/><rect x="124" y="124" width="8" height="8"/>
+              <rect x="148" y="124" width="8" height="8"/><rect x="68" y="140" width="8" height="8"/><rect x="92" y="140" width="16" height="8"/>
+              <rect x="116" y="140" width="8" height="8"/><rect x="140" y="140" width="8" height="8"/><rect x="60" y="156" width="16" height="8"/>
+              <rect x="88" y="156" width="8" height="8"/><rect x="108" y="156" width="8" height="8"/><rect x="128" y="156" width="16" height="8"/>
+            </g>
+            <g transform="translate(70,70)">
+              <rect x="0" y="0" width="32" height="32" rx="8" fill="#fff"/>
+              <path d="M16 4c-4.4 0-8 2.9-8 6.5 0 2 1 3.8 2.8 5l-.7 2.5 2.8-1.4c1 .2 2 .4 3.1.4 4.4 0 8-2.9 8-6.5S20.4 4 16 4z" fill="#1677ff"/>
+              <circle cx="13" cy="10" r="1" fill="#faad14"/><circle cx="16.2" cy="10" r="1" fill="#52c41a"/><circle cx="19.4" cy="10" r="1" fill="#fff"/>
+            </g>
+          </svg>
+        </div>
+        <div class="qr-scan-hint">请使用企业微信扫描二维码登录</div>
+        <div class="qr-scan-sub">扫码后将在企业微信中确认登录</div>
+        <div class="qr-scan-demo">演示原型 · 点击二维码模拟扫码成功</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast">演示原型 · 暂未接入</div>
+<script>
+/* G19b PC 登录页（独立页·与 我的待办.html 同级）：预填演示账号，登录=清 pc-logout 键回默认已登录态
+   2026-09-14 v2 UI 改版（参考供应链平台登录页样式·主色沿用项目 #1677ff）：900px 左右分栏+品牌插画+带图标输入框+企微扫码视图切换 */
+(function () {
+  var tEl = document.getElementById('toast'), tTimer = null;
+  function showToast(msg) {
+    tEl.textContent = msg;
+    tEl.classList.add('show');
+    if (tTimer) clearTimeout(tTimer);
+    tTimer = setTimeout(function () { tEl.classList.remove('show'); }, 1800);
+  }
+  function doLogin() {
+    try { localStorage.removeItem('pc-logout'); } catch (e) {}
+    location.href = '首页/项目看板.html';
+  }
+  document.getElementById('btnLogin').addEventListener('click', function () {
+    var u = document.getElementById('loginUser');
+    var p = document.getElementById('loginPwd');
+    var okU = !!u.value.trim(), okP = !!p.value.trim();
+    document.getElementById('errUser').classList.toggle('show', !okU);
+    document.getElementById('errPwd').classList.toggle('show', !okP);
+    if (!okU || !okP) return;
+    doLogin();
+  });
+  /* 企微扫码视图切换 */
+  document.getElementById('btnWecom').addEventListener('click', function () {
+    document.getElementById('accountView').style.display = 'none';
+    document.getElementById('wechatView').style.display = 'block';
+  });
+  document.getElementById('backToAccount').addEventListener('click', function () {
+    document.getElementById('wechatView').style.display = 'none';
+    document.getElementById('accountView').style.display = 'block';
+  });
+  /* 演示：点击二维码=模拟扫码成功 */
+  document.getElementById('qrFrame').addEventListener('click', function () {
+    showToast('扫码成功 · 进入中');
+    setTimeout(doLogin, 600);
+  });
+})();
+</script>
+</body>
+</html>

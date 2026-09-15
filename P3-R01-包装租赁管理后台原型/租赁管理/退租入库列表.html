@@ -362,6 +362,7 @@ th.td-num { text-align:right; }
       <select><option selected>全部</option><option>PRJ-2601</option><option>PRJ-2602</option><option>PRJ-2603</option><option>PRJ-2604</option><option>PRJ-2605</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
+    <div class="ff ff-row-extra"><span class="ff-label">入库库房：</span><select id="g35WhSel"><option selected>全部</option></select><svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
     <div class="filter-actions">
       <button class="link-collapse" onclick="var f=document.getElementById('filterCard');f.classList.toggle('collapsed');this.querySelector('span').textContent=f.classList.contains('collapsed')?'展开':'收起'"><span>展开</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
       <button class="btn btn-default">重置</button>
@@ -708,12 +709,33 @@ renderListPage({
   stabs: true,
   filters: [
     { label: '退租入库单号', field: '_key' },
-    { label: '客户', field: 'customer' },
+    { label: '客户名称', field: 'customer' },
     { label: '验收结果', field: 'result' },
     { label: '入库日期', field: 'date', range: true },
-    { label: '所属项目', field: 'project' }
+    { label: '所属项目', field: 'project' },
+    { label: '入库库房', field: 'warehouse' }
   ]
 });
+</script>
+<script>/* G35 筛选值域动态渲染（实体/字典取值·渲染失败保留静态兜底） */
+(function () {
+  var D = window.DEMO_DATA || {};
+  function fill(id, vals) {
+    if (!vals || !vals.length) return;
+    var s = document.getElementById(id);
+    if (s) s.innerHTML = '<option selected>全部</option>' + vals.map(function (o) { return '<option>' + o + '</option>'; }).join('');
+  }
+  function ent(e, fld) {
+    var out = [];
+    Object.keys(D[e] || {}).forEach(function (k) {
+      var f = (D[e][k].row || {}).fields || {};
+      var v = f[fld];
+      if (v && out.indexOf(v) < 0) out.push(v);
+    });
+    return out;
+  }
+  fill('g35WhSel', ent('returnInbounds', 'warehouse'));
+})();
 </script>
 <script>
 /* ===== 菜单折叠 / 页签与表单视觉态（统一脚本） ===== */

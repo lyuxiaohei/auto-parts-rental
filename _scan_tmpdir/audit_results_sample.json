@@ -1,174 +1,76 @@
 [
  {
-  "page": "采购管理\\弹窗\\新建采购退货单.html",
+  "page": "基础数据\\BOM.html",
   "js_errors": [],
   "problems": [],
   "stats": {
-   "buttons": 4,
-   "links": 1,
-   "onclickEls": 5,
+   "buttons": 6,
+   "links": 19,
+   "onclickEls": 64,
    "modals": 1,
    "modalTitles": [
-    "新建采购退货单(演示页)"
+    "停用确认"
    ],
-   "selects": 2,
-   "fakeSelects": 0,
-   "radios": 2,
-   "checkboxes": 0,
-   "inputs": 5,
-   "stabs": 0,
-   "tabs": 0,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "采购管理\\弹窗\\采购入库单详情.html",
-  "js_errors": [],
-  "problems": [],
-  "stats": {
-   "buttons": 1,
-   "links": 1,
-   "onclickEls": 6,
-   "modals": 1,
-   "modalTitles": [
-    "采购入库单详情 · CGRK-20260(演示页)"
-   ],
-   "selects": 0,
+   "selects": 3,
    "fakeSelects": 0,
    "radios": 0,
    "checkboxes": 0,
-   "inputs": 0,
+   "inputs": 11,
    "stabs": 0,
-   "tabs": 0,
+   "tabs": 3,
    "bgMut": 0
   },
   "dead_links": [],
   "nav_anomaly": null
  },
  {
-  "page": "采购管理\\弹窗\\采购入库审核.html",
+  "page": "基础数据\\BOM维护.html",
   "js_errors": [],
-  "problems": [],
+  "problems": [
+   {
+    "cat": "输入框",
+    "type": "input-no-placeholder",
+    "phase": "base",
+    "where": {
+     "tag": "input",
+     "id": "",
+     "cls": "",
+     "text": "",
+     "row": "6",
+     "inModal": ""
+    },
+    "detail": "无 placeholder 且无预填值"
+   },
+   {
+    "cat": "弹窗",
+    "type": "modal-unreachable",
+    "phase": "modal",
+    "where": {
+     "text": "BOM 版本查看 · ZH-2601-A"
+    },
+    "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
+   }
+  ],
   "stats": {
-   "buttons": 2,
-   "links": 1,
-   "onclickEls": 3,
+   "buttons": 6,
+   "links": 13,
+   "onclickEls": 40,
    "modals": 1,
-   "modalTitles": [
-    "审核确认(演示页)"
-   ],
-   "selects": 0,
+   "modalTitles": [],
+   "selects": 1,
    "fakeSelects": 0,
    "radios": 2,
    "checkboxes": 0,
-   "inputs": 1,
+   "inputs": 10,
    "stabs": 0,
-   "tabs": 0,
+   "tabs": 3,
    "bgMut": 0
   },
   "dead_links": [],
   "nav_anomaly": null
  },
  {
-  "page": "采购管理\\弹窗\\采购订单审核.html",
-  "js_errors": [],
-  "problems": [],
-  "stats": {
-   "buttons": 2,
-   "links": 1,
-   "onclickEls": 3,
-   "modals": 1,
-   "modalTitles": [
-    "审核确认(演示页)"
-   ],
-   "selects": 0,
-   "fakeSelects": 0,
-   "radios": 2,
-   "checkboxes": 0,
-   "inputs": 1,
-   "stabs": 0,
-   "tabs": 0,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "采购管理\\弹窗\\采购订单详情.html",
-  "js_errors": [],
-  "problems": [],
-  "stats": {
-   "buttons": 1,
-   "links": 1,
-   "onclickEls": 6,
-   "modals": 1,
-   "modalTitles": [
-    "采购订单详情 · PO-20260902(演示页)"
-   ],
-   "selects": 0,
-   "fakeSelects": 0,
-   "radios": 0,
-   "checkboxes": 0,
-   "inputs": 0,
-   "stabs": 0,
-   "tabs": 0,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "采购管理\\弹窗\\采购退货单详情.html",
-  "js_errors": [],
-  "problems": [],
-  "stats": {
-   "buttons": 1,
-   "links": 1,
-   "onclickEls": 6,
-   "modals": 1,
-   "modalTitles": [
-    "采购退货单详情 · CGTH-20260(演示页)"
-   ],
-   "selects": 0,
-   "fakeSelects": 0,
-   "radios": 0,
-   "checkboxes": 0,
-   "inputs": 0,
-   "stabs": 0,
-   "tabs": 0,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "采购管理\\弹窗\\采购退货审核.html",
-  "js_errors": [],
-  "problems": [],
-  "stats": {
-   "buttons": 2,
-   "links": 1,
-   "onclickEls": 3,
-   "modals": 1,
-   "modalTitles": [
-    "审核确认(演示页)"
-   ],
-   "selects": 0,
-   "fakeSelects": 0,
-   "radios": 2,
-   "checkboxes": 0,
-   "inputs": 1,
-   "stabs": 0,
-   "tabs": 0,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "采购管理\\采购入库列表.html",
+  "page": "基础数据\\产品档案.html",
   "js_errors": [],
   "problems": [
    {
@@ -176,24 +78,61 @@
     "type": "modal-unreachable",
     "phase": "modal",
     "where": {
-     "text": "采购入库单详情"
+     "text": "物料详情"
     },
     "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
    }
   ],
   "stats": {
-   "buttons": 8,
-   "links": 32,
-   "onclickEls": 65,
-   "modals": 2,
+   "buttons": 11,
+   "links": 38,
+   "onclickEls": 71,
+   "modals": 3,
    "modalTitles": [
-    "审核确认"
+    "新建物料",
+    "停用确认"
    ],
-   "selects": 4,
+   "selects": 14,
    "fakeSelects": 0,
-   "radios": 2,
+   "radios": 0,
    "checkboxes": 0,
-   "inputs": 13,
+   "inputs": 27,
+   "stabs": 0,
+   "tabs": 3,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "基础数据\\客商管理.html",
+  "js_errors": [],
+  "problems": [
+   {
+    "cat": "弹窗",
+    "type": "modal-unreachable",
+    "phase": "modal",
+    "where": {
+     "text": "客商详情"
+    },
+    "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
+   }
+  ],
+  "stats": {
+   "buttons": 12,
+   "links": 33,
+   "onclickEls": 72,
+   "modals": 4,
+   "modalTitles": [
+    "新建客商",
+    "开票资料",
+    "收货信息"
+   ],
+   "selects": 5,
+   "fakeSelects": 0,
+   "radios": 0,
+   "checkboxes": 0,
+   "inputs": 27,
    "stabs": 3,
    "tabs": 3,
    "bgMut": 0
@@ -202,29 +141,7 @@
   "nav_anomaly": null
  },
  {
-  "page": "采购管理\\采购入库录单.html",
-  "js_errors": [],
-  "problems": [],
-  "stats": {
-   "buttons": 5,
-   "links": 5,
-   "onclickEls": 38,
-   "modals": 0,
-   "modalTitles": [],
-   "selects": 4,
-   "fakeSelects": 0,
-   "radios": 5,
-   "checkboxes": 3,
-   "inputs": 15,
-   "stabs": 0,
-   "tabs": 3,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "采购管理\\采购订单列表.html",
+  "page": "基础数据\\库位档案.html",
   "js_errors": [],
   "problems": [
    {
@@ -232,46 +149,25 @@
     "type": "modal-unreachable",
     "phase": "modal",
     "where": {
-     "text": "采购订单详情"
+     "text": "库位详情"
     },
     "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
    }
   ],
   "stats": {
-   "buttons": 8,
-   "links": 16,
-   "onclickEls": 50,
-   "modals": 2,
+   "buttons": 10,
+   "links": 33,
+   "onclickEls": 66,
+   "modals": 3,
    "modalTitles": [
-    "审核确认"
+    "新建库位",
+    "停用确认"
    ],
    "selects": 4,
    "fakeSelects": 0,
-   "radios": 2,
-   "checkboxes": 0,
-   "inputs": 12,
-   "stabs": 5,
-   "tabs": 3,
-   "bgMut": 0
-  },
-  "dead_links": [],
-  "nav_anomaly": null
- },
- {
-  "page": "采购管理\\采购订单新建.html",
-  "js_errors": [],
-  "problems": [],
-  "stats": {
-   "buttons": 4,
-   "links": 4,
-   "onclickEls": 37,
-   "modals": 0,
-   "modalTitles": [],
-   "selects": 11,
-   "fakeSelects": 0,
    "radios": 0,
    "checkboxes": 0,
-   "inputs": 16,
+   "inputs": 17,
    "stabs": 0,
    "tabs": 3,
    "bgMut": 0
@@ -280,26 +176,240 @@
   "nav_anomaly": null
  },
  {
-  "page": "采购管理\\采购退货单列表.html",
+  "page": "基础数据\\弹窗\\BOM版本查看.html",
   "js_errors": [],
   "problems": [],
   "stats": {
-   "buttons": 12,
-   "links": 7,
-   "onclickEls": 53,
-   "modals": 3,
+   "buttons": 1,
+   "links": 1,
+   "onclickEls": 3,
+   "modals": 1,
    "modalTitles": [
-    "新建采购退货单",
-    "审核确认",
-    "采购退货单详情(演示页)"
+    "BOM 版本查看 · ZH-2601-A(演示页)"
    ],
-   "selects": 5,
+   "selects": 0,
    "fakeSelects": 0,
-   "radios": 4,
+   "radios": 0,
    "checkboxes": 0,
-   "inputs": 17,
-   "stabs": 4,
-   "tabs": 3,
+   "inputs": 0,
+   "stabs": 0,
+   "tabs": 0,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "基础数据\\弹窗\\产品详情.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 1,
+   "links": 1,
+   "onclickEls": 5,
+   "modals": 1,
+   "modalTitles": [
+    "物料详情 · WBX-1210L(演示页)"
+   ],
+   "selects": 0,
+   "fakeSelects": 0,
+   "radios": 0,
+   "checkboxes": 0,
+   "inputs": 0,
+   "stabs": 0,
+   "tabs": 0,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "基础数据\\弹窗\\停用确认.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 2,
+   "links": 1,
+   "onclickEls": 3,
+   "modals": 1,
+   "modalTitles": [
+    "停用确认(演示页)"
+   ],
+   "selects": 0,
+   "fakeSelects": 0,
+   "radios": 0,
+   "checkboxes": 0,
+   "inputs": 0,
+   "stabs": 0,
+   "tabs": 0,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "基础数据\\弹窗\\客商开票资料.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 2,
+   "links": 1,
+   "onclickEls": 3,
+   "modals": 1,
+   "modalTitles": [
+    "开票资料(演示页)"
+   ],
+   "selects": 2,
+   "fakeSelects": 0,
+   "radios": 0,
+   "checkboxes": 0,
+   "inputs": 6,
+   "stabs": 0,
+   "tabs": 0,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "基础数据\\弹窗\\客商收货信息.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 2,
+   "links": 1,
+   "onclickEls": 3,
+   "modals": 1,
+   "modalTitles": [
+    "收货信息(演示页)"
+   ],
+   "selects": 0,
+   "fakeSelects": 0,
+   "radios": 0,
+   "checkboxes": 0,
+   "inputs": 3,
+   "stabs": 0,
+   "tabs": 0,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "基础数据\\弹窗\\客商详情.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 1,
+   "links": 1,
+   "onclickEls": 8,
+   "modals": 1,
+   "modalTitles": [
+    "客商详情 · 一汽解放汽车有限公司(演示页)"
+   ],
+   "selects": 0,
+   "fakeSelects": 0,
+   "radios": 0,
+   "checkboxes": 0,
+   "inputs": 0,
+   "stabs": 0,
+   "tabs": 0,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "基础数据\\弹窗\\库位详情.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 1,
+   "links": 1,
+   "onclickEls": 3,
+   "modals": 1,
+   "modalTitles": [
+    "库位详情 · RA-A-01-01(演示页)"
+   ],
+   "selects": 0,
+   "fakeSelects": 0,
+   "radios": 0,
+   "checkboxes": 0,
+   "inputs": 0,
+   "stabs": 0,
+   "tabs": 0,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "基础数据\\弹窗\\新建产品.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 3,
+   "links": 3,
+   "onclickEls": 6,
+   "modals": 1,
+   "modalTitles": [
+    "新建物料(演示页)"
+   ],
+   "selects": 12,
+   "fakeSelects": 0,
+   "radios": 0,
+   "checkboxes": 0,
+   "inputs": 10,
+   "stabs": 0,
+   "tabs": 0,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "基础数据\\弹窗\\新建客商.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 2,
+   "links": 1,
+   "onclickEls": 3,
+   "modals": 1,
+   "modalTitles": [
+    "新建客商(演示页)"
+   ],
+   "selects": 1,
+   "fakeSelects": 0,
+   "radios": 0,
+   "checkboxes": 0,
+   "inputs": 4,
+   "stabs": 0,
+   "tabs": 0,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "基础数据\\弹窗\\新建库位.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 2,
+   "links": 1,
+   "onclickEls": 3,
+   "modals": 1,
+   "modalTitles": [
+    "新建库位(演示页)"
+   ],
+   "selects": 1,
+   "fakeSelects": 0,
+   "radios": 0,
+   "checkboxes": 0,
+   "inputs": 4,
+   "stabs": 0,
+   "tabs": 0,
    "bgMut": 0
   },
   "dead_links": [],

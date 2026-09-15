@@ -364,10 +364,6 @@ th.td-num { text-align:right; }
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
     <div class="ff ff-row-extra"><span class="ff-label">入库时间：</span><input placeholder="开始日期"><span class="ff-sep">→</span><input placeholder="结束日期"></div>
-    <div class="ff ff-row-extra"><span class="ff-label">业务类型：</span>
-      <select><option value="">全部</option><option>零部件采购</option><option>器具采购</option></select>
-      <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-    </div>
     <div class="filter-actions">
       <button class="link-collapse" onclick="var f=document.getElementById('filterCard');f.classList.toggle('collapsed');this.querySelector('span').textContent=f.classList.contains('collapsed')?'展开':'收起'"><span>展开</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
       <button class="btn btn-default">重置</button>
@@ -395,7 +391,7 @@ th.td-num { text-align:right; }
           <th>供应商</th>
           <th>关联采购订单号</th>
           <th>所属项目</th>
-          <th>业务类型</th>
+          
           <th>到货托数</th>
           <th>入库库区</th>
           <th>状态</th>
@@ -619,8 +615,7 @@ renderListPage({
     { label: '供应商', field: 'supplier' },
     { label: '所属项目', field: 'project' },
     { label: '入库状态', field: 'status' },
-    { label: '入库时间', field: 'inTime', range: true },
-    { label: '业务类型', field: 'bizType' }
+    { label: '入库时间', field: 'inTime', range: true }
   ]
 });
 </script>

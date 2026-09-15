@@ -356,7 +356,7 @@ th.td-num { text-align:right; }
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
         <div class="ff ff-row-extra"><span class="ff-label">状态：</span>
-      <select><option selected>全部</option><option>全部用户</option><option>我方</option><option>客户</option><option>供应商</option></select>
+      <select id="g35StatusSel"><option selected>全部</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
     <div class="ff ff-row-extra"><span class="ff-label">数据权限范围：</span><input placeholder="请输入"></div>
@@ -677,9 +677,51 @@ renderListPage({
   filters: [
     { label: '用户账号 / 姓名', field: 'search' },
     { label: '角色', field: 'role' },
+    { label: '状态', field: 'status' },
+    { label: '状态', field: 'status' },
     { label: '数据权限范围', field: 'scope' }
   ]
 });
+</script>
+<script>/* G35 筛选值域动态渲染（实体/字典取值·渲染失败保留静态兜底） */
+(function () {
+  var D = window.DEMO_DATA || {};
+  function fill(id, vals) {
+    if (!vals || !vals.length) return;
+    var s = document.getElementById(id);
+    if (s) s.innerHTML = '<option selected>全部</option>' + vals.map(function (o) { return '<option>' + o + '</option>'; }).join('');
+  }
+  function ent(e, fld) {
+    var out = [];
+    Object.keys(D[e] || {}).forEach(function (k) {
+      var f = (D[e][k].row || {}).fields || {};
+      var v = f[fld];
+      if (v && out.indexOf(v) < 0) out.push(v);
+    });
+    return out;
+  }
+  fill('g35StatusSel', ent('users', 'status'));
+})();
+</script>
+<script>/* G35 筛选值域动态渲染（实体/字典取值·渲染失败保留静态兜底） */
+(function () {
+  var D = window.DEMO_DATA || {};
+  function fill(id, vals) {
+    if (!vals || !vals.length) return;
+    var s = document.getElementById(id);
+    if (s) s.innerHTML = '<option selected>全部</option>' + vals.map(function (o) { return '<option>' + o + '</option>'; }).join('');
+  }
+  function ent(e, fld) {
+    var out = [];
+    Object.keys(D[e] || {}).forEach(function (k) {
+      var f = (D[e][k].row || {}).fields || {};
+      var v = f[fld];
+      if (v && out.indexOf(v) < 0) out.push(v);
+    });
+    return out;
+  }
+  fill('g35StatusSel', ent('users', 'status'));
+})();
 </script>
 
 <script>

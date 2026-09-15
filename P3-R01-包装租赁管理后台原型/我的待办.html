@@ -364,9 +364,11 @@ th.td-num { text-align:right; }
     <div class="ff"><span class="ff-label">审核人：</span>
       <select id="todoAuditor" onchange="filterTodo()"><option>全部</option><option>王琳</option><option>袁丽晶</option><option>徐蔚</option><option>王强</option><option>李国栋</option><option>陈金</option></select>
     </div>
+    <div class="ff"><span class="ff-label">所属项目：</span><select id="todoProject" onchange="filterTodo()"><option>全部</option></select></div>
+    <div class="ff"><span class="ff-label">提交人：</span><select id="todoSubmitter" onchange="filterTodo()"><option>全部</option></select></div>
     <div class="ff"><span class="ff-label">关键词：</span><input id="todoKw" placeholder="单据编号 / 客户 / 项目 / 摘要" oninput="filterTodo()"></div>
     <div class="filter-actions">
-      <button class="btn btn-default" onclick="document.getElementById('todoKw').value='';document.getElementById('todoType').value='全部';document.getElementById('todoAuditor').value='全部';filterTodo()">重置</button>
+      <button class="btn btn-default" onclick="document.getElementById('todoKw').value='';document.getElementById('todoType').value='全部';document.getElementById('todoAuditor').value='全部';document.getElementById('todoProject').value='全部';document.getElementById('todoSubmitter').value='全部';filterTodo()">重置</button>
     </div>
   </div>
 </div>
@@ -543,9 +545,13 @@ function filterTodo(){
   var ty = document.getElementById('todoType').value;
   var auEl = document.getElementById('todoAuditor');
   var au = auEl ? auEl.value : '全部';
+  var pjEl = document.getElementById('todoProject');
+  var pj = pjEl ? pjEl.value : '全部';
+  var sbEl = document.getElementById('todoSubmitter');
+  var sb = sbEl ? sbEl.value : '全部';
   var shown = 0;
   document.querySelectorAll('#todoBody tr').forEach(function(tr){
-    var ok = (!ty || ty === '全部' || ty === tr.getAttribute('data-type')) && (au === '全部' || au === tr.getAttribute('data-auditor')) && (!kw || tr.innerText.toLowerCase().indexOf(kw) > -1);
+    var ok = (!ty || ty === '全部' || ty === tr.getAttribute('data-type')) && (au === '全部' || au === tr.getAttribute('data-auditor')) && (pj === '全部' || pj === tr.getAttribute('data-project')) && (sb === '全部' || sb === tr.getAttribute('data-submitter')) && (!kw || tr.innerText.toLowerCase().indexOf(kw) > -1);
     tr.style.display = ok ? '' : 'none';
     if (ok) shown++;
   });
@@ -568,7 +574,7 @@ function pickType(t){
   var html = '';
   keys.forEach(function (k) {
     var rec = DATA[k], f = rec.row.fields;
-    html += '<tr data-type="' + f.type + '" data-auditor="' + (f.auditor || '') + '"><td><span class="tag tag-blue">' + f.type + '</span></td>' +
+    html += '<tr data-type="' + f.type + '" data-auditor="' + (f.auditor || '') + '" data-project="' + (f.project || '') + '" data-submitter="' + f.submitter + '"><td><span class="tag tag-blue">' + f.type + '</span></td>' +
       '<td><span class="lk">' + k + '</span></td><td>' + f.summary + '</td><td>' + f.project + '</td>' +
       '<td>' + f.submitter + '</td><td>' + f.time + '</td><td><span class="tag tag-orange">' + f.action + '</span></td>' +
       '<td class="sticky-op"><span class="ops"><a onclick="go(\'' + rec.link + '\')">去审核</a></span></td></tr>' + '\n';
@@ -590,6 +596,27 @@ function pickType(t){
   if (pg) pg.textContent = '第 1-' + keys.length + ' 条 / 总共 ' + keys.length + ' 条待办';
   if (typeof filterTodo === 'function') filterTodo();
 })();
+</script>
+<script>/* G35 筛选值域动态渲染（实体/字典取值·渲染失败保留静态兜底） */
+(function () {
+  var D = window.DEMO_DATA || {};
+  function fill(id, vals) {
+    if (!vals || !vals.length) return;
+    var s = document.getElementById(id);
+    if (s) s.innerHTML = '<option selected>全部</option>' + vals.map(function (o) { return '<option>' + o + '</option>'; }).join('');
+  }
+  function ent(e, fld) {
+    var out = [];
+    Object.keys(D[e] || {}).forEach(function (k) {
+      var f = (D[e][k].row || {}).fields || {};
+      var v = f[fld];
+      if (v && out.indexOf(v) < 0) out.push(v);
+    });
+    return out;
+  }
+  fill('todoProject', ent('todoItems', 'project'));
+  fill('todoSubmitter', ent('todoItems', 'submitter'));
+})();
 </script>
 
 <script>
