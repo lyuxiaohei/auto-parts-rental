@@ -370,7 +370,7 @@ th.td-num { text-align:right; }
 <div class="card">
     <div class="card-head">
     <h3 class="card-title">租入单</h3>
-    <div class="head-btns"><button class="btn btn-default btn-sm">批量导出</button><button class="btn btn-sm" onclick="openModal('createModal')">新建租入单</button></div>
+    <div class="head-btns"><button class="btn btn-default btn-sm">批量导出</button><button class="btn btn-sm" onclick="go('../租入管理/租入单新建.html')">新建租入单</button></div>
   </div>
   <div class="stabs">
   <span class="stab active">全部<span class="stab-count">6</span></span>
@@ -414,7 +414,7 @@ th.td-num { text-align:right; }
           <td><span class="tag tag-blue">履行中</span></td>
           <td>周志远</td>
           <td>2026-08-15 10:22</td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="go('../财务协同/应付账单.html')">生成租金应付</a><a onclick="go('../租入管理/租入归还列表.html')">发起归还</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../租入管理/租入单详情.html')">详情</a><a onclick="go('../财务协同/应付账单.html')">生成租金应付</a><a onclick="go('../租入管理/租入归还列表.html')">发起归还</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
@@ -429,7 +429,7 @@ th.td-num { text-align:right; }
           <td><span class="tag tag-orange">部分归还</span></td>
           <td>周志远</td>
           <td>2026-08-15 11:05</td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="go('../财务协同/应付账单.html')">生成租金应付</a><a onclick="go('../租入管理/租入归还列表.html')">发起归还</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../租入管理/租入单详情.html')">详情</a><a onclick="go('../财务协同/应付账单.html')">生成租金应付</a><a onclick="go('../租入管理/租入归还列表.html')">发起归还</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
@@ -444,7 +444,7 @@ th.td-num { text-align:right; }
           <td><span class="tag tag-orange">待审核</span></td>
           <td>陈锋</td>
           <td>2026-09-02 16:40</td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('auditModal')">审核</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../租入管理/租入单详情.html')">详情</a><a onclick="go('../租入管理/租入单审核.html')">审核</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
@@ -459,7 +459,7 @@ th.td-num { text-align:right; }
           <td><span class="tag tag-green">已归还</span></td>
           <td>周志远</td>
           <td>2026-07-01 09:30</td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="go('../租入管理/租入归还列表.html')">归还记录</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../租入管理/租入单详情.html')">详情</a><a onclick="go('../租入管理/租入归还列表.html')">归还记录</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
@@ -474,7 +474,7 @@ th.td-num { text-align:right; }
           <td><span class="tag tag-gray">已终止</span></td>
           <td>周志远</td>
           <td>2026-06-15 14:12</td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../租入管理/租入单详情.html')">详情</a></span></td>
         </tr>
       </tbody>
     </table>
@@ -495,85 +495,7 @@ th.td-num { text-align:right; }
 </div>
 
 <!-- 弹窗：新建租入单（独立模板见 弹窗/ 文件夹） -->
-<div class="modal-overlay" id="createModal">
-  <div class="modal modal-lg">
-    <div class="modal-header">
-      <h3 class="modal-title">新建租入单</h3>
-      <span class="modal-close" onclick="closeModal('createModal')">×</span>
-    </div>
-    <div class="modal-body">
-      <div class="form-row">
-        <span class="form-label"><span class="req">*</span>所属项目</span>
-        <div class="select-box input-box"><select id="cmProject" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option value="PRJ-2601" selected>PRJ-2601 华骏重卡·长春基地 围板箱租赁</option><option value="PRJ-2602">PRJ-2602 华骏重卡·青岛基地 料架租赁</option><option value="PRJ-2603">PRJ-2603 长丰锂电·电池包周转箱</option><option value="PRJ-2604">PRJ-2604 南方汽造·座椅周转箱（试点）</option><option value="PRJ-2605">PRJ-2605 华骏重卡·蔚山基地 扩建</option><option value="PRJ-2606">PRJ-2606 长丰锂电·二期扩容</option></select><span class="caret">▾</span></div>
-      </div>
-      <div class="form-row">
-        <span class="form-label"><span class="req">*</span>供应商</span>
-        <div class="select-box input-box"><select id="cmSupplier" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>环通循环包装运营（上海）有限公司</option><option>其他（演示）</option></select><span class="caret">▾</span></div>
-      </div>
-      <div class="form-row">
-    <span class="form-label"><span class="req">*</span>起租日期</span>
-    <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;"><div class="input-box" style="width:170px"><input placeholder="开始日期"></div><span style="font-size:12px;color:#8c8c8c;">单据起止只填开始时间，结束日期不填（D-117 两层租期）</span></div>
-  </div><div class="form-row">
-    <span class="form-label">合同起止（框架）</span>
-    <div style="display:flex;gap:10px"><div class="input-box" style="width:170px"><input placeholder="框架合同开始"></div><div class="input-box" style="width:170px"><input placeholder="框架合同结束"></div></div>
-  </div>
-      <div class="form-row">
-        <span class="form-label">押金（元）</span>
-        <div class="input-box"><input placeholder="选填"></div>
-      </div>
-      <div class="form-row">
-        <span class="form-label">备注</span>
-        <div class="input-box"><input placeholder="选填"></div>
-      </div>
-      <div style="margin:4px 0 8px;font-size:13px;font-weight:600;color:#1a1a1a;">租入明细（多货品 · 计费方式：按月 / 按次）</div>
-  <div class="table-wrap" style="border:1px solid var(--border);border-radius:6px;">
-    <table class="edit-tbl">
-      <thead><tr><th>物料</th><th>数量</th><th>计费方式</th><th>未税单价(元)</th><th style="font-size:13.5px;font-weight:700;">税率</th><th style="font-size:13.5px;font-weight:700;">含税单价(元)</th><th>含税金额(元)</th></tr></thead>
-      <tbody><tr><td><select style="width:100%;min-width:0;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option selected>WBX-1210L 围板箱 1200×1000×970</option><option>WBX-1210M 围板箱 1200×1000×590</option><option>PLT-1210W 木托盘 1200×1000</option><option>PLT-1210P 塑料托盘 1200×1000</option><option>BTC-6040 料箱 600×400×340</option><option>LJ-A100 锁扣组件</option><option>LJ-C300 围板</option><option>LJ-D400 箱盖</option><option>LJ-F600 内衬</option></select></td><td><input data-tax="qty" value="30" style="width:64px;"></td><td><select style="width:88px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;"><option selected>按月</option><option>按次</option></select></td><td><input data-tax="excl" value="400.00"></td><td><input data-tax="rate" value="13%" style="width:56px;"></td><td><input data-tax="incl" value="452.00"></td><td><input data-tax="amt" class="auto" value="13,560.00" readonly></td></tr><tr><td><select style="width:100%;min-width:0;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option>WBX-1210L 围板箱 1200×1000×970</option><option>WBX-1210M 围板箱 1200×1000×590</option><option>PLT-1210W 木托盘 1200×1000</option><option selected>PLT-1210P 塑料托盘 1200×1000</option><option>BTC-6040 料箱 600×400×340</option><option>LJ-A100 锁扣组件</option><option>LJ-C300 围板</option><option>LJ-D400 箱盖</option><option>LJ-F600 内衬</option></select></td><td><input data-tax="qty" value="50" style="width:64px;"></td><td><select style="width:88px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;"><option>按月</option><option selected>按次</option></select></td><td><input data-tax="excl" value="1.20"></td><td><input data-tax="rate" value="13%" style="width:56px;"></td><td><input data-tax="incl" value="1.36"></td><td><input data-tax="amt" class="auto" value="68.00" readonly></td></tr></tbody>
-    </table>
-  </div>
-  <button class="btn btn-dashed btn-sm" style="width:100%;margin-top:8px;" data-note="3">+ 添加明细行</button>
-    </div>
-    <div class="modal-footer">
-      <button class="btn btn-default" onclick="closeModal('createModal')">取消</button>
-      <button class="btn" onclick="closeModal('createModal')">提交审核</button>
-    </div>
-  </div>
-</div>
 <!-- 弹窗：审核确认（独立模板见 弹窗/ 文件夹） -->
-<div class="modal-overlay" id="auditModal">
-  <div class="modal" style="width:720px">
-    <div class="modal-header">
-      <h3 class="modal-title">审核确认</h3>
-      <span class="modal-close" onclick="closeModal('auditModal')">×</span>
-    </div>
-    <div class="modal-body">
-      <div class="dgrid" style="margin-bottom:16px;">
-        <div class="drow"><div class="dlabel">单据编号</div><div class="dval">RZD-20260902-008</div></div>
-        <div class="drow"><div class="dlabel">单据类型</div><div class="dval">租入单</div></div>
-        <div class="drow" style="grid-column:1/-1;"><div class="dlabel">租入内容</div><div class="dval">塑料托盘 1200×1000 × 50 只（月租 12.00 元/块）</div></div>
-        <div class="drow"><div class="dlabel">供应商</div><div class="dval">环通循环包装运营（上海）有限公司</div></div>
-        <div class="drow"><div class="dlabel">提交人 / 时间</div><div class="dval">陈锋 / 2026-09-02 16:40</div></div>
-        <div class="drow"><div class="dlabel">审核人（按角色配置）</div><div class="dval">商务主管 · 沈婷</div></div>
-        <div class="drow" style="grid-column:1/-1;"><div class="dlabel">备注</div><div class="dval">审核通过后自动生成租入入库单，入库后计入租入资产库存（档案标记来源=租入）</div></div>
-      </div>
-      <div class="form-row">
-        <span class="form-label"><span class="req">*</span>审核结论</span>
-        <div><span class="radio checked"><span class="dot"></span>通过</span><span class="radio"><span class="dot"></span>驳回</span></div>
-      </div>
-      <div class="form-row">
-        <span class="form-label">审核意见</span>
-        <div class="input-box"><input placeholder="选填，驳回时建议填写原因"></div>
-      </div>
-    </div>
-    <div class="modal-footer">
-      <button class="btn btn-default" onclick="closeModal('auditModal')">取消</button>
-      <button class="btn" onclick="closeModal('auditModal')">确认提交</button>
-    </div>
-  </div>
-</div>
-
-
 <style id="detail-modal-css">
 /* 详情弹窗（四段式）专用样式：段落标题 / 关联链 / 流转时间线 */
 .dt-sec{font-size:13px;font-weight:600;color:#262626;margin:0 0 10px;padding-left:8px;border-left:3px solid #1677ff;line-height:1.3}
@@ -593,18 +515,6 @@ th.td-num { text-align:right; }
 .tl-i .tl-who{color:#8c8c8c;font-size:12px;margin-left:8px}
 </style>
 <!-- 详情弹窗（四段式）· 骨架化 · 详情弹窗数据驱动 2026-09-08 -->
-<div class="modal-overlay" id="detailModal">
-  <div class="modal modal-lg" style="width:780px;">
-    <div class="modal-header">
-      <h3 class="modal-title" id="detailTitle">租入单详情</h3>
-      <span class="modal-close" onclick="closeModal('detailModal')">×</span>
-    </div>
-    <div class="modal-body" id="detailBody"><!-- 内容由 _data/detail-generic.js 按单号渲染 --></div>
-    <div class="modal-footer">
-      <button class="btn btn-default" onclick="closeModal('detailModal')">关 闭</button>
-    </div>
-  </div>
-</div>
 <script src="../_data/demo-data.js"></script>
 <script src="../_data/detail-generic.js"></script><script src="../_data/list-generic.js"></script>
 
@@ -704,18 +614,7 @@ document.querySelectorAll('.modal-overlay').forEach(function (ov) {
   }
 })();
 </script>
-<script>
-/* ?audit=1 自动打开审核弹窗（我的待办跳转支持） */
-(function(){
-  if (location.search.indexOf("audit=1") < 0) return;
-  var t = setInterval(function(){
-    if (typeof openModal === "function" && document.getElementById("auditModal")) {
-      clearInterval(t); openModal("auditModal");
-    }
-  }, 120);
-  setTimeout(function(){ clearInterval(t); }, 4000);
-})();
-</script>
+
 
 
 

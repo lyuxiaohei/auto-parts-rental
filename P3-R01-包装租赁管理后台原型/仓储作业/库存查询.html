@@ -686,18 +686,6 @@ renderComboBom('ZH-2601-A');
     </div>
   </div>
 </div>
-<div class="modal-overlay" id="trackModal">
-  <div class="modal modal-lg" style="width:780px;">
-    <div class="modal-header">
-      <h3 class="modal-title" id="trackTitle">资产轨迹</h3>
-      <span class="modal-close" onclick="closeModal('trackModal')">×</span>
-    </div>
-    <div class="modal-body" id="trackBody"><!-- 内容由 openTrack 按 assetTracks 渲染 --></div>
-    <div class="modal-footer">
-      <button class="btn btn-default" onclick="closeModal('trackModal')">关 闭</button>
-    </div>
-  </div>
-</div>
 <script src="../_data/demo-data.js"></script>
 <script src="../_data/detail-generic.js"></script><script src="../_data/list-generic.js"></script>
 
@@ -718,13 +706,7 @@ renderListPage({
   noCheckbox: true,
   modalId: 'flowModal'
 });
-function openTrack(key) {
-  var rec = window.DEMO_DATA && window.DEMO_DATA.assetTracks ? window.DEMO_DATA.assetTracks[key] : null;
-  if (!rec) { console.warn('[demo-data] assetTracks 无数据: ' + key); return; }
-  document.getElementById('trackTitle').textContent = (rec.title || '资产轨迹') + ' · ' + key;
-  document.getElementById('trackBody').innerHTML = window.renderGenericDetailHTML(rec, '../');
-  openModal('trackModal');
-}
+function openTrack(key) { go('../租赁管理/器具出租履历.html?key=' + encodeURIComponent(key)); }
 </script>
 
 <script>

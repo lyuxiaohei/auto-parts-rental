@@ -375,7 +375,7 @@ th.td-num { text-align:right; }
 <div class="card">
   <div class="card-head">
     <h3 class="card-title">销售退货单</h3>
-    <div class="head-btns"><button class="btn btn-default btn-sm">批量导出</button><button class="btn btn-sm" onclick="openModal('createModal')">新建退货单</button></div>
+    <div class="head-btns"><button class="btn btn-default btn-sm">批量导出</button><button class="btn btn-sm" onclick="go('../销售管理/销售退货新建.html')">新建退货单</button></div>
   </div>
 <div class="stabs">
   <span class="stab active">全部<span class="stab-count">3</span></span>
@@ -412,7 +412,7 @@ th.td-num { text-align:right; }
           <td><span class="td-num">3,600.00</span></td>
           <td><span class="tag tag-green">已退款</span></td>
           <td>2026-09-13</td>
-          <td class="sticky-op"><span class="ops"><a onclick="openRetDetail('salesReturns', 'XSTH-20260913-001')">详情</a><a onclick="go('../财务协同/退款登记.html')">退款登记</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../销售管理/销售退货详情.html?id=XSTH-20260913-001')">详情</a><a onclick="go('../财务协同/退款登记.html')">退款登记</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
@@ -425,7 +425,7 @@ th.td-num { text-align:right; }
           <td><span class="td-num">800.00</span></td>
           <td><span class="tag tag-blue">已审核</span></td>
           <td>2026-09-12</td>
-          <td class="sticky-op"><span class="ops"><a onclick="openRetDetail('salesReturns', 'XSTH-20260912-002')">详情</a><a onclick="go('../财务协同/退款登记.html')">退款登记</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../销售管理/销售退货详情.html?id=XSTH-20260912-002')">详情</a><a onclick="go('../财务协同/退款登记.html')">退款登记</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
@@ -438,7 +438,7 @@ th.td-num { text-align:right; }
           <td><span class="td-num">1,500.00</span></td>
           <td><span class="tag tag-orange">待审核</span></td>
           <td>2026-09-11</td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('auditModal')">审核</a><a onclick="openRetDetail('salesReturns', 'XSTH-20260911-003')">详情</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../销售管理/销售退货审核.html')">审核</a><a onclick="go('../销售管理/销售退货详情.html?id=XSTH-20260911-003')">详情</a></span></td>
         </tr>
       </tbody>
     </table>
@@ -456,58 +456,8 @@ th.td-num { text-align:right; }
   </div>
 </div>
 
-<!-- 弹窗已提取到 弹窗/销售出库新建.html，构建时注入 -->
-<!-- G33 新建销售退货单（模板：采购管理/弹窗/新建销售退货单.html） -->
-<div class="modal-overlay" id="createModal">
-  <div class="modal modal-lg" style="width:780px;">
-    <div class="modal-header">
-      <h3 class="modal-title">新建销售退货单</h3>
-      <span class="modal-close" onclick="closeModal('createModal')">×</span>
-    </div>
-    <div class="modal-body">
-      <div class="form-row">
-        <span class="form-label"><span class="req">*</span>退货类型</span>
-        <div><span class="radio checked"><span class="dot"></span>收货拒收（未入库直接退）</span><span class="radio"><span class="dot"></span>入库后退货（已入库再退）</span></div>
-      </div>
-      <div class="form-row">
-        <span class="form-label"><span class="req">*</span>客户</span>
-        <div class="input-box select-box" style="width:350px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option>华骏重卡汽车有限公司</option><option>东海商用汽车有限公司宁波分公司</option><option>星途新能源汽车科技有限公司</option><option>长风汽车制造有限公司</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
-      </div>
-      <div class="form-row">
-        <span class="form-label"><span class="req">*</span>关联原单</span>
-        <div class="input-box select-box" style="width:350px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>XSCK-20260902-015（华骏重卡 · 可退 200 件）</option><option>XSCK-20260901-014（长风汽制 · 可退 100 套）</option><option>XSCK-20260826-012（东海商用宁波 · 可退 300 件）</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
-        <div class="form-tip" style="margin-left:12px;">选择原单后带出物料行与可退上限</div>
-      </div>
-      <div class="form-row">
-        <span class="form-label"><span class="req">*</span>退货日期</span>
-        <div class="input-box" style="width:350px;"><input value="2026-09-15" placeholder="请输入"></div>
-      </div>
-      <div class="form-row">
-        <span class="form-label">退货原因</span>
-        <div class="input-box" style="width:350px;"><input placeholder="选填"></div>
-      </div>
-      <div class="form-row">
-        <span class="form-label">备注</span>
-        <div class="input-box" style="width:350px;"><input placeholder="选填"></div>
-      </div>
-      <div style="margin:12px 0 8px;font-size:13px;font-weight:600;">退货明细（可退上限内填写）</div>
-      <div class="table-wrap">
-        <table class="edit-tbl">
-          <thead><tr><th>物料</th><th>可退上限</th><th>退货数量</th><th>单价(元)</th><th>金额(元)</th></tr></thead>
-          <tbody id="retItems">
-            <tr><td class="auto-cell">箱盖 ABS 吸塑</td><td class="auto-cell">200 件</td><td><input value="200"></td><td><input value="18.00"></td><td class="auto-cell">3,600.00</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div style="margin-top:8px;"><button class="btn btn-dashed btn-sm" onclick="addRetRow()">+ 添加一行</button></div>
-    </div>
-    <div class="modal-footer">
-      <button class="btn btn-default" onclick="closeModal('createModal')">取消</button>
-      <button class="btn btn-default" onclick="closeModal('createModal')">保存草稿</button>
-      <button class="btn" onclick="closeModal('createModal')">提交审核</button>
-    </div>
-  </div>
-</div>
+<!-- 审核已页面化（G36 B2） -->
+<!-- 新建销售退货单已页面化：销售管理/销售退货新建.html（G36 B2·原 G33 模板） -->
 <script>
 /* G33 退货明细行新增（DOM 追加行） */
 function addRetRow() {
@@ -518,39 +468,6 @@ function addRetRow() {
   tb.appendChild(tr);
 }
 </script>
-
-<div class="modal-overlay" id="auditModal">
-  <div class="modal">
-    <div class="modal-header">
-      <h3 class="modal-title">审核确认</h3>
-      <span class="modal-close" onclick="closeModal('auditModal')">×</span>
-    </div>
-    <div class="modal-body">
-      <div class="dgrid" style="margin-bottom:16px;">
-        <div class="drow"><div class="dlabel">单据编号</div><div class="dval">XSTH-20260911-003</div></div>
-        <div class="drow"><div class="dlabel">单据类型</div><div class="dval">销售退货单</div></div>
-        <div class="drow"><div class="dlabel">退货类型</div><div class="dval">收货拒收（客户未收货直接退回）</div></div>
-        <div class="drow"><div class="dlabel">退货数量</div><div class="dval">300 件（内衬）</div></div>
-        <div class="drow"><div class="dlabel">提交人 / 时间</div><div class="dval">沈婷 / 2026-09-11 14:30</div></div>
-        <div class="drow"><div class="dlabel">审核人（按角色配置）</div><div class="dval">销售主管 · 沈婷</div></div>
-        
-      </div>
-      <div class="form-row">
-        <span class="form-label"><span class="req">*</span>审核结论</span>
-        <div><span class="radio checked"><span class="dot"></span>通过</span><span class="radio"><span class="dot"></span>驳回</span></div>
-      </div>
-      <div class="form-row">
-        <span class="form-label">审核意见</span>
-        <div class="input-box"><input placeholder="选填，驳回时建议填写原因"></div>
-      </div>
-    </div>
-    <div class="modal-footer">
-      <button class="btn btn-default" onclick="closeModal('auditModal')">取消</button>
-      <button class="btn" onclick="closeModal('auditModal')">确认提交</button>
-    </div>
-  </div>
-</div>
-
 
 <script id="batch-btn-js">
 (function(){
@@ -597,29 +514,6 @@ function addRetRow() {
 })();
 </script>
 
-<script>
-/* G33 详情弹窗接线：onclick 直达（含 openModal 字面量·审计触发器可见） */
-function openRetDetail(entity, key) {
-  if (typeof openGenericDetail === 'function') openGenericDetail(entity, key);
-  openModal('detailModal');
-}
-</script>
-
-<script>
-/* ?audit=1 自动打开审核弹窗（我的待办跳转支持） */
-(function(){
-  if (location.search.indexOf("audit=1") < 0) return;
-  var t = setInterval(function(){
-    if (typeof openModal === "function" && document.getElementById("auditModal")) {
-      clearInterval(t); openModal("auditModal");
-    }
-  }, 120);
-  setTimeout(function(){ clearInterval(t); }, 4000);
-})();
-</script>
-
-
-
 <style id="detail-modal-css">
 /* 详情弹窗（四段式）专用样式：段落标题 / 关联链 / 流转时间线 */
 .dt-sec{font-size:13px;font-weight:600;color:#262626;margin:0 0 10px;padding-left:8px;border-left:3px solid #1677ff;line-height:1.3}
@@ -639,18 +533,6 @@ function openRetDetail(entity, key) {
 .tl-i .tl-who{color:#8c8c8c;font-size:12px;margin-left:8px}
 </style>
 <!-- 详情弹窗（四段式）· 骨架化 · 详情弹窗数据驱动 2026-09-08 -->
-<div class="modal-overlay" id="detailModal">
-  <div class="modal modal-lg" style="width:780px;">
-    <div class="modal-header">
-      <h3 class="modal-title" id="detailTitle">销售退货单详情</h3>
-      <span class="modal-close" onclick="closeModal('detailModal')">×</span>
-    </div>
-    <div class="modal-body" id="detailBody"><!-- 内容由 _data/detail-generic.js 按单号渲染 --></div>
-    <div class="modal-footer">
-      <button class="btn btn-default" onclick="closeModal('detailModal')">关 闭</button>
-    </div>
-  </div>
-</div>
 <script src="../_data/demo-data.js"></script>
 <script src="../_data/detail-generic.js"></script><script src="../_data/list-generic.js"></script>
 

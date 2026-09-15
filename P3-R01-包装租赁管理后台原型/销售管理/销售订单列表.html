@@ -374,7 +374,7 @@ th.td-num { text-align:right; }
 <div class="card">
   <div class="card-head">
     <h3 class="card-title">销售订单</h3>
-    <div class="head-btns"><button class="btn btn-default btn-sm">批量导出</button><button class="btn btn-sm" onclick="openModal('createModal')">新建销售订单</button></div>
+    <div class="head-btns"><button class="btn btn-default btn-sm">批量导出</button><button class="btn btn-sm" onclick="go('../销售管理/销售订单新建.html')">新建销售订单</button></div>
   </div>
 <div class="stabs">
   <span class="stab active">全部<span class="stab-count">26</span></span>
@@ -415,7 +415,7 @@ th.td-num { text-align:right; }
           <td><span class="tag tag-blue">待发货</span></td>
           <td>江强</td>
           <td>2026-09-03 11:20</td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('auditModal')">审核</a><a>关闭</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../销售管理/销售订单新建.html')">编辑</a><a onclick="go('../销售管理/销售订单审核.html')">审核</a><a>关闭</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
@@ -429,7 +429,7 @@ th.td-num { text-align:right; }
           <td><span class="tag tag-orange">待审核</span></td>
           <td>江强</td>
           <td>2026-09-02 10:24</td>
-                    <td class="sticky-op"><span class="ops"><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('auditModal')">审核</a><a>关闭</a></span></td>
+                    <td class="sticky-op"><span class="ops"><a onclick="go('../销售管理/销售订单新建.html')">编辑</a><a onclick="go('../销售管理/销售订单审核.html')">审核</a><a>关闭</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
@@ -444,7 +444,7 @@ th.td-num { text-align:right; }
           <td>何雅</td>
           <td>2026-09-01 16:40</td>
           <td>—</td>
-                    <td class="sticky-op"><span class="ops"><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('auditModal')">审核</a><a>关闭</a></span></td>
+                    <td class="sticky-op"><span class="ops"><a onclick="go('../销售管理/销售订单新建.html')">编辑</a><a onclick="go('../销售管理/销售订单审核.html')">审核</a><a>关闭</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
@@ -488,7 +488,7 @@ th.td-num { text-align:right; }
           <td><span class="tag tag-green">已完成</span></td>
           <td>江强</td>
           <td>2026-08-28 15:52</td>
-                    <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a></span></td>
+                    <td class="sticky-op"><span class="ops"><a onclick="go('../销售管理/销售订单详情.html')">详情</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
@@ -502,7 +502,7 @@ th.td-num { text-align:right; }
           <td><span class="tag tag-green">已完成</span></td>
           <td>严明</td>
           <td>2026-08-27 14:03</td>
-                    <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a></span></td>
+                    <td class="sticky-op"><span class="ops"><a onclick="go('../销售管理/销售订单详情.html')">详情</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
@@ -517,7 +517,7 @@ th.td-num { text-align:right; }
           <td>江强</td>
           <td>2026-08-20 10:44</td>
           <td>—</td>
-                    <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a></span></td>
+                    <td class="sticky-op"><span class="ops"><a onclick="go('../销售管理/销售订单详情.html')">详情</a></span></td>
         </tr>
       </tbody>
     </table>
@@ -535,91 +535,8 @@ th.td-num { text-align:right; }
   </div>
 </div>
 
-<!-- 弹窗已提取到 弹窗/新建销售订单.html，构建时注入 -->
-<div class="modal-overlay" id="createModal">
-  <div class="modal modal-lg">
-    <div class="modal-header">
-      <h3 class="modal-title">新建销售订单</h3>
-      <span class="modal-close" onclick="closeModal('createModal')">×</span>
-    </div>
-    <div class="modal-body">
-<div class="form-row">
-    <span class="form-label"><span class="req">*</span>客户</span>
-    <div class="input-box select-box" style="width:350px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>华骏重卡汽车有限公司</option><option>东海商用汽车有限公司宁波分公司</option><option>星途新能源汽车科技有限公司</option><option>长风汽车制造有限公司</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
-  </div><div class="form-row">
-    <span class="form-label"><span class="req">*</span>所属项目</span>
-    <div class="input-box select-box" style="width:350px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>PRJ-2601 华骏重卡·长春基地</option><option>PRJ-2601 华骏重卡</option><option>PRJ-2602 东海商用</option><option>PRJ-2603 星途</option><option>PRJ-2604 长风汽制</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
-  </div><div class="form-row">
-    <span class="form-label">要求交货日期</span>
-    <div class="input-box" style="width:350px;"><input value="2026-09-12" placeholder="请输入"></div>
-  </div><div class="form-row">
-    <span class="form-label">备注</span>
-    <div class="input-box" style="width:350px;"><input placeholder="选填"></div>
-  </div><div style="margin:4px 0 8px;font-size:13px;font-weight:600;color:#1a1a1a;">订单明细</div>
-  <div class="table-wrap" style="border:1px solid var(--border);border-radius:6px;">
-    <table class="edit-tbl">
-      <thead><tr><th>物料编码</th><th>物料名称</th><th>规格</th><th>单位</th><th>数量</th><th style="font-size:13.5px;font-weight:700;">未税单价(元)</th><th style="font-size:13.5px;font-weight:700;">税率</th><th style="font-size:13.5px;font-weight:700;">含税单价(元)</th><th>含税金额(元)</th></tr></thead>
-      <tbody><tr><td><select data-tax="prod" style="width:100%;min-width:0;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option>WBX-1210L 围板箱 1200×1000×970</option><option>WBX-1210M 围板箱 1200×1000×590</option><option>PLT-1210W 木托盘 1200×1000</option><option>PLT-1210P 塑料托盘 1200×1000</option><option>BTC-6040 料箱 600×400×340</option><option selected>LJ-A100 锁扣组件</option><option>LJ-C300 围板</option><option>LJ-D400 箱盖</option><option>LJ-F600 内衬</option></select></td><td><input value="锁扣组件"></td><td><input value="不锈钢 304"></td><td><input value="件"></td><td><input data-tax="qty" value="3,000"></td><td><input data-tax="excl" value="1.60"></td><td><input data-tax="rate" value="13%" style="width:56px;"></td><td><input data-tax="incl" value="1.81"></td><td><input data-tax="amt" class="auto" value="5,430.00" readonly></td></tr><tr><td><select data-tax="prod" style="width:100%;min-width:0;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option>WBX-1210L 围板箱 1200×1000×970</option><option>WBX-1210M 围板箱 1200×1000×590</option><option>PLT-1210W 木托盘 1200×1000</option><option>PLT-1210P 塑料托盘 1200×1000</option><option>BTC-6040 料箱 600×400×340</option><option>LJ-A100 锁扣组件</option><option>LJ-C300 围板</option><option selected>LJ-D400 箱盖</option><option>LJ-F600 内衬</option></select></td><td><input value="箱盖"></td><td><input value="ABS 吸塑"></td><td><input value="件"></td><td><input data-tax="qty" value="1,500"></td><td><input data-tax="excl" value="3.60"></td><td><input data-tax="rate" value="13%" style="width:56px;"></td><td><input data-tax="incl" value="4.07"></td><td><input data-tax="amt" class="auto" value="6,105.00" readonly></td></tr></tbody>
-    </table>
-  </div>
-  <button class="btn btn-dashed btn-sm" style="width:100%;margin-top:8px;">+ 添加一行</button>
-  <div id="stockWarn" style="display:none;margin-top:8px;padding:8px 12px;border:1px solid #ffa39e;background:#fff1f0;border-radius:6px;font-size:12px;color:#d4380d;line-height:1.9;">
-    <span class="sw-txt">可用库存不足——可选择生成：</span>
-    <button class="btn btn-sm" style="margin-left:8px;" onclick="go('../采购管理/采购订单列表.html')">生成采购订单</button>
-    <button class="btn btn-sm" style="margin-left:6px;" onclick="go('../租入管理/租入单列表.html')">生成租入单</button>
-  </div>
-  <div style="margin:12px 0 8px;font-size:13px;font-weight:600;color:#1a1a1a;">订单附件（PDF / 邮件截图 · 演示上传）</div>
-  <div style="display:flex;gap:8px;align-items:center;margin-bottom:8px;">
-    <input id="attName" placeholder="输入附件文件名，如：PO-2601-合同.pdf / 客户邮件截图.png" style="flex:1;border:1px solid #d9d9d9;border-radius:4px;height:30px;padding:0 10px;font:inherit;font-size:13px;outline:none;">
-    <button class="btn btn-sm" type="button" onclick="addAttach()">添加</button>
-  </div>
-  <div id="attList">
-    <div class="att-row" style="display:flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid #f0f0f0;border-radius:4px;margin-bottom:6px;font-size:12px;"><span>📄</span><span style="flex:1;">PO-2601-围板箱采购合同.pdf</span><span style="color:#8c8c8c;">1.2 MB</span><a onclick="delAttach(this)" style="color:#ff4d4f;cursor:pointer;">删除</a></div>
-    <div class="att-row" style="display:flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid #f0f0f0;border-radius:4px;margin-bottom:6px;font-size:12px;"><span>📧</span><span style="flex:1;">客户下单确认邮件截图.png</span><span style="color:#8c8c8c;">356 KB</span><a onclick="delAttach(this)" style="color:#ff4d4f;cursor:pointer;">删除</a></div>
-  </div>
-    </div>
-    <div class="modal-footer">
-      <button class="btn btn-default" onclick="closeModal('createModal')">取消</button>
-      <button class="btn btn-default" onclick="closeModal('createModal')">保存草稿</button>
-      <button class="btn" onclick="closeModal('createModal')">提交审核</button>
-    </div>
-  </div>
-</div>
-
-
-<!-- 弹窗已提取到 弹窗/销售订单审核.html，构建时注入 -->
-<div class="modal-overlay" id="auditModal">
-  <div class="modal">
-    <div class="modal-header">
-      <h3 class="modal-title">审核确认</h3>
-      <span class="modal-close" onclick="closeModal('auditModal')">×</span>
-    </div>
-    <div class="modal-body">
-      <div class="dgrid" style="margin-bottom:16px;">
-        <div class="drow"><div class="dlabel">单据编号</div><div class="dval">SO-20260902-0046</div></div>
-        <div class="drow"><div class="dlabel">单据类型</div><div class="dval">销售订单</div></div>
-        <div class="drow"><div class="dlabel">销售金额</div><div class="dval">4,800.00 元</div></div>
-        <div class="drow"><div class="dlabel">提交人 / 时间</div><div class="dval">江强 / 2026-09-02 10:24</div></div>
-        <div class="drow"><div class="dlabel">审核人（按角色匹配）</div><div class="dval">商务主管 · 沈婷</div></div>
-        
-      </div>
-      <div class="form-row">
-        <span class="form-label"><span class="req">*</span>审核结论</span>
-        <div><span class="radio checked"><span class="dot"></span>通过</span><span class="radio"><span class="dot"></span>驳回</span></div>
-      </div>
-      <div class="form-row">
-        <span class="form-label">审核意见</span>
-        <div class="input-box"><input placeholder="选填，驳回时建议填写原因"></div>
-      </div>
-    </div>
-    <div class="modal-footer">
-      <button class="btn btn-default" onclick="closeModal('auditModal')">取消</button>
-      <button class="btn" onclick="closeModal('auditModal')">确认提交</button>
-    </div>
-  </div>
-</div>
-
-
+<!-- 新建销售订单已页面化：销售管理/销售订单新建.html（G36 B2） -->
+<!-- 销售订单审核已页面化：销售管理/销售订单审核.html（G36 B2） -->
 <script id="batch-btn-js">
 (function(){
   // 找到所有批量按钮，初始禁用
@@ -664,21 +581,6 @@ th.td-num { text-align:right; }
   }
 })();
 </script>
-<script>
-/* ?audit=1 自动打开审核弹窗（我的待办跳转支持） */
-(function(){
-  if (location.search.indexOf("audit=1") < 0) return;
-  var t = setInterval(function(){
-    if (typeof openModal === "function" && document.getElementById("auditModal")) {
-      clearInterval(t); openModal("auditModal");
-    }
-  }, 120);
-  setTimeout(function(){ clearInterval(t); }, 4000);
-})();
-</script>
-
-
-
 <style id="detail-modal-css">
 /* 详情弹窗（四段式）专用样式：段落标题 / 关联链 / 流转时间线 */
 .dt-sec{font-size:13px;font-weight:600;color:#262626;margin:0 0 10px;padding-left:8px;border-left:3px solid #1677ff;line-height:1.3}
@@ -698,18 +600,6 @@ th.td-num { text-align:right; }
 .tl-i .tl-who{color:#8c8c8c;font-size:12px;margin-left:8px}
 </style>
 <!-- 详情弹窗（四段式）· 骨架化 · 详情弹窗数据驱动 2026-09-08 -->
-<div class="modal-overlay" id="detailModal">
-  <div class="modal modal-lg" style="width:780px;">
-    <div class="modal-header">
-      <h3 class="modal-title" id="detailTitle">销售订单详情</h3>
-      <span class="modal-close" onclick="closeModal('detailModal')">×</span>
-    </div>
-    <div class="modal-body" id="detailBody"><!-- 内容由 _data/detail-generic.js 按单号渲染 --></div>
-    <div class="modal-footer">
-      <button class="btn btn-default" onclick="closeModal('detailModal')">关 闭</button>
-    </div>
-  </div>
-</div>
 <script src="../_data/demo-data.js"></script>
 <script src="../_data/detail-generic.js"></script><script src="../_data/list-generic.js"></script>
 

@@ -371,7 +371,7 @@ th.td-num { text-align:right; }
 <div class="card">
     <div class="card-head">
     <h3 class="card-title">租入归还单</h3>
-    <div class="head-btns"><button class="btn btn-default btn-sm">批量导出</button><button class="btn btn-sm" onclick="openModal('createModal')">新建归还单</button></div>
+    <div class="head-btns"><button class="btn btn-default btn-sm">批量导出</button><button class="btn btn-sm" onclick="go('../租入管理/租入归还新建.html')">新建归还单</button></div>
   </div>
   <div class="stabs">
   <span class="stab active">全部<span class="stab-count">3</span></span>
@@ -407,7 +407,7 @@ th.td-num { text-align:right; }
           <td><span class="tag tag-green">已归还</span></td>
           <td>林国栋</td>
           <td>2026-09-03 11:30</td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="go('../财务协同/应付账单.html')">租金应付</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../租入管理/租入归还详情.html')">详情</a><a onclick="go('../财务协同/应付账单.html')">租金应付</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
@@ -420,7 +420,7 @@ th.td-num { text-align:right; }
           <td><span class="tag tag-orange">待审核</span></td>
           <td>林国栋</td>
           <td>2026-09-03 14:05</td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a><a onclick="openModal('auditModal')">审核</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../租入管理/租入归还详情.html')">详情</a><a onclick="go('../租入管理/租入归还审核.html')">审核</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
@@ -433,7 +433,7 @@ th.td-num { text-align:right; }
           <td><span class="tag tag-green">已归还</span></td>
           <td>周志远</td>
           <td>2026-08-31 10:15</td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('detailModal')">详情</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../租入管理/租入归还详情.html')">详情</a></span></td>
         </tr>
       </tbody>
     </table>
@@ -453,79 +453,8 @@ th.td-num { text-align:right; }
   </div>
 </div>
 
-<!-- 弹窗：新建归还单（独立模板见 弹窗/ 文件夹） -->
-<div class="modal-overlay" id="createModal">
-  <div class="modal modal-lg">
-    <div class="modal-header">
-      <h3 class="modal-title">新建归还单</h3>
-      <span class="modal-close" onclick="closeModal('createModal')">×</span>
-    </div>
-    <div class="modal-body">
-      <div class="form-row">
-        <span class="form-label"><span class="req">*</span>关联租入单</span>
-        <div class="select-box input-box"><select id="riSelect" onchange="syncReturnItems(this)" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected data-key="RZD-20260815-005">RZD-20260815-005（环通·围板箱×10 · 部分归还）</option><option data-key="RZD-20260815-003">RZD-20260815-003（环通·围板箱×30 · 履行中）</option><option data-key="RZD-20260902-008">RZD-20260902-008（环通·塑料托盘×60 · 待审核）</option></select><span class="caret">▾</span></div>
-      </div>
-      <div class="form-row">
-        <span class="form-label"><span class="req">*</span>归还类型</span>
-        <div><span class="radio checked"><span class="dot"></span>整退归还（该租入单全部归还）</span><span class="radio"><span class="dot"></span>分流归还（退租拆散后部分归还）</span></div>
-      </div>
-      <div class="form-row">
-        <span class="form-label">备注</span>
-        <div class="input-box"><input placeholder="选填，如：退租拆散后 4 只破损归还，6 只留用循环"></div>
-      </div>
-      <div class="form-row" id="riDetailRow">
-        <span class="form-label"><span class="req">*</span>归还明细</span>
-        <div style="flex:1;min-width:0;">
-          <div class="table-wrap" style="border:1px solid var(--border);border-radius:6px;">
-            <table class="edit-tbl">
-              <thead><tr><th>货品</th><th>租入数量</th><th>已归还</th><th>本次归还数量</th></tr></thead>
-              <tbody id="riItemsBody" data-note="3"></tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="modal-footer">
-      <button class="btn btn-default" onclick="closeModal('createModal')">取消</button>
-      <button class="btn" onclick="closeModal('createModal')">提交审核</button>
-    </div>
-  </div>
-</div>
-<!-- 弹窗：审核确认（独立模板见 弹窗/ 文件夹） -->
-<div class="modal-overlay" id="auditModal">
-  <div class="modal" style="width:720px">
-    <div class="modal-header">
-      <h3 class="modal-title">审核确认</h3>
-      <span class="modal-close" onclick="closeModal('auditModal')">×</span>
-    </div>
-    <div class="modal-body">
-      <div class="dgrid" style="margin-bottom:16px;">
-        <div class="drow"><div class="dlabel">单据编号</div><div class="dval">GHCK-20260903-002</div></div>
-        <div class="drow"><div class="dlabel">单据类型</div><div class="dval">租入归还单</div></div>
-        <div class="drow"><div class="dlabel">关联租入单</div><div class="dval">RZD-20260815-005（部分归还）</div></div>
-        <div class="drow"><div class="dlabel">归还类型</div><div class="dval">分流归还（L4 混合组装退租拆散）</div></div>
-        <div class="drow" style="grid-column:1/-1;"><div class="dlabel">归还内容</div><div class="dval">围板箱 1200×1000×970 × 4 只（自购隔板回库，租入大箱部分归还）</div></div>
-        <div class="drow"><div class="dlabel">提交人 / 时间</div><div class="dval">林国栋 / 2026-09-03 14:05</div></div>
-        <div class="drow"><div class="dlabel">审核人（按角色配置）</div><div class="dval">物流主管 · 林国栋</div></div>
-        <div class="drow" style="grid-column:1/-1;"><div class="dlabel">备注</div><div class="dval">审核通过后更新租入单状态，归还物料出库至供应商，并计入租金结算</div></div>
-      </div>
-      <div class="form-row">
-        <span class="form-label"><span class="req">*</span>审核结论</span>
-        <div><span class="radio checked"><span class="dot"></span>通过</span><span class="radio"><span class="dot"></span>驳回</span></div>
-      </div>
-      <div class="form-row">
-        <span class="form-label">审核意见</span>
-        <div class="input-box"><input placeholder="选填，驳回时建议填写原因"></div>
-      </div>
-    </div>
-    <div class="modal-footer">
-      <button class="btn btn-default" onclick="closeModal('auditModal')">取消</button>
-      <button class="btn" onclick="closeModal('auditModal')">确认提交</button>
-    </div>
-  </div>
-</div>
-
-
+<!-- G36 B3：弹窗已页面化 -->
+<!-- G36 B3：弹窗已页面化 -->
 <style id="detail-modal-css">
 /* 详情弹窗（四段式）专用样式：段落标题 / 关联链 / 流转时间线 */
 .dt-sec{font-size:13px;font-weight:600;color:#262626;margin:0 0 10px;padding-left:8px;border-left:3px solid #1677ff;line-height:1.3}
@@ -545,18 +474,6 @@ th.td-num { text-align:right; }
 .tl-i .tl-who{color:#8c8c8c;font-size:12px;margin-left:8px}
 </style>
 <!-- 详情弹窗（四段式）· 骨架化 · 详情弹窗数据驱动 2026-09-08 -->
-<div class="modal-overlay" id="detailModal">
-  <div class="modal modal-lg" style="width:780px;">
-    <div class="modal-header">
-      <h3 class="modal-title" id="detailTitle">租入归还单详情</h3>
-      <span class="modal-close" onclick="closeModal('detailModal')">×</span>
-    </div>
-    <div class="modal-body" id="detailBody"><!-- 内容由 _data/detail-generic.js 按单号渲染 --></div>
-    <div class="modal-footer">
-      <button class="btn btn-default" onclick="closeModal('detailModal')">关 闭</button>
-    </div>
-  </div>
-</div>
 <script src="../_data/demo-data.js"></script>
 <script src="../_data/detail-generic.js"></script><script src="../_data/list-generic.js"></script>
 
@@ -677,18 +594,7 @@ document.querySelectorAll('.modal-overlay').forEach(function (ov) {
   }
 })();
 </script>
-<script>
-/* ?audit=1 自动打开审核弹窗（我的待办跳转支持） */
-(function(){
-  if (location.search.indexOf("audit=1") < 0) return;
-  var t = setInterval(function(){
-    if (typeof openModal === "function" && document.getElementById("auditModal")) {
-      clearInterval(t); openModal("auditModal");
-    }
-  }, 120);
-  setTimeout(function(){ clearInterval(t); }, 4000);
-})();
-</script>
+
 
 
 
@@ -749,7 +655,7 @@ function syncReturnItems(sel) {
       '<td><input value="' + left + '" placeholder="≤' + left + '"></td></tr>';
   }).join('');
 }
-syncReturnItems(document.getElementById('riSelect'));</script>
+var _riSel = document.getElementById('riSelect'); if (_riSel) syncReturnItems(_riSel);</script>
 
 
 
