@@ -178,7 +178,7 @@ th.td-num { text-align:right; }
 .modal-footer { padding:12px 24px; border-top:1px solid var(--border); display:flex; justify-content:flex-end; gap:10px; }
 
 /* ===== 固定提交条（表单页） ===== */
-.submit-bar { position:fixed; left:208px; right:0; bottom:0; background:#fff; border-top:1px solid var(--border); padding:10px 24px; display:flex; justify-content:flex-end; align-items:center; gap:10px; z-index:50; box-shadow:0 -2px 8px rgba(0,0,0,.04); }
+.submit-bar { position:fixed; left:208px; right:0; bottom:0; background:#fff; border-top:1px solid var(--border); padding:10px 24px; display:flex; justify-content:center; align-items:center; gap:10px; z-index:50; box-shadow:0 -2px 8px rgba(0,0,0,.04); }
 .content.submit-pad { padding-bottom:72px; }
 
 /* ===== 详情描述行 ===== */
@@ -349,9 +349,8 @@ th.td-num { text-align:right; }
   <div class="form-row">
     <div class="form-label">入库单号：</div>
     <div>
-      <div class="input-box" style="width:280px;"><input type="text" value="CGRK-20260831-007" placeholder="请输入"></div>
+      <div class="input-box" style="width:380px;background:#fafafa;"><span style="color:#8c8c8c;">CGRK-20260831-007（自动生成 · 不可编辑）</span></div>
 <div class="pn-hint">按单据编码规则自动生成，不可编辑。</div>    </div>
-  </div>    </div>
   </div>
   <div class="form-row">
     <div class="form-label"><span class="req">*</span>所属项目：</div>
@@ -375,13 +374,13 @@ th.td-num { text-align:right; }
   <div class="form-row">
     <div class="form-label"><span class="req">*</span>到货日期：</div>
     <div>
-      <div class="input-box" style="width:180px;"><input type="text" value="2026-08-31" placeholder="请输入"></div>
+      <div class="input-box" style="width:380px;"><input type="date" value="2026-08-31"></div>
     </div>
   </div>
   <div class="form-row">
     <div class="form-label"><span class="req">*</span>仓管员：</div>
     <div>
-      <div class="input-box select-box" style="width:180px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>张帆</option><option>林国栋</option><option>江强</option></select><span class="caret">▾</span></div>
+      <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>张帆</option><option>林国栋</option><option>江强</option></select><span class="caret">▾</span></div>
     </div>
   </div>
 </div>
@@ -437,7 +436,9 @@ th.td-num { text-align:right; }
   </div>
 
 <div class="card">
-  <h3 class="card-title">随附信息</h3>
+  <div class="card-head">
+    <h3 class="card-title">随附信息</h3>
+  </div>
   <div class="form-row">
     <div class="form-label">质检要求：</div>
     <div>
@@ -458,15 +459,17 @@ th.td-num { text-align:right; }
       </div>
     </div>
   </div>
-  <div class="form-row">
-    <div class="form-label">备注：</div>
+  <div class="form-row" style="align-items:flex-start;">
+    <div class="form-label" style="padding-top:6px;">备注：</div>
     <div>
-      <div class="input-box" style="width:520px;"><input type="text" value="" placeholder="选填"></div>
+      <div class="input-box" style="width:380px;height:auto;padding:6px 11px;"><textarea placeholder="选填" style="width:100%;border:none;outline:none;background:transparent;font:inherit;color:inherit;resize:vertical;min-height:72px;line-height:1.6;"></textarea></div>
     </div>
   </div>
 </div>
 <div class="submit-bar"><button class="btn btn-default" onclick="go('../采购管理/采购入库列表.html')">取 消</button><button class="btn btn-default">暂 存</button><button class="btn" data-note="2">提交验收</button></div>
     </div>
+  </div>
+</div>
 
 <script>
 function addDetailRow(btn) {
