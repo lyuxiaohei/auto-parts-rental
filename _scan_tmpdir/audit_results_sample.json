@@ -1,31 +1,21 @@
 [
  {
-  "page": "基础数据\\BOM维护.html",
+  "page": "项目管理\\项目新建.html",
   "js_errors": [],
-  "problems": [
-   {
-    "cat": "弹窗",
-    "type": "modal-unreachable",
-    "phase": "modal",
-    "where": {
-     "text": "BOM 版本查看 · ZH-2601-A"
-    },
-    "detail": "页内无 openModal 触发器且默认未打开（不可达弹窗）"
-   }
-  ],
+  "problems": [],
   "stats": {
-   "buttons": 6,
-   "links": 13,
-   "onclickEls": 40,
-   "modals": 1,
+   "buttons": 2,
+   "links": 1,
+   "onclickEls": 36,
+   "modals": 0,
    "modalTitles": [],
-   "selects": 1,
+   "selects": 2,
    "fakeSelects": 0,
-   "radios": 2,
+   "radios": 0,
    "checkboxes": 0,
-   "inputs": 10,
+   "inputs": 7,
    "stabs": 0,
-   "tabs": 3,
+   "tabs": 2,
    "bgMut": 0
   },
   "dead_links": [],

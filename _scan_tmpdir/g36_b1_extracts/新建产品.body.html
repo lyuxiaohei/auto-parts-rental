@@ -1,0 +1,99 @@
+<div class="modal-overlay" id="createModal">
+  <style>
+  /* 2026-09-14 陆鸣拍板：新建物料弹窗加宽 900px+两列布局，消除横竖滚动条（四参考价+三段式+税率区内容增量后 640px 单列溢出） */
+  #createModal .modal{width:900px;max-width:94vw;}
+  #createModal .modal-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:18px;align-content:start;}
+  #createModal .form-row{margin-bottom:14px;}
+  #createModal .form-row.g2{grid-column:1/-1;}
+  #createModal .tax-sec{grid-column:1/-1;}
+  #createModal .form-row .input-box{min-width:0;flex:1;}
+  #createModal .input-box input,#createModal .input-box select{width:100%;}
+  </style>
+  <div class="modal">
+    <div class="modal-header">
+      <h3 class="modal-title">新建物料</h3>
+      <span class="modal-close" onclick="closeModal('createModal')">×</span>
+    </div>
+    <div class="modal-body">
+<div class="form-row">
+    <span class="form-label"><span class="req">*</span>物料编码</span>
+    <div class="input-box"><input placeholder="如 WBX-1210L / LJ-A100"></div>
+  </div><div class="form-row">
+    <span class="form-label"><span class="req">*</span>物料名称</span>
+    <div class="input-box"><input placeholder="如 围板箱 1200×1000×970"></div>
+  </div><div class="form-row">
+    <span class="form-label"><span class="req">*</span>物料类型</span>
+    <div class="input-box select-box"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>围板箱</option><option>塑料托盘</option><option>木托盘</option><option>料箱</option><option>料架</option><option>组件</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+  </div><div class="form-row">
+    <span class="form-label">供应商内部编码</span>
+    <div class="input-box"><input placeholder="选填 · 供应商/客户方产品编码"></div>
+  </div><div class="form-row">
+    <span class="form-label">物料型号</span>
+    <div class="input-box"><input placeholder="选填"></div>
+  </div><div class="form-row">
+    <span class="form-label">规格</span>
+    <div class="input-box" style="width:220px;flex:none;"><input value="1200×1000×970mm" placeholder="请输入"></div>
+  </div><div class="form-row">
+    <span class="form-label">单位</span>
+    <div class="input-box select-box" style="width:220px;flex:none;"><select id="unitSel" onchange="g21RentHint('rentIn');g21RentHint('rental');" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>只</option><option>套</option><option>个</option><option>托</option><option>件</option></select><span class="caret"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+  </div>
+  <div class="form-row">
+    <span class="form-label">参考未税采购价(元)</span>
+    <div class="input-box" style="width:220px;flex:none;"><input value="380.00" placeholder="采购参考单价"></div>
+  </div>
+  <div class="form-row">
+    <span class="form-label">参考未税销售价(元)</span>
+    <div class="input-box" style="width:220px;flex:none;"><input placeholder="可售物料填写，不适用留空"></div>
+  </div>
+  <div class="form-row g2">
+    <span class="form-label">参考未税租入价</span>
+    <div style="display:flex;gap:6px;align-items:center;">
+      <div class="input-box select-box" style="width:116px;flex:none;"><select id="rentInModeSel" onchange="g21RentHint('rentIn')" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>按时间周期</option><option>按次</option></select></div>
+      <div class="input-box select-box" id="rentInUnitBox" style="width:72px;flex:none;"><select id="rentInUnitSel" onchange="g21RentHint('rentIn')" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>月</option><option>年</option><option>日</option></select></div>
+      <div class="input-box" style="flex:1;min-width:0;"><input placeholder="数值，如 45.00（无租入来源留空）"></div>
+      <span id="rentInHint" style="font-size:12px;color:#8c8c8c;white-space:nowrap;">元/只·月</span>
+    </div>
+  </div>
+  <div class="form-row g2">
+    <span class="form-label">参考未税租赁价</span>
+    <div style="display:flex;gap:6px;align-items:center;">
+      <div class="input-box select-box" style="width:116px;flex:none;"><select id="rentalModeSel" onchange="g21RentHint('rental')" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>按时间周期</option><option>按次</option></select></div>
+      <div class="input-box select-box" id="rentalUnitBox" style="width:72px;flex:none;"><select id="rentalUnitSel" onchange="g21RentHint('rental')" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>月</option><option>年</option><option>日</option></select></div>
+      <div class="input-box" style="flex:1;min-width:0;"><input placeholder="数值，如 60.00"></div>
+      <span id="rentalHint" style="font-size:12px;color:#8c8c8c;white-space:nowrap;">元/只·月</span>
+    </div>
+  </div><div class="form-row g2">
+    <span class="form-label">备注</span>
+    <div class="input-box" style="height:72px;align-items:stretch;padding:6px 11px;position:relative;">
+      <textarea id="prodRemarkTa" maxlength="200" placeholder="选填" oninput="g34TaCount(this,'prodRemarkCnt',200)" style="flex:1;min-width:0;height:100%;border:none;outline:none;background:transparent;font:inherit;color:inherit;resize:none;padding:0;line-height:1.6;"></textarea>
+      <span class="char-count" id="prodRemarkCnt" style="position:absolute;right:10px;bottom:6px;font-size:12px;color:#8c8c8c;background:rgba(255,255,255,.92);">0/200</span>
+    </div>
+  </div>
+  <style>
+  .tax-sec{margin:2px 0 6px;}
+  .tax-sec-title{font-size:13px;font-weight:600;color:#1a1a1a;margin:4px 0 8px;}
+  .tax-sec-sub{font-weight:400;color:#8c8c8c;font-size:12px;margin-left:6px;}
+  .tax-edit{border:1px solid #e5e6eb;border-radius:6px;padding:8px 10px;}
+  .tax-edit-hd{display:flex;gap:8px;font-size:13px;color:#8c8c8c;padding:2px 0 6px;}
+  .tax-edit-hd span{flex:1;}
+  .tax-edit-row{display:flex;gap:8px;margin-bottom:6px;align-items:center;}
+  .tax-cell{flex:1;display:flex;}
+  .tax-sel,.tax-in{width:100%;height:28px;border:1px solid #d9d9d9;border-radius:4px;font-size:13px;padding:0 6px;outline:none;box-sizing:border-box;}
+  .tax-sel:focus,.tax-in:focus{border-color:#1677ff;}
+  .tax-del{color:#1677ff;font-size:13px;text-decoration:none;white-space:nowrap;}
+  </style>
+  <div class="tax-sec">
+    <div class="tax-sec-title">供应商税率<span class="tax-sec-sub">同一物料可按供应商维护不同税率；单据明细税率默认带出、可手动覆盖</span></div>
+    <div class="tax-edit">
+      <div class="tax-edit-hd"><span>供应商</span><span>默认税率</span><span>结算周期</span><span style="flex:0 0 44px;">操作</span></div>
+      <div id="taxEditRows"></div>
+      <button class="btn btn-default btn-sm" type="button" onclick="addTaxRow()">+ 添加一行</button>
+    </div>
+  </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-default" onclick="closeModal('createModal')">取消</button>
+      <button class="btn" onclick="closeModal('createModal')">保存</button>
+    </div>
+  </div>
+

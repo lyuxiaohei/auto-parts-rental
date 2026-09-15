@@ -478,7 +478,7 @@ th.td-num { text-align:right; }
           <td><span class="tag-green">自购</span></td>
           <td>陈锋</td>
           <td>锁扣配比 6→4，按客户产线上线反馈调整</td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('bomViewModal')">查看</a><a>复制为新版本</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/BOM版本查看.html')">查看</a><a>复制为新版本</a></span></td>
         </tr>
         <tr>
           <td><span class="ver-tag">V2.0<span class="tag tag-gray">停用</span></span></td>
@@ -486,7 +486,7 @@ th.td-num { text-align:right; }
           <td><span class="tag-green">自购</span></td>
           <td>陈锋</td>
           <td>新增内衬可选配；围板由 5 块改 4 块</td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('bomViewModal')">查看</a><a>复制为新版本</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/BOM版本查看.html')">查看</a><a>复制为新版本</a></span></td>
         </tr>
         <tr>
           <td><span class="ver-tag">V1.0<span class="tag tag-gray">停用</span></span></td>
@@ -494,7 +494,7 @@ th.td-num { text-align:right; }
           <td><span class="tag-green">自购</span></td>
           <td>江强</td>
           <td>初版</td>
-          <td class="sticky-op"><span class="ops"><a onclick="openModal('bomViewModal')">查看</a><a>复制为新版本</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/BOM版本查看.html')">查看</a><a>复制为新版本</a></span></td>
         </tr>
       </tbody>
     </table>
@@ -524,18 +524,6 @@ th.td-num { text-align:right; }
 .tl-i .tl-who{color:#8c8c8c;font-size:12px;margin-left:8px}
 </style>
 <!-- 弹窗骨架化 · 详情弹窗数据驱动 2026-09-08 -->
-<div class="modal-overlay" id="bomViewModal">
-  <div class="modal modal-lg" style="width:780px;">
-    <div class="modal-header">
-      <h3 class="modal-title" id="detailTitle">BOM 版本查看</h3>
-      <span class="modal-close" onclick="closeModal('bomViewModal')">×</span>
-    </div>
-    <div class="modal-body" id="detailBody"><!-- 内容由 _data/detail-generic.js 按单号渲染 --></div>
-    <div class="modal-footer">
-      <button class="btn btn-default" onclick="closeModal('bomViewModal')">关 闭</button>
-    </div>
-  </div>
-</div>
 <script src="../_data/demo-data.js"></script>
 <script src="../_data/detail-generic.js"></script><script src="../_data/list-generic.js"></script>
 
@@ -547,7 +535,6 @@ renderListPage({
   filters: [],
   noCheckbox: true,
   tbodySel: '#bomVerTable tbody',
-  modalId: 'bomViewModal'
 });
 </script>
 <script>

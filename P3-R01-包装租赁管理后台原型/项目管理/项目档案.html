@@ -376,7 +376,7 @@ th.td-num { text-align:right; }
 <div class="card">
   <div class="card-head">
     <h3 class="card-title">项目档案列表</h3>
-    <div class="head-btns"><button class="btn btn-default btn-sm" onclick="openModal('bindModal')" data-note="3">上下游绑定</button><button class="btn btn-sm" onclick="openModal('createModal')" data-note="1">新建项目</button></div>
+    <div class="head-btns"><button class="btn btn-default btn-sm" onclick="go('../项目管理/上下游绑定.html')" data-note="3">上下游绑定</button><button class="btn btn-sm" onclick="go('../项目管理/项目新建.html')" data-note="1">新建项目</button><button class="btn btn-default btn-sm" onclick="go('../项目管理/编码规则.html')">编码规则</button></div>
   </div>
   <div class="table-wrap">
     <table>
@@ -403,7 +403,7 @@ th.td-num { text-align:right; }
           <td><span class="tag tag-blue">进行中</span></td>
           <td>2026-01-01 ~ 2027-12-31</td>
           <td>江强</td>
-          <td class="sticky-op"><span class="ops"><a onclick="go('../项目管理/项目详情.html')">详情</a><a onclick="openModal('bindModal')">上下游绑定</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../项目管理/项目详情.html')">详情</a><a onclick="go('../项目管理/上下游绑定.html')">上下游绑定</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
@@ -414,7 +414,7 @@ th.td-num { text-align:right; }
           <td><span class="tag tag-blue">进行中</span></td>
           <td>2026-03-01 ~ 2027-06-30</td>
           <td>江强</td>
-          <td class="sticky-op"><span class="ops"><a onclick="go('../项目管理/项目详情.html')">详情</a><a onclick="openModal('bindModal')">上下游绑定</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../项目管理/项目详情.html')">详情</a><a onclick="go('../项目管理/上下游绑定.html')">上下游绑定</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
@@ -425,7 +425,7 @@ th.td-num { text-align:right; }
           <td><span class="tag tag-blue">进行中</span></td>
           <td>2026-05-10 ~ 2027-05-09</td>
           <td>陈锋</td>
-          <td class="sticky-op"><span class="ops"><a onclick="go('../项目管理/项目详情.html')">详情</a><a onclick="openModal('bindModal')">上下游绑定</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../项目管理/项目详情.html')">详情</a><a onclick="go('../项目管理/上下游绑定.html')">上下游绑定</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
@@ -436,7 +436,7 @@ th.td-num { text-align:right; }
           <td><span class="tag tag-gray">已暂停</span></td>
           <td>2026-02-15 ~ 2027-02-14</td>
           <td>江强</td>
-          <td class="sticky-op"><span class="ops"><a onclick="go('../项目管理/项目详情.html')">详情</a><a onclick="openModal('bindModal')">上下游绑定</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../项目管理/项目详情.html')">详情</a><a onclick="go('../项目管理/上下游绑定.html')">上下游绑定</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
@@ -447,7 +447,7 @@ th.td-num { text-align:right; }
           <td><span class="tag tag-orange">筹备中</span></td>
           <td>2026-09-01 ~ 2028-08-31</td>
           <td>陈锋</td>
-          <td class="sticky-op"><span class="ops"><a onclick="go('../项目管理/项目详情.html')">详情</a><a onclick="openModal('bindModal')">上下游绑定</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../项目管理/项目详情.html')">详情</a><a onclick="go('../项目管理/上下游绑定.html')">上下游绑定</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
@@ -458,7 +458,7 @@ th.td-num { text-align:right; }
           <td><span class="tag tag-green">已完成</span></td>
           <td>2025-01-01 ~ 2025-12-31</td>
           <td>江强</td>
-          <td class="sticky-op"><span class="ops"><a onclick="go('../项目管理/项目详情.html')">详情</a><a onclick="openModal('bindModal')">上下游绑定</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../项目管理/项目详情.html')">详情</a><a onclick="go('../项目管理/上下游绑定.html')">上下游绑定</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
@@ -469,7 +469,7 @@ th.td-num { text-align:right; }
           <td><span class="tag tag-green">已完成</span></td>
           <td>2025-04-01 ~ 2026-03-31</td>
           <td>陈锋</td>
-          <td class="sticky-op"><span class="ops"><a onclick="go('../项目管理/项目详情.html')">详情</a><a onclick="openModal('bindModal')">上下游绑定</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../项目管理/项目详情.html')">详情</a><a onclick="go('../项目管理/上下游绑定.html')">上下游绑定</a></span></td>
         </tr>
       </tbody>
     </table>
@@ -491,116 +491,11 @@ th.td-num { text-align:right; }
     <span class="pg-jump">跳至 <input value="" placeholder="跳转页码"> 页</span>
   </div>
 </div>
-<!-- 弹窗已提取到 弹窗/编码规则.html，构建时注入 -->
+<!-- 编码规则已页面化：项目管理/编码规则.html（G36 B1） -->
 
     </div>
   </div>
 </div>
-
-
-<div class="modal-overlay" id="bindModal">
-  <div class="modal modal-lg">
-    <div class="modal-header">
-      <h3 class="modal-title" data-note="4">项目上下游绑定</h3>
-      <span class="modal-close" onclick="closeModal('bindModal')">×</span>
-    </div>
-    <div class="modal-body">
-  <div class="form-row" style="margin-bottom:14px;">
-    <div class="form-label"><span class="req">*</span>项目：</div>
-      <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>PRJ-2601 华骏重卡·长春基地 驾驶室围板箱租赁</option><option>PRJ-2601 华骏重卡·长春基地 驾驶室围板箱租赁·其他</option></select><span class="caret">▾</span></div>
-  </div>
-  <div class="form-row" style="margin-bottom:14px;">
-    <div class="form-label"><span class="req">*</span>客户：</div>
-      <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>华骏重卡汽车有限公司</option><option>华骏重卡汽车有限公司·其他</option></select><span class="caret">▾</span></div>
-  </div>
-  <div class="form-row" style="margin-bottom:14px;">
-    <div class="form-label">供应商（多选）：</div>
-    <div style="width:380px;border:1px solid #d9d9d9;border-radius:4px;padding:8px 12px;background:#fff;max-height:180px;overflow-y:auto">
-      <label style="display:flex;align-items:center;gap:8px;padding:4px 0;cursor:pointer;font-size:13px;color:#262626">
-        <input type="checkbox" checked style="accent-color:#1677ff;width:16px;height:16px"> 环通循环包装运营（上海）有限公司（租入）
-      </label>
-      <label style="display:flex;align-items:center;gap:8px;padding:4px 0;cursor:pointer;font-size:13px;color:#262626">
-        <input type="checkbox" checked style="accent-color:#1677ff;width:16px;height:16px"> 甬城塑业包装制品有限公司（采购）
-      </label>
-      <label style="display:flex;align-items:center;gap:8px;padding:4px 0;cursor:pointer;font-size:13px;color:#262626">
-        <input type="checkbox" style="accent-color:#1677ff;width:16px;height:16px"> 吴越联合五金制品有限公司
-      </label>
-      <label style="display:flex;align-items:center;gap:8px;padding:4px 0;cursor:pointer;font-size:13px;color:#262626">
-        <input type="checkbox" style="accent-color:#1677ff;width:16px;height:16px"> 延陵塑料托盘厂
-      </label>
-      <label style="display:flex;align-items:center;gap:8px;padding:4px 0;cursor:pointer;font-size:13px;color:#262626">
-        <input type="checkbox" style="accent-color:#1677ff;width:16px;height:16px"> 上海喜悦智行科技股份有限公司
-      </label>
-      <label style="display:flex;align-items:center;gap:8px;padding:4px 0;cursor:pointer;font-size:13px;color:#262626">
-        <input type="checkbox" style="accent-color:#1677ff;width:16px;height:16px"> 中集良才循环包装科技有限公司
-      </label>
-    </div>
-  </div>
-  <div class="form-row" style="margin-bottom:0;">
-    <div class="form-label">默认库房：</div>
-      <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>华东中心仓（WH-01）</option><option>华南仓（WH-02）</option><option>西南仓（WH-03）</option></select><span class="caret">▾</span></div>
-    </div>
-    </div>
-    <div class="modal-footer">
-<button class="btn btn-default" onclick="closeModal('bindModal')">取 消</button><button class="btn" onclick="closeModal('bindModal')">保存绑定</button>
-    </div>
-  </div>
-</div>
-
-<div class="modal-overlay" id="createModal">
-  <div class="modal modal-lg">
-    <div class="modal-header">
-      <h3 class="modal-title">新建项目</h3>
-      <span class="modal-close" onclick="closeModal('createModal')">×</span>
-    </div>
-    <div class="modal-body">
-  <div class="form-row" style="margin-bottom:14px;">
-    <div class="form-label">项目编码：</div>
-    <div>
-      <div class="input-box" style="width:380px;background:#fafafa;"><input type="text" value="PRJ-2606" readonly class="auto" style="color:var(--text-3);"></div>
-      </div>
-  </div>
-  <div class="form-row" style="margin-bottom:14px;">
-    <div class="form-label"><span class="req">*</span>项目名称：</div>
-      <div class="input-box" style="width:380px;"><input type="text" value="" placeholder="请输入项目名称"></div>
-  </div>
-  <div class="form-row" style="margin-bottom:14px;">
-    <div class="form-label"><span class="req">*</span>客户：</div>
-      <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option>华骏重卡汽车有限公司</option><option>东海商用汽车有限公司宁波分公司</option><option>星途新能源汽车科技有限公司</option><option>长风汽车制造有限公司</option></select><span class="caret">▾</span></div>
-  </div>
-  <div class="form-row" style="margin-bottom:14px;">
-    <div class="form-label"><span class="req">*</span>供应商（多选）：</div>
-    <div style="width:380px;border:1px solid #d9d9d9;border-radius:4px;padding:8px 12px;background:#fff;max-height:150px;overflow-y:auto">
-      <label style="display:flex;align-items:center;gap:8px;padding:4px 0;cursor:pointer;font-size:13px;color:#262626"><input type="checkbox" checked style="accent-color:#1677ff;width:16px;height:16px"> 环通循环包装运营（上海）有限公司（租入）</label>
-      <label style="display:flex;align-items:center;gap:8px;padding:4px 0;cursor:pointer;font-size:13px;color:#262626"><input type="checkbox" style="accent-color:#1677ff;width:16px;height:16px"> 甬城塑业包装制品有限公司（采购）</label>
-      <label style="display:flex;align-items:center;gap:8px;padding:4px 0;cursor:pointer;font-size:13px;color:#262626"><input type="checkbox" style="accent-color:#1677ff;width:16px;height:16px"> 吴越联合五金制品有限公司（采购）</label>
-      <label style="display:flex;align-items:center;gap:8px;padding:4px 0;cursor:pointer;font-size:13px;color:#262626"><input type="checkbox" style="accent-color:#1677ff;width:16px;height:16px"> 延陵塑料托盘厂（采购）</label>
-      <label style="display:flex;align-items:center;gap:8px;padding:4px 0;cursor:pointer;font-size:13px;color:#262626"><input type="checkbox" style="accent-color:#1677ff;width:16px;height:16px"> 上海喜悦智行科技股份有限公司（采购）</label>
-    </div>
-  </div>
-  <div class="form-row" style="margin-bottom:14px;">
-    <div class="form-label"><span class="req">*</span>项目起止：</div>
-      <div class="input-box" style="width:380px;gap:8px;"><input type="text" placeholder="开始日期" style="text-align:center;"><span style="color:var(--text-3)">~</span><input type="text" placeholder="结束日期" style="text-align:center;"></div>
-  </div>
-  <div class="form-row" style="margin-bottom:0;">
-    <div class="form-label">项目负责人：</div>
-      <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>江强</option><option>江强·其他</option></select><span class="caret">▾</span></div>
-  </div>
-    </div>
-    <div class="modal-footer">
-<button class="btn btn-default" onclick="closeModal('createModal')">取 消</button><button class="btn" onclick="closeModal('createModal')">保 存</button>
-    </div>
-  </div>
-</div>
-
-
-
-
-
-
-
-
-
 
 
 <script>function openModal(id) { document.getElementById(id).classList.add('show'); }

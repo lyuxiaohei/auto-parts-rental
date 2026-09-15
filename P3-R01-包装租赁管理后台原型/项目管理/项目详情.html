@@ -344,7 +344,7 @@ th.td-num { text-align:right; }
 <div class="card">
   <div class="card-head">
     <h3 class="card-title">项目基础信息 · PRJ-2601</h3>
-    <div class="head-btns"><button class="btn btn-default btn-sm" onclick="go('../项目管理/项目档案.html')">返回列表</button><button class="btn btn-sm" onclick="openModal('bindModal')">维护上下游</button></div>
+    <div class="head-btns"><button class="btn btn-default btn-sm" onclick="go('../项目管理/项目档案.html')">返回列表</button><button class="btn btn-sm" onclick="go('../项目管理/上下游绑定.html')">维护上下游</button></div>
   </div>
   <div class="dgrid c3">
     <div class="drow"><div class="dlabel">项目编码</div><div class="dval"><span class="lk">PRJ-2601</span></div></div>
@@ -491,56 +491,8 @@ th.td-num { text-align:right; }
     <span class="pg-jump">跳至 <input value="" placeholder="跳转页码"> 页</span>
   </div>
 </div>
-<!-- 弹窗已提取到 弹窗/上下游绑定.html，构建时注入 -->
-<div class="modal-overlay" id="bindModal">
-  <div class="modal modal-lg">
-    <div class="modal-header">
-      <h3 class="modal-title" data-note="3">项目上下游绑定</h3>
-      <span class="modal-close" onclick="closeModal('bindModal')">×</span>
-    </div>
-    <div class="modal-body">
-  <div class="form-row" style="margin-bottom:14px;">
-    <div class="form-label"><span class="req">*</span>项目：</div>
-      <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>PRJ-2601 华骏重卡·长春基地 驾驶室围板箱租赁</option><option>PRJ-2601 华骏重卡·长春基地 驾驶室围板箱租赁·其他</option></select><span class="caret">▾</span></div>
-  </div>
-  <div class="form-row" style="margin-bottom:14px;">
-    <div class="form-label"><span class="req">*</span>客户：</div>
-      <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>华骏重卡汽车有限公司</option><option>华骏重卡汽车有限公司·其他</option></select><span class="caret">▾</span></div>
-  </div>
-  <div class="form-row" style="margin-bottom:14px;">
-    <div class="form-label">供应商（多选）：</div>
-    <div style="width:380px;border:1px solid #d9d9d9;border-radius:4px;padding:8px 12px;background:#fff;max-height:180px;overflow-y:auto">
-      <label style="display:flex;align-items:center;gap:8px;padding:4px 0;cursor:pointer;font-size:13px;color:#262626">
-        <input type="checkbox" checked style="accent-color:#1677ff;width:16px;height:16px"> 环通循环包装运营（上海）有限公司（租入）
-      </label>
-      <label style="display:flex;align-items:center;gap:8px;padding:4px 0;cursor:pointer;font-size:13px;color:#262626">
-        <input type="checkbox" checked style="accent-color:#1677ff;width:16px;height:16px"> 甬城塑业包装制品有限公司（采购）
-      </label>
-      <label style="display:flex;align-items:center;gap:8px;padding:4px 0;cursor:pointer;font-size:13px;color:#262626">
-        <input type="checkbox" style="accent-color:#1677ff;width:16px;height:16px"> 吴越联合五金制品有限公司
-      </label>
-      <label style="display:flex;align-items:center;gap:8px;padding:4px 0;cursor:pointer;font-size:13px;color:#262626">
-        <input type="checkbox" style="accent-color:#1677ff;width:16px;height:16px"> 延陵塑料托盘厂
-      </label>
-      <label style="display:flex;align-items:center;gap:8px;padding:4px 0;cursor:pointer;font-size:13px;color:#262626">
-        <input type="checkbox" style="accent-color:#1677ff;width:16px;height:16px"> 上海喜悦智行科技股份有限公司
-      </label>
-      <label style="display:flex;align-items:center;gap:8px;padding:4px 0;cursor:pointer;font-size:13px;color:#262626">
-        <input type="checkbox" style="accent-color:#1677ff;width:16px;height:16px"> 中集良才循环包装科技有限公司
-      </label>
-    </div>
-  </div>
-  <div class="form-row" style="margin-bottom:0;">
-    <div class="form-label">默认库房：</div>
-      <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>华东中心仓（WH-01）</option><option>华南仓（WH-02）</option><option>西南仓（WH-03）</option></select><span class="caret">▾</span></div>
-    </div>
-    </div>
-    <div class="modal-footer">
-<button class="btn btn-default" onclick="closeModal('bindModal')">取 消</button><button class="btn" onclick="closeModal('bindModal')">保存绑定</button>
-    </div>
-  </div>
+<!-- 上下游绑定已页面化：项目管理/上下游绑定.html（G36 B1） -->
 </div>
-  </div>
 </div>
 <script>function openModal(id) { document.getElementById(id).classList.add('show'); }
 function closeModal(id) { document.getElementById(id).classList.remove('show'); }
