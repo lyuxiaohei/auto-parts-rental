@@ -36,6 +36,10 @@
     h += drow('账单类型', b.billType);
     h += drow('所属项目', b.project);
     h += drow('账期', b.period);
+    /* G42 T7b：账单日期/到期日/备注（详情-新建字段匹配补差） */
+    h += drow('账单日期', (b.row && b.row.fields && b.row.fields.date) || '—');
+    h += drow('到期日', (function () { var c = b.row && b.row.cells; return (c && c[10] && /^\d{4}-\d{2}-\d{2}$/.test(c[10])) ? c[10] : '—'; })());
+    h += drow('备注', '—');
     (b.refs || []).forEach(function (r) {
       h += drow(r.label, r.no === '—' ? '—' : lk(r.no, r.url, base));
     });

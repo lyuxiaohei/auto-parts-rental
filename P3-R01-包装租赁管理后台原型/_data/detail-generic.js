@@ -27,7 +27,7 @@
     '已退租': 'tag-gray', '在租': 'tag-green', '待审核': 'tag-orange', '已审核': 'tag-green',
     '已关闭': 'tag-gray', '已出库': 'tag-green', '拣货中': 'tag-orange', '待出库': 'tag-orange',
     '履行中': 'tag-blue', '部分归还': 'tag-orange', '已归还': 'tag-green', '已终止': 'tag-gray',
-    '待转移': 'tag-orange', '已转移': 'tag-green',
+    '已转移': 'tag-green',
     '待入库': 'tag-orange', '已入库': 'tag-green', '赔偿中': 'tag-orange', '已转应收': 'tag-blue',
     '已赔偿': 'tag-green', '部分退租': 'tag-blue',
     '已完成': 'tag-green', '待发货': 'tag-orange', '待验收': 'tag-orange', '已验收': 'tag-green',
@@ -61,6 +61,18 @@
       h1 += drow(f.label, v, f.full);
     });
     h1 += '</div>';
+
+    /* G42 T7a：可选第二信息段（如客商详情·开票资料）——无 info2 键的页面零影响 */
+    if (rec.info2) {
+      h1 += '<div class="dt-sec">' + (rec.info2Title || '更多信息') + '</div><div class="dgrid c3">';
+      rec.info2.forEach(function (f) {
+        var v;
+        if (f.tag) v = '<span class="tag ' + (STATUS_CLS[f.tag] || 'tag-gray') + '">' + f.tag + '</span>';
+        else v = lk(f.text, f.url, base);
+        h1 += drow(f.label, v, f.full);
+      });
+      h1 += '</div>';
+    }
 
     if (rec.feeCols && rec.fees) {
       h1 += '<div class="dt-sec">' + (rec.feeSecTitle || '费用明细') + '</div><div class="table-wrap"><table><thead><tr>';

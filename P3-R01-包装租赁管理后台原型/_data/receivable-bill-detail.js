@@ -33,6 +33,8 @@
     h += drow('账单号', b.billNo, true);
     h += drow('状态', '<span class="tag ' + (STATUS_CLS[b.status] || 'tag-gray') + '">' + b.status + '</span>');
     h += drow('账期', b.period);
+    h += drow('账单类型', b.billType || '—');
+    h += drow('备注', '—');
     h += drow('所属项目', b.project);
     h += drow('客户', b.customer, true);
     h += drow('费用类型', b.feeType, true);

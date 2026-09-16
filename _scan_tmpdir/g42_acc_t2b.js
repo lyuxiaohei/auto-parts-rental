@@ -1,0 +1,12 @@
+ObjC.import("Foundation");
+var path = "/Users/bailey/Desktop/xiaohei-workplace/auto-parts-rental/P3-R01-包装租赁管理后台原型/_data/demo-data.js";
+var src = $.NSString.stringWithContentsOfFileEncodingError(path, $.NSUTF8StringEncoding, null).js;
+var f = new Function("window", src + "\n;return window.DEMO_DATA;");
+var w = {};
+var d = f(w);
+var p = d.payments["PAY-20260818-001"];
+var ref = p.row.fields.ref;
+var pbKeys = Object.keys(d.payableBills);
+console.log("ref=" + ref);
+console.log("payableBillsKeys=" + JSON.stringify(pbKeys));
+console.log("refInKeys=" + (pbKeys.indexOf(ref) >= 0));

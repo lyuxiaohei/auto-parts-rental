@@ -1,0 +1,10 @@
+var tkl=[],thc=[];
+Object.keys(D.dictItems).forEach(function(k){var f=D.dictItems[k].row.fields;if(f.category==='退款类型')tkl.push(f.name);if(f.category==='退货类型')thc.push(f.name);});
+OUT.push({name:'T11 TKL=4 值', ok:tkl.join(',')==='采购退货退款,销售退货退款,预收退回,多付退回', detail:tkl.join('|')});
+OUT.push({name:'T11 THC 不受扰=2', ok:thc.length===2&&thc.join(',')==='收货拒收,入库后退货', detail:thc.join('|')});
+OUT.push({name:'T11 refunds=5 行', ok:Object.keys(D.refunds).length===5, detail:'n='+Object.keys(D.refunds).length+' keys='+Object.keys(D.refunds).join(',')});
+var tkd=D.refunds['TKD-20260916-004'],tkd5=D.refunds['TKD-20260916-005'];
+OUT.push({name:'T11 两新单在键·状态一待审一已确认', ok:!!tkd&&!!tkd5&&tkd.row.fields.status==='待审核'&&tkd5.row.fields.status==='已确认', detail:(tkd&&tkd.row.fields.status)+'/'+(tkd5&&tkd5.row.fields.status)});
+var js=JSON.stringify(D);
+OUT.push({name:'T11 demo-data 旧方向词=0', ok:js.indexOf('应付退款（对供应商）')<0&&js.indexOf('应收退款（对客户）')<0, detail:''});
+OUT.push({name:'T11 AP-012 timeline 引用 005', ok:js.indexOf('TKD-20260916-005')>0&&!!D.payableBills['AP-20260905-012'], detail:''});

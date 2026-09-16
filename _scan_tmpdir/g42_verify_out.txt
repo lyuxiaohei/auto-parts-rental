@@ -1,0 +1,29 @@
+[PASS] 门1 语法门 demo-data.js（JXA new Function 编译等价 node --check·退出 0·输出含 syntax-check ok） —— compile OK
+[PASS] T1 BOM维护 提交审核=0 · 暂存/取消仍在 
+[PASS] T2 付款死引用→AP-20260815-003（实有键）·旧号全库数据=0 
+[PASS] T3 新建页六项目各 1 次·PRJ-2601 恰 1·select 内旧称 0 —— options=PRJ-2601 华骏重卡·|PRJ-2602 华骏重卡·|PRJ-2603 长丰锂电·|PRJ-2604 南方汽造·|PRJ-2605 华骏重卡·|PRJ-2606 长丰锂电·
+[PASS] T3 列表筛选含 PRJ-2606 
+[PASS] T4 应收筛选含预收（预付款（保证金）后） 
+[PASS] T4 ARB 组 7 值含预收 —— 租赁费|销售费|丢损赔偿|供应商应收|押金|预付款（保证金）|预收
+[PASS] T4 演示行 AR-2026-09-PRJ2601-YS 不动 
+[PASS] T4 数据字典 应收账单类型 cnt=7 
+[PASS] T5 头部按钮=权限配置·无角色管理 
+[PASS] T6 FP3-01=0·pin/fab/样式/脚本全清·业务词在 
+[PASS] T6 div 配平 —— 91/91
+[PASS] T7a partners 8/8 invoiceTaxNo 18 位＋info2 五行 —— 8/8
+[PASS] T7b 复查报告末行=修复后差集：0 
+[PASS] T8 returnInbounds=10·stockEvents=23·新键在 —— ri=10 ev=23
+[PASS] T8 stockFlows 快照未动 —— 快照未动 18
+[PASS] T9 rentInReturns 3/3 押金表达 —— 3/3
+[PASS] T9 审核页 hint 含「押金随归还审核原路退还」 
+[PASS] T10 三实体 AR/AP 引用 100% 实有键（Counter） —— 引用18·假号0
+[PASS] T11 两页各含 4 值 
+[PASS] T11 TKL=4·THC=2 不受扰 —— TKL:采购退货退款|销售退货退款|预收退回|多付退回 THC:2
+[PASS] T11 refunds=5·两新键在 —— n=5
+[PASS] T11 demo-data 旧方向词=0 
+[PASS] T11 AP-012 timeline 引用 TKD-005 
+[PASS] T11 数据字典 退款类型 cnt=4 
+[PASS] 旧 token 全库=0（原型运行文件；A05/A06 沿革注记白名单） —— 残留 0
+  （白名单沿革注记 4 处：P3-R01-A05-字段字典.md:AP-20260810-002; P3-R01-A05-字段字典.md:待转移; P3-R01-A05-字段字典.md:应付退款（对供应商）; P3-R01-A05-字段字典.md:应收退款（对客户））
+
+总判定： 26 PASS / 0 FAIL
