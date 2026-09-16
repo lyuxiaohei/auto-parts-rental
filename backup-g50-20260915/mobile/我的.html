@@ -15,28 +15,19 @@
   </div>
 
   <div class="m-body">
-    <div class="m-hero">
-      <div class="m-hero-top">
-        <div class="m-avatar" id="m-avatar">—</div>
-        <div>
-          <div class="m-me-name" id="m-me-name">—</div>
-          <span class="m-me-role" id="m-me-role">—</span>
-          <div class="m-me-sub" id="m-me-sub">免二次登录已开启 · 本机记住登录状态</div>
-        </div>
-      </div>
-      <div class="m-hero-stats">
-        <div class="m-hero-stat"><b id="m-st-todo">—</b><span>待审核</span></div>
-        <div class="m-hero-stat"><b id="m-st-done">—</b><span>已处理</span></div>
-        <div class="m-hero-stat"><b id="m-st-type">—</b><span>单据类型</span></div>
+    <div class="m-card m-me-card">
+      <div class="m-avatar">琳</div>
+      <div>
+        <div class="m-me-name" id="m-me-name">—</div>
+        <span class="m-me-role" id="m-me-role">—</span>
+        <div class="m-me-sub" id="m-me-sub">免二次登录已开启 · 本机记住登录状态</div>
       </div>
     </div>
 
-    <div class="m-cell-group">
     <div class="m-cell"><span class="m-cell-key"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>企业微信</span><span class="m-cell-val">已绑定 · 消息点开即审（演示）</span></div>
     <div class="m-cell"><span class="m-cell-key"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg>数据来源</span><span class="m-cell-val">demo-data.js · 与 PC 端同源只读</span></div>
     <div class="m-cell"><span class="m-cell-key"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>PC 端</span><span class="m-cell-val">P3-R01 管理后台原型（115 页）</span></div>
-    <div class="m-cell"><span class="m-cell-key"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>版本信息</span><span class="m-cell-val">P3-R01 移动端 H5 · v1.2 · 2026-09-16</span></div>
-    </div>
+    <div class="m-cell"><span class="m-cell-key"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>版本信息</span><span class="m-cell-val">P3-R01 移动端 H5 · v1.1 · 2026-09-14</span></div>
 
     <button class="m-btn m-btn-danger" id="m-btn-logout" style="margin-top:14px;">退出登录</button>
   </div>
@@ -63,15 +54,6 @@
 
   document.getElementById('m-me-name').textContent = u.name;
   document.getElementById('m-me-role').textContent = roleName;
-  document.getElementById('m-avatar').textContent = String(u.name || '—').charAt(0);
-
-  /* v1.2 统计三格实算：待审核=todoItems 行数 / 已处理=m-done 计数 / 单据类型=类型去重数 */
-  var mRowsAll = mRows('todoItems');
-  var mTypes = {};
-  mRowsAll.forEach(function (r) { mTypes[r.row.fields.type] = 1; });
-  document.getElementById('m-st-todo').textContent = mRowsAll.length;
-  document.getElementById('m-st-done').textContent = Object.keys(mDoneMap()).length;
-  document.getElementById('m-st-type').textContent = Object.keys(mTypes).length;
   document.getElementById('m-me-sub').textContent = roleName + ' · 免二次登录已开启 · 本机记住登录状态';
 
   document.getElementById('m-btn-logout').onclick = function () {

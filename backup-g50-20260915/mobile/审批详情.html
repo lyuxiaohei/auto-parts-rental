@@ -18,13 +18,6 @@
   </div>
 
   <div class="m-body" id="m-body">
-    <div class="m-banner" id="m-banner" style="display:none;">
-      <div class="m-banner-ico" id="m-banner-ico"></div>
-      <div class="m-banner-txt">
-        <div class="m-banner-state" id="m-banner-state">—</div>
-        <div class="m-banner-sub" id="m-banner-sub">—</div>
-      </div>
-    </div>
     <div class="m-card">
       <div class="m-sec-title" data-note="2">单据摘要</div>
       <div id="m-summary"></div>
@@ -32,10 +25,6 @@
     <div class="m-card">
       <div class="m-sec-title" data-note="1">单据明细</div>
       <div id="m-details"></div>
-    </div>
-    <div class="m-card" id="m-prog-card" style="display:none;">
-      <div class="m-sec-title">审批进度</div>
-      <div class="m-timeline" id="m-timeline"></div>
     </div>
   </div>
 
@@ -57,8 +46,6 @@
   mRows('todoItems').forEach(function (r) { if (r.id === id) hit = r; });
 
   if (!hit) {   // 无效单号：空态，隐藏操作栏；副题去占位杠 + 提供返回入口
-    document.getElementById('m-banner').style.display = 'none';
-    document.getElementById('m-prog-card').style.display = 'none';
     document.getElementById('m-hd-doc').textContent = '单号无效或已处理';
     document.getElementById('m-summary').innerHTML = '<div class="m-empty">未找到该待办单据<br>可能已处理或链接失效</div>'
       + '<button class="m-btn m-btn-ghost" style="width:auto;margin:0 auto;padding:0 28px;height:38px;font-size:14px;" onclick="go(\'待办审批.html\')">返回待办列表</button>';
@@ -73,40 +60,6 @@
 
   var done = mDoneMap();
   var cur = done[f.docNo] || f.action;   // 本机已审结果优先回显
-
-  /* v1.2 样板风：状态大字上移 .m-banner 横幅（摘要卡保留类型徽标）＋审批进度时间线（静态两节点） */
-  var ST_LABEL = { '待审核': '待审核', '已通过': '已通过', '已驳回': '已退回' };
-  var ST_CLS   = { '待审核': '',        '已通过': 'is-pass', '已驳回': 'is-back' };
-  var ST_TITLE_CLS = { '待审核': 'st-wait', '已通过': 'st-pass', '已驳回': 'st-back' };
-  var ST_ICO = {
-    '待审核': '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>',
-    '已通过': '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9" fill="rgba(255,255,255,.15)" stroke="none"/><path d="m8.5 12.2 2.4 2.4 4.8-5"/></svg>',
-    '已驳回': '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9" fill="rgba(255,255,255,.15)" stroke="none"/><path d="m9 9 6 6M15 9l-6 6"/></svg>'
-  };
-  function renderBanner(act) {
-    var b = document.getElementById('m-banner');
-    b.style.display = 'flex';
-    b.className = 'm-banner ' + (ST_CLS[act] || '');
-    document.getElementById('m-banner-ico').innerHTML = ST_ICO[act] || ST_ICO['待审核'];
-    document.getElementById('m-banner-state').textContent = ST_LABEL[act] || act;
-    document.getElementById('m-banner-sub').textContent = f.type + ' · ' + f.docNo;
-  }
-  function renderTimeline(act) {
-    var pc = document.getElementById('m-prog-card');
-    pc.style.display = '';
-    var curDesc = act === '待审核' ? ('等待 ' + f.auditor + ' 审核')
-      : act === '已通过' ? (f.auditor + ' 审核通过 · 单据进入下一环节')
-      : ('退回 ' + f.submitter + ' 修改后重新提交');
-    document.getElementById('m-timeline').innerHTML =
-      '<div class="m-tl-item"><span class="m-tl-dot done"></span>'
-      + '<div class="m-tl-head"><span class="m-tl-title">提交申请</span><span class="m-tl-time">2026-' + mEsc(f.time) + '</span></div>'
-      + '<div class="m-tl-desc">提交人 ' + mEsc(f.submitter) + '</div></div>'
-      + '<div class="m-tl-item"><span class="m-tl-dot cur"></span>'
-      + '<div class="m-tl-head"><span class="m-tl-title is-cur ' + (ST_TITLE_CLS[act] || '') + '">' + (ST_LABEL[act] || mEsc(act)) + '</span><span class="m-tl-time">当前</span></div>'
-      + '<div class="m-tl-desc">' + mEsc(curDesc) + '</div></div>';
-  }
-  renderBanner(cur);
-  renderTimeline(cur);
 
   function badgeHtml(act) {
     return '<span class="m-badge ' + mBadgeCls(act) + '" id="m-status-badge">' + mEsc(act) + '</span>';
@@ -141,8 +94,6 @@
     var b = document.getElementById('m-status-badge');
     b.textContent = result;                                   // DOM 副作用：状态徽标变化
     b.className = 'm-badge ' + mBadgeCls(result);
-    renderBanner(result);                                     // v1.2：横幅与时间线随动作联动
-    renderTimeline(result);
     btnPass.disabled = true; btnRej.disabled = true;
     mToast(toastMsg);
     setTimeout(function () { go('待办审批.html'); }, 900);

@@ -41,7 +41,7 @@
 <script src="../_data/demo-data.js"></script>
 <script src="_m.js"></script>
 <script>
-/* ---- 库存查询：消费 DEMO_DATA.stockFlows（15 有效行·G25 租入态/G37 转移出库行），搜索 + 状态 chips 筛选 ---- */
+/* ---- 库存查询：消费 DEMO_DATA.stockFlows（14 有效行·含 G25 租入态），搜索 + 状态 chips 筛选 ---- */
 var mStockRows = [];   // [{id, fields, qty}]
 mRows('stockFlows').forEach(function (r) {
   if (!r.row.fields || !r.row.fields.status) return;   // 组合件无状态行不计入
