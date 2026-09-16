@@ -18,7 +18,7 @@
       },
       "FP1-04": {
         "name": "零部件档案",
-        "desc": "零件号、名称、供应商来源、多项目共用标记"
+        "desc": "物料编码、名称、供应商来源、多项目共用标记"
       },
       "FP1-05": {
         "name": "子母件 BOM",
@@ -202,7 +202,7 @@
     },
     {
       "id": 3,
-      "selector": "<button class=\"btn btn-default btn-sm\" onclick=\"go('../财务协同/盈亏报表.html')\">损益报表</button>",
+      "selector": "<button class=\"btn btn-default btn-sm\" onclick=\"go('../财务协同/损益报表.html')\">损益报表</button>",
       "title": "查看损益明细",
       "note": "从看板直接进入项目损益明细",
       "fp": "FP2-04",
@@ -547,7 +547,7 @@
       "req": "REQ-08"
     }
   ],
-  "财务协同/回款登记.html": [
+  "财务协同/收款登记.html": [
     {
       "id": 1,
       "selector": "<h3 class=\"card-title\">收款登记</h3>",
@@ -565,7 +565,7 @@
       "req": "REQ-09"
     }
   ],
-  "财务协同/银行水单核销.html": [
+  "财务协同/银行回单核销.html": [
     {
       "id": 1,
       "selector": "<h3 class=\"card-title\">① 银行回单</h3>",
@@ -599,7 +599,7 @@
       "req": "REQ-09"
     }
   ],
-  "财务协同/盈亏报表.html": [
+  "财务协同/损益报表.html": [
     {
       "id": 1,
       "selector": "<h3 class=\"card-title\">项目损益</h3>",
