@@ -369,7 +369,7 @@ th.td-num { text-align:right; }
   <div style="flex:1;min-width:0;">
           <div class="table-wrap edit-tbl" style="border:1px solid var(--border);border-radius:6px;">
             <table>
-              <thead><tr><th>物料</th><th>租入数量</th><th>已归还</th><th>本次归还数量</th></tr></thead>
+              <thead><tr><th>物料编码</th><th>物料名称</th><th>单位</th><th>租入数量</th><th>已归还</th><th>本次归还数量</th></tr></thead>
               <tbody id="riItemsBody" data-note="1"></tbody>
             </table>
           </div>
@@ -395,7 +395,11 @@ function syncReturnItems(sel) {
   var tb = document.getElementById('riItemsBody');
   tb.innerHTML = items.map(function (it) {
     var left = Math.max(0, it.rentQty - it.returned);
-    return '<tr><td>' + it.item + '</td><td><span class="td-num">' + it.rentQty + ' ' + it.unit + '</span></td>' +
+    var sp = String(it.item).indexOf(' ');
+    var code = sp > 0 ? String(it.item).slice(0, sp) : it.item;
+    var name = sp > 0 ? String(it.item).slice(sp + 1) : '—';
+    return '<tr><td>' + code + '</td><td>' + name + '</td><td>' + it.unit + '</td>' +
+      '<td><span class="td-num">' + it.rentQty + ' ' + it.unit + '</span></td>' +
       '<td><span class="td-num">' + it.returned + ' ' + it.unit + '</span></td>' +
       '<td><input value="' + left + '" placeholder="≤' + left + '"></td></tr>';
   }).join('');

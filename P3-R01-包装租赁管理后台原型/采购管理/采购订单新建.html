@@ -542,6 +542,19 @@ document.addEventListener('change', function (e) {
   renderRow(tr, el.value);
   var sp = tr.querySelector('input[data-spec]');
   if (sp) sp.value = prodFields(el.value).spec || '';
+  /* G39 · 参考价带出且可改（D-148）：按参考未税采购价预填 */
+  var bp = prodFields(el.value).buyPrice;
+  var ex = tr.querySelector('input[data-tax="excl"]');
+  if (ex && bp && bp !== '—') {
+    ex.value = bp;
+    var rsel = tr.querySelector('select[data-tax="rate"]');
+    var r = parseFloat(String(rsel && rsel.value).replace('%', '')) / 100 || 0.13;
+    var inc = tr.querySelector('input[data-tax="incl"]');
+    if (inc) inc.value = (parseFloat(bp) * (1 + r)).toFixed(2);
+    var amt = tr.querySelector('input[data-tax="amt"]');
+    var q = tr.querySelector('input[data-tax="qty"]');
+    if (amt && q) amt.value = (parseFloat(String(q.value).replace(/,/g, '')) * parseFloat(bp) * (1 + r)).toLocaleString('zh-CN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
 });
 window.addEventListener('load', renderRows);
 renderRows();

@@ -42,14 +42,26 @@
     h += drow('生成日期', b.genDate);
     h += '</div>';
 
-    h += '<div class="dt-sec">费用明细</div>' +
-      '<div class="table-wrap"><table><thead><tr><th>来源单据</th><th>费用说明</th><th class="td-num">数量</th><th class="td-num">单价(元)</th><th class="td-num">金额(元)</th></tr></thead><tbody>';
-    b.fees.forEach(function (f) {
-      h += '<tr><td>' + (f.url ? lk(f.src, f.url, base) : f.src) + '</td><td>' + f.desc +
-        '</td><td class="td-num">' + f.qty + '</td><td class="td-num">' + f.price +
-        '</td><td class="td-num">' + fmt(f.amount) + '</td></tr>';
-    });
-    h += '</tbody></table></div>';
+    h += '<div class="dt-sec">费用明细</div>';
+    if (b.segCols) {
+      /* G39 期段化明细（D-148）：起租日期|止租日期|天数|日单价|小计（按持有量×天数） */
+      h += '<div class="table-wrap"><table><thead><tr>' +
+        b.segCols.map(function (c) { return '<th>' + c + '</th>'; }).join('') + '</tr></thead><tbody>';
+      b.fees.forEach(function (f) {
+        h += '<tr>' + (f.cells || []).map(function (c, i) {
+          return '<td' + (i >= b.segCols.length - 2 ? ' class="td-num"' : '') + '>' + c + '</td>';
+        }).join('') + '</tr>';
+      });
+      h += '</tbody></table></div>';
+    } else {
+      h += '<div class="table-wrap"><table><thead><tr><th>来源单据</th><th>费用说明</th><th class="td-num">数量</th><th class="td-num">单价(元)</th><th class="td-num">金额(元)</th></tr></thead><tbody>';
+      b.fees.forEach(function (f) {
+        h += '<tr><td>' + (f.url ? lk(f.src, f.url, base) : f.src) + '</td><td>' + f.desc +
+          '</td><td class="td-num">' + f.qty + '</td><td class="td-num">' + f.price +
+          '</td><td class="td-num">' + fmt(f.amount) + '</td></tr>';
+      });
+      h += '</tbody></table></div>';
+    }
 
     h += '<div class="dt-sec">关联单据</div><div class="chain">';
     b.chain.forEach(function (n, i) {

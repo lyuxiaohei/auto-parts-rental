@@ -3,6 +3,7 @@
 用法：python verify_listfull.py batch1|batch2|batch3
 """
 import sys, io, argparse, re
+from urllib.parse import unquote
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 from pathlib import Path
 from playwright.sync_api import sync_playwright
@@ -25,7 +26,7 @@ B1 = [
     dict(name='租入归还', file='租入管理/租入归还列表.html', entity='rentInReturns', modalId='detailModal',
          stabs={'全部': 3, '待审核': 1, '已归还': 2}, pin=2),
     dict(name='退租入库', file='租赁管理/退租入库列表.html', entity='returnInbounds', modalId='detailModal',
-         stabs={'全部': 8, '待审核': 3, '已入库': 5}, pin=3),
+         stabs={'全部': 9, '待审核': 3, '已入库': 6}, pin=3),  # G39：+TZRK-20260908-011 部分退租演示行（D-148）,
     dict(name='盘点', file='仓储作业/盘点列表.html', entity='stocktakes', modalId='detailModal',
          stabs={'全部': 5, '盘点中': 1, '待审核': 1, '已完成': 3}, pin=None),
     dict(name='库存调拨', file='仓储作业/库存调拨列表.html', entity='transfers', modalId='detailModal',
@@ -36,9 +37,9 @@ B1 = [
 BATCHES = dict(batch1=B1)
 B2 = [
     dict(name='应付账单', file='财务协同/应付账单.html', entity='payableBills', modalId='detailModal',
-         stabs={'全部': 12, '未付款': 7, '部分付款': 1, '已付款': 4}, pin=3),  # 20260914：+押金退还行（对客户应付·未付款）
+         stabs={'全部': 13, '未付款': 8, '部分付款': 1, '已付款': 4}, pin=3),  # 20260914：+押金退还行；G39：+AP-20260911-013 按持有量×天数（D-148）
     dict(name='应收账单', file='财务协同/应收账单.html', entity='receivableBills', modalId='detailModal',
-         stabs={'全部': 15, '未开票': 7, '已开票': 15, '部分收款': 2, '已结清': 4}, pin=3),  # G13：+usage 演示行；20260914：+押金行（已收）
+         stabs={'全部': 17, '未开票': 9, '已开票': 17, '部分收款': 2, '已结清': 4}, pin=3),  # G13：+usage；20260914：+押金行；G39：+D1 按持有量×天数/D2 按次套数（D-148·均未开票）
     dict(name='付款登记', file='财务协同/付款登记.html', entity='payments', modalId='detailModal',
          stabs={'全部': 5, '待确认': 1, '已确认': 4}, pin=None),
     dict(name='回款登记', file='财务协同/回款登记.html', entity='receipts', modalId='detailModal',
@@ -146,8 +147,18 @@ with sync_playwright() as pw:
             tried += 1
             key = a.first.get_attribute('data-detail-key')
             tno = page.evaluate("(args) => { const r = window.DEMO_DATA[args[0]][args[1]] || {}; return r.titleNo || ''; }", [P['entity'], key])
+            url_before = page.url
             page.evaluate("(k) => { const el = [...document.querySelectorAll('tbody a[data-detail-key]')].find(x => x.getAttribute('data-detail-key') === k); if (el) el.click(); }", key)
             page.wait_for_timeout(80)
+            # G39 工具修复：detailFn 页面（G36 B5 起应付/应收等）点击后跳转详情页——校验 URL 带键后回列表；弹窗页维持原断言
+            if unquote(page.url) != unquote(url_before):
+                from urllib.parse import unquote as _uq
+                nav_ok = key in _uq(page.url)
+                if not nav_ok:
+                    ok3 = False
+                    check(P['name'], f'3 详情跳转·{key}', False, f'url={_uq(page.url)[-60:]!r}')
+                page.goto(url_before); page.wait_for_timeout(300)
+                continue
             title = page.locator('#detailTitle').text_content() or ''
             shown = page.locator('#' + P['modalId']).evaluate("el => el.classList.contains('show')")
             if not ((key in title or tno in title) and shown):

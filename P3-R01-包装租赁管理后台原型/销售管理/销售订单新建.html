@@ -659,5 +659,28 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply);else apply();
 })();
 </script>
+<script>
+/* G39 · 参考价带出且可改（D-148）：销售明细按参考未税销售价预填 */
+(function () {
+  function pf(code) { try { return ((window.DEMO_DATA.products || {})[code] || {}).row.fields || null; } catch (e) { return null; } }
+  function g39SaleRef(e) {
+    var el = e.target;
+    if (!el.matches || !el.matches('select[data-tax="prod"]')) return;
+    var tr = el.closest('tr'); if (!tr) return;
+    var f = pf(String(el.value).split(' ')[0]);
+    if (!f || !f.salePrice || f.salePrice === '—') return;
+    var ex = tr.querySelector('input[data-tax="excl"]');
+    if (!ex) return;
+    ex.value = f.salePrice;
+    var rt = tr.querySelector('input[data-tax="rate"]') || tr.querySelector('select[data-tax="rate"]');
+    var r = parseFloat(String(rt && rt.value).replace('%', '')) / 100 || 0.13;
+    var inc = tr.querySelector('input[data-tax="incl"]');
+    if (inc) inc.value = (parseFloat(f.salePrice) * (1 + r)).toFixed(2);
+    var amt = tr.querySelector('input[data-tax="amt"]'), q = tr.querySelector('input[data-tax="qty"]');
+    if (amt && q) amt.value = (parseFloat(String(q.value).replace(/,/g, '')) * parseFloat(f.salePrice) * (1 + r)).toLocaleString('zh-CN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+  document.addEventListener('change', g39SaleRef);
+})();
+</script>
 </body>
 </html>
