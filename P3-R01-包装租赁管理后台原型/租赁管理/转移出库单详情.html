@@ -360,7 +360,7 @@ th.td-num { text-align:right; }
 <div class="card">
   <div class="card-head">
     <h3 class="card-title" id="dtTitle">转移出库单详情</h3>
-    <div class="head-btns"><button class="btn btn-default btn-sm" onclick="go('../租赁管理/转移出库列表.html')">返回列表</button></div>
+    <div class="head-btns"><button class="btn btn-default btn-sm" onclick="go('../租赁管理/转移出库列表.html')">返回列表</button><button class="btn btn-sm" id="zyAuditBtn" style="display:none">审 核</button></div>
   </div>
   <div id="detailBody"><!-- 内容由 _data/detail-generic.js 按单号渲染 --></div>
 </div>
@@ -379,6 +379,12 @@ th.td-num { text-align:right; }
   var D = (window.DEMO_DATA || {})[ENT] || {};
   if (!D[k]) k = Object.keys(D).filter(function (x) { return D[x] && JSON.stringify(D[x]).replace(/\s/g, "").indexOf('"tag":"待') > -1; })[0]    || Object.keys(D).filter(function (x) { return D[x] && (D[x].info || D[x].title); })[0] || DEF;
   var rec = D[k] || {};
+  /* 待审核单显示「审核」入口（09-16 加审：审核动作由转移出库审核页承载） */
+  var ab = document.getElementById('zyAuditBtn');
+  if (ab) {
+    var zySt = (rec.row && rec.row.fields && rec.row.fields.status) || '';
+    if (zySt === '待审核') { ab.style.display = ''; ab.setAttribute('onclick', "go('../租赁管理/转移出库审核.html?id=" + k + "')"); }
+  }
   var t = document.getElementById("dtTitle");
   if (t) t.textContent = (rec.title || '转移出库单详情') + " · " + (rec.titleNo || k);
   var el = document.getElementById("detailBody");

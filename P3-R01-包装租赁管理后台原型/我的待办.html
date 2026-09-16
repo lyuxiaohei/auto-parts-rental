@@ -359,7 +359,7 @@ th.td-num { text-align:right; }
 <div class="filter-card" id="filterCard">
   <div class="filter-grid">
     <div class="ff"><span class="ff-label">单据类型：</span>
-      <select id="todoType" onchange="filterTodo()"><option>全部</option><option>付款登记</option><option>其他入库</option><option>其他出库</option><option>库存调拨</option><option>收款确认</option><option>盘点</option><option>租赁单</option><option>租赁出库</option><option>采购退货单</option><option>销售退货单</option><option>退款登记</option><option>退租入库</option><option>采购入库</option><option>采购订单</option><option>租入单</option><option>租入入库</option><option>租入归还</option><option>销售出库</option><option>销售订单</option></select>
+      <select id="todoType" onchange="filterTodo()"><option>全部</option><option>付款登记</option><option>其他入库</option><option>其他出库</option><option>库存调拨</option><option>收款确认</option><option>盘点</option><option>租赁单</option><option>租赁出库</option><option>转移出库</option><option>采购退货单</option><option>销售退货单</option><option>退款登记</option><option>退租入库</option><option>采购入库</option><option>采购订单</option><option>租入单</option><option>租入入库</option><option>租入归还</option><option>销售出库</option><option>销售订单</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
     <div class="ff"><span class="ff-label">审核人：</span>
@@ -377,7 +377,7 @@ th.td-num { text-align:right; }
 <div class="card">
   <div class="card-head">
     <h3 class="card-title">类型速滤</h3>
-    <div><span class="todo-chip" onclick="pickType('付款登记')">付款登记</span> <span class="todo-chip" onclick="pickType('其他入库')">其他入库</span> <span class="todo-chip" onclick="pickType('其他出库')">其他出库</span> <span class="todo-chip" onclick="pickType('库存调拨')">库存调拨</span> <span class="todo-chip" onclick="pickType('收款确认')">收款确认</span> <span class="todo-chip" onclick="pickType('盘点')">盘点</span> <span class="todo-chip" onclick="pickType('租赁单')">租赁单</span> <span class="todo-chip" onclick="pickType('退租入库')">退租入库</span> <span class="todo-chip" onclick="pickType('采购入库')">采购入库</span> <span class="todo-chip" onclick="pickType('采购订单')">采购订单</span> <span class="todo-chip" onclick="pickType('租入单')">租入单</span> <span class="todo-chip" onclick="pickType('租入入库')">租入入库</span> <span class="todo-chip" onclick="pickType('租入归还')">租入归还</span> <span class="todo-chip" onclick="pickType('销售出库')">销售出库</span> <span class="todo-chip" onclick="pickType('销售订单')">销售订单</span></div>
+    <div><span class="todo-chip" onclick="pickType('付款登记')">付款登记</span> <span class="todo-chip" onclick="pickType('其他入库')">其他入库</span> <span class="todo-chip" onclick="pickType('其他出库')">其他出库</span> <span class="todo-chip" onclick="pickType('库存调拨')">库存调拨</span> <span class="todo-chip" onclick="pickType('收款确认')">收款确认</span> <span class="todo-chip" onclick="pickType('盘点')">盘点</span> <span class="todo-chip" onclick="pickType('租赁单')">租赁单</span> <span class="todo-chip" onclick="pickType('转移出库')">转移出库</span> <span class="todo-chip" onclick="pickType('退租入库')">退租入库</span> <span class="todo-chip" onclick="pickType('采购入库')">采购入库</span> <span class="todo-chip" onclick="pickType('采购订单')">采购订单</span> <span class="todo-chip" onclick="pickType('租入单')">租入单</span> <span class="todo-chip" onclick="pickType('租入入库')">租入入库</span> <span class="todo-chip" onclick="pickType('租入归还')">租入归还</span> <span class="todo-chip" onclick="pickType('销售出库')">销售出库</span> <span class="todo-chip" onclick="pickType('销售订单')">销售订单</span></div>
   </div>
 <div class="table-wrap">
   <table id="todoTable">
@@ -597,27 +597,27 @@ function pickType(t){
   if (pg) pg.textContent = '第 1-' + keys.length + ' 条 / 总共 ' + keys.length + ' 条待办';
   if (typeof filterTodo === 'function') filterTodo();
 })();
-</script>
-<script>/* G35 筛选值域动态渲染（实体/字典取值·渲染失败保留静态兜底） */
-(function () {
-  var D = window.DEMO_DATA || {};
-  function fill(id, vals) {
-    if (!vals || !vals.length) return;
-    var s = document.getElementById(id);
-    if (s) s.innerHTML = '<option selected>全部</option>' + vals.map(function (o) { return '<option>' + o + '</option>'; }).join('');
-  }
-  function ent(e, fld) {
-    var out = [];
-    Object.keys(D[e] || {}).forEach(function (k) {
-      var f = (D[e][k].row || {}).fields || {};
-      var v = f[fld];
-      if (v && out.indexOf(v) < 0) out.push(v);
-    });
-    return out;
-  }
-  fill('todoProject', ent('todoItems', 'project'));
-  fill('todoSubmitter', ent('todoItems', 'submitter'));
-})();
+</script>
+<script>/* G35 筛选值域动态渲染（实体/字典取值·渲染失败保留静态兜底） */
+(function () {
+  var D = window.DEMO_DATA || {};
+  function fill(id, vals) {
+    if (!vals || !vals.length) return;
+    var s = document.getElementById(id);
+    if (s) s.innerHTML = '<option selected>全部</option>' + vals.map(function (o) { return '<option>' + o + '</option>'; }).join('');
+  }
+  function ent(e, fld) {
+    var out = [];
+    Object.keys(D[e] || {}).forEach(function (k) {
+      var f = (D[e][k].row || {}).fields || {};
+      var v = f[fld];
+      if (v && out.indexOf(v) < 0) out.push(v);
+    });
+    return out;
+  }
+  fill('todoProject', ent('todoItems', 'project'));
+  fill('todoSubmitter', ent('todoItems', 'submitter'));
+})();
 </script>
 
 <script>
@@ -823,6 +823,12 @@ document.querySelectorAll('.tab').forEach(function (t) {
 
 
 
+
+
+
+</div>
+</div>
+</div>
 <style id="proto-notes-style">
 body.proto-notes-on [data-note]{position:relative}
 body.proto-notes-on [data-note]::after{content:attr(data-note);position:absolute;top:1px;right:1px;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600;box-shadow:0 0 0 1.5px #fff;cursor:pointer;opacity:.75;transition:opacity .15s}
@@ -844,8 +850,8 @@ body.proto-notes-on .proto-pin.pn-open{display:block}
 body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 .pn-fab .pn-fab-n{font-family:Consolas,monospace;font-weight:600}
 </style>
-<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>S6 · 我的待办（审核聚合入口）</div><div class="pnp-d">S6 审核与待办支线：16 类单据统一进待办，搜索/类型速滤后「去审核」跳转列表页并自动弹出审核弹窗（?audit=1）。</div></div>
-<div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>待办总量口径</div><div class="pnp-d">覆盖 16 类单据 · 点击“去审核”直达审核弹窗</div></div>
+<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>S6 · 我的待办（审核聚合入口）</div><div class="pnp-d">S6 审核与待办支线：20 类单据统一进待办，搜索/类型速滤后「去审核」直达对应审核页（收款/退款登记为列表页 ?audit=1 自动弹审核弹窗）。</div></div>
+<div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>待办总量口径</div><div class="pnp-d">覆盖 20 类单据 · 点击“去审核”直达审核弹窗</div></div>
 <div class="proto-pin" id="proto-pin-3"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">3</span>待审核构成</div><div class="pnp-d">订单/出入库/租赁/盘点等</div></div>
 <div class="proto-pin" id="proto-pin-4"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">4</span>待验收含义</div><div class="pnp-d">采购入库到货验收</div></div>
 <div class="proto-pin" id="proto-pin-5"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">5</span>待确认含义</div><div class="pnp-d">付款 / 收款登记确认</div></div>
@@ -899,8 +905,5 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply);else apply();
 })();
 </script>
-</div>
-</div>
-</div>
 </body>
 </html>

@@ -7047,7 +7047,7 @@ window.DEMO_DATA = {
   /* 凭采购订单到货验收；验收通过生成采购应付 */
   purchaseInbounds: {
     'CGRK-20260828-012': {
-      'row': {"fields": {"supplier": "吴越联合五金制品有限公司", "project": "PRJ-2601", "status": "已入库", "inTime": "2026-08-28 14:32", "maker": "张帆", "area": "原料区 RA"}, "cells": ["吴越联合五金制品有限公司", "<span class=\"lk\">PO-20260828-015</span>", "PRJ-2601", "原料区 RA", "<span class=\"tag tag-green\">已入库</span>", "张帆", "2026-08-28 14:32"], "ops": [{"t": "详情", "act": "go('../采购管理/采购入库详情.html?id=CGRK-20260828-012')"}, {"t": "验收", "act": "go('../采购管理/采购入库审核.html?id=CGRK-20260828-012')"}, {"t": "打印", "act": "window.print();this.classList.toggle('printed')"}, {"t": "应付账单", "act": "go('../财务协同/应付账单.html')"}]},
+      'row': {"fields": {"supplier": "吴越联合五金制品有限公司", "project": "PRJ-2601", "status": "已入库", "inTime": "2026-08-28 14:32", "maker": "张帆", "area": "原料区 RA"}, "cells": ["吴越联合五金制品有限公司", "<span class=\"lk\">PO-20260828-015</span>", "PRJ-2601", "原料区 RA", "<span class=\"tag tag-green\">已入库</span>", "张帆", "2026-08-28 14:32"], "ops": [{"t": "详情", "act": "go('../采购管理/采购入库详情.html?id=CGRK-20260828-012')"}, {"t": "验收", "act": "go('../采购管理/采购入库审核.html?id=CGRK-20260828-012')"}, {"t": "应付账单", "act": "go('../财务协同/应付账单.html')"}]},
       'title': '采购入库单详情',
       'info': [
         {
@@ -7167,7 +7167,7 @@ window.DEMO_DATA = {
       ]
     },
     'CGRK-20260828-011': {
-      'row': {"fields": {"supplier": "甬城塑业包装制品有限公司", "project": "PRJ-2601", "status": "已入库", "inTime": "2026-08-28 10:05", "maker": "张帆", "area": "原料区 RA"}, "note": "2", "cells": ["甬城塑业包装制品有限公司", "<span class=\"lk\">PO-20260901-017</span>", "PRJ-2601", "原料区 RA", "<span class=\"tag tag-green\">已入库</span>", "张帆", "2026-08-28 10:05"], "ops": [{"t": "详情", "act": "go('../采购管理/采购入库详情.html?id=CGRK-20260828-011')"}, {"t": "验收", "act": "go('../采购管理/采购入库审核.html?id=CGRK-20260828-011')"}, {"t": "打印", "act": "window.print();this.classList.toggle('printed')"}, {"t": "应付账单", "act": "go('../财务协同/应付账单.html')"}]},
+      'row': {"fields": {"supplier": "甬城塑业包装制品有限公司", "project": "PRJ-2601", "status": "已入库", "inTime": "2026-08-28 10:05", "maker": "张帆", "area": "原料区 RA"}, "note": "2", "cells": ["甬城塑业包装制品有限公司", "<span class=\"lk\">PO-20260901-017</span>", "PRJ-2601", "原料区 RA", "<span class=\"tag tag-green\">已入库</span>", "张帆", "2026-08-28 10:05"], "ops": [{"t": "详情", "act": "go('../采购管理/采购入库详情.html?id=CGRK-20260828-011')"}, {"t": "验收", "act": "go('../采购管理/采购入库审核.html?id=CGRK-20260828-011')"}, {"t": "应付账单", "act": "go('../财务协同/应付账单.html')"}]},
       'title': '采购入库单详情',
       'info': [
         {
@@ -7279,7 +7279,7 @@ window.DEMO_DATA = {
       ]
     },
     'CGRK-20260827-010': {
-      'row': {"fields": {"supplier": "延陵塑料托盘厂", "project": "PRJ-2602", "status": "已入库", "inTime": "2026-08-27 16:44", "maker": "林国栋", "area": "成品区 RB"}, "cells": ["延陵塑料托盘厂", "<span class=\"lk\">PO-20260820-013</span>", "PRJ-2602", "成品区 RB", "<span class=\"tag tag-green\">已入库</span>", "林国栋", "2026-08-27 16:44"], "ops": [{"t": "详情", "act": "go('../采购管理/采购入库详情.html?id=CGRK-20260827-010')"}, {"t": "验收", "act": "go('../采购管理/采购入库审核.html?id=CGRK-20260827-010')"}, {"t": "打印", "act": "window.print();this.classList.toggle('printed')"}, {"t": "应付账单", "act": "go('../财务协同/应付账单.html')"}]},
+      'row': {"fields": {"supplier": "延陵塑料托盘厂", "project": "PRJ-2602", "status": "已入库", "inTime": "2026-08-27 16:44", "maker": "林国栋", "area": "成品区 RB"}, "cells": ["延陵塑料托盘厂", "<span class=\"lk\">PO-20260820-013</span>", "PRJ-2602", "成品区 RB", "<span class=\"tag tag-green\">已入库</span>", "林国栋", "2026-08-27 16:44"], "ops": [{"t": "详情", "act": "go('../采购管理/采购入库详情.html?id=CGRK-20260827-010')"}, {"t": "验收", "act": "go('../采购管理/采购入库审核.html?id=CGRK-20260827-010')"}, {"t": "应付账单", "act": "go('../财务协同/应付账单.html')"}]},
       'title': '采购入库单详情',
       'info': [
         {
@@ -7390,7 +7390,7 @@ window.DEMO_DATA = {
       ]
     },
     'CGRK-20260827-009': {
-      'row': {"fields": {"supplier": "吴越联合五金制品有限公司", "project": "PRJ-2602", "status": "待验收", "inTime": "2026-08-27 09:20", "maker": "林国栋", "area": "原料区 RA"}, "cells": ["吴越联合五金制品有限公司", "<span class=\"lk\">PO-20260902-018</span>", "PRJ-2602", "原料区 RA", "<span class=\"tag tag-orange\">待验收</span>", "林国栋", "2026-08-27 09:20"], "ops": [{"t": "详情", "act": "go('../采购管理/采购入库详情.html?id=CGRK-20260827-009')"}, {"t": "验收", "act": "go('../采购管理/采购入库审核.html?id=CGRK-20260827-009')"}, {"t": "打印", "act": "window.print();this.classList.toggle('printed')"}, {"t": "应付账单", "act": "go('../财务协同/应付账单.html')"}]},
+      'row': {"fields": {"supplier": "吴越联合五金制品有限公司", "project": "PRJ-2602", "status": "待验收", "inTime": "2026-08-27 09:20", "maker": "林国栋", "area": "原料区 RA"}, "cells": ["吴越联合五金制品有限公司", "<span class=\"lk\">PO-20260902-018</span>", "PRJ-2602", "原料区 RA", "<span class=\"tag tag-orange\">待验收</span>", "林国栋", "2026-08-27 09:20"], "ops": [{"t": "详情", "act": "go('../采购管理/采购入库详情.html?id=CGRK-20260827-009')"}, {"t": "验收", "act": "go('../采购管理/采购入库审核.html?id=CGRK-20260827-009')"}, {"t": "应付账单", "act": "go('../财务协同/应付账单.html')"}]},
       'title': '采购入库单详情',
       'info': [
         {
@@ -7489,7 +7489,7 @@ window.DEMO_DATA = {
       ]
     },
     'CGRK-20260826-008': {
-      'row': {"fields": {"supplier": "甬城塑业包装制品有限公司", "project": "PRJ-2603", "status": "已入库", "inTime": "2026-08-26 15:10", "maker": "张帆", "area": "原料区 RA"}, "cells": ["甬城塑业包装制品有限公司", "<span class=\"lk\">PO-20260825-014</span>", "PRJ-2603", "原料区 RA", "<span class=\"tag tag-green\">已入库</span>", "张帆", "2026-08-26 15:10"], "ops": [{"t": "详情", "act": "go('../采购管理/采购入库详情.html?id=CGRK-20260826-008')"}, {"t": "验收", "act": "go('../采购管理/采购入库审核.html?id=CGRK-20260826-008')"}, {"t": "打印", "act": "window.print();this.classList.toggle('printed')"}, {"t": "应付账单", "act": "go('../财务协同/应付账单.html')"}]},
+      'row': {"fields": {"supplier": "甬城塑业包装制品有限公司", "project": "PRJ-2603", "status": "已入库", "inTime": "2026-08-26 15:10", "maker": "张帆", "area": "原料区 RA"}, "cells": ["甬城塑业包装制品有限公司", "<span class=\"lk\">PO-20260825-014</span>", "PRJ-2603", "原料区 RA", "<span class=\"tag tag-green\">已入库</span>", "张帆", "2026-08-26 15:10"], "ops": [{"t": "详情", "act": "go('../采购管理/采购入库详情.html?id=CGRK-20260826-008')"}, {"t": "验收", "act": "go('../采购管理/采购入库审核.html?id=CGRK-20260826-008')"}, {"t": "应付账单", "act": "go('../财务协同/应付账单.html')"}]},
       'title': '采购入库单详情',
       'info': [
         {
@@ -7600,7 +7600,7 @@ window.DEMO_DATA = {
       ]
     },
     'CGRK-20260825-006': {
-      'row': {"fields": {"supplier": "延陵塑料托盘厂", "project": "PRJ-2603", "status": "已入库", "inTime": "2026-08-25 11:02", "maker": "张帆", "area": "成品区 RB"}, "cells": ["延陵塑料托盘厂", "<span class=\"lk\">PO-20260830-016</span>", "PRJ-2603", "成品区 RB", "<span class=\"tag tag-green\">已入库</span>", "张帆", "2026-08-25 11:02"], "ops": [{"t": "详情", "act": "go('../采购管理/采购入库详情.html?id=CGRK-20260825-006')"}, {"t": "验收", "act": "go('../采购管理/采购入库审核.html?id=CGRK-20260825-006')"}, {"t": "打印", "act": "window.print();this.classList.toggle('printed')"}, {"t": "应付账单", "act": "go('../财务协同/应付账单.html')"}]},
+      'row': {"fields": {"supplier": "延陵塑料托盘厂", "project": "PRJ-2603", "status": "已入库", "inTime": "2026-08-25 11:02", "maker": "张帆", "area": "成品区 RB"}, "cells": ["延陵塑料托盘厂", "<span class=\"lk\">PO-20260830-016</span>", "PRJ-2603", "成品区 RB", "<span class=\"tag tag-green\">已入库</span>", "张帆", "2026-08-25 11:02"], "ops": [{"t": "详情", "act": "go('../采购管理/采购入库详情.html?id=CGRK-20260825-006')"}, {"t": "验收", "act": "go('../采购管理/采购入库审核.html?id=CGRK-20260825-006')"}, {"t": "应付账单", "act": "go('../财务协同/应付账单.html')"}]},
       'title': '采购入库单详情',
       'info': [
         {
@@ -7712,7 +7712,7 @@ window.DEMO_DATA = {
       ]
     },
     'CGRK-20260824-005': {
-      'row': {"fields": {"supplier": "吴越联合五金制品有限公司", "project": "PRJ-2604", "status": "已入库", "inTime": "2026-08-24 14:18", "maker": "林国栋", "area": "原料区 RA"}, "note": "1", "cells": ["吴越联合五金制品有限公司", "<span class=\"lk\">PO-20260815-012</span>", "PRJ-2604", "原料区 RA", "<span class=\"tag tag-green\">已入库</span>", "林国栋", "2026-08-24 14:18"], "ops": [{"t": "详情", "act": "go('../采购管理/采购入库详情.html?id=CGRK-20260824-005')"}, {"t": "验收", "act": "go('../采购管理/采购入库审核.html?id=CGRK-20260824-005')"}, {"t": "打印", "act": "window.print();this.classList.toggle('printed')"}, {"t": "应付账单", "act": "go('../财务协同/应付账单.html')"}]},
+      'row': {"fields": {"supplier": "吴越联合五金制品有限公司", "project": "PRJ-2604", "status": "已入库", "inTime": "2026-08-24 14:18", "maker": "林国栋", "area": "原料区 RA"}, "note": "1", "cells": ["吴越联合五金制品有限公司", "<span class=\"lk\">PO-20260815-012</span>", "PRJ-2604", "原料区 RA", "<span class=\"tag tag-green\">已入库</span>", "林国栋", "2026-08-24 14:18"], "ops": [{"t": "详情", "act": "go('../采购管理/采购入库详情.html?id=CGRK-20260824-005')"}, {"t": "验收", "act": "go('../采购管理/采购入库审核.html?id=CGRK-20260824-005')"}, {"t": "应付账单", "act": "go('../财务协同/应付账单.html')"}]},
       'title': '采购入库单详情',
       'info': [
         {
@@ -7813,7 +7813,7 @@ window.DEMO_DATA = {
       ]
     },
     'CGRK-20260820-006': {
-      'row': {"fields": {"supplier": "吴越联合五金制品有限公司", "project": "PRJ-2604", "status": "已入库", "inTime": "2026-08-20 14:30", "maker": "张帆", "area": "原料区 RA"}, "note": "3", "cells": ["吴越联合五金制品有限公司", "<span class=\"lk\">PO-20260815-012</span>", "PRJ-2604", "原料区 RA", "<span class=\"tag tag-green\">已入库</span>", "张帆", "2026-08-20 14:30"], "ops": [{"t": "详情", "act": "go('../采购管理/采购入库详情.html?id=CGRK-20260820-006')"}, {"t": "验收", "act": "go('../采购管理/采购入库审核.html?id=CGRK-20260820-006')"}, {"t": "打印", "act": "window.print();this.classList.toggle('printed')"}]},
+      'row': {"fields": {"supplier": "吴越联合五金制品有限公司", "project": "PRJ-2604", "status": "已入库", "inTime": "2026-08-20 14:30", "maker": "张帆", "area": "原料区 RA"}, "note": "3", "cells": ["吴越联合五金制品有限公司", "<span class=\"lk\">PO-20260815-012</span>", "PRJ-2604", "原料区 RA", "<span class=\"tag tag-green\">已入库</span>", "张帆", "2026-08-20 14:30"], "ops": [{"t": "详情", "act": "go('../采购管理/采购入库详情.html?id=CGRK-20260820-006')"}, {"t": "验收", "act": "go('../采购管理/采购入库审核.html?id=CGRK-20260820-006')"}]},
       'title': '采购入库单详情',
       'info': [
         {
@@ -16537,6 +16537,7 @@ window.DEMO_DATA = {
     'DJ-17': { 'row': {"fields": {"category": "待办单据类型", "abbr": "DJ-17", "name": "采购退货单", "status": "启用"}, "cells": ["DJ-17", "采购退货单", "<span class=\"td-num\">17</span>", "采购退货单据（G33）", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
     'DJ-18': { 'row': {"fields": {"category": "待办单据类型", "abbr": "DJ-18", "name": "销售退货单", "status": "启用"}, "cells": ["DJ-18", "销售退货单", "<span class=\"td-num\">18</span>", "销售退货单据（G33）", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
     'DJ-19': { 'row': {"fields": {"category": "待办单据类型", "abbr": "DJ-19", "name": "退款登记", "status": "启用"}, "cells": ["DJ-19", "退款登记", "<span class=\"td-num\">19</span>", "退款单据（G33）", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
+    'DJ-20': { 'row': {"fields": {"category": "待办单据类型", "abbr": "DJ-20", "name": "转移出库", "status": "启用"}, "cells": ["DJ-20", "转移出库", "<span class=\"td-num\">20</span>", "转移单审核（09-16 拍板加审）", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
     'THC-01': { 'row': {"fields": {"category": "退货类型", "abbr": "收货拒收", "name": "收货拒收", "status": "启用"}, "cells": ["收货拒收", "收货拒收", "<span class=\"td-num\">1</span>", "未入库直接退·不产生库存流水（G33·方案 B）", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
     'THC-02': { 'row': {"fields": {"category": "退货类型", "abbr": "入库后退货", "name": "入库后退货", "status": "启用"}, "cells": ["入库后退货", "入库后退货", "<span class=\"td-num\">2</span>", "已入库再退·退货单自身为凭不改原单（D-109）", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
     'TKL-01': { 'row': {"fields": {"category": "退款类型", "abbr": "应付退款", "name": "应付退款", "status": "启用"}, "cells": ["应付退款", "应付退款", "<span class=\"td-num\">1</span>", "对供应商·源自采购退货·资金方向=收款", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
@@ -16583,6 +16584,7 @@ window.DEMO_DATA = {
     'CGTH-20260910-003': { 'row': {"fields": {"auditor": "徐文", "type": "采购退货单", "docNo": "CGTH-20260910-003", "summary": "延陵托盘 · 塑料托盘退货 40 张（入库后）", "project": "PRJ-2602", "submitter": "林国栋", "time": "09-10 11:05", "action": "待审核"}}, 'link': '采购管理/采购退货审核.html?id=CGTH-20260910-003' },
     'XSTH-20260911-003': { 'row': {"fields": {"auditor": "沈婷", "type": "销售退货单", "docNo": "XSTH-20260911-003", "summary": "东海商用宁波 · 内衬退货 300 件（拒收）", "project": "PRJ-2602", "submitter": "沈婷", "time": "09-11 14:30", "action": "待审核"}}, 'link': '销售管理/销售退货审核.html?id=XSTH-20260911-003' },
     'TKD-20260914-001': { 'row': {"fields": {"auditor": "严丽", "type": "退款登记", "docNo": "TKD-20260914-001", "summary": "甬城塑业 · 采购退货应付退款 2,000.00", "project": "PRJ-2601", "submitter": "李婧", "time": "09-14 10:15", "action": "待审核"}}, 'link': '财务协同/退款登记.html?audit=1' },
+    'ZY-20260915-005': { 'row': {"fields": {"auditor": "赵磊", "type": "转移出库", "docNo": "ZY-20260915-005", "summary": "安吉智行 · 围板箱转移博世苏州 200 只", "project": "PRJ-2605", "submitter": "沈婷", "time": "09-15 09:20", "action": "待审核"}}, 'link': '租赁管理/转移出库审核.html?id=ZY-20260915-005' },
   },
 
   /* --------------------------------------------------------------------------
@@ -16926,11 +16928,11 @@ window.DEMO_DATA = {
   },
   transferOutbounds: {
     'ZY-20260915-005': {
-      'row': {"fields": {"from": "安吉智行物流", "to": "博世汽车部件（苏州）", "material": "围板箱 1200×1000×970", "qty": "200 只", "settle": "按租出结算", "date": "2026-09-15", "project": "PRJ-2605", "status": "待转移"}, "cells": ["安吉智行物流", "博世汽车部件（苏州）", "围板箱 1200×1000×970", "<span class=\"td-num\">200 只</span>", "按租出结算", "2026-09-15", "<span class=\"tag tag-orange\">待转移</span>"], "ops": [{"t": "确认转移", "act": "zyConfirm(this)"}, {"t": "详情", "act": "go('../租赁管理/转移出库单详情.html?id=ZY-20260915-005')"}]},
+      'row': {"fields": {"from": "安吉智行物流", "to": "博世汽车部件（苏州）", "material": "围板箱 1200×1000×970", "qty": "200 只", "settle": "按租出结算", "date": "2026-09-15", "project": "PRJ-2605", "status": "待审核"}, "cells": ["安吉智行物流", "博世汽车部件（苏州）", "围板箱 1200×1000×970", "<span class=\"td-num\">200 只</span>", "按租出结算", "2026-09-15", "<span class=\"tag tag-orange\">待审核</span>"], "ops": [{"t": "审核", "act": "go('../租赁管理/转移出库审核.html?id=ZY-20260915-005')"}, {"t": "详情", "act": "go('../租赁管理/转移出库单详情.html?id=ZY-20260915-005')"}]},
       title: '转移出库单详情',
       info: [
         { label: '转移单号', text: 'ZY-20260915-005', full: true },
-        { label: '状态', tag: '待转移' },
+        { label: '状态', tag: '待审核' },
         { label: '结算方式', text: '按租出结算（默认取项目档案，可按单覆盖）' },
         { label: '财务口径', text: '不生成应收账单——租金仍向直接客户（安吉智行物流）计收，转移单不进财务链路' },
         { label: '转移日期', text: '2026-09-15' },
@@ -16944,11 +16946,11 @@ window.DEMO_DATA = {
       chain: [
         { role: '直接客户', name: '安吉智行物流（在租 640 只）' },
         { role: '转移出库单（本单）', name: 'ZY-20260915-005', self: true },
-        { role: '终端客户', name: '博世汽车部件（苏州）·待转移生效' }
+        { role: '终端客户', name: '博世汽车部件（苏州）·待审核生效' }
       ],
       timeline: [
         { t: '09-15 09:20', text: '转移出库登记 · 提交', who: '沈婷' },
-        { t: '—', text: '待确认转移 · 生效后库存状态转「客户转租出」', off: true }
+        { t: '—', text: '待审核 · 审核通过后转移生效，库存状态转「客户转租出」', off: true }
       ]
     },
     'ZY-20260914-003': {
@@ -16975,11 +16977,11 @@ window.DEMO_DATA = {
       ],
       timeline: [
         { t: '09-14 10:40', text: '转移出库登记 · 提交', who: '沈婷' },
-        { t: '09-14 15:30', text: '确认转移 · 库存状态转「客户转租出」', who: '物流·赵磊' }
+        { t: '09-14 15:30', text: '审核通过 · 转移生效 · 库存状态转「客户转租出」', who: '物流·赵磊' }
       ]
     },
     'ZY-20260914-002': {
-      'row': {"fields": {"from": "长丰锂电科技", "to": "星辉动力电池有限公司", "material": "塑料托盘 1200×1000", "qty": "80 张", "settle": "按终端结算", "date": "2026-09-14", "project": "PRJ-2603", "status": "已转移"}, "cells": ["长丰锂电科技", "星辉动力电池有限公司", "塑料托盘 1200×1000", "<span class=\"td-num\">80 张</span>", "按终端结算", "2026-09-14", "<span class=\"tag tag-green\">已转移</span>"], "ops": [{"t": "详情", "act": "go('../租赁管理/转移出库单详情.html?id=ZY-20260914-002')"}, {"t": "终止转移", "act": "zyStop(this)"}]},
+      'row': {"fields": {"from": "长丰锂电科技", "to": "星辉动力电池有限公司", "material": "塑料托盘 1200×1000", "qty": "80 张", "settle": "按终端结算", "date": "2026-09-14", "project": "PRJ-2603", "status": "已转移"}, "note": "1", "cells": ["长丰锂电科技", "星辉动力电池有限公司", "塑料托盘 1200×1000", "<span class=\"td-num\">80 张</span>", "按终端结算", "2026-09-14", "<span class=\"tag tag-green\">已转移</span>"], "ops": [{"t": "详情", "act": "go('../租赁管理/转移出库单详情.html?id=ZY-20260914-002')"}, {"t": "终止转移", "act": "zyStop(this)"}]},
       title: '转移出库单详情',
       info: [
         { label: '转移单号', text: 'ZY-20260914-002', full: true },
@@ -17002,7 +17004,7 @@ window.DEMO_DATA = {
       ],
       timeline: [
         { t: '09-14 08:55', text: '转移出库登记 · 结算方式按终端（覆盖项目默认）', who: '江强' },
-        { t: '09-14 14:10', text: '确认转移 · 库存状态转「客户转租出」· 后续账单主体切终端', who: '物流·赵磊' }
+        { t: '09-14 14:10', text: '审核通过 · 转移生效 · 库存状态转「客户转租出」· 后续账单主体切终端', who: '物流·赵磊' }
       ]
     },
     'ZY-20260914-001': {
@@ -17029,7 +17031,7 @@ window.DEMO_DATA = {
       ],
       timeline: [
         { t: '09-14 08:30', text: '转移出库登记 · 提交（库存查询「客户在租」行入口带出）', who: '沈婷' },
-        { t: '09-14 11:20', text: '确认转移 · 库存状态转「客户转租出」', who: '物流·赵磊' }
+        { t: '09-14 11:20', text: '审核通过 · 转移生效 · 库存状态转「客户转租出」', who: '物流·赵磊' }
       ]
     },
     'ZY-20260912-004': {
@@ -17057,7 +17059,7 @@ window.DEMO_DATA = {
       ],
       timeline: [
         { t: '09-12 14:00', text: '转移出库登记 · 提交', who: '沈婷' },
-        { t: '09-12 17:45', text: '确认转移 · 库存状态转「客户转租出」', who: '物流·赵磊' },
+        { t: '09-12 17:45', text: '审核通过 · 转移生效 · 库存状态转「客户转租出」', who: '物流·赵磊' },
         { t: '09-13 09:30', text: '终止转移 · 库存状态回「在客户（租出）」', who: '物流·赵磊' }
       ]
     },
