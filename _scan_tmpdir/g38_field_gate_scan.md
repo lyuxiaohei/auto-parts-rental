@@ -1,0 +1,200 @@
+# G38 field_gate 全站扫描报告（first）
+
+- 扫描范围：132 HTML 页 · 67 张带表头表（数据驱动 36 / 静态 31）· demo-data 实体 42 · A05 实体节 48
+- 汇总：**检1 列数配平 5 ｜ 检2 悬空表头 0 ｜ 检3 同义异名 158 ｜ 检4 未登记字段 17**（运行时整写豁免 0 表）
+
+## 检1 · 列数配平 —— 5 项
+
+- `租赁管理/租赁出库录单.html` 静态表 #0：表头 12 列 ≠ 行格数 8（行首格「1」）
+- `租赁管理/租赁出库录单.html` 静态表 #0：表头 12 列 ≠ 行格数 8（行首格「2」）
+- `采购管理/采购入库录单.html` 静态表 #0：表头 14 列 ≠ 行格数 10（行首格「1」）
+- `采购管理/采购入库录单.html` 静态表 #0：表头 14 列 ≠ 行格数 10（行首格「2」）
+- `采购管理/采购入库录单.html` 静态表 #0：表头 14 列 ≠ 行格数 10（行首格「3」）
+
+## 检2 · 悬空表头 —— 0 项
+
+（无）
+
+## 检3 · 同义异名（禁用写法＋时间粒度） —— 158 项
+
+- `基础数据/BOM.html` 时间粒度错配：标签「更新时间」（时间）但值为纯日期 2026-08-20
+- `基础数据/产品档案.html` 时间粒度错配：标签「更新时间」（时间）但值为纯日期 2026-01-06
+- `基础数据/产品档案.html` 时间粒度错配：标签「建档时间」（时间）但值为纯日期 2026-01-06
+- `基础数据/客商管理.html` 时间粒度错配：标签「更新时间」（时间）但值为纯日期 2026-08-12
+- `基础数据/客商管理.html` 时间粒度错配：标签「创建时间」（时间）但值为纯日期 2026-08-12
+- `租入管理/租入入库列表.html` th「入库库区」命中禁用写法：库区
+- `租入管理/租入入库列表.html` 筛选标签「入库库区：」命中禁用写法：库区
+- `租入管理/租入入库列表.html` 时间粒度错配：标签「入库时间」（时间）但值为纯日期 2026-08-16
+- `租入管理/租入入库列表.html` cfg 标签「入库库区」命中禁用写法：库区
+- `租入管理/租入归还列表.html` 时间粒度错配：标签「归还时间」（时间）但值为纯日期 2026-09-03
+- `租入管理/租入归还新建.html` th「货品」命中禁用写法：货品
+- `租赁管理/租赁单列表.html` th「货品」命中禁用写法：货品
+- `财务协同/付款新建.html` th「金额(元)」命中禁用写法：裸「金额(元)」
+- `财务协同/应付新建.html` th「金额(元)」命中禁用写法：裸「金额(元)」
+- `财务协同/应付账单.html` th「金额(元)」命中禁用写法：裸「金额(元)」
+- `财务协同/应收生成.html` th「金额(元)」命中禁用写法：裸「金额(元)」
+- `采购管理/采购入库列表.html` th「到货托数」命中禁用写法：托数
+- `采购管理/采购入库列表.html` th「入库库区」命中禁用写法：库区
+- `采购管理/采购入库列表.html` 筛选标签「入库库区：」命中禁用写法：库区
+- `采购管理/采购入库列表.html` cfg 标签「入库库区」命中禁用写法：库区
+- `采购管理/采购入库录单.html` th「零件号 / 物料编码」命中禁用写法：零件号
+- `采购管理/采购入库录单.html` th「托数 *」命中禁用写法：托数
+- `采购管理/采购入库录单.html` th「每托数量 *」命中禁用写法：托数
+- `采购管理/采购入库录单.html` th「每托数量 *」命中禁用写法：每托数量
+- `采购管理/采购入库录单.html` th「入库总数」命中禁用写法：入库总数
+- `采购管理/采购订单列表.html` th「金额(元)」命中禁用写法：裸「金额(元)」
+- `采购管理/采购退货单列表.html` th「金额(元)」命中禁用写法：裸「金额(元)」
+- `采购管理/采购退货新建.html` th「单价(元)」命中禁用写法：裸「单价(元)」
+- `采购管理/采购退货新建.html` th「金额(元)」命中禁用写法：裸「金额(元)」
+- `销售管理/销售订单列表.html` th「金额(元)」命中禁用写法：裸「金额(元)」
+- `销售管理/销售退货单列表.html` th「金额(元)」命中禁用写法：裸「金额(元)」
+- `销售管理/销售退货新建.html` th「单价(元)」命中禁用写法：裸「单价(元)」
+- `销售管理/销售退货新建.html` th「金额(元)」命中禁用写法：裸「金额(元)」
+- `项目管理/项目档案.html` 时间粒度错配：标签「立项时间」（时间）但值为纯日期 2026-01-01
+- `demo-data:invoices` feeCols「金额(元)」命中禁用写法：裸「金额(元)」（INV-20260902-013）
+- `demo-data:invoices` feeCols「金额(元)」命中禁用写法：裸「金额(元)」（INV-20260830-012）
+- `demo-data:invoices` feeCols「金额(元)」命中禁用写法：裸「金额(元)」（INV-20260826-011）
+- `demo-data:invoices` feeCols「金额(元)」命中禁用写法：裸「金额(元)」（INV-20260820-010）
+- `demo-data:invoices` feeCols「金额(元)」命中禁用写法：裸「金额(元)」（INV-20260815-009）
+- `demo-data:invoices` feeCols「金额(元)」命中禁用写法：裸「金额(元)」（INV-20260802-008）
+- `demo-data:comboOutbounds` info 标签「出库库区」命中禁用写法：库区（CK-20260910-022）
+- `demo-data:comboOutbounds` info 标签「出库库区」命中禁用写法：库区（CK-20260903-016）
+- `demo-data:comboOutbounds` info 标签「出库库区」命中禁用写法：库区（CK-20260830-015）
+- `demo-data:comboOutbounds` info 标签「出库库区」命中禁用写法：库区（CK-20260830-014）
+- `demo-data:comboOutbounds` info 标签「出库库区」命中禁用写法：库区（CK-20260829-013）
+- `demo-data:comboOutbounds` info 标签「出库库区」命中禁用写法：库区（CK-20260829-012）
+- `demo-data:comboOutbounds` info 标签「出库库区」命中禁用写法：库区（CK-20260828-011）
+- `demo-data:comboOutbounds` info 标签「出库库区」命中禁用写法：库区（CK-20260824-009）
+- `demo-data:comboOutbounds` info 标签「出库库区」命中禁用写法：库区（CK-20260828-010）
+- `demo-data:returnInbounds` info 标签「入库库区」命中禁用写法：库区（TZRK-20260902-010）
+- `demo-data:returnInbounds` 时间粒度错配：标签「入库时间」（时间）但值为纯日期 2026-09-02
+- `demo-data:returnInbounds` info 标签「入库库区」命中禁用写法：库区（TZRK-20260903-009）
+- `demo-data:returnInbounds` 时间粒度错配：标签「入库时间」（时间）但值为纯日期 2026-09-03
+- `demo-data:returnInbounds` info 标签「入库库区」命中禁用写法：库区（TZRK-20260902-008）
+- `demo-data:returnInbounds` info 标签「入库库区」命中禁用写法：库区（TZRK-20260901-007）
+- `demo-data:returnInbounds` 时间粒度错配：标签「入库时间」（时间）但值为纯日期 2026-09-01
+- `demo-data:returnInbounds` info 标签「入库库区」命中禁用写法：库区（TZRK-20260831-006）
+- `demo-data:returnInbounds` 时间粒度错配：标签「入库时间」（时间）但值为纯日期 2026-08-31
+- `demo-data:returnInbounds` info 标签「入库库区」命中禁用写法：库区（TZRK-20260828-005）
+- `demo-data:returnInbounds` 时间粒度错配：标签「入库时间」（时间）但值为纯日期 2026-08-28
+- `demo-data:returnInbounds` info 标签「入库库区」命中禁用写法：库区（TZRK-20260825-004）
+- `demo-data:returnInbounds` 时间粒度错配：标签「入库时间」（时间）但值为纯日期 2026-08-25
+- `demo-data:returnInbounds` info 标签「入库库区」命中禁用写法：库区（TZRK-20260820-003）
+- `demo-data:returnInbounds` 时间粒度错配：标签「入库时间」（时间）但值为纯日期 2026-08-20
+- `demo-data:rentInbounds` info 标签「入库库区」命中禁用写法：库区（RZRK-20260816-021）
+- `demo-data:rentInbounds` info 标签「入库库区」命中禁用写法：库区（RZRK-20260816-022）
+- `demo-data:rentInbounds` info 标签「入库库区」命中禁用写法：库区（RZRK-20260903-023）
+- `demo-data:purchaseOrders` feeCols「零件号」命中禁用写法：零件号（PO-20260902-018）
+- `demo-data:purchaseOrders` feeCols「零件号」命中禁用写法：零件号（PO-20260901-017）
+- `demo-data:purchaseOrders` feeCols「零件号」命中禁用写法：零件号（PO-20260830-016）
+- `demo-data:purchaseOrders` feeCols「零件号」命中禁用写法：零件号（PO-20260828-015）
+- `demo-data:purchaseOrders` feeCols「零件号」命中禁用写法：零件号（PO-20260825-014）
+- `demo-data:purchaseOrders` feeCols「零件号」命中禁用写法：零件号（PO-20260820-013）
+- `demo-data:purchaseOrders` feeCols「零件号」命中禁用写法：零件号（PO-20260815-012）
+- `demo-data:purchaseInbounds` feeCols「零件号」命中禁用写法：零件号（CGRK-20260828-012）
+- `demo-data:purchaseInbounds` feeCols「托数 × 件数」命中禁用写法：托数（CGRK-20260828-012）
+- `demo-data:purchaseInbounds` info 标签「入库库区」命中禁用写法：库区（CGRK-20260828-012）
+- `demo-data:purchaseInbounds` feeCols「零件号」命中禁用写法：零件号（CGRK-20260828-011）
+- `demo-data:purchaseInbounds` feeCols「托数 × 件数」命中禁用写法：托数（CGRK-20260828-011）
+- `demo-data:purchaseInbounds` info 标签「入库库区」命中禁用写法：库区（CGRK-20260828-011）
+- `demo-data:purchaseInbounds` feeCols「零件号」命中禁用写法：零件号（CGRK-20260827-010）
+- `demo-data:purchaseInbounds` feeCols「托数 × 件数」命中禁用写法：托数（CGRK-20260827-010）
+- `demo-data:purchaseInbounds` info 标签「入库库区」命中禁用写法：库区（CGRK-20260827-010）
+- `demo-data:purchaseInbounds` feeCols「零件号」命中禁用写法：零件号（CGRK-20260827-009）
+- `demo-data:purchaseInbounds` feeCols「托数 × 件数」命中禁用写法：托数（CGRK-20260827-009）
+- `demo-data:purchaseInbounds` info 标签「入库库区」命中禁用写法：库区（CGRK-20260827-009）
+- `demo-data:purchaseInbounds` feeCols「零件号」命中禁用写法：零件号（CGRK-20260826-008）
+- `demo-data:purchaseInbounds` feeCols「托数 × 件数」命中禁用写法：托数（CGRK-20260826-008）
+- `demo-data:purchaseInbounds` info 标签「入库库区」命中禁用写法：库区（CGRK-20260826-008）
+- `demo-data:purchaseInbounds` feeCols「零件号」命中禁用写法：零件号（CGRK-20260825-006）
+- `demo-data:purchaseInbounds` feeCols「托数 × 件数」命中禁用写法：托数（CGRK-20260825-006）
+- `demo-data:purchaseInbounds` info 标签「入库库区」命中禁用写法：库区（CGRK-20260825-006）
+- `demo-data:purchaseInbounds` feeCols「零件号」命中禁用写法：零件号（CGRK-20260824-005）
+- `demo-data:purchaseInbounds` feeCols「托数 × 件数」命中禁用写法：托数（CGRK-20260824-005）
+- `demo-data:purchaseInbounds` info 标签「入库库区」命中禁用写法：库区（CGRK-20260824-005）
+- `demo-data:purchaseInbounds` feeCols「零件号」命中禁用写法：零件号（CGRK-20260820-006）
+- `demo-data:purchaseInbounds` feeCols「托数 × 件数」命中禁用写法：托数（CGRK-20260820-006）
+- `demo-data:purchaseInbounds` info 标签「入库库区」命中禁用写法：库区（CGRK-20260820-006）
+- `demo-data:salesOutbounds` info 标签「出库库区」命中禁用写法：库区（XSCK-20260902-015）
+- `demo-data:salesOutbounds` info 标签「出库库区」命中禁用写法：库区（XSCK-20260901-014）
+- `demo-data:salesOutbounds` 时间粒度错配：标签「制单时间」（时间）但值为纯日期 2026-09-01
+- `demo-data:salesOutbounds` info 标签「出库库区」命中禁用写法：库区（XSCK-20260829-013）
+- `demo-data:salesOutbounds` 时间粒度错配：标签「制单时间」（时间）但值为纯日期 2026-08-29
+- `demo-data:salesOutbounds` info 标签「出库库区」命中禁用写法：库区（XSCK-20260826-012）
+- `demo-data:salesOutbounds` 时间粒度错配：标签「制单时间」（时间）但值为纯日期 2026-08-26
+- `demo-data:salesOutbounds` info 标签「出库库区」命中禁用写法：库区（XSCK-20260822-011）
+- `demo-data:salesOutbounds` 时间粒度错配：标签「制单时间」（时间）但值为纯日期 2026-08-22
+- `demo-data:salesOutbounds` info 标签「出库库区」命中禁用写法：库区（XSCK-20260818-010）
+- `demo-data:salesOutbounds` 时间粒度错配：标签「制单时间」（时间）但值为纯日期 2026-08-18
+- `demo-data:otherInbounds` info 标签「入库库区」命中禁用写法：库区（QTRK-20260901-003）
+- `demo-data:otherInbounds` info 标签「入库库区」命中禁用写法：库区（QTRK-20260828-002）
+- `demo-data:otherInbounds` info 标签「入库库区」命中禁用写法：库区（QTRK-20260820-001）
+- `demo-data:otherOutbounds` info 标签「出库库区」命中禁用写法：库区（QTCK-20260905-005）
+- `demo-data:otherOutbounds` info 标签「出库库区」命中禁用写法：库区（QTCK-20260901-004）
+- `demo-data:otherOutbounds` info 标签「出库库区」命中禁用写法：库区（QTCK-20260829-003）
+- `demo-data:otherOutbounds` info 标签「出库库区」命中禁用写法：库区（QTCK-20260825-002）
+- `demo-data:otherOutbounds` info 标签「出库库区」命中禁用写法：库区（QTCK-20260815-001）
+- `demo-data:transfers` info 标签「调出库区」命中禁用写法：库区（DB-20260901-003）
+- `demo-data:transfers` info 标签「调入库区」命中禁用写法：库区（DB-20260901-003）
+- `demo-data:transfers` info 标签「调出库区」命中禁用写法：库区（DB-20260826-002）
+- `demo-data:transfers` info 标签「调入库区」命中禁用写法：库区（DB-20260826-002）
+- `demo-data:transfers` info 标签「调出库区」命中禁用写法：库区（DB-20260812-001）
+- `demo-data:transfers` info 标签「调入库区」命中禁用写法：库区（DB-20260812-001）
+- `demo-data:stockFlows` info 标签「库区」命中禁用写法：库区（XNC-AJZX-WBX）
+- `demo-data:stockFlows` info 标签「库区」命中禁用写法：库区（LJ-A100）
+- `demo-data:stockFlows` info 标签「库区」命中禁用写法：库区（LJ-B200）
+- `demo-data:stockFlows` info 标签「库区」命中禁用写法：库区（LJ-C300）
+- `demo-data:stockFlows` info 标签「库区」命中禁用写法：库区（LJ-D400）
+- `demo-data:stockFlows` info 标签「库区」命中禁用写法：库区（LJ-F600）
+- `demo-data:stockFlows` info 标签「库区」命中禁用写法：库区（WBX-1210L）
+- `demo-data:stockFlows` info 标签「库区」命中禁用写法：库区（WBX-1210M）
+- `demo-data:stockFlows` info 标签「库区」命中禁用写法：库区（PLT-1210P）
+- `demo-data:stockFlows` info 标签「库区」命中禁用写法：库区（BTC-6040）
+- `demo-data:stockFlows` info 标签「库区」命中禁用写法：库区（ZH-2601-A）
+- `demo-data:stockFlows` info 标签「库区」命中禁用写法：库区（ZH-2602-B）
+- `demo-data:stockFlows` info 标签「库区」命中禁用写法：库区（ZH-2603-C）
+- `demo-data:stockFlows` info 标签「库区」命中禁用写法：库区（XNC-ZZ-WBX）
+- `demo-data:stockFlows` info 标签「库区」命中禁用写法：库区（XNC-ZZ-BTC）
+- `demo-data:stockFlows` info 标签「库区」命中禁用写法：库区（RZRK-20260910-024）
+- `demo-data:partners` 时间粒度错配：标签「更新时间」（时间）但值为纯日期 2026-08-12
+- `demo-data:partners` 时间粒度错配：标签「更新时间」（时间）但值为纯日期 2026-08-05
+- `demo-data:partners` 时间粒度错配：标签「更新时间」（时间）但值为纯日期 2026-07-28
+- `demo-data:partners` 时间粒度错配：标签「更新时间」（时间）但值为纯日期 2026-06-30
+- `demo-data:partners` 时间粒度错配：标签「更新时间」（时间）但值为纯日期 2026-08-18
+- `demo-data:partners` 时间粒度错配：标签「更新时间」（时间）但值为纯日期 2026-07-15
+- `demo-data:partners` 时间粒度错配：标签「更新时间」（时间）但值为纯日期 2026-08-30
+- `demo-data:purchaseReturns` feeCols「单价(元)」命中禁用写法：裸「单价(元)」（CGTH-20260914-001）
+- `demo-data:purchaseReturns` feeCols「金额(元)」命中禁用写法：裸「金额(元)」（CGTH-20260914-001）
+- `demo-data:purchaseReturns` feeCols「单价(元)」命中禁用写法：裸「单价(元)」（CGTH-20260912-002）
+- `demo-data:purchaseReturns` feeCols「金额(元)」命中禁用写法：裸「金额(元)」（CGTH-20260912-002）
+- `demo-data:purchaseReturns` feeCols「单价(元)」命中禁用写法：裸「单价(元)」（CGTH-20260910-003）
+- `demo-data:purchaseReturns` feeCols「金额(元)」命中禁用写法：裸「金额(元)」（CGTH-20260910-003）
+- `demo-data:salesReturns` feeCols「单价(元)」命中禁用写法：裸「单价(元)」（XSTH-20260913-001）
+- `demo-data:salesReturns` feeCols「金额(元)」命中禁用写法：裸「金额(元)」（XSTH-20260913-001）
+- `demo-data:salesReturns` feeCols「单价(元)」命中禁用写法：裸「单价(元)」（XSTH-20260912-002）
+- `demo-data:salesReturns` feeCols「金额(元)」命中禁用写法：裸「金额(元)」（XSTH-20260912-002）
+- `demo-data:salesReturns` feeCols「单价(元)」命中禁用写法：裸「单价(元)」（XSTH-20260911-003）
+- `demo-data:salesReturns` feeCols「金额(元)」命中禁用写法：裸「金额(元)」（XSTH-20260911-003）
+
+## 检4 · 未登记字段 —— 17 项
+
+- `demo-data:opLogs` 字段 `result` 未登记 A05
+- `demo-data:products` 字段 `innerCode` 未登记 A05
+- `demo-data:products` 字段 `model` 未登记 A05
+- `demo-data:products` 字段 `rentInMode` 未登记 A05
+- `demo-data:products` 字段 `rentInPrice` 未登记 A05
+- `demo-data:products` 字段 `rentalMode` 未登记 A05
+- `demo-data:products` 字段 `rentalPrice` 未登记 A05
+- `demo-data:projects` 字段 `settle` 未登记 A05
+- `demo-data:purchaseInbounds` 字段 `area` 未登记 A05
+- `demo-data:purchaseInbounds` 字段 `maker` 未登记 A05
+- `demo-data:salesReturns` 字段 `amount` 未登记 A05
+- `demo-data:salesReturns` 字段 `date` 未登记 A05
+- `demo-data:salesReturns` 字段 `material` 未登记 A05
+- `demo-data:salesReturns` 字段 `qty` 未登记 A05
+- `demo-data:salesReturns` 字段 `status` 未登记 A05
+- `demo-data:stockFlows` 字段 `loc` 未登记 A05
+- `demo-data:stockFlows` 字段 `qtyByProject` 未登记 A05
+
+## 运行时整写豁免（源码卫生·非缺陷） —— 0 表
+

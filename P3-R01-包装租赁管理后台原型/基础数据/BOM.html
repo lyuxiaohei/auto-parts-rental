@@ -355,7 +355,7 @@ th.td-num { text-align:right; }
       <select><option selected>全部</option><option>待审核</option><option>已审核</option><option>已完成</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
-    <div class="ff ff-row-extra"><span class="ff-label">更新时间：</span><input placeholder="开始时间"><span class="ff-sep">→</span><input placeholder="结束时间"></div>
+    <div class="ff ff-row-extra"><span class="ff-label">更新日期：</span><input placeholder="开始时间"><span class="ff-sep">→</span><input placeholder="结束时间"></div>
     <div class="ff ff-row-extra"><span class="ff-label">更新人：</span><select id="g35UpdaterSel"><option selected>全部</option></select><svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
     <div class="filter-actions">
       <button class="link-collapse" onclick="var f=document.getElementById('filterCard');f.classList.toggle('collapsed');this.querySelector('span').textContent=f.classList.contains('collapsed')?'展开':'收起'"><span>展开</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
@@ -380,7 +380,7 @@ th.td-num { text-align:right; }
           <th>子项数</th>
           <th>组合配比摘要</th>
           <th>更新人</th>
-          <th>更新时间</th>
+          <th>更新日期</th>
           <th class="sticky-op">操作</th>
         </tr>
       </thead>
@@ -508,7 +508,7 @@ renderListPage({
     { label: '父项名称', field: 'name' },
     { label: '版本', field: 'ver' },
     { label: '状态', field: 'status' },
-    { label: '更新时间', field: 'update', range: true },
+    { label: '更新日期', field: 'update', range: true },
     { label: '更新人', field: 'updater' }
   ]
 });

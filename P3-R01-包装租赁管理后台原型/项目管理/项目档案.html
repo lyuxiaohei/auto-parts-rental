@@ -362,7 +362,7 @@ th.td-num { text-align:right; }
       <select><option selected>全部</option><option>待审核</option><option>已审核</option><option>已完成</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
-    <div class="ff ff-row-extra"><span class="ff-label">立项时间：</span><input placeholder="开始时间"><span class="ff-sep">→</span><input placeholder="结束时间"></div>
+    <div class="ff ff-row-extra"><span class="ff-label">立项日期：</span><input placeholder="开始时间"><span class="ff-sep">→</span><input placeholder="结束时间"></div>
     <div class="ff ff-row-extra"><span class="ff-label">项目负责人：</span>
       <select><option selected>全部</option><option>江强</option><option>陈锋</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
@@ -517,7 +517,7 @@ renderListPage({
     { label: '客户名称', field: 'customer' },
     { label: '供应商', field: 'suppliers', match: 'contains' },
     { label: '项目状态', field: 'status' },
-    { label: '立项时间', field: 'start', range: true },
+    { label: '立项日期', field: 'start', range: true },
     { label: '项目负责人', field: 'owner' }
   ]
 });

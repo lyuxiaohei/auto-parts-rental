@@ -1,0 +1,112 @@
+products|`title`|标题〔待核〕|物料详情
+products|`feeSecTitle`|费用区标题〔待核〕|在租状态（库存状态口径） / 库存与用途
+partners|`title`|标题〔待核〕|客商详情
+partners|`feeSecTitle`|费用区标题〔待核〕|联系人 / 往来统计
+locations|`title`|标题〔待核〕|库位详情
+locations|`feeSecTitle`|费用区标题〔待核〕|存放物料
+bomVersions|`title`|标题〔待核〕|BOM 版本查看
+bomVersions|`titleNo`|单据编号〔待核〕|ZH-2601-A V2.1 / ZH-2601-A V2.0 / ZH-2601-A V1
+bomVersions|`feeSecTitle`|费用区标题〔待核〕|配方行（V2.1） / 配方行（V2.0） / 配方行（V1.0）
+bomList|`mix`|混拆〔待核〕|围板箱×1（租入）+ 围板×4（自购）+ 箱盖×1（自购）+ 锁扣×4（自购）+ 铰链×2（
+bomList|`updater`|更新人〔待核〕|陈锋 / 沈婷
+dictItems|`category`|字典大类〔待核〕|缺损类型 / 计费方式 / 单据状态 / 计量单位 / 项目状态 …
+dictItems|`abbr`|简码〔待核〕|PS / QS / BX / WS / LH …
+dictItems|`name`|名称〔待核〕|破损 / 缺失 / 变形 / 污损 / 老化 …
+dictItems|`status`|状态〔待核〕|启用 / 停用
+projects|`end`|结束日期〔待核〕|2027-12-31 等
+projectDocs|`type`|类型〔待核〕|租赁出库单 / 退租入库单 / 采购入库单 / 销售订单 / 应收账单
+projectDocs|`summary`|摘要〔待核〕|ZH-2601-A 驾驶室围板箱整箱套件 / ZH-2602-B 保险杠料架套件 / 华骏重
+projectDocs|`qty`|数量〔待核〕|180 套 / 120 套 / 90 套 / 86 只 / 54 套 / 200 只 / 8
+projectDocs|`status`|状态〔待核〕|已出库 / 已入库 / 已审核 / 部分收款 / 已收款
+projectDocs|`date`|日期〔待核〕|2026-08-28 等
+projectDocs|`ref`|关联单据〔待核〕|SO-20260827-0036 / SO-20260820-0033 / SO-20260
+boardRows|`name`|名称〔待核〕|华骏重卡·长春基地 驾驶室围板箱租赁 / 华骏重卡·青岛基地 保险杠料架租赁 / 长丰锂电·
+boardRows|`customer`|客户〔待核〕|华骏重卡汽车有限公司 / 华骏重卡汽车有限公司（青岛） / 长丰锂电科技 / 南方汽造 / 
+boardRows|`status`|状态〔待核〕|进行中 / 已暂停 / 筹备中 / 已完结
+purchaseOrders|`summary`|摘要〔待核〕|锁扣组件×5,000 / 铰链×2,000 / 围板箱 1200×1000×970×300 
+purchaseOrders|`title`|标题〔待核〕|采购订单详情
+purchaseOrders|`feeSecTitle`|费用区标题〔待核〕|物料行
+purchaseInbounds|`title`|标题〔待核〕|采购入库单详情
+purchaseInbounds|`feeSecTitle`|费用区标题〔待核〕|到货明细
+salesOrders|`summary`|摘要〔待核〕|冲压件隔板×2,400（先采后销 · 采购在途） / 锁扣组件×3,000 / 铰链×1,2
+salesOrders|`po`|采购订单号〔待核〕|—
+salesOrders|`title`|标题〔待核〕|销售订单详情
+salesOrders|`feeSecTitle`|费用区标题〔待核〕|物料行
+salesOutbounds|`summary`|摘要〔待核〕|箱盖 ABS 吸塑×1,500 / 锁扣组件×800 / 箱盖 ABS 吸塑×2,000 /
+salesOutbounds|`title`|标题〔待核〕|销售出库单详情
+salesOutbounds|`feeSecTitle`|费用区标题〔待核〕|出库明细
+leaseOrders|`billing`|计费方式〔待核〕|按月定期 / 按次套数
+leaseOrders|`title`|标题〔待核〕|租赁单详情
+leaseOrders|`feeSecTitle`|费用区标题〔待核〕|租赁明细（未税为基准 · 含税自动换算 · 总价=逐行加总）
+comboOutbounds|`title`|标题〔待核〕|租赁出库单详情
+comboOutbounds|`feeSecTitle`|费用区标题〔待核〕|器具 / 组合件清单
+returnInbounds|`appliance`|物料〔待核〕|ZH-2604-D 混合组合套件（自购隔板 + 租入大箱） / WBX-1210L 围板箱 
+returnInbounds|`status`|状态〔待核〕|待审核 / 已入库
+returnInbounds|`title`|标题〔待核〕|退租入库单详情
+returnInbounds|`feeSecTitle`|费用区标题〔待核〕|拆散明细
+rentTracks|`status`|状态〔待核〕|在租 / 已退租 / 已退回 / 超期未还 / 缺损待赔
+rentTracks|`title`|标题〔待核〕|器具出租履历
+rentTracks|`feeSecTitle`|费用区标题〔待核〕|出租记录
+rentInOrders|`title`|标题〔待核〕|租入单详情
+rentInOrders|`feeSecTitle`|费用区标题〔待核〕|租入明细（多货品 · 月租/按套 · 无日租金） / 租入明细（背靠背草稿 · 供应商待选）
+rentInbounds|`title`|标题〔待核〕|租入入库单详情
+rentInbounds|`feeSecTitle`|费用区标题〔待核〕|入库明细
+rentInReturns|`title`|标题〔待核〕|租入归还单详情
+rentInReturns|`feeSecTitle`|费用区标题〔待核〕|归还明细
+otherInbounds|`title`|标题〔待核〕|其他入库单详情
+otherInbounds|`feeSecTitle`|费用区标题〔待核〕|入库明细
+otherOutbounds|`title`|标题〔待核〕|其他出库单详情
+otherOutbounds|`feeSecTitle`|费用区标题〔待核〕|出库明细
+stocktakes|`title`|标题〔待核〕|盘点单详情
+stocktakes|`feeSecTitle`|费用区标题〔待核〕|差异明细（上期 PD-202608-02 示例 · 本单待生成） / 差异明细
+transfers|`title`|标题〔待核〕|调拨单详情
+transfers|`feeSecTitle`|费用区标题〔待核〕|调拨明细
+stockFlows|`title`|标题〔待核〕|库存流水
+stockFlows|`titleNo`|单据编号〔待核〕|XNC-AJZX-WBX 围板箱（安吉智行·客户虚拟仓） / LJ-A100 锁扣组件 不锈
+stockFlows|`feeSecTitle`|费用区标题〔待核〕|进出流水（时间倒序）
+assetTracks|`status`|状态〔待核〕|已报废 / 在租 / 已退回 / 缺损待赔
+assetTracks|`title`|标题〔待核〕|资产轨迹
+assetTracks|`feeSecTitle`|费用区标题〔待核〕|最近流转
+payableBills|`project`|所属项目〔待核〕|PRJ-2601 / PRJ-2604 / PRJ-2602 / PRJ-2603 / —
+payableBills|`period`|账期〔待核〕|2026-09 等
+payableBills|`inbound`|入库单号〔待核〕|— / CGRK-20260828-012 / CGRK-20260825-011 / CG
+payableBills|`title`|标题〔待核〕|应付账单详情
+payableBills|`billNo`|账单编号〔待核〕|AP-20260905-013 / AP-20260905-012 / AP-2026090
+payableBills|`billType`|账单类型〔待核〕|对客户应付 / 预付 / 采购应付 / 租金应付 / 赔付应付
+payableBills|`amount`|金额〔待核〕|930 ~ 126000
+payableBills|`paid`|已付金额〔待核〕|0 ~ 42500
+payableBills|`genMode`|生成方式〔待核〕|直接生成（我方赔付客户 · 交付延误/断产/收款违约金，无赔偿单，2026-09-08 会议
+payableBills|`scenario`|演示场景〔待核〕|F2 · 对客户应付（4 来源） / 预付冲抵 · 供应商租金 / 财务通道 · 采购应付 
+receivableBills|`docs`|单据〔待核〕|租入单 RZD-20260815-005 · 赔付我方 / 客户保证金（N3 · 直接建单承
+receivableBills|`gen`|生成方式〔待核〕|直接生成 / 手动登记 / 自动生成 / 赔偿联动 / 按实际使用量
+receivableBills|`title`|标题〔待核〕|应收账单详情
+receivableBills|`billNo`|账单编号〔待核〕|AR-20260904-015 / AR-20260906-016 / AR-2026-09
+receivableBills|`billType`|账单类型〔待核〕|供应商应收 / 预付款（保证金） / 预收 / 销售费 / 租赁费 / 丢损赔偿
+receivableBills|`amount`|金额〔待核〕|1280 ~ 486200
+receivableBills|`paid`|已付金额〔待核〕|0 ~ 50000
+receivableBills|`genMode`|生成方式〔待核〕|直接生成（供应商赔付我方 · 无赔偿单，2026-09-08 会议 4v4） / 直接生成（
+receivableBills|`scenario`|演示场景〔待核〕|F1 · 供应商应收（4 来源） / N3 · 预付款（保证金） / 预收冲抵 · 客户预付
+receivableBills|`verified`|已核销〔待核〕|0 ~ 442800
+receivableBills|`genDate`|生成日期〔待核〕|2026-09-05 等
+receivableBills|`feeType`|费用类型〔待核〕|预收（客户预付 9-10 月租金，后续按月冲抵） / 销售费（按销售出库自动汇总） / 租赁
+payments|`title`|标题〔待核〕|付款登记详情
+receipts|`receipt`|回单〔待核〕|已上传 / 补传回单
+receipts|`title`|标题〔待核〕|收款登记详情
+invoices|`title`|标题〔待核〕|开票登记详情
+writeoffs|`ref`|关联单据〔待核〕|AR-2026-07-PRJ2601 / AR-2026-07-PRJ2603 / BS-2
+writeoffs|`status`|状态〔待核〕|部分核销 / 已核销
+writeoffs|`time`|时间〔待核〕|2026-08-30 14:22 / 2026-08-28 10:05 / 2026-08-
+writeoffs|`title`|标题〔待核〕|银行回单核销详情
+profitRows|`name`|名称〔待核〕|华骏重卡·长春基地 驾驶室围板箱租赁 / 华骏重卡·青岛基地 保险杠料架租赁 / 长丰锂电·
+roles|`desc`|描述〔待核〕|全部功能 + 系统管理 / 财务管理（应收/应付/财务看板） / 财务全模块 + 付款/收款
+roles|`accts`|关联账号〔待核〕|1 ~ 7
+users|`status`|状态〔待核〕|启用 / 停用
+todoItems|`auditor`|审核人〔待核〕|沈婷 / 徐文 / 陈锋 / 严明 / 林国栋 / 严丽 / 江强
+todoItems|`type`|类型〔待核〕|销售订单 / 采购订单 / 租赁单 / 销售出库 / 退租入库 …
+todoItems|`docNo`|单据编号〔待核〕|SO-20260910-0047 / PO-20260910-019 / LZ-202609
+todoItems|`summary`|摘要〔待核〕|华骏重卡 · 驾驶室围板箱 160 套 / 甬城塑业包装 · 围板箱 120 只 / 华骏重
+todoItems|`project`|所属项目〔待核〕|PRJ-2601 / 华东中心仓 / PRJ-2603
+todoItems|`submitter`|提交人〔待核〕|沈婷 / 林国栋 / 陈锋 / 严明 / 江强 / 邵磊 / 李婧
+todoItems|`time`|时间〔待核〕|09-10 09:20 / 09-10 08:55 / 09-09 15:40 / 09-0
+todoItems|`action`|操作〔待核〕|待审核 / 待验收 / 待入库 / 待确认
+todoItems|`link`|链接〔待核〕|销售管理/销售订单列表.html?audit=1 / 采购管理/采购订单列表.html?au

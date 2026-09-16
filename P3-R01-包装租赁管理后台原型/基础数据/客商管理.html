@@ -360,7 +360,7 @@ th.td-num { text-align:right; }
       <select><option selected>全部</option><option>客户</option><option>供应商</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
-    <div class="ff ff-row-extra"><span class="ff-label">创建时间：</span><input placeholder="开始时间"><span class="ff-sep">→</span><input placeholder="结束时间"></div>
+    <div class="ff ff-row-extra"><span class="ff-label">创建日期：</span><input placeholder="开始时间"><span class="ff-sep">→</span><input placeholder="结束时间"></div>
     <div class="ff ff-row-extra"><span class="ff-label">企业编码：</span><input placeholder="请输入"></div>
     <div class="filter-actions">
       <button class="link-collapse" onclick="var f=document.getElementById('filterCard');f.classList.toggle('collapsed');this.querySelector('span').textContent=f.classList.contains('collapsed')?'展开':'收起'"><span>展开</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
@@ -391,7 +391,7 @@ th.td-num { text-align:right; }
           <th>联系电话</th>
           <th>开票资料</th>
           <th>合作状态</th>
-          <th>更新时间</th>
+          <th>更新日期</th>
           <th class="sticky-op">操作</th>
         </tr>
       </thead>
@@ -601,7 +601,7 @@ renderListPage({
     { label: '客商类型', field: 'type' },
     { label: '联系人', field: 'contact' },
     { label: '合作状态', field: 'status' },
-    { label: '创建时间', field: 'date', range: true },
+    { label: '创建日期', field: 'date', range: true },
     { label: '企业编码', field: '_key' }
   ],
   stabField: 'type'

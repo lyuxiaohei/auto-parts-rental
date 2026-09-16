@@ -384,7 +384,7 @@ th.td-num { text-align:right; }
   </div>
   <div class="table-wrap">
     <table>
-      <thead><tr><th>笔次</th><th>比例(%)</th><th>金额(元)</th><th>计划日期</th><th>状态</th><th></th></tr></thead>
+      <thead><tr><th>笔次</th><th>比例(%)</th><th>分期金额(元)</th><th>计划日期</th><th>状态</th><th></th></tr></thead>
       <tbody id="instBodyM"></tbody>
     </table>
   </div></div>
@@ -684,8 +684,8 @@ body.proto-notes-on .proto-pin.pn-open{display:block}
 body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 .pn-fab .pn-fab-n{font-family:Consolas,monospace;font-weight:600}
 </style>
-<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>到货明细（以托为单位）</div><div class="pnp-d">每托明细：零件号/库位；随附材质证明等单据</div><div class="pnp-b"><span class="pnp-tag">FP3-01 · 采购入库单</span><span class="pnp-tag">REQ-04 · 零部件级库存</span></div><div class="pnp-src"><div class="src-item"><b>FP3-01 采购入库单</b>：按零配件、以托为单位入库</div><div class="src-item"><b>REQ-04 零部件级库存</b>：库存精确到零配件；配件多项目共用</div></div></div>
-<div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>提交验收</div><div class="pnp-d">验收通过后零件库存即时增加</div><div class="pnp-b"><span class="pnp-tag">FP3-01 · 采购入库单</span><span class="pnp-tag">REQ-04 · 零部件级库存</span></div><div class="pnp-src"><div class="src-item"><b>FP3-01 采购入库单</b>：按零配件、以托为单位入库</div><div class="src-item"><b>REQ-04 零部件级库存</b>：库存精确到零配件；配件多项目共用</div></div></div>
+<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>到货明细（以物料基本单位入库）</div><div class="pnp-d">明细按物料编码/库位记录；随附材质证明等单据</div><div class="pnp-b"><span class="pnp-tag">FP3-01 · 采购入库单</span><span class="pnp-tag">REQ-04 · 零部件级库存</span></div><div class="pnp-src"><div class="src-item"><b>FP3-01 采购入库单</b>：按物料基本单位入库（D-145）</div><div class="src-item"><b>REQ-04 零部件级库存</b>：库存精确到零配件；配件多项目共用</div></div></div>
+<div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>提交验收</div><div class="pnp-d">验收通过后零件库存即时增加</div><div class="pnp-b"><span class="pnp-tag">FP3-01 · 采购入库单</span><span class="pnp-tag">REQ-04 · 零部件级库存</span></div><div class="pnp-src"><div class="src-item"><b>FP3-01 采购入库单</b>：按物料基本单位入库（D-145）</div><div class="src-item"><b>REQ-04 零部件级库存</b>：库存精确到零配件；配件多项目共用</div></div></div>
 <style id="f01-fab-style">.fab-row{position:fixed;right:12px;bottom:12px;z-index:880;display:flex;align-items:center;gap:6px}.fab-row .pn-fab{position:static}.f01-fab{display:flex;text-decoration:none;align-items:center;height:24px;padding:0 10px;border-radius:4px;background:#fff;border:1px solid #d9d9d9;color:#8c8c8c;font-size:11px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.06);opacity:.6;transition:opacity .15s}.f01-fab:hover{opacity:1;border-color:#722ed1;color:#722ed1}</style><div class="fab-row"><a class="f01-fab" href="../P3-R01-F01-业务流程导航图.html">流程图</a><div class="pn-fab" id="protoNotesFab">标注</div></div></div>
 <script id="proto-notes-js">
 (function(){

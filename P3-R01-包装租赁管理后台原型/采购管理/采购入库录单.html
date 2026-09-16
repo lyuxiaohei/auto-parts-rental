@@ -393,16 +393,18 @@ th.td-num { text-align:right; }
   </div>
   <div class="table-wrap edit-tbl">
     <table>
-      <thead><tr><th style="width:44px;">序号</th><th>零件号 / 物料编码</th><th>名称规格</th><th>单位</th><th style="width:90px;">托数 *</th><th style="width:100px;">每托数量 *</th><th style="width:100px;">入库总数</th><th style="font-size:13.5px;font-weight:700;">未税单价(元)</th><th style="font-size:13.5px;font-weight:700;">税率</th><th style="font-size:13.5px;font-weight:700;">含税单价(元)</th><th>含税金额(元)</th><th style="width:130px;">批次号</th><th>入库库位</th><th class="sticky-op">操作</th></tr></thead>
+      <thead><tr><th style="width:44px;">序号</th><th>物料编码</th><th>名称规格</th><th>基本单位</th><th style="width:110px;">数量 *</th><th style="font-size:13.5px;font-weight:700;">未税单价(元)</th><th style="font-size:13.5px;font-weight:700;">税率</th><th style="font-size:13.5px;font-weight:700;">含税单价(元)</th><th>含税金额(元)</th><th style="width:130px;">批次号</th><th>入库库位</th><th class="sticky-op">操作</th></tr></thead>
       <tbody>
         <tr>
           <td>1</td>
           <td><div class="ctl sel" style="min-width:110px;"><span class="v">LJ-A100</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div></td>
           <td>锁扣组件 不锈钢 304</td>
           <td>件</td>
-          <td class="td-num"><input value="10"></td>
-          <td class="td-num"><input value="480"></td>
-          <td class="td-num auto-cell">4,800</td>
+          <td class="td-num"><input value="4800"></td>
+          <td class="td-num"><input value="6.80"></td>
+          <td class="td-num"><input value="13%"></td>
+          <td class="td-num auto-cell">7.68</td>
+          <td class="td-num auto-cell">36,864.00</td>
           <td><input value="B20260831-01"></td>
           <td><div class="ctl sel" style="min-width:110px;"><span class="v">RA-A-01-01</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div></td>
           <td class="ops sticky-op"><a>删除</a></td>
@@ -412,9 +414,11 @@ th.td-num { text-align:right; }
           <td><div class="ctl sel" style="min-width:110px;"><span class="v">LJ-B200</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div></td>
           <td>铰链 锌合金 65mm</td>
           <td>件</td>
-          <td class="td-num"><input value="8"></td>
-          <td class="td-num"><input value="400"></td>
-          <td class="td-num auto-cell">3,200</td>
+          <td class="td-num"><input value="3200"></td>
+          <td class="td-num"><input value="4.20"></td>
+          <td class="td-num"><input value="13%"></td>
+          <td class="td-num auto-cell">4.75</td>
+          <td class="td-num auto-cell">15,200.00</td>
           <td><input value="B20260831-02"></td>
           <td><div class="ctl sel" style="min-width:110px;"><span class="v">RA-A-01-02</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div></td>
           <td class="ops sticky-op"><a>删除</a></td>
@@ -424,9 +428,11 @@ th.td-num { text-align:right; }
           <td><div class="ctl sel" style="min-width:110px;"><span class="v">LJ-D400</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div></td>
           <td>箱盖 ABS 吸塑</td>
           <td>件</td>
-          <td class="td-num"><input value="6"></td>
-          <td class="td-num"><input value="120"></td>
-          <td class="td-num auto-cell">720</td>
+          <td class="td-num"><input value="720"></td>
+          <td class="td-num"><input value="36.00"></td>
+          <td class="td-num"><input value="13%"></td>
+          <td class="td-num auto-cell">40.68</td>
+          <td class="td-num auto-cell">29,289.60</td>
           <td><input value="B20260831-03"></td>
           <td><div class="ctl sel" style="min-width:110px;"><span class="v">RA-B-02-01</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div></td>
           <td class="ops sticky-op"><a>删除</a></td>
@@ -638,8 +644,8 @@ body.proto-notes-on .proto-pin.pn-open{display:block}
 body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 .pn-fab .pn-fab-n{font-family:Consolas,monospace;font-weight:600}
 </style>
-<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>到货明细（以托为单位）</div><div class="pnp-d">每托明细：零件号/库位；随附材质证明等单据</div><div class="pnp-b"><span class="pnp-tag">FP3-01 · 采购入库单</span><span class="pnp-tag">REQ-04 · 零部件级库存</span></div><div class="pnp-src"><div class="src-item"><b>FP3-01 采购入库单</b>：按零配件、以托为单位入库</div><div class="src-item"><b>REQ-04 零部件级库存</b>：库存精确到零配件；配件多项目共用</div></div></div>
-<div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>提交验收</div><div class="pnp-d">验收通过后零件库存即时增加</div><div class="pnp-b"><span class="pnp-tag">FP3-01 · 采购入库单</span><span class="pnp-tag">REQ-04 · 零部件级库存</span></div><div class="pnp-src"><div class="src-item"><b>FP3-01 采购入库单</b>：按零配件、以托为单位入库</div><div class="src-item"><b>REQ-04 零部件级库存</b>：库存精确到零配件；配件多项目共用</div></div></div>
+<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>到货明细（以物料基本单位入库）</div><div class="pnp-d">明细按物料编码/库位记录；随附材质证明等单据</div><div class="pnp-b"><span class="pnp-tag">FP3-01 · 采购入库单</span><span class="pnp-tag">REQ-04 · 零部件级库存</span></div><div class="pnp-src"><div class="src-item"><b>FP3-01 采购入库单</b>：按物料基本单位入库（D-145）</div><div class="src-item"><b>REQ-04 零部件级库存</b>：库存精确到零配件；配件多项目共用</div></div></div>
+<div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>提交验收</div><div class="pnp-d">验收通过后零件库存即时增加</div><div class="pnp-b"><span class="pnp-tag">FP3-01 · 采购入库单</span><span class="pnp-tag">REQ-04 · 零部件级库存</span></div><div class="pnp-src"><div class="src-item"><b>FP3-01 采购入库单</b>：按物料基本单位入库（D-145）</div><div class="src-item"><b>REQ-04 零部件级库存</b>：库存精确到零配件；配件多项目共用</div></div></div>
 <style id="f01-fab-style">.fab-row{position:fixed;right:12px;bottom:12px;z-index:880;display:flex;align-items:center;gap:6px}.fab-row .pn-fab{position:static}.f01-fab{display:flex;text-decoration:none;align-items:center;height:24px;padding:0 10px;border-radius:4px;background:#fff;border:1px solid #d9d9d9;color:#8c8c8c;font-size:11px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.06);opacity:.6;transition:opacity .15s}.f01-fab:hover{opacity:1;border-color:#722ed1;color:#722ed1}</style><div class="fab-row"><a class="f01-fab" href="../P3-R01-F01-业务流程导航图.html">流程图</a><div class="pn-fab" id="protoNotesFab">标注</div></div></div>
 <script id="proto-notes-js">
 (function(){
