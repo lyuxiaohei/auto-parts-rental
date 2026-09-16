@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>P3-R01-F01 · 业务流程导航图（v3.8 · 转移出库抽离独立支线）</title>
+<title>P3-R01-F01 · 业务流程导航图（v3.7 · 转移出库与计租口径同步）</title>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
@@ -64,9 +64,9 @@
 <body>
 <div class="wrap">
 
-  <p class="eyebrow">P3-R01-F01 · v3.8 原型业务流程导航 · 2026-09-16 转移出库抽离独立支线 S7</p>
+  <p class="eyebrow">P3-R01-F01 · v3.7 原型业务流程导航 · 2026-09-16 转移出库与计租口径同步</p>
   <h1>业务流程导航图</h1>
-  <p class="sub">包装租赁管理后台原型 v3.8（转移出库自 L1–L4 抽离为独立支线 S7＋按持有量计租同步 · 双线制：补给线与业务线不串行 · 业务内容沿用 v3.3）· <b>38</b> 个页面 · <b>7</b> 条主线泳道：<b>B1</b> 物料买卖 · <b>L1</b> 单一出租 · <b>L2</b> 组合出租 · <b>L3</b> 租入转租 · <b>L4</b> 混合转租 · <b>T1</b> 客户退租 · <b>T2</b> 租入归还（全部第一期实现）＋ <b>7</b> 条支线 ＋ 财务通道 F1/F2 · 节点点击直达页面 · 蓝底=库存枢纽 · 灰底=入口/出口/交棒 · 虚线节点=BOM 自动计算 · 蓝色虚线=库存缓冲衔接（非顺序）· 📎=会议依据 · 版本沿革见页脚 · Mermaid 源数据见页尾折叠区</p>
+  <p class="sub">包装租赁管理后台原型 v3.7（转移出库节点＋按持有量计租同步 · 双线制：补给线与业务线不串行 · 业务内容沿用 v3.3）· <b>38</b> 个页面 · <b>7</b> 条主线泳道：<b>B1</b> 物料买卖 · <b>L1</b> 单一出租 · <b>L2</b> 组合出租 · <b>L3</b> 租入转租 · <b>L4</b> 混合转租 · <b>T1</b> 客户退租 · <b>T2</b> 租入归还（全部第一期实现）＋ <b>6</b> 条支线 ＋ 财务通道 F1/F2 · 节点点击直达页面 · 蓝底=库存枢纽 · 灰底=入口/出口/交棒 · 虚线节点=BOM 自动计算 · 蓝色虚线=库存缓冲衔接（非顺序）· 📎=会议依据 · 版本沿革见页脚 · Mermaid 源数据见页尾折叠区</p>
 
   <!-- ============ 主线泳道（双线制：补给线/业务线 · 节点 140×56 · 间距 16） ============ -->
   <div class="sec-head">
@@ -187,6 +187,22 @@
       <text x="400" y="476" fill="#111827" font-size="12" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">⇢ T1 退租</text>
     </a>
 
+    <!-- v3.7 新增 · 转移出库（L1 · 客户间转移 · 全图唯一结构改动 · D-146） -->
+    <rect x="504" y="344" width="336" height="76" rx="6" fill="rgba(17,24,39,0.02)" stroke="#d1d5db" stroke-width="0.8" stroke-dasharray="4,3"/>
+    <text x="516" y="360" fill="#6b7280" font-size="8" font-family="'Geist Mono',monospace">决策备注 · 转移出库（L1–L4 通用 · D-146）</text>
+    <text x="516" y="374" fill="#6b7280" font-size="8" font-family="'Geist Mono',monospace">① 不勾稽原租赁单（D-106）· 只记转出方 → 接收方</text>
+    <text x="516" y="388" fill="#6b7280" font-size="8" font-family="'Geist Mono',monospace">② 按租出结算＝默认 · 转移单不进财务链路</text>
+    <text x="516" y="402" fill="#6b7280" font-size="8" font-family="'Geist Mono',monospace">③ 按终端结算＝特例 · 账单主体切终端（历史不回改）</text>
+    <text x="516" y="416" fill="#6b7280" font-size="8" font-family="'Geist Mono',monospace">④ 终止转移＝回「在客户（租出）」· 待转移 → 已转移 → 已终止</text>
+    <path d="M 300 444 V 432 H 545 V 444" fill="none" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
+    <rect x="512" y="426" width="72" height="12" rx="4" fill="#fafafa"/>
+    <text x="548" y="435" fill="#4b5563" font-size="8" font-family="'Geist Mono',monospace" text-anchor="middle">分批 · 非必经</text>
+    <a href="租赁管理/转移出库列表.html">
+      <rect x="460" y="444" width="170" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
+      <text x="545" y="469" fill="#111827" font-size="12" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">转移出库</text>
+      <text x="545" y="488" fill="#4b5563" font-size="8" font-family="'Geist Mono',monospace" text-anchor="middle">客户间转移 · 直接客户 → 终端客户</text>
+    </a>
+
     <line x1="40" y1="524" x2="840" y2="524" stroke="rgba(17,24,39,0.10)" stroke-width="1"/>
 
     <!-- ======== L2 · 组合出租 ======== -->
@@ -302,6 +318,18 @@
       <rect x="352" y="900" width="96" height="56" rx="6" fill="rgba(75,85,99,0.10)" stroke="#4b5563" stroke-width="1"/>
       <text x="400" y="932" fill="#111827" font-size="12" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">⇢ T1/T2</text>
     </a>
+
+    <!-- v3.7 新增 · 转移出库（L3 · 客户间转移 · 注记见 L1 跨线框） -->
+    <path d="M 300 900 V 890 H 545 V 900" fill="none" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
+    <rect x="512" y="884" width="72" height="12" rx="4" fill="#fafafa"/>
+    <text x="548" y="893" fill="#4b5563" font-size="8" font-family="'Geist Mono',monospace" text-anchor="middle">分批 · 非必经</text>
+    <a href="租赁管理/转移出库列表.html">
+      <rect x="460" y="900" width="170" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
+      <text x="545" y="925" fill="#111827" font-size="12" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">转移出库</text>
+      <text x="545" y="944" fill="#4b5563" font-size="8" font-family="'Geist Mono',monospace" text-anchor="middle">客户间转移 · 直接客户 → 终端客户</text>
+    </a>
+    <text x="642" y="925" fill="#6b7280" font-size="8" font-family="'Geist Mono',monospace">转移出库 · L1–L4 通用 · 注记见 L1 右侧框</text>
+    <text x="642" y="939" fill="#6b7280" font-size="8" font-family="'Geist Mono',monospace">结算默认＝项目档案「转租结算方式」（D-132）</text>
 
     <line x1="40" y1="980" x2="840" y2="980" stroke="rgba(17,24,39,0.10)" stroke-width="1"/>
 
@@ -572,9 +600,9 @@
     <span class="sec-note">库存运营 · 项目经营 · 系统支撑 · 赔偿转单据 · 录单页与台账 · 审核与待办（采购应付已并入财务通道 F2）· 灰底 = 由主线衔接的入口节点</span>
   </div>
 
-<svg viewBox="0 0 880 944" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="p3r01f01-sub-title p3r01f01-sub-desc">
-    <title id="p3r01f01-sub-title">业务流程导航图 · 支线流程（S1–S7）</title>
-    <desc id="p3r01f01-sub-desc">包装租赁管理后台原型的 7 条支线导航：S1 库存运营、S2 项目经营、S3 系统支撑、S4 赔偿转单据、S5 录单页与台账、S6 审核与待办、S7 转移出库；节点可点击跳转到对应原型页面。</desc>
+<svg viewBox="0 0 880 846" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="p3r01f01-sub-title p3r01f01-sub-desc">
+    <title id="p3r01f01-sub-title">业务流程导航图 · 支线流程（S1–S6）</title>
+    <desc id="p3r01f01-sub-desc">包装租赁管理后台原型的 6 条支线导航：S1 库存运营、S2 项目经营、S3 系统支撑、S4 赔偿转单据、S5 录单页与台账、S6 审核与待办；节点可点击跳转到对应原型页面。</desc>
     <defs><marker id="arr2" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#4b5563"/></marker></defs>
 
     <!-- S1 · 库存运营 -->
@@ -646,33 +674,21 @@
     <text x="200" y="760" fill="#4b5563" font-size="8" font-family="'Geist Mono',monospace">付款、收款/租入单据；赔偿/组装/拆卸随模块移除）；</text>
     <text x="200" y="774" fill="#4b5563" font-size="8" font-family="'Geist Mono',monospace"><tspan fill="#111827" font-weight="600">状态流范本＝销售订单</tspan>（待审核/已审核/待发货/已完成/已关闭）</text>
 
-    <!-- S7 · 转移出库（v3.8 新增 · 自 L1–L4 抽离 · 客户间转移 · D-146） -->
-    <text x="40" y="822" fill="#111827" font-size="16" font-weight="700" font-family="'Geist',sans-serif">S7 · 转移出库</text>
-    <a href="租赁管理/转移出库列表.html"><rect x="200" y="800" width="170" height="36" rx="6" fill="#ffffff" stroke="#111827"/><text x="285" y="816" fill="#111827" font-size="12" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">转移出库列表</text><text x="285" y="830" fill="#4b5563" font-size="8" font-family="'Geist Mono',monospace" text-anchor="middle">行内确认转移 / 终止转移</text></a>
-    <a href="租赁管理/转移出库新建.html"><rect x="386" y="800" width="120" height="36" rx="6" fill="#ffffff" stroke="#111827"/><text x="446" y="816" fill="#111827" font-size="12" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">转移出库新建</text><text x="446" y="830" fill="#4b5563" font-size="8" font-family="'Geist Mono',monospace" text-anchor="middle">⟷ 列表 · 录单页</text></a>
-    <a href="租赁管理/转移出库单详情.html"><rect x="522" y="800" width="120" height="36" rx="6" fill="#ffffff" stroke="#111827"/><text x="582" y="816" fill="#111827" font-size="12" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">转移出库单详情</text><text x="582" y="830" fill="#4b5563" font-size="8" font-family="'Geist Mono',monospace" text-anchor="middle">⟷ 列表 · 两结算模式</text></a>
-    <text x="658" y="802" fill="#6b7280" font-size="8" font-family="'Geist Mono',monospace">来源：L1–L4 任一租赁流程</text>
-    <text x="658" y="816" fill="#6b7280" font-size="8" font-family="'Geist Mono',monospace">客户间转移 · 直接客户 → 终端客户</text>
-    <text x="658" y="830" fill="#6b7280" font-size="8" font-family="'Geist Mono',monospace">（租赁出库后 · 分批 · 非必经）</text>
-    <text x="200" y="856" fill="#6b7280" font-size="8" font-family="'Geist Mono',monospace">状态流：待转移 → 已转移 → 已终止 ·「客户转租出」由转移单审核驱动 ·「终止转移」回「在客户（租出）」（D-146）</text>
-    <text x="200" y="870" fill="#6b7280" font-size="8" font-family="'Geist Mono',monospace">结算（D-132）：按租出＝默认 · 转移单不进财务链路 ｜ 按终端＝特例 · 账单主体切终端 · 历史不回改</text>
-    <text x="200" y="884" fill="#6b7280" font-size="8" font-family="'Geist Mono',monospace">不勾稽原租赁单（D-106）· 只记转出方 → 接收方 · 客户虚拟仓不维护（D-145）· 计租不因转移改变（按持有量计租 · 期段账单）</text>
-
     <!-- 图例（底部横条） -->
-    <line x1="40" y1="904" x2="840" y2="904" stroke="rgba(17,24,39,0.10)" stroke-width="0.8"/>
-    <text x="40" y="924" fill="#6b7280" font-size="8" font-family="'Geist Mono',monospace" letter-spacing="0.14em">图例</text>
-    <rect x="120" y="914" width="16" height="12" rx="4" fill="#ffffff" stroke="#111827" stroke-width="1"/>
-    <text x="140" y="924" fill="#4b5563" font-size="8" font-family="'Geist Mono',monospace">页面节点 · 点击直达</text>
-    <rect x="264" y="914" width="16" height="12" rx="4" fill="rgba(37,99,235,0.08)" stroke="#2563eb" stroke-width="1"/>
-    <text x="284" y="924" fill="#4b5563" font-size="8" font-family="'Geist Mono',monospace">枢纽页 · 库存查询</text>
-    <rect x="408" y="914" width="16" height="12" rx="4" fill="rgba(75,85,99,0.10)" stroke="#4b5563" stroke-width="1"/>
-    <text x="428" y="924" fill="#4b5563" font-size="8" font-family="'Geist Mono',monospace">主线衔接入口</text>
-    <line x1="552" y1="920" x2="568" y2="920" stroke="#4b5563" stroke-width="1" marker-end="url(#arr2)"/>
-    <text x="576" y="924" fill="#4b5563" font-size="8" font-family="'Geist Mono',monospace">流程方向</text>
-    <text x="684" y="924" fill="#4b5563" font-size="8" font-family="'Geist Mono',monospace">⟷ = 双向联动（副标标注）</text>
+    <line x1="40" y1="792" x2="840" y2="792" stroke="rgba(17,24,39,0.10)" stroke-width="0.8"/>
+    <text x="40" y="812" fill="#6b7280" font-size="8" font-family="'Geist Mono',monospace" letter-spacing="0.14em">图例</text>
+    <rect x="120" y="802" width="16" height="12" rx="4" fill="#ffffff" stroke="#111827" stroke-width="1"/>
+    <text x="140" y="812" fill="#4b5563" font-size="8" font-family="'Geist Mono',monospace">页面节点 · 点击直达</text>
+    <rect x="264" y="802" width="16" height="12" rx="4" fill="rgba(37,99,235,0.08)" stroke="#2563eb" stroke-width="1"/>
+    <text x="284" y="812" fill="#4b5563" font-size="8" font-family="'Geist Mono',monospace">枢纽页 · 库存查询</text>
+    <rect x="408" y="802" width="16" height="12" rx="4" fill="rgba(75,85,99,0.10)" stroke="#4b5563" stroke-width="1"/>
+    <text x="428" y="812" fill="#4b5563" font-size="8" font-family="'Geist Mono',monospace">主线衔接入口</text>
+    <line x1="552" y1="808" x2="568" y2="808" stroke="#4b5563" stroke-width="1" marker-end="url(#arr2)"/>
+    <text x="576" y="812" fill="#4b5563" font-size="8" font-family="'Geist Mono',monospace">流程方向</text>
+    <text x="684" y="812" fill="#4b5563" font-size="8" font-family="'Geist Mono',monospace">⟷ = 双向联动（副标标注）</text>
   </svg>
 
-  <footer>P3-R01-F01 · v3.8 · 2026-09-16 · 汽车物流包装租赁 · 包装租赁管理后台原型 · 38 页 / 7 条主线泳道（B1/L1/L2/L3/L4 全部第一期实现·L3/L4 为 2026-09-04 拍板升级·退租两事件=T1 客户退租＋T2 租入归还·泳道止于出库，退租及后续在 T1/T2）+ 7 条支线 S1-S7（转移出库自 L1–L4 抽离为独立支线 · 采购应付已并入 F2） · 全部流程化跳转 · 67 个弹窗可独立演示 · 单一管理端 · 订单唯一来源：项目经理代下销售订单（客户PO）· 演示建议：从 L1/L2 租赁线开始（库存查询「客户在租」下钻+租赁单退回进度为亮点），再走 B1 买卖线（更简单快速）· F02 演示流程图已归档，演示统一用本图 · v3.0（09-08 会议）：四模块移除·按 BOM 租赁出库/按零件入库·赔偿直建 4v4·分期互算·物料档案合并·客户虚拟仓/客户转租·六角色审核 · v3.1（09-09 修正）：租赁四线以库存为联系（与买卖线同构）·出库术语与菜单对齐（租赁出库）· v3.2（09-10 修正）：退租两事件模型·台账合并（租出台账→租赁单列表·在租台账→库存查询）·L4 组合去流程化·40→38 页 · v3.3（09-10 修正）：退租专项拆 T1/T2 两条编号流程（T1 客户退租止于回库交棒 T2 · T2 租入归还双入口）·6→7 条主线泳道 · v3.4（09-10 规则化样式统一）：文本 6 级规则·节点 6 类型·蓝底仅库存枢纽·BOM 节点虚线化·交棒 chip 统一收尾·补 T1→T2 跨泳道交棒虚线·决策备注统一虚线框 · v3.5（09-10 结构修正）：前 5 条业务线改双线制——补给线（采购/租入→入库→库存）与业务线（单据→出库→交棒）不串行 · v3.6（09-11 支线核验修正）：S5 重复节点修正+补退租入库新建/租入归还新建两入口 · S1 五态命名对齐原型 · S3 角色管理改链独立页 · 应收应付来源改 5 类，库存到出库改蓝色虚线「按可用量·非顺序衔接」· 财务通道 F1/F2 去来源聚合框、统一为标签行+标准节点链 · 徽章统一「第一期实现」 · v3.7（09-16 转移出库与计租口径同步）：L1/L3 各补「转移出库」节点＋补给线右侧跨线注记「L1–L4 通用」（四点＝不勾稽原单 D-106／按租出结算＝默认·不进财务链路／按终端结算＝特例·账单主体切终端·历史不回改／终止转移＝回「在客户（租出）」）· 计费文案改「按持有量计租＋期段账单（起租日｜止租日｜天数｜日单价｜小计）」· 状态驱动方 2 处改「转移单审核驱动」 · 虚拟仓注记改「客户虚拟仓不维护」（D-145）· 附 Mermaid 源数据（页尾折叠） · v3.8（09-16 转移出库抽离）：L1/L3 泳道内「转移出库」节点与跨线注记框全部撤除——转移出库每个租赁流程均可能出现，抽离为独立支线 S7（L1–L4 通用）承载页面节点链＋状态流＋结算两模式＋四点注记，主线 L1–L4 不再出现转移出库 · Mermaid 源同步</footer>
+  <footer>P3-R01-F01 · v3.7 · 2026-09-16 · 汽车物流包装租赁 · 包装租赁管理后台原型 · 38 页 / 7 条主线泳道（B1/L1/L2/L3/L4 全部第一期实现·L3/L4 为 2026-09-04 拍板升级·退租两事件=T1 客户退租＋T2 租入归还·泳道止于出库，退租及后续在 T1/T2）+ 6 条支线 S1-S6（采购应付已并入 F2） · 全部流程化跳转 · 67 个弹窗可独立演示 · 单一管理端 · 订单唯一来源：项目经理代下销售订单（客户PO）· 演示建议：从 L1/L2 租赁线开始（库存查询「客户在租」下钻+租赁单退回进度为亮点），再走 B1 买卖线（更简单快速）· F02 演示流程图已归档，演示统一用本图 · v3.0（09-08 会议）：四模块移除·按 BOM 租赁出库/按零件入库·赔偿直建 4v4·分期互算·物料档案合并·客户虚拟仓/客户转租·六角色审核 · v3.1（09-09 修正）：租赁四线以库存为联系（与买卖线同构）·出库术语与菜单对齐（租赁出库）· v3.2（09-10 修正）：退租两事件模型·台账合并（租出台账→租赁单列表·在租台账→库存查询）·L4 组合去流程化·40→38 页 · v3.3（09-10 修正）：退租专项拆 T1/T2 两条编号流程（T1 客户退租止于回库交棒 T2 · T2 租入归还双入口）·6→7 条主线泳道 · v3.4（09-10 规则化样式统一）：文本 6 级规则·节点 6 类型·蓝底仅库存枢纽·BOM 节点虚线化·交棒 chip 统一收尾·补 T1→T2 跨泳道交棒虚线·决策备注统一虚线框 · v3.5（09-10 结构修正）：前 5 条业务线改双线制——补给线（采购/租入→入库→库存）与业务线（单据→出库→交棒）不串行 · v3.6（09-11 支线核验修正）：S5 重复节点修正+补退租入库新建/租入归还新建两入口 · S1 五态命名对齐原型 · S3 角色管理改链独立页 · 应收应付来源改 5 类，库存到出库改蓝色虚线「按可用量·非顺序衔接」· 财务通道 F1/F2 去来源聚合框、统一为标签行+标准节点链 · 徽章统一「第一期实现」 · v3.7（09-16 转移出库与计租口径同步）：L1/L3 各补「转移出库」节点＋补给线右侧跨线注记「L1–L4 通用」（四点＝不勾稽原单 D-106／按租出结算＝默认·不进财务链路／按终端结算＝特例·账单主体切终端·历史不回改／终止转移＝回「在客户（租出）」）· 计费文案改「按持有量计租＋期段账单（起租日｜止租日｜天数｜日单价｜小计）」· 状态驱动方 2 处改「转移单审核驱动」 · 虚拟仓注记改「客户虚拟仓不维护」（D-145）· 附 Mermaid 源数据（页尾折叠）</footer>
 
   <!-- ============ Mermaid 源数据（信息记录 · 默认折叠 · 页面不渲染） ============ -->
   <details class="src-mermaid">
@@ -686,6 +702,7 @@
   subgraph L1["L1 · 单一出租"]
     L1a[采购订单] --> L1b[采购入库] --> L1c[(库存·自有)]
     L1d[租赁单] --> L1e[租赁出库] --> L1f[⇢ T1 退租]
+    L1e -. 分批·非必经 .-> L1x[转移出库·客户间转移·L1–L4 通用]
     L1c -. 按可用量·非顺序 .-> L1e
   end
   subgraph L2["L2 · 组合出租（A+B→C）"]
@@ -696,6 +713,7 @@
   subgraph L3["L3 · 租入转租"]
     L3a[租入单] --> L3b[租入入库] --> L3c[(库存·租入)]
     L3d[租赁单·转租] --> L3e[租赁出库] --> L3f[⇢ T1/T2]
+    L3e -. 分批·非必经 .-> L3x[转移出库·客户间转移·L1–L4 通用]
     L3c -. 按可用量·非顺序 .-> L3e
   end
   subgraph L4["L4 · 混合转租（自购+租入）"]
@@ -720,14 +738,13 @@
   subgraph F2["F2 · 应付（5 来源：采购应付/租金应付/赔付应付/对客户应付/预付款）｜租金应付＝按持有量计租·期段账单"]
     F2a[应付账单] --> F2b[付款登记]
   end
-  subgraph S["支线 S1–S7"]
+  subgraph S["支线 S1–S6"]
     S1[库存运营：库存查询/盘点/调拨/其他出入库/按零件入库｜客户转租出＝转移出库单审核驱动·终止转移回在客户（租出）]
     S2[项目经营：项目看板 → 项目档案 → 项目详情 → 财务看板]
     S3[系统支撑：用户权限/数据字典/操作日志]
     S4[赔偿转单据：直建应收（自有·客户赔）/ 应付（租入·供应商赔）]
     S5[录单页与台账：采购入库录单/租赁出库录单/退租入库新建/租入归还新建/盘点录入/BOM维护/退回进度]
     S6[审核与待办：我的待办 → 审核弹窗（15 类）→ 状态流转 → 操作日志]
-    S7[转移出库·客户间转移：来源＝L1–L4 任一租赁流程·租赁出库后·分批非必经｜待转移→已转移→已终止·转移单审核驱动｜按租出＝默认·不进财务链路／按终端＝特例·不勾稽 D-106]
   end</pre>
   </details>
 </div>
