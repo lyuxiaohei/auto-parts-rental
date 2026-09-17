@@ -625,5 +625,11 @@ document.querySelectorAll('.tab').forEach(function (t) {
 
 
 
+<script src="../_data/select-source.js"></script>
+<script>
+/* G43 下拉数据源化：静态 option 为无 JS 兜底，运行时按字典/实体重渲染（矩阵见 _scan_tmpdir/g43_接线差集_v2.md） */
+SSEL.fillDict(document.getElementById('cmBtype'),'应收账单类型',false,{only:['租赁费','销售费','丢损赔偿','供应商应收','押金','预收'],value:{'租赁费':'lease','销售费':'sale','丢损赔偿':'loss','供应商应收':'supplier','押金':'deposit','预收':'prepay'},title:{'租赁费':'按租赁出库自动汇总','销售费':'按销售出库自动汇总','丢损赔偿':'客户赔付我方','供应商应收':'供应商赔付我方','押金':'收客户·租赁押金，退时转对客户应付','预收':'收客户，无订单直接建单'}});
+SSEL.fillEntity(SSEL.byFormLabel('所属项目'),'projects',{filter:function(k,f){return f.status!=='已完结';},label:function(k,f){return k+' '+(f.name||'');}});
+</script>
 </body>
 </html>

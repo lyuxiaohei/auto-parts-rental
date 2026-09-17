@@ -574,5 +574,10 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply);else apply();
 })();
 </script>
+<script src="../_data/select-source.js"></script>
+<script>
+/* G43 下拉数据源化：静态 option 为无 JS 兜底，运行时按字典/实体重渲染（矩阵见 _scan_tmpdir/g43_接线差集_v2.md） */
+SSEL.fillDict(document.getElementById('refundTypeSel'),'退款类型');
+</script>
 </body>
 </html>

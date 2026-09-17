@@ -354,7 +354,7 @@ th.td-num { text-align:right; }
     <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>AR-2026-08-PRJ2601（486,200.00）</option><option>AR-2026-08-PRJ2601</option><option>AR-2026-08-PRJ2602</option><option>AR-2026-08-PRJ2603</option></select><span class="caret">▾</span></div>
   </div><div class="form-row">
     <div class="form-label">发票类型：</div>
-    <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>增值税专票 13%</option><option>全部</option><option>待定选项（演示数据）</option></select><span class="caret">▾</span></div>
+    <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>增值税专票 13%</option></select><span class="caret">▾</span></div>
   </div><div class="form-row">
     <div class="form-label"><span class="req">*</span>开票金额(元)：</div>
     <div class="input-box" style="width:380px;"><input value="126,800.00" placeholder="请输入"></div>
@@ -558,6 +558,13 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
   });
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply);else apply();
 })();
+</script>
+<script src="../_data/select-source.js"></script>
+<script>
+/* G43 下拉数据源化：静态 option 为无 JS 兜底，运行时按字典/实体重渲染（矩阵见 _scan_tmpdir/g43_接线差集_v2.md） */
+SSEL.fillDict(SSEL.byFormLabel('发票类型'),'发票类型');
+SSEL.fillEntity(SSEL.byFormLabel('购方名称（客户）'),'partners',{label:'name',filter:function(k,f){return f.type==='客户';}});
+SSEL.fillEntity(SSEL.byFormLabel('关联应收账单'),'receivableBills',{desc:true,limit:30,label:function(k,f){return k+' · '+(f.customer||'')+' · '+(f.period||'');}});
 </script>
 </body>
 </html>

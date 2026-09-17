@@ -585,6 +585,7 @@ document.querySelectorAll('.tab').forEach(function (t) {
 
 
 
+<script src="../_data/demo-data.js"></script>
 <script src="../_data/pc-auth.js"></script>
 <script src="../_data/pc-msg.js"></script>
 
@@ -694,6 +695,12 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
   });
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply);else apply();
 })();
+</script>
+<script src="../_data/select-source.js"></script>
+<script>
+/* G43 下拉数据源化：静态 option 为无 JS 兜底，运行时按字典/实体重渲染（矩阵见 _scan_tmpdir/g43_接线差集_v2.md） */
+SSEL.fillEntity(SSEL.byFormLabel('关联采购订单号'),'purchaseOrders',{desc:true,limit:30,label:function(k,f){return k+' · '+(f.summary||'');}});
+SSEL.fillEntity(SSEL.byFormLabel('仓管员'),'users',{label:function(k,f){return (f.search||'').split(' ').slice(1).join(' ');},emptyKeep:true});
 </script>
 </body>
 </html>

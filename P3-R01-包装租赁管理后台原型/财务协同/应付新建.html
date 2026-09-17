@@ -697,5 +697,11 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply);else apply();
 })();
 </script>
+<script src="../_data/select-source.js"></script>
+<script>
+/* G43 下拉数据源化：静态 option 为无 JS 兜底，运行时按字典/实体重渲染（矩阵见 _scan_tmpdir/g43_接线差集_v2.md） */
+SSEL.fillDict(SSEL.byFormLabel('费用分类'),'费用分类');
+SSEL.fillDict(document.getElementById('cmBtype'),'应付账单类型',false,{value:{'采购应付':'purchase','租金应付':'rent','丢损赔偿（赔付供应商）':'loss','对客户应付':'customer','无订单预付款':'prepay'},title:{'采购应付':'按采购订单自动汇总','租金应付':'按租入单自动汇总','丢损赔偿（赔付供应商）':'赔付供应商','对客户应付':'赔付客户：交付延误·断产·收款违约金；押金退还','无订单预付款':'付供应商保证金，T2 挂账侧待财务确认'}});
+</script>
 </body>
 </html>

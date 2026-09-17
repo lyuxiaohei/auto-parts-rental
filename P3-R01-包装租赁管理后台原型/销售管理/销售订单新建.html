@@ -682,5 +682,12 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
   document.addEventListener('change', g39SaleRef);
 })();
 </script>
+<script src="../_data/select-source.js"></script>
+<script>
+/* G43 下拉数据源化：静态 option 为无 JS 兜底，运行时按字典/实体重渲染（矩阵见 _scan_tmpdir/g43_接线差集_v2.md） */
+SSEL.fillEntity(SSEL.byFormLabel('客户'),'partners',{label:'name',filter:function(k,f){return f.type==='客户';}});
+SSEL.fillEntity(SSEL.byFormLabel('所属项目'),'projects',{filter:function(k,f){return f.status!=='已完结';},label:function(k,f){return k+' '+(f.name||'');}});
+document.querySelectorAll('.edit-tbl td select[data-tax="prod"]').forEach(function(s){SSEL.fillEntity(s,'products',{label:function(k,f){return k+' '+(f.name||'');}});});
+</script>
 </body>
 </html>

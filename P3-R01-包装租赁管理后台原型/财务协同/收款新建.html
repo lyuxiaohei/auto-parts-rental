@@ -360,7 +360,7 @@ th.td-num { text-align:right; }
     <div class="input-box" style="width:380px;"><input type="date" value="2026-09-03"></div>
   </div><div class="form-row">
     <div class="form-label">收款银行：</div>
-    <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>工商银行长春分行 6222××××3308</option><option>全部</option><option>待定选项（演示数据）</option></select><span class="caret">▾</span></div>
+    <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>工商银行长春分行 6222××××3308</option><option>招商银行苏州分行 1109××××8821</option></select><span class="caret">▾</span></div>
   </div><div class="form-row">
     <div class="form-label">银行回单：</div>
     <div class="input-box" style="width:380px;"><input placeholder="上传回单附件（原型占位）"></div>
@@ -556,6 +556,13 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
   });
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply);else apply();
 })();
+</script>
+<script src="../_data/select-source.js"></script>
+<script>
+/* G43 下拉数据源化：静态 option 为无 JS 兜底，运行时按字典/实体重渲染（矩阵见 _scan_tmpdir/g43_接线差集_v2.md） */
+SSEL.fillEntity(SSEL.byFormLabel('客户'),'partners',{label:'name',filter:function(k,f){return f.type==='客户';}});
+SSEL.fillEntity(SSEL.byFormLabel('关联应收账单'),'receivableBills',{desc:true,limit:30,label:function(k,f){return k+' · '+(f.customer||'')+' · '+(f.period||'');}});
+var _bk=SSEL.byFormLabel('收款银行');if(_bk){_bk.title='正式版银行账户主数据（演示值）';}
 </script>
 </body>
 </html>

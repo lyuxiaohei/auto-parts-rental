@@ -942,5 +942,13 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply);else apply();
 })();
 </script>
+<script src="../_data/select-source.js"></script>
+<script>
+/* G43 下拉数据源化：静态 option 为无 JS 兜底，运行时按字典/实体重渲染（矩阵见 _scan_tmpdir/g43_接线差集_v2.md） */
+SSEL.fillDict(SSEL.byLabel('账单类型'),'应收账单类型',true,{title:{'丢损赔偿':'客户赔付我方','供应商应收':'供应商赔付我方','押金':'收客户·租赁押金，退时转对客户应付','预付款（保证金）':'收客户·无订单直接建单','预收':'收客户·无订单直接建单'}});
+SSEL.fillEntity(SSEL.byLabel('客户'),'partners',{label:'name',keepFirst:true,filter:function(k,f){return f.type==='客户';}});
+SSEL.fillEntity(SSEL.byLabel('所属项目'),'projects',{keepFirst:true});
+SSEL.fillPeriods(SSEL.byLabel('账期'),12,true);
+</script>
 </body>
 </html>
