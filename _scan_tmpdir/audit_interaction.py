@@ -1,20 +1,23 @@
 # -*- coding: utf-8 -*-
 """
-P3-R01 原型全站交互体检（只读审计）
-- 对 91 个 HTML 逐页 Playwright 实测：JS错误/按钮/链接/弹窗/radio/checkbox/select/input/页签
+P3-R01 原型全站交互体检（只读审计·并行版 2026-09-18）
+- 对全部 HTML 逐页 Playwright 实测：JS错误/按钮/链接/弹窗/radio/checkbox/select/input/页签
 - 不修改任何原型文件；结果只写入 _scan_tmpdir/
-用法: python audit_interaction.py [页面相对路径过滤串]
+- 并行化：async Playwright + N 路并发（每页仍独立 context 逐页开合·HARNESS 探针零改动），
+  结果 JSON 按页名排序写入与串行版完全同序；进度行序号=页在排序列表中的位次（完成顺序可能交错）
+用法: python audit_interaction.py [页面相对路径过滤串] [并发数=6]
 """
-import json, re, sys, traceback
+import asyncio, json, re, sys, time, traceback
 from pathlib import Path
 from urllib.parse import unquote
-from playwright.sync_api import sync_playwright
+from playwright.async_api import async_playwright
 
 # G22 跨机归一（G21 g17_audit_diff 先例）：主机 Win 原绝对路径改按脚本位置解析，双机通用
 ROOT = Path(__file__).resolve().parent.parent / "P3-R01-包装租赁管理后台原型"
 # G22 跨机归一：OUT 改按脚本位置解析，双机通用
 OUT = Path(__file__).resolve().parent
 FILTER = sys.argv[1] if len(sys.argv) > 1 else ""
+WORKERS = int(sys.argv[2]) if len(sys.argv) > 2 else 6
 
 HARNESS = r"""
 (async () => {
@@ -372,22 +375,22 @@ def check_dead_links(page_path: Path, targets):
             dead.append((t, "目标文件不存在"))
     return dead
 
-def audit_page(browser, path: Path):
+async def audit_page(browser, path: Path):
     r = {"page": str(path.relative_to(ROOT)), "js_errors": [], "problems": [], "stats": {}, "dead_links": [], "nav_anomaly": None}
-    page = browser.new_page()
+    page = await browser.new_page()
     page.on("console", lambda m: r["js_errors"].append({"type": m.type, "text": m.text[:200]}) if m.type == "error" else None)
     page.on("pageerror", lambda e: r["js_errors"].append({"type": "pageerror", "text": str(e)[:200]}))
     url_before = [None]
     page.on("framenavigated", lambda f: url_before.__setitem__(0, f.url) if f == page.main_frame else None)
     try:
-        page.goto(path.as_uri(), wait_until="load", timeout=15000)
+        await page.goto(path.as_uri(), wait_until="load", timeout=15000)
         # 列表数据驱动适配（2026-09-08 试点）：动态渲染行需等待 tbody 出现；无 tbody 页静默跳过
         try:
-            page.wait_for_selector('tbody tr', timeout=3000)
+            await page.wait_for_selector('tbody tr', timeout=3000)
         except Exception:
             pass
-        page.wait_for_timeout(300)
-        res = page.evaluate(HARNESS)
+        await page.wait_for_timeout(300)
+        res = await page.evaluate(HARNESS)
         r["problems"] = res["problems"]
         r["stats"] = res["stats"]
         r["dead_links"] = check_dead_links(path, res["linkTargets"])
@@ -396,26 +399,51 @@ def audit_page(browser, path: Path):
     except Exception as e:
         r["audit_error"] = f"{type(e).__name__}: {str(e)[:300]}"
     finally:
-        page.close()
+        await page.close()
     return r
+
+
+async def _worker(browser, queue, results, total, t0):
+    while True:
+        try:
+            i, p = queue.get_nowait()
+        except asyncio.QueueEmpty:
+            return
+        r = await audit_page(browser, p)
+        results[i] = r
+        n_err = len([e for e in r["js_errors"]])
+        print(f"[{i+1}/{total}] {r['page']}  问题:{len(r['problems'])} 死链:{len(r['dead_links'])} JS错:{n_err}"
+              + (f" 审计异常:{r.get('audit_error','')[:80]}" if r.get("audit_error") else "")
+              + f"  ⏱{time.time()-t0:.0f}s", flush=True)
+
+
+async def _run(pages):
+    total = len(pages)
+    queue = asyncio.Queue()
+    for i, p in enumerate(pages):
+        queue.put_nowait((i, p))
+    results = [None] * total
+    t0 = time.time()
+    async with async_playwright() as pw:
+        browser = await pw.chromium.launch()
+        n = max(1, min(WORKERS, total))
+        print(f"并发 {n} 路·共 {total} 页", flush=True)
+        await asyncio.gather(*[asyncio.create_task(_worker(browser, queue, results, total, t0)) for _ in range(n)])
+        await browser.close()
+    print(f"总耗时 {time.time()-t0:.0f}s", flush=True)
+    return results
+
 
 def main():
     pages = sorted(p for p in ROOT.rglob("*.html"))
     if FILTER:
         pages = [p for p in pages if FILTER in str(p)]
-    print(f"共 {len(pages)} 页待审计")
-    results = []
-    with sync_playwright() as pw:
-        browser = pw.chromium.launch()
-        for i, p in enumerate(pages, 1):
-            r = audit_page(browser, p)
-            results.append(r)
-            n_err = len([e for e in r["js_errors"]])
-            print(f"[{i}/{len(pages)}] {r['page']}  问题:{len(r['problems'])} 死链:{len(r['dead_links'])} JS错:{n_err}" + (f" 审计异常:{r.get('audit_error','')[:80]}" if r.get("audit_error") else ""))
-        browser.close()
+    print(f"共 {len(pages)} 页待审计", flush=True)
+    results = asyncio.run(_run(pages))
+    # results 按 pages（sorted Path 序·与串行版同序）位次存放，直接写入不再排序
     outf = OUT / ("audit_results_sample.json" if FILTER else "audit_results.json")
     outf.write_text(json.dumps(results, ensure_ascii=False, indent=1), encoding="utf-8")
-    print(f"\n结果已写入 {outf}")
+    print(f"\n结果已写入 {outf}", flush=True)
 
 if __name__ == "__main__":
     main()
