@@ -125,7 +125,7 @@ window.DEMO_DATA = {
 
     /* ===== 采购应付（甬城塑业 · 未付款 · 财务通道主场景） ===== */
     'AP-20260901-008': {
-      'row': {"fields": {"supplier": "甬城塑业包装制品有限公司", "btype": "采购应付", "project": "PRJ-2601", "period": "2026-09", "ref": "PO-20260825-014", "inbound": "CGRK-20260828-012", "date": "2026-09-01", "status": "未付款"}, "note": "3", "cells": ["甬城塑业包装制品有限公司", "<span class=\"tag tag-blue\">采购应付</span>", "PRJ-2601", "2026-09", "<span class=\"lk\">PO-20260825-014</span>", "<span class=\"lk\">CGRK-20260828-012</span>", "<span class=\"td-num\">84,000.00</span>", "<span class=\"td-num\">0.00</span>", "<span class=\"td-num\" style=\"color:var(--danger)\">84,000.00</span>", "2026-09-01", "2026-09-30", "<span class=\"tag tag-red\">未付款</span>"], "ops": [{"t": "账单确认", "act": "openModal('auditModal')"}, {"t": "付款", "act": "go('../财务协同/付款登记.html')"}, {"t": "详情", "detail": true}]},
+      'row': {"fields": {"supplier": "甬城塑业包装制品有限公司", "btype": "采购应付", "project": "PRJ-2601", "period": "2026-09", "ref": "PO-20260901-017", "inbound": "CGRK-20260828-011", "date": "2026-09-01", "status": "未付款"}, "note": "3", "cells": ["甬城塑业包装制品有限公司", "<span class=\"tag tag-blue\">采购应付</span>", "PRJ-2601", "2026-09", "<span class=\"lk\">PO-20260901-017</span>", "<span class=\"lk\">CGRK-20260828-011</span>", "<span class=\"td-num\">84,000.00</span>", "<span class=\"td-num\">0.00</span>", "<span class=\"td-num\" style=\"color:var(--danger)\">84,000.00</span>", "2026-09-01", "2026-09-30", "<span class=\"tag tag-red\">未付款</span>"], "ops": [{"t": "账单确认", "act": "openModal('auditModal')"}, {"t": "付款", "act": "go('../财务协同/付款登记.html')"}, {"t": "详情", "detail": true}]},
       billNo: 'AP-20260901-008',
       billType: '采购应付',
       status: '未付款',
@@ -137,20 +137,20 @@ window.DEMO_DATA = {
       genMode: '验收通过自动生成',
       scenario: '财务通道 · 采购应付',
       refs: [
-        { label: '关联采购订单', no: 'PO-20260825-014', url: '采购管理/采购订单列表.html' },
-        { label: '关联采购入库', no: 'CGRK-20260828-012', url: '采购管理/采购入库列表.html' }
+        { label: '关联采购订单', no: 'PO-20260901-017', url: '采购管理/采购订单列表.html' },
+        { label: '关联采购入库', no: 'CGRK-20260828-011', url: '采购管理/采购入库列表.html' }
       ],
       fees: [
-        { src: 'CGRK-20260828-012', desc: '采购入库验收 · 采购应付', amount: 84000, url: '采购管理/采购入库列表.html' }
+        { src: 'CGRK-20260828-011', desc: '采购入库验收 · 采购应付', amount: 84000, url: '采购管理/采购入库列表.html' }
       ],
       chain: [
-        { role: '采购订单', name: 'PO-20260825-014', url: '采购管理/采购订单列表.html' },
-        { role: '采购入库', name: 'CGRK-20260828-012', url: '采购管理/采购入库列表.html' },
+        { role: '采购订单', name: 'PO-20260901-017', url: '采购管理/采购订单列表.html' },
+        { role: '采购入库', name: 'CGRK-20260828-011', url: '采购管理/采购入库列表.html' },
         { role: '应付账单（本单）', name: 'AP-20260901-008 · 采购应付', self: true },
         { role: '付款登记', name: '待付款', url: '财务协同/付款登记.html' }
       ],
       timeline: [
-        { t: '08-28', text: '采购入库验收通过 · CGRK-20260828-012', who: '张帆' },
+        { t: '08-28', text: '采购入库验收通过 · CGRK-20260828-011', who: '张帆' },
         { t: '09-01', text: '应付账单自动生成', who: '系统' },
         { t: '—', text: '待付款 → 付款登记确认', off: true }
       ]
@@ -158,34 +158,34 @@ window.DEMO_DATA = {
 
     /* ===== 采购应付（吴越联合 · 部分付款） ===== */
     'AP-20260830-007': {
-      'row': {"fields": {"supplier": "吴越联合五金制品有限公司", "btype": "采购应付", "project": "PRJ-2602", "period": "2026-08", "ref": "PO-20260820-013", "inbound": "CGRK-20260825-011", "date": "2026-08-30", "status": "部分付款"}, "cells": ["吴越联合五金制品有限公司", "<span class=\"tag tag-blue\">采购应付</span>", "PRJ-2602", "2026-08", "<span class=\"lk\">PO-20260820-013</span>", "<span class=\"lk\">CGRK-20260825-011</span>", "<span class=\"td-num\">12,700.00</span>", "<span class=\"td-num\">6,000.00</span>", "<span class=\"td-num\">6,700.00</span>", "2026-08-30", "2026-09-29", "<span class=\"tag tag-orange\">部分付款</span>"], "ops": [{"t": "账单确认", "act": "openModal('auditModal')"}, {"t": "付款", "act": "go('../财务协同/付款登记.html')"}, {"t": "详情", "detail": true}]},
+      'row': {"fields": {"supplier": "延陵塑料托盘厂", "btype": "采购应付", "project": "PRJ-2602", "period": "2026-08", "ref": "PO-20260820-013", "inbound": "CGRK-20260827-010", "date": "2026-08-30", "status": "部分付款"}, "cells": ["延陵塑料托盘厂", "<span class=\"tag tag-blue\">采购应付</span>", "PRJ-2602", "2026-08", "<span class=\"lk\">PO-20260820-013</span>", "<span class=\"lk\">CGRK-20260827-010</span>", "<span class=\"td-num\">19,600.00</span>", "<span class=\"td-num\">6,000.00</span>", "<span class=\"td-num\">13,600.00</span>", "2026-08-30", "2026-09-29", "<span class=\"tag tag-orange\">部分付款</span>"], "ops": [{"t": "账单确认", "act": "openModal('auditModal')"}, {"t": "付款", "act": "go('../财务协同/付款登记.html')"}, {"t": "详情", "detail": true}]},
       billNo: 'AP-20260830-007',
       billType: '采购应付',
       status: '部分付款',
-      supplier: '吴越联合五金制品有限公司',
+      supplier: '延陵塑料托盘厂',
       project: 'PRJ-2602',
       period: '2026-08',
-      amount: 12700,
+      amount: 19600,
       paid: 6000,
       genMode: '验收通过自动生成',
       refs: [
         { label: '关联采购订单', no: 'PO-20260820-013', url: '采购管理/采购订单列表.html' },
-        { label: '关联采购入库', no: 'CGRK-20260825-011', url: '采购管理/采购入库列表.html' }
+        { label: '关联采购入库', no: 'CGRK-20260827-010', url: '采购管理/采购入库列表.html' }
       ],
       fees: [
-        { src: 'CGRK-20260825-011', desc: '采购入库验收 · 采购应付', amount: 12700, url: '采购管理/采购入库列表.html' }
+        { src: 'CGRK-20260827-010', desc: '采购入库验收 · 采购应付', amount: 19600, url: '采购管理/采购入库列表.html' }
       ],
       chain: [
         { role: '采购订单', name: 'PO-20260820-013', url: '采购管理/采购订单列表.html' },
-        { role: '采购入库', name: 'CGRK-20260825-011', url: '采购管理/采购入库列表.html' },
+        { role: '采购入库', name: 'CGRK-20260827-010', url: '采购管理/采购入库列表.html' },
         { role: '应付账单（本单）', name: 'AP-20260830-007 · 采购应付', self: true },
         { role: '付款登记', name: '已付 6,000.00', url: '财务协同/付款登记.html' }
       ],
       timeline: [
-        { t: '08-25', text: '采购入库验收通过 · CGRK-20260825-011', who: '张帆' },
+        { t: '08-25', text: '采购入库验收通过 · CGRK-20260827-010', who: '张帆' },
         { t: '08-30', text: '应付账单自动生成', who: '系统' },
         { t: '09-05', text: '付款登记 6,000.00 元', who: '王芳' },
-        { t: '—', text: '待付尾款 6,700.00 元', off: true }
+        { t: '—', text: '待付尾款 13,600.00 元', off: true }
       ]
     },
 
@@ -590,6 +590,38 @@ window.DEMO_DATA = {
       ]
     },
 
+    /* ===== 销售费（华骏 · SO-0039 第二批按次） ===== */
+    'AR-2026-09-PRJ2601-S2': {
+      'row': {"fields": {"period": "2026-09", "project": "PRJ-2601", "customer": "华骏重卡汽车有限公司", "btype": "销售费（按次生成）关联 XSCK-20260910-016", "docs": "销售出库 XSCK-20260910-016", "gen": "自动生成", "date": "2026-09-11", "status": "未开票"}, "cells": ["2026-09", "PRJ-2601", "华骏重卡汽车有限公司", "销售费（按次生成）<div style=\"color:#8c8c8c;font-size:11px;\">关联 XSCK-20260910-016 · SO-20260827-0039 第二批</div>", "销售出库 XSCK-20260910-016", "<span class=\"td-num\"><b>1,800.00</b></span>", "<span class=\"td-num\">0.00</span>", "<span class=\"tag tag-red\">未开票</span>", "<span class=\"tag tag-blue\">自动生成</span>", "2026-09-11 00:06"], "ops": [{"t": "账单确认", "act": "openModal('auditModal')"}, {"t": "详情", "detail": true}, {"t": "开票", "act": "go('../财务协同/开票登记.html')"}, {"t": "核销", "act": "go('../财务协同/银行回单核销.html')"}]},
+      billNo: 'AR-2026-09-PRJ2601-S2',
+      billType: '销售费',
+      status: '未开票',
+      customer: '华骏重卡汽车有限公司',
+      project: 'PRJ-2601',
+      period: '2026-09',
+      amount: 1800,
+      verified: 0,
+      genMode: '自动生成',
+      genDate: '2026-09-11',
+      feeType: '销售费（按次生成）',
+      scenario: '财务通道 · 销售费应收（按次）',
+      fees: [
+        { src: 'XSCK-20260910-016', desc: '销售费 · 箱盖 ABS 吸塑（SO-20260827-0039 第二批）', qty: '500 件', price: '3.60', amount: 1800, url: '销售管理/销售出库列表.html' }
+      ],
+      chain: [
+        { role: '销售订单', name: 'SO-20260827-0039（第二批）', url: '销售管理/销售订单列表.html' },
+        { role: '销售出库', name: 'XSCK-20260910-016', url: '销售管理/销售出库列表.html' },
+        { role: '应收账单（本单）', name: 'AR-2026-09-PRJ2601-S2 · 销售费（按次）', self: true },
+        { role: '开票登记', name: '待开票', url: '财务协同/开票登记.html' },
+        { role: '收款 / 核销', name: '收款登记 → 银行回单核销', url: '财务协同/银行回单核销.html' }
+      ],
+      timeline: [
+        { t: '09-10', text: '销售出库 · XSCK-20260910-016（500 件）', who: '张帆' },
+        { t: '09-11', text: '按次账单自动生成 · 1,800.00 元', who: '系统' },
+        { t: '—', text: '待开票 → 收款 → 银行回单核销', off: true }
+      ]
+    },
+
     /* ===== 销售费（长风汽制 · 未开票） ===== */
     'AR-2026-09-PRJ2604-S1': {
       'row': {"fields": {"period": "2026-09", "project": "PRJ-2604", "customer": "长风汽车制造有限公司", "btype": "销售费（按销售出库自动汇总）关联 XSCK-20260901-014", "docs": "销售出库 XSCK-20260901-014 等", "gen": "自动生成", "date": "2026-09-02", "status": "未开票"}, "cells": ["2026-09", "PRJ-2604", "长风汽车制造有限公司", "销售费（按销售出库自动汇总）<div style=\"color:#8c8c8c;font-size:11px;\">关联 XSCK-20260901-014</div>", "销售出库 XSCK-20260901-014 等", "<span class=\"td-num\"><b>1,280.00</b></span>", "<span class=\"td-num\">0.00</span>", "<span class=\"tag tag-red\">未开票</span>", "<span class=\"tag tag-blue\">自动生成</span>", "2026-09-02 00:06"], "ops": [{"t": "账单确认", "act": "openModal('auditModal')"}, {"t": "详情", "detail": true}, {"t": "开票", "act": "go('../财务协同/开票登记.html')"}, {"t": "核销", "act": "go('../财务协同/银行回单核销.html')"}]},
@@ -962,13 +994,13 @@ window.DEMO_DATA = {
   /* 付款登记（键 = PAY 付款单号） */
   payments: {
     'PAY-20260902-005': {
-      'row': {"fields": {"supplier": "吴越联合五金制品有限公司", "ref": "AP-20260830-007", "bank": "招商银行苏州分行 1109××××8821", "date": "2026-09-02", "status": "待确认"}, "note": "1", "cells": ["吴越联合五金制品有限公司", "<span class=\"lk\">AP-20260830-007</span>", "<span class=\"td-num\">6,000.00</span>", "2026-09-02", "招商银行苏州分行 1109××××8821", "<span class=\"tag tag-orange\">待确认</span>"], "ops": [{"t": "确认", "act": "go('../财务协同/付款确认.html?id=PAY-20260902-005')"}, {"t": "详情", "act": "go('../财务协同/付款详情.html?id=PAY-20260902-005')"}]},
+      'row': {"fields": {"supplier": "延陵塑料托盘厂", "ref": "AP-20260830-007", "bank": "招商银行苏州分行 1109××××8821", "date": "2026-09-02", "status": "待确认"}, "note": "1", "cells": ["延陵塑料托盘厂", "<span class=\"lk\">AP-20260830-007</span>", "<span class=\"td-num\">6,000.00</span>", "2026-09-02", "招商银行苏州分行 1109××××8821", "<span class=\"tag tag-orange\">待确认</span>"], "ops": [{"t": "确认", "act": "go('../财务协同/付款确认.html?id=PAY-20260902-005')"}, {"t": "详情", "act": "go('../财务协同/付款详情.html?id=PAY-20260902-005')"}]},
       title: '付款登记详情',
       info: [
         { label: '付款单号', text: 'PAY-20260902-005', full: true },
         { label: '状态', tag: '待确认' },
         { label: '付款日期', text: '2026-09-02' },
-        { label: '供应商', text: '吴越联合五金制品有限公司', full: true },
+        { label: '供应商', text: '延陵塑料托盘厂', full: true },
         { label: '关联应付', text: 'AP-20260830-007', url: '财务协同/应付账单.html' },
         { label: '付款金额', text: '6,000.00 元' },
         { label: '付款账户', text: '招商银行苏州分行 1109××××8821' },
@@ -5879,7 +5911,7 @@ window.DEMO_DATA = {
   /* B1 独立采购线 · 不以销定采；SO 号仅参考关联 */
   purchaseOrders: {
     'PO-20260902-018': {
-      'row': {"fields": {"supplier": "吴越联合五金制品有限公司", "mtype": "零部件", "summary": "锁扣组件×5,000 / 铰链×2,000", "date": "2026-09-10", "so": "SO-20260831-0042", "status": "待审核"}, "note": "1", "cells": ["吴越联合五金制品有限公司", "<span class=\"tag tag-blue\">零部件</span>", "锁扣组件×5,000 / 铰链×2,000", "<span class=\"td-num\">7,000</span>", "<span class=\"td-num\">12,700.00</span>", "CNY", "2026-09-10", "<span class=\"lk\">SO-20260831-0042</span>", "<span class=\"tag tag-orange\">待审核</span>"], "ops": [{"t": "编辑", "act": "go('../采购管理/采购订单新建.html?mode=edit')"}, {"t": "审核", "act": "go('../采购管理/采购订单审核.html?id=PO-20260902-018')"}, {"t": "关闭"}, {"t": "上传附件", "act": "openAttModal('PO-20260902-018')"}, {"t": "打印", "act": "orderPrint('PO-20260902-018')"}]},
+      'row': {"fields": {"supplier": "吴越联合五金制品有限公司", "mtype": "零部件", "summary": "锁扣组件×5,000 / 铰链×2,500", "date": "2026-08-26", "so": "SO-20260831-0042", "status": "已审核"}, "note": "1", "cells": ["吴越联合五金制品有限公司", "<span class=\"tag tag-blue\">零部件</span>", "锁扣组件×5,000 / 铰链×2,500", "<span class=\"td-num\">7,500</span>", "<span class=\"td-num\">13,500.00</span>", "CNY", "2026-08-26", "<span class=\"lk\">SO-20260831-0042</span>", "<span class=\"tag tag-blue\">已审核</span>"], "ops": [{"t": "生成入库单", "act": "go('../采购管理/采购入库列表.html')"}, {"t": "关闭"}, {"t": "上传附件", "act": "openAttModal('PO-20260902-018')"}, {"t": "打印", "act": "orderPrint('PO-20260902-018')"}]},
       'title': '采购订单详情',
       'info': [
         {
@@ -5889,7 +5921,7 @@ window.DEMO_DATA = {
         },
         {
           'label': '状态',
-          'tag': '待审核'
+          'tag': '已审核'
         },
         {
           'label': '供应商',
@@ -5902,20 +5934,20 @@ window.DEMO_DATA = {
         },
         {
           'label': '采购内容',
-          'text': '锁扣组件× 5,000 / 铰链× 2,000',
+          'text': '锁扣组件× 5,000 / 铰链× 2,500',
           'full': true
         },
         {
           'label': '数量合计',
-          'text': '7,000 件'
+          'text': '7,500 件'
         },
         {
           'label': '订单金额',
-          'text': '12,700.00 CNY'
+          'text': '13,500.00 CNY'
         },
         {
           'label': '预计到货日期',
-          'text': '2026-09-10'
+          'text': '2026-08-26'
         },
         {
           'label': '参考关联销售订单',
@@ -5929,7 +5961,7 @@ window.DEMO_DATA = {
         },
         {
           'label': '审核人',
-          'text': '—'
+          'text': '张帆'
         },
         {
           'label': '所属项目',
@@ -5944,6 +5976,15 @@ window.DEMO_DATA = {
           'text': '—'
         }
       ],
+      'info2Title': '执行情况（订单·入库·退货数量勾稽）',
+      'info2': [
+        { 'label': '订购数量', 'text': '锁扣 5,000 / 铰链 2,500' },
+        { 'label': '已入库（CGRK-012·08-28 验收通过）', 'text': '锁扣 2,400 / 铰链 2,000' },
+        { 'label': '待验收（CGRK-009·08-27 到货）', 'text': '锁扣 800（含拒收 500）/ 铰链 500' },
+        { 'label': '采购退货（CGTH-002 拒收）', 'text': '锁扣 500 · 未入库直接退' },
+        { 'label': '在途未到', 'text': '锁扣 1,800 / 铰链 0' },
+        { 'label': '勾稽对平', 'text': '2,400+800+1,800 = 5,000 ✓ 铰链 2,000+500 = 2,500 ✓' }
+      ],
       'feeSecTitle': '物料行',
       'feeCols': ['物料编码', '名称规格', '单位', '数量', '未税单价(元)', '税率', '含税单价(元)', '含税金额(元)'],
       'fees': [
@@ -5951,10 +5992,10 @@ window.DEMO_DATA = {
           'cells': ['LJ-A100', '锁扣组件 不锈钢 304', '件', '5,000', '1.90', '13%', '2.15', '10,750.00']
         },
         {
-          'cells': ['LJ-B200', '铰链 锌合金 65mm', '件', '2,000', '1.60', '13%', '1.81', '3,620.00']
+          'cells': ['LJ-B200', '铰链 锌合金 65mm', '件', '2,500', '1.60', '13%', '1.81', '4,525.00']
         },
         {
-          'cells': ['', '合计', '', '7,000', '', '', '', '12,700.00']
+          'cells': ['', '合计', '', '7,500', '', '', '', '13,500.00']
         }
       ],
       'chain': [
@@ -5970,30 +6011,45 @@ window.DEMO_DATA = {
         },
         {
           'role': '采购入库',
-          'name': '凭单到货验收',
+          'name': 'CGRK-20260827-009 · 待验收',
+          'url': '采购管理/采购入库列表.html'
+        },
+        {
+          'role': '采购入库',
+          'name': 'CGRK-20260828-012 · 已入库',
           'url': '采购管理/采购入库列表.html'
         },
         {
           'role': '应付账单',
-          'name': '采购应付',
+          'name': '验收通过后生成（采购应付）',
           'url': '财务协同/应付账单.html'
         }
       ],
       'timeline': [
         {
-          't': '09-02 14:20',
+          't': '08-24 14:20',
           'text': '制单 · 零部件采购（锁扣 / 铰链）',
           'who': '林国栋'
         },
         {
-          't': '—',
-          'text': '待审核 · 通过后按交期 09-10 到货验收',
-          'off': true
+          't': '08-25 09:10',
+          'text': '审核通过 · 分批到货',
+          'who': '张帆'
+        },
+        {
+          't': '08-27 09:20',
+          'text': '第一批到货 · CGRK-20260827-009 待验收（锁扣 800 / 铰链 500）',
+          'who': '林国栋'
+        },
+        {
+          't': '08-28 14:32',
+          'text': '第二批到货 · CGRK-20260828-012 验收通过（锁扣 2,400 / 铰链 2,000）',
+          'who': '张帆'
         }
       ]
     },
     'PO-20260901-017': {
-      'row': {"fields": {"supplier": "甬城塑业包装制品有限公司", "mtype": "器具", "summary": "围板箱 1200×1000×970×300", "date": "2026-09-15", "so": "—", "status": "待审核"}, "cells": ["甬城塑业包装制品有限公司", "<span class=\"tag tag-green\">器具</span>", "围板箱 1200×1000×970×300", "<span class=\"td-num\">300</span>", "<span class=\"td-num\">84,000.00</span>", "CNY", "2026-09-15", "—", "<span class=\"tag tag-orange\">待审核</span>"], "ops": [{"t": "编辑", "act": "go('../采购管理/采购订单新建.html?mode=edit')"}, {"t": "审核", "act": "go('../采购管理/采购订单审核.html?id=PO-20260901-017')"}, {"t": "关闭"}, {"t": "上传附件", "act": "openAttModal('PO-20260901-017')"}, {"t": "打印", "act": "orderPrint('PO-20260901-017')"}]},
+      'row': {"fields": {"supplier": "甬城塑业包装制品有限公司", "mtype": "器具", "summary": "围板箱 1200×1000×970×300", "date": "2026-08-25", "so": "—", "status": "已完成"}, "cells": ["甬城塑业包装制品有限公司", "<span class=\"tag tag-green\">器具</span>", "围板箱 1200×1000×970×300", "<span class=\"td-num\">300</span>", "<span class=\"td-num\">84,000.00</span>", "CNY", "2026-08-25", "—", "<span class=\"tag tag-green\">已完成</span>"], "ops": [{"t": "详情", "act": "go('../采购管理/采购订单详情.html?id=PO-20260901-017')"}, {"t": "入库记录", "act": "go('../采购管理/采购入库列表.html')"}, {"t": "上传附件", "act": "openAttModal('PO-20260901-017')"}, {"t": "打印", "act": "orderPrint('PO-20260901-017')"}]},
       'title': '采购订单详情',
       'info': [
         {
@@ -6003,7 +6059,7 @@ window.DEMO_DATA = {
         },
         {
           'label': '状态',
-          'tag': '待审核'
+          'tag': '已完成'
         },
         {
           'label': '供应商',
@@ -6029,7 +6085,7 @@ window.DEMO_DATA = {
         },
         {
           'label': '预计到货日期',
-          'text': '2026-09-15'
+          'text': '2026-08-25'
         },
         {
           'label': '参考关联销售订单',
@@ -6042,7 +6098,7 @@ window.DEMO_DATA = {
         },
         {
           'label': '审核人',
-          'text': '—'
+          'text': '张帆'
         },
         {
           'label': '所属项目',
@@ -6075,25 +6131,35 @@ window.DEMO_DATA = {
         },
         {
           'role': '采购入库',
-          'name': '凭单到货验收',
+          'name': 'CGRK-20260828-011 · 已入库',
           'url': '采购管理/采购入库列表.html'
         },
         {
           'role': '应付账单',
-          'name': '采购应付',
+          'name': 'AP-20260901-008 · 采购应付 · 未付款',
           'url': '财务协同/应付账单.html'
         }
       ],
       'timeline': [
         {
-          't': '09-01 10:40',
+          't': '08-24 10:40',
           'text': '制单 · 器具采购（围板箱 300 只）',
           'who': '林国栋'
         },
         {
-          't': '—',
-          'text': '待审核 · 通过后按交期 09-15 到货验收',
-          'off': true
+          't': '08-24 15:20',
+          'text': '审核通过',
+          'who': '张帆'
+        },
+        {
+          't': '08-28 10:05',
+          'text': '采购入库 · CGRK-20260828-011 到货 300 只 · 验收通过',
+          'who': '张帆'
+        },
+        {
+          't': '09-01',
+          'text': '应付账单自动生成 · AP-20260901-008 · 84,000.00 元（未付款）',
+          'who': '系统'
         }
       ]
     },
@@ -6208,7 +6274,7 @@ window.DEMO_DATA = {
       ]
     },
     'PO-20260828-015': {
-      'row': {"fields": {"supplier": "吴越联合五金制品有限公司", "mtype": "零部件", "summary": "箱盖 ABS 吸塑×2,000", "date": "2026-09-05", "so": "SO-20260827-0039", "status": "已审核"}, "cells": ["吴越联合五金制品有限公司", "<span class=\"tag tag-blue\">零部件</span>", "箱盖 ABS 吸塑×2,000", "<span class=\"td-num\">2,000</span>", "<span class=\"td-num\">6,300.00</span>", "CNY", "2026-09-05", "<span class=\"lk\">SO-20260827-0039</span>", "<span class=\"tag tag-blue\">已审核</span>"], "ops": [{"t": "生成入库单", "act": "go('../采购管理/采购入库列表.html')"}, {"t": "关闭"}, {"t": "上传附件", "act": "openAttModal('PO-20260828-015')"}, {"t": "打印", "act": "orderPrint('PO-20260828-015')"}]},
+      'row': {"fields": {"supplier": "吴越联合五金制品有限公司", "mtype": "零部件", "summary": "箱盖 ABS 吸塑×2,000", "date": "2026-09-25", "so": "SO-20260827-0039", "status": "已审核"}, "cells": ["吴越联合五金制品有限公司", "<span class=\"tag tag-blue\">零部件</span>", "箱盖 ABS 吸塑×2,000", "<span class=\"td-num\">2,000</span>", "<span class=\"td-num\">6,300.00</span>", "CNY", "2026-09-25", "<span class=\"lk\">SO-20260827-0039</span>", "<span class=\"tag tag-blue\">已审核</span>"], "ops": [{"t": "生成入库单", "act": "go('../采购管理/采购入库列表.html')"}, {"t": "关闭"}, {"t": "上传附件", "act": "openAttModal('PO-20260828-015')"}, {"t": "打印", "act": "orderPrint('PO-20260828-015')"}]},
       'title': '采购订单详情',
       'info': [
         {
@@ -6244,7 +6310,7 @@ window.DEMO_DATA = {
         },
         {
           'label': '预计到货日期',
-          'text': '2026-09-05'
+          'text': '2026-09-25'
         },
         {
           'label': '参考关联销售订单',
@@ -6295,13 +6361,8 @@ window.DEMO_DATA = {
           'self': true
         },
         {
-          'role': '采购入库',
-          'name': 'CGRK-20260828-012 · 已入库',
-          'url': '采购管理/采购入库列表.html'
-        },
-        {
           'role': '应付账单',
-          'name': 'AP-20260901-008 · 采购应付',
+          'name': '验收通过后生成（采购应付）',
           'url': '财务协同/应付账单.html'
         }
       ],
@@ -6318,7 +6379,7 @@ window.DEMO_DATA = {
         },
         {
           't': '—',
-          'text': '在途 · 按交期 09-05 到货验收',
+          'text': '在途 · 按交期 09-25 到货验收',
           'off': true
         }
       ]
@@ -6411,7 +6472,7 @@ window.DEMO_DATA = {
         },
         {
           'role': '应付账单',
-          'name': 'AP-20260901-008 · 采购应付',
+          'name': '应付已结清 · 货款两讫',
           'url': '财务协同/应付账单.html'
         }
       ],
@@ -6433,8 +6494,8 @@ window.DEMO_DATA = {
         },
         {
           't': '09-01',
-          'text': '应付账单自动生成 · AP-20260901-008',
-          'who': '系统'
+          'text': '应付结清 · 料箱采购货款两讫',
+          'who': '财务'
         }
       ]
     },
@@ -6502,6 +6563,15 @@ window.DEMO_DATA = {
           'label': '备注',
           'text': '—'
         }
+      ],
+      'info2Title': '执行情况（订单·入库·应付数量勾稽）',
+      'info2': [
+        { 'label': '订购数量', 'text': '木托盘 400' },
+        { 'label': '已入库（CGRK-010·08-27 验收通过）', 'text': '400 · 全部到货' },
+        { 'label': '在途未到', 'text': '0' },
+        { 'label': '采购退货', 'text': '无' },
+        { 'label': '应付账单（AP-20260830-007）', 'text': '08-30 自动生成 · 未结清部分见应付列表' },
+        { 'label': '勾稽对平', 'text': '已入库 400 = 订购 400 ✓ 订单已关闭收货' }
       ],
       'feeSecTitle': '物料行',
       'feeCols': ['物料编码', '名称规格', '单位', '数量', '未税单价(元)', '税率', '含税单价(元)', '含税金额(元)'],
@@ -7301,7 +7371,7 @@ window.DEMO_DATA = {
       ]
     },
     'SO-20260827-0039': {
-      'row': {"fields": {"customer": "华骏重卡汽车有限公司", "project": "PRJ-2601", "summary": "箱盖 ABS 吸塑×2,000", "status": "已完成", "agent": "严明", "date": "2026-08-27"}, "cells": ["华骏重卡汽车有限公司", "PRJ-2601", "箱盖 ABS 吸塑×2,000", "<span class=\"td-num\">2,000</span>", "<span class=\"td-num\">7,200.00</span>", "<span class=\"tag tag-green\">已完成</span>", "严明", "2026-08-27 14:03"], "ops": [{"t": "详情", "act": "go('../销售管理/销售订单详情.html?id=SO-20260827-0039')"}, {"t": "上传附件", "act": "openAttModal('SO-20260827-0039')"}, {"t": "打印", "act": "orderPrint('SO-20260827-0039')"}]},
+      'row': {"fields": {"customer": "华骏重卡汽车有限公司", "project": "PRJ-2601", "summary": "箱盖 ABS 吸塑×2,500", "status": "已完成", "agent": "严明", "date": "2026-08-27"}, "cells": ["华骏重卡汽车有限公司", "PRJ-2601", "箱盖 ABS 吸塑×2,500", "<span class=\"td-num\">2,500</span>", "<span class=\"td-num\">9,000.00</span>", "<span class=\"tag tag-green\">已完成</span>", "严明", "2026-08-27 14:03"], "ops": [{"t": "详情", "act": "go('../销售管理/销售订单详情.html?id=SO-20260827-0039')"}, {"t": "上传附件", "act": "openAttModal('SO-20260827-0039')"}, {"t": "打印", "act": "orderPrint('SO-20260827-0039')"}]},
       'title': '销售订单详情',
       'info': [
         {
@@ -7381,35 +7451,55 @@ window.DEMO_DATA = {
         },
         {
           'role': '销售出库',
-          'name': 'XSCK-20260829-013',
+          'name': 'XSCK-20260829-013（第一批 2,000）',
+          'url': '销售管理/销售出库列表.html'
+        },
+        {
+          'role': '销售出库',
+          'name': 'XSCK-20260910-016（第二批 500）',
           'url': '销售管理/销售出库列表.html'
         },
         {
           'role': '应收账单',
-          'name': '销售费 · 已汇总',
+          'name': 'AR-2026-08-PRJ2601 · 8 月汇总（含第一批）',
+          'url': '财务协同/应收账单.html'
+        },
+        {
+          'role': '应收账单',
+          'name': 'AR-2026-09-PRJ2601-S2 · 按次（第二批）',
           'url': '财务协同/应收账单.html'
         }
       ],
       'timeline': [
         {
           't': '08-27 14:03',
-          'text': '客户下单 · 箱盖 2,000 件',
+          'text': '客户下单 · 箱盖 2,500 件',
           'who': '严明'
         },
         {
           't': '08-28 09:20',
-          'text': '审核通过',
+          'text': '审核通过 · 分批交付',
           'who': '江强'
         },
         {
           't': '08-29',
-          'text': '销售出库 · XSCK-20260829-013（2,000 件）',
+          'text': '第一批出库 · XSCK-20260829-013（2,000 件）',
           'who': '张帆'
         },
         {
-          't': '—',
-          'text': '销售费应收按出库汇总',
-          'off': true
+          't': '08-31',
+          'text': '应收汇总生成 · AR-2026-08-PRJ2601（含第一批）',
+          'who': '系统'
+        },
+        {
+          't': '09-10',
+          'text': '第二批出库 · XSCK-20260910-016（500 件）',
+          'who': '张帆'
+        },
+        {
+          't': '09-11',
+          'text': '按次应收生成 · AR-2026-09-PRJ2601-S2',
+          'who': '系统'
         }
       ]
     },
@@ -7509,7 +7599,7 @@ window.DEMO_DATA = {
   /* 凭采购订单到货验收；验收通过生成采购应付 */
   purchaseInbounds: {
     'CGRK-20260828-012': {
-      'row': {"fields": {"supplier": "吴越联合五金制品有限公司", "project": "PRJ-2601", "status": "已入库", "inTime": "2026-08-28 14:32", "maker": "张帆", "area": "原料区 RA"}, "cells": ["吴越联合五金制品有限公司", "<span class=\"lk\">PO-20260828-015</span>", "PRJ-2601", "原料区 RA", "<span class=\"tag tag-green\">已入库</span>", "张帆", "2026-08-28 14:32"], "ops": [{"t": "详情", "act": "go('../采购管理/采购入库详情.html?id=CGRK-20260828-012')"}, {"t": "验收", "act": "go('../采购管理/采购入库审核.html?id=CGRK-20260828-012')"}, {"t": "应付账单", "act": "go('../财务协同/应付账单.html')"}]},
+      'row': {"fields": {"supplier": "吴越联合五金制品有限公司", "order": "PO-20260902-018", "project": "PRJ-2601", "status": "已入库", "inTime": "2026-08-28 14:32", "maker": "张帆", "area": "原料区 RA"}, "cells": ["吴越联合五金制品有限公司", "<span class=\"lk\">PO-20260902-018</span>", "PRJ-2601", "原料区 RA", "<span class=\"tag tag-green\">已入库</span>", "张帆", "2026-08-28 14:32"], "ops": [{"t": "详情", "act": "go('../采购管理/采购入库详情.html?id=CGRK-20260828-012')"}, {"t": "验收", "act": "go('../采购管理/采购入库审核.html?id=CGRK-20260828-012')"}, {"t": "应付账单", "act": "go('../财务协同/应付账单.html')"}]},
       'title': '采购入库单详情',
       'info': [
         {
@@ -7533,7 +7623,7 @@ window.DEMO_DATA = {
         },
         {
           'label': '关联采购订单',
-          'text': 'PO-20260828-015',
+          'text': 'PO-20260902-018',
           'url': '采购管理/采购订单列表.html'
         },
         {
@@ -7592,7 +7682,7 @@ window.DEMO_DATA = {
       'chain': [
         {
           'role': '采购订单',
-          'name': 'PO-20260828-015',
+          'name': 'PO-20260902-018',
           'url': '采购管理/采购订单列表.html'
         },
         {
@@ -7641,7 +7731,7 @@ window.DEMO_DATA = {
       ]
     },
     'CGRK-20260828-011': {
-      'row': {"fields": {"supplier": "甬城塑业包装制品有限公司", "project": "PRJ-2601", "status": "已入库", "inTime": "2026-08-28 10:05", "maker": "张帆", "area": "原料区 RA"}, "note": "2", "cells": ["甬城塑业包装制品有限公司", "<span class=\"lk\">PO-20260901-017</span>", "PRJ-2601", "原料区 RA", "<span class=\"tag tag-green\">已入库</span>", "张帆", "2026-08-28 10:05"], "ops": [{"t": "详情", "act": "go('../采购管理/采购入库详情.html?id=CGRK-20260828-011')"}, {"t": "验收", "act": "go('../采购管理/采购入库审核.html?id=CGRK-20260828-011')"}, {"t": "应付账单", "act": "go('../财务协同/应付账单.html')"}]},
+      'row': {"fields": {"supplier": "甬城塑业包装制品有限公司", "order": "PO-20260901-017", "project": "PRJ-2601", "status": "已入库", "inTime": "2026-08-28 10:05", "maker": "张帆", "area": "原料区 RA"}, "note": "2", "cells": ["甬城塑业包装制品有限公司", "<span class=\"lk\">PO-20260901-017</span>", "PRJ-2601", "原料区 RA", "<span class=\"tag tag-green\">已入库</span>", "张帆", "2026-08-28 10:05"], "ops": [{"t": "详情", "act": "go('../采购管理/采购入库详情.html?id=CGRK-20260828-011')"}, {"t": "验收", "act": "go('../采购管理/采购入库审核.html?id=CGRK-20260828-011')"}, {"t": "应付账单", "act": "go('../财务协同/应付账单.html')"}]},
       'title': '采购入库单详情',
       'info': [
         {
@@ -7736,7 +7826,7 @@ window.DEMO_DATA = {
         },
         {
           'role': '应付账单',
-          'name': '验收通过后生成（采购应付）',
+          'name': 'AP-20260901-008 · 采购应付 · 未付款',
           'url': '财务协同/应付账单.html'
         }
       ],
@@ -7765,7 +7855,7 @@ window.DEMO_DATA = {
       ]
     },
     'CGRK-20260827-010': {
-      'row': {"fields": {"supplier": "延陵塑料托盘厂", "project": "PRJ-2602", "status": "已入库", "inTime": "2026-08-27 16:44", "maker": "林国栋", "area": "成品区 RB"}, "cells": ["延陵塑料托盘厂", "<span class=\"lk\">PO-20260820-013</span>", "PRJ-2602", "成品区 RB", "<span class=\"tag tag-green\">已入库</span>", "林国栋", "2026-08-27 16:44"], "ops": [{"t": "详情", "act": "go('../采购管理/采购入库详情.html?id=CGRK-20260827-010')"}, {"t": "验收", "act": "go('../采购管理/采购入库审核.html?id=CGRK-20260827-010')"}, {"t": "应付账单", "act": "go('../财务协同/应付账单.html')"}]},
+      'row': {"fields": {"supplier": "延陵塑料托盘厂", "order": "PO-20260820-013", "project": "PRJ-2602", "status": "已入库", "inTime": "2026-08-27 16:44", "maker": "林国栋", "area": "成品区 RB"}, "cells": ["延陵塑料托盘厂", "<span class=\"lk\">PO-20260820-013</span>", "PRJ-2602", "成品区 RB", "<span class=\"tag tag-green\">已入库</span>", "林国栋", "2026-08-27 16:44"], "ops": [{"t": "详情", "act": "go('../采购管理/采购入库详情.html?id=CGRK-20260827-010')"}, {"t": "验收", "act": "go('../采购管理/采购入库审核.html?id=CGRK-20260827-010')"}, {"t": "应付账单", "act": "go('../财务协同/应付账单.html')"}]},
       'title': '采购入库单详情',
       'info': [
         {
@@ -7888,7 +7978,7 @@ window.DEMO_DATA = {
       ]
     },
     'CGRK-20260827-009': {
-      'row': {"fields": {"supplier": "吴越联合五金制品有限公司", "project": "PRJ-2602", "status": "待验收", "inTime": "2026-08-27 09:20", "maker": "林国栋", "area": "原料区 RA"}, "cells": ["吴越联合五金制品有限公司", "<span class=\"lk\">PO-20260902-018</span>", "PRJ-2602", "原料区 RA", "<span class=\"tag tag-orange\">待验收</span>", "林国栋", "2026-08-27 09:20"], "ops": [{"t": "详情", "act": "go('../采购管理/采购入库详情.html?id=CGRK-20260827-009')"}, {"t": "验收", "act": "go('../采购管理/采购入库审核.html?id=CGRK-20260827-009')"}, {"t": "应付账单", "act": "go('../财务协同/应付账单.html')"}]},
+      'row': {"fields": {"supplier": "吴越联合五金制品有限公司", "order": "PO-20260902-018", "project": "PRJ-2602", "status": "待验收", "inTime": "2026-08-27 09:20", "maker": "林国栋", "area": "原料区 RA"}, "cells": ["吴越联合五金制品有限公司", "<span class=\"lk\">PO-20260902-018</span>", "PRJ-2602", "原料区 RA", "<span class=\"tag tag-orange\">待验收</span>", "林国栋", "2026-08-27 09:20"], "ops": [{"t": "详情", "act": "go('../采购管理/采购入库详情.html?id=CGRK-20260827-009')"}, {"t": "验收", "act": "go('../采购管理/采购入库审核.html?id=CGRK-20260827-009')"}, {"t": "应付账单", "act": "go('../财务协同/应付账单.html')"}]},
       'title': '采购入库单详情',
       'info': [
         {
@@ -7999,7 +8089,7 @@ window.DEMO_DATA = {
       ]
     },
     'CGRK-20260826-008': {
-      'row': {"fields": {"supplier": "甬城塑业包装制品有限公司", "project": "PRJ-2603", "status": "已入库", "inTime": "2026-08-26 15:10", "maker": "张帆", "area": "原料区 RA"}, "cells": ["甬城塑业包装制品有限公司", "<span class=\"lk\">PO-20260825-014</span>", "PRJ-2603", "原料区 RA", "<span class=\"tag tag-green\">已入库</span>", "张帆", "2026-08-26 15:10"], "ops": [{"t": "详情", "act": "go('../采购管理/采购入库详情.html?id=CGRK-20260826-008')"}, {"t": "验收", "act": "go('../采购管理/采购入库审核.html?id=CGRK-20260826-008')"}, {"t": "应付账单", "act": "go('../财务协同/应付账单.html')"}]},
+      'row': {"fields": {"supplier": "甬城塑业包装制品有限公司", "order": "PO-20260825-014", "project": "PRJ-2603", "status": "已入库", "inTime": "2026-08-26 15:10", "maker": "张帆", "area": "原料区 RA"}, "cells": ["甬城塑业包装制品有限公司", "<span class=\"lk\">PO-20260825-014</span>", "PRJ-2603", "原料区 RA", "<span class=\"tag tag-green\">已入库</span>", "张帆", "2026-08-26 15:10"], "ops": [{"t": "详情", "act": "go('../采购管理/采购入库详情.html?id=CGRK-20260826-008')"}, {"t": "验收", "act": "go('../采购管理/采购入库审核.html?id=CGRK-20260826-008')"}, {"t": "应付账单", "act": "go('../财务协同/应付账单.html')"}]},
       'title': '采购入库单详情',
       'info': [
         {
@@ -8094,7 +8184,7 @@ window.DEMO_DATA = {
         },
         {
           'role': '应付账单',
-          'name': 'AP-20260901-008 · 已生成',
+          'name': '应付已结清 · 货款两讫',
           'url': '财务协同/应付账单.html'
         }
       ],
@@ -8116,13 +8206,13 @@ window.DEMO_DATA = {
         },
         {
           't': '09-01',
-          'text': '应付账单自动生成 · AP-20260901-008',
-          'who': '系统'
+          'text': '应付结清 · 料箱采购货款两讫',
+          'who': '财务'
         }
       ]
     },
     'CGRK-20260825-006': {
-      'row': {"fields": {"supplier": "延陵塑料托盘厂", "project": "PRJ-2603", "status": "已入库", "inTime": "2026-08-25 11:02", "maker": "张帆", "area": "成品区 RB"}, "cells": ["延陵塑料托盘厂", "<span class=\"lk\">PO-20260830-016</span>", "PRJ-2603", "成品区 RB", "<span class=\"tag tag-green\">已入库</span>", "张帆", "2026-08-25 11:02"], "ops": [{"t": "详情", "act": "go('../采购管理/采购入库详情.html?id=CGRK-20260825-006')"}, {"t": "验收", "act": "go('../采购管理/采购入库审核.html?id=CGRK-20260825-006')"}, {"t": "应付账单", "act": "go('../财务协同/应付账单.html')"}]},
+      'row': {"fields": {"supplier": "延陵塑料托盘厂", "order": "PO-20260830-016", "project": "PRJ-2603", "status": "已入库", "inTime": "2026-08-25 11:02", "maker": "张帆", "area": "成品区 RB"}, "cells": ["延陵塑料托盘厂", "<span class=\"lk\">PO-20260830-016</span>", "PRJ-2603", "成品区 RB", "<span class=\"tag tag-green\">已入库</span>", "张帆", "2026-08-25 11:02"], "ops": [{"t": "详情", "act": "go('../采购管理/采购入库详情.html?id=CGRK-20260825-006')"}, {"t": "验收", "act": "go('../采购管理/采购入库审核.html?id=CGRK-20260825-006')"}, {"t": "应付账单", "act": "go('../财务协同/应付账单.html')"}]},
       'title': '采购入库单详情',
       'info': [
         {
@@ -8246,7 +8336,7 @@ window.DEMO_DATA = {
       ]
     },
     'CGRK-20260824-005': {
-      'row': {"fields": {"supplier": "吴越联合五金制品有限公司", "project": "PRJ-2604", "status": "已入库", "inTime": "2026-08-24 14:18", "maker": "林国栋", "area": "原料区 RA"}, "note": "1", "cells": ["吴越联合五金制品有限公司", "<span class=\"lk\">PO-20260815-012</span>", "PRJ-2604", "原料区 RA", "<span class=\"tag tag-green\">已入库</span>", "林国栋", "2026-08-24 14:18"], "ops": [{"t": "详情", "act": "go('../采购管理/采购入库详情.html?id=CGRK-20260824-005')"}, {"t": "验收", "act": "go('../采购管理/采购入库审核.html?id=CGRK-20260824-005')"}, {"t": "应付账单", "act": "go('../财务协同/应付账单.html')"}]},
+      'row': {"fields": {"supplier": "吴越联合五金制品有限公司", "order": "PO-20260815-012", "project": "PRJ-2604", "status": "已入库", "inTime": "2026-08-24 14:18", "maker": "林国栋", "area": "原料区 RA"}, "note": "1", "cells": ["吴越联合五金制品有限公司", "<span class=\"lk\">PO-20260815-012</span>", "PRJ-2604", "原料区 RA", "<span class=\"tag tag-green\">已入库</span>", "林国栋", "2026-08-24 14:18"], "ops": [{"t": "详情", "act": "go('../采购管理/采购入库详情.html?id=CGRK-20260824-005')"}, {"t": "验收", "act": "go('../采购管理/采购入库审核.html?id=CGRK-20260824-005')"}, {"t": "应付账单", "act": "go('../财务协同/应付账单.html')"}]},
       'title': '采购入库单详情',
       'info': [
         {
@@ -8359,7 +8449,7 @@ window.DEMO_DATA = {
       ]
     },
     'CGRK-20260820-006': {
-      'row': {"fields": {"supplier": "吴越联合五金制品有限公司", "project": "PRJ-2604", "status": "已入库", "inTime": "2026-08-20 14:30", "maker": "张帆", "area": "原料区 RA"}, "note": "3", "cells": ["吴越联合五金制品有限公司", "<span class=\"lk\">PO-20260815-012</span>", "PRJ-2604", "原料区 RA", "<span class=\"tag tag-green\">已入库</span>", "张帆", "2026-08-20 14:30"], "ops": [{"t": "详情", "act": "go('../采购管理/采购入库详情.html?id=CGRK-20260820-006')"}, {"t": "验收", "act": "go('../采购管理/采购入库审核.html?id=CGRK-20260820-006')"}]},
+      'row': {"fields": {"supplier": "吴越联合五金制品有限公司", "order": "PO-20260815-012", "project": "PRJ-2604", "status": "已入库", "inTime": "2026-08-20 14:30", "maker": "张帆", "area": "原料区 RA"}, "note": "3", "cells": ["吴越联合五金制品有限公司", "<span class=\"lk\">PO-20260815-012</span>", "PRJ-2604", "原料区 RA", "<span class=\"tag tag-green\">已入库</span>", "张帆", "2026-08-20 14:30"], "ops": [{"t": "详情", "act": "go('../采购管理/采购入库详情.html?id=CGRK-20260820-006')"}, {"t": "验收", "act": "go('../采购管理/采购入库审核.html?id=CGRK-20260820-006')"}]},
       'title': '采购入库单详情',
       'info': [
         {
@@ -8476,6 +8566,115 @@ window.DEMO_DATA = {
   /* 销售出库单 salesOutbounds：键 = XSCK 出库单号（销售管理/销售出库列表.html 6 行全量） */
   /* 按库存可用量发货；销售费应收按出库自动汇总 */
   salesOutbounds: {
+    'XSCK-20260910-016': {
+      'row': {"fields": {"so": "SO-20260827-0039", "customer": "华骏重卡汽车有限公司", "project": "PRJ-2601", "summary": "箱盖 ABS 吸塑×500（第二批）", "warehouse": "原料区 RA", "date": "2026-09-10", "status": "已完成", "ar": "AR-2026-09-PRJ2601-S2"}, "cells": ["<span class=\"lk\">SO-20260827-0039</span>", "华骏重卡汽车有限公司", "PRJ-2601", "箱盖 ABS 吸塑×500（第二批）", "<span class=\"td-num\">500</span>", "原料区 RA", "2026-09-10", "<span class=\"tag tag-green\">已完成</span>"], "ops": [{"t": "详情", "act": "go('../销售管理/销售出库详情.html?id=XSCK-20260910-016')"}, {"t": "打印出货单", "act": "go('../租赁管理/出货单打印.html?key=XSCK-20260910-016')"}, {"t": "应收账单", "act": "go('../财务协同/应收账单.html')"}]},
+      'title': '销售出库单详情',
+      'info': [
+        {
+          'label': '出库单号',
+          'text': 'XSCK-20260910-016',
+          'full': true
+        },
+        {
+          'label': '状态',
+          'tag': '已完成'
+        },
+        {
+          'label': '关联销售订单',
+          'text': 'SO-20260827-0039',
+          'url': '销售管理/销售订单列表.html'
+        },
+        {
+          'label': '关联应收账单',
+          'text': 'AR-2026-09-PRJ2601-S2（销售费 · 按次生成）',
+          'url': '财务协同/应收账单.html'
+        },
+        {
+          'label': '客户',
+          'text': '华骏重卡汽车有限公司',
+          'full': true
+        },
+        {
+          'label': '所属项目',
+          'text': 'PRJ-2601'
+        },
+        {
+          'label': '出库物料',
+          'text': '箱盖 ABS 吸塑（LJ-D400）',
+          'full': true
+        },
+        {
+          'label': '数量',
+          'text': '500 件'
+        },
+        {
+          'label': '出库库位',
+          'text': '原料区 RA'
+        },
+        {
+          'label': '制单人',
+          'text': '张帆'
+        },
+        {
+          'label': '制单时间',
+          'text': '2026-09-10'
+        },
+        {
+          'label': '计价方式',
+          'text': '销售价随订单（一进一出）',
+          'full': true
+        },
+        {
+          'label': '出库日期',
+          'text': '2026-09-10'
+        },
+        {
+          'label': '备注',
+          'text': 'SO-20260827-0039 第二批交付（累计 2,500 件全部交付）'
+        }
+      ],
+      'feeSecTitle': '出库明细',
+      'feeCols': ['序号', '物料编码', '名称规格', '单位', '数量', '未税单价(元)', '税率', '含税单价(元)', '含税金额(元)', '库位'],
+      'fees': [
+        {
+          'cells': ['1', 'LJ-D400', '箱盖 ABS 吸塑', '件', '500', '3.60', '13%', '4.07', '2,034.00', ('原料区 RA')]
+        }
+      ],
+      'chain': [
+        {
+          'role': '销售订单',
+          'name': 'SO-20260827-0039（第二批）',
+          'url': '销售管理/销售订单列表.html'
+        },
+        {
+          'role': '销售出库（本单）',
+          'name': 'XSCK-20260910-016',
+          'self': true
+        },
+        {
+          'role': '应收账单',
+          'name': 'AR-2026-09-PRJ2601-S2 · 销售费（按次生成）',
+          'url': '财务协同/应收账单.html'
+        }
+      ],
+      'timeline': [
+        {
+          't': '09-10 09:20',
+          'text': '备货 · 原料区 RA 箱盖 500 件（第二批）',
+          'who': '张帆'
+        },
+        {
+          't': '09-10 15:40',
+          'text': '出库确认 · 客户签收 · 订单全部交付',
+          'who': '张帆'
+        },
+        {
+          't': '09-11',
+          'text': '按次应收生成 · AR-2026-09-PRJ2601-S2（1,800.00 元）',
+          'who': '系统'
+        }
+      ]
+    },
     'XSCK-20260902-015': {
       'row': {"fields": {"so": "SO-20260830-0043", "customer": "华骏重卡汽车有限公司", "project": "PRJ-2601", "summary": "箱盖 ABS 吸塑×1,500", "warehouse": "原料区 RA", "date": "2026-09-02", "status": "待审核"}, "note": "1", "cells": ["<span class=\"lk\">SO-20260830-0043</span>", "华骏重卡汽车有限公司", "PRJ-2601", "箱盖 ABS 吸塑×1,500", "<span class=\"td-num\">1,500</span>", "原料区 RA", "2026-09-02", "<span class=\"tag tag-orange\">待审核</span>"], "ops": [{"t": "审核", "act": "go('../销售管理/销售出库审核.html?id=XSCK-20260902-015')"}, {"t": "详情", "act": "go('../销售管理/销售出库详情.html?id=XSCK-20260902-015')"}, {"t": "打印出货单", "act": "go('../租赁管理/出货单打印.html?key=XSCK-20260902-015')"}]},
       'title': '销售出库单详情',
@@ -8576,7 +8775,7 @@ window.DEMO_DATA = {
       ]
     },
     'XSCK-20260901-014': {
-      'row': {"fields": {"so": "SO-20260828-0041", "customer": "长风汽车制造有限公司", "project": "PRJ-2604", "summary": "锁扣组件×800", "warehouse": "原料区 RA", "date": "2026-09-01", "status": "已完成"}, "cells": ["<span class=\"lk\">SO-20260828-0041</span>", "长风汽车制造有限公司", "PRJ-2604", "锁扣组件×800", "<span class=\"td-num\">800</span>", "原料区 RA", "2026-09-01", "<span class=\"tag tag-green\">已完成</span>"], "ops": [{"t": "详情", "act": "go('../销售管理/销售出库详情.html?id=XSCK-20260901-014')"}, {"t": "打印出货单", "act": "go('../租赁管理/出货单打印.html?key=XSCK-20260901-014')"}]},
+      'row': {"fields": {"so": "SO-20260828-0041", "customer": "长风汽车制造有限公司", "project": "PRJ-2604", "summary": "锁扣组件×800", "warehouse": "原料区 RA", "date": "2026-09-01", "status": "已完成", "ar": "AR-2026-09-PRJ2604-S1"}, "cells": ["<span class=\"lk\">SO-20260828-0041</span>", "长风汽车制造有限公司", "PRJ-2604", "锁扣组件×800", "<span class=\"td-num\">800</span>", "原料区 RA", "2026-09-01", "<span class=\"tag tag-green\">已完成</span>"], "ops": [{"t": "详情", "act": "go('../销售管理/销售出库详情.html?id=XSCK-20260901-014')"}, {"t": "打印出货单", "act": "go('../租赁管理/出货单打印.html?key=XSCK-20260901-014')"}, {"t": "应收账单", "act": "go('../财务协同/应收账单.html')"}]},
       'title': '销售出库单详情',
       'info': [
         {
@@ -8592,6 +8791,11 @@ window.DEMO_DATA = {
           'label': '关联销售订单',
           'text': 'SO-20260828-0041',
           'url': '销售管理/销售订单列表.html'
+        },
+        {
+          'label': '关联应收账单',
+          'text': 'AR-2026-09-PRJ2604-S1（销售费 · 按次生成）',
+          'url': '财务协同/应收账单.html'
         },
         {
           'label': '客户',
@@ -8680,7 +8884,7 @@ window.DEMO_DATA = {
       ]
     },
     'XSCK-20260829-013': {
-      'row': {"fields": {"so": "SO-20260827-0039", "customer": "华骏重卡汽车有限公司", "project": "PRJ-2601", "summary": "箱盖 ABS 吸塑×2,000", "warehouse": "原料区 RA", "date": "2026-08-29", "status": "已完成"}, "cells": ["<span class=\"lk\">SO-20260827-0039</span>", "华骏重卡汽车有限公司", "PRJ-2601", "箱盖 ABS 吸塑×2,000", "<span class=\"td-num\">2,000</span>", "原料区 RA", "2026-08-29", "<span class=\"tag tag-green\">已完成</span>"], "ops": [{"t": "详情", "act": "go('../销售管理/销售出库详情.html?id=XSCK-20260829-013')"}, {"t": "打印出货单", "act": "go('../租赁管理/出货单打印.html?key=XSCK-20260829-013')"}]},
+      'row': {"fields": {"so": "SO-20260827-0039", "customer": "华骏重卡汽车有限公司", "project": "PRJ-2601", "summary": "箱盖 ABS 吸塑×2,000", "warehouse": "原料区 RA", "date": "2026-08-29", "status": "已完成", "ar": "AR-2026-08-PRJ2601"}, "cells": ["<span class=\"lk\">SO-20260827-0039</span>", "华骏重卡汽车有限公司", "PRJ-2601", "箱盖 ABS 吸塑×2,000", "<span class=\"td-num\">2,000</span>", "原料区 RA", "2026-08-29", "<span class=\"tag tag-green\">已完成</span>"], "ops": [{"t": "详情", "act": "go('../销售管理/销售出库详情.html?id=XSCK-20260829-013')"}, {"t": "打印出货单", "act": "go('../租赁管理/出货单打印.html?key=XSCK-20260829-013')"}, {"t": "应收账单", "act": "go('../财务协同/应收账单.html')"}]},
       'title': '销售出库单详情',
       'info': [
         {
@@ -8696,6 +8900,11 @@ window.DEMO_DATA = {
           'label': '关联销售订单',
           'text': 'SO-20260827-0039',
           'url': '销售管理/销售订单列表.html'
+        },
+        {
+          'label': '关联应收账单',
+          'text': 'AR-2026-08-PRJ2601（销售费 · 8 月按出库汇总）',
+          'url': '财务协同/应收账单.html'
         },
         {
           'label': '客户',
@@ -8761,7 +8970,7 @@ window.DEMO_DATA = {
         },
         {
           'role': '应收账单',
-          'name': '销售费 · 按出库自动汇总',
+          'name': 'AR-2026-08-PRJ2601 · 销售费（8 月按出库汇总）',
           'url': '财务协同/应收账单.html'
         }
       ],
@@ -8777,14 +8986,14 @@ window.DEMO_DATA = {
           'who': '张帆'
         },
         {
-          't': '—',
-          'text': '销售费应收按出库汇总',
-          'off': true
+          't': '08-31',
+          'text': '应收账单汇总生成 · AR-2026-08-PRJ2601（销售费）',
+          'who': '系统'
         }
       ]
     },
     'XSCK-20260826-012': {
-      'row': {"fields": {"so": "SO-20260822-0038", "customer": "东海商用汽车有限公司宁波分公司", "project": "PRJ-2602", "summary": "铰链×900 / 内衬×400", "warehouse": "原料区 RA", "date": "2026-08-26", "status": "已完成"}, "cells": ["<span class=\"lk\">SO-20260822-0038</span>", "东海商用汽车有限公司宁波分公司", "PRJ-2602", "铰链×900 / 内衬×400", "<span class=\"td-num\">1,300</span>", "原料区 RA", "2026-08-26", "<span class=\"tag tag-green\">已完成</span>"], "ops": [{"t": "详情", "act": "go('../销售管理/销售出库详情.html?id=XSCK-20260826-012')"}, {"t": "打印出货单", "act": "go('../租赁管理/出货单打印.html?key=XSCK-20260826-012')"}]},
+      'row': {"fields": {"so": "SO-20260822-0038", "customer": "东海商用汽车有限公司宁波分公司", "project": "PRJ-2602", "summary": "铰链×900 / 内衬×400", "warehouse": "原料区 RA", "date": "2026-08-26", "status": "已完成", "ar": "AR-2026-08-PRJ2602-S1"}, "cells": ["<span class=\"lk\">SO-20260822-0038</span>", "东海商用汽车有限公司宁波分公司", "PRJ-2602", "铰链×900 / 内衬×400", "<span class=\"td-num\">1,300</span>", "原料区 RA", "2026-08-26", "<span class=\"tag tag-green\">已完成</span>"], "ops": [{"t": "详情", "act": "go('../销售管理/销售出库详情.html?id=XSCK-20260826-012')"}, {"t": "打印出货单", "act": "go('../租赁管理/出货单打印.html?key=XSCK-20260826-012')"}, {"t": "应收账单", "act": "go('../财务协同/应收账单.html')"}]},
       'title': '销售出库单详情',
       'info': [
         {
@@ -8800,6 +9009,11 @@ window.DEMO_DATA = {
           'label': '关联销售订单',
           'text': 'SO-20260822-0038',
           'url': '销售管理/销售订单列表.html'
+        },
+        {
+          'label': '关联应收账单',
+          'text': 'AR-2026-08-PRJ2602-S1（销售费 · 已结清）',
+          'url': '财务协同/应收账单.html'
         },
         {
           'label': '客户',
@@ -8891,7 +9105,7 @@ window.DEMO_DATA = {
       ]
     },
     'XSCK-20260822-011': {
-      'row': {"fields": {"so": "SO-20260819-0035", "customer": "星途新能源汽车科技有限公司", "project": "PRJ-2603", "summary": "锁扣组件×1,200", "warehouse": "原料区 RA", "date": "2026-08-22", "status": "已完成"}, "cells": ["<span class=\"lk\">SO-20260819-0035</span>", "星途新能源汽车科技有限公司", "PRJ-2603", "锁扣组件×1,200", "<span class=\"td-num\">1,200</span>", "原料区 RA", "2026-08-22", "<span class=\"tag tag-green\">已完成</span>"], "ops": [{"t": "详情", "act": "go('../销售管理/销售出库详情.html?id=XSCK-20260822-011')"}, {"t": "打印出货单", "act": "go('../租赁管理/出货单打印.html?key=XSCK-20260822-011')"}]},
+      'row': {"fields": {"so": "SO-20260819-0035", "customer": "星途新能源汽车科技有限公司", "project": "PRJ-2603", "summary": "锁扣组件×1,200", "warehouse": "原料区 RA", "date": "2026-08-22", "status": "已完成", "ar": "AR-2026-08-PRJ2603"}, "cells": ["<span class=\"lk\">SO-20260819-0035</span>", "星途新能源汽车科技有限公司", "PRJ-2603", "锁扣组件×1,200", "<span class=\"td-num\">1,200</span>", "原料区 RA", "2026-08-22", "<span class=\"tag tag-green\">已完成</span>"], "ops": [{"t": "详情", "act": "go('../销售管理/销售出库详情.html?id=XSCK-20260822-011')"}, {"t": "打印出货单", "act": "go('../租赁管理/出货单打印.html?key=XSCK-20260822-011')"}, {"t": "应收账单", "act": "go('../财务协同/应收账单.html')"}]},
       'title': '销售出库单详情',
       'info': [
         {
@@ -8907,6 +9121,11 @@ window.DEMO_DATA = {
           'label': '关联销售订单',
           'text': 'SO-20260819-0035',
           'url': '销售管理/销售订单列表.html'
+        },
+        {
+          'label': '关联应收账单',
+          'text': 'AR-2026-08-PRJ2603（销售费 · 8 月按出库汇总）',
+          'url': '财务协同/应收账单.html'
         },
         {
           'label': '客户',
@@ -8972,7 +9191,7 @@ window.DEMO_DATA = {
         },
         {
           'role': '应收账单',
-          'name': '销售费 · 按出库自动汇总',
+          'name': 'AR-2026-08-PRJ2603 · 销售费（8 月按出库汇总）',
           'url': '财务协同/应收账单.html'
         }
       ],
@@ -8988,14 +9207,14 @@ window.DEMO_DATA = {
           'who': '张帆'
         },
         {
-          't': '—',
-          'text': '销售费应收按出库汇总',
-          'off': true
+          't': '08-31',
+          'text': '应收账单汇总生成 · AR-2026-08-PRJ2603（销售费）',
+          'who': '系统'
         }
       ]
     },
     'XSCK-20260818-010': {
-      'row': {"fields": {"so": "SO-20260815-0032", "customer": "华骏重卡汽车有限公司", "project": "PRJ-2601", "summary": "箱盖 ABS 吸塑×600", "warehouse": "原料区 RA", "date": "2026-08-18", "status": "已完成"}, "cells": ["<span class=\"lk\">SO-20260815-0032</span>", "华骏重卡汽车有限公司", "PRJ-2601", "箱盖 ABS 吸塑×600", "<span class=\"td-num\">600</span>", "原料区 RA", "2026-08-18", "<span class=\"tag tag-green\">已完成</span>"], "ops": [{"t": "详情", "act": "go('../销售管理/销售出库详情.html?id=XSCK-20260818-010')"}, {"t": "打印出货单", "act": "go('../租赁管理/出货单打印.html?key=XSCK-20260818-010')"}]},
+      'row': {"fields": {"so": "SO-20260815-0032", "customer": "华骏重卡汽车有限公司", "project": "PRJ-2601", "summary": "箱盖 ABS 吸塑×600", "warehouse": "原料区 RA", "date": "2026-08-18", "status": "已完成", "ar": "AR-2026-08-PRJ2601"}, "cells": ["<span class=\"lk\">SO-20260815-0032</span>", "华骏重卡汽车有限公司", "PRJ-2601", "箱盖 ABS 吸塑×600", "<span class=\"td-num\">600</span>", "原料区 RA", "2026-08-18", "<span class=\"tag tag-green\">已完成</span>"], "ops": [{"t": "详情", "act": "go('../销售管理/销售出库详情.html?id=XSCK-20260818-010')"}, {"t": "打印出货单", "act": "go('../租赁管理/出货单打印.html?key=XSCK-20260818-010')"}, {"t": "应收账单", "act": "go('../财务协同/应收账单.html')"}]},
       'title': '销售出库单详情',
       'info': [
         {
@@ -9011,6 +9230,11 @@ window.DEMO_DATA = {
           'label': '关联销售订单',
           'text': 'SO-20260815-0032',
           'url': '销售管理/销售订单列表.html'
+        },
+        {
+          'label': '关联应收账单',
+          'text': 'AR-2026-08-PRJ2601（销售费 · 8 月按出库汇总）',
+          'url': '财务协同/应收账单.html'
         },
         {
           'label': '客户',
@@ -9076,7 +9300,7 @@ window.DEMO_DATA = {
         },
         {
           'role': '应收账单',
-          'name': '销售费 · 按出库自动汇总',
+          'name': 'AR-2026-08-PRJ2601 · 销售费（8 月按出库汇总）',
           'url': '财务协同/应收账单.html'
         }
       ],
@@ -9092,9 +9316,9 @@ window.DEMO_DATA = {
           'who': '张帆'
         },
         {
-          't': '—',
-          'text': '销售费应收按出库汇总',
-          'off': true
+          't': '08-31',
+          'text': '应收账单汇总生成 · AR-2026-08-PRJ2601（销售费）',
+          'who': '系统'
         }
       ]
     }
@@ -10445,66 +10669,25 @@ window.DEMO_DATA = {
     'DB-20260901-003': {
       'row': {"fields": {"material": "LJ-A100 锁扣组件 不锈钢 304", "frm": "原料区 RA", "to": "成品区 RB", "date": "2026-09-01", "status": "待审核"}, "cells": ["LJ-A100 锁扣组件 不锈钢 304", "<span class=\"td-num\">1,000 件</span>", "原料区 RA", "成品区 RB", "2026-09-01", "<span class=\"tag tag-orange\">待审核</span>"], "ops": [{"t": "审核", "act": "go('../仓储作业/调拨审核.html?id=DB-20260901-003')"}, {"t": "详情", "act": "go('../仓储作业/调拨详情.html?id=DB-20260901-003')"}]},
       'title': '调拨单详情',
-      'info': [
-        {
-          'label': '调拨单号',
-          'text': 'DB-20260901-003',
-          'full': true
-        },
-        {
-          'label': '状态',
-          'tag': '待审核'
-        },
-        {
-          'label': '物料',
-          'text': 'LJ-A100 锁扣组件 不锈钢 304',
-          'full': true
-        },
-        {
-          'label': '数量',
-          'text': '1,000 件'
-        },
-        {
-          'label': '调出库位',
-          'text': '原料区 RA'
-        },
-        {
-          'label': '调入库位',
-          'text': '成品区 RB'
-        },
-        {
-          'label': '调拨类型',
-          'text': '库区内调拨'
-        },
-        {
-          'label': '调拨原因',
-          'text': '组装备料（ZH-2601-A 组装线需求）',
-          'full': true
-        },
-        {
-          'label': '调拨日期',
-          'text': '2026-09-01'
-        },
-        {
-          'label': '制单人',
-          'text': '赵芳'
-        },
-        {
-          'label': '审核人',
-          'text': '—'
-        },
-        {
-          'label': '备注',
-          'text': '调拨不影响库存总量，仅变动库区分布',
-          'full': true
-        }
+      'formTitle': '调拨信息',
+      'formRows': [
+        { 'label': '调拨单号', 'text': 'DB-20260901-003' },
+        { 'label': '状态', 'tag': '待审核' },
+        { 'label': '调出库位', 'text': '原料区 RA' },
+        { 'label': '调入库位', 'text': '成品区 RB' },
+        { 'label': '调拨类型', 'text': '库区内调拨' },
+        { 'label': '调拨原因', 'text': '组装备料（ZH-2601-A 组装线需求）', 'full': true },
+        { 'label': '调拨日期', 'text': '2026-09-01' },
+        { 'label': '备注', 'text': '调拨不影响库存总量，仅变动库区分布', 'full': true },
+        { 'label': '制单人', 'text': '赵芳' },
+        { 'label': '审核人', 'text': '—' }
       ],
-      'feeSecTitle': '调拨明细',
-      'feeCols': ['序号', '物料编码', '名称规格', '单位', '数量', '调出 → 调入'],
-      'fees': [
-        {
-          'cells': ['1', 'LJ-A100', '锁扣组件 不锈钢 304', '件', '1000', '原料区 RA → 成品区 RB']
-        }
+      'itemTitle': '调拨明细',
+      'itemCols': ['序号', '物料编码', '物料名称', '规格', '单位', '调拨数量', '备注'],
+      'items': [
+        ['1', 'LJ-A100', '锁扣组件', '不锈钢 304 · M8', '件', '600', 'ZH-2601-A 组装线备料'],
+        ['2', 'LJ-B200', '铰链', '锌合金 · 65mm', '件', '400', '—'],
+        ['3', 'LJ-D400', '箱盖', 'ABS 吸塑 · 1200×1000', '件', '300', '—']
       ],
       'chain': [
         {
@@ -10543,66 +10726,23 @@ window.DEMO_DATA = {
     'DB-20260826-002': {
       'row': {"fields": {"material": "WBX-1210L 围板箱 1200×1000×970", "frm": "成品区 RB", "to": "外协周转区 RC", "date": "2026-08-26", "status": "已完成"}, "cells": ["WBX-1210L 围板箱 1200×1000×970", "<span class=\"td-num\">200 只</span>", "成品区 RB", "外协周转区 RC", "2026-08-26", "<span class=\"tag tag-green\">已完成</span>"], "ops": [{"t": "详情", "act": "go('../仓储作业/调拨详情.html?id=DB-20260826-002')"}]},
       'title': '调拨单详情',
-      'info': [
-        {
-          'label': '调拨单号',
-          'text': 'DB-20260826-002',
-          'full': true
-        },
-        {
-          'label': '状态',
-          'tag': '已完成'
-        },
-        {
-          'label': '物料',
-          'text': 'WBX-1210L 围板箱 1200×1000×970',
-          'full': true
-        },
-        {
-          'label': '数量',
-          'text': '200 只'
-        },
-        {
-          'label': '调出库位',
-          'text': '成品区 RB'
-        },
-        {
-          'label': '调入库位',
-          'text': '外协周转区 RC'
-        },
-        {
-          'label': '调拨类型',
-          'text': '库区间调拨'
-        },
-        {
-          'label': '调拨原因',
-          'text': '外协周转备货（客户产线周边仓）',
-          'full': true
-        },
-        {
-          'label': '调拨日期',
-          'text': '2026-08-26'
-        },
-        {
-          'label': '制单人',
-          'text': '赵芳'
-        },
-        {
-          'label': '审核人',
-          'text': '张帆'
-        },
-        {
-          'label': '备注',
-          'text': '调拨不影响库存总量，仅变动库区分布',
-          'full': true
-        }
+      'formTitle': '调拨信息',
+      'formRows': [
+        { 'label': '调拨单号', 'text': 'DB-20260826-002' },
+        { 'label': '状态', 'tag': '已完成' },
+        { 'label': '调出库位', 'text': '成品区 RB' },
+        { 'label': '调入库位', 'text': '外协周转区 RC' },
+        { 'label': '调拨类型', 'text': '库区间调拨' },
+        { 'label': '调拨原因', 'text': '外协周转备货（客户产线周边仓）', 'full': true },
+        { 'label': '调拨日期', 'text': '2026-08-26' },
+        { 'label': '备注', 'text': '调拨不影响库存总量，仅变动库区分布', 'full': true },
+        { 'label': '制单人', 'text': '赵芳' },
+        { 'label': '审核人', 'text': '张帆' }
       ],
-      'feeSecTitle': '调拨明细',
-      'feeCols': ['序号', '物料编码', '名称规格', '单位', '数量', '调出 → 调入'],
-      'fees': [
-        {
-          'cells': ['1', 'WBX-1210L', '围板箱 1200×1000×970', '只', '200', '成品区 RB → 外协周转区 RC']
-        }
+      'itemTitle': '调拨明细',
+      'itemCols': ['序号', '物料编码', '物料名称', '规格', '单位', '调拨数量', '备注'],
+      'items': [
+        ['1', 'WBX-1210L', '围板箱 1200×1000×970', '1200×1000×970 mm', '只', '200', '外协周转备货']
       ],
       'chain': [
         {
@@ -10637,66 +10777,23 @@ window.DEMO_DATA = {
     'DB-20260812-001': {
       'row': {"fields": {"material": "PLT-1210P 塑料托盘 1200×1000", "frm": "成品区 RB", "to": "原料区 RA", "date": "2026-08-12", "status": "已完成"}, "cells": ["PLT-1210P 塑料托盘 1200×1000", "<span class=\"td-num\">300 块</span>", "成品区 RB", "原料区 RA", "2026-08-12", "<span class=\"tag tag-green\">已完成</span>"], "ops": [{"t": "详情", "act": "go('../仓储作业/调拨详情.html?id=DB-20260812-001')"}]},
       'title': '调拨单详情',
-      'info': [
-        {
-          'label': '调拨单号',
-          'text': 'DB-20260812-001',
-          'full': true
-        },
-        {
-          'label': '状态',
-          'tag': '已完成'
-        },
-        {
-          'label': '物料',
-          'text': 'PLT-1210P 塑料托盘 1200×1000',
-          'full': true
-        },
-        {
-          'label': '数量',
-          'text': '300 块'
-        },
-        {
-          'label': '调出库位',
-          'text': '成品区 RB'
-        },
-        {
-          'label': '调入库位',
-          'text': '原料区 RA'
-        },
-        {
-          'label': '调拨类型',
-          'text': '库区间调拨'
-        },
-        {
-          'label': '调拨原因',
-          'text': '零部件区辅料补库（托盘周转）',
-          'full': true
-        },
-        {
-          'label': '调拨日期',
-          'text': '2026-08-12'
-        },
-        {
-          'label': '制单人',
-          'text': '赵芳'
-        },
-        {
-          'label': '审核人',
-          'text': '张帆'
-        },
-        {
-          'label': '备注',
-          'text': '调拨不影响库存总量，仅变动库区分布',
-          'full': true
-        }
+      'formTitle': '调拨信息',
+      'formRows': [
+        { 'label': '调拨单号', 'text': 'DB-20260812-001' },
+        { 'label': '状态', 'tag': '已完成' },
+        { 'label': '调出库位', 'text': '成品区 RB' },
+        { 'label': '调入库位', 'text': '原料区 RA' },
+        { 'label': '调拨类型', 'text': '库区间调拨' },
+        { 'label': '调拨原因', 'text': '零部件区辅料补库（托盘周转）', 'full': true },
+        { 'label': '调拨日期', 'text': '2026-08-12' },
+        { 'label': '备注', 'text': '调拨不影响库存总量，仅变动库区分布', 'full': true },
+        { 'label': '制单人', 'text': '赵芳' },
+        { 'label': '审核人', 'text': '张帆' }
       ],
-      'feeSecTitle': '调拨明细',
-      'feeCols': ['序号', '物料编码', '名称规格', '单位', '数量', '调出 → 调入'],
-      'fees': [
-        {
-          'cells': ['1', 'PLT-1210P', '塑料托盘 1200×1000', '块', '300', '成品区 RB → 原料区 RA']
-        }
+      'itemTitle': '调拨明细',
+      'itemCols': ['序号', '物料编码', '物料名称', '规格', '单位', '调拨数量', '备注'],
+      'items': [
+        ['1', 'PLT-1210P', '塑料托盘 1200×1000', '1200×1000×150 mm', '块', '300', '托盘周转补库']
       ],
       'chain': [
         {
@@ -16992,9 +17089,7 @@ window.DEMO_DATA = {
     'DB-20260906-008': { 'row': {"fields": {"auditor": "林国栋", "type": "库存调拨", "docNo": "DB-20260906-008", "summary": "华东中心仓→华南中心仓 · 围板箱 50 只", "project": "华东中心仓", "submitter": "邵磊", "time": "09-06 11:40", "action": "待审核"}}, 'link': '仓储作业/调拨审核.html?id=DB-20260906-008' },
     'RZD-20260909-010': { 'row': {"fields": {"auditor": "江强", "type": "租入单", "docNo": "RZD-20260909-010", "summary": "环通 · 大箱租入 40 只（月租）", "project": "PRJ-2603", "submitter": "江强", "time": "09-09 09:50", "action": "待审核"}}, 'link': '租入管理/租入单审核.html?id=RZD-20260909-010' },
     'CK-20260910-022': { 'row': {"fields": {"auditor": "林国栋", "type": "租赁出库", "docNo": "CK-20260910-022", "summary": "东海商用宁波 · 围板箱套件 30 套", "project": "PRJ-2603", "submitter": "邵磊", "time": "09-10 15:20", "action": "待审核"}}, 'link': '租赁管理/租赁出库确认.html?id=CK-20260910-022' },
-    'CGTH-20260910-003': { 'row': {"fields": {"auditor": "徐文", "type": "采购退货单", "docNo": "CGTH-20260910-003", "summary": "延陵托盘 · 塑料托盘退货 40 张（入库后）", "project": "PRJ-2602", "submitter": "林国栋", "time": "09-10 11:05", "action": "待审核"}}, 'link': '采购管理/采购退货审核.html?id=CGTH-20260910-003' },
     'XSTH-20260911-003': { 'row': {"fields": {"auditor": "沈婷", "type": "销售退货单", "docNo": "XSTH-20260911-003", "summary": "东海商用宁波 · 内衬退货 300 件（拒收）", "project": "PRJ-2602", "submitter": "沈婷", "time": "09-11 14:30", "action": "待审核"}}, 'link': '销售管理/销售退货审核.html?id=XSTH-20260911-003' },
-    'TKD-20260914-001': { 'row': {"fields": {"auditor": "严丽", "type": "退款登记", "docNo": "TKD-20260914-001", "summary": "甬城塑业 · 采购退货应付退款 2,000.00", "project": "PRJ-2601", "submitter": "李婧", "time": "09-14 10:15", "action": "待审核"}}, 'link': '财务协同/退款登记.html?audit=1' },
     'ZY-20260915-005': { 'row': {"fields": {"auditor": "赵磊", "type": "转移出库", "docNo": "ZY-20260915-005", "summary": "安吉智行 · 围板箱转移博世苏州 200 只", "project": "PRJ-2605", "submitter": "沈婷", "time": "09-15 09:20", "action": "待审核"}}, 'link': '租赁管理/转移出库审核.html?id=ZY-20260915-005' },
   },
 
@@ -17083,43 +17178,43 @@ window.DEMO_DATA = {
  * ------------------------------------------------------------------------ */
   purchaseReturns: {
     'CGTH-20260914-001': {
-      'row': {"fields": {"type": "入库后退货", "ref": "CGRK-20260828-012", "supplier": "吴越联合五金制品有限公司", "material": "围板箱 1200×1000×970", "qty": "10 只", "amount": "4,800.00", "status": "已退款", "date": "2026-09-14"}, "cells": ["入库后退货", "<span class=\"lk\">CGRK-20260828-012</span>", "吴越联合五金制品有限公司", "围板箱 1200×1000×970", "<span class=\"td-num\">10 只</span>", "<span class=\"td-num\">4,800.00</span>", "<span class=\"tag tag-green\">已退款</span>", "2026-09-14"], "ops": [{"t": "详情", "act": "go('../采购管理/采购退货详情.html?id=CGTH-20260914-001')"}, {"t": "退款登记", "act": "go('../财务协同/退款登记.html')"}]},
+      'row': {"fields": {"type": "入库后退货", "ref": "CGRK-20260828-012", "supplier": "吴越联合五金制品有限公司", "material": "锁扣组件 不锈钢 304", "qty": "1,000 件", "amount": "4,800.00", "status": "已审核", "payStatus": "未付款", "date": "2026-09-14"}, "cells": ["入库后退货", "<span class=\"lk\">CGRK-20260828-012</span>", "吴越联合五金制品有限公司", "锁扣组件 不锈钢 304", "<span class=\"td-num\">1,000 件</span>", "<span class=\"td-num\">4,800.00</span>", "<span class=\"tag tag-blue\">已审核</span>", "2026-09-14"], "ops": [{"t": "详情", "act": "go('../采购管理/采购退货详情.html?id=CGTH-20260914-001')"}]},
       title: '采购退货单详情',
       info: [
         { label: '退货单号', text: 'CGTH-20260914-001', full: true },
-        { label: '状态', tag: '已退款' },
+        { label: '状态', tag: '已审核' },
         { label: '退货类型', text: '入库后退货（已入库再退）' },
         { label: '退货日期', text: '2026-09-14' },
         { label: '供应商', text: '吴越联合五金制品有限公司', full: true },
+        { label: '货款支付状态', text: '未付款 · 退货冲减在途应付（不立退款单）' },
         { label: '关联采购入库', text: 'CGRK-20260828-012', url: '采购管理/采购入库列表.html' },
-        { label: '关联退款单', text: 'TKD-20260912-003', url: '财务协同/退款登记.html' },
         { label: '制单人', text: '林国栋' },
         { label: '退货原因', text: '规格不符（尺寸下差），供应商确认后退货' },
         { label: '备注', text: '—' }
       ],
       feeCols: ['物料', '数量', '未税单价(元)', '含税金额(元)'],
-      fees: [ { cells: ['围板箱 1200×1000×970', '10 只', '480.00', '4,800.00'] } ],
+      fees: [ { cells: ['锁扣组件 不锈钢 304', '1,000 件', '4.80', '4,800.00'] } ],
       chain: [
         { role: '采购入库单', name: 'CGRK-20260828-012', url: '采购管理/采购入库列表.html' },
         { role: '采购退货单（本单）', name: 'CGTH-20260914-001', self: true },
-        { role: '退款登记', name: 'TKD-20260912-003', url: '财务协同/退款登记.html' }
+        { role: '应付账单', name: '货款未付 · 按净额挂账（验收后）', url: '财务协同/应付账单.html' }
       ],
       timeline: [
         { t: '09-14 09:30', text: '采购退货登记 · 提交审核', who: '林国栋' },
-        { t: '09-14 14:20', text: '审核通过 · 冲减库存与应付', who: '徐文' },
-        { t: '09-15 10:05', text: '退款到账确认 · 单据转已退款', who: '财务·周敏' }
+        { t: '09-14 14:20', text: '审核通过 · 冲减库存与在途应付（货款未付，不立退款单）', who: '徐文' }
       ]
     },
     'CGTH-20260912-002': {
-      'row': {"fields": {"type": "收货拒收", "ref": "CGRK-20260828-011", "supplier": "甬城塑业包装制品有限公司", "material": "锁扣组件", "qty": "500 套", "amount": "2,000.00", "status": "已审核", "date": "2026-09-12"}, "cells": ["收货拒收", "<span class=\"lk\">CGRK-20260828-011</span>", "甬城塑业包装制品有限公司", "锁扣组件", "<span class=\"td-num\">500 套</span>", "<span class=\"td-num\">2,000.00</span>", "<span class=\"tag tag-blue\">已审核</span>", "2026-09-12"], "ops": [{"t": "详情", "act": "go('../采购管理/采购退货详情.html?id=CGTH-20260912-002')"}, {"t": "退款登记", "act": "go('../财务协同/退款登记.html')"}]},
+      'row': {"fields": {"type": "收货拒收", "ref": "CGRK-20260827-009", "supplier": "吴越联合五金制品有限公司", "material": "锁扣组件", "qty": "500 套", "amount": "2,000.00", "status": "已审核", "payStatus": "未付款", "date": "2026-09-12"}, "cells": ["收货拒收", "<span class=\"lk\">CGRK-20260827-009</span>", "吴越联合五金制品有限公司", "锁扣组件", "<span class=\"td-num\">500 套</span>", "<span class=\"td-num\">2,000.00</span>", "<span class=\"tag tag-blue\">已审核</span>", "2026-09-12"], "ops": [{"t": "详情", "act": "go('../采购管理/采购退货详情.html?id=CGTH-20260912-002')"}]},
       title: '采购退货单详情',
       info: [
         { label: '退货单号', text: 'CGTH-20260912-002', full: true },
         { label: '状态', tag: '已审核' },
         { label: '退货类型', text: '收货拒收（未入库直接退·不产生库存流水）' },
         { label: '退货日期', text: '2026-09-12' },
-        { label: '供应商', text: '甬城塑业包装制品有限公司', full: true },
-        { label: '关联采购入库', text: 'CGRK-20260828-011', url: '采购管理/采购入库列表.html' },
+        { label: '供应商', text: '吴越联合五金制品有限公司', full: true },
+        { label: '货款支付状态', text: '未付款 · 拒收未入库，不产生应付与退款' },
+        { label: '关联采购入库', text: 'CGRK-20260827-009', url: '采购管理/采购入库列表.html' },
         { label: '制单人', text: '林国栋' },
         { label: '退货原因', text: '到货验收不合格（镀层脱落），整批拒收' },
         { label: '备注', text: '—' }
@@ -17127,40 +17222,43 @@ window.DEMO_DATA = {
       feeCols: ['物料', '数量', '未税单价(元)', '含税金额(元)'],
       fees: [ { cells: ['锁扣组件', '500 套', '4.00', '2,000.00'] } ],
       chain: [
-        { role: '采购入库单', name: 'CGRK-20260828-011', url: '采购管理/采购入库列表.html' },
+        { role: '采购入库单', name: 'CGRK-20260827-009', url: '采购管理/采购入库列表.html' },
         { role: '采购退货单（本单）', name: 'CGTH-20260912-002', self: true },
-        { role: '退款登记', name: '待退款（应付退款·对供应商）' }
+        { role: '应付账单', name: '货款未付 · 拒收不挂账（单据终结）', url: '财务协同/应付账单.html' }
       ],
       timeline: [
         { t: '09-12 08:40', text: '采购退货登记 · 收货拒收', who: '林国栋' },
-        { t: '09-12 16:10', text: '审核通过 · 不动原入库单（未入库）', who: '徐文' },
-        { t: '—', text: '待退款 · 供应商退款后转已退款', off: true }
+        { t: '09-12 16:10', text: '审核通过 · 不动原入库单（未入库）· 货款未付，无需退款', who: '徐文' }
       ]
     },
     'CGTH-20260910-003': {
-      'row': {"fields": {"type": "入库后退货", "ref": "CGRK-20260827-010", "supplier": "延陵塑料托盘厂", "material": "塑料托盘 1200×1000×150", "qty": "40 张", "amount": "2,400.00", "status": "待审核", "date": "2026-09-10"}, "cells": ["入库后退货", "<span class=\"lk\">CGRK-20260827-010</span>", "延陵塑料托盘厂", "塑料托盘 1200×1000×150", "<span class=\"td-num\">40 张</span>", "<span class=\"td-num\">2,400.00</span>", "<span class=\"tag tag-orange\">待审核</span>", "2026-09-10"], "ops": [{"t": "审核", "act": "go('../采购管理/采购退货审核.html?id=CGTH-20260910-003')"}, {"t": "详情", "act": "go('../采购管理/采购退货详情.html?id=CGTH-20260910-003')"}]},
+      'row': {"fields": {"type": "入库后退货", "ref": "CGRK-20260827-010", "supplier": "延陵塑料托盘厂", "material": "木托盘 1200×1000×400", "qty": "40 块", "amount": "1,960.00", "status": "已退款", "payStatus": "部分付款", "date": "2026-09-10"}, "cells": ["入库后退货", "<span class=\"lk\">CGRK-20260827-010</span>", "延陵塑料托盘厂", "木托盘 1200×1000×400", "<span class=\"td-num\">40 块</span>", "<span class=\"td-num\">1,960.00</span>", "<span class=\"tag tag-green\">已退款</span>", "2026-09-10"], "ops": [{"t": "详情", "act": "go('../采购管理/采购退货详情.html?id=CGTH-20260910-003')"}, {"t": "退款登记", "act": "go('../财务协同/退款登记.html')"}]},
       title: '采购退货单详情',
       info: [
         { label: '退货单号', text: 'CGTH-20260910-003', full: true },
-        { label: '状态', tag: '待审核' },
+        { label: '状态', tag: '已退款' },
         { label: '退货类型', text: '入库后退货（已入库再退）' },
         { label: '退货日期', text: '2026-09-10' },
         { label: '供应商', text: '延陵塑料托盘厂', full: true },
+        { label: '货款支付状态', text: '部分付款（应付已付 6,000 元）· 退货走退款' },
         { label: '关联采购入库', text: 'CGRK-20260827-010', url: '采购管理/采购入库列表.html' },
+        { label: '关联退款单', text: 'TKD-20260912-003', url: '财务协同/退款登记.html' },
         { label: '制单人', text: '林国栋' },
         { label: '退货原因', text: '项目减量，多余托盘退回供应商' },
         { label: '备注', text: '—' }
       ],
       feeCols: ['物料', '数量', '未税单价(元)', '含税金额(元)'],
-      fees: [ { cells: ['塑料托盘 1200×1000×150', '40 张', '60.00', '2,400.00'] } ],
+      fees: [ { cells: ['木托盘 1200×1000×400', '40 块', '49.00', '1,960.00'] } ],
       chain: [
         { role: '采购入库单', name: 'CGRK-20260827-010', url: '采购管理/采购入库列表.html' },
         { role: '采购退货单（本单）', name: 'CGTH-20260910-003', self: true },
-        { role: '退款登记', name: '待审核通过后生成' }
+        { role: '退款登记', name: 'TKD-20260912-003 · 1,960.00 元', url: '财务协同/退款登记.html' }
       ],
       timeline: [
         { t: '09-10 11:05', text: '采购退货登记 · 提交审核', who: '林国栋' },
-        { t: '—', text: '待审核 · 通过后冲减库存并登记应付退款', off: true }
+        { t: '09-11 09:40', text: '审核通过 · 冲减库存（货款已付部分，走退款）', who: '徐文' },
+        { t: '09-12 11:00', text: '退款登记 · TKD-20260912-003', who: '财务·周敏' },
+        { t: '09-13 10:05', text: '退款到账确认 · 单据转已退款', who: '王芳' }
       ]
     },
   },
@@ -17261,34 +17359,6 @@ window.DEMO_DATA = {
  *   「供应商应收」既有行 AR-20260904-015 不动（赔付用途·不承载退货退款）
  * ------------------------------------------------------------------------ */
   refunds: {
-    'TKD-20260914-001': {
-      'row': {"fields": {"type": "采购退货退款", "ref": "CGTH-20260912-002", "partner": "甬城塑业包装制品有限公司", "amount": "2,000.00", "direction": "收款（供应商退回）", "status": "待审核", "date": "2026-09-14"}, "cells": ["采购退货退款（供应商·我方收款）", "<span class=\"lk\">CGTH-20260912-002</span>", "甬城塑业包装制品有限公司", "<span class=\"td-num\">2,000.00</span>", "收款（供应商退回）", "<span class=\"tag tag-orange\">待审核</span>", "2026-09-14"], "ops": [{"t": "确认", "act": "openModal('auditModal')"}, {"t": "详情", "act": "go('../财务协同/退款详情.html?id=TKD-20260914-001')"}]},
-      title: '退款登记详情',
-      info: [
-        { label: '退款单号', text: 'TKD-20260914-001', full: true },
-        { label: '状态', tag: '待审核' },
-        { label: '退款类型', text: '采购退货退款（供应商·我方收款）' },
-        { label: '资金方向', text: '收款 · 供应商退回我方' },
-        { label: '登记日期', text: '2026-09-14' },
-        { label: '往来单位', text: '甬城塑业包装制品有限公司', full: true },
-        { label: '关联退货单', text: 'CGTH-20260912-002', url: '采购管理/采购退货单列表.html' },
-        { label: '退款金额', text: '2,000.00 元' },
-        { label: '收退款账户', text: '招商银行苏州分行 1109××××8821' },
-        { label: '登记人', text: '财务·周敏' },
-        { label: '备注', text: '—' }
-      ],
-      feeCols: ['关联退货单', '退货类型', '退款金额(元)'],
-      fees: [ { cells: ['CGTH-20260912-002', '收货拒收', '2,000.00'], links: { 0: '采购管理/采购退货单列表.html' } } ],
-      chain: [
-        { role: '采购退货单', name: 'CGTH-20260912-002', url: '采购管理/采购退货单列表.html' },
-        { role: '退款登记（本单）', name: 'TKD-20260914-001', self: true },
-        { role: '退款确认', name: '待审核（到账后转已确认）' }
-      ],
-      timeline: [
-        { t: '09-14 10:15', text: '退款登记 · 采购退货退款登记提交', who: '财务·周敏' },
-        { t: '—', text: '待审核 · 到账确认后转已确认', off: true }
-      ]
-    },
     'TKD-20260913-002': {
       'row': {"fields": {"type": "销售退货退款", "ref": "XSTH-20260913-001", "partner": "华骏重卡汽车有限公司", "amount": "3,600.00", "direction": "付款（退回客户）", "status": "已确认", "date": "2026-09-13"}, "cells": ["销售退货退款（客户·我方付款）", "<span class=\"lk\">XSTH-20260913-001</span>", "华骏重卡汽车有限公司", "<span class=\"td-num\">3,600.00</span>", "付款（退回客户）", "<span class=\"tag tag-green\">已确认</span>", "2026-09-13"], "ops": [{"t": "详情", "act": "go('../财务协同/退款详情.html?id=TKD-20260913-002')"}]},
       title: '退款登记详情',
@@ -17318,7 +17388,7 @@ window.DEMO_DATA = {
       ]
     },
     'TKD-20260912-003': {
-      'row': {"fields": {"type": "采购退货退款", "ref": "CGTH-20260914-001", "partner": "吴越联合五金制品有限公司", "amount": "4,800.00", "direction": "收款（供应商退回）", "status": "已确认", "date": "2026-09-12"}, "cells": ["采购退货退款（供应商·我方收款）", "<span class=\"lk\">CGTH-20260914-001</span>", "吴越联合五金制品有限公司", "<span class=\"td-num\">4,800.00</span>", "收款（供应商退回）", "<span class=\"tag tag-green\">已确认</span>", "2026-09-12"], "ops": [{"t": "详情", "act": "go('../财务协同/退款详情.html?id=TKD-20260912-003')"}]},
+      'row': {"fields": {"type": "采购退货退款", "ref": "CGTH-20260910-003", "partner": "延陵塑料托盘厂", "amount": "1,960.00", "direction": "收款（供应商退回）", "status": "已确认", "date": "2026-09-12"}, "cells": ["采购退货退款（供应商·我方收款）", "<span class=\"lk\">CGTH-20260910-003</span>", "延陵塑料托盘厂", "<span class=\"td-num\">1,960.00</span>", "收款（供应商退回）", "<span class=\"tag tag-green\">已确认</span>", "2026-09-12"], "ops": [{"t": "详情", "act": "go('../财务协同/退款详情.html?id=TKD-20260912-003')"}]},
       title: '退款登记详情',
       info: [
         { label: '退款单号', text: 'TKD-20260912-003', full: true },
@@ -17326,23 +17396,23 @@ window.DEMO_DATA = {
         { label: '退款类型', text: '采购退货退款（供应商·我方收款）' },
         { label: '资金方向', text: '收款 · 供应商退回我方' },
         { label: '登记日期', text: '2026-09-12' },
-        { label: '往来单位', text: '吴越联合五金制品有限公司', full: true },
-        { label: '关联退货单', text: 'CGTH-20260914-001', url: '采购管理/采购退货单列表.html' },
-        { label: '退款金额', text: '4,800.00 元' },
+        { label: '往来单位', text: '延陵塑料托盘厂', full: true },
+        { label: '关联退货单', text: 'CGTH-20260910-003', url: '采购管理/采购退货单列表.html' },
+        { label: '退款金额', text: '1,960.00 元' },
         { label: '收退款账户', text: '招商银行苏州分行 1109××××8821' },
         { label: '登记人', text: '财务·周敏' },
-        { label: '备注', text: '—' }
+        { label: '备注', text: '货款已付（部分付款 6,000 元 ≥ 退款额），退款成立' }
       ],
       feeCols: ['关联退货单', '退货类型', '退款金额(元)'],
-      fees: [ { cells: ['CGTH-20260914-001', '入库后退货', '4,800.00'], links: { 0: '采购管理/采购退货单列表.html' } } ],
+      fees: [ { cells: ['CGTH-20260910-003', '入库后退货', '1,960.00'], links: { 0: '采购管理/采购退货单列表.html' } } ],
       chain: [
-        { role: '采购退货单', name: 'CGTH-20260914-001', url: '采购管理/采购退货单列表.html' },
+        { role: '采购退货单', name: 'CGTH-20260910-003', url: '采购管理/采购退货单列表.html' },
         { role: '退款登记（本单）', name: 'TKD-20260912-003', self: true },
         { role: '退款确认', name: '已确认 · 退款到账' }
       ],
       timeline: [
         { t: '09-12 11:00', text: '退款登记 · 采购退货退款登记提交', who: '财务·周敏' },
-        { t: '09-15 10:05', text: '退款确认通过 · 供应商退款到账', who: '王芳' }
+        { t: '09-13 10:05', text: '退款确认通过 · 供应商退款到账', who: '王芳' }
       ]
     },
 

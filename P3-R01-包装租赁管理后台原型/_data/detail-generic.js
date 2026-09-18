@@ -47,8 +47,77 @@
       '><div class="dlabel">' + label + '</div><div class="dval">' + valHtml + '</div></div>';
   }
 
+  /* 新建版式模式（2026-09-18 道远指示：详情/审核向新建页版式靠拢）：
+     记录含 formRows 时启用——信息段=form-row 只读行（字段名/顺序=新建页基准），
+     明细段=itemCols/items 只读表（=新建明细列去操作列），流转段=关联单据链+时间线（详情专属）。
+     无 formRows 的记录走原四段式，存量页面零影响。 */
+  function renderFormModeHTML(rec, base) {
+    base = base || '../';
+    var h = '';
+    /* 三张独立卡片：信息卡 / 明细卡 / 流转卡（2026-09-18 道远指示：拆成几个卡片，不要一整块）。
+       外层壳卡由下方 CSS 透明化（页面零改动），壳卡标题条保留单号+返回按钮。 */
+    h += '<div class="card fm-card"><div class="card-head"><h3 class="card-title">' + (rec.formTitle || '单据信息') + '</h3></div>';
+    rec.formRows.forEach(function (f) {
+      var v;
+      if (f.tag) v = '<span class="tag ' + (STATUS_CLS[f.tag] || 'tag-gray') + '">' + f.tag + '</span>';
+      else v = lk(f.text, f.url, base);
+      h += '<div class="fm-row"><div class="form-label">' + f.label + '：</div>' +
+           '<div class="fm-val"' + (f.full ? ' style="flex:1;min-width:0;"' : '') + '>' + v + '</div></div>';
+    });
+    h += '</div>';
+    if (rec.itemCols && rec.items) {
+      h += '<div class="card fm-card"><div class="card-head"><h3 class="card-title">' + (rec.itemTitle || '单据明细') + '</h3></div>' +
+        '<div class="table-wrap"><table><thead><tr>';
+      rec.itemCols.forEach(function (c) { h += '<th>' + c + '</th>'; });
+      h += '</tr></thead><tbody>';
+      rec.items.forEach(function (r) {
+        h += '<tr>';
+        r.forEach(function (cell) {
+          var isNum = /^[\d,]+(\.\d{1,2})?$/.test(String(cell));
+          h += '<td' + (isNum ? ' class="td-num"' : '') + '>' + cell + '</td>';
+        });
+        h += '</tr>';
+      });
+      h += '</tbody></table></div></div>';
+    }
+    if (rec.chain || rec.timeline) {
+      h += '<div class="card fm-card"><div class="card-head"><h3 class="card-title">流转信息</h3></div>';
+      if (rec.chain) {
+        h += '<div class="chain">';
+        rec.chain.forEach(function (n, i) {
+          if (i > 0) h += '<span class="link-arrow">→</span>';
+          h += '<div class="node"' + (n.self ? ' style="border-color:#1677ff;background:#e6f4ff;"' : '') +
+            '><div class="n-role">' + n.role + '</div><div class="n-name">' +
+            (n.url ? lk(n.name, n.url, base) : n.name) + '</div></div>';
+        });
+        h += '</div>';
+      }
+      if (rec.timeline) {
+        h += '<div class="tl">';
+        rec.timeline.forEach(function (t) {
+          h += '<div class="tl-i' + (t.off ? ' off' : '') + '"><span class="tl-t">' + t.t + '</span>' +
+            t.text + (t.who ? '<span class="tl-who">' + t.who + '</span>' : '') + '</div>';
+        });
+        h += '</div>';
+      }
+      h += '</div>';
+    }
+    h += '<style>' +
+      /* 壳卡透明化：detailBody 的宿主卡退化为容器，标题条（单号+返回按钮）保留 */
+      '.card:has(> #detailBody){background:transparent;box-shadow:none;padding:0;border-radius:0;}' +
+      '.card:has(> #detailBody) > .card-head{padding:0 4px;}' +
+      '.fm-row{display:flex;align-items:flex-start;margin-bottom:14px;}' +
+      '.fm-row .form-label{flex:0 0 120px;text-align:right;margin-right:8px;font-size:13px;white-space:nowrap;}' +
+      '.fm-val{width:380px;min-height:30px;border:1px solid #e5e6eb;border-radius:6px;padding:4px 11px;background:#fafafa;color:#595959;font-size:13px;display:flex;align-items:center;flex-wrap:wrap;word-break:break-all;box-sizing:border-box;}' +
+      '.fm-val .tag{margin:0;}' +
+      '.fm-card > .card-head .card-title{margin-bottom:14px;}' +
+      '</style>';
+    return h;
+  }
+
   window.renderGenericDetailHTML = function (rec, base) {
     base = base || '../';
+    if (rec.formRows) return renderFormModeHTML(rec, base); /* 新建版式模式（见上） */
     /* 2026-09-14 双列布局（陆鸣拍板：弹窗不出滚动条）——列1=单据信息+费用明细，列2=关联单据+时间线 */
     var h = '';
     var h1 = '', h2 = '';
