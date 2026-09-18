@@ -365,7 +365,7 @@ th.td-num { text-align:right; }
       <select><option selected>全部</option><option>PRJ-2601</option><option>PRJ-2602</option><option>PRJ-2603</option><option>PRJ-2604</option><option>PRJ-2605</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
-    <div class="ff ff-row-extra"><span class="ff-label">出库库房：</span><select id="g35WhSel"><option selected>全部</option></select><svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+    <div class="ff ff-row-extra"><span class="ff-label">出库库位：</span><select id="g35WhSel"><option selected>全部</option></select><svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
     <div class="filter-actions">
       <button class="link-collapse" onclick="var f=document.getElementById('filterCard');f.classList.toggle('collapsed');this.querySelector('span').textContent=f.classList.contains('collapsed')?'展开':'收起'"><span>展开</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
       <button class="btn btn-default">重置</button>
@@ -394,7 +394,7 @@ th.td-num { text-align:right; }
           <th>所属项目</th>
           <th>出库明细摘要</th>
           <th>数量</th>
-          <th>出库库房</th>
+          <th>出库库位</th>
           <th>出库日期</th>
           <th>状态</th>
           <th class="sticky-op">操作</th>
@@ -575,7 +575,7 @@ renderListPage({
     { label: '状态', field: 'status' },
     { label: '出库日期', field: 'date', range: true },
     { label: '所属项目', field: 'project' },
-    { label: '出库库房', field: 'warehouse' }
+    { label: '出库库位', field: 'warehouse' }
   ]
 });
 </script>

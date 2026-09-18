@@ -345,7 +345,6 @@ th.td-num { text-align:right; }
 <div class="card">
   <div class="card-head">
     <h3 class="card-title">基本信息</h3>
-    <div class="head-btns"><button class="btn btn-default btn-sm" onclick="go('../采购管理/采购入库列表.html')">返回列表</button></div>
   </div>
   <div class="form-row">
     <div class="form-label">入库单号：</div>
@@ -393,12 +392,12 @@ th.td-num { text-align:right; }
   </div>
   <div class="table-wrap edit-tbl">
     <table>
-      <thead><tr><th style="width:44px;">序号</th><th>物料编码</th><th>名称规格</th><th>基本单位</th><th style="width:110px;">数量 *</th><th style="font-size:13.5px;font-weight:700;">未税单价(元)</th><th style="font-size:13.5px;font-weight:700;">税率</th><th style="font-size:13.5px;font-weight:700;">含税单价(元)</th><th>含税金额(元)</th><th style="width:130px;">批次号</th><th>入库库位</th><th class="sticky-op">操作</th></tr></thead>
+      <thead><tr><th style="width:44px;">序号</th><th>物料编码</th><th>名称规格</th><th>基本单位</th><th style="width:110px;">数量 *</th><th style="font-size:13.5px;font-weight:700;">未税单价(元)</th><th style="font-size:13.5px;font-weight:700;">税率</th><th style="font-size:13.5px;font-weight:700;">含税单价(元)</th><th>含税金额(元)</th><th style="width:130px;">批次号</th><th>入库库位<a onclick="openBatchLoc(this)" style="font-size:12px;font-weight:400;color:#1677ff;cursor:pointer;margin-left:8px;">批量设置</a></th><th class="sticky-op">操作</th></tr></thead>
       <tbody>
         <tr>
           <td>1</td>
-          <td><div class="ctl sel" style="min-width:110px;"><span class="v">LJ-A100</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div></td>
-          <td>锁扣组件 不锈钢 304</td>
+          <td><select class="pkMat" style="width:100%;min-width:110px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option selected>LJ-A100</option><option>LJ-B200</option><option>LJ-D400</option></select></td>
+          <td><select class="pkName" style="width:100%;min-width:120px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option value="LJ-A100" selected>锁扣组件 不锈钢 304</option><option value="LJ-B200">铰链 锌合金 65mm</option><option value="LJ-D400">箱盖 ABS 吸塑</option></select></td>
           <td>件</td>
           <td class="td-num"><input value="4800"></td>
           <td class="td-num"><input value="6.80"></td>
@@ -406,13 +405,13 @@ th.td-num { text-align:right; }
           <td class="td-num auto-cell">7.68</td>
           <td class="td-num auto-cell">36,864.00</td>
           <td><input value="B20260831-01"></td>
-          <td><div class="ctl sel" style="min-width:110px;"><span class="v">RA-A-01-01</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div></td>
+          <td><div class="ctl sel" style="min-width:110px;"><span class="v">原料区 RA</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div></td>
           <td class="ops sticky-op"><a>删除</a></td>
         </tr>
         <tr>
           <td>2</td>
-          <td><div class="ctl sel" style="min-width:110px;"><span class="v">LJ-B200</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div></td>
-          <td>铰链 锌合金 65mm</td>
+          <td><select class="pkMat" style="width:100%;min-width:110px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option>LJ-A100</option><option selected>LJ-B200</option><option>LJ-D400</option></select></td>
+          <td><select class="pkName" style="width:100%;min-width:120px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option value="LJ-A100">锁扣组件 不锈钢 304</option><option value="LJ-B200" selected>铰链 锌合金 65mm</option><option value="LJ-D400">箱盖 ABS 吸塑</option></select></td>
           <td>件</td>
           <td class="td-num"><input value="3200"></td>
           <td class="td-num"><input value="4.20"></td>
@@ -420,13 +419,13 @@ th.td-num { text-align:right; }
           <td class="td-num auto-cell">4.75</td>
           <td class="td-num auto-cell">15,200.00</td>
           <td><input value="B20260831-02"></td>
-          <td><div class="ctl sel" style="min-width:110px;"><span class="v">RA-A-01-02</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div></td>
+          <td><div class="ctl sel" style="min-width:110px;"><span class="v">原料区 RA</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div></td>
           <td class="ops sticky-op"><a>删除</a></td>
         </tr>
         <tr>
           <td>3</td>
-          <td><div class="ctl sel" style="min-width:110px;"><span class="v">LJ-D400</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div></td>
-          <td>箱盖 ABS 吸塑</td>
+          <td><select class="pkMat" style="width:100%;min-width:110px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option>LJ-A100</option><option>LJ-B200</option><option selected>LJ-D400</option></select></td>
+          <td><select class="pkName" style="width:100%;min-width:120px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option value="LJ-A100">锁扣组件 不锈钢 304</option><option value="LJ-B200">铰链 锌合金 65mm</option><option value="LJ-D400" selected>箱盖 ABS 吸塑</option></select></td>
           <td>件</td>
           <td class="td-num"><input value="720"></td>
           <td class="td-num"><input value="36.00"></td>
@@ -434,7 +433,7 @@ th.td-num { text-align:right; }
           <td class="td-num auto-cell">40.68</td>
           <td class="td-num auto-cell">29,289.60</td>
           <td><input value="B20260831-03"></td>
-          <td><div class="ctl sel" style="min-width:110px;"><span class="v">RA-B-02-01</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div></td>
+          <td><div class="ctl sel" style="min-width:110px;"><span class="v">成品区 RB</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div></td>
           <td class="ops sticky-op"><a>删除</a></td>
         </tr>
       </tbody>
@@ -701,6 +700,38 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 /* G43 下拉数据源化：静态 option 为无 JS 兜底，运行时按字典/实体重渲染（矩阵见 _scan_tmpdir/g43_接线差集_v2.md） */
 SSEL.fillEntity(SSEL.byFormLabel('关联采购订单号'),'purchaseOrders',{desc:true,limit:30,label:function(k,f){return k+' · '+(f.summary||'');}});
 SSEL.fillEntity(SSEL.byFormLabel('仓管员'),'users',{label:function(k,f){return (f.search||'').split(' ').slice(1).join(' ');},emptyKeep:true});
+</script>
+<div id="batchLocModal" style="position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;align-items:center;justify-content:center;z-index:1000;"><div style="background:#fff;border-radius:8px;width:380px;box-shadow:0 12px 32px rgba(0,0,0,.18);"><div style="display:flex;justify-content:space-between;align-items:center;padding:14px 20px;border-bottom:1px solid #f0f0f0;font-size:15px;font-weight:600;"><span>批量设置入库库位</span><span style="cursor:pointer;color:#8c8c8c;font-size:18px;line-height:1;" onclick="closeBatchLoc()">&times;</span></div><div style="padding:18px 20px;"><div style="display:flex;align-items:center;"><div style="flex:0 0 80px;text-align:right;margin-right:8px;font-size:13px;">库房：</div><div class="input-box select-box" style="width:220px;"><select id="batchLocSel" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option>原料区 RA</option><option selected>成品区 RB</option><option>外购区 RW</option><option>次品区 RC</option></select><span class="caret">&#9662;</span></div></div><div style="margin-top:12px;font-size:12px;color:#8c8c8c;">对明细表全部行设置入库库位。</div></div><div style="display:flex;justify-content:flex-end;gap:10px;padding:12px 20px;border-top:1px solid #f0f0f0;"><button class="btn btn-default" onclick="closeBatchLoc()">取 消</button><button class="btn" onclick="applyBatchLoc()">确 定</button></div></div></div><script>
+/* 明细表批量设置入库库位（P3-R05·道远 09-17 指示：加载明细的字段名旁）：对明细全部行改写该列 */
+function openBatchLoc(btn){document.getElementById("batchLocModal").style.display="flex";}
+function closeBatchLoc(){document.getElementById("batchLocModal").style.display="none";}
+function applyBatchLoc(){var th=[...document.querySelectorAll("th")].find(function(t){return t.textContent.replace("批量设置","").trim()==="入库库位";});
+if(!th){closeBatchLoc();return;}
+var idx=Array.prototype.indexOf.call(th.parentElement.children,th);
+var v=document.getElementById("batchLocSel").value;var n=0;
+document.querySelectorAll("tbody tr").forEach(function(tr){var td=tr.children[idx];if(!td)return;
+var sp=td.querySelector(".v");if(sp)sp.textContent=v;else td.textContent=v;n++;});
+closeBatchLoc();batchLocToast("已批量设置 "+n+" 行入库库位");}
+function batchLocToast(msg){var t=document.createElement("div");t.style.cssText="position:fixed;top:70px;left:50%;transform:translateX(-50%);background:#f6ffed;color:#389e0d;border:1px solid #b7eb8f;padding:8px 18px;border-radius:6px;z-index:9999;font-size:13px;box-shadow:0 4px 12px rgba(0,0,0,.12)";t.textContent=msg;document.body.appendChild(t);setTimeout(function(){t.remove();},1800);}
+</script>
+<script src="../_data/mat-search.js"></script>
+<script>
+/* 搜索下拉（2026-09-17 道远指示）：物料编码列换搜索选择（原假下拉转真 select）；关联采购订单号同款组件（单据号搜索样板） */
+document.querySelectorAll('select.pkMat').forEach(function (s) { SSEL.fillEntity(s, 'products', { label: function (k) { return k; } }); });
+MSEL.attachAll('.edit-tbl select.pkMat', { placeholder: '输入编码搜索' });
+MSEL.attach(SSEL.byFormLabel('关联采购订单号'), { placeholder: '输入单号/摘要搜索' });
+</script>
+<script>
+/* 物料名称列搜索下拉＋编码↔名称双向联动（2026-09-17 道远指出补齐） */
+document.querySelectorAll('select.pkName').forEach(function (name) {
+  SSEL.fillEntity(name, 'products', { label: function (k, f) { return f.name || k; } });
+  var code = name.closest('tr').querySelector('select.pkMat');
+  if (!code) return;
+  name.value = code.value;
+  code.addEventListener('change', function () { name.value = code.value; MSEL.syncAll(); });
+  name.addEventListener('change', function () { code.value = name.value; MSEL.syncAll(); });
+});
+MSEL.attachAll('select.pkName', { placeholder: '输入名称搜索' });
 </script>
 </body>
 </html>

@@ -352,11 +352,11 @@ th.td-num { text-align:right; }
   <div class="filter-grid">
     <div class="ff"><span class="ff-label">调拨单号：</span><input placeholder="请输入"></div>
     <div class="ff"><span class="ff-label">物料名称：</span><input placeholder="请输入"></div>
-    <div class="ff"><span class="ff-label">调出库房：</span>
+    <div class="ff"><span class="ff-label">调出库位：</span>
       <select><option selected>全部</option><option>原料区 RA</option><option>成品区 RB</option><option>外协周转区 RC</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
-    <div class="ff ff-row-extra"><span class="ff-label">调入库房：</span>
+    <div class="ff ff-row-extra"><span class="ff-label">调入库位：</span>
       <select><option selected>全部</option><option>原料区 RA</option><option>成品区 RB</option><option>外协周转区 RC</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
@@ -390,8 +390,8 @@ th.td-num { text-align:right; }
           <th>调拨单号</th>
           <th>物料名称</th>
           <th>数量</th>
-          <th>调出库房</th>
-          <th>调入库房</th>
+          <th>调出库位</th>
+          <th>调入库位</th>
           <th>调拨日期</th>
           <th>状态</th>
           <th class="sticky-op">操作</th>
@@ -524,8 +524,8 @@ renderListPage({
   filters: [
     { label: '调拨单号', field: '_key' },
     { label: '物料名称', field: 'material' },
-    { label: '调出库房', field: 'frm' },
-    { label: '调入库房', field: 'to' },
+    { label: '调出库位', field: 'frm' },
+    { label: '调入库位', field: 'to' },
     { label: '调拨日期', field: 'date', range: true },
     { label: '状态', field: 'status' }
   ]
@@ -713,8 +713,8 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 <script src="../_data/select-source.js"></script>
 <script>
 /* G43 下拉数据源化：静态 option 为无 JS 兜底，运行时按字典/实体重渲染（矩阵见 _scan_tmpdir/g43_接线差集_v2.md） */
-SSEL.fillEntity(SSEL.byLabel('调出库房'),'transfers',{field:'frm',keepFirst:true});
-SSEL.fillEntity(SSEL.byLabel('调入库房'),'transfers',{field:'to',keepFirst:true});
+SSEL.fillEntity(SSEL.byLabel('调出库位'),'transfers',{field:'frm',keepFirst:true});
+SSEL.fillEntity(SSEL.byLabel('调入库位'),'transfers',{field:'to',keepFirst:true});
 </script>
 </body>
 </html>

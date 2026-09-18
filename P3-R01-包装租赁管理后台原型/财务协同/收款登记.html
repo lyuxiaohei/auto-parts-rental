@@ -361,7 +361,7 @@ th.td-num { text-align:right; }
       <select><option selected>全部</option><option>待核销</option><option>部分核销</option><option>已核销</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
-    <div class="ff ff-row-extra"><span class="ff-label">银行账户：</span>
+    <div class="ff ff-row-extra"><span class="ff-label">收款账户：</span>
       <select><option selected>全部</option><option>工商银行长春分行</option><option>招商银行苏州分行</option><option>中国银行常州分行</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
@@ -393,7 +393,7 @@ th.td-num { text-align:right; }
           <th>关联账单</th>
           <th>收款金额(元)</th>
           <th>收款日期</th>
-          <th>银行账户</th>
+          <th>收款账户</th>
           <th>银行回单</th>
           <th>核销状态</th>
           <th class="sticky-op">操作</th>
@@ -495,9 +495,9 @@ th.td-num { text-align:right; }
     <div class="modal-header"><h3 class="modal-title">收款确认</h3><span class="modal-close" onclick="closeModal('auditModal')">×</span></div>
     <div class="modal-body">
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px">
-        <div><span style="color:#8c8c8c;font-size:12px">收款编号</span><br><b>SK-20260903-001</b></div>
+        <div><span style="color:#8c8c8c;font-size:12px">收款编号</span><br><b>HK-20260830-014</b></div>
         <div><span style="color:#8c8c8c;font-size:12px">对方单位</span><br><b>华骏重卡汽车</b></div>
-        <div><span style="color:#8c8c8c;font-size:12px">金额</span><br><b style="color:#1677ff">¥10,200.00</b></div>
+        <div><span style="color:#8c8c8c;font-size:12px">金额</span><br><b style="color:#1677ff">¥286,500.00</b></div>
         <div><span style="color:#8c8c8c;font-size:12px">审核结果</span><br><span style="color:#fa8c16">待确认</span></div>
       </div>
       <div style="margin-bottom:8px"><span style="color:#8c8c8c;font-size:12px">审核意见</span></div>
@@ -588,7 +588,7 @@ renderListPage({
     { label: '客户', field: 'customer' },
     { label: '收款日期', field: 'date', range: true },
     { label: '核销状态', field: 'status' },
-    { label: '银行账户', field: 'bank' }
+    { label: '收款账户', field: 'bank' }
   ]
 });</script>
 <script>

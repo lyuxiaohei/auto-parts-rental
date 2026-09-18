@@ -579,5 +579,11 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 /* G43 下拉数据源化：静态 option 为无 JS 兜底，运行时按字典/实体重渲染（矩阵见 _scan_tmpdir/g43_接线差集_v2.md） */
 SSEL.fillDict(document.getElementById('refundTypeSel'),'退款类型');
 </script>
+<script src="../_data/mat-search.js"></script>
+<script>
+/* 关联单据号搜索下拉（2026-09-17 道远指示·采购入库录单样板推广） */
+SSEL.fillEntity(SSEL.byFormLabel('关联退货单'),['purchaseReturns','salesReturns'],{desc:true,limit:30,label:function(k,f){return k+' · '+(f.supplier||f.customer||'');}});
+MSEL.attach(SSEL.byFormLabel('关联退货单'), { placeholder: '输入退货单号/单位搜索' });
+</script>
 </body>
 </html>

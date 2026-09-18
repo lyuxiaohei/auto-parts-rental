@@ -431,6 +431,59 @@ th.td-num { text-align:right; }
   </div>
 </div>
 
+<div class="card">
+  <div class="card-head">
+    <h3 class="card-title">附件</h3>
+    <div class="head-btns"><button class="btn btn-dashed btn-sm" type="button" onclick="attPick(this)">上传附件</button></div>
+  </div>
+  <div class="pn-hint">支持 PDF / 图片 / Excel，可多选 · 演示上传（文件不真实传输）</div>
+  <input type="file" id="attFilePick" multiple style="display:none">
+  <div class="table-wrap" style="border:1px solid var(--border);border-radius:6px;">
+    <table>
+      <thead><tr><th>文件名</th><th style="width:90px;">大小</th><th style="width:90px;">上传人</th><th style="width:120px;">上传时间</th><th class="sticky-op">操作</th></tr></thead>
+      <tbody id="attList">
+          <tr><td>📄 供应商报价单-甬城塑业.pdf</td><td>860 KB</td><td>林国栋</td><td>09-17 08:55</td><td class="sticky-op"><span class="ops"><a onclick="delAttach(this)">删除</a></span></td></tr>
+          <tr><td>📊 到货质检报告-0902批次.xlsx</td><td>128 KB</td><td>徐文</td><td>09-17 09:30</td><td class="sticky-op"><span class="ops"><a onclick="delAttach(this)">删除</a></span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<script>
+/* 附件上传列表（2026-09-17 道远指示）：真实文件选择器取文件名/大小（演示上传·不做真传输） */
+function attPick(btn) {
+  var pick = document.getElementById('attFilePick');
+  if (!pick) return;
+  btn.style.borderColor = '#1677ff';
+  setTimeout(function () { btn.style.borderColor = ''; }, 300);
+  pick.click();
+}
+function delAttach(a) { var r = a.closest('tr'); if (r) r.remove(); }
+(function () {
+  var pick = document.getElementById('attFilePick');
+  if (!pick) return;
+  function esc(t) { return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+  function fmtSize(n) {
+    if (n >= 1048576) return (n / 1048576).toFixed(1) + ' MB';
+    if (n >= 1024) return (n / 1024).toFixed(0) + ' KB';
+    return n + ' B';
+  }
+  function now() {
+    var d = new Date();
+    function p(x) { return (x < 10 ? '0' : '') + x; }
+    return (d.getMonth() + 1) + '-' + p(d.getDate()) + ' ' + p(d.getHours()) + ':' + p(d.getMinutes());
+  }
+  pick.addEventListener('change', function () {
+    var list = document.getElementById('attList');
+    Array.prototype.forEach.call(pick.files, function (f) {
+      var icon = /\.(png|jpe?g|gif)$/i.test(f.name) ? '📧' : (/\.(xlsx?|csv)$/i.test(f.name) ? '📊' : '📄');
+      var tr = document.createElement('tr');
+      tr.innerHTML = '<td>' + icon + ' ' + esc(f.name) + '</td><td>' + fmtSize(f.size) + '</td><td>当前用户</td><td>' + now() + '</td><td class="sticky-op"><span class="ops"><a onclick="delAttach(this)">删除</a></span></td>';
+      list.appendChild(tr);
+    });
+    pick.value = '';
+  });
+})();
+</script>
 <div class="submit-bar"><button class="btn btn-default" onclick="go('../采购管理/采购订单列表.html')">取 消</button><button class="btn btn-default">保存草稿</button><button class="btn">提交审核</button></div>
     </div>
   </div>
@@ -790,6 +843,12 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 <script>
 /* G43 下拉数据源化：静态 option 为无 JS 兜底，运行时按字典/实体重渲染（矩阵见 _scan_tmpdir/g43_接线差集_v2.md） */
 SSEL.fillEntity(document.getElementById('cmProject'),'projects',{filter:function(k,f){return f.status!=='已完结';},label:function(k,f){return k+' '+(f.name||'');}});
+</script>
+<script src="../_data/mat-search.js"></script>
+<script>
+/* 物料搜索下拉（2026-09-17 道远指示）：明细物料编码/物料名称换搜索选择·共享件接线 */
+MSEL.attachAll('.edit-tbl select[data-prod-key]', { placeholder: '输入编码搜索' });
+MSEL.attachAll('.edit-tbl select[data-prod-name]', { placeholder: '输入名称搜索' });
 </script>
 </body>
 </html>

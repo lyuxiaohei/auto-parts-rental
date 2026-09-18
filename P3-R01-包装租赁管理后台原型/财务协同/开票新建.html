@@ -566,5 +566,10 @@ SSEL.fillDict(SSEL.byFormLabel('发票类型'),'发票类型');
 SSEL.fillEntity(SSEL.byFormLabel('购方名称（客户）'),'partners',{label:'name',filter:function(k,f){return f.type==='客户';}});
 SSEL.fillEntity(SSEL.byFormLabel('关联应收账单'),'receivableBills',{desc:true,limit:30,label:function(k,f){return k+' · '+(f.customer||'')+' · '+(f.period||'');}});
 </script>
+<script src="../_data/mat-search.js"></script>
+<script>
+/* 关联单据号搜索下拉（2026-09-17 道远指示·采购入库录单样板推广） */
+MSEL.attach(SSEL.byFormLabel('关联应收账单'), { placeholder: '输入单号/客户搜索' });
+</script>
 </body>
 </html>

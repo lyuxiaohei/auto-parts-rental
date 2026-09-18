@@ -595,5 +595,15 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 SSEL.fillEntity(SSEL.byFormLabel('供应商'),'partners',{label:'name',filter:function(k,f){return f.type==='供应商';}});
 SSEL.fillEntity(SSEL.byFormLabel('关联原单'),'purchaseInbounds',{desc:true,limit:30,label:function(k,f){return k+' · '+(f.supplier||'');}});
 </script>
+<script src="../_data/mat-search.js"></script>
+<script>
+/* 关联单据号搜索下拉（2026-09-17 道远指示·采购入库录单样板推广） */
+MSEL.attach(SSEL.byFormLabel('关联原单'), { placeholder: '输入原单号/单位搜索' });
+</script>
+<script>
+/* 主数据字段搜索下拉（2026-09-17 道远采纳建议） */
+SSEL.fillEntity(SSEL.byFormLabel('供应商'),'partners',{label:'name',filter:function(k,f){return f.type==='供应商';}});
+MSEL.attach(SSEL.byFormLabel('供应商'), { placeholder: '输入名称搜索' });
+</script>
 </body>
 </html>

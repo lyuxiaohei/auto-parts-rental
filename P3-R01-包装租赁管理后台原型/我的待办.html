@@ -356,7 +356,7 @@ th.td-num { text-align:right; }
   <div class="stat"><div class="st-label" data-note="5"><span>待确认</span></div><div class="st-num">2<span class="unit">单</span></div></div>
   <div class="stat"><div class="st-label" data-note="6"><span>待入库</span></div><div class="st-num">1<span class="unit">单</span></div></div>
 </div>
-<div class="filter-card" id="filterCard">
+<div class="filter-card collapsed" id="filterCard">
   <div class="filter-grid">
     <div class="ff"><span class="ff-label">单据类型：</span>
       <select id="todoType" onchange="filterTodo()"><option>全部</option><option>付款登记</option><option>其他入库</option><option>其他出库</option><option>库存调拨</option><option>收款确认</option><option>盘点</option><option>租赁单</option><option>租赁出库</option><option>转移出库</option><option>采购退货单</option><option>销售退货单</option><option>退款登记</option><option>退租入库</option><option>采购入库</option><option>采购订单</option><option>租入单</option><option>租入入库</option><option>租入归还</option><option>销售出库</option><option>销售订单</option></select>
@@ -365,11 +365,13 @@ th.td-num { text-align:right; }
     <div class="ff"><span class="ff-label">审核人：</span>
       <select id="todoAuditor" onchange="filterTodo()"><option>全部</option><option>沈婷</option><option>严丽</option><option>徐文</option><option>江强</option><option>林国栋</option><option>陈锋</option></select>
     </div>
-    <div class="ff"><span class="ff-label">所属项目：</span><select id="todoProject" onchange="filterTodo()"><option>全部</option></select></div>
-    <div class="ff"><span class="ff-label">提交人：</span><select id="todoSubmitter" onchange="filterTodo()"><option>全部</option></select></div>
     <div class="ff"><span class="ff-label">关键词：</span><input id="todoKw" placeholder="单据编号 / 客户 / 项目 / 摘要" oninput="filterTodo()"></div>
+    <div class="ff ff-row-extra"><span class="ff-label">所属项目：</span><select id="todoProject" onchange="filterTodo()"><option>全部</option></select></div>
+    <div class="ff ff-row-extra"><span class="ff-label">提交人：</span><select id="todoSubmitter" onchange="filterTodo()"><option>全部</option></select></div>
     <div class="filter-actions">
+      <button class="link-collapse" onclick="var f=document.getElementById('filterCard');f.classList.toggle('collapsed');this.querySelector('span').textContent=f.classList.contains('collapsed')?'展开':'收起'"><span>展开</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
       <button class="btn btn-default" onclick="document.getElementById('todoKw').value='';document.getElementById('todoType').value='全部';document.getElementById('todoAuditor').value='全部';document.getElementById('todoProject').value='全部';document.getElementById('todoSubmitter').value='全部';filterTodo()">重置</button>
+      <button class="btn btn-primary" onclick="filterTodo()">查询</button>
     </div>
   </div>
 </div>

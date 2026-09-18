@@ -350,12 +350,12 @@ th.td-num { text-align:right; }
     <div class="content">
 <div class="filter-card collapsed" id="filterCard">
   <div class="filter-grid">
-    <div class="ff"><span class="ff-label">仓库：</span>
-      <select><option selected>全部</option><option>正品仓</option><option>次品仓</option><option>客户虚拟仓（安吉智行）</option></select>
+    <div class="ff"><span class="ff-label">库位：</span>
+      <select><option selected>全部</option><option>原料区 RA</option><option>成品区 RB</option><option>次品区 RC</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
     <div class="ff"><span class="ff-label">库位编码：</span><input placeholder="请输入"></div>
-    <div class="ff ff-row-extra"><span class="ff-label">库位类型：</span>
+    <div class="ff"><span class="ff-label">库位类型：</span>
       <select id="locTypeFilterSel"><option selected>全部</option><option>存储位</option><option>拣选位</option><option>暂存位</option><option>不合格品位</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
@@ -381,7 +381,7 @@ th.td-num { text-align:right; }
         <tr>
           <th></th>
           <th>库位编码</th>
-          <th>仓库</th>
+          <th>库位</th>
           <th>库位类型</th>
           <th>规格 / 承载</th>
           <th>占用情况</th>
@@ -392,113 +392,103 @@ th.td-num { text-align:right; }
       <tbody>
 <tr>
           <td><input type="checkbox" class="cb"></td>
-          <td><span class="lk">XNC-AJZX</span></td>
-          <td>客户虚拟仓（安吉智行）</td>
-          <td>虚拟仓</td>
-          <td>按客户归集</td>
-          <td>on-hire 640 只</td>
-          <td><span class="tag-green">启用</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/库位详情.html')">详情</a><a onclick="go('../基础数据/库位新建.html')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
-        </tr>
-<tr>
-          <td><input type="checkbox" class="cb"></td>
           <td><span class="lk">RA-A-01-01</span></td>
-          <td>正品仓</td>
+          <td>原料区 RA</td>
           <td>存储位</td>
           <td>1.2m×1.0m / 2t</td>
           <td>68%</td>
           <td><span class="tag-green">启用</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/库位详情.html')">详情</a><a onclick="go('../基础数据/库位新建.html')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/库位新建.html')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
         </tr>
 <tr>
           <td><input type="checkbox" class="cb"></td>
           <td><span class="lk">RA-A-01-02</span></td>
-          <td>正品仓</td>
+          <td>原料区 RA</td>
           <td>存储位</td>
           <td>1.2m×1.0m / 2t</td>
           <td>45%</td>
           <td><span class="tag-green">启用</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/库位详情.html')">详情</a><a onclick="go('../基础数据/库位新建.html')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/库位新建.html')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
         </tr>
 <tr>
           <td><input type="checkbox" class="cb"></td>
           <td><span class="lk">RA-B-02-01</span></td>
-          <td>正品仓</td>
+          <td>原料区 RA</td>
           <td>存储位</td>
           <td>1.2m×1.0m / 2t</td>
           <td>0%</td>
           <td><span class="tag-green">启用</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/库位详情.html')">详情</a><a onclick="go('../基础数据/库位新建.html')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/库位新建.html')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
         </tr>
 <tr>
           <td><input type="checkbox" class="cb"></td>
           <td><span class="lk">RB-A-01-01</span></td>
-          <td>正品仓</td>
+          <td>成品区 RB</td>
           <td>存储位</td>
           <td>1.2m×1.0m / 2t</td>
           <td>82%</td>
           <td><span class="tag-green">启用</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/库位详情.html')">详情</a><a onclick="go('../基础数据/库位新建.html')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/库位新建.html')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
         </tr>
 <tr>
           <td><input type="checkbox" class="cb"></td>
           <td><span class="lk">RB-A-01-02</span></td>
-          <td>正品仓</td>
+          <td>成品区 RB</td>
           <td>存储位</td>
           <td>1.2m×1.0m / 2t</td>
           <td>74%</td>
           <td><span class="tag-green">启用</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/库位详情.html')">详情</a><a onclick="go('../基础数据/库位新建.html')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/库位新建.html')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
         </tr>
 <tr>
           <td><input type="checkbox" class="cb"></td>
           <td><span class="lk">RB-B-01-01</span></td>
-          <td>正品仓</td>
+          <td>成品区 RB</td>
           <td>拣选位</td>
           <td>1.2m×1.0m / 1.5t</td>
           <td>60%</td>
           <td><span class="tag-green">启用</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/库位详情.html')">详情</a><a onclick="go('../基础数据/库位新建.html')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/库位新建.html')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
         </tr>
 <tr>
           <td><input type="checkbox" class="cb"></td>
           <td><span class="lk">RD-01</span></td>
-          <td>正品仓</td>
+          <td>成品区 RB</td>
           <td>组装暂存</td>
           <td>工位 1</td>
           <td>组装中</td>
           <td><span class="tag-green">启用</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/库位详情.html')">详情</a><a onclick="go('../基础数据/库位新建.html')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/库位新建.html')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
         </tr>
 <tr>
           <td><input type="checkbox" class="cb"></td>
           <td><span class="lk">RD-02</span></td>
-          <td>正品仓</td>
+          <td>成品区 RB</td>
           <td>组装暂存</td>
           <td>工位 2</td>
           <td>空闲</td>
           <td><span class="tag-green">启用</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/库位详情.html')">详情</a><a onclick="go('../基础数据/库位新建.html')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/库位新建.html')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
         </tr>
 <tr>
           <td><input type="checkbox" class="cb"></td>
           <td><span class="lk">RC-01</span></td>
-          <td>次品仓</td>
+          <td>次品区 RC</td>
           <td>退货暂存</td>
           <td>1.2m×1.0m / 2t</td>
           <td>36%</td>
           <td><span class="tag-green">启用</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/库位详情.html')">详情</a><a onclick="go('../基础数据/库位新建.html')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/库位新建.html')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
         </tr>
 <tr>
           <td><input type="checkbox" class="cb"></td>
           <td><span class="lk">RC-02</span></td>
-          <td>次品仓</td>
+          <td>次品区 RC</td>
           <td>退货暂存</td>
           <td>1.2m×1.0m / 2t</td>
           <td>0%</td>
           <td><span class="tag-gray">停用</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/库位详情.html')">详情</a><a onclick="go('../基础数据/库位新建.html')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/库位新建.html')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
         </tr>
       </tbody>
     </table>
@@ -602,7 +592,7 @@ th.td-num { text-align:right; }
 renderListPage({
   entity: 'locations',
   filters: [
-    { label: '仓库', field: 'wh' },
+    { label: '库位', field: 'wh' },
     { label: '库位编码', field: '_key' },
     { label: '库位类型', field: 'ltype' },
     { label: '状态', field: 'status' }
@@ -617,7 +607,7 @@ renderListPage({
       <span class="modal-close" onclick="closeModal('stopModal')">×</span>
     </div>
     <div class="modal-body">
-      <div class="dgrid"><div class="drow"><div class="dlabel">库位编码</div><div class="dval">RA-A-01-01</div></div><div class="drow"><div class="dlabel">仓库</div><div class="dval">正品仓 · 华东中心仓（WH-01）</div></div><div class="drow"><div class="dlabel">容量占用</div><div class="dval">68%</div></div><div class="drow"><div class="dlabel">状态</div><div class="dval"><span class="tag tag-green">启用</span></div></div></div>
+      <div class="dgrid"><div class="drow"><div class="dlabel">库位编码</div><div class="dval">RA-A-01-01</div></div><div class="drow"><div class="dlabel">库位</div><div class="dval">原料区 RA · 华东中心仓（WH-01）</div></div><div class="drow"><div class="dlabel">容量占用</div><div class="dval">68%</div></div><div class="drow"><div class="dlabel">状态</div><div class="dval"><span class="tag tag-green">启用</span></div></div></div>
       <div style="height:14px;"></div>
       <p style="font-size:13px;color:#262626;line-height:1.7;">确认停用该库位（RA-A-01-01）？<br>停用后不可再存放物料；在库物料请先调拨至其他库位。</p></div>
     <div class="modal-footer">
@@ -765,7 +755,7 @@ body.proto-notes-on .proto-pin.pn-open{display:block}
 body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 .pn-fab .pn-fab-n{font-family:Consolas,monospace;font-weight:600}
 </style>
-<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>库位档案</div><div class="pnp-d">仓库/库位两级（D-102 去库区层级·2026-09-14 第4次沟通）：正品仓/次品仓按仓库层区分，实际损耗走次品仓锁定不参与拣货（D-101）；库区层级后续做大了再加</div><div class="pnp-b"><span class="pnp-tag">FP1-06 · 库位档案</span><span class="pnp-tag">REQ-04 · 零部件级库存</span></div><div class="pnp-src"><div class="src-item"><b>FP1-06 库位档案</b>：仓库/库区/库位三级</div><div class="src-item"><b>REQ-04 零部件级库存</b>：库存精确到零配件；配件多项目共用</div></div></div>
+<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>库位档案</div><div class="pnp-d">库位两级＝库位（仓区）＋库位编码（D-102 去库区层级·2026-09-14 第4次沟通）；2026-09-17 收口：库位列取库区命名（原料区 RA/成品区 RB/外购区 RW/次品区 RC），实际损耗走次品区 RC 锁定不参与拣货（D-101）</div><div class="pnp-b"><span class="pnp-tag">FP1-06 · 库位档案</span><span class="pnp-tag">REQ-04 · 零部件级库存</span></div><div class="pnp-src"><div class="src-item"><b>FP1-06 库位档案</b>：仓库/库区/库位三级</div><div class="src-item"><b>REQ-04 零部件级库存</b>：库存精确到零配件；配件多项目共用</div></div></div>
 <style id="f01-fab-style">.fab-row{position:fixed;right:12px;bottom:12px;z-index:880;display:flex;align-items:center;gap:6px}.fab-row .pn-fab{position:static}.f01-fab{display:flex;text-decoration:none;align-items:center;height:24px;padding:0 10px;border-radius:4px;background:#fff;border:1px solid #d9d9d9;color:#8c8c8c;font-size:11px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.06);opacity:.6;transition:opacity .15s}.f01-fab:hover{opacity:1;border-color:#722ed1;color:#722ed1}</style><div class="fab-row"><a class="f01-fab" href="../P3-R01-F01-业务流程导航图.html">流程图</a><div class="pn-fab" id="protoNotesFab">标注</div></div></div>
 <script id="proto-notes-js">
 (function(){
@@ -818,7 +808,7 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 <script src="../_data/select-source.js"></script>
 <script>
 /* G43 下拉数据源化：静态 option 为无 JS 兜底，运行时按字典/实体重渲染（矩阵见 _scan_tmpdir/g43_接线差集_v2.md） */
-SSEL.fillEntity(SSEL.byLabel('仓库'),'locations',{field:'wh',keepFirst:true});
+SSEL.fillEntity(SSEL.byLabel('库位'),'locations',{field:'wh',keepFirst:true});
 </script>
 </body>
 </html>

@@ -593,5 +593,10 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 SSEL.fillEntity(document.getElementById('riSelect'),'rentInOrders',{desc:true,limit:30,filter:function(k,f){return f.status!=='新建(草稿)';},label:function(k,f){return k+' · '+(f.operator||'')+' · '+(f.status||'');}});
 if(typeof syncReturnItems==='function'){var _r=document.getElementById('riSelect');if(_r)syncReturnItems(_r);}
 </script>
+<script src="../_data/mat-search.js"></script>
+<script>
+/* 关联单据号搜索下拉（2026-09-17 道远指示·采购入库录单样板推广） */
+MSEL.attach(document.getElementById('riSelect'), { placeholder: '输入单号搜索' });
+</script>
 </body>
 </html>

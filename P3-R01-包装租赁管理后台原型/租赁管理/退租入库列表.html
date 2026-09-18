@@ -354,7 +354,7 @@ th.td-num { text-align:right; }
       <select><option selected>全部</option><option>华骏重卡汽车有限公司</option><option>东海商用汽车有限公司宁波分公司</option><option>星途新能源汽车科技有限公司</option><option>长风汽车制造有限公司</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
-    <div class="ff ff-row-extra"><span class="ff-label">验收结果：</span>
+    <div class="ff"><span class="ff-label">验收结果：</span>
       <select><option selected>全部</option><option>完好</option><option>缺损</option><option>丢失</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
@@ -363,7 +363,7 @@ th.td-num { text-align:right; }
       <select><option selected>全部</option><option>PRJ-2601</option><option>PRJ-2602</option><option>PRJ-2603</option><option>PRJ-2604</option><option>PRJ-2605</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
-    <div class="ff ff-row-extra"><span class="ff-label">入库库房：</span><select id="g35WhSel"><option selected>全部</option></select><svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+    <div class="ff ff-row-extra"><span class="ff-label">入库库位：</span><select id="g35WhSel"><option selected>全部</option></select><svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
     <div class="filter-actions">
       <button class="link-collapse" onclick="var f=document.getElementById('filterCard');f.classList.toggle('collapsed');this.querySelector('span').textContent=f.classList.contains('collapsed')?'展开':'收起'"><span>展开</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
       <button class="btn btn-default">重置</button>
@@ -393,7 +393,7 @@ th.td-num { text-align:right; }
           <th>退租数量</th>
           <th>按BOM拆解后散件明细摘要</th>
           <th>拆散去向</th>
-          <th>入库库房</th>
+          <th>入库库位</th>
           <th>入库日期</th>
           <th>验收结果</th>
           <th>状态</th>
@@ -616,7 +616,7 @@ renderListPage({
     { label: '验收结果', field: 'result' },
     { label: '入库日期', field: 'date', range: true },
     { label: '所属项目', field: 'project' },
-    { label: '入库库房', field: 'warehouse' }
+    { label: '入库库位', field: 'warehouse' }
   ]
 });
 </script>

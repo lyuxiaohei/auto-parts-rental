@@ -361,7 +361,7 @@ th.td-num { text-align:right; }
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
     <div class="ff ff-row-extra"><span class="ff-label">入库日期：</span><input placeholder="开始日期"><span class="ff-sep">→</span><input placeholder="结束日期"></div>
-    <div class="ff ff-row-extra"><span class="ff-label">入库库房：</span>
+    <div class="ff ff-row-extra"><span class="ff-label">入库库位：</span>
       <select><option selected>全部</option><option>原料区 RA</option><option>成品区 RB</option><option>外协周转区 RC</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
@@ -391,7 +391,7 @@ th.td-num { text-align:right; }
           <th>入库类型</th>
           <th>物料名称</th>
           <th>数量</th>
-          <th>入库库房</th>
+          <th>入库库位</th>
           <th>入库日期</th>
           <th>状态</th>
           <th class="sticky-op">操作</th>
@@ -527,7 +527,7 @@ renderListPage({
     { label: '物料名称', field: 'material' },
     { label: '状态', field: 'status' },
     { label: '入库日期', field: 'date', range: true },
-    { label: '入库库房', field: 'warehouse' }
+    { label: '入库库位', field: 'warehouse' }
   ]
 });
 </script>
@@ -602,7 +602,7 @@ document.querySelectorAll('.tab').forEach(function (t) {
 <script>
 /* G43 下拉数据源化：静态 option 为无 JS 兜底，运行时按字典/实体重渲染（矩阵见 _scan_tmpdir/g43_接线差集_v2.md） */
 SSEL.fillDict(SSEL.byLabel('入库类型'),'入库类型',true);
-SSEL.fillEntity(SSEL.byLabel('入库库房'),'otherInbounds',{field:'warehouse',keepFirst:true});
+SSEL.fillEntity(SSEL.byLabel('入库库位'),'otherInbounds',{field:'warehouse',keepFirst:true});
 </script>
 </body>
 </html>

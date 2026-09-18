@@ -346,7 +346,22 @@ th.td-num { text-align:right; }
     <h3 class="card-title">退租入库信息</h3>
   </div>
 
-
+      <div class="form-row">
+        <div class="form-label"><span class="req">*</span>客户：</div>
+        <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>华骏重卡汽车有限公司</option><option>东海商用汽车有限公司宁波分公司</option><option>星途新能源汽车科技有限公司</option><option>长风汽车制造有限公司</option></select><span class="caret">▾</span></div>
+      </div>
+      <div class="form-row">
+        <div class="form-label">所属项目：</div>
+        <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>PRJ-2601 华骏重卡·长春基地 驾驶室围板箱租赁</option><option>PRJ-2602 华骏重卡·青岛基地 保险杠料架租赁</option><option>PRJ-2603 长丰锂电·电池包周转箱租赁</option><option>PRJ-2604 南方汽造·座椅周转箱租赁（试点）</option><option>PRJ-2605 华骏重卡·蔚山基地 围板箱租赁扩建</option><option>PRJ-2606 长丰锂电·二期 电池包周转箱扩容</option></select><span class="caret">▾</span></div>
+      </div>
+      <div class="form-row">
+        <div class="form-label"><span class="req">*</span>入库库位：</div>
+        <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>成品区 RB</option><option>原料区 RA</option><option>次品区 RC</option></select><span class="caret">▾</span></div>
+      </div>
+      <div class="form-row">
+        <div class="form-label">拆散方式：</div>
+        <div><span class="radio checked"><span class="dot"></span>按 BOM 拆散</span><span class="radio"><span class="dot"></span>整箱退回（不拆散）</span></div>
+      </div>
       <div class="form-row">
         <div class="form-label"><span class="req">*</span>退回日期：</div>
         <div class="input-box" style="width:380px;"><input type="date" value="2026-09-11"></div>
@@ -365,15 +380,18 @@ th.td-num { text-align:right; }
   <div style="flex:1;min-width:0;">
           <div class="table-wrap edit-tbl" style="border:1px solid var(--border);border-radius:6px;">
             <table>
-              <thead><tr><th>物料编码</th><th>物料名称</th><th>单位</th><th>退回数量</th><th>缺损数量</th></tr></thead>
+              <thead><tr><th>物料编码</th><th>物料名称</th><th>单位</th><th>退回数量</th><th>缺损数量</th><th>去向</th></tr></thead>
               <tbody>
-                <tr><td>WBX-1210L</td><td>围板箱 1200×1000×970</td><td>只</td><td><input value="86"></td><td><input value="3"></td></tr>
-                <tr><td>LJ-C300</td><td>围板</td><td>件</td><td><input value="40"></td><td><input value="0"></td></tr>
-                <tr><td>LJ-A100</td><td>锁扣组件</td><td>件</td><td><input value="80"></td><td><input value="0"></td></tr>
+                <tr><td><select class="tkMat" style="width:100%;min-width:90px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option>LJ-A100</option><option>LJ-C300</option><option selected>WBX-1210L</option></select></td>
+          <td><select class="tkName" style="width:100%;min-width:120px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option value="WBX-1210L" selected>围板箱 1200×1000×970</option><option value="LJ-C300">围板</option><option value="LJ-A100">锁扣组件</option></select></td><td>只</td><td><input value="86"></td><td><input value="3"></td><td><select style="width:132px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option>自有回库</option><option selected>租入件转归还</option></select></td></tr>
+                <tr><td><select class="tkMat" style="width:100%;min-width:90px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option>LJ-A100</option><option selected>LJ-C300</option><option>WBX-1210L</option></select></td>
+          <td><select class="tkName" style="width:100%;min-width:120px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option value="WBX-1210L">围板箱 1200×1000×970</option><option value="LJ-C300" selected>围板</option><option value="LJ-A100">锁扣组件</option></select></td><td>件</td><td><input value="40"></td><td><input value="0"></td><td><select style="width:132px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option selected>自有回库</option><option>租入件转归还</option></select></td></tr>
+                <tr><td><select class="tkMat" style="width:100%;min-width:90px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option selected>LJ-A100</option><option>LJ-C300</option><option>WBX-1210L</option></select></td>
+          <td><select class="tkName" style="width:100%;min-width:120px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option value="WBX-1210L">围板箱 1200×1000×970</option><option value="LJ-C300">围板</option><option value="LJ-A100" selected>锁扣组件</option></select></td><td>件</td><td><input value="80"></td><td><input value="0"></td><td><select style="width:132px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option selected>自有回库</option><option>租入件转归还</option></select></td></tr>
               </tbody>
             </table>
           </div>
-          <div class="pn-hint">按单一物料/拆后零件逐行记录；缺损行生成丢损应收（对客户）或应付（对供应商）。</div>
+          <div class="pn-hint">按单一物料/拆后零件逐行记录；缺损行生成丢损应收（对客户）或应付（对供应商）；去向=租入件转归还的行，提交后分流生成租入归还单。</div>
         </div>
       </div>
       
@@ -384,6 +402,13 @@ th.td-num { text-align:right; }
   </div>
 </div>
 <script src="../_data/demo-data.js"></script>
+<script src="../_data/select-source.js"></script>
+<script>
+/* G43 下拉数据源化：静态 option 为无 JS 兜底，运行时按实体重渲染（虚拟仓不维护 D-006·库位下拉过滤） */
+SSEL.fillEntity(SSEL.byFormLabel('客户'),'partners',{label:'name',filter:function(k,f){return f.type==='客户';}});
+SSEL.fillEntity(SSEL.byFormLabel('所属项目'),'projects',{filter:function(k,f){return f.status!=='已完结';},label:function(k,f){return k+' '+(f.name||'');}});
+SSEL.fillEntity(SSEL.byFormLabel('入库库位'),'locations',{field:'wh',filterV:function(v){return v.indexOf('虚拟仓')<0;}});
+</script>
 
 <script>
 /* ===== 菜单折叠 / 页签与表单视觉态（统一脚本） ===== */
@@ -567,6 +592,31 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
   });
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply);else apply();
 })();
+</script>
+<script src="../_data/mat-search.js"></script>
+<script>
+/* 物料搜索下拉（2026-09-17 道远指示）：明细物料编码转搜索选择·物料名称跟随（demo-data products） */
+document.querySelectorAll('select.tkMat').forEach(function (s) {
+  SSEL.fillEntity(s, 'products', { label: function (k) { return k; } });
+});
+/* 编码↔名称双向联动（2026-09-17 道远指出补齐：名称列也改为搜索选择） */
+document.querySelectorAll('select.tkName').forEach(function (name) {
+  SSEL.fillEntity(name, 'products', { label: function (k, f) { return f.name || k; } });
+  var code = name.closest('tr').querySelector('select.tkMat');
+  if (!code) return;
+  name.value = code.value;
+  code.addEventListener('change', function () { name.value = code.value; MSEL.syncAll(); });
+  name.addEventListener('change', function () { code.value = name.value; MSEL.syncAll(); });
+});
+MSEL.attachAll('select.tkName', { placeholder: '输入名称搜索' });
+MSEL.attachAll('.edit-tbl select.tkMat', { placeholder: '输入编码搜索' });
+</script>
+<script>
+/* 主数据字段搜索下拉（2026-09-17 道远采纳建议） */
+SSEL.fillEntity(SSEL.byFormLabel('客户'),'partners',{label:'name',filter:function(k,f){return f.type==='客户';}});
+MSEL.attach(SSEL.byFormLabel('客户'), { placeholder: '输入名称搜索' });
+SSEL.fillEntity(SSEL.byFormLabel('所属项目'),'projects',{filter:function(k,f){return f.status!=='已完结';},label:function(k,f){return k+' '+(f.name||'');}});
+MSEL.attach(SSEL.byFormLabel('所属项目'), { placeholder: '输入编码/名称搜索' });
 </script>
 </body>
 </html>

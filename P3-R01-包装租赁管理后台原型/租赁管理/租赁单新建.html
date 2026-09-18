@@ -367,8 +367,9 @@ th.td-num { text-align:right; }
   </div>
   <div class="form-row">
     <div class="form-label">起租日期：</div>
-    <div class="input-box" style="width:380px;"><input type="date" value="2026-09-06"><span style="font-size:12px;color:#8c8c8c;">　＝首笔租赁出库「发货审核完成日」；止租＝退租入库「验收完成日」·当日仍计租·最低 2 天（D-148）</span></div>
+    <div class="input-box" style="width:380px;"><input type="date" value="2026-09-06"></div>
   </div>
+  <div style="margin:-8px 0 8px 128px;font-size:12px;color:#8c8c8c;">起租＝首笔租赁出库「发货审核完成日」；止租＝退租入库「验收完成日」·当日仍计租·最低 2 天（D-148）</div>
   <div class="form-row">
     <div class="form-label"><span class="req" data-note="2">*</span>计费方式：</div>
     <div><span class="radio checked" onclick="toggleBillingMode(false)"><span class="dot"></span>按月定期生成应收</span><span class="radio" onclick="toggleBillingMode(true)"><span class="dot"></span>按次套数对账</span></div>
@@ -689,6 +690,18 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 SSEL.fillEntity(SSEL.byFormLabel('客户'),'partners',{label:'name',filter:function(k,f){return f.type==='客户';}});
 SSEL.fillEntity(SSEL.byFormLabel('所属项目'),'projects',{filter:function(k,f){return f.status!=='已完结';},label:function(k,f){return k+' '+(f.name||'');}});
 document.querySelectorAll('.edit-tbl td select.g39mat').forEach(function(s){SSEL.fillEntity(s,['products','bomList'],{label:function(k,f){return k+' '+(f.name||'');}});});
+</script>
+<script src="../_data/mat-search.js"></script>
+<script>
+/* 物料搜索下拉（2026-09-17 道远指示）：明细物料列换搜索选择 */
+MSEL.attachAll('.edit-tbl td select.g39mat');
+</script>
+<script>
+/* 主数据字段搜索下拉（2026-09-17 道远采纳建议） */
+SSEL.fillEntity(SSEL.byFormLabel('客户'),'partners',{label:'name',filter:function(k,f){return f.type==='客户';}});
+MSEL.attach(SSEL.byFormLabel('客户'), { placeholder: '输入名称搜索' });
+SSEL.fillEntity(SSEL.byFormLabel('所属项目'),'projects',{filter:function(k,f){return f.status!=='已完结';},label:function(k,f){return k+' '+(f.name||'');}});
+MSEL.attach(SSEL.byFormLabel('所属项目'), { placeholder: '输入编码/名称搜索' });
 </script>
 </body>
 </html>

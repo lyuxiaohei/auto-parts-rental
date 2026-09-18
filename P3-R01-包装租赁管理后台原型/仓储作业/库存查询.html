@@ -379,7 +379,7 @@ th.td-num { text-align:right; }
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
     <div class="ff"><span class="ff-label">库房：</span>
-      <select><option selected>全部</option><option>正品仓</option><option>次品仓</option><option>客户虚拟仓</option><option>转租终端仓</option><option>上海一号库</option></select>
+      <select><option selected>全部</option><option>原料区 RA</option><option>成品区 RB</option><option>次品区 RC</option><option>客户虚拟仓</option><option>转租终端仓</option><option>上海一号库</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
     <div class="ff"><span class="ff-label">库位：</span>
@@ -998,7 +998,7 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 <script>
 /* G43 下拉数据源化：静态 option 为无 JS 兜底，运行时按字典/实体重渲染（矩阵见 _scan_tmpdir/g43_接线差集_v2.md） */
 SSEL.fillDict(SSEL.byLabel('库存状态'),'库存状态',true);
-SSEL.fillEntity(SSEL.byLabel('库房'),'stockFlows',{field:'area',keepFirst:true,append:['次品仓']});
+SSEL.fillEntity(SSEL.byLabel('库房'),'stockFlows',{field:'area',keepFirst:true,append:['次品区 RC']});
 SSEL.fillEntity(SSEL.byLabel('库位'),'stockFlows',{field:'loc',keepFirst:true});
 SSEL.fillEntity(SSEL.byLabel('项目'),'projects',{keepFirst:true});
 </script>

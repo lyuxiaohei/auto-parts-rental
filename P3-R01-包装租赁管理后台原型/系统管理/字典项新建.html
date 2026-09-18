@@ -564,5 +564,10 @@ body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
 /* G43 下拉数据源化：静态 option 为无 JS 兜底，运行时按字典/实体重渲染（矩阵见 _scan_tmpdir/g43_接线差集_v2.md） */
 SSEL.fillEntity(SSEL.byFormLabel('字典分类'),'dictItems',{field:'category'});
 </script>
+<script src="../_data/mat-search.js"></script>
+<script>
+/* 主数据字段搜索下拉（2026-09-17 道远采纳建议） */
+MSEL.attach(SSEL.byFormLabel('字典分类'), { placeholder: '输入分类搜索' });
+</script>
 </body>
 </html>

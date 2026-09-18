@@ -347,7 +347,7 @@ th.td-num { text-align:right; }
   <span class="tab active">转移出库 <span class="close">×</span></span>
 </div>
     <div class="content">
-<div class="filter-card" id="filterCard">
+<div class="filter-card collapsed" id="filterCard">
   <div class="filter-grid">
     <div class="ff"><span class="ff-label">转移单号：</span><input placeholder="请输入转移单号"></div>
     <div class="ff"><span class="ff-label">转出方：</span>
@@ -355,7 +355,7 @@ th.td-num { text-align:right; }
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
     <div class="ff"><span class="ff-label">接收方：</span><input placeholder="请输入终端客户名称"></div>
-    <div class="ff"><span class="ff-label">结算方式：</span>
+    <div class="ff ff-row-extra"><span class="ff-label">结算方式：</span>
       <select><option value="">全部</option><option>按租出结算</option><option>按终端结算</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
@@ -365,6 +365,7 @@ th.td-num { text-align:right; }
     </div>
     <div class="ff ff-row-extra"><span class="ff-label">转移日期：</span><input placeholder="开始日期"><span class="ff-sep">→</span><input placeholder="结束日期"></div>
     <div class="filter-actions">
+      <button class="link-collapse" onclick="var f=document.getElementById('filterCard');f.classList.toggle('collapsed');this.querySelector('span').textContent=f.classList.contains('collapsed')?'展开':'收起'"><span>展开</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
       <button class="btn btn-default">重置</button>
       <button class="btn btn-primary">查询</button>
     </div>
