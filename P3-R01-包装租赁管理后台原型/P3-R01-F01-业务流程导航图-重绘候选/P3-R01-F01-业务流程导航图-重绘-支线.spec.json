@@ -1,0 +1,497 @@
+{
+ "schema_version": 1,
+ "diagram_type": "workflow",
+ "meta": {
+  "title": "业务流程导航 · 支线（S1 库存运营 – S7 转移出库）",
+  "quality_profile": "showcase",
+  "viewBox": [
+   1000,
+   1380
+  ],
+  "legend": {
+   "mode": "auto",
+   "entries": {
+    "backend": {
+     "label": "业务单据 / 流程页"
+    },
+    "database": {
+     "label": "库存枢纽 / 留痕存储"
+    },
+    "security": {
+     "label": "审核 · 权限"
+    },
+    "frontend": {
+     "label": "门户 / 聚合页"
+    }
+   }
+  },
+  "views": [
+   {
+    "id": "view-transfer",
+    "label": "S7 转移出库",
+    "focus": [
+     "tl",
+     "tn",
+     "tdt"
+    ],
+    "note": "客户间转移 · 来源 L1–L4 任一租赁流程 · 租赁出库后 · 分批非必经"
+   },
+   {
+    "id": "view-audit",
+    "label": "S6 审核与待办",
+    "focus": [
+     "td",
+     "au",
+     "st",
+     "ol2"
+    ],
+    "note": "15 类单据统一进待办 · 状态流范本＝销售订单"
+   }
+  ]
+ },
+ "lanes": [
+  {
+   "id": "s1a",
+   "label": "S1 库存运营 · 查询与盘点"
+  },
+  {
+   "id": "s1b",
+   "label": "S1 库存运营 · 例外出入库"
+  },
+  {
+   "id": "s2",
+   "label": "S2 项目经营"
+  },
+  {
+   "id": "s3",
+   "label": "S3 系统支撑"
+  },
+  {
+   "id": "s4",
+   "label": "S4 赔偿转单据 · 直建"
+  },
+  {
+   "id": "s4b",
+   "label": "S4 赔偿去向"
+  },
+  {
+   "id": "s5a",
+   "label": "S5 录单页与台账 · 录单"
+  },
+  {
+   "id": "s5b",
+   "label": "S5 录单页与台账 · 台账"
+  },
+  {
+   "id": "s6",
+   "label": "S6 审核与待办"
+  },
+  {
+   "id": "s7",
+   "label": "S7 转移出库（v3.8 自 L1–L4 抽离）"
+  }
+ ],
+ "phases": [
+  {
+   "id": "ph-a",
+   "label": "入口 / 录单",
+   "fromCol": 0,
+   "toCol": 1
+  },
+  {
+   "id": "ph-b",
+   "label": "处理 · 审核",
+   "fromCol": 2,
+   "toCol": 3
+  },
+  {
+   "id": "ph-c",
+   "label": "输出 · 留痕",
+   "fromCol": 4,
+   "toCol": 5
+  }
+ ],
+ "mainPath": [
+  "td",
+  "au",
+  "st",
+  "ol2"
+ ],
+ "nodes": [
+  {
+   "id": "sq",
+   "lane": "s1a",
+   "col": 0,
+   "type": "database",
+   "label": "库存查询",
+   "sublabel": "五态下钻",
+   "width": 88
+  },
+  {
+   "id": "pd",
+   "lane": "s1a",
+   "col": 2,
+   "type": "backend",
+   "label": "库存盘点",
+   "sublabel": "盘点联动",
+   "width": 88
+  },
+  {
+   "id": "pr",
+   "lane": "s1a",
+   "col": 3,
+   "type": "backend",
+   "label": "盘点录入",
+   "sublabel": "录单页",
+   "width": 88
+  },
+  {
+   "id": "db",
+   "lane": "s1a",
+   "col": 5,
+   "type": "backend",
+   "label": "库存调拨",
+   "sublabel": "新建审核",
+   "width": 88
+  },
+  {
+   "id": "oi",
+   "lane": "s1b",
+   "col": 0,
+   "type": "backend",
+   "label": "其他入库",
+   "sublabel": "期初盘盈",
+   "width": 88
+  },
+  {
+   "id": "oo",
+   "lane": "s1b",
+   "col": 2,
+   "type": "backend",
+   "label": "其他出库",
+   "sublabel": "报废盘亏",
+   "width": 88
+  },
+  {
+   "id": "rp",
+   "lane": "s1b",
+   "col": 4,
+   "type": "backend",
+   "label": "按零件入库",
+   "sublabel": "退租拆散",
+   "width": 88
+  },
+  {
+   "id": "kb",
+   "lane": "s2",
+   "col": 0,
+   "type": "frontend",
+   "label": "项目看板",
+   "sublabel": "经营总览",
+   "width": 88
+  },
+  {
+   "id": "da",
+   "lane": "s2",
+   "col": 2,
+   "type": "backend",
+   "label": "项目档案",
+   "sublabel": "新建项目",
+   "width": 88
+  },
+  {
+   "id": "dd",
+   "lane": "s2",
+   "col": 3,
+   "type": "frontend",
+   "label": "项目详情",
+   "sublabel": "全流程明细",
+   "width": 88
+  },
+  {
+   "id": "fb",
+   "lane": "s2",
+   "col": 5,
+   "type": "backend",
+   "label": "财务看板",
+   "sublabel": "项目毛利",
+   "width": 88
+  },
+  {
+   "id": "up",
+   "lane": "s3",
+   "col": 0,
+   "type": "security",
+   "label": "用户权限",
+   "sublabel": "权限矩阵",
+   "width": 88
+  },
+  {
+   "id": "dc",
+   "lane": "s3",
+   "col": 2,
+   "type": "backend",
+   "label": "数据字典",
+   "sublabel": "字典维护",
+   "width": 88
+  },
+  {
+   "id": "ol3",
+   "lane": "s3",
+   "col": 4,
+   "type": "database",
+   "label": "操作日志",
+   "sublabel": "操作留痕",
+   "width": 88
+  },
+  {
+   "id": "ga",
+   "lane": "s4",
+   "col": 0,
+   "type": "backend",
+   "label": "直建收付",
+   "sublabel": "无赔偿单",
+   "width": 88
+  },
+  {
+   "id": "ar4",
+   "lane": "s4b",
+   "col": 2,
+   "type": "backend",
+   "label": "应收账单",
+   "sublabel": "客户赔付",
+   "width": 88
+  },
+  {
+   "id": "ap4",
+   "lane": "s4b",
+   "col": 4,
+   "type": "backend",
+   "label": "应付账单",
+   "sublabel": "供应商赔付",
+   "width": 88
+  },
+  {
+   "id": "pi5",
+   "lane": "s5a",
+   "col": 1,
+   "type": "backend",
+   "label": "采购入库录单",
+   "sublabel": "⟷采购入库",
+   "width": 102
+  },
+  {
+   "id": "po5",
+   "lane": "s5a",
+   "col": 3,
+   "type": "backend",
+   "label": "租赁出库录单",
+   "sublabel": "⟷租赁出库",
+   "width": 102
+  },
+  {
+   "id": "ti5",
+   "lane": "s5a",
+   "col": 5,
+   "type": "backend",
+   "label": "退租入库新建",
+   "sublabel": "⟷退租入库",
+   "width": 102
+  },
+  {
+   "id": "bm5",
+   "lane": "s5b",
+   "col": 0,
+   "type": "backend",
+   "label": "BOM维护",
+   "sublabel": "子件含来源",
+   "width": 96
+  },
+  {
+   "id": "tp5",
+   "lane": "s5b",
+   "col": 2,
+   "type": "backend",
+   "label": "退回进度",
+   "sublabel": "租赁单列表",
+   "width": 108
+  },
+  {
+   "id": "rh5",
+   "lane": "s5b",
+   "col": 4,
+   "type": "backend",
+   "label": "租入归还新建",
+   "sublabel": "⟷租入归还",
+   "width": 108
+  },
+  {
+   "id": "td",
+   "lane": "s6",
+   "col": 0,
+   "type": "frontend",
+   "label": "我的待办",
+   "sublabel": "聚合速滤",
+   "width": 88
+  },
+  {
+   "id": "au",
+   "lane": "s6",
+   "col": 2,
+   "type": "security",
+   "label": "审核弹窗",
+   "sublabel": "15 类单据",
+   "width": 88
+  },
+  {
+   "id": "st",
+   "lane": "s6",
+   "col": 3,
+   "type": "backend",
+   "label": "状态流转",
+   "sublabel": "状态推进",
+   "width": 88
+  },
+  {
+   "id": "ol2",
+   "lane": "s6",
+   "col": 5,
+   "type": "database",
+   "label": "操作日志",
+   "sublabel": "留痕可溯",
+   "width": 88
+  },
+  {
+   "id": "tl",
+   "lane": "s7",
+   "col": 1,
+   "type": "backend",
+   "label": "转移出库列表",
+   "sublabel": "行内审核",
+   "width": 108
+  },
+  {
+   "id": "tn",
+   "lane": "s7",
+   "col": 3,
+   "type": "backend",
+   "label": "转移出库新建",
+   "sublabel": "录单页",
+   "width": 108
+  },
+  {
+   "id": "tdt",
+   "lane": "s7",
+   "col": 5,
+   "type": "backend",
+   "label": "转移出库单",
+   "sublabel": "两结算",
+   "width": 96
+  }
+ ],
+ "edges": [
+  {
+   "id": "e-pd-pr",
+   "from": "pd",
+   "to": "pr",
+   "variant": "dashed"
+  },
+  {
+   "id": "e-s2-a",
+   "from": "kb",
+   "to": "da"
+  },
+  {
+   "id": "e-s2-b",
+   "from": "da",
+   "to": "dd"
+  },
+  {
+   "id": "e-s2-c",
+   "from": "dd",
+   "to": "fb"
+  },
+  {
+   "id": "e-s4-a",
+   "from": "ga",
+   "to": "ar4",
+   "label": "自有",
+   "fromSide": "bottom",
+   "toSide": "top",
+   "route": "drop"
+  },
+  {
+   "id": "e-s4-b",
+   "from": "ga",
+   "to": "ap4",
+   "label": "租入",
+   "fromSide": "bottom",
+   "toSide": "top",
+   "route": "drop"
+  },
+  {
+   "id": "e-s6-a",
+   "from": "td",
+   "to": "au"
+  },
+  {
+   "id": "e-s6-b",
+   "from": "au",
+   "to": "st"
+  },
+  {
+   "id": "e-s6-c",
+   "from": "st",
+   "to": "ol2"
+  },
+  {
+   "id": "e-s7-a",
+   "from": "tl",
+   "to": "tn"
+  },
+  {
+   "id": "e-s7-b",
+   "from": "tn",
+   "to": "tdt"
+  }
+ ],
+ "cards": [
+  {
+   "dot": "violet",
+   "title": "转移出库 S7",
+   "items": [
+    "来源＝L1–L4 任一租赁流程 · 租赁出库后 · 分批非必经",
+    "状态流：待审核→已转移→已终止（转移单审核驱动）· 终止转移回「在客户（租出）」（D-146）",
+    "结算（D-132）：按租出＝默认 · 不进财务链路 ｜ 按终端＝特例 · 账单主体切终端 · 历史不回改",
+    "不勾稽原租赁单（D-106）· 客户虚拟仓不维护（D-145）· 计租不因转移改变"
+   ]
+  },
+  {
+   "dot": "cyan",
+   "title": "库存状态五态 S1",
+   "items": [
+    "在库 / 在客户（租出）/ 客户转租出 / 退租在途 / 租入在库",
+    "「客户转租出」由转移出库单审核驱动 · 「终止转移」回「在客户（租出）」",
+    "在途＝应入库未入库 · 租入＝在库未转租，转租后计入客户态",
+    "盘点差异 → 盘盈转其他入库 · 盘亏转其他出库 · 按零件入库来源＝T1 退租拆散（L2/L4）"
+   ]
+  },
+  {
+   "dot": "rose",
+   "title": "赔偿口径 S4",
+   "items": [
+    "不走独立赔偿单 · 按对象直接生成应收/应付账单（带费用分类 · 09-08 会议）",
+    "核销库存走其他出库 · 赔偿核销（09-05 王琳总）"
+   ]
+  },
+  {
+   "dot": "amber",
+   "title": "录单与审核 S5/S6",
+   "items": [
+    "录单页由列表页「新增/录入」进入 · 15 类单据统一进待办",
+    "状态流范本＝销售订单（待审核/已审核/待发货/已完成/已关闭）",
+    "S2 上下游绑定见项目详情 · 角色权限矩阵有独立页（S3）"
+   ]
+  }
+ ]
+}
