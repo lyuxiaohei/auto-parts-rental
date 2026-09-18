@@ -996,24 +996,22 @@ window.DEMO_DATA = {
     'PAY-20260902-005': {
       'row': {"fields": {"supplier": "延陵塑料托盘厂", "ref": "AP-20260830-007", "bank": "招商银行苏州分行 1109××××8821", "date": "2026-09-02", "status": "待确认"}, "note": "1", "cells": ["延陵塑料托盘厂", "<span class=\"lk\">AP-20260830-007</span>", "<span class=\"td-num\">6,000.00</span>", "2026-09-02", "招商银行苏州分行 1109××××8821", "<span class=\"tag tag-orange\">待确认</span>"], "ops": [{"t": "确认", "act": "go('../财务协同/付款确认.html?id=PAY-20260902-005')"}, {"t": "详情", "act": "go('../财务协同/付款详情.html?id=PAY-20260902-005')"}]},
       title: '付款登记详情',
-      formTitle: '付款信息',
-      formRows: [
-        { label: '付款单号', text: 'PAY-20260902-005' },
+      info: [
+        { label: '付款单号', text: 'PAY-20260902-005', full: true },
         { label: '状态', tag: '待确认' },
         { label: '付款日期', text: '2026-09-02' },
-        { label: '供应商', text: '延陵塑料托盘厂' },
-        { label: '关联应付账单', text: 'AP-20260830-007', url: '财务协同/应付账单.html' },
+        { label: '供应商', text: '延陵塑料托盘厂', full: true },
+        { label: '关联应付', text: 'AP-20260830-007', url: '财务协同/应付账单.html' },
         { label: '付款金额', text: '6,000.00 元' },
         { label: '付款账户', text: '招商银行苏州分行 1109××××8821' },
+        { label: '登记人', text: '财务-周敏' },
         { label: '付款方式', text: '银行转账' },
         { label: '凭证', text: '已上传' },
-        { label: '登记人', text: '财务-周敏' },
         { label: '备注', text: '—' }
       ],
-      itemTitle: '分期付款计划',
-      itemCols: ['笔次', '比例(%)', '分期金额(元)', '计划日期', '状态'],
-      items: [
-        ['1', '100', '6,000.00', '2026-09-02', '待确认']
+      feeCols: ['关联账单', '账单类型', '本次付款(元)'],
+      fees: [
+        { cells: ['AP-20260830-007', '采购应付', '6,000.00'], links: { 0: '财务协同/应付账单.html' } }
       ],
       chain: [
         { role: '应付账单', name: 'AP-20260830-007', url: '财务协同/应付账单.html' },
@@ -1028,24 +1026,22 @@ window.DEMO_DATA = {
     'PAY-20260831-004': {
       'row': {"fields": {"supplier": "延陵塑料托盘厂", "ref": "AP-20260828-006", "bank": "中国银行常州分行 3325××××0067", "date": "2026-08-31", "status": "已确认"}, "cells": ["延陵塑料托盘厂", "<span class=\"lk\">AP-20260828-006</span>", "<span class=\"td-num\">42,500.00</span>", "2026-08-31", "中国银行常州分行 3325××××0067", "<span class=\"tag tag-green\">已确认</span>"], "ops": [{"t": "详情", "act": "go('../财务协同/付款详情.html?id=PAY-20260831-004')"}]},
       title: '付款登记详情',
-      formTitle: '付款信息',
-      formRows: [
-        { label: '付款单号', text: 'PAY-20260831-004' },
+      info: [
+        { label: '付款单号', text: 'PAY-20260831-004', full: true },
         { label: '状态', tag: '已确认' },
         { label: '付款日期', text: '2026-08-31' },
-        { label: '供应商', text: '延陵塑料托盘厂' },
-        { label: '关联应付账单', text: 'AP-20260828-006', url: '财务协同/应付账单.html' },
+        { label: '供应商', text: '延陵塑料托盘厂', full: true },
+        { label: '关联应付', text: 'AP-20260828-006', url: '财务协同/应付账单.html' },
         { label: '付款金额', text: '42,500.00 元' },
         { label: '付款账户', text: '中国银行常州分行 3325××××0067' },
+        { label: '登记人', text: '财务-周敏' },
         { label: '付款方式', text: '银行转账' },
         { label: '凭证', text: '已上传' },
-        { label: '登记人', text: '财务-周敏' },
         { label: '备注', text: '—' }
       ],
-      itemTitle: '分期付款计划',
-      itemCols: ['笔次', '比例(%)', '分期金额(元)', '计划日期', '状态'],
-      items: [
-        ['1', '100', '42,500.00', '2026-08-31', '已确认']
+      feeCols: ['关联账单', '账单类型', '本次付款(元)'],
+      fees: [
+        { cells: ['AP-20260828-006', '采购应付', '42,500.00'], links: { 0: '财务协同/应付账单.html' } }
       ],
       chain: [
         { role: '应付账单', name: 'AP-20260828-006', url: '财务协同/应付账单.html' },
@@ -1060,24 +1056,22 @@ window.DEMO_DATA = {
     'PAY-20260828-003': {
       'row': {"fields": {"supplier": "甬城塑业包装制品有限公司", "ref": "AP-20260815-003", "bank": "工商银行宁波分行 4402××××5531", "date": "2026-08-28", "status": "已确认"}, "cells": ["甬城塑业包装制品有限公司", "<span class=\"lk\">AP-20260815-003</span>", "<span class=\"td-num\">35,200.00</span>", "2026-08-28", "工商银行宁波分行 4402××××5531", "<span class=\"tag tag-green\">已确认</span>"], "ops": [{"t": "详情", "act": "go('../财务协同/付款详情.html?id=PAY-20260828-003')"}]},
       title: '付款登记详情',
-      formTitle: '付款信息',
-      formRows: [
-        { label: '付款单号', text: 'PAY-20260828-003' },
+      info: [
+        { label: '付款单号', text: 'PAY-20260828-003', full: true },
         { label: '状态', tag: '已确认' },
         { label: '付款日期', text: '2026-08-28' },
-        { label: '供应商', text: '甬城塑业包装制品有限公司' },
-        { label: '关联应付账单', text: 'AP-20260815-003', url: '财务协同/应付账单.html' },
+        { label: '供应商', text: '甬城塑业包装制品有限公司', full: true },
+        { label: '关联应付', text: 'AP-20260815-003', url: '财务协同/应付账单.html' },
         { label: '付款金额', text: '35,200.00 元' },
         { label: '付款账户', text: '工商银行宁波分行 4402××××5531' },
+        { label: '登记人', text: '财务-周敏' },
         { label: '付款方式', text: '银行转账' },
         { label: '凭证', text: '已上传' },
-        { label: '登记人', text: '财务-周敏' },
         { label: '备注', text: '—' }
       ],
-      itemTitle: '分期付款计划',
-      itemCols: ['笔次', '比例(%)', '分期金额(元)', '计划日期', '状态'],
-      items: [
-        ['1', '100', '35,200.00', '2026-08-28', '已确认']
+      feeCols: ['关联账单', '账单类型', '本次付款(元)'],
+      fees: [
+        { cells: ['AP-20260815-003', '采购应付', '35,200.00'], links: { 0: '财务协同/应付账单.html' } }
       ],
       chain: [
         { role: '应付账单', name: 'AP-20260815-003', url: '财务协同/应付账单.html' },
@@ -1092,24 +1086,22 @@ window.DEMO_DATA = {
     'PAY-20260825-002': {
       'row': {"fields": {"supplier": "吴越联合五金制品有限公司", "ref": "AP-20260820-004", "bank": "招商银行苏州分行 1109××××8821", "date": "2026-08-25", "status": "已确认"}, "cells": ["吴越联合五金制品有限公司", "<span class=\"lk\">AP-20260820-004</span>", "<span class=\"td-num\">6,300.00</span>", "2026-08-25", "招商银行苏州分行 1109××××8821", "<span class=\"tag tag-green\">已确认</span>"], "ops": [{"t": "详情", "act": "go('../财务协同/付款详情.html?id=PAY-20260825-002')"}]},
       title: '付款登记详情',
-      formTitle: '付款信息',
-      formRows: [
-        { label: '付款单号', text: 'PAY-20260825-002' },
+      info: [
+        { label: '付款单号', text: 'PAY-20260825-002', full: true },
         { label: '状态', tag: '已确认' },
         { label: '付款日期', text: '2026-08-25' },
-        { label: '供应商', text: '吴越联合五金制品有限公司' },
-        { label: '关联应付账单', text: 'AP-20260820-004', url: '财务协同/应付账单.html' },
+        { label: '供应商', text: '吴越联合五金制品有限公司', full: true },
+        { label: '关联应付', text: 'AP-20260820-004', url: '财务协同/应付账单.html' },
         { label: '付款金额', text: '6,300.00 元' },
         { label: '付款账户', text: '招商银行苏州分行 1109××××8821' },
+        { label: '登记人', text: '财务-周敏' },
         { label: '付款方式', text: '银行转账' },
         { label: '凭证', text: '已上传' },
-        { label: '登记人', text: '财务-周敏' },
         { label: '备注', text: '—' }
       ],
-      itemTitle: '分期付款计划',
-      itemCols: ['笔次', '比例(%)', '分期金额(元)', '计划日期', '状态'],
-      items: [
-        ['1', '100', '6,300.00', '2026-08-25', '已确认']
+      feeCols: ['关联账单', '账单类型', '本次付款(元)'],
+      fees: [
+        { cells: ['AP-20260820-004', '采购应付', '6,300.00'], links: { 0: '财务协同/应付账单.html' } }
       ],
       chain: [
         { role: '应付账单', name: 'AP-20260820-004', url: '财务协同/应付账单.html' },
@@ -1124,24 +1116,22 @@ window.DEMO_DATA = {
     'PAY-20260818-001': {
       'row': {"fields": {"supplier": "环通循环包装运营（上海）有限公司", "ref": "AP-20260815-003", "bank": "建设银行上海分行 6217××××9045", "date": "2026-08-18", "status": "已确认"}, "cells": ["环通循环包装运营（上海）有限公司", "<span class=\"lk\">AP-20260815-003</span>", "<span class=\"td-num\">58,000.00</span>", "2026-08-18", "建设银行上海分行 6217××××9045", "<span class=\"tag tag-green\">已确认</span>"], "ops": [{"t": "详情", "act": "go('../财务协同/付款详情.html?id=PAY-20260818-001')"}]},
       title: '付款登记详情',
-      formTitle: '付款信息',
-      formRows: [
-        { label: '付款单号', text: 'PAY-20260818-001' },
+      info: [
+        { label: '付款单号', text: 'PAY-20260818-001', full: true },
         { label: '状态', tag: '已确认' },
         { label: '付款日期', text: '2026-08-18' },
-        { label: '供应商', text: '环通循环包装运营（上海）有限公司' },
-        { label: '关联应付账单', text: 'AP-20260815-003', url: '财务协同/应付账单.html' },
+        { label: '供应商', text: '环通循环包装运营（上海）有限公司', full: true },
+        { label: '关联应付', text: 'AP-20260815-003', url: '财务协同/应付账单.html' },
         { label: '付款金额', text: '58,000.00 元' },
         { label: '付款账户', text: '建设银行上海分行 6217××××9045' },
+        { label: '登记人', text: '财务-周敏' },
         { label: '付款方式', text: '银行转账' },
         { label: '凭证', text: '已上传' },
-        { label: '登记人', text: '财务-周敏' },
         { label: '备注', text: '—' }
       ],
-      itemTitle: '分期付款计划',
-      itemCols: ['笔次', '比例(%)', '分期金额(元)', '计划日期', '状态'],
-      items: [
-        ['1', '100', '58,000.00', '2026-08-18', '已确认']
+      feeCols: ['关联账单', '账单类型', '本次付款(元)'],
+      fees: [
+        { cells: ['AP-20260815-003', '采购应付', '58,000.00'], links: { 0: '财务协同/应付账单.html' } }
       ],
       chain: [
         { role: '应付账单', name: 'AP-20260815-003', url: '财务协同/应付账单.html' },
@@ -1160,23 +1150,21 @@ window.DEMO_DATA = {
     'HK-20260830-014': {
       'row': {"fields": {"customer": "华骏重卡汽车有限公司", "ref": "AR-2026-08-PRJ2601", "bank": "招行基本户 1209****8866", "receipt": "已上传", "date": "2026-08-30", "status": "待核销"}, "note": "1", "cells": ["华骏重卡汽车有限公司", "AR-2026-08-PRJ2601", "<span class=\"td-num\"><b>286,500.00</b></span>", "2026-08-30", "招行基本户 1209****8866", "<span class=\"tag tag-green\">已上传</span>", "<span class=\"tag tag-orange\">待核销</span>"], "ops": [{"t": "确认收款", "act": "openModal('auditModal')"}, {"t": "详情", "act": "go('../财务协同/收款详情.html?id=HK-20260830-014')"}, {"t": "去核销", "act": "go('../财务协同/银行回单核销.html')"}]},
       title: '收款登记详情',
-      formTitle: '收款信息',
-      formRows: [
-        { label: '收款单号', text: 'HK-20260830-014' },
-        { label: '银行回单', tag: '已上传' },
+      info: [
+        { label: '收款单号', text: 'HK-20260830-014', full: true },
+        { label: '银行回单状态', tag: '已上传' },
         { label: '核销状态', tag: '待核销' },
-        { label: '客户', text: '华骏重卡汽车有限公司' },
-        { label: '关联应收账单', text: 'AR-2026-08-PRJ2601', url: '财务协同/应收账单.html' },
+        { label: '客户', text: '华骏重卡汽车有限公司', full: true },
+        { label: '关联应收', text: 'AR-2026-08-PRJ2601', url: '财务协同/应收账单.html' },
         { label: '发票关联', text: 'INV-20260830-012', url: '财务协同/开票登记.html' },
         { label: '收款金额', text: '286,500.00 元' },
         { label: '收款日期', text: '2026-08-30' },
         { label: '收款账户', text: '招行基本户 1209****8866' },
         { label: '登记人', text: '财务-周敏' }
       ],
-      itemTitle: '收款明细',
-      itemCols: ['关联账单', '费用项', '本次收款(元)', '核销去向'],
-      items: [
-        ['AR-2026-08-PRJ2601', '租赁费 · 部分收款', '286,500.00', '银行回单核销（待执行）']
+      feeCols: ['关联账单', '费用项', '本次收款(元)', '核销去向'],
+      fees: [
+        { cells: ['AR-2026-08-PRJ2601', '租赁费 · 部分收款', '286,500.00', '银行回单核销（待执行）'], links: { 0: '财务协同/应收账单.html' } }
       ],
       chain: [
         { role: '应收账单', name: 'AR-2026-08-PRJ2601', url: '财务协同/应收账单.html' },
@@ -1193,23 +1181,21 @@ window.DEMO_DATA = {
     'HK-20260828-013': {
       'row': {"fields": {"customer": "东海商用宁波分公司", "ref": "AR-2026-07-PRJ2602", "bank": "建行一般户 3321****0417", "receipt": "已上传", "date": "2026-08-28", "status": "待核销"}, "cells": ["东海商用宁波分公司", "AR-2026-07-PRJ2602", "<span class=\"td-num\"><b>158,420.50</b></span>", "2026-08-28", "建行一般户 3321****0417", "<span class=\"tag tag-green\">已上传</span>", "<span class=\"tag tag-orange\">待核销</span>"], "ops": [{"t": "确认收款", "act": "openModal('auditModal')"}, {"t": "详情", "act": "go('../财务协同/收款详情.html?id=HK-20260828-013')"}, {"t": "去核销", "act": "go('../财务协同/银行回单核销.html')"}]},
       title: '收款登记详情',
-      formTitle: '收款信息',
-      formRows: [
-        { label: '收款单号', text: 'HK-20260828-013' },
-        { label: '银行回单', tag: '已上传' },
+      info: [
+        { label: '收款单号', text: 'HK-20260828-013', full: true },
+        { label: '银行回单状态', tag: '已上传' },
         { label: '核销状态', tag: '待核销' },
-        { label: '客户', text: '东海商用宁波分公司' },
-        { label: '关联应收账单', text: 'AR-2026-07-PRJ2602', url: '财务协同/应收账单.html' },
+        { label: '客户', text: '东海商用宁波分公司', full: true },
+        { label: '关联应收', text: 'AR-2026-07-PRJ2602', url: '财务协同/应收账单.html' },
         { label: '发票关联', text: 'INV-20260826-011', url: '财务协同/开票登记.html' },
         { label: '收款金额', text: '158,420.50 元' },
         { label: '收款日期', text: '2026-08-28' },
         { label: '收款账户', text: '建行一般户 3321****0417' },
         { label: '登记人', text: '财务-周敏' }
       ],
-      itemTitle: '收款明细',
-      itemCols: ['关联账单', '费用项', '本次收款(元)', '核销去向'],
-      items: [
-        ['AR-2026-07-PRJ2602', '租赁费 · 部分收款', '158,420.50', '银行回单核销（待执行）']
+      feeCols: ['关联账单', '费用项', '本次收款(元)', '核销去向'],
+      fees: [
+        { cells: ['AR-2026-07-PRJ2602', '租赁费 · 部分收款', '158,420.50', '银行回单核销（待执行）'], links: { 0: '财务协同/应收账单.html' } }
       ],
       chain: [
         { role: '应收账单', name: 'AR-2026-07-PRJ2602', url: '财务协同/应收账单.html' },
@@ -1226,23 +1212,21 @@ window.DEMO_DATA = {
     'HK-20260825-012': {
       'row': {"fields": {"customer": "华骏重卡汽车有限公司", "ref": "AR-2026-07-PRJ2601", "bank": "招行基本户 1209****8866", "receipt": "已上传", "date": "2026-08-25", "status": "部分核销"}, "cells": ["华骏重卡汽车有限公司", "AR-2026-07-PRJ2601", "<span class=\"td-num\"><b>98,000.00</b></span>", "2026-08-25", "招行基本户 1209****8866", "<span class=\"tag tag-green\">已上传</span>", "<span class=\"tag tag-blue\">部分核销</span>"], "ops": [{"t": "确认收款", "act": "openModal('auditModal')"}, {"t": "详情", "act": "go('../财务协同/收款详情.html?id=HK-20260825-012')"}, {"t": "去核销", "act": "go('../财务协同/银行回单核销.html')"}]},
       title: '收款登记详情',
-      formTitle: '收款信息',
-      formRows: [
-        { label: '收款单号', text: 'HK-20260825-012' },
-        { label: '银行回单', tag: '已上传' },
+      info: [
+        { label: '收款单号', text: 'HK-20260825-012', full: true },
+        { label: '银行回单状态', tag: '已上传' },
         { label: '核销状态', tag: '部分核销' },
-        { label: '客户', text: '华骏重卡汽车有限公司' },
-        { label: '关联应收账单', text: 'AR-2026-07-PRJ2601', url: '财务协同/应收账单.html' },
+        { label: '客户', text: '华骏重卡汽车有限公司', full: true },
+        { label: '关联应收', text: 'AR-2026-07-PRJ2601', url: '财务协同/应收账单.html' },
         { label: '发票关联', text: 'INV-20260820-010', url: '财务协同/开票登记.html' },
         { label: '收款金额', text: '98,000.00 元' },
         { label: '收款日期', text: '2026-08-25' },
         { label: '收款账户', text: '招行基本户 1209****8866' },
         { label: '登记人', text: '财务-周敏' }
       ],
-      itemTitle: '收款明细',
-      itemCols: ['关联账单', '费用项', '本次收款(元)', '核销去向'],
-      items: [
-        ['AR-2026-07-PRJ2601', '租赁费 · 部分收款', '98,000.00', '已核销 60,000.00 · 余 38,000.00']
+      feeCols: ['关联账单', '费用项', '本次收款(元)', '核销去向'],
+      fees: [
+        { cells: ['AR-2026-07-PRJ2601', '租赁费 · 部分收款', '98,000.00', '已核销 60,000.00 · 余 38,000.00'], links: { 0: '财务协同/应收账单.html' } }
       ],
       chain: [
         { role: '应收账单', name: 'AR-2026-07-PRJ2601', url: '财务协同/应收账单.html' },
@@ -1260,23 +1244,21 @@ window.DEMO_DATA = {
     'HK-20260822-011': {
       'row': {"fields": {"customer": "星途新能源汽车科技有限公司", "ref": "AR-2026-07-PRJ2603", "bank": "工行一般户 0200****5533", "receipt": "补传回单", "date": "2026-08-22", "status": "已核销"}, "cells": ["星途新能源汽车科技有限公司", "AR-2026-07-PRJ2603", "<span class=\"td-num\"><b>65,320.00</b></span>", "2026-08-22", "工行一般户 0200****5533", "<span class=\"ops\"><a>补传回单</a></span>", "<span class=\"tag tag-green\">已核销</span>"], "ops": [{"t": "确认收款", "act": "openModal('auditModal')"}, {"t": "详情", "act": "go('../财务协同/收款详情.html?id=HK-20260822-011')"}, {"t": "去核销", "act": "go('../财务协同/银行回单核销.html')"}]},
       title: '收款登记详情',
-      formTitle: '收款信息',
-      formRows: [
-        { label: '收款单号', text: 'HK-20260822-011' },
-        { label: '银行回单', tag: '补传回单' },
+      info: [
+        { label: '收款单号', text: 'HK-20260822-011', full: true },
+        { label: '银行回单状态', tag: '补传回单' },
         { label: '核销状态', tag: '已核销' },
-        { label: '客户', text: '星途新能源汽车科技有限公司' },
-        { label: '关联应收账单', text: 'AR-2026-07-PRJ2603', url: '财务协同/应收账单.html' },
+        { label: '客户', text: '星途新能源汽车科技有限公司', full: true },
+        { label: '关联应收', text: 'AR-2026-07-PRJ2603', url: '财务协同/应收账单.html' },
         { label: '发票关联', text: 'INV-20260815-009', url: '财务协同/开票登记.html' },
         { label: '收款金额', text: '65,320.00 元' },
         { label: '收款日期', text: '2026-08-22' },
         { label: '收款账户', text: '工行一般户 0200****5533' },
         { label: '登记人', text: '财务-周敏' }
       ],
-      itemTitle: '收款明细',
-      itemCols: ['关联账单', '费用项', '本次收款(元)', '核销去向'],
-      items: [
-        ['AR-2026-07-PRJ2603', '租赁费 · 部分收款', '65,320.00', '已核销（全额）']
+      feeCols: ['关联账单', '费用项', '本次收款(元)', '核销去向'],
+      fees: [
+        { cells: ['AR-2026-07-PRJ2603', '租赁费 · 部分收款', '65,320.00', '已核销（全额）'], links: { 0: '财务协同/应收账单.html' } }
       ],
       chain: [
         { role: '应收账单', name: 'AR-2026-07-PRJ2603', url: '财务协同/应收账单.html' },
@@ -1293,23 +1275,21 @@ window.DEMO_DATA = {
     'HK-20260818-010': {
       'row': {"fields": {"customer": "华骏重卡汽车有限公司", "ref": "BS-20260802-001", "bank": "招行基本户 1209****8866", "receipt": "已上传", "date": "2026-08-18", "status": "已核销"}, "cells": ["华骏重卡汽车有限公司", "BS-20260802-001", "<span class=\"td-num\"><b>860.00</b></span>", "2026-08-18", "招行基本户 1209****8866", "<span class=\"tag tag-green\">已上传</span>", "<span class=\"tag tag-green\">已核销</span>"], "ops": [{"t": "确认收款", "act": "openModal('auditModal')"}, {"t": "详情", "act": "go('../财务协同/收款详情.html?id=HK-20260818-010')"}, {"t": "去核销", "act": "go('../财务协同/银行回单核销.html')"}]},
       title: '收款登记详情',
-      formTitle: '收款信息',
-      formRows: [
-        { label: '收款单号', text: 'HK-20260818-010' },
-        { label: '银行回单', tag: '已上传' },
+      info: [
+        { label: '收款单号', text: 'HK-20260818-010', full: true },
+        { label: '银行回单状态', tag: '已上传' },
         { label: '核销状态', tag: '已核销' },
-        { label: '客户', text: '华骏重卡汽车有限公司' },
-        { label: '关联应收账单', text: 'BS-20260802-001（丢损赔偿）' },
+        { label: '客户', text: '华骏重卡汽车有限公司', full: true },
+        { label: '关联应收', text: 'BS-20260802-001（丢损赔偿）' },
         { label: '发票关联', text: '—' },
         { label: '收款金额', text: '860.00 元' },
         { label: '收款日期', text: '2026-08-18' },
         { label: '收款账户', text: '招行基本户 1209****8866' },
         { label: '登记人', text: '财务-周敏' }
       ],
-      itemTitle: '收款明细',
-      itemCols: ['关联账单', '费用项', '本次收款(元)', '核销去向'],
-      items: [
-        ['BS-20260802-001', '丢损赔偿款', '860.00', '已核销（全额）']
+      feeCols: ['关联账单', '费用项', '本次收款(元)', '核销去向'],
+      fees: [
+        { cells: ['BS-20260802-001', '丢损赔偿款', '860.00', '已核销（全额）'] }
       ],
       chain: [
         { role: '丢损赔偿单', name: 'BS-20260802-001' },
@@ -1329,24 +1309,22 @@ window.DEMO_DATA = {
     'INV-20260902-013': {
       'row': {"fields": {"no": "26119800421390", "itype": "专票", "buyer": "东海商用汽车有限公司宁波分公司", "ref": "AR-2026-08-PRJ2603", "date": "2026-09-02", "status": "已红冲"}, "cells": ["26119800421390", "<span class=\"tag tag-blue\">专票</span>", "东海商用汽车有限公司宁波分公司", "AR-2026-08-PRJ2603", "<span class=\"td-num\"><b>-46,800.00</b></span>", "13%", "2026-09-02", "<span class=\"tag tag-red\">已红冲</span>"], "ops": [{"t": "详情", "act": "go('../财务协同/开票详情.html?id=INV-20260902-013')"}, {"t": "查看账单", "act": "go('../财务协同/应收账单.html')"}]},
       title: '开票登记详情',
-      formTitle: '开票信息',
-      formRows: [
-        { label: '登记单号', text: 'INV-20260902-013' },
+      info: [
+        { label: '登记单号', text: 'INV-20260902-013', full: true },
         { label: '状态', tag: '已红冲' },
         { label: '开票日期', text: '2026-09-02' },
         { label: '发票号码', text: '26119800421390' },
         { label: '发票类型', text: '增值税专用发票' },
-        { label: '购方名称（客户）', text: '东海商用汽车有限公司宁波分公司' },
-        { label: '关联应收账单', text: 'AR-2026-08-PRJ2603', url: '财务协同/应收账单.html' },
-        { label: '开票金额', text: '-46,800.00 元' },
+        { label: '购方', text: '东海商用汽车有限公司宁波分公司', full: true },
+        { label: '关联应收', text: 'AR-2026-08-PRJ2603', url: '财务协同/应收账单.html' },
+        { label: '价税合计', text: '-46,800.00 元' },
         { label: '税率', text: '13%' },
         { label: '登记人', text: '财务-周敏' },
         { label: '备注', text: '—' }
       ],
-      itemTitle: '开票明细',
-      itemCols: ['费用项', '关联账单', '税率', '开票金额(元)'],
-      items: [
-        ['租赁费 · 2026-08（红冲）', 'AR-2026-08-PRJ2603', '13%', '-46,800.00']
+      feeCols: ['费用项', '关联账单', '税率', '开票金额(元)'],
+      fees: [
+        { cells: ['租赁费 · 2026-08（红冲）', 'AR-2026-08-PRJ2603', '13%', '-46,800.00'], links: { 1: '财务协同/应收账单.html' } }
       ],
       chain: [
         { role: '应收账单', name: 'AR-2026-08-PRJ2603', url: '财务协同/应收账单.html' },
@@ -1362,24 +1340,22 @@ window.DEMO_DATA = {
     'INV-20260830-012': {
       'row': {"fields": {"no": "26119800421376", "itype": "专票", "buyer": "华骏重卡汽车有限公司", "ref": "AR-2026-08-PRJ2601", "date": "2026-08-30", "status": "已登记"}, "note": "1", "cells": ["26119800421376", "<span class=\"tag tag-blue\">专票</span>", "华骏重卡汽车有限公司", "AR-2026-08-PRJ2601", "<span class=\"td-num\"><b>186,200.00</b></span>", "13%", "2026-08-30", "<span class=\"tag tag-green\">已登记</span>"], "ops": [{"t": "开票确认", "act": "openModal('auditModal')"}, {"t": "详情", "act": "go('../财务协同/开票详情.html?id=INV-20260830-012')"}, {"t": "查看账单", "act": "go('../财务协同/应收账单.html')"}, {"t": "收款", "act": "go('../财务协同/收款登记.html')"}]},
       title: '开票登记详情',
-      formTitle: '开票信息',
-      formRows: [
-        { label: '登记单号', text: 'INV-20260830-012' },
+      info: [
+        { label: '登记单号', text: 'INV-20260830-012', full: true },
         { label: '状态', tag: '已登记' },
         { label: '开票日期', text: '2026-08-30' },
         { label: '发票号码', text: '26119800421376' },
         { label: '发票类型', text: '增值税专用发票' },
-        { label: '购方名称（客户）', text: '华骏重卡汽车有限公司' },
-        { label: '关联应收账单', text: 'AR-2026-08-PRJ2601', url: '财务协同/应收账单.html' },
-        { label: '开票金额', text: '186,200.00 元' },
+        { label: '购方', text: '华骏重卡汽车有限公司', full: true },
+        { label: '关联应收', text: 'AR-2026-08-PRJ2601', url: '财务协同/应收账单.html' },
+        { label: '价税合计', text: '186,200.00 元' },
         { label: '税率', text: '13%' },
         { label: '登记人', text: '财务-周敏' },
         { label: '备注', text: '—' }
       ],
-      itemTitle: '开票明细',
-      itemCols: ['费用项', '关联账单', '税率', '开票金额(元)'],
-      items: [
-        ['租赁费 · 2026-08', 'AR-2026-08-PRJ2601', '13%', '186,200.00']
+      feeCols: ['费用项', '关联账单', '税率', '开票金额(元)'],
+      fees: [
+        { cells: ['租赁费 · 2026-08', 'AR-2026-08-PRJ2601', '13%', '186,200.00'], links: { 1: '财务协同/应收账单.html' } }
       ],
       chain: [
         { role: '应收账单', name: 'AR-2026-08-PRJ2601', url: '财务协同/应收账单.html' },
@@ -1396,24 +1372,22 @@ window.DEMO_DATA = {
     'INV-20260826-011': {
       'row': {"fields": {"no": "26119800420988", "itype": "专票", "buyer": "东海商用宁波分公司", "ref": "AR-2026-07-PRJ2602", "date": "2026-08-26", "status": "已登记"}, "cells": ["26119800420988", "<span class=\"tag tag-blue\">专票</span>", "东海商用宁波分公司", "AR-2026-07-PRJ2602", "<span class=\"td-num\"><b>186,200.00</b></span>", "13%", "2026-08-26", "<span class=\"tag tag-green\">已登记</span>"], "ops": [{"t": "开票确认", "act": "openModal('auditModal')"}, {"t": "详情", "act": "go('../财务协同/开票详情.html?id=INV-20260826-011')"}, {"t": "查看账单", "act": "go('../财务协同/应收账单.html')"}, {"t": "收款", "act": "go('../财务协同/收款登记.html')"}]},
       title: '开票登记详情',
-      formTitle: '开票信息',
-      formRows: [
-        { label: '登记单号', text: 'INV-20260826-011' },
+      info: [
+        { label: '登记单号', text: 'INV-20260826-011', full: true },
         { label: '状态', tag: '已登记' },
         { label: '开票日期', text: '2026-08-26' },
         { label: '发票号码', text: '26119800420988' },
         { label: '发票类型', text: '增值税专用发票' },
-        { label: '购方名称（客户）', text: '东海商用宁波分公司' },
-        { label: '关联应收账单', text: 'AR-2026-07-PRJ2602', url: '财务协同/应收账单.html' },
-        { label: '开票金额', text: '186,200.00 元' },
+        { label: '购方', text: '东海商用宁波分公司', full: true },
+        { label: '关联应收', text: 'AR-2026-07-PRJ2602', url: '财务协同/应收账单.html' },
+        { label: '价税合计', text: '186,200.00 元' },
         { label: '税率', text: '13%' },
         { label: '登记人', text: '财务-周敏' },
         { label: '备注', text: '—' }
       ],
-      itemTitle: '开票明细',
-      itemCols: ['费用项', '关联账单', '税率', '开票金额(元)'],
-      items: [
-        ['租赁费 · 2026-07', 'AR-2026-07-PRJ2602', '13%', '186,200.00']
+      feeCols: ['费用项', '关联账单', '税率', '开票金额(元)'],
+      fees: [
+        { cells: ['租赁费 · 2026-07', 'AR-2026-07-PRJ2602', '13%', '186,200.00'], links: { 1: '财务协同/应收账单.html' } }
       ],
       chain: [
         { role: '应收账单', name: 'AR-2026-07-PRJ2602', url: '财务协同/应收账单.html' },
@@ -1430,24 +1404,22 @@ window.DEMO_DATA = {
     'INV-20260820-010': {
       'row': {"fields": {"no": "26119800419501", "itype": "专票", "buyer": "华骏重卡汽车有限公司", "ref": "AR-2026-07-PRJ2601", "date": "2026-08-20", "status": "已登记"}, "cells": ["26119800419501", "<span class=\"tag tag-blue\">专票</span>", "华骏重卡汽车有限公司", "AR-2026-07-PRJ2601", "<span class=\"td-num\"><b>256,600.00</b></span>", "13%", "2026-08-20", "<span class=\"tag tag-green\">已登记</span>"], "ops": [{"t": "开票确认", "act": "openModal('auditModal')"}, {"t": "详情", "act": "go('../财务协同/开票详情.html?id=INV-20260820-010')"}, {"t": "查看账单", "act": "go('../财务协同/应收账单.html')"}, {"t": "收款", "act": "go('../财务协同/收款登记.html')"}]},
       title: '开票登记详情',
-      formTitle: '开票信息',
-      formRows: [
-        { label: '登记单号', text: 'INV-20260820-010' },
+      info: [
+        { label: '登记单号', text: 'INV-20260820-010', full: true },
         { label: '状态', tag: '已登记' },
         { label: '开票日期', text: '2026-08-20' },
         { label: '发票号码', text: '26119800419501' },
         { label: '发票类型', text: '增值税专用发票' },
-        { label: '购方名称（客户）', text: '华骏重卡汽车有限公司' },
-        { label: '关联应收账单', text: 'AR-2026-07-PRJ2601', url: '财务协同/应收账单.html' },
-        { label: '开票金额', text: '256,600.00 元' },
+        { label: '购方', text: '华骏重卡汽车有限公司', full: true },
+        { label: '关联应收', text: 'AR-2026-07-PRJ2601', url: '财务协同/应收账单.html' },
+        { label: '价税合计', text: '256,600.00 元' },
         { label: '税率', text: '13%' },
         { label: '登记人', text: '财务-周敏' },
         { label: '备注', text: '—' }
       ],
-      itemTitle: '开票明细',
-      itemCols: ['费用项', '关联账单', '税率', '开票金额(元)'],
-      items: [
-        ['租赁费 · 2026-07', 'AR-2026-07-PRJ2601', '13%', '256,600.00']
+      feeCols: ['费用项', '关联账单', '税率', '开票金额(元)'],
+      fees: [
+        { cells: ['租赁费 · 2026-07', 'AR-2026-07-PRJ2601', '13%', '256,600.00'], links: { 1: '财务协同/应收账单.html' } }
       ],
       chain: [
         { role: '应收账单', name: 'AR-2026-07-PRJ2601', url: '财务协同/应收账单.html' },
@@ -1464,24 +1436,22 @@ window.DEMO_DATA = {
     'INV-20260815-009': {
       'row': {"fields": {"no": "26119800418233", "itype": "普票", "buyer": "星途新能源汽车科技有限公司", "ref": "AR-2026-07-PRJ2603", "date": "2026-08-15", "status": "已登记"}, "cells": ["26119800418233", "<span class=\"tag tag-gray\">普票</span>", "星途新能源汽车科技有限公司", "AR-2026-07-PRJ2603", "<span class=\"td-num\"><b>98,000.00</b></span>", "13%", "2026-08-15", "<span class=\"tag tag-green\">已登记</span>"], "ops": [{"t": "开票确认", "act": "openModal('auditModal')"}, {"t": "详情", "act": "go('../财务协同/开票详情.html?id=INV-20260815-009')"}, {"t": "查看账单", "act": "go('../财务协同/应收账单.html')"}, {"t": "收款", "act": "go('../财务协同/收款登记.html')"}]},
       title: '开票登记详情',
-      formTitle: '开票信息',
-      formRows: [
-        { label: '登记单号', text: 'INV-20260815-009' },
+      info: [
+        { label: '登记单号', text: 'INV-20260815-009', full: true },
         { label: '状态', tag: '已登记' },
         { label: '开票日期', text: '2026-08-15' },
         { label: '发票号码', text: '26119800418233' },
         { label: '发票类型', text: '增值税普通发票' },
-        { label: '购方名称（客户）', text: '星途新能源汽车科技有限公司' },
-        { label: '关联应收账单', text: 'AR-2026-07-PRJ2603', url: '财务协同/应收账单.html' },
-        { label: '开票金额', text: '98,000.00 元' },
+        { label: '购方', text: '星途新能源汽车科技有限公司', full: true },
+        { label: '关联应收', text: 'AR-2026-07-PRJ2603', url: '财务协同/应收账单.html' },
+        { label: '价税合计', text: '98,000.00 元' },
         { label: '税率', text: '13%' },
         { label: '登记人', text: '财务-周敏' },
         { label: '备注', text: '—' }
       ],
-      itemTitle: '开票明细',
-      itemCols: ['费用项', '关联账单', '税率', '开票金额(元)'],
-      items: [
-        ['租赁费 · 2026-07', 'AR-2026-07-PRJ2603', '13%', '98,000.00']
+      feeCols: ['费用项', '关联账单', '税率', '开票金额(元)'],
+      fees: [
+        { cells: ['租赁费 · 2026-07', 'AR-2026-07-PRJ2603', '13%', '98,000.00'], links: { 1: '财务协同/应收账单.html' } }
       ],
       chain: [
         { role: '应收账单', name: 'AR-2026-07-PRJ2603', url: '财务协同/应收账单.html' },
@@ -1498,24 +1468,22 @@ window.DEMO_DATA = {
     'INV-20260802-008': {
       'row': {"fields": {"no": "26119800417077", "itype": "专票", "buyer": "华骏重卡汽车有限公司", "ref": "AR-2026-06-PRJ2601", "date": "2026-08-02", "status": "停用"}, "cells": ["26119800417077", "<span class=\"tag tag-blue\">专票</span>", "华骏重卡汽车有限公司", "AR-2026-06-PRJ2601", "<span class=\"td-num\"><b>442,800.00</b></span>", "13%", "2026-08-02", "<span class=\"tag tag-gray\">停用</span>"], "ops": [{"t": "开票确认", "act": "openModal('auditModal')"}, {"t": "详情", "act": "go('../财务协同/开票详情.html?id=INV-20260802-008')"}, {"t": "查看账单", "act": "go('../财务协同/应收账单.html')"}, {"t": "收款", "act": "go('../财务协同/收款登记.html')"}]},
       title: '开票登记详情',
-      formTitle: '开票信息',
-      formRows: [
-        { label: '登记单号', text: 'INV-20260802-008' },
+      info: [
+        { label: '登记单号', text: 'INV-20260802-008', full: true },
         { label: '状态', tag: '停用' },
         { label: '开票日期', text: '2026-08-02' },
         { label: '发票号码', text: '26119800417077' },
         { label: '发票类型', text: '增值税专用发票' },
-        { label: '购方名称（客户）', text: '华骏重卡汽车有限公司' },
-        { label: '关联应收账单', text: 'AR-2026-06-PRJ2601', url: '财务协同/应收账单.html' },
-        { label: '开票金额', text: '442,800.00 元' },
+        { label: '购方', text: '华骏重卡汽车有限公司', full: true },
+        { label: '关联应收', text: 'AR-2026-06-PRJ2601', url: '财务协同/应收账单.html' },
+        { label: '价税合计', text: '442,800.00 元' },
         { label: '税率', text: '13%' },
         { label: '登记人', text: '财务-周敏' },
         { label: '备注', text: '—' }
       ],
-      itemTitle: '开票明细',
-      itemCols: ['费用项', '关联账单', '税率', '开票金额(元)'],
-      items: [
-        ['租赁费 · 2026-06', 'AR-2026-06-PRJ2601', '13%', '442,800.00']
+      feeCols: ['费用项', '关联账单', '税率', '开票金额(元)'],
+      fees: [
+        { cells: ['租赁费 · 2026-06', 'AR-2026-06-PRJ2601', '13%', '442,800.00'], links: { 1: '财务协同/应收账单.html' } }
       ],
       chain: [
         { role: '应收账单', name: 'AR-2026-06-PRJ2601', url: '财务协同/应收账单.html' },
