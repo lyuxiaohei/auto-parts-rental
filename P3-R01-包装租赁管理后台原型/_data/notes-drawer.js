@@ -2,9 +2,8 @@
  * 依赖：_data/notes-data.js（NOTES_META.codes / NOTES_DATA[页面键]）
  * 页面只需要：data-note="N" 数字标记 ＋ 本件与 notes-data 两行引用，文案改动不碰页面
  * 开关：右下角「标注 N」按钮 / 点击任意角标（开抽屉并定位对应条目）/ Alt+N / ?notes=1 初始开
- * 记忆：localStorage 'proto-notes-on'；?notes=1 仅作初始态，不锁死开关 */
+ * 初始态：默认不展示（0918 道远「默认不要展示抽屉弹窗」·不跨页记忆）；?notes=1 仅当页初始开，不锁死开关 */
 (function () {
-  var KEY = 'proto-notes-on';
   var META = window.NOTES_META || { codes: {} };
   var CODES = META.codes || {};
 
@@ -106,7 +105,6 @@
   function drawerOpen() { return drawer.classList.contains('pn-show'); }
   function notesOn(v) {
     document.body.classList.toggle('proto-notes-on', v);
-    localStorage.setItem(KEY, v ? '1' : '0');
     fab.textContent = '';
     fab.innerHTML = (v ? '收起' : '标注 <span class="pn-fab-n">' + cnt.textContent + '</span>');
     fab.title = v ? '收起标注（Alt+N）' : '显示标注（Alt+N）';
@@ -158,8 +156,8 @@
     openDrawer(t.getAttribute('data-note'));
   }, true);
 
-  /* ---------- 初始态 ---------- */
-  var initOn = location.search.indexOf('notes=1') > -1 || localStorage.getItem(KEY) === '1';
+  /* ---------- 初始态：默认不展示，仅 ?notes=1 显式初始开（不跨页记忆） ---------- */
+  var initOn = location.search.indexOf('notes=1') > -1;
   notesOn(initOn);
   if (initOn && items && items.length) openDrawer();
 })();
