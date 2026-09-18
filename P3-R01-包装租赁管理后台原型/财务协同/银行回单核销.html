@@ -206,9 +206,14 @@ th.td-num { text-align:right; }
 
 .hx-strip { display:flex; align-items:center; gap:28px; background:var(--strip-bg); border:1px solid rgba(22,119,255,.25); border-radius:6px; padding:10px 16px; font-size:13px; margin-bottom:16px; flex-wrap:wrap; }
 .hx-strip b { font-variant-numeric:tabular-nums; }
-.split { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
-.split .card { margin-bottom:16px; }
+.split { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:12px; }
+.split .card { margin-bottom:16px; padding:16px; }
+.split thead th { padding:8px; }
+.split tbody td { padding:7px 8px; }
+.split td.cname { max-width:7.5em; overflow:hidden; text-overflow:ellipsis; }
 .mini-note { font-size:12px; color:var(--text-3); margin-top:10px; line-height:1.7; }
+.hx-toast { position:fixed; top:64px; right:24px; max-width:440px; background:#fff; border:1px solid rgba(22,119,255,.35); box-shadow:0 4px 12px rgba(0,0,0,.12); border-radius:6px; padding:10px 14px; font-size:12.5px; color:#262626; z-index:1200; opacity:0; transform:translateY(-6px); transition:opacity .25s, transform .25s; pointer-events:none; }
+.hx-toast.show { opacity:1; transform:none; }
 
 ::-webkit-scrollbar{width:6px;height:6px}
 ::-webkit-scrollbar-thumb{background:#d9d9d9;border-radius:3px}
@@ -347,15 +352,15 @@ th.td-num { text-align:right; }
   <span>已选单据合计：<b>¥<span id="dzSum">0.00</span></b></span>
   <span>两侧差额：<b id="diffSum" style="color:#52c41a;">0.00</b></span>
   <span style="margin-left:auto;display:flex;gap:8px;">
-    <button class="btn btn-default btn-sm">自动匹配建议</button>
-    <button class="btn btn-sm">生成核销记录</button>
+    <button class="btn btn-default btn-sm" onclick="autoMatch()" data-note="2">自动匹配建议</button>
+    <button class="btn btn-sm" data-note="3">生成核销记录</button>
   </span>
 </div>
 
 <div class="split">
   <div class="card">
     <div class="card-head">
-      <h3 class="card-title">① 银行回单</h3>
+      <h3 class="card-title" data-note="1">① 银行回单</h3>
       <div class="head-btns"><button class="btn btn-default btn-sm">导入回单</button></div>
     </div>
   <div class="table-wrap">
@@ -375,9 +380,9 @@ th.td-num { text-align:right; }
       <tbody>
         <tr>
           <td><input type="checkbox" class="cb" data-amt="286500.0"></td>
-          <td data-note="1"><span class="lk">SD-20260830-011</span></td>
+          <td><span class="lk">SD-20260830-011</span></td>
           <td>2026-08-30</td>
-          <td>华骏重卡汽车有限公司</td>
+          <td class="cname" title="华骏重卡汽车有限公司">华骏重卡汽车有限公司</td>
           <td><span class="td-num">286,500.00</span></td>
           <td><span class="td-num">0.00</span></td>
           <td><span class="td-num"><b>286,500.00</b></span></td>
@@ -387,7 +392,7 @@ th.td-num { text-align:right; }
           <td><input type="checkbox" class="cb" data-amt="158420.5"></td>
           <td><span class="lk">SD-20260828-010</span></td>
           <td>2026-08-28</td>
-          <td>东海商用宁波分公司</td>
+          <td class="cname" title="东海商用宁波分公司">东海商用宁波分公司</td>
           <td><span class="td-num">158,420.50</span></td>
           <td><span class="td-num">0.00</span></td>
           <td><span class="td-num"><b>158,420.50</b></span></td>
@@ -397,7 +402,7 @@ th.td-num { text-align:right; }
           <td><input type="checkbox" class="cb" data-amt="38000.0"></td>
           <td><span class="lk">SD-20260825-009</span></td>
           <td>2026-08-25</td>
-          <td>华骏重卡汽车有限公司</td>
+          <td class="cname" title="华骏重卡汽车有限公司">华骏重卡汽车有限公司</td>
           <td><span class="td-num">98,000.00</span></td>
           <td><span class="td-num">60,000.00</span></td>
           <td><span class="td-num"><b>38,000.00</b></span></td>
@@ -407,7 +412,7 @@ th.td-num { text-align:right; }
           <td><input type="checkbox" class="cb" data-amt="65320.0"></td>
           <td><span class="lk">SD-20260822-008</span></td>
           <td>2026-08-22</td>
-          <td>星途新能源汽车科技有限公司</td>
+          <td class="cname" title="星途新能源汽车科技有限公司">星途新能源汽车科技有限公司</td>
           <td><span class="td-num">65,320.00</span></td>
           <td><span class="td-num">0.00</span></td>
           <td><span class="td-num"><b>65,320.00</b></span></td>
@@ -417,7 +422,7 @@ th.td-num { text-align:right; }
           <td><input type="checkbox" class="cb" data-amt="42180.0"></td>
           <td><span class="lk">SD-20260820-007</span></td>
           <td>2026-08-20</td>
-          <td>华骏重卡汽车有限公司</td>
+          <td class="cname" title="华骏重卡汽车有限公司">华骏重卡汽车有限公司</td>
           <td><span class="td-num">42,180.00</span></td>
           <td><span class="td-num">0.00</span></td>
           <td><span class="td-num"><b>42,180.00</b></span></td>
@@ -429,7 +434,7 @@ th.td-num { text-align:right; }
   </div>
   <div class="card">
     <div class="card-head">
-      <h3 class="card-title" data-note="2">② 待核销单据</h3>
+      <h3 class="card-title" data-note="4">② 待核销单据</h3>
       <div class="head-btns"><select title="类型筛选" style="height:28px;border:1px solid var(--border);border-radius:4px;padding:0 8px;font-size:12px;color:var(--text-2);background:#fff;outline:none;"><option selected>类型：全部</option><option>应收账单</option><option>丢损赔偿单</option><option>预收款</option><option>预付款</option></select><button class="btn btn-default btn-sm" onclick="go('../财务协同/应收账单.html')">应收台账</button></div>
     </div>
   <div class="table-wrap">
@@ -450,7 +455,7 @@ th.td-num { text-align:right; }
           <td><input type="checkbox" class="cb" data-amt="300000.0"></td>
           <td><span class="lk">AR-2026-08-PRJ2601</span></td>
           <td><span class="tag tag-blue">应收账单</span></td>
-          <td>华骏重卡汽车有限公司</td>
+          <td class="cname" title="华骏重卡汽车有限公司">华骏重卡汽车有限公司</td>
           <td><span class="td-num">486,200.00</span></td>
           <td><span class="td-num">186,200.00</span></td>
           <td><span class="td-num"><b>300,000.00</b></span></td>
@@ -459,7 +464,7 @@ th.td-num { text-align:right; }
           <td><input type="checkbox" class="cb" data-amt="358900.0"></td>
           <td><span class="lk">AR-2026-08-PRJ2602</span></td>
           <td><span class="tag tag-blue">应收账单</span></td>
-          <td>东海商用宁波分公司</td>
+          <td class="cname" title="东海商用宁波分公司">东海商用宁波分公司</td>
           <td><span class="td-num">358,900.00</span></td>
           <td><span class="td-num">0.00</span></td>
           <td><span class="td-num"><b>358,900.00</b></span></td>
@@ -468,7 +473,7 @@ th.td-num { text-align:right; }
           <td><input type="checkbox" class="cb" data-amt="241500.0"></td>
           <td><span class="lk">AR-2026-08-PRJ2603</span></td>
           <td><span class="tag tag-blue">应收账单</span></td>
-          <td>星途新能源汽车科技有限公司</td>
+          <td class="cname" title="星途新能源汽车科技有限公司">星途新能源汽车科技有限公司</td>
           <td><span class="td-num">241,500.00</span></td>
           <td><span class="td-num">0.00</span></td>
           <td><span class="td-num"><b>241,500.00</b></span></td>
@@ -477,7 +482,7 @@ th.td-num { text-align:right; }
           <td><input type="checkbox" class="cb" data-amt="3690.0"></td>
           <td><span class="lk">BS-20260828-004</span></td>
           <td><span class="tag tag-red">丢损赔偿单</span></td>
-          <td>华骏重卡汽车有限公司</td>
+          <td class="cname" title="华骏重卡汽车有限公司">华骏重卡汽车有限公司</td>
           <td><span class="td-num">3,690.00</span></td>
           <td><span class="td-num">0.00</span></td>
           <td><span class="td-num"><b>3,690.00</b></span></td>
@@ -486,7 +491,7 @@ th.td-num { text-align:right; }
           <td><input type="checkbox" class="cb" data-amt="38000.0"></td>
           <td><span class="lk">AR-2026-07-PRJ2601</span></td>
           <td><span class="tag tag-blue">应收账单</span></td>
-          <td>华骏重卡汽车有限公司</td>
+          <td class="cname" title="华骏重卡汽车有限公司">华骏重卡汽车有限公司</td>
           <td><span class="td-num">442,800.00</span></td>
           <td><span class="td-num">404,800.00</span></td>
           <td><span class="td-num"><b>38,000.00</b></span></td>
@@ -495,7 +500,7 @@ th.td-num { text-align:right; }
           <td><input type="checkbox" class="cb" data-amt="50000.0"></td>
           <td><span class="lk">AR-2026-09-PRJ2601-YS</span></td>
           <td><span class="tag tag-blue">预收款</span></td>
-          <td>安吉智行物流</td>
+          <td class="cname" title="安吉智行物流">安吉智行物流</td>
           <td><span class="td-num">50,000.00</span></td>
           <td><span class="td-num">0.00</span></td>
           <td><span class="td-num"><b>50,000.00</b></span></td>
@@ -633,6 +638,47 @@ th.td-num { text-align:right; }
   document.querySelectorAll('#sdTable tbody .cb, #dzTable tbody .cb').forEach(function (cb) {
     cb.addEventListener('change', refresh);
   });
+
+  /* 自动匹配建议：按「付款户名=客户名 且 未核销金额相等」自动勾选可平组合（FP6-04 演示） */
+  function hxToast(msg) {
+    var t = document.getElementById('hxToast');
+    if (!t) { t = document.createElement('div'); t.id = 'hxToast'; t.className = 'hx-toast'; document.body.appendChild(t); }
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(hxToast._t);
+    hxToast._t = setTimeout(function () { t.classList.remove('show'); }, 4000);
+  }
+  window.autoMatch = function () {
+    var cbs = document.querySelectorAll('#sdTable .cb, #dzTable .cb');
+    for (var i = 0; i < cbs.length; i++) if (cbs[i].checked) cbs[i].checked = false;
+    function info(tr) {
+      var tds = tr.querySelectorAll('td');
+      return { cb: tr.querySelector('.cb'), amt: parseFloat(tr.querySelector('.cb').getAttribute('data-amt') || 0), name: (tds[3].textContent || '').trim(), no: (tds[1].textContent || '').trim() };
+    }
+    var sRows = document.querySelectorAll('#sdTable tbody tr');
+    var zRows = document.querySelectorAll('#dzTable tbody tr');
+    var hits = [];
+    for (var a = 0; a < sRows.length; a++) {
+      var s = info(sRows[a]);
+      if (!s.amt) continue;
+      for (var b = 0; b < zRows.length; b++) {
+        var z = info(zRows[b]);
+        if (z.cb.checked) continue;
+        if (z.amt === s.amt && z.name === s.name) {
+          s.cb.checked = true; z.cb.checked = true;
+          hits.push({ s: s, z: z });
+          break;
+        }
+      }
+    }
+    refresh();
+    if (hits.length) {
+      var h = hits[0];
+      hxToast('已按付款户名与金额匹配 ' + hits.length + ' 组：' + h.s.no + ' ↔ ' + h.z.no + '，请核对后点「生成核销记录」');
+    } else {
+      hxToast('未找到付款户名与金额均一致的组合，请手工勾对');
+    }
+  };
 })();</script>
 <style id="detail-modal-css">
 /* 详情弹窗（四段式）专用样式：段落标题 / 关联链 / 流转时间线 */
@@ -816,78 +862,9 @@ document.querySelectorAll('.tab').forEach(function (t) {
 
 
 
-<style id="proto-notes-style">
-body.proto-notes-on [data-note]{position:relative}
-body.proto-notes-on [data-note]::after{content:attr(data-note);position:absolute;top:1px;right:1px;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600;box-shadow:0 0 0 1.5px #fff;cursor:pointer;opacity:.75;transition:opacity .15s}
-body.proto-notes-on [data-note]:hover::after{opacity:1}
-@keyframes pn-blink{0%{box-shadow:0 0 0 2px #722ed1}25%{box-shadow:0 0 0 5px rgba(114,46,209,.35)}100%{box-shadow:0 0 0 2px transparent}}
-.proto-pin{display:none;position:absolute;width:300px;background:#fff;border:1px solid #f0f0f0;border-top:2px solid #722ed1;border-radius:6px;box-shadow:0 4px 14px rgba(0,0,0,.13);z-index:890;padding:10px 12px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;font-size:12px;color:#262626}
-body.proto-notes-on .proto-pin.pn-open{display:block}
-.proto-pin .pnp-close{position:absolute;top:6px;right:8px;cursor:pointer;color:#8c8c8c;font-size:14px;line-height:1;padding:2px}
-.proto-pin .pnp-close:hover{color:#262626}
-.proto-pin .pnp-t{display:flex;align-items:center;gap:6px;font-weight:600;font-size:13px;color:#262626;padding-right:16px}
-.proto-pin .pnp-n{flex:none;min-width:16px;height:16px;padding:0 3px;border-radius:3px;background:#722ed1;color:#fff;font-size:10px;line-height:16px;text-align:center;font-weight:600}
-.proto-pin .pnp-d{margin-top:5px;color:#595959;line-height:1.6}
-.proto-pin .pnp-b{margin-top:6px;display:flex;gap:4px;flex-wrap:wrap}
-.proto-pin .pnp-tag{background:#f9f0ff;color:#722ed1;border-radius:3px;padding:0 6px;font-size:11px;line-height:20px}
-.proto-pin .pnp-src{margin-top:8px;padding-top:7px;border-top:1px dashed #e5dff0;font-size:11px;color:#595959;line-height:1.65}
-.proto-pin .pnp-src b{color:#722ed1;font-weight:600}
-.pn-fab{position:fixed;right:12px;bottom:12px;z-index:880;display:flex;align-items:center;gap:5px;height:24px;padding:0 10px;border-radius:4px;background:#fff;border:1px solid #ddd0ec;color:#722ed1;font-size:11px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.06);opacity:.6;transition:opacity .15s}
-.pn-fab:hover{opacity:1;border-color:#722ed1}
-body.proto-notes-on .pn-fab{background:#f9f0ff;border-color:#722ed1;opacity:.95}
-.pn-fab .pn-fab-n{font-family:Consolas,monospace;font-weight:600}
-</style>
-<div id="proto-pins"><div class="proto-pin" id="proto-pin-1"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">1</span>B1 销售线 · 步骤 5/5 收款核销（闭环终点）</div><div class="pnp-d">收款闭环终点：勾对收款与应收，支持部分核销与撤销核销（确认弹窗）。</div></div>
-<div class="proto-pin" id="proto-pin-2"><span class="pnp-close">×</span><div class="pnp-t"><span class="pnp-n">2</span>核销金额口径</div><div class="pnp-d">单据金额取自应收账单 / 丢损赔偿单；勾选两侧后点击「生成核销记录」，系统按回单未核销金额与单据未核销金额取小核销。</div><div class="pnp-b"><span class="pnp-tag">FP6-04</span><span class="pnp-tag">REQ-09</span></div></div>
-<style id="f01-fab-style">.fab-row{position:fixed;right:12px;bottom:12px;z-index:880;display:flex;align-items:center;gap:6px}.fab-row .pn-fab{position:static}.f01-fab{display:flex;text-decoration:none;align-items:center;height:24px;padding:0 10px;border-radius:4px;background:#fff;border:1px solid #d9d9d9;color:#8c8c8c;font-size:11px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.06);opacity:.6;transition:opacity .15s}.f01-fab:hover{opacity:1;border-color:#722ed1;color:#722ed1}</style><div class="fab-row"><a class="f01-fab" href="../P3-R01-F01-业务流程导航图.html">流程图</a><div class="pn-fab" id="protoNotesFab">标注</div></div></div>
-<script id="proto-notes-js">
-(function(){
-  var KEY='proto-notes-on';
-  function on(){return location.search.indexOf('notes=1')>-1||localStorage.getItem(KEY)==='1'}
-  function apply(){
-    document.body.classList.toggle('proto-notes-on',on());
-    var fab=document.getElementById('protoNotesFab');
-    if(fab){fab.innerHTML=on()?'收起':'标注 <span class="pn-fab-n">'+(document.querySelectorAll('[data-note]').length)+'</span>';fab.title=on()?'收起标注（Alt+N）':'显示标注（Alt+N）'}
-  }
-  function toggle(){var v=!on();localStorage.setItem(KEY,v?'1':'0');apply()}
-  document.addEventListener('keydown',function(e){if(e.altKey&&(e.key==='n'||e.key==='N')){e.preventDefault();toggle()}});
-  function place(el,pin){
-    var r=el.getBoundingClientRect(),sx=window.scrollX||0,sy=window.scrollY||0;
-    var w=pin.offsetWidth||248,h=pin.offsetHeight||90,vw=document.documentElement.clientWidth;
-    var x=r.right+sx+12;
-    if(x+w>sx+vw-8){var xl=r.left+sx-w-12;x=xl>=sx+8?xl:(sx+vw-w-8)}
-    var y=r.top+sy;
-    if(y+h>sy+document.documentElement.clientHeight-8)y=Math.max(sy+52,r.bottom+sy-h);
-    pin.style.left=x+'px';pin.style.top=y+'px';
-  }
-  document.addEventListener('click',function(e){
-    if(!on())return;
-    var tgt=e.target.closest?e.target.closest('[data-note]'):null;
-    if(tgt){
-      var r=tgt.getBoundingClientRect();
-      if(e.clientX>r.right-24&&e.clientY<r.top+22){
-        e.stopPropagation();e.preventDefault();
-        var pin=document.getElementById('proto-pin-'+tgt.getAttribute('data-note'));
-        if(pin){
-          if(pin.classList.contains('pn-open')){pin.classList.remove('pn-open')}
-          else{pin.classList.add('pn-open');place(tgt,pin)}
-        }
-      }
-    }
-  },true);
-  document.addEventListener('click',function(e){
-    var t=e.target;
-    var fab=t.closest?t.closest('.pn-fab'):null;
-    if(fab){toggle();return}
-    var pc=t.closest?t.closest('.proto-pin'):null;
-    if(pc){
-      if(t.classList&&t.classList.contains('pnp-close'))pc.classList.remove('pn-open');
-      return;
-    }
-  });
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply);else apply();
-})();
-</script>
+<style id="f01-fab-style">.fab-row{position:fixed;right:12px;bottom:12px;z-index:880;display:flex;align-items:center;gap:6px}.fab-row .pn-fab{position:static}.f01-fab{display:flex;text-decoration:none;align-items:center;height:24px;padding:0 10px;border-radius:4px;background:#fff;border:1px solid #d9d9d9;color:#8c8c8c;font-size:11px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.06);opacity:.6;transition:opacity .15s}.f01-fab:hover{opacity:1;border-color:#722ed1;color:#722ed1}</style><div class="fab-row"><a class="f01-fab" href="../P3-R01-F01-业务流程导航图.html">流程图</a></div>
+<script src="../_data/notes-data.js"></script>
+<script src="../_data/notes-drawer.js"></script>
 </div>
 </body>
 </html>

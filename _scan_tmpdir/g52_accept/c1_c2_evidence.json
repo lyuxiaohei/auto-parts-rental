@@ -1,0 +1,15 @@
+{
+ "check": "①残留计数+②键集",
+ "pc_side_counts": {
+  "proto_notes_js": 0,
+  "proto_notes_style": 0,
+  "proto_pins": 0
+ },
+ "mobile_retained_page": "mobile/审批详情.html（三标记各1次命中，决策表#2 预期保留）",
+ "notes_data_keys": 39,
+ "a03_keys": 39,
+ "only_in_notes_data": [],
+ "only_in_a03": [],
+ "total_entries_notes_data": 88,
+ "total_entries_a03": 88
+}
