@@ -355,6 +355,16 @@ th.td-num { text-align:right; }
         <div class="input-box select-box" style="width:380px;"><select id="cmSupplier" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>环通循环包装运营（上海）有限公司</option><option>其他（演示）</option></select><span class="caret">▾</span></div>
       </div>
       <div class="form-row">
+        <div class="form-label"><span class="req">*</span>类型：</div>
+        <div>
+          <div style="display:flex;align-items:center;flex-wrap:wrap;">
+            <div class="radio checked" id="riTypeSelf"><span class="dot"></span>自发单</div>
+            <div class="radio" id="riTypeDirect"><span class="dot"></span>直发单</div>
+          </div>
+          <div class="pn-hint" id="riDirectHint" style="display:none;">直发租入：审核通过后系统自动生成租入入库（直发虚拟仓）并自动生成租赁出库，无需实物入库</div>
+        </div>
+      </div>
+      <div class="form-row">
     <div class="form-label"><span class="req">*</span>起租日期：</div>
     <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;"><div class="input-box" style="width:170px;"><input type="date" id="g39Start" value="2026-09-03"></div><div class="form-label" style="width:auto;min-width:96px;"><span class="req">*</span>计租天数：</div><div class="input-box" style="width:104px;"><input id="g39Days" value="30"></div><span id="g39RentHint" style="font-size:12px;color:#8c8c8c;">止租日期 2026-10-02（自动＝起租＋天数−1 · 当天起当天退＝2 天）</span></div>
   </div><div class="form-row">
@@ -457,6 +467,13 @@ document.querySelectorAll('.radio').forEach(function (r) {
 document.querySelectorAll('.checkbox').forEach(function (c) {
   c.addEventListener('click', function () { c.classList.toggle('checked'); });
 });
+/* G54 租入单类型联动：选「直发单」显示自动化提示，选「自发单」隐藏 */
+(function () {
+  var d = document.getElementById('riTypeDirect'), s = document.getElementById('riTypeSelf'), h = document.getElementById('riDirectHint');
+  if (!d || !s || !h) return;
+  d.addEventListener('click', function () { h.style.display = ''; });
+  s.addEventListener('click', function () { h.style.display = 'none'; });
+})();
 </script>
 
 

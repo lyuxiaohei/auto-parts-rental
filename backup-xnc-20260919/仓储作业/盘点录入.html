@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<title>新建其他入库单 - 包装租赁管理后台</title>
+<title>盘点录入 - 包装租赁管理后台</title>
 <style>
 :root {
   --primary: #1677ff;
@@ -72,13 +72,6 @@ svg { display:inline-block; vertical-align:middle; }
 .card-head .card-title { margin-bottom:0; }
 .card-head .head-btns { display:flex; align-items:center; gap:8px; }
 
-.ctl { flex:1; min-width:0; height:30px; border:1px solid var(--input-border); border-radius:4px; display:flex; align-items:center; padding:0 8px; background:#fff; font-size:12px; }
-.ctl input { flex:1; min-width:0; border:none; outline:none; font-size:12px; font-family:inherit; color:rgba(0,0,0,.85); background:transparent; }
-.ctl input::placeholder { color:var(--placeholder); }
-.ctl.sel { justify-content:space-between; cursor:pointer; }
-.ctl.sel svg { width:12px; height:12px; color:rgba(0,0,0,.35); flex:none; }
-.ctl.range { gap:6px; }
-.ctl.range .sep { color:rgba(0,0,0,.45); flex:none; }
 /* ===== 按钮（13px 体系，表单/卡片头/弹窗用；筛选区 12px 另按作用域覆盖） ===== */
 .btn { display:inline-flex; align-items:center; justify-content:center; height:30px; padding:0 14px; border-radius:6px; border:none; cursor:pointer; font-size:13px; background:var(--primary); color:#fff; white-space:nowrap; font-family:inherit; }
 .btn:hover { background:#4096ff; }
@@ -299,9 +292,9 @@ th.td-num { text-align:right; }
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/><line x1="10" y1="12" x2="14" y2="12"/></svg></span>仓储管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
    <li><div class="sm-link" onclick="go('../仓储作业/库存查询.html')">库存查询</div></li>
-   <li><div class="sm-link" onclick="go('../仓储作业/盘点列表.html')">盘点记录</div></li>
+   <li><div class="sm-link selected">盘点记录</div></li>
    <li><div class="sm-link" onclick="go('../仓储作业/库存调拨列表.html')">库存调拨</div></li>
-   <li><div class="sm-link selected">其他入库</div></li>
+   <li><div class="sm-link" onclick="go('../仓储作业/其他入库列表.html')">其他入库</div></li>
    <li><div class="sm-link" onclick="go('../仓储作业/其他出库列表.html')">其他出库</div></li>
    </ul>
       </li>
@@ -337,82 +330,152 @@ th.td-num { text-align:right; }
   </div></aside>
   <div class="main-col">
 <div class="tabs">
-  <span class="tab">其他入库 <span class="close">×</span></span>
-  <span class="tab active">新建其他入库单 <span class="close">×</span></span>
+  <span class="tab">盘点管理 <span class="close">×</span></span>
+  <span class="tab active">盘点录入 <span class="close">×</span></span>
+  <span class="tab">库存查询 <span class="close">×</span></span>
+  <span class="tab">退租入库 <span class="close">×</span></span>
 </div>
     <div class="content submit-pad">
 <div class="card">
   <div class="card-head">
-    <h3 class="card-title">入库信息</h3>
+    <h3 class="card-title">基本信息</h3>
   </div>
-
-<div class="form-row">
-    <div class="form-label">入库类型：</div>
-    <div><span class="radio checked"><span class="dot"></span>盘盈</span><span class="radio"><span class="dot"></span>退货</span><span class="radio"><span class="dot"></span>破损</span><span class="radio"><span class="dot"></span>自然损耗</span><span class="radio"><span class="dot"></span>其他</span></div>
-  </div><div class="form-row">
-    <div class="form-label"><span class="req">*</span>入库库位：</div>
-    <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>原料区 RA</option><option>成品区 RB</option><option>外购区 RW</option><option>次品区 RC</option></select><span class="caret">▾</span></div>
-  </div><div class="form-row">
-    <div class="form-label">入库日期：</div>
-    <div class="input-box" style="width:380px;"><input type="date" value="2026-09-03"></div>
-  </div><div class="form-row" style="align-items:flex-start;">
-        <div class="form-label" style="padding-top:6px;">备注：</div>
-        <div>
-          <div class="input-box" style="width:380px;height:auto;padding:6px 11px;"><textarea placeholder="选填" style="width:100%;border:none;outline:none;background:transparent;font:inherit;color:inherit;resize:vertical;min-height:72px;line-height:1.6;"></textarea></div>
-        </div>
+  <div class="form-row">
+    <div class="form-label">盘点单号：</div>
+    <div>
+      <div class="input-box" style="width:380px;"><input type="text" value="PD-202608-03" placeholder="请输入"></div>
+<div class="pn-hint">按单据编码规则自动生成，不可编辑。</div>    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-label"><span class="req">*</span>盘点库房：</div>
+    <div>
+      <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>华东中心仓（WH-01）</option><option>华南仓（WH-02）</option><option>西南仓（WH-03）</option></select><span class="caret">▾</span></div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-label"><span class="req">*</span>盘点范围：</div>
+    <div>
+      <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>全库区（RA / RB / RC / RD）</option><option>全库区（RA / RB / RC / RD）· 其他</option></select><span class="caret">▾</span></div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-label"><span class="req">*</span>盘点口径：</div>
+    <div>
+      <div style="display:flex;">
+        <span class="radio checked"><span class="dot"></span>物料视角</span>
+        <span class="radio"><span class="dot"></span>BOM 视角</span>
       </div>
-
+</div>
+  </div>
+  <div class="form-row">
+    <div class="form-label"><span class="req">*</span>盘点人：</div>
+    <div>
+      <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>张帆</option><option>林国栋</option><option>江强</option></select><span class="caret">▾</span></div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-label"><span class="req">*</span>盘点日期：</div>
+    <div>
+      <div class="input-box" style="width:380px;"><input type="text" value="2026-08-31" placeholder="请输入"></div>
+    </div>
+  </div>
 </div>
 
 <div class="card">
   <div class="card-head">
-    <h3 class="card-title">入库明细</h3>
-    <div class="head-btns"><button class="btn btn-dashed btn-sm" onclick="addDetailRow(this)">添加明细</button></div>
+    <h3 class="card-title" data-note="1">盘点明细</h3>
+    <div class="head-btns"><button class="btn btn-default btn-sm">导出盘点底稿</button></div>
   </div>
   <div class="table-wrap edit-tbl">
     <table>
-      <thead><tr><th style="width:44px;">序号</th><th>物料编码</th><th>物料名称</th><th>规格</th><th>单位</th><th style="width:110px;">入库数量 *</th><th>备注</th><th class="sticky-op">操作</th></tr></thead>
+      <thead><tr><th>库位</th><th>编码</th><th>名称</th><th>账面数量</th><th style="width:110px;">实盘数量 *</th><th>差异</th><th style="width:180px;">差异说明</th><th class="sticky-op" data-note="3">操作</th></tr></thead>
       <tbody>
         <tr>
-          <td>1</td>
-          <td><select class="pkMat" style="width:100%;min-width:110px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option selected>LJ-B200</option><option>LJ-A100</option><option>BTC-6040</option></select></td>
-          <td><select class="pkName" style="width:100%;min-width:120px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option value="LJ-B200" selected>铰链</option><option value="LJ-A100">锁扣组件</option><option value="BTC-6040">料箱 600×400×340</option></select></td>
-          <td><input data-spec value="锌合金 · 65mm"></td>
-          <td><select data-unit style="width:100%;min-width:70px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option>个</option><option>块</option><option>套</option><option>只</option><option>张</option><option selected>件</option><option>台</option><option>托</option></select></td>
-          <td class="td-num"><input value="40"></td>
-          <td><input value="车间盘盈退回" placeholder="选填"></td>
-          <td class="ops sticky-op"><a>删除</a></td>
+          <td>RA-A-01-01</td>
+          <td>LJ-A100</td>
+          <td>锁扣组件 不锈钢 304</td>
+          <td class="td-num">4,860</td>
+          <td class="td-num"><input value="4,858"></td>
+          <td class="td-num auto-cell"><span style="color:var(--danger)">-2</span></td>
+          <td><input value="" placeholder="差异必填说明"></td>
+                  <td class="sticky-op"><a class="lk" onclick="genOtherDoc('out', 'LJ-A100')">生成其他出库</a></td>
         </tr>
         <tr>
-          <td>2</td>
-          <td><select class="pkMat" style="width:100%;min-width:110px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option>LJ-B200</option><option selected>LJ-A100</option><option>BTC-6040</option></select></td>
-          <td><select class="pkName" style="width:100%;min-width:120px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option value="LJ-B200">铰链</option><option value="LJ-A100" selected>锁扣组件</option><option value="BTC-6040">料箱 600×400×340</option></select></td>
-          <td><input data-spec value="不锈钢 304 · M8"></td>
-          <td><select data-unit style="width:100%;min-width:70px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option>个</option><option>块</option><option>套</option><option>只</option><option>张</option><option selected>件</option><option>台</option><option>托</option></select></td>
-          <td class="td-num"><input value="25"></td>
-          <td><input value="工装拆卸回收" placeholder="选填"></td>
-          <td class="ops sticky-op"><a>删除</a></td>
+          <td>RA-A-01-02</td>
+          <td>LJ-B200</td>
+          <td>铰链 锌合金 65mm</td>
+          <td class="td-num">4,640</td>
+          <td class="td-num"><input value="4,640"></td>
+          <td class="td-num auto-cell">0</td>
+          <td><input value="" placeholder="差异必填说明"></td>
+                  <td class="sticky-op"><span style="color:#8c8c8c;">—</span></td>
         </tr>
         <tr>
-          <td>3</td>
-          <td><select class="pkMat" style="width:100%;min-width:110px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option>LJ-B200</option><option>LJ-A100</option><option selected>BTC-6040</option></select></td>
-          <td><select class="pkName" style="width:100%;min-width:120px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option value="LJ-B200">铰链</option><option value="LJ-A100">锁扣组件</option><option value="BTC-6040" selected>料箱 600×400×340</option></select></td>
-          <td><input data-spec value="600×400×340 mm"></td>
-          <td><select data-unit style="width:100%;min-width:70px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option>个</option><option>块</option><option>套</option><option selected>只</option><option>张</option><option>件</option><option>台</option><option>托</option></select></td>
-          <td class="td-num"><input value="12"></td>
-          <td><input value="客退良品转入" placeholder="选填"></td>
-          <td class="ops sticky-op"><a>删除</a></td>
+          <td>RA-B-02-01</td>
+          <td>LJ-D400</td>
+          <td>箱盖 ABS 吸塑</td>
+          <td class="td-num">1,860</td>
+          <td class="td-num"><input value="1,860"></td>
+          <td class="td-num auto-cell">0</td>
+          <td><input value="" placeholder="差异必填说明"></td>
+                  <td class="sticky-op"><span style="color:#8c8c8c;">—</span></td>
+        </tr>
+        <tr>
+          <td>RB-A-01-01</td>
+          <td>ZH-2601-A</td>
+          <td>驾驶室围板箱整箱套件</td>
+          <td class="td-num">640</td>
+          <td class="td-num"><input value="642"></td>
+          <td class="td-num auto-cell"><span style="color:var(--primary)">+2</span></td>
+          <td><input value="上月组装回填遗漏" placeholder="差异必填说明"></td>
+                  <td class="sticky-op"><span style="color:#8c8c8c;">—</span></td>
+        </tr>
+        <tr>
+          <td>RB-A-01-02</td>
+          <td>ZH-2602-B</td>
+          <td>冲压件料箱组套</td>
+          <td class="td-num">700</td>
+          <td class="td-num"><input value="700"></td>
+          <td class="td-num auto-cell">0</td>
+          <td><input value="" placeholder="差异必填说明"></td>
+                  <td class="sticky-op"><span style="color:#8c8c8c;">—</span></td>
         </tr>
       </tbody>
     </table>
   </div>
+  <div class="pn-hint" style="margin-top:10px;">本单当前进度：已盘 1,024 / 1,286 项；差异 ≠ 0 时差异说明必填。</div>
 </div>
 
-<div class="submit-bar"><button class="btn btn-default" onclick="go('../仓储作业/其他入库列表.html')">取消</button><button class="btn">保存草稿</button><button class="btn">提交审核</button></div>
+<div class="card">
+  <div class="card-head">
+    <h3 class="card-title" data-note="2">损益处理</h3>
+  </div>
+  <div class="form-row">
+    <div class="form-label"><span class="req">*</span>处理方式：</div>
+    <div>
+      <div style="display:flex;">
+        <span class="radio checked"><span class="dot"></span>生成库存调整单（需审核）</span>
+        <span class="radio"><span class="dot"></span>仅记录不调整</span>
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-label">复 盘 人：</div>
+    <div>
+      <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>林国栋（仓储主管）</option><option>江强（采购主管）</option><option>刘志强（运营）</option></select><span class="caret">▾</span></div>
+    </div>
+  </div>
+  <div class="form-row" style="align-items:flex-start;">
+    <div class="form-label" style="padding-top:6px;">备注：</div>
+    <div>
+      <div class="input-box" style="width:380px;height:auto;padding:6px 11px;"><textarea placeholder="选填" style="width:100%;border:none;outline:none;background:transparent;font:inherit;color:inherit;resize:vertical;min-height:72px;line-height:1.6;"></textarea></div>
     </div>
   </div>
 </div>
-<script src="../_data/demo-data.js"></script>
+<div class="submit-bar"><button class="btn btn-default" onclick="go('../仓储作业/盘点列表.html')">取 消</button><button class="btn btn-default">暂 存</button><button class="btn">提交复盘</button></div>
+    </div>
+  </div>
+</div>
 
 <script>
 /* ===== 菜单折叠 / 页签与表单视觉态（统一脚本） ===== */
@@ -441,6 +504,12 @@ document.querySelectorAll('.checkbox').forEach(function (c) {
 
 
 
+<script>/* G31 T7 盘点行内生成其他入/出库（D-110）：跳创建页自动带物料·按差异方向分单 */
+function genOtherDoc(dir, item) {
+  var page = dir === 'in' ? '../仓储作业/其他入库列表.html' : '../仓储作业/其他出库列表.html';
+  var type = dir === 'in' ? '盘盈' : '盘亏';
+  location.href = page + '?create=1&item=' + encodeURIComponent(item) + '&type=' + encodeURIComponent(type);
+}</script>
 <script>/*ia-fix: tab-switch + btn-feedback (2026-09-04)*/
 /* R3 顶部页签切换（点击换 active；× 不做关闭跳转——原型不销毁页签） */
 document.querySelectorAll('.tab').forEach(function (t) {
@@ -487,8 +556,15 @@ document.querySelectorAll('.tab').forEach(function (t) {
 
 
 
+
+
+
+<script src="../_data/demo-data.js"></script>
 <script src="../_data/pc-auth.js"></script>
 <script src="../_data/pc-msg.js"></script>
+
+
+
 
 
 
@@ -531,42 +607,9 @@ document.querySelectorAll('.tab').forEach(function (t) {
 <script src="../_data/select-source.js"></script>
 <script>
 /* G43 下拉数据源化：静态 option 为无 JS 兜底，运行时按字典/实体重渲染（矩阵见 _scan_tmpdir/g43_接线差集_v2.md） */
-SSEL.fillEntity(SSEL.byFormLabel('入库库位'),'locations',{field:'wh',filterV:function(v){return v.indexOf('虚拟仓')<0;}});
-</script>
-<script src="../_data/mat-search.js"></script>
-<script>
-/* 添加明细：克隆末行重排序号（mat-search.js 自动在本函数后重挂搜索组件） */
-function addDetailRow(btn) {
-  var card = btn.closest('.card');
-  var tbody = card ? card.querySelector('tbody') : null;
-  if (!tbody) return;
-  var last = tbody.querySelector('tr:last-child');
-  if (!last) return;
-  var row = last.cloneNode(true);
-  row.querySelectorAll('input').forEach(function (i) { i.value = i.defaultValue || i.value; });
-  tbody.appendChild(row);
-  var rows = tbody.querySelectorAll('tr');
-  rows.forEach(function (r, i) { r.cells[0].textContent = i + 1; });
-}
-</script>
-<script>
-/* 明细表物料列（2026-09-18 袁工指示·第5次沟通前）：撤表头物料下拉改「添加明细」列表；编码/名称换搜索选择 */
-document.querySelectorAll('.edit-tbl select.pkMat').forEach(function (s) { SSEL.fillEntity(s, 'products', { label: function (k) { return k; } }); });
-MSEL.attachAll('.edit-tbl select.pkMat', { placeholder: '输入编码搜索' });
-document.querySelectorAll('.edit-tbl select.pkName').forEach(function (n) { SSEL.fillEntity(n, 'products', { label: function (k, f) { return f.name || k; } }); });
-MSEL.attachAll('.edit-tbl select.pkName', { placeholder: '输入名称搜索' });
-/* 编码↔名称双向联动＋带出规格（全局委托：克隆行同样生效） */
-document.addEventListener('change', function (e) {
-  var el = e.target;
-  if (!el.classList || (!el.classList.contains('pkMat') && !el.classList.contains('pkName'))) return;
-  var tr = el.closest('tr'); if (!tr) return;
-  var code = tr.querySelector('select.pkMat'), name = tr.querySelector('select.pkName');
-  if (el === code && name) name.value = code.value;
-  if (el === name && code) code.value = name.value;
-  var f = ((((window.DEMO_DATA || {}).products || {})[code && code.value] || {}).row || {}).fields || {};
-  var sp = tr.querySelector('input[data-spec]'); if (sp) sp.value = f.spec || '';
-  MSEL.syncAll();
-});
+SSEL.fillEntity(SSEL.byFormLabel('盘点库房'),'locations',{field:'wh'});
+SSEL.fillEntity(SSEL.byFormLabel('盘点人'),'users',{label:function(k,f){return (f.search||'').split(' ').slice(1).join(' ');},emptyKeep:true});
+SSEL.fillEntity(SSEL.byFormLabel('复盘人'),'users',{label:function(k,f){return (f.search||'').split(' ').slice(1).join(' ');},emptyKeep:true});
 </script>
 </body>
 </html>

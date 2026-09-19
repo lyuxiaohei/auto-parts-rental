@@ -529,7 +529,7 @@ document.querySelectorAll('.tab').forEach(function (t) {
 <script>
 /* G43 下拉数据源化：静态 option 为无 JS 兜底，运行时按字典/实体重渲染（矩阵见 _scan_tmpdir/g43_接线差集_v2.md） */
 SSEL.fillEntity(SSEL.byFormLabel('关联销售订单'),'salesOrders',{desc:true,limit:30,label:function(k,f){return k+' · '+(f.summary||f.customer||'');}});
-SSEL.fillEntity(SSEL.byFormLabel('出库库位'),'locations',{field:'wh'});
+SSEL.fillEntity(SSEL.byFormLabel('出库库位'),'locations',{field:'wh',filterV:function(v){return v.indexOf('虚拟仓')<0;}});
 document.querySelectorAll('.edit-tbl td select[data-tax="prod"]').forEach(function(s){SSEL.fillEntity(s,'products',{label:function(k,f){return k+' '+(f.name||'');}});});
 </script>
 <script src="../_data/mat-search.js"></script>

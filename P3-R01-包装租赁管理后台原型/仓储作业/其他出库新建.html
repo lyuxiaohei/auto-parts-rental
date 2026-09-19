@@ -537,7 +537,7 @@ document.querySelectorAll('.tab').forEach(function (t) {
 <script src="../_data/select-source.js"></script>
 <script>
 /* G43 下拉数据源化：静态 option 为无 JS 兜底，运行时按字典/实体重渲染（矩阵见 _scan_tmpdir/g43_接线差集_v2.md） */
-SSEL.fillEntity(SSEL.byFormLabel('出库库位'),'locations',{field:'wh'});
+SSEL.fillEntity(SSEL.byFormLabel('出库库位'),'locations',{field:'wh',filterV:function(v){return v.indexOf('虚拟仓')<0;}});
 </script>
 <script>
 /* 报废类型条件字段：出库类型选「报废」时显示报废原因/处置方式（与报废出库详情字段对应）；setTimeout 等视觉态切换完成后再判 checked */

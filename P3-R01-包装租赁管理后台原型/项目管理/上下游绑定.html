@@ -536,7 +536,7 @@ document.querySelectorAll('.tab').forEach(function (t) {
 <script src="../_data/select-source.js"></script>
 <script>
 /* G43 下拉数据源化：静态 option 为无 JS 兜底，运行时按字典/实体重渲染（矩阵见 _scan_tmpdir/g43_接线差集_v2.md） */
-SSEL.fillEntity(document.getElementById('bindWh'),'locations',{field:'wh'});
+SSEL.fillEntity(document.getElementById('bindWh'),'locations',{field:'wh',filterV:function(v){return v.indexOf('虚拟仓')<0;}});
 </script>
 </body>
 </html>

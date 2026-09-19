@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<title>新建其他入库单 - 包装租赁管理后台</title>
+<title>租赁出库录单 - 包装租赁管理后台</title>
 <style>
 :root {
   --primary: #1677ff;
@@ -278,11 +278,11 @@ th.td-num { text-align:right; }
 <li><div class="sm-link" onclick="go('../销售管理/销售退货单列表.html')">销售退货</div></li>
    </ul>
       </li>
-      <li class="sm-item has-sub">
+      <li class="sm-item has-sub open">
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5" rx="1"/><line x1="10" y1="12" x2="14" y2="12"/></svg></span>租赁管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
    <li><div class="sm-link" onclick="go('../租赁管理/租赁单列表.html')">租赁单</div></li>
-   <li><div class="sm-link" onclick="go('../租赁管理/租赁出库列表.html')">租赁出库</div></li>
+   <li><div class="sm-link selected">租赁出库</div></li>
    <li><div class="sm-link" onclick="go('../租赁管理/转移出库列表.html')">转移出库</div></li>
    <li><div class="sm-link" onclick="go('../租赁管理/退租入库列表.html')">退租入库</div></li>
    </ul>
@@ -295,13 +295,13 @@ th.td-num { text-align:right; }
    <li><div class="sm-link" onclick="go('../租入管理/归还出库列表.html')">归还出库</div></li>
    </ul>
       </li>
-<li class="sm-item has-sub open">
+<li class="sm-item has-sub">
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/><line x1="10" y1="12" x2="14" y2="12"/></svg></span>仓储管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
    <li><div class="sm-link" onclick="go('../仓储作业/库存查询.html')">库存查询</div></li>
    <li><div class="sm-link" onclick="go('../仓储作业/盘点列表.html')">盘点记录</div></li>
    <li><div class="sm-link" onclick="go('../仓储作业/库存调拨列表.html')">库存调拨</div></li>
-   <li><div class="sm-link selected">其他入库</div></li>
+   <li><div class="sm-link" onclick="go('../仓储作业/其他入库列表.html')">其他入库</div></li>
    <li><div class="sm-link" onclick="go('../仓储作业/其他出库列表.html')">其他出库</div></li>
    </ul>
       </li>
@@ -337,83 +337,148 @@ th.td-num { text-align:right; }
   </div></aside>
   <div class="main-col">
 <div class="tabs">
-  <span class="tab">其他入库 <span class="close">×</span></span>
-  <span class="tab active">新建其他入库单 <span class="close">×</span></span>
+  <span class="tab">租赁出库 <span class="close">×</span></span>
+  <span class="tab active">租赁出库录单 <span class="close">×</span></span>
+  <span class="tab">销售订单 <span class="close">×</span></span>
+  <span class="tab">库存查询 <span class="close">×</span></span>
 </div>
     <div class="content submit-pad">
 <div class="card">
   <div class="card-head">
-    <h3 class="card-title">入库信息</h3>
+    <h3 class="card-title">基本信息</h3>
   </div>
-
-<div class="form-row">
-    <div class="form-label">入库类型：</div>
-    <div><span class="radio checked"><span class="dot"></span>盘盈</span><span class="radio"><span class="dot"></span>退货</span><span class="radio"><span class="dot"></span>破损</span><span class="radio"><span class="dot"></span>自然损耗</span><span class="radio"><span class="dot"></span>其他</span></div>
-  </div><div class="form-row">
-    <div class="form-label"><span class="req">*</span>入库库位：</div>
-    <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>原料区 RA</option><option>成品区 RB</option><option>外购区 RW</option><option>次品区 RC</option></select><span class="caret">▾</span></div>
-  </div><div class="form-row">
-    <div class="form-label">入库日期：</div>
-    <div class="input-box" style="width:380px;"><input type="date" value="2026-09-03"></div>
-  </div><div class="form-row" style="align-items:flex-start;">
-        <div class="form-label" style="padding-top:6px;">备注：</div>
-        <div>
-          <div class="input-box" style="width:380px;height:auto;padding:6px 11px;"><textarea placeholder="选填" style="width:100%;border:none;outline:none;background:transparent;font:inherit;color:inherit;resize:vertical;min-height:72px;line-height:1.6;"></textarea></div>
-        </div>
+  <div class="form-row">
+    <div class="form-label">出库单号：</div>
+    <div>
+      <div class="input-box" style="width:380px;"><input type="text" value="CK-20260831-015" placeholder="请输入"></div>
+<div class="pn-hint">按单据编码规则自动生成，不可编辑。</div>    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-label"><span class="req">*</span>所属项目：</div>
+    <div>
+      <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>PRJ-2601 华骏重卡·长春基地 驾驶室围板箱租赁</option><option>PRJ-2601 华骏重卡·长春基地 驾驶室围板箱租赁·其他</option></select><span class="caret">▾</span></div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-label"><span class="req">*</span>关联租赁单：</div>
+    <div>
+      <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>ZL-20260610-015（华骏重卡 驾驶室围板箱整箱套件 180 套）</option></select><span class="caret">▾</span></div>
+<div class="pn-hint">选择租赁单后自动带出客户、收货地点与租赁明细（09-18 袁工：租赁出库关联租赁单）。</div>    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-label">关联销售订单：</div>
+    <div>
+      <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>SO-20260830-0041（华骏重卡 8/31 要货 180 套）</option><option>SO-20260830-0041（华骏重卡 8/31 要货 180 套）·其他</option></select><span class="caret">▾</span></div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-label">客户：</div>
+    <div>
+      <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>华骏重卡汽车有限公司（自动带出）</option><option>华骏重卡汽车有限公司（自动带出）·其他</option></select><span class="caret">▾</span></div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-label"><span class="req">*</span>出库类型：</div>
+    <div>
+      <div style="display:flex;">
+        <span class="radio checked"><span class="dot"></span>租赁单出库</span>
+        <span class="radio"><span class="dot"></span>其他出库</span>
       </div>
-
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-label"><span class="req">*</span>出库库位：</div>
+    <div>
+      <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>成品区 RB</option><option>原料区 RA</option><option>次品区 RC</option></select><span class="caret">▾</span></div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-label">收货地点：</div>
+    <div>
+      <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>长春基地一号门（自动带出）</option><option>长春基地一号门（自动带出）·其他</option></select><span class="caret">▾</span></div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-label"><span class="req">*</span>要货日期：</div>
+    <div>
+      <div class="input-box" style="width:380px;"><input type="text" value="2026-08-31" placeholder="请输入"></div>
+    </div>
+  </div>
+  <div class="form-row" style="align-items:flex-start;">
+    <div class="form-label" style="padding-top:6px;">出库备注：</div>
+    <div>
+      <div class="input-box" style="width:380px;height:auto;padding:6px 11px;"><textarea placeholder="选填" style="width:100%;border:none;outline:none;background:transparent;font:inherit;color:inherit;resize:vertical;min-height:72px;line-height:1.6;"></textarea></div>
+    </div>
+  </div>
 </div>
 
 <div class="card">
   <div class="card-head">
-    <h3 class="card-title">入库明细</h3>
+    <h3 class="card-title">出库明细</h3>
     <div class="head-btns"><button class="btn btn-dashed btn-sm" onclick="addDetailRow(this)">添加明细</button></div>
   </div>
   <div class="table-wrap edit-tbl">
     <table>
-      <thead><tr><th style="width:44px;">序号</th><th>物料编码</th><th>物料名称</th><th>规格</th><th>单位</th><th style="width:110px;">入库数量 *</th><th>备注</th><th class="sticky-op">操作</th></tr></thead>
+      <thead><tr><th style="width:44px;">序号</th><th>组合件编码</th><th>组合件名称</th><th>计费方式</th><th style="width:110px;">出库数量 *</th><th>可用组合库存</th><th data-note="1">可用量校验</th><th style="font-size:13.5px;font-weight:700;">日租金(元/天)</th><th style="font-size:13.5px;font-weight:700;">税率</th><th style="font-size:13.5px;font-weight:700;">含税单价(元)</th><th>含税金额(元)</th><th>出库库位</th><th class="sticky-op">操作</th></tr></thead>
       <tbody>
         <tr>
           <td>1</td>
-          <td><select class="pkMat" style="width:100%;min-width:110px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option selected>LJ-B200</option><option>LJ-A100</option><option>BTC-6040</option></select></td>
-          <td><select class="pkName" style="width:100%;min-width:120px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option value="LJ-B200" selected>铰链</option><option value="LJ-A100">锁扣组件</option><option value="BTC-6040">料箱 600×400×340</option></select></td>
-          <td><input data-spec value="锌合金 · 65mm"></td>
-          <td><select data-unit style="width:100%;min-width:70px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option>个</option><option>块</option><option>套</option><option>只</option><option>张</option><option selected>件</option><option>台</option><option>托</option></select></td>
-          <td class="td-num"><input value="40"></td>
-          <td><input value="车间盘盈退回" placeholder="选填"></td>
+          <td><select class="zzMat" style="width:100%;min-width:120px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option selected>ZH-2601-A</option><option>ZH-2602-B</option></select></td>
+          <td><select class="zzName" style="width:100%;min-width:120px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option value="ZH-2601-A" selected>驾驶室围板箱整箱套件</option><option value="ZH-2602-B">冲压件料箱组套</option></select></td><td><div class="ctl sel" style="min-width:96px;"><span class="v">按时间周期</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div></td>
+          <td class="td-num"><input data-tax="qty" value="180"></td>
+          <td class="td-num stock-cell">460</td>
+          <td class="chk-cell"><span style="color:#52c41a">满足</span></td>
+          <td class="td-num"><input value="2.40"></td>
+          <td class="td-num"><input value="13%"></td>
+          <td class="td-num auto-cell">2.71</td>
+          <td class="td-num auto-cell">487.80</td>
+          <td><div class="ctl sel" style="min-width:110px;"><span class="v">RB-A-01-01</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div></td>
           <td class="ops sticky-op"><a>删除</a></td>
         </tr>
         <tr>
           <td>2</td>
-          <td><select class="pkMat" style="width:100%;min-width:110px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option>LJ-B200</option><option selected>LJ-A100</option><option>BTC-6040</option></select></td>
-          <td><select class="pkName" style="width:100%;min-width:120px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option value="LJ-B200">铰链</option><option value="LJ-A100" selected>锁扣组件</option><option value="BTC-6040">料箱 600×400×340</option></select></td>
-          <td><input data-spec value="不锈钢 304 · M8"></td>
-          <td><select data-unit style="width:100%;min-width:70px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option>个</option><option>块</option><option>套</option><option>只</option><option>张</option><option selected>件</option><option>台</option><option>托</option></select></td>
-          <td class="td-num"><input value="25"></td>
-          <td><input value="工装拆卸回收" placeholder="选填"></td>
-          <td class="ops sticky-op"><a>删除</a></td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td><select class="pkMat" style="width:100%;min-width:110px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option>LJ-B200</option><option>LJ-A100</option><option selected>BTC-6040</option></select></td>
-          <td><select class="pkName" style="width:100%;min-width:120px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option value="LJ-B200">铰链</option><option value="LJ-A100">锁扣组件</option><option value="BTC-6040" selected>料箱 600×400×340</option></select></td>
-          <td><input data-spec value="600×400×340 mm"></td>
-          <td><select data-unit style="width:100%;min-width:70px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option>个</option><option>块</option><option>套</option><option selected>只</option><option>张</option><option>件</option><option>台</option><option>托</option></select></td>
-          <td class="td-num"><input value="12"></td>
-          <td><input value="客退良品转入" placeholder="选填"></td>
+          <td><select class="zzMat" style="width:100%;min-width:120px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option>ZH-2601-A</option><option selected>ZH-2602-B</option></select></td>
+          <td><select class="zzName" style="width:100%;min-width:120px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option value="ZH-2601-A">驾驶室围板箱整箱套件</option><option value="ZH-2602-B" selected>冲压件料箱组套</option></select></td><td><div class="ctl sel" style="min-width:96px;"><span class="v">按时间周期</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div></td>
+          <td class="td-num"><input data-tax="qty" value="0"></td>
+          <td class="td-num stock-cell">700</td>
+          <td class="chk-cell"><span style="color:var(--text-3)">未选择</span></td>
+          <td class="td-num"><input value="0.15"></td>
+          <td class="td-num"><input value="13%"></td>
+          <td class="td-num auto-cell">0.17</td>
+          <td class="td-num auto-cell">0.00</td>
+          <td><div class="ctl sel" style="min-width:110px;"><span class="v">—</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div></td>
           <td class="ops sticky-op"><a>删除</a></td>
         </tr>
       </tbody>
     </table>
   </div>
-</div>
 
-<div class="submit-bar"><button class="btn btn-default" onclick="go('../仓储作业/其他入库列表.html')">取消</button><button class="btn">保存草稿</button><button class="btn">提交审核</button></div>
+  <div id="stockWarn" style="display:none;margin-top:8px;padding:8px 12px;border:1px solid #ffa39e;background:#fff1f0;border-radius:6px;font-size:12px;color:#d4380d;line-height:1.9;">
+    <span class="sw-txt">可用库存不足——可选择生成：</span>
+    <button class="btn btn-sm" style="margin-left:8px;" onclick="go('../采购管理/采购订单列表.html')">生成采购订单</button>
+    <button class="btn btn-sm" style="margin-left:6px;" onclick="go('../租入管理/租入单列表.html')">生成租入单</button>
+  </div>
+  </div>
+
+<div class="submit-bar"><button class="btn btn-default" onclick="go('../租赁管理/租赁出库列表.html')">取 消</button><button class="btn btn-default">暂 存</button><button class="btn" data-note="2">提交出库</button></div>
     </div>
   </div>
 </div>
-<script src="../_data/demo-data.js"></script>
 
+<script>
+function addDetailRow(btn) {
+  var card = btn.closest('.card');
+  var tbody = card ? card.querySelector('tbody') : null;
+  if (!tbody) return;
+  var last = tbody.querySelector('tr:last-child');
+  if (!last) return;
+  var row = last.cloneNode(true);
+  row.querySelectorAll('input').forEach(function (i) { i.value = i.defaultValue || i.value; });
+  tbody.appendChild(row);
+  var rows = tbody.querySelectorAll('tr');
+  rows.forEach(function (r, i) { r.cells[0].textContent = i + 1; });
+}
+</script>
 <script>
 /* ===== 菜单折叠 / 页签与表单视觉态（统一脚本） ===== */
 function go(url) { location.href = url; }
@@ -472,7 +537,27 @@ document.querySelectorAll('.tab').forEach(function (t) {
   }, true);
 })();
 </script>
-
+<script>/*F-A 税率三件套双向换算 · meeting0908 批3*/
+(function () {
+  function num(v){ var x = parseFloat(String(v).replace(/,/g,'')); return isNaN(x)?0:x; }
+  document.addEventListener('input', function (e) {
+    var i = e.target;
+    if (!i.matches || !i.matches('input[data-tax]')) return;
+    var tr = i.closest('tr'); if (!tr) return;
+    function q(r){ var el = tr.querySelector('input[data-tax="'+r+'"]'); return el ? String(el.value).replace(/,/g,'') : '0'; }
+    var rate = num(q('rate')) / 100;
+    if (i.getAttribute('data-tax') === 'incl') {
+      var ex = rate > 0 ? num(q('incl')) / (1 + rate) : num(q('incl'));
+      var exEl = tr.querySelector('input[data-tax="excl"]'); if (exEl) exEl.value = ex.toFixed(2);
+    } else {
+      var inc = num(q('excl')) * (1 + rate);
+      var incEl = tr.querySelector('input[data-tax="incl"]'); if (incEl) incEl.value = inc.toFixed(2);
+    }
+    var amt = tr.querySelector('input[data-tax="amt"]');
+    if (amt) amt.value = (num(q('qty')) * num(q('incl'))).toLocaleString('zh-CN', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+  });
+})();
+</script>
 
 
 
@@ -489,6 +574,12 @@ document.querySelectorAll('.tab').forEach(function (t) {
 
 <script src="../_data/pc-auth.js"></script>
 <script src="../_data/pc-msg.js"></script>
+<script src="../_data/demo-data.js"></script>
+<script src="../_data/select-source.js"></script>
+<script>
+/* G43 下拉数据源化：出库库位接库房主数据（虚拟仓不维护 D-006·过滤） */
+SSEL.fillEntity(SSEL.byFormLabel('出库库位'),'locations',{field:'wh',filterV:function(v){return v.indexOf('虚拟仓')<0;}});
+</script>
 
 
 
@@ -528,45 +619,77 @@ document.querySelectorAll('.tab').forEach(function (t) {
 <style id="f01-fab-style">.fab-row{position:fixed;right:12px;bottom:12px;z-index:880;display:flex;align-items:center;gap:6px}.fab-row .pn-fab{position:static}.f01-fab{display:flex;text-decoration:none;align-items:center;height:24px;padding:0 10px;border-radius:4px;background:#fff;border:1px solid #d9d9d9;color:#8c8c8c;font-size:11px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.06);opacity:.6;transition:opacity .15s}.f01-fab:hover{opacity:1;border-color:#722ed1;color:#722ed1}</style><div class="fab-row"><a class="f01-fab" href="../P3-R01-F01-业务流程导航图.html">流程图</a></div>
 <script src="../_data/notes-data.js"></script>
 <script src="../_data/notes-drawer.js"></script>
-<script src="../_data/select-source.js"></script>
-<script>
-/* G43 下拉数据源化：静态 option 为无 JS 兜底，运行时按字典/实体重渲染（矩阵见 _scan_tmpdir/g43_接线差集_v2.md） */
-SSEL.fillEntity(SSEL.byFormLabel('入库库位'),'locations',{field:'wh',filterV:function(v){return v.indexOf('虚拟仓')<0;}});
-</script>
 <script src="../_data/mat-search.js"></script>
 <script>
-/* 添加明细：克隆末行重排序号（mat-search.js 自动在本函数后重挂搜索组件） */
-function addDetailRow(btn) {
-  var card = btn.closest('.card');
-  var tbody = card ? card.querySelector('tbody') : null;
-  if (!tbody) return;
-  var last = tbody.querySelector('tr:last-child');
-  if (!last) return;
-  var row = last.cloneNode(true);
-  row.querySelectorAll('input').forEach(function (i) { i.value = i.defaultValue || i.value; });
-  tbody.appendChild(row);
-  var rows = tbody.querySelectorAll('tr');
-  rows.forEach(function (r, i) { r.cells[0].textContent = i + 1; });
-}
+/* 物料搜索下拉（2026-09-17 道远指示）：组合件编码列换搜索选择（原假下拉转真 select） */
+document.querySelectorAll('select.zzMat').forEach(function (s) { SSEL.fillEntity(s, ['products', 'bomList'], { label: function (k) { return k; } }); });
+MSEL.attachAll('.edit-tbl select.zzMat', { placeholder: '输入编码搜索' });
 </script>
 <script>
-/* 明细表物料列（2026-09-18 袁工指示·第5次沟通前）：撤表头物料下拉改「添加明细」列表；编码/名称换搜索选择 */
-document.querySelectorAll('.edit-tbl select.pkMat').forEach(function (s) { SSEL.fillEntity(s, 'products', { label: function (k) { return k; } }); });
-MSEL.attachAll('.edit-tbl select.pkMat', { placeholder: '输入编码搜索' });
-document.querySelectorAll('.edit-tbl select.pkName').forEach(function (n) { SSEL.fillEntity(n, 'products', { label: function (k, f) { return f.name || k; } }); });
-MSEL.attachAll('.edit-tbl select.pkName', { placeholder: '输入名称搜索' });
-/* 编码↔名称双向联动＋带出规格（全局委托：克隆行同样生效） */
-document.addEventListener('change', function (e) {
-  var el = e.target;
-  if (!el.classList || (!el.classList.contains('pkMat') && !el.classList.contains('pkName'))) return;
-  var tr = el.closest('tr'); if (!tr) return;
-  var code = tr.querySelector('select.pkMat'), name = tr.querySelector('select.pkName');
-  if (el === code && name) name.value = code.value;
-  if (el === name && code) code.value = name.value;
-  var f = ((((window.DEMO_DATA || {}).products || {})[code && code.value] || {}).row || {}).fields || {};
-  var sp = tr.querySelector('input[data-spec]'); if (sp) sp.value = f.spec || '';
-  MSEL.syncAll();
-});
+/* 关联单据号搜索下拉（2026-09-17 道远指示·采购入库录单样板推广）；
+   2026-09-18 袁工纠错：租赁出库主关联=租赁单（带出客户/明细），销售订单降为次关联（双关联场景） */
+SSEL.fillEntity(SSEL.byFormLabel('关联租赁单'),'leaseOrders',{desc:true,limit:30,label:function(k,f){return k+' · '+(f.customer||'');}});
+MSEL.attach(SSEL.byFormLabel('关联租赁单'), { placeholder: '输入单号/客户搜索' });
+SSEL.fillEntity(SSEL.byFormLabel('关联销售订单'),'salesOrders',{desc:true,limit:30,label:function(k,f){return k+' · '+(f.summary||'');}});
+MSEL.attach(SSEL.byFormLabel('关联销售订单'), { placeholder: '输入单号/摘要搜索' });
 </script>
+<script>
+/* 物料名称列搜索下拉＋编码↔名称双向联动（2026-09-17 道远指出补齐） */
+document.querySelectorAll('select.zzName').forEach(function (name) {
+  SSEL.fillEntity(name, ['products', 'bomList'], { label: function (k, f) { return f.name || k; } });
+  var code = name.closest('tr').querySelector('select.zzMat');
+  if (!code) return;
+  name.value = code.value;
+  code.addEventListener('change', function () { name.value = code.value; MSEL.syncAll(); });
+  name.addEventListener('change', function () { code.value = name.value; MSEL.syncAll(); });
+});
+MSEL.attachAll('select.zzName', { placeholder: '输入名称搜索' });
+</script>
+<script>/* G13 ⑦ 库存校验统一（道远 09-19：销售订单/租赁单/销售出库/租赁出库四单据功能与校验统一）——可用库存列红绿＋数量超库存标红＋不足红条＋生成采购订单/租入单（行含 .chk-cell 时联动满足/不足） */
+(function () {
+  var STOCK_MAP = { 'WBX-1210L': [2120, '只'], 'WBX-1210M': [860, '只'], 'PLT-1210W': [60, '块'], 'PLT-1210P': [1410, '块'], 'BTC-6040': [3300, '只'], 'LJ-A100': [5260, '件'], 'LJ-B200': [2640, '件'], 'LJ-C300': [1860, '件'], 'LJ-D400': [980, '件'], 'LJ-F600': [1520, '件'], 'ZH-2601-A': [640, '套'], 'ZH-2602-B': [820, '套'], 'ZH-2603-C': [150, '套'], 'ZH-2604-D': [0, '套'] };
+  function num(v) { var x = parseFloat(String(v).replace(/,/g, '')); return isNaN(x) ? 0 : x; }
+  function keyOf(text) { var m = String(text || '').trim().match(/^([A-Za-z]+-[\w.-]+)/); return m ? m[1] : ''; }
+  function rowQty(tr) { var q = tr.querySelector('input[data-tax="qty"]'); return num(q ? q.value : 0); }
+  function updRow(tr) {
+    var sel = tr.querySelector('td select'); if (!sel) return;
+    var k = keyOf(sel.value || (sel.options[sel.selectedIndex] || {}).text);
+    var st = STOCK_MAP[k];
+    var cell = tr.querySelector('.stock-cell');
+    if (cell) {
+      if (!st) { cell.textContent = '—（无库存记录）'; cell.style.color = '#8c8c8c'; }
+      else { cell.textContent = st[0].toLocaleString('zh-CN') + ' ' + st[1]; cell.style.color = rowQty(tr) > st[0] ? '#ff4d4f' : '#52c41a'; }
+    }
+    var chk = tr.querySelector('.chk-cell span');
+    if (chk) {
+      if (!st || rowQty(tr) <= 0) { chk.textContent = '未选择'; chk.style.color = 'var(--text-3)'; }
+      else if (rowQty(tr) > st[0]) { chk.textContent = '不足'; chk.style.color = '#ff4d4f'; }
+      else { chk.textContent = '满足'; chk.style.color = '#52c41a'; }
+    }
+    var qi = tr.querySelector('input[data-tax="qty"]');
+    if (qi) qi.style.color = (st && rowQty(tr) > st[0]) ? '#ff4d4f' : '';
+  }
+  function refresh() {
+    var lack = null;
+    document.querySelectorAll('.edit-tbl tbody tr').forEach(function (tr) {
+      if (!tr.querySelector('td select')) return;
+      updRow(tr);
+      var sel = tr.querySelector('td select');
+      var k = keyOf(sel.value || (sel.options[sel.selectedIndex] || {}).text);
+      var st = STOCK_MAP[k];
+      if (st && rowQty(tr) > st[0]) lack = { name: k, need: rowQty(tr), have: st[0], unit: st[1] };
+    });
+    var w = document.getElementById('stockWarn');
+    if (!w) return;
+    if (lack) {
+      w.style.display = 'block';
+      var t = w.querySelector('.sw-txt');
+      if (t) t.textContent = '可用库存不足（' + lack.name + '：需求 ' + lack.need + ' · 可用 ' + lack.have + ' ' + lack.unit + '）——可选择生成：';
+    } else { w.style.display = 'none'; }
+  }
+  document.addEventListener('change', function (e) { if (e.target.matches && e.target.matches('.edit-tbl td select, .edit-tbl input[data-tax="qty"]')) refresh(); });
+  document.addEventListener('input', function (e) { if (e.target.matches && e.target.matches('.edit-tbl input[data-tax="qty"]')) refresh(); });
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', refresh); else refresh();
+})();</script>
 </body>
 </html>

@@ -577,7 +577,7 @@ document.querySelectorAll('.tab').forEach(function (t) {
 <script src="../_data/demo-data.js"></script>
 <script src="../_data/select-source.js"></script>
 <script>
-/* G43 下拉数据源化：出库库位接库房主数据（虚拟仓不维护 D-006·过滤） */
+/* G43 下拉数据源化：出库库位接库房主数据（人工单据不选虚拟仓 D-167·直发虚拟仓由系统自动单据流转） */
 SSEL.fillEntity(SSEL.byFormLabel('出库库位'),'locations',{field:'wh',filterV:function(v){return v.indexOf('虚拟仓')<0;}});
 </script>
 
