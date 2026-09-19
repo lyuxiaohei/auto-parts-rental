@@ -47,7 +47,18 @@
     + '.pn-tag{background:#f9f0ff;color:#722ed1;border-radius:3px;padding:0 6px;font-size:11px;line-height:20px}'
     + '.pn-src{margin-top:8px;padding-top:7px;border-top:1px dashed #e5dff0;font-size:11px;color:#595959;line-height:1.65}'
     + '.pn-src b{color:#722ed1;font-weight:600}'
-    + '.pn-drawer-foot{flex:none;padding:8px 16px;border-top:1px solid #f0f0f0;font-size:11px;color:#8c8c8c}';
+    + '.pn-drawer-foot{flex:none;padding:8px 16px;border-top:1px solid #f0f0f0;font-size:11px;color:#8c8c8c}'
+    /* 双轨（0919 道远拍板 #9）：业务需看＝? 圆标常显+悬停小提示；开发口径＝数字角标+抽屉 */
+    + '[data-note].pn-biz{position:relative}'
+    + 'body.proto-notes-on [data-note].pn-biz::after{display:none}'
+    + '.pn-q{position:absolute;top:-7px;right:-7px;width:15px;height:15px;border-radius:50%;background:#1677ff;color:#fff;font-size:10px;font-weight:700;line-height:15px;text-align:center;font-family:Consolas,monospace;cursor:help;box-shadow:0 0 0 1.5px #fff;z-index:6;opacity:.8;transition:opacity .15s}'
+    + '.pn-q:hover{opacity:1}'
+    + '.pn-tip{position:fixed;z-index:895;max-width:300px;background:#262626;color:#fff;border-radius:6px;padding:9px 11px;font-size:12px;line-height:1.6;font-family:-apple-system,\'Segoe UI\',\'Microsoft YaHei\',sans-serif;box-shadow:0 4px 14px rgba(0,0,0,.3);pointer-events:none;opacity:0;transition:opacity .12s}'
+    + '.pn-tip.pn-show{opacity:1}'
+    + '.pn-tip b{display:block;margin-bottom:3px;font-size:12.5px}'
+    + '.pn-aud{flex:none;border-radius:3px;padding:0 5px;font-size:10px;line-height:16px;font-weight:600;margin-left:2px}'
+    + '.pn-aud-dev{background:#722ed1;color:#fff}'
+    + '.pn-aud-biz{background:#e6f4ff;color:#1677ff;border:1px solid #91caff}';
   var st = document.createElement('style');
   st.id = 'notes-drawer-style';
   st.textContent = css;
@@ -58,7 +69,7 @@
   mask.className = 'pn-mask';
   var drawer = document.createElement('div');
   drawer.className = 'pn-drawer';
-  var html = '<div class="pn-drawer-head"><div class="pn-drawer-title">原型标注 <span class="pn-fab-n"></span></div><span class="pn-close">×</span></div><div class="pn-drawer-body"></div><div class="pn-drawer-foot">编号与页面紫色角标一一对应；Alt+N 或右下角按钮开关</div>';
+  var html = '<div class="pn-drawer-head"><div class="pn-drawer-title">原型标注 <span class="pn-fab-n"></span></div><span class="pn-close">×</span></div><div class="pn-drawer-body"></div><div class="pn-drawer-foot">? 蓝色圆标＝业务说明（悬停查看）；紫色数字＝开发口径注记，点击定位；Alt+N 或右下角按钮开关抽屉</div>';
   drawer.innerHTML = html;
   document.body.appendChild(mask);
   document.body.appendChild(drawer);
@@ -88,8 +99,9 @@
     var h = [];
     items.forEach(function (it) {
       var tags = [];
+      var aud = it.aud === 'dev' ? '<span class="pn-aud pn-aud-dev">开发</span>' : '<span class="pn-aud pn-aud-biz">业务</span>';
       [it.fp, it.req].forEach(function (t) { if (t) tags.push('<span class="pn-tag">' + esc(tagText(t)) + '</span>'); });
-      h.push('<div class="pn-item" data-id="' + it.id + '"><div class="pn-item-t"><span class="pn-item-n">' + it.id + '</span>' + esc(it.title) + '</div>'
+      h.push('<div class="pn-item" data-id="' + it.id + '"><div class="pn-item-t"><span class="pn-item-n">' + it.id + '</span>' + esc(it.title) + aud + '</div>'
         + (it.note ? '<div class="pn-item-d">' + esc(it.note) + '</div>' : '')
         + (tags.length ? '<div class="pn-item-b">' + tags.join('') + '</div>' : '')
         + (srcHtml(it) ? '<div class="pn-src">' + srcHtml(it) + '</div>' : '')
@@ -147,8 +159,43 @@
     if (e.key === 'Escape' && drawerOpen()) closeDrawer();
   });
 
+  /* ---------- 双轨（0919 道远拍板 #9）：业务条目＝锚点旁「?」圆标常显＋悬停小提示；开发条目＝数字角标开抽屉 ---------- */
+  var tip = document.createElement('div');
+  tip.className = 'pn-tip';
+  document.body.appendChild(tip);
+  function idMap() {
+    var m = {};
+    (items || []).forEach(function (it) { m[String(it.id)] = it; });
+    return m;
+  }
+  var IMAP = idMap();
+  function showTip(q, it) {
+    tip.innerHTML = '<b>' + esc(it.title) + '</b>' + esc(it.note || '');
+    tip.classList.add('pn-show');
+    var r = q.getBoundingClientRect();
+    var top = r.bottom + 6;
+    tip.style.left = Math.max(8, Math.min(r.left, window.innerWidth - 316)) + 'px';
+    tip.style.top = (top + tip.offsetHeight > window.innerHeight - 8 ? r.top - tip.offsetHeight - 6 : top) + 'px';
+  }
+  function hideTip() { tip.classList.remove('pn-show'); }
+  document.querySelectorAll('[data-note]').forEach(function (el) {
+    var it = IMAP[el.getAttribute('data-note')];
+    if (!it) return;
+    if (it.aud === 'dev') return; /* 开发口径：维持数字角标+抽屉 */
+    el.classList.add('pn-biz');
+    var q = document.createElement('span');
+    q.className = 'pn-q';
+    q.textContent = '?';
+    q.title = '';
+    el.appendChild(q);
+    q.addEventListener('mouseenter', function () { showTip(q, it); });
+    q.addEventListener('mouseleave', hideTip);
+    q.addEventListener('click', function (e) { e.stopPropagation(); tip.classList.contains('pn-show') && e.detail ? hideTip() : showTip(q, it); });
+  });
+
   /* ---------- 点击角标：开抽屉并定位对应条目（0918 拍板：抽屉含全部标注） ---------- */
   document.addEventListener('click', function (e) {
+    if (e.target.closest && e.target.closest('.pn-q')) return; /* ? 圆标走 tooltip，不开抽屉 */
     var t = e.target.closest ? e.target.closest('[data-note]') : null;
     if (!t) return;
     e.preventDefault();
