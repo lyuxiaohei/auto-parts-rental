@@ -368,10 +368,10 @@ th.td-num { text-align:right; }
     <h3 class="card-title">审核决策</h3>
   </div>
     <div class="form-row" style="align-items:flex-start;">
-    <div class="form-label" style="padding-top:4px;">立即转租：</div>
+    <div class="form-label" style="padding-top:4px;">类型：</div>
     <div>
-      <label style="display:flex;align-items:center;gap:8px;cursor:pointer;"><input type="checkbox" class="cb" checked><span>供应商直发终端客户——确认同时自动生成租赁出库单（自动带物料 · 免重复填单）</span></label>
-      <div style="font-size:12px;color:#8c8c8c;margin-top:4px;">背靠背转租（D-105）：租赁出库列表可查该单；库存侧「转租登记」入口保留不变（D-78）；计费口径不受影响（D-122 梳理中）。</div>
+      <div style="font-size:13px;">直发 —— 供应商直发终端客户，确认后系统自动生成租赁出库单（自动带物料 · 免重复填单）</div>
+      <div style="font-size:12px;color:#8c8c8c;margin-top:4px;">直发链自动化（D-167·类型驱动，原 D-105「立即转租」勾选口径废止）：租赁出库列表可查自动生成单；库存侧「转租登记」入口保留不变（D-78）；计费口径不受影响（D-122 梳理中）。</div>
     </div>
   </div>
 <div class="form-row">
@@ -385,7 +385,7 @@ th.td-num { text-align:right; }
     <div class="form-label" style="padding-top:6px;">审核意见：</div>
     <div>
       <div class="input-box" style="width:380px;height:auto;padding:6px 11px;"><textarea placeholder="选填，驳回时建议填写原因" style="width:100%;border:none;outline:none;background:transparent;font:inherit;color:inherit;resize:vertical;min-height:72px;line-height:1.6;"></textarea></div>
-      <div class="pn-hint">确认后计入租入在库并按月生成租金应付；勾选立即转租则同时生成租赁出库单（供应商直发）。</div>
+      <div class="pn-hint">确认后计入租入在库并按月生成租金应付；直发类型同时自动生成租赁出库单（供应商直发·类型驱动）。</div>
     </div>
   </div>
 </div>

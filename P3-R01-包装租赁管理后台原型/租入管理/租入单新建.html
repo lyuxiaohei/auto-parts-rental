@@ -358,8 +358,8 @@ th.td-num { text-align:right; }
         <div class="form-label"><span class="req">*</span>类型：</div>
         <div>
           <div style="display:flex;align-items:center;flex-wrap:wrap;">
-            <div class="radio checked" id="riTypeSelf"><span class="dot"></span>自发单</div>
-            <div class="radio" id="riTypeDirect"><span class="dot"></span>直发单</div>
+            <div class="radio checked" id="riTypeSelf"><span class="dot"></span>自发</div>
+            <div class="radio" id="riTypeDirect"><span class="dot"></span>直发</div>
           </div>
           <div class="pn-hint" id="riDirectHint" style="display:none;">直发租入：审核通过后系统自动生成租入入库（直发虚拟仓）并自动生成租赁出库，无需实物入库</div>
         </div>
@@ -467,7 +467,7 @@ document.querySelectorAll('.radio').forEach(function (r) {
 document.querySelectorAll('.checkbox').forEach(function (c) {
   c.addEventListener('click', function () { c.classList.toggle('checked'); });
 });
-/* G54 租入单类型联动：选「直发单」显示自动化提示，选「自发单」隐藏 */
+/* G54 租入单类型联动（09-19 复核口径=直发/自发）：选「直发」显示自动化提示，选「自发」隐藏 */
 (function () {
   var d = document.getElementById('riTypeDirect'), s = document.getElementById('riTypeSelf'), h = document.getElementById('riDirectHint');
   if (!d || !s || !h) return;
