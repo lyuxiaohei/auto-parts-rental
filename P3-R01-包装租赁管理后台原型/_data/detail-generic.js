@@ -61,8 +61,10 @@
       var v;
       if (f.tag) v = '<span class="tag ' + (STATUS_CLS[f.tag] || 'tag-gray') + '">' + f.tag + '</span>';
       else v = lk(f.text, f.url, base);
+      /* 值框恒 380px（道远 09-19 反馈：备注/调拨原因 full 拉伸超长·各组件宽度保持一致＝新建页约定）；
+         长文本在框内换行向下生长，f.full 在表单模式不再拉伸（旧四段式 info 的 full 语义不变） */
       h += '<div class="fm-row"><div class="form-label">' + f.label + '：</div>' +
-           '<div class="fm-val"' + (f.full ? ' style="flex:1;min-width:0;"' : '') + '>' + v + '</div></div>';
+           '<div class="fm-val">' + v + '</div></div>';
     });
     h += '</div>';
     if (rec.itemCols && rec.items) {
