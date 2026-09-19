@@ -111,6 +111,8 @@
       '.fm-val{width:380px;min-height:30px;border:1px solid #e5e6eb;border-radius:6px;padding:4px 11px;background:#fafafa;color:#595959;font-size:13px;display:flex;align-items:center;flex-wrap:wrap;word-break:break-all;box-sizing:border-box;}' +
       '.fm-val .tag{margin:0;}' +
       '.fm-card > .card-head .card-title{margin-bottom:14px;}' +
+      /* 流转卡内两段间距：关联单据链与时间线（道远 09-19 反馈 0px 太近·+10px） */
+      '.fm-card .chain{margin-bottom:10px;}' +
       '</style>';
     return h;
   }
