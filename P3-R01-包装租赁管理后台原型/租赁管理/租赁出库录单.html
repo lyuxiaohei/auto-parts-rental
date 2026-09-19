@@ -292,7 +292,7 @@ th.td-num { text-align:right; }
    <ul class="sm-sub">
    <li><div class="sm-link" onclick="go('../租入管理/租入单列表.html')">租入单</div></li>
    <li><div class="sm-link" onclick="go('../租入管理/租入入库列表.html')">租入入库</div></li>
-   <li><div class="sm-link" onclick="go('../租入管理/租入归还列表.html')">租入归还</div></li>
+   <li><div class="sm-link" onclick="go('../租入管理/归还出库列表.html')">归还出库</div></li>
    </ul>
       </li>
 <li class="sm-item has-sub">
@@ -360,10 +360,28 @@ th.td-num { text-align:right; }
     </div>
   </div>
   <div class="form-row">
+    <div class="form-label"><span class="req">*</span>关联租赁单：</div>
+    <div>
+      <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>ZL-20260610-015（华骏重卡 驾驶室围板箱整箱套件 180 套）</option></select><span class="caret">▾</span></div>
+<div class="pn-hint">选择租赁单后自动带出客户、收货地点与租赁明细（09-18 袁工：租赁出库关联租赁单）。</div>    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-label">关联销售订单：</div>
+    <div>
+      <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>SO-20260830-0041（华骏重卡 8/31 要货 180 套）</option><option>SO-20260830-0041（华骏重卡 8/31 要货 180 套）·其他</option></select><span class="caret">▾</span></div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-label">客户：</div>
+    <div>
+      <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>华骏重卡汽车有限公司（自动带出）</option><option>华骏重卡汽车有限公司（自动带出）·其他</option></select><span class="caret">▾</span></div>
+    </div>
+  </div>
+  <div class="form-row">
     <div class="form-label"><span class="req">*</span>出库类型：</div>
     <div>
       <div style="display:flex;">
-        <span class="radio checked"><span class="dot"></span>销售订单出库</span>
+        <span class="radio checked"><span class="dot"></span>租赁单出库</span>
         <span class="radio"><span class="dot"></span>其他出库</span>
       </div>
     </div>
@@ -372,18 +390,6 @@ th.td-num { text-align:right; }
     <div class="form-label"><span class="req">*</span>出库库位：</div>
     <div>
       <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>成品区 RB</option><option>原料区 RA</option><option>次品区 RC</option></select><span class="caret">▾</span></div>
-    </div>
-  </div>
-  <div class="form-row">
-    <div class="form-label"><span class="req">*</span>关联销售订单：</div>
-    <div>
-      <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>SO-20260830-0041（华骏重卡 8/31 要货 180 套）</option><option>SO-20260830-0041（华骏重卡 8/31 要货 180 套）·其他</option></select><span class="caret">▾</span></div>
-<div class="pn-hint">选择订单后自动带出客户、收货地点与要货明细。</div>    </div>
-  </div>
-  <div class="form-row">
-    <div class="form-label">客户：</div>
-    <div>
-      <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>华骏重卡汽车有限公司（自动带出）</option><option>华骏重卡汽车有限公司（自动带出）·其他</option></select><span class="caret">▾</span></div>
     </div>
   </div>
   <div class="form-row">
@@ -614,7 +620,10 @@ document.querySelectorAll('select.zzMat').forEach(function (s) { SSEL.fillEntity
 MSEL.attachAll('.edit-tbl select.zzMat', { placeholder: '输入编码搜索' });
 </script>
 <script>
-/* 关联单据号搜索下拉（2026-09-17 道远指示·采购入库录单样板推广） */
+/* 关联单据号搜索下拉（2026-09-17 道远指示·采购入库录单样板推广）；
+   2026-09-18 袁工纠错：租赁出库主关联=租赁单（带出客户/明细），销售订单降为次关联（双关联场景） */
+SSEL.fillEntity(SSEL.byFormLabel('关联租赁单'),'leaseOrders',{desc:true,limit:30,label:function(k,f){return k+' · '+(f.customer||'');}});
+MSEL.attach(SSEL.byFormLabel('关联租赁单'), { placeholder: '输入单号/客户搜索' });
 SSEL.fillEntity(SSEL.byFormLabel('关联销售订单'),'salesOrders',{desc:true,limit:30,label:function(k,f){return k+' · '+(f.summary||'');}});
 MSEL.attach(SSEL.byFormLabel('关联销售订单'), { placeholder: '输入单号/摘要搜索' });
 </script>

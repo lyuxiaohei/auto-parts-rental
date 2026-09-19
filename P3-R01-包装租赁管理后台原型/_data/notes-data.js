@@ -853,7 +853,7 @@ window.NOTES_DATA = {
       "req": "REQ-03"
     }
   ],
-  "租入管理/弹窗/租入归还新建.html": [
+  "租入管理/弹窗/归还出库新建.html": [
     {
       "id": 1,
       "selector": "<tbody id=\"riItemsBody\">",

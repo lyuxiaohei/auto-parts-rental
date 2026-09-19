@@ -35,7 +35,7 @@
    },
    {
     "id": "view-give",
-    "label": "T2 租入归还",
+    "label": "T2 归还出库",
     "focus": [
      "t1ri",
      "th",
@@ -75,7 +75,7 @@
   },
   {
    "id": "t2",
-   "label": "T2 租入归还 · 独立事件（2026-09-10 拍板）"
+   "label": "T2 归还出库 · 独立事件（2026-09-10 拍板）"
   },
   {
    "id": "f1",
@@ -181,7 +181,7 @@
    "lane": "t2",
    "col": 2,
    "type": "backend",
-   "label": "租入归还",
+   "label": "归还出库",
    "sublabel": "关联分批",
    "width": 88
   },
@@ -254,7 +254,7 @@
    "col": 5,
    "type": "external",
    "label": "⇢ T2 交棒",
-   "sublabel": "租入归还",
+   "sublabel": "归还出库",
    "width": 88,
    "height": 44
   }

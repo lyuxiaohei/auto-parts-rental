@@ -1882,9 +1882,9 @@ window.DEMO_DATA = {
           'url': '租赁管理/退租入库列表.html'
         },
         {
-          'role': '租入归还',
+          'role': '归还出库',
           'name': 'GHCK-20260903-001',
-          'url': '租入管理/租入归还列表.html'
+          'url': '租入管理/归还出库列表.html'
         }
       ],
       'timeline': [
@@ -2225,7 +2225,7 @@ window.DEMO_DATA = {
   /* 租金条款按月生成应付，已建应付实体单号贯通 */
   rentInOrders: {
     'RZD-20260815-003': {
-      'row': {"fields": {"operator": "环通循环包装运营（上海）有限公司", "appliance": "围板箱 1200×1000×970", "period": "2026-08-15 ~ 2027-08-14", "status": "履行中", "agent": "周志远", "date": "2026-08-15"}, "note": "1", "cells": ["环通循环包装运营（上海）有限公司", "围板箱 1200×1000×970", "30 只", "400.00", "2026-08-15 ~ 2027-08-14", "36,000.00", "84,000.00", "<span class=\"tag tag-blue\">履行中</span>", "周志远", "2026-08-15 10:22"], "ops": [{"t": "详情", "act": "go('../租入管理/租入单详情.html?id=RZD-20260815-003')"}, {"t": "生成租金应付", "act": "go('../财务协同/应付账单.html')"}, {"t": "发起归还", "act": "go('../租入管理/租入归还列表.html')"}]},
+      'row': {"fields": {"operator": "环通循环包装运营（上海）有限公司", "appliance": "围板箱 1200×1000×970", "period": "2026-08-15 ~ 2027-08-14", "status": "履行中", "agent": "周志远", "date": "2026-08-15"}, "note": "1", "cells": ["环通循环包装运营（上海）有限公司", "围板箱 1200×1000×970", "30 只", "400.00", "2026-08-15 ~ 2027-08-14", "36,000.00", "84,000.00", "<span class=\"tag tag-blue\">履行中</span>", "周志远", "2026-08-15 10:22"], "ops": [{"t": "详情", "act": "go('../租入管理/租入单详情.html?id=RZD-20260815-003')"}, {"t": "生成租金应付", "act": "go('../财务协同/应付账单.html')"}, {"t": "发起归还", "act": "go('../租入管理/归还出库列表.html')"}]},
       'returnItems': [{'item': 'WBX-1210L 围板箱 1200×1000×970', 'rentQty': 30, 'returned': 0, 'unit': '只'}],
       'title': '租入单详情',
       'formTitle': '租入信息',
@@ -2266,9 +2266,9 @@ window.DEMO_DATA = {
           'url': '租赁管理/租赁单列表.html'
         },
         {
-          'role': '租入归还',
+          'role': '归还出库',
           'name': 'GHCK-20260903-001',
-          'url': '租入管理/租入归还列表.html'
+          'url': '租入管理/归还出库列表.html'
         }
       ],
       'timeline': [
@@ -2300,7 +2300,7 @@ window.DEMO_DATA = {
       ]
     },
     'RZD-20260815-005': {
-      'row': {"fields": {"operator": "环通循环包装运营（上海）有限公司", "appliance": "围板箱 1200×1000×970", "period": "2026-08-15 ~ 2027-08-14", "status": "部分归还", "agent": "周志远", "date": "2026-08-15"}, "note": "2", "cells": ["环通循环包装运营（上海）有限公司", "围板箱 1200×1000×970", "10 只", "400.00", "2026-08-15 ~ 2027-08-14", "12,000.00", "12,000.00", "<span class=\"tag tag-orange\">部分归还</span>", "周志远", "2026-08-15 11:05"], "ops": [{"t": "详情", "act": "go('../租入管理/租入单详情.html?id=RZD-20260815-005')"}, {"t": "生成租金应付", "act": "go('../财务协同/应付账单.html')"}, {"t": "发起归还", "act": "go('../租入管理/租入归还列表.html')"}]},
+      'row': {"fields": {"operator": "环通循环包装运营（上海）有限公司", "appliance": "围板箱 1200×1000×970", "period": "2026-08-15 ~ 2027-08-14", "status": "部分归还", "agent": "周志远", "date": "2026-08-15"}, "note": "2", "cells": ["环通循环包装运营（上海）有限公司", "围板箱 1200×1000×970", "10 只", "400.00", "2026-08-15 ~ 2027-08-14", "12,000.00", "12,000.00", "<span class=\"tag tag-orange\">部分归还</span>", "周志远", "2026-08-15 11:05"], "ops": [{"t": "详情", "act": "go('../租入管理/租入单详情.html?id=RZD-20260815-005')"}, {"t": "生成租金应付", "act": "go('../财务协同/应付账单.html')"}, {"t": "发起归还", "act": "go('../租入管理/归还出库列表.html')"}]},
       'returnItems': [{'item': 'WBX-1210L 围板箱 1200×1000×970', 'rentQty': 10, 'returned': 4, 'unit': '只'}],
       'title': '租入单详情',
       'formTitle': '租入信息',
@@ -2340,9 +2340,9 @@ window.DEMO_DATA = {
           'name': 'ZZ-20260822-006',
         },
         {
-          'role': '租入归还（分流）',
+          'role': '归还出库（分流）',
           'name': 'GHCK-20260903-002 · 4 只缺损',
-          'url': '租入管理/租入归还列表.html'
+          'url': '租入管理/归还出库列表.html'
         }
       ],
       'timeline': [
@@ -2430,7 +2430,7 @@ window.DEMO_DATA = {
       ]
     },
     'RZD-20260701-001': {
-      'row': {"fields": {"operator": "环通循环包装运营（上海）有限公司", "appliance": "金属料箱 800×600", "period": "2026-07-01 ~ 2026-08-31", "status": "已归还", "agent": "周志远", "date": "2026-07-01"}, "cells": ["环通循环包装运营（上海）有限公司", "金属料箱 800×600", "20 只", "3.00", "2026-07-01 ~ 2026-08-31", "—", "10,800.00", "<span class=\"tag tag-green\">已归还</span>", "周志远", "2026-07-01 09:30"], "ops": [{"t": "详情", "act": "go('../租入管理/租入单详情.html?id=RZD-20260701-001')"}, {"t": "归还记录", "act": "go('../租入管理/租入归还列表.html')"}]},
+      'row': {"fields": {"operator": "环通循环包装运营（上海）有限公司", "appliance": "金属料箱 800×600", "period": "2026-07-01 ~ 2026-08-31", "status": "已归还", "agent": "周志远", "date": "2026-07-01"}, "cells": ["环通循环包装运营（上海）有限公司", "金属料箱 800×600", "20 只", "3.00", "2026-07-01 ~ 2026-08-31", "—", "10,800.00", "<span class=\"tag tag-green\">已归还</span>", "周志远", "2026-07-01 09:30"], "ops": [{"t": "详情", "act": "go('../租入管理/租入单详情.html?id=RZD-20260701-001')"}, {"t": "归还记录", "act": "go('../租入管理/归还出库列表.html')"}]},
       'title': '租入单详情',
       'formTitle': '租入信息',
       'formRows': [
@@ -2460,9 +2460,9 @@ window.DEMO_DATA = {
           'self': true
         },
         {
-          'role': '租入归还',
+          'role': '归还出库',
           'name': 'GHCK-20260831-003 · 整退归还',
-          'url': '租入管理/租入归还列表.html'
+          'url': '租入管理/归还出库列表.html'
         }
       ],
       'timeline': [
@@ -3154,7 +3154,7 @@ window.DEMO_DATA = {
   /* 拆散去向：自有回库 / 租入件转归还；缺损/丢失联动丢损赔偿 */
   returnInbounds: {
     'TZRK-20260902-010': {
-      'row': {"fields": {"customer": "华骏重卡汽车有限公司", "project": "PRJ-2604", "appliance": "ZH-2604-D 混合组合套件（自购隔板 + 租入大箱）", "mat": "ZH-2604-D", "matName": "混合组合套件（自购隔板 + 租入大箱）", "qty": "40", "unit": "套", "dest": "自有回库 租入件转归还", "warehouse": "成品区 RB", "date": "2026-09-02", "result": "缺损", "status": "待审核"}, "note": "1", "cells": ["华骏重卡汽车有限公司", "PRJ-2604", "ZH-2604-D 混合组合套件（自购隔板 + 租入大箱）", "<span class=\"td-num\">40 套</span>", "隔板×80（自购）/ 大箱×10（租入，其中 4 只缺损）", "<span class=\"tag tag-gray\">自有回库</span> <span class=\"tag tag-orange\" onclick=\"go('../租入管理/租入归还列表.html')\" style=\"cursor:pointer\">租入件转归还</span>", "成品区 RB", "2026-09-02", "<span class=\"tag tag-orange\">缺损</span>", "<span class=\"tag tag-orange\">待审核</span>"], "ops": [{"t": "详情", "act": "go('../租赁管理/退租入库详情.html?id=TZRK-20260902-010')"}, {"t": "审核", "act": "go('../租赁管理/退租入库审核.html?id=TZRK-20260902-010')"}]},
+      'row': {"fields": {"customer": "华骏重卡汽车有限公司", "project": "PRJ-2604", "appliance": "ZH-2604-D 混合组合套件（自购隔板 + 租入大箱）", "mat": "ZH-2604-D", "matName": "混合组合套件（自购隔板 + 租入大箱）", "qty": "40", "unit": "套", "dest": "自有回库 租入件转归还", "warehouse": "成品区 RB", "date": "2026-09-02", "result": "缺损", "status": "待审核"}, "note": "1", "cells": ["华骏重卡汽车有限公司", "PRJ-2604", "ZH-2604-D 混合组合套件（自购隔板 + 租入大箱）", "<span class=\"td-num\">40 套</span>", "隔板×80（自购）/ 大箱×10（租入，其中 4 只缺损）", "<span class=\"tag tag-gray\">自有回库</span> <span class=\"tag tag-orange\" onclick=\"go('../租入管理/归还出库列表.html')\" style=\"cursor:pointer\">租入件转归还</span>", "成品区 RB", "2026-09-02", "<span class=\"tag tag-orange\">缺损</span>", "<span class=\"tag tag-orange\">待审核</span>"], "ops": [{"t": "详情", "act": "go('../租赁管理/退租入库详情.html?id=TZRK-20260902-010')"}, {"t": "审核", "act": "go('../租赁管理/退租入库审核.html?id=TZRK-20260902-010')"}]},
       'title': '退租入库单详情',
       'formTitle': '退租入库信息',
       'formRows': [
@@ -3182,9 +3182,9 @@ window.DEMO_DATA = {
           'self': true
         },
         {
-          'role': '租入归还（分流）',
+          'role': '归还出库（分流）',
           'name': 'GHCK-20260903-002',
-          'url': '租入管理/租入归还列表.html'
+          'url': '租入管理/归还出库列表.html'
         }
       ],
       'timeline': [
@@ -3211,7 +3211,7 @@ window.DEMO_DATA = {
       ]
     },
     'TZRK-20260903-009': {
-      'row': {"fields": {"customer": "东海商用汽车有限公司宁波分公司", "project": "PRJ-2603", "appliance": "WBX-1210L 围板箱 1200×1000×970（租入）", "mat": "WBX-1210L", "matName": "围板箱 1200×1000×970（租入）", "qty": "30", "unit": "只", "dest": "租入件转归还", "warehouse": "外购区 RW", "date": "2026-09-03", "result": "完好", "status": "待审核"}, "note": "2", "cells": ["东海商用汽车有限公司宁波分公司", "PRJ-2603", "WBX-1210L 围板箱 1200×1000×970（租入）", "<span class=\"td-num\">30 只</span>", "整箱退回（租入资产，不拆散）", "<span class=\"tag tag-orange\" onclick=\"go('../租入管理/租入归还列表.html')\" style=\"cursor:pointer\">租入件转归还</span>", "外购区 RW", "2026-09-03", "<span class=\"tag tag-green\">完好</span>", "<span class=\"tag tag-orange\">待审核</span>"], "ops": [{"t": "详情", "act": "go('../租赁管理/退租入库详情.html?id=TZRK-20260903-009')"}, {"t": "审核", "act": "go('../租赁管理/退租入库审核.html?id=TZRK-20260903-009')"}]},
+      'row': {"fields": {"customer": "东海商用汽车有限公司宁波分公司", "project": "PRJ-2603", "appliance": "WBX-1210L 围板箱 1200×1000×970（租入）", "mat": "WBX-1210L", "matName": "围板箱 1200×1000×970（租入）", "qty": "30", "unit": "只", "dest": "租入件转归还", "warehouse": "外购区 RW", "date": "2026-09-03", "result": "完好", "status": "待审核"}, "note": "2", "cells": ["东海商用汽车有限公司宁波分公司", "PRJ-2603", "WBX-1210L 围板箱 1200×1000×970（租入）", "<span class=\"td-num\">30 只</span>", "整箱退回（租入资产，不拆散）", "<span class=\"tag tag-orange\" onclick=\"go('../租入管理/归还出库列表.html')\" style=\"cursor:pointer\">租入件转归还</span>", "外购区 RW", "2026-09-03", "<span class=\"tag tag-green\">完好</span>", "<span class=\"tag tag-orange\">待审核</span>"], "ops": [{"t": "详情", "act": "go('../租赁管理/退租入库详情.html?id=TZRK-20260903-009')"}, {"t": "审核", "act": "go('../租赁管理/退租入库审核.html?id=TZRK-20260903-009')"}]},
       'title': '退租入库单详情',
       'formTitle': '退租入库信息',
       'formRows': [
@@ -3238,9 +3238,9 @@ window.DEMO_DATA = {
           'self': true
         },
         {
-          'role': '租入归还',
+          'role': '归还出库',
           'name': 'GHCK-20260903-001',
-          'url': '租入管理/租入归还列表.html'
+          'url': '租入管理/归还出库列表.html'
         }
       ],
       'timeline': [
@@ -3655,12 +3655,12 @@ window.DEMO_DATA = {
       ]
     },
   },  /* -------------------------------------------------------------------------- */
-  /* 租入归还单 rentInReturns：键 = GHCK 归还单号（租入管理/租入归还列表.html 3 行全量） */
+  /* 归还出库单 rentInReturns：键 = GHCK 归还单号（租入管理/归还出库列表.html 3 行全量） */
   /* 归还类型：整退归还(L3) / 分流归还(L4) */
   rentInReturns: {
     'GHCK-20260903-001': {
-      'row': {"fields": {"ref": "RZD-20260815-003", "operator": "环通循环包装运营（上海）有限公司", "rtype": "整退归还", "appliance": "围板箱 1200×1000×970", "mat": "WBX-1210L", "matName": "围板箱 1200×1000×970", "qty": "30", "unit": "只", "status": "已归还", "maker": "林国栋", "date": "2026-09-03"}, "note": "1", "cells": ["<span class=\"lk\" onclick=\"go('../租入管理/租入单列表.html')\">RZD-20260815-003</span>", "环通循环包装运营（上海）有限公司", "<span class=\"tag tag-blue\">整退归还</span>", "围板箱 1200×1000×970", "30 只", "<span class=\"tag tag-green\">已归还</span>", "林国栋", "2026-09-03 11:30"], "ops": [{"t": "详情", "act": "go('../租入管理/租入归还详情.html?id=GHCK-20260903-001')"}, {"t": "租金应付", "act": "go('../财务协同/应付账单.html')"}]},
-      'title': '租入归还单详情',
+      'row': {"fields": {"ref": "RZD-20260815-003", "operator": "环通循环包装运营（上海）有限公司", "rtype": "整退归还", "appliance": "围板箱 1200×1000×970", "mat": "WBX-1210L", "matName": "围板箱 1200×1000×970", "qty": "30", "unit": "只", "status": "已归还", "maker": "林国栋", "date": "2026-09-03"}, "note": "1", "cells": ["<span class=\"lk\" onclick=\"go('../租入管理/租入单列表.html')\">RZD-20260815-003</span>", "环通循环包装运营（上海）有限公司", "<span class=\"tag tag-blue\">整退归还</span>", "围板箱 1200×1000×970", "30 只", "<span class=\"tag tag-green\">已归还</span>", "林国栋", "2026-09-03 11:30"], "ops": [{"t": "详情", "act": "go('../租入管理/归还出库详情.html?id=GHCK-20260903-001')"}, {"t": "租金应付", "act": "go('../财务协同/应付账单.html')"}]},
+      'title': '归还出库单详情',
       'formTitle': '归还信息',
       'formRows': [
         { 'label': '归还单号', 'text': 'GHCK-20260903-001' },
@@ -3687,7 +3687,7 @@ window.DEMO_DATA = {
           'url': '租赁管理/退租入库列表.html'
         },
         {
-          'role': '租入归还（本单）',
+          'role': '归还出库（本单）',
           'name': 'GHCK-20260903-001',
           'self': true
         },
@@ -3716,8 +3716,8 @@ window.DEMO_DATA = {
       ]
     },
     'GHCK-20260903-002': {
-      'row': {"fields": {"ref": "RZD-20260815-005", "operator": "环通循环包装运营（上海）有限公司", "rtype": "分流归还", "appliance": "围板箱 1200×1000×970（退租拆散后归还）", "mat": "WBX-1210L", "matName": "围板箱 1200×1000×970（退租拆散后归还）", "qty": "4", "unit": "只", "status": "待审核", "maker": "林国栋", "date": "2026-09-03"}, "note": "2", "cells": ["<span class=\"lk\" onclick=\"go('../租入管理/租入单列表.html')\">RZD-20260815-005</span>", "环通循环包装运营（上海）有限公司", "<span class=\"tag tag-orange\">分流归还</span>", "围板箱 1200×1000×970（退租拆散后归还）", "4 只", "<span class=\"tag tag-orange\">待审核</span>", "林国栋", "2026-09-03 14:05"], "ops": [{"t": "详情", "act": "go('../租入管理/租入归还详情.html?id=GHCK-20260903-002')"}, {"t": "审核", "act": "go('../租入管理/租入归还审核.html?id=GHCK-20260903-002')"}]},
-      'title': '租入归还单详情',
+      'row': {"fields": {"ref": "RZD-20260815-005", "operator": "环通循环包装运营（上海）有限公司", "rtype": "分流归还", "appliance": "围板箱 1200×1000×970（退租拆散后归还）", "mat": "WBX-1210L", "matName": "围板箱 1200×1000×970（退租拆散后归还）", "qty": "4", "unit": "只", "status": "待审核", "maker": "林国栋", "date": "2026-09-03"}, "note": "2", "cells": ["<span class=\"lk\" onclick=\"go('../租入管理/租入单列表.html')\">RZD-20260815-005</span>", "环通循环包装运营（上海）有限公司", "<span class=\"tag tag-orange\">分流归还</span>", "围板箱 1200×1000×970（退租拆散后归还）", "4 只", "<span class=\"tag tag-orange\">待审核</span>", "林国栋", "2026-09-03 14:05"], "ops": [{"t": "详情", "act": "go('../租入管理/归还出库详情.html?id=GHCK-20260903-002')"}, {"t": "审核", "act": "go('../租入管理/归还出库审核.html?id=GHCK-20260903-002')"}]},
+      'title': '归还出库单详情',
       'formTitle': '归还信息',
       'formRows': [
         { 'label': '归还单号', 'text': 'GHCK-20260903-002' },
@@ -3744,7 +3744,7 @@ window.DEMO_DATA = {
           'url': '租赁管理/退租入库列表.html'
         },
         {
-          'role': '租入归还（本单）',
+          'role': '归还出库（本单）',
           'name': 'GHCK-20260903-002',
           'self': true
         },
@@ -3774,8 +3774,8 @@ window.DEMO_DATA = {
       ]
     },
     'GHCK-20260831-003': {
-      'row': {"fields": {"ref": "RZD-20260701-001", "operator": "环通循环包装运营（上海）有限公司", "rtype": "整退归还", "appliance": "金属料箱 800×600", "mat": "BTC-6040", "matName": "金属料箱 800×600", "qty": "20", "unit": "只", "status": "已归还", "maker": "周志远", "date": "2026-08-31"}, "cells": ["<span class=\"lk\" onclick=\"go('../租入管理/租入单列表.html')\">RZD-20260701-001</span>", "环通循环包装运营（上海）有限公司", "<span class=\"tag tag-blue\">整退归还</span>", "金属料箱 800×600", "20 只", "<span class=\"tag tag-green\">已归还</span>", "周志远", "2026-08-31 10:15"], "ops": [{"t": "详情", "act": "go('../租入管理/租入归还详情.html?id=GHCK-20260831-003')"}]},
-      'title': '租入归还单详情',
+      'row': {"fields": {"ref": "RZD-20260701-001", "operator": "环通循环包装运营（上海）有限公司", "rtype": "整退归还", "appliance": "金属料箱 800×600", "mat": "BTC-6040", "matName": "金属料箱 800×600", "qty": "20", "unit": "只", "status": "已归还", "maker": "周志远", "date": "2026-08-31"}, "cells": ["<span class=\"lk\" onclick=\"go('../租入管理/租入单列表.html')\">RZD-20260701-001</span>", "环通循环包装运营（上海）有限公司", "<span class=\"tag tag-blue\">整退归还</span>", "金属料箱 800×600", "20 只", "<span class=\"tag tag-green\">已归还</span>", "周志远", "2026-08-31 10:15"], "ops": [{"t": "详情", "act": "go('../租入管理/归还出库详情.html?id=GHCK-20260831-003')"}]},
+      'title': '归还出库单详情',
       'formTitle': '归还信息',
       'formRows': [
         { 'label': '归还单号', 'text': 'GHCK-20260831-003' },
@@ -3802,7 +3802,7 @@ window.DEMO_DATA = {
           'url': '租入管理/租入单列表.html'
         },
         {
-          'role': '租入归还（本单）',
+          'role': '归还出库（本单）',
           'name': 'GHCK-20260831-003',
           'self': true
         },
@@ -9324,7 +9324,7 @@ window.DEMO_DATA = {
         {
           'cells': ['09-03', 'GHCK-20260903-002', '分流归还 · 租入侧大箱 4 只缺损归还环通', '-4 只'],
           'links': {
-            1: '租入管理/租入归还列表.html'
+            1: '租入管理/归还出库列表.html'
           }
         },
         {
@@ -10975,9 +10975,9 @@ window.DEMO_DATA = {
           'url': '租入管理/租入单列表.html'
         },
         {
-          'role': '租入归还',
+          'role': '归还出库',
           'name': 'GHCK-20260903-001 / -002',
-          'url': '租入管理/租入归还列表.html'
+          'url': '租入管理/归还出库列表.html'
         },
         {
           'role': '应付账单',
@@ -12994,7 +12994,7 @@ window.DEMO_DATA = {
     'DJ-06': { 'row': {"fields": {"category": "待办单据类型", "abbr": "DJ-06", "name": "盘点", "status": "启用"}, "cells": ["DJ-06", "盘点", "<span class=\"td-num\">6</span>", "盘点单审核", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
     'DJ-07': { 'row': {"fields": {"category": "待办单据类型", "abbr": "DJ-07", "name": "采购入库", "status": "启用"}, "cells": ["DJ-07", "采购入库", "<span class=\"td-num\">7</span>", "采购验收单据", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
     'DJ-08': { 'row': {"fields": {"category": "待办单据类型", "abbr": "DJ-08", "name": "租入入库", "status": "启用"}, "cells": ["DJ-08", "租入入库", "<span class=\"td-num\">8</span>", "租入验收单据", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
-    'DJ-09': { 'row': {"fields": {"category": "待办单据类型", "abbr": "DJ-09", "name": "租入归还", "status": "启用"}, "cells": ["DJ-09", "租入归还", "<span class=\"td-num\">9</span>", "归还供应商单据", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
+    'DJ-09': { 'row': {"fields": {"category": "待办单据类型", "abbr": "DJ-09", "name": "归还出库", "status": "启用"}, "cells": ["DJ-09", "归还出库", "<span class=\"td-num\">9</span>", "归还供应商单据", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
     'DJ-10': { 'row': {"fields": {"category": "待办单据类型", "abbr": "DJ-10", "name": "其他入库", "status": "启用"}, "cells": ["DJ-10", "其他入库", "<span class=\"td-num\">10</span>", "手工入库单据", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
     'DJ-11': { 'row': {"fields": {"category": "待办单据类型", "abbr": "DJ-11", "name": "付款登记", "status": "启用"}, "cells": ["DJ-11", "付款登记", "<span class=\"td-num\">11</span>", "付款单据", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
     'DJ-12': { 'row': {"fields": {"category": "待办单据类型", "abbr": "DJ-12", "name": "收款确认", "status": "启用"}, "cells": ["DJ-12", "收款确认", "<span class=\"td-num\">12</span>", "收款单据", "<span class=\"tag tag-green\">启用</span>"], "ops": [{"t": "编辑"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
@@ -13043,7 +13043,7 @@ window.DEMO_DATA = {
     'PD-20260907-003': { 'row': {"fields": {"auditor": "林国栋", "type": "盘点", "docNo": "PD-20260907-003", "summary": "华东中心仓 9 月初盘点（差异 5 只）", "project": "华东中心仓", "submitter": "林国栋", "time": "09-07 10:12", "action": "待审核"}}, 'link': '仓储作业/盘点审核.html?id=PD-20260907-003' },
     'RK-20260906-014': { 'row': {"fields": {"auditor": "严丽", "type": "采购入库", "docNo": "RK-20260906-014", "summary": "甬城塑业包装 · 围板箱到货 200 只", "project": "PRJ-2601", "submitter": "林国栋", "time": "09-06 09:45", "action": "待验收"}}, 'link': '采购管理/采购入库审核.html?id=RK-20260906-014' },
     'RZ-20260905-004': { 'row': {"fields": {"auditor": "江强", "type": "租入入库", "docNo": "RZ-20260905-004", "summary": "环通 · 围板箱租入 300 只", "project": "PRJ-2603", "submitter": "江强", "time": "09-05 11:20", "action": "待入库"}}, 'link': '租入管理/租入入库确认.html?id=RZ-20260905-004' },
-    'GH-20260904-002': { 'row': {"fields": {"auditor": "江强", "type": "租入归还", "docNo": "GH-20260904-002", "summary": "环通 · 归还围板箱 100 只", "project": "PRJ-2603", "submitter": "江强", "time": "09-04 15:08", "action": "待审核"}}, 'link': '租入管理/租入归还审核.html?id=GH-20260904-002' },
+    'GH-20260904-002': { 'row': {"fields": {"auditor": "江强", "type": "归还出库", "docNo": "GH-20260904-002", "summary": "环通 · 归还围板箱 100 只", "project": "PRJ-2603", "submitter": "江强", "time": "09-04 15:08", "action": "待审核"}}, 'link': '租入管理/归还出库审核.html?id=GH-20260904-002' },
     'QT-20260903-001': { 'row': {"fields": {"auditor": "徐文", "type": "其他入库", "docNo": "QT-20260903-001", "summary": "调拨余量回库 · 托盘 40 张", "project": "华东中心仓", "submitter": "邵磊", "time": "09-03 14:22", "action": "待审核"}}, 'link': '仓储作业/其他入库审核.html?id=QT-20260903-001' },
     'FK-20260902-005': { 'row': {"fields": {"auditor": "严丽", "type": "付款登记", "docNo": "FK-20260902-005", "summary": "甬城塑业包装 · 8 月应付结算", "project": "PRJ-2601", "submitter": "李婧", "time": "09-02 10:30", "action": "待确认"}}, 'link': '财务协同/付款确认.html?id=FK-20260902-005' },
     'SK-20260901-003': { 'row': {"fields": {"auditor": "严丽", "type": "收款确认", "docNo": "SK-20260901-003", "summary": "华骏重卡 · 8 月租金收款", "project": "PRJ-2601", "submitter": "李婧", "time": "09-01 09:15", "action": "待确认"}}, 'link': '财务协同/收款登记.html?audit=1' },

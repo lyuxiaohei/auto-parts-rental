@@ -321,8 +321,8 @@
    "lane": "s5b",
    "col": 4,
    "type": "backend",
-   "label": "租入归还新建",
-   "sublabel": "⟷租入归还",
+   "label": "归还出库新建",
+   "sublabel": "⟷归还出库",
    "width": 108
   },
   {

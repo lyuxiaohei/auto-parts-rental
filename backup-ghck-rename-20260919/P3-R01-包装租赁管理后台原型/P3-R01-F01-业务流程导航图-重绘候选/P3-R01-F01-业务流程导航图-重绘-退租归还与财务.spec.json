@@ -1,0 +1,361 @@
+{
+ "schema_version": 1,
+ "diagram_type": "workflow",
+ "meta": {
+  "title": "业务流程导航 · 退租归还与财务通道（T1/T2 ＋ F1/F2）",
+  "quality_profile": "showcase",
+  "viewBox": [
+   1000,
+   900
+  ],
+  "legend": {
+   "mode": "auto",
+   "entries": {
+    "backend": {
+     "label": "业务单据 / 流程页"
+    },
+    "database": {
+     "label": "库存枢纽（库存查询）"
+    }
+   }
+  },
+  "views": [
+   {
+    "id": "view-return",
+    "label": "T1 客户退租三分流",
+    "focus": [
+     "t1ra",
+     "t1ti",
+     "t1ap",
+     "t1ri",
+     "t1iv",
+     "t1re"
+    ],
+    "note": "退租入库＝统一入口 · 核对二分：要么赔偿 · 要么继续 · 完好按资产归属分流"
+   },
+   {
+    "id": "view-give",
+    "label": "T2 租入归还",
+    "focus": [
+     "t1ri",
+     "th",
+     "t2iv",
+     "t2re",
+     "t2ap"
+    ],
+    "note": "归还供应商独立事件 · 双入口：T1 租入行回库后 ／ 未转租直接归还（见卡片）"
+   },
+   {
+    "id": "view-fin",
+    "label": "财务通道 F1/F2",
+    "focus": [
+     "f1ar",
+     "f1iv",
+     "f1rc",
+     "f1wx",
+     "f2ap",
+     "f2py"
+    ],
+    "note": "按客户/供应商汇总 · 同一账单可部分核销 · 应收应付各五类来源"
+   }
+  ]
+ },
+ "lanes": [
+  {
+   "id": "t1",
+   "label": "T1 客户退租 · 统一入口（2026-09-10 拍板）"
+  },
+  {
+   "id": "t1r",
+   "label": "T1 ③ 完好 · 租入回库（适用 L3/L4）"
+  },
+  {
+   "id": "t1o",
+   "label": "T1 ② 完好 · 自有回库（适用 L1/L2）"
+  },
+  {
+   "id": "t2",
+   "label": "T2 租入归还 · 独立事件（2026-09-10 拍板）"
+  },
+  {
+   "id": "f1",
+   "label": "F1 应收通道 · 全线共用"
+  },
+  {
+   "id": "f2",
+   "label": "F2 应付通道 · 全线共用"
+  }
+ ],
+ "phases": [
+  {
+   "id": "ph-entry",
+   "label": "退租入口",
+   "fromCol": 0,
+   "toCol": 1
+  },
+  {
+   "id": "ph-check",
+   "label": "入库 · 核对",
+   "fromCol": 2,
+   "toCol": 3
+  },
+  {
+   "id": "ph-out",
+   "label": "回库 · 交棒 · 账单",
+   "fromCol": 4,
+   "toCol": 5
+  }
+ ],
+ "mainPath": [
+  "t1ra",
+  "t1ti",
+  "t1iv",
+  "t1re"
+ ],
+ "nodes": [
+  {
+   "id": "t1ra",
+   "lane": "t1",
+   "col": 0,
+   "type": "backend",
+   "label": "租赁单退租",
+   "sublabel": "客户退回",
+   "width": 88
+  },
+  {
+   "id": "t1ti",
+   "lane": "t1",
+   "col": 2,
+   "type": "backend",
+   "label": "退租入库",
+   "sublabel": "验收核对",
+   "width": 88
+  },
+  {
+   "id": "t1ap",
+   "lane": "t1",
+   "col": 4,
+   "type": "backend",
+   "label": "转应收/应付",
+   "sublabel": "①缺损·赔偿",
+   "width": 104
+  },
+  {
+   "id": "t1ri",
+   "lane": "t1r",
+   "col": 4,
+   "type": "backend",
+   "label": "租入在库",
+   "sublabel": "③完好·租入",
+   "width": 104
+  },
+  {
+   "id": "t1iv",
+   "lane": "t1o",
+   "col": 2,
+   "type": "backend",
+   "label": "在库",
+   "sublabel": "②完好·自有",
+   "width": 104
+  },
+  {
+   "id": "t1re",
+   "lane": "t1o",
+   "col": 4,
+   "type": "backend",
+   "label": "循环再出租",
+   "sublabel": "L1/L2 进度",
+   "width": 104
+  },
+  {
+   "id": "t2iv",
+   "lane": "t2",
+   "col": 0,
+   "type": "database",
+   "label": "租入在库",
+   "sublabel": "待归还",
+   "width": 88
+  },
+  {
+   "id": "t2re",
+   "lane": "t2",
+   "col": 2,
+   "type": "backend",
+   "label": "租入归还",
+   "sublabel": "关联分批",
+   "width": 88
+  },
+  {
+   "id": "t2ap",
+   "lane": "t2",
+   "col": 4,
+   "type": "backend",
+   "label": "租金应付",
+   "sublabel": "⇢F2赔付",
+   "width": 88
+  },
+  {
+   "id": "f1ar",
+   "lane": "f1",
+   "col": 0,
+   "type": "backend",
+   "label": "应收账单",
+   "sublabel": "五类来源",
+   "width": 88
+  },
+  {
+   "id": "f1iv",
+   "lane": "f1",
+   "col": 2,
+   "type": "backend",
+   "label": "开票登记",
+   "sublabel": "开票上传",
+   "width": 88
+  },
+  {
+   "id": "f1rc",
+   "lane": "f1",
+   "col": 3,
+   "type": "backend",
+   "label": "收款登记",
+   "sublabel": "录入待审",
+   "width": 88
+  },
+  {
+   "id": "f1wx",
+   "lane": "f1",
+   "col": 5,
+   "type": "backend",
+   "label": "收款核销",
+   "sublabel": "回单勾对",
+   "width": 88
+  },
+  {
+   "id": "f2ap",
+   "lane": "f2",
+   "col": 0,
+   "type": "backend",
+   "label": "应付账单",
+   "sublabel": "五类来源",
+   "width": 88
+  },
+  {
+   "id": "f2py",
+   "lane": "f2",
+   "col": 2,
+   "type": "backend",
+   "label": "付款登记",
+   "sublabel": "确认待审",
+   "width": 88
+  },
+  {
+   "id": "th",
+   "lane": "t1r",
+   "col": 5,
+   "type": "external",
+   "label": "⇢ T2 交棒",
+   "sublabel": "租入归还",
+   "width": 88,
+   "height": 44
+  }
+ ],
+ "edges": [
+  {
+   "id": "e-t1-ra",
+   "from": "t1ra",
+   "to": "t1ti"
+  },
+  {
+   "id": "e-t1-ap",
+   "from": "t1ti",
+   "to": "t1ap"
+  },
+  {
+   "id": "e-t1-ri",
+   "from": "t1ti",
+   "to": "t1ri",
+   "fromSide": "bottom",
+   "toSide": "top",
+   "route": "drop"
+  },
+  {
+   "id": "e-t1-iv",
+   "from": "t1ti",
+   "to": "t1iv",
+   "fromSide": "bottom",
+   "toSide": "top",
+   "route": "drop"
+  },
+  {
+   "id": "e-t1-re",
+   "from": "t1iv",
+   "to": "t1re"
+  },
+  {
+   "id": "e-t2-iv",
+   "from": "t2iv",
+   "to": "t2re"
+  },
+  {
+   "id": "e-t2-ap",
+   "from": "t2re",
+   "to": "t2ap"
+  },
+  {
+   "id": "e-f1-ar",
+   "from": "f1ar",
+   "to": "f1iv"
+  },
+  {
+   "id": "e-f1-iv",
+   "from": "f1iv",
+   "to": "f1rc"
+  },
+  {
+   "id": "e-f1-rc",
+   "from": "f1rc",
+   "to": "f1wx"
+  },
+  {
+   "id": "e-f2-ap",
+   "from": "f2ap",
+   "to": "f2py"
+  },
+  {
+   "id": "e-t1-h",
+   "from": "t1ri",
+   "to": "th"
+  }
+ ],
+ "cards": [
+  {
+   "dot": "rose",
+   "title": "退租两事件",
+   "items": [
+    "退租来源：L1–L4 任一租赁线 · 退租入库＝统一入口（验收＋缺损核对）",
+    "核对二分：要么赔偿（自有→应收 · 租入→应付）· 要么继续",
+    "完好分流：② 自有回库循环再出租（⇢L1/L2）｜③ 租入回库交棒 T2",
+    "退租无申请单 · 入库仅更新库存 · 与财务结算解耦"
+   ]
+  },
+  {
+   "dot": "amber",
+   "title": "T2 双入口与财务来源",
+   "items": [
+    "T2 双入口：① T1 租入行回库后归还 ② 未转租（租入在库）直接归还——不经退租入库",
+    "F1 应收五类：B1 销售费 · L1–L4 租赁费 · 丢损赔偿（对客户）· 供应商应收 · 预收款",
+    "F2 应付五类：采购应付 · 租金应付 · 赔付应付 · 对客户应付 · 预付款",
+    "按客户/供应商汇总 · 同一账单可部分核销 · 付款确认独立弹窗"
+   ]
+  },
+  {
+   "dot": "cyan",
+   "title": "计租 · 押金 · 预收预付",
+   "items": [
+    "按持有量计租 · 期段账单＝起租日｜止租日｜天数｜日单价｜小计",
+    "押金：收取记应收押金行 · 退租结清退还转对客户应付（2026-09-14 拍板 · 金额口径待客户确认）",
+    "预收/预付：客户预付租金记预收按月冲抵 · 预付供应商租金记预付（09-06 补充）"
+   ]
+  }
+ ]
+}
