@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<title>新建销售订单 - 包装租赁管理后台</title>
+<title>新建采购订单 - 包装租赁管理后台</title>
 <style>
 :root {
   --primary: #1677ff;
@@ -262,18 +262,18 @@ th.td-num { text-align:right; }
    <li><div class="sm-link" onclick="go('../基础数据/库位档案.html')">库位档案</div></li>
    </ul>
       </li>
-      <li class="sm-item has-sub">
+      <li class="sm-item has-sub open">
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></span>采购管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
-   <li><div class="sm-link" onclick="go('../采购管理/采购订单列表.html')">采购订单</div></li>
+   <li><div class="sm-link selected">采购订单</div></li>
    <li><div class="sm-link" onclick="go('../采购管理/采购入库列表.html')">采购入库</div></li>
 <li><div class="sm-link" onclick="go('../采购管理/采购退货单列表.html')">采购退货</div></li>
    </ul>
       </li>
-      <li class="sm-item has-sub open">
+      <li class="sm-item has-sub">
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></span>销售管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
-   <li><div class="sm-link selected">销售订单</div></li>
+   <li><div class="sm-link" onclick="go('../销售管理/销售订单列表.html')">销售订单</div></li>
    <li><div class="sm-link" onclick="go('../销售管理/销售出库列表.html')">销售出库</div></li>
 <li><div class="sm-link" onclick="go('../销售管理/销售退货单列表.html')">销售退货</div></li>
    </ul>
@@ -337,53 +337,104 @@ th.td-num { text-align:right; }
   </div></aside>
   <div class="main-col">
 <div class="tabs">
-  <span class="tab">销售订单 <span class="close">×</span></span>
-  <span class="tab active">新建销售订单 <span class="close">×</span></span>
+  <span class="tab">采购订单 <span class="close">×</span></span>
+  <span class="tab active">新建采购订单 <span class="close">×</span></span>
+  <span class="tab">库存查询 <span class="close">×</span></span>
 </div>
     <div class="content submit-pad">
 <div class="card">
   <div class="card-head">
     <h3 class="card-title">订单信息</h3>
   </div>
-
-<div class="form-row">
-    <div class="form-label"><span class="req">*</span>客户：</div>
-    <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>华骏重卡汽车有限公司</option><option>东海商用汽车有限公司宁波分公司</option><option>星途新能源汽车科技有限公司</option><option>长风汽车制造有限公司</option></select><span class="caret">▾</span></div>
-  </div><div class="form-row">
+  <div class="form-row">
     <div class="form-label"><span class="req">*</span>所属项目：</div>
-    <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>PRJ-2601 华骏重卡·长春基地</option><option>PRJ-2601 华骏重卡</option><option>PRJ-2602 东海商用</option><option>PRJ-2603 星途</option><option>PRJ-2604 长风汽制</option></select><span class="caret">▾</span></div>
-  </div><div class="form-row">
-    <div class="form-label">要求交货日期：</div>
-    <div class="input-box" style="width:380px;"><input type="date" value="2026-09-12"></div>
-  </div><div class="form-row" style="align-items:flex-start;">
-        <div class="form-label" style="padding-top:6px;">备注：</div>
-        <div>
-          <div class="input-box" style="width:380px;height:auto;padding:6px 11px;"><textarea placeholder="选填" style="width:100%;border:none;outline:none;background:transparent;font:inherit;color:inherit;resize:vertical;min-height:72px;line-height:1.6;"></textarea></div>
-        </div>
-      </div></div>
+    <div>
+      <div class="input-box select-box" style="width:380px;"><select id="cmProject" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option value="PRJ-2601" selected>PRJ-2601 华骏重卡·长春基地 围板箱租赁</option><option value="PRJ-2602">PRJ-2602 华骏重卡·青岛基地 料架租赁</option><option value="PRJ-2603">PRJ-2603 长丰锂电·电池包周转箱</option><option value="PRJ-2604">PRJ-2604 南方汽造·座椅周转箱（试点）</option><option value="PRJ-2605">PRJ-2605 华骏重卡·蔚山基地 扩建</option><option value="PRJ-2606">PRJ-2606 长丰锂电·二期扩容</option></select><span class="caret">▾</span></div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-label"><span class="req">*</span>供应商：</div>
+    <div>
+      <div class="input-box select-box" style="width:380px;"><select id="cmSupplier" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option>环通循环包装运营（上海）有限公司</option><option selected>吴越联合五金制品有限公司</option><option>甬城塑业包装制品有限公司</option><option>延陵塑料托盘厂</option></select><span class="caret">▾</span></div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-label"><span class="req">*</span>物料类型：</div>
+    <div>
+      <div class="input-box select-box" style="width:380px;"><select id="cmMtype" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"></select><span class="caret">▾</span></div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-label">关联销售订单号：</div>
+    <div>
+      <div class="input-box" style="width:380px;position:relative;"><input id="poSoInput" placeholder="输入单号/客户搜索 · 选填 · 可直接手输" oninput="poSoSearch(this.value)" onfocus="poSoSearch(this.value)" autocomplete="off"><div id="poSoDrop" style="display:none;position:absolute;top:36px;left:0;width:100%;background:#fff;border:1px solid var(--border);border-radius:6px;box-shadow:0 4px 12px rgba(0,0,0,.08);z-index:30;max-height:220px;overflow:auto;font-size:12.5px;"></div></div>
+      <div class="pn-hint">关联后可带出客户与销售明细（以销定采 · 采购与销售并行，不强制关联）。</div>
+    </div>
+  </div>
+  <div class="form-row" id="poSoCustRow" style="display:none;">
+    <div class="form-label">客户（带出）：</div>
+    <div>
+      <div class="input-box" style="width:380px;"><input id="poSoCust" readonly class="auto"></div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-label">预计到货日期：</div>
+    <div>
+      <div class="input-box" style="width:380px;"><input type="date" value="2026-09-15"></div>
+    </div>
+  </div>
+  <div class="form-row" style="align-items:flex-start;">
+    <div class="form-label" style="padding-top:6px;">备注：</div>
+    <div>
+      <div class="input-box" style="width:380px;height:auto;padding:6px 11px;"><textarea placeholder="选填" style="width:100%;border:none;outline:none;background:transparent;font:inherit;color:inherit;resize:vertical;min-height:72px;line-height:1.6;"></textarea></div>
+    </div>
+  </div>
+</div>
+
 <div class="card">
   <div class="card-head">
-    <h3 class="card-title">订单明细</h3>
-    <div class="head-btns"><button class="btn btn-dashed btn-sm">添加一行</button></div>
+    <h3 class="card-title">采购明细</h3>
+    <div class="head-btns"><button class="btn btn-dashed btn-sm" onclick="addDetailRow(this)">添加一行</button></div>
   </div>
-
-  <div class="table-wrap edit-tbl" style="border:1px solid var(--border);border-radius:6px;">
+  <div class="table-wrap edit-tbl">
     <table>
-      <thead><tr><th>物料编码</th><th>物料名称</th><th>规格</th><th>单位</th><th>数量</th><th>可用库存</th><th style="font-size:13.5px;font-weight:700;">未税单价(元)</th><th style="font-size:13.5px;font-weight:700;">税率</th><th style="font-size:13.5px;font-weight:700;">含税单价(元)</th><th>含税金额(元)</th></tr></thead>
-      <tbody><tr><td><select data-tax="prod" style="width:100%;min-width:0;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option>WBX-1210L 围板箱 1200×1000×970</option><option>WBX-1210M 围板箱 1200×1000×590</option><option>PLT-1210W 木托盘 1200×1000</option><option>PLT-1210P 塑料托盘 1200×1000</option><option>BTC-6040 料箱 600×400×340</option><option selected>LJ-A100 锁扣组件</option><option>LJ-C300 围板</option><option>LJ-D400 箱盖</option><option>LJ-F600 内衬</option></select></td><td><select class="soName" style="width:100%;min-width:120px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option value="LJ-A100" selected>锁扣组件</option><option value="LJ-D400">箱盖</option></select></td><td><input value="不锈钢 304"></td><td><input value="件"></td><td><input data-tax="qty" value="3,000"></td><td class="td-num stock-cell">—</td><td><input data-tax="excl" value="1.60"></td><td><input data-tax="rate" value="13%" style="width:56px;"></td><td><input data-tax="incl" value="1.81"></td><td><input style="background:#fafafa;color:#8c8c8c;" data-tax="amt" class="auto" value="5,430.00"></td></tr><tr><td><select data-tax="prod" style="width:100%;min-width:0;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option>WBX-1210L 围板箱 1200×1000×970</option><option>WBX-1210M 围板箱 1200×1000×590</option><option>PLT-1210W 木托盘 1200×1000</option><option>PLT-1210P 塑料托盘 1200×1000</option><option>BTC-6040 料箱 600×400×340</option><option>LJ-A100 锁扣组件</option><option>LJ-C300 围板</option><option selected>LJ-D400 箱盖</option><option>LJ-F600 内衬</option></select></td><td><select class="soName" style="width:100%;min-width:120px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option value="LJ-A100">锁扣组件</option><option value="LJ-D400" selected>箱盖</option></select></td><td><input value="ABS 吸塑"></td><td><input value="件"></td><td><input data-tax="qty" value="1,500"></td><td class="td-num stock-cell">—</td><td><input data-tax="excl" value="3.60"></td><td><input data-tax="rate" value="13%" style="width:56px;"></td><td><input data-tax="incl" value="4.07"></td><td><input style="background:#fafafa;color:#8c8c8c;" data-tax="amt" class="auto" value="6,105.00"></td></tr></tbody>
+      <thead><tr><th style="width:44px;">序号</th><th>物料编码</th><th>物料名称</th><th>规格</th><th>单位</th><th style="width:90px;">数量</th><th style="font-size:13.5px;font-weight:700;">未税单价(元)</th><th style="font-size:13.5px;font-weight:700;">税率</th><th style="font-size:13.5px;font-weight:700;">含税单价(元)</th><th>含税金额(元)</th><th class="sticky-op">操作</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td><select data-prod-key style="width:100%;min-width:130px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"></select></td>
+          <td><select data-prod-name style="width:100%;min-width:180px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"></select></td>
+          <td><input data-spec value="不锈钢 304"></td>
+          <td><select data-unit style="width:100%;min-width:70px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"></select></td>
+          <td class="td-num"><input data-tax="qty" value="5,000"></td>
+          <td class="td-num"><input data-tax="excl" value="1.28"></td>
+          <td><select data-tax="rate" style="width:100%;min-width:80px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"></select></td>
+          <td class="td-num"><input data-tax="incl" value="1.45"></td>
+          <td class="td-num auto-cell" data-tax="amt">7,250.00</td>
+          <td class="ops sticky-op"><a>删除</a></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><select data-prod-key style="width:100%;min-width:130px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"></select></td>
+          <td><select data-prod-name style="width:100%;min-width:180px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"></select></td>
+          <td><input data-spec value="锌合金 65mm"></td>
+          <td><select data-unit style="width:100%;min-width:70px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"></select></td>
+          <td class="td-num"><input data-tax="qty" value="2,000"></td>
+          <td class="td-num"><input data-tax="excl" value="1.65"></td>
+          <td><select data-tax="rate" style="width:100%;min-width:80px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"></select></td>
+          <td class="td-num"><input data-tax="incl" value="1.86"></td>
+          <td class="td-num auto-cell" data-tax="amt">3,720.00</td>
+          <td class="ops sticky-op"><a>删除</a></td>
+        </tr>
+      </tbody>
     </table>
   </div>
-  
-  <div id="stockWarn" style="display:none;margin-top:8px;padding:8px 12px;border:1px solid #ffa39e;background:#fff1f0;border-radius:6px;font-size:12px;color:#d4380d;line-height:1.9;">
-    <span class="sw-txt">可用库存不足——可选择生成：</span>
-    <button class="btn btn-sm" style="margin-left:8px;" onclick="go('../采购管理/采购订单列表.html')">生成采购订单</button>
-    <button class="btn btn-sm" style="margin-left:6px;" onclick="go('../租入管理/租入单列表.html')">生成租入单</button>
-  </div>
-  </div>
+</div>
+
 <div class="card">
   <div class="card-head">
     <h3 class="card-title">附件</h3>
-    <div class="head-btns"><button class="btn btn-dashed btn-sm" type="button" onclick="attPick(this)">上传</button></div>
+    <div class="head-btns"><button class="btn btn-dashed btn-sm" type="button" onclick="attPick(this)">上传附件</button></div>
   </div>
   <div class="pn-hint">支持 PDF / 图片 / Excel，可多选 · 演示上传（文件不真实传输）</div>
   <input type="file" id="attFilePick" multiple style="display:none">
@@ -391,39 +442,12 @@ th.td-num { text-align:right; }
     <table>
       <thead><tr><th>文件名</th><th style="width:90px;">大小</th><th style="width:90px;">上传人</th><th style="width:120px;">上传时间</th><th class="sticky-op">操作</th></tr></thead>
       <tbody id="attList">
-          <tr><td>📄 PO-2601-围板箱采购合同.pdf</td><td>1.2 MB</td><td>陈锋</td><td>09-16 16:40</td><td class="sticky-op"><span class="ops"><a onclick="delAttach(this)">删除</a></span></td></tr>
-          <tr><td>📧 客户下单确认邮件截图.png</td><td>356 KB</td><td>沈婷</td><td>09-17 09:12</td><td class="sticky-op"><span class="ops"><a onclick="delAttach(this)">删除</a></span></td></tr>
+          <tr><td>📄 供应商报价单-甬城塑业.pdf</td><td>860 KB</td><td>林国栋</td><td>09-17 08:55</td><td class="sticky-op"><span class="ops"><a onclick="delAttach(this)">删除</a></span></td></tr>
+          <tr><td>📊 到货质检报告-0902批次.xlsx</td><td>128 KB</td><td>徐文</td><td>09-17 09:30</td><td class="sticky-op"><span class="ops"><a onclick="delAttach(this)">删除</a></span></td></tr>
       </tbody>
     </table>
   </div>
 </div>
-
-<div class="submit-bar"><button class="btn btn-default" onclick="go('../销售管理/销售订单列表.html')">取消</button><button class="btn">保存草稿</button><button class="btn">提交审核</button></div>
-    </div>
-  </div>
-</div>
-<script src="../_data/demo-data.js"></script>
-<script>/*F-A 税率三件套双向换算 · meeting0908 批3*/
-(function () {
-  function num(v){ var x = parseFloat(String(v).replace(/,/g,'')); return isNaN(x)?0:x; }
-  document.addEventListener('input', function (e) {
-    var i = e.target;
-    if (!i.matches || !i.matches('input[data-tax]')) return;
-    var tr = i.closest('tr'); if (!tr) return;
-    function q(r){ var el = tr.querySelector('input[data-tax="'+r+'"]'); return el ? String(el.value).replace(/,/g,'') : '0'; }
-    var rate = num(q('rate')) / 100;
-    if (i.getAttribute('data-tax') === 'incl') {
-      var ex = rate > 0 ? num(q('incl')) / (1 + rate) : num(q('incl'));
-      var exEl = tr.querySelector('input[data-tax="excl"]'); if (exEl) exEl.value = ex.toFixed(2);
-    } else {
-      var inc = num(q('excl')) * (1 + rate);
-      var incEl = tr.querySelector('input[data-tax="incl"]'); if (incEl) incEl.value = inc.toFixed(2);
-    }
-    var amt = tr.querySelector('input[data-tax="amt"]');
-    if (amt) amt.value = fmtAmt(num(q('qty')) * num(q('incl')));
-    function fmtAmt(x){ return x.toLocaleString('zh-CN', {minimumFractionDigits: 2, maximumFractionDigits: 2}); }
-  });
-})();</script>
 <script>
 /* 附件上传列表（2026-09-17 道远指示）：真实文件选择器取文件名/大小（演示上传·不做真传输） */
 function attPick(btn) {
@@ -460,48 +484,156 @@ function delAttach(a) { var r = a.closest('tr'); if (r) r.remove(); }
   });
 })();
 </script>
+<div class="submit-bar"><button class="btn btn-default" onclick="go('../采购管理/采购订单列表.html')">取 消</button><button class="btn btn-default">保存草稿</button><button class="btn">提交审核</button></div>
+    </div>
+  </div>
+</div>
 
-<script>/* G13 ⑦ 新建优先查库存：选物料行内「可用库存 N 套」+不足红色提示条+生成采购订单/租入单（陆鸣拍板） */
+<script>
+function addDetailRow(btn) {
+  var card = btn.closest('.card');
+  var tbody = card ? card.querySelector('tbody') : null;
+  if (!tbody) return;
+  var last = tbody.querySelector('tr:last-child');
+  if (!last) return;
+  var row = last.cloneNode(true);
+  row.querySelectorAll('input').forEach(function (i) { i.value = i.defaultValue || i.value; });
+  tbody.appendChild(row);
+  var rows = tbody.querySelectorAll('tr');
+  rows.forEach(function (r, i) { r.cells[0].textContent = i + 1; });
+}
+</script>
+<script>/* G31 T5 关联销售订单搜索下拉（D-104）：选中带出客户+销售明细；可手输；未选恢复默认明细 */
+var PO_SO_SRC = [['SO-20260903-0047', '东海商用汽车有限公司宁波分公司', '冲压件隔板×2,400（先采后销 · 采购在途）'], ['SO-20260902-0046', '华骏重卡汽车有限公司', '锁扣组件×3,000'], ['SO-20260901-0045', '东海商用汽车有限公司宁波分公司', '铰链×1,200 / 箱盖×800']];
+var poSoDefaultRows = null;
+function poSoSearch(v) {
+  var drop = document.getElementById('poSoDrop');
+  if (!v || !v.trim()) { drop.style.display = 'none'; poSoReset(); return; }
+  var hits = PO_SO_SRC.filter(function (s) { return s[0].indexOf(v.trim()) > -1 || s[1].indexOf(v.trim()) > -1; });
+  if (!hits.length) { drop.innerHTML = '<div style="padding:8px 12px;color:#8c8c8c;">无匹配销售订单（可保留手输单号）</div>'; drop.style.display = 'block'; return; }
+  drop.innerHTML = hits.map(function (s) {
+    return '<div style="padding:8px 12px;cursor:pointer;border-bottom:1px solid #f0f0f0;" onmousedown="poSoPick(\'' + s[0] + '\')"><b>' + s[0] + '</b> · ' + s[1] + '<div style="color:#8c8c8c;margin-top:2px;">' + s[2] + '</div></div>';
+  }).join('');
+  drop.style.display = 'block';
+}
+function poSoPick(no) {
+  var s = PO_SO_SRC.find(function (x) { return x[0] === no; });
+  document.getElementById('poSoInput').value = no;
+  document.getElementById('poSoDrop').style.display = 'none';
+  var cr = document.getElementById('poSoCustRow');
+  if (cr) { cr.style.display = ''; document.getElementById('poSoCust').value = s ? s[1] : ''; }
+  /* 带出销售明细 → 采购明细表（可编辑，未选/清空恢复默认行） */
+  var tb = document.querySelector('.content .edit-tbl tbody');
+  if (tb) {
+    if (!poSoDefaultRows) poSoDefaultRows = tb.innerHTML;
+    var items = s ? s[2].split('+') : [];
+    tb.innerHTML = items.map(function (it, idx) {
+      var mth = it.match(/^(.+?)[×x]\s*([\d,]+)元?/) || [null, it.trim(), '1'];
+      return '<tr><td>' + (idx + 1) + '</td>'
+        + '<td><select data-prod-key style="width:100%;min-width:130px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"></select></td>'
+        + '<td><select data-prod-name style="width:100%;min-width:180px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"></select></td>'
+        + '<td><input data-spec value=""></td>'
+        + '<td><select data-unit style="width:100%;min-width:70px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"></select></td>'
+        + '<td class="td-num"><input data-tax="qty" value="' + String(mth[2]).replace(/,/g, '') + '"></td>'
+        + '<td class="td-num"><input data-tax="excl" value=""></td>'
+        + '<td><select data-tax="rate" style="width:100%;min-width:80px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"></select></td>'
+        + '<td class="td-num"><input data-tax="incl" value=""></td>'
+        + '<td class="td-num auto-cell" data-tax="amt"></td>'
+        + '<td class="ops sticky-op"><a>删除</a></td></tr>';
+    }).join('') || poSoDefaultRows;
+    renderRows();
+  }
+}
+function poSoReset() {
+  var cr = document.getElementById('poSoCustRow');
+  if (cr) cr.style.display = 'none';
+  var tb = document.querySelector('.content .edit-tbl tbody');
+  if (tb && poSoDefaultRows) tb.innerHTML = poSoDefaultRows;
+}
+document.addEventListener('click', function (e) { var d = document.getElementById('poSoDrop'); if (d && !d.parentElement.contains(e.target)) d.style.display = 'none'; });
+</script>
+<script src="../_data/demo-data.js"></script>
+<script>
+/* ===== 数据字典与物料档案取值（D-127：选项一律取自字典，不写死） ===== */
+function dictOpts(cat) {
+  var D = (window.DEMO_DATA || {}).dictItems || {};
+  return Object.keys(D).filter(function (k) {
+    var f = (D[k].row || {}).fields || {};
+    return f.category === cat && f.status !== '停用';
+  }).sort().map(function (k) { return ((D[k].row || {}).fields || {}).name; }).filter(Boolean);
+}
+function prodKeys() { return Object.keys((window.DEMO_DATA || {}).products || {}); }
+function prodFields(k) { var P = (window.DEMO_DATA || {}).products || {}; return ((P[k] || {}).row || {}).fields || {}; }
+
+/* 明细行：填充四个下拉并按 key 选中 + 带出规格 */
+function renderRow(tr, key) {
+  var keys = prodKeys();
+  var kk = key || (tr.getAttribute('data-key') || (keys[0] || ''));
+  tr.setAttribute('data-key', kk);
+  var sk = tr.querySelector('select[data-prod-key]');
+  var sn = tr.querySelector('select[data-prod-name]');
+  var su = tr.querySelector('select[data-unit]');
+  var sr = tr.querySelector('select[data-tax="rate"]');
+  if (sk) sk.innerHTML = keys.map(function (k) { return '<option value="' + k + '"' + (k === kk ? ' selected' : '') + '>' + k + '</option>'; }).join('');
+  if (sn) sn.innerHTML = keys.map(function (k) { return '<option value="' + k + '"' + (k === kk ? ' selected' : '') + '>' + (prodFields(k).name || k) + '</option>'; }).join('');
+  if (su) { var us = dictOpts('计量单位'); var u0 = prodFields(kk).unit || us[2] || us[0]; su.innerHTML = us.map(function (u) { return '<option' + (u === u0 ? ' selected' : '') + '>' + u + '</option>'; }).join(''); }
+  if (sr) sr.innerHTML = dictOpts('供应商税率').map(function (r) { return '<option' + (r === '13%' ? ' selected' : '') + '>' + r + '</option>'; }).join('');
+}
+function renderRows() {
+  document.querySelectorAll('.edit-tbl tbody tr').forEach(function (tr) { renderRow(tr); });
+}
+/* 表头「物料类型」下拉（字典驱动） */
 (function () {
-  var STOCK_MAP = { 'WBX-1210L': [2120, '只'], 'WBX-1210M': [860, '只'], 'PLT-1210W': [60, '块'], 'PLT-1210P': [1410, '块'], 'BTC-6040': [3300, '只'], 'LJ-A100': [5260, '件'], 'LJ-B200': [2640, '件'], 'LJ-C300': [1860, '件'], 'LJ-D400': [980, '件'], 'LJ-F600': [1520, '件'], 'ZH-2601-A': [640, '套'], 'ZH-2602-B': [820, '套'], 'ZH-2603-C': [150, '套'], 'ZH-2604-D': [0, '套'] };
-  var GOBASE = '../';
-  function num(v) { var x = parseFloat(String(v).replace(/,/g, '')); return isNaN(x) ? 0 : x; }
-  function keyOf(text) { var m = String(text || '').trim().match(/^([A-Za-z]+-[\w.-]+)/); return m ? m[1] : ''; }
-  function rowQty(tr) { var q = tr.querySelector('input[data-tax="qty"]'); return num(q ? q.value : 0); }
-  function updRow(tr) {
-    var sel = tr.querySelector('td select'); if (!sel) return;
-    var k = keyOf(sel.value || (sel.options[sel.selectedIndex] || {}).text);
-    /* 道远 09-19：可用库存由物料下方行内提示改为独立列（数量右侧）——改写 .stock-cell */
-    var cell = tr.querySelector('.stock-cell'); if (!cell) return;
-    var st = STOCK_MAP[k];
-    if (!st) { cell.textContent = '—（无库存记录）'; cell.style.color = '#8c8c8c'; return; }
-    cell.textContent = st[0].toLocaleString('zh-CN') + ' ' + st[1];
-    cell.style.color = rowQty(tr) > st[0] ? '#ff4d4f' : '#52c41a';
-    var qi = tr.querySelector('input[data-tax="qty"]');
-    if (qi) qi.style.color = rowQty(tr) > st[0] ? '#ff4d4f' : '';
+  var mt = document.getElementById('cmMtype');
+  if (mt) mt.innerHTML = dictOpts('物料类型').map(function (n) { return '<option>' + n + '</option>'; }).join('');
+})();
+/* 物料编码 ↔ 物料名称 双向联动 + 带出规格（任一变化，另一字段自动变更） */
+document.addEventListener('change', function (e) {
+  var el = e.target;
+  if (!el.matches || !el.matches('select[data-prod-key], select[data-prod-name]')) return;
+  var tr = el.closest('tr'); if (!tr) return;
+  renderRow(tr, el.value);
+  var sp = tr.querySelector('input[data-spec]');
+  if (sp) sp.value = prodFields(el.value).spec || '';
+  /* G39 · 参考价带出且可改（D-148）：按参考未税采购价预填 */
+  var bp = prodFields(el.value).buyPrice;
+  var ex = tr.querySelector('input[data-tax="excl"]');
+  if (ex && bp && bp !== '—') {
+    ex.value = bp;
+    var rsel = tr.querySelector('select[data-tax="rate"]');
+    var r = parseFloat(String(rsel && rsel.value).replace('%', '')) / 100 || 0.13;
+    var inc = tr.querySelector('input[data-tax="incl"]');
+    if (inc) inc.value = (parseFloat(bp) * (1 + r)).toFixed(2);
+    var amt = tr.querySelector('input[data-tax="amt"]');
+    var q = tr.querySelector('input[data-tax="qty"]');
+    if (amt && q) amt.value = (parseFloat(String(q.value).replace(/,/g, '')) * parseFloat(bp) * (1 + r)).toLocaleString('zh-CN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   }
-  function refresh() {
-    var lack = null;
-    document.querySelectorAll('.edit-tbl tbody tr').forEach(function (tr) {
-      if (!tr.querySelector('td select')) return;
-      updRow(tr);
-      var sel = tr.querySelector('td select');
-      var k = keyOf(sel.value || (sel.options[sel.selectedIndex] || {}).text);
-      var st = STOCK_MAP[k];
-      if (st && rowQty(tr) > st[0]) lack = { name: k, need: rowQty(tr), have: st[0], unit: st[1] };
-    });
-    var w = document.getElementById('stockWarn');
-    if (!w) return;
-    if (lack) {
-      w.style.display = 'block';
-      var t = w.querySelector('.sw-txt');
-      if (t) t.textContent = '可用库存不足（' + lack.name + '：需求 ' + lack.need + ' · 可用 ' + lack.have + ' ' + lack.unit + '）——可选择生成：';
-    } else { w.style.display = 'none'; }
+});
+window.addEventListener('load', renderRows);
+renderRows();
+</script>
+<script>/* 项目→绑定供应商联动（一对多多对多 · 2026-09-11 落地） */
+(function(){
+  var PRJ_SUPPLIERS = {
+    'PRJ-2601': ['环通循环包装运营（上海）有限公司', '甬城塑业包装制品有限公司'],
+    'PRJ-2602': ['环通循环包装运营（上海）有限公司', '延陵塑料托盘厂'],
+    'PRJ-2603': ['环通循环包装运营（上海）有限公司'],
+    'PRJ-2604': ['甬城塑业包装制品有限公司'],
+    'PRJ-2605': ['环通循环包装运营（上海）有限公司'],
+    'PRJ-2606': ['环通循环包装运营（上海）有限公司', '吴越联合五金制品有限公司']
+  };
+  var prjSel = document.getElementById('cmProject'), supSel = document.getElementById('cmSupplier');
+  if (!prjSel || !supSel) return;
+  function syncSuppliers(){
+    var list = PRJ_SUPPLIERS[prjSel.value] || [];
+    supSel.innerHTML = list.length
+      ? list.map(function(n, i){ return '<option' + (i === 0 ? ' selected' : '') + '>' + n + '</option>'; }).join('')
+      : '<option selected>（该项目未绑定供应商，请先在项目档案完成上下游绑定）</option>';
   }
-  document.addEventListener('change', function (e) { if (e.target.matches && e.target.matches('.edit-tbl td select, .edit-tbl input[data-tax="qty"]')) refresh(); });
-  document.addEventListener('input', function (e) { if (e.target.matches && e.target.matches('.edit-tbl input[data-tax="qty"]')) refresh(); });
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', refresh); else refresh();
-})();</script>
+  prjSel.addEventListener('change', syncSuppliers);
+  syncSuppliers();
+})();
+</script>
 <script>
 /* ===== 菜单折叠 / 页签与表单视觉态（统一脚本） ===== */
 function go(url) { location.href = url; }
@@ -560,7 +692,29 @@ document.querySelectorAll('.tab').forEach(function (t) {
   }, true);
 })();
 </script>
-
+<script>/*F-A 税率三件套双向换算 · meeting0908 批3*/
+(function () {
+  function num(v){ var x = parseFloat(String(v).replace(/,/g,'')); return isNaN(x)?0:x; }
+  function taxRecalc(e) {
+    var i = e.target;
+    if (!i.matches || !i.matches('[data-tax]')) return;
+    var tr = i.closest('tr'); if (!tr) return;
+    function q(r){ var el = tr.querySelector('[data-tax="'+r+'"]'); return el ? String(el.value).replace(/,/g,'') : '0'; }
+    var rate = num(q('rate')) / 100;
+    if (i.getAttribute('data-tax') === 'incl') {
+      var ex = rate > 0 ? num(q('incl')) / (1 + rate) : num(q('incl'));
+      var exEl = tr.querySelector('input[data-tax="excl"]'); if (exEl) exEl.value = ex.toFixed(2);
+    } else {
+      var inc = num(q('excl')) * (1 + rate);
+      var incEl = tr.querySelector('input[data-tax="incl"]'); if (incEl) incEl.value = inc.toFixed(2);
+    }
+    var amt = tr.querySelector('[data-tax="amt"]');
+    if (amt) { var v = (num(q('qty')) * num(q('incl'))).toLocaleString('zh-CN', {minimumFractionDigits: 2, maximumFractionDigits: 2}); if (amt.tagName === 'INPUT') amt.value = v; else amt.textContent = v; }
+  }
+  document.addEventListener('input', taxRecalc);
+  document.addEventListener('change', taxRecalc);
+})();
+</script>
 
 
 
@@ -616,60 +770,16 @@ document.querySelectorAll('.tab').forEach(function (t) {
 <style id="f01-fab-style">.fab-row{position:fixed;right:12px;bottom:12px;z-index:880;display:flex;align-items:center;gap:6px}.fab-row .pn-fab{position:static}.f01-fab{display:flex;text-decoration:none;align-items:center;height:24px;padding:0 10px;border-radius:4px;background:#fff;border:1px solid #d9d9d9;color:#8c8c8c;font-size:11px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.06);opacity:.6;transition:opacity .15s}.f01-fab:hover{opacity:1;border-color:#722ed1;color:#722ed1}</style><div class="fab-row"><a class="f01-fab" href="../P3-R01-F01-业务流程导航图.html">流程图</a></div>
 <script src="../_data/notes-data.js"></script>
 <script src="../_data/notes-drawer.js"></script>
-<script>
-/* G39 · 参考价带出且可改（D-148）：销售明细按参考未税销售价预填 */
-(function () {
-  function pf(code) { try { return ((window.DEMO_DATA.products || {})[code] || {}).row.fields || null; } catch (e) { return null; } }
-  function g39SaleRef(e) {
-    var el = e.target;
-    if (!el.matches || !el.matches('select[data-tax="prod"]')) return;
-    var tr = el.closest('tr'); if (!tr) return;
-    var f = pf(String(el.value).split(' ')[0]);
-    if (!f || !f.salePrice || f.salePrice === '—') return;
-    var ex = tr.querySelector('input[data-tax="excl"]');
-    if (!ex) return;
-    ex.value = f.salePrice;
-    var rt = tr.querySelector('input[data-tax="rate"]') || tr.querySelector('select[data-tax="rate"]');
-    var r = parseFloat(String(rt && rt.value).replace('%', '')) / 100 || 0.13;
-    var inc = tr.querySelector('input[data-tax="incl"]');
-    if (inc) inc.value = (parseFloat(f.salePrice) * (1 + r)).toFixed(2);
-    var amt = tr.querySelector('input[data-tax="amt"]'), q = tr.querySelector('input[data-tax="qty"]');
-    if (amt && q) amt.value = (parseFloat(String(q.value).replace(/,/g, '')) * parseFloat(f.salePrice) * (1 + r)).toLocaleString('zh-CN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-  }
-  document.addEventListener('change', g39SaleRef);
-})();
-</script>
 <script src="../_data/select-source.js"></script>
 <script>
 /* G43 下拉数据源化：静态 option 为无 JS 兜底，运行时按字典/实体重渲染（矩阵见 _scan_tmpdir/g43_接线差集_v2.md） */
-SSEL.fillEntity(SSEL.byFormLabel('客户'),'partners',{label:'name',filter:function(k,f){return f.type==='客户';}});
-SSEL.fillEntity(SSEL.byFormLabel('所属项目'),'projects',{filter:function(k,f){return f.status!=='已完结';},label:function(k,f){return k+' '+(f.name||'');}});
-document.querySelectorAll('.edit-tbl td select[data-tax="prod"]').forEach(function(s){SSEL.fillEntity(s,'products',{label:function(k,f){return k+' '+(f.name||'');}});});
+SSEL.fillEntity(document.getElementById('cmProject'),'projects',{filter:function(k,f){return f.status!=='已完结';},label:function(k,f){return k+' '+(f.name||'');}});
 </script>
 <script src="../_data/mat-search.js"></script>
 <script>
-/* 物料搜索下拉（2026-09-17 道远指示）：明细物料列换搜索选择 */
-MSEL.attachAll('.edit-tbl select[data-tax="prod"]');
-</script>
-<script>
-/* 主数据字段搜索下拉（2026-09-17 道远采纳建议） */
-SSEL.fillEntity(SSEL.byFormLabel('客户'),'partners',{label:'name',filter:function(k,f){return f.type==='客户';}});
-MSEL.attach(SSEL.byFormLabel('客户'), { placeholder: '输入名称搜索' });
-SSEL.fillEntity(SSEL.byFormLabel('所属项目'),'projects',{filter:function(k,f){return f.status!=='已完结';},label:function(k,f){return k+' '+(f.name||'');}});
-MSEL.attach(SSEL.byFormLabel('所属项目'), { placeholder: '输入编码/名称搜索' });
-</script>
-<script>
-/* 物料名称列搜索下拉＋编码↔名称双向联动（2026-09-17 道远指出补齐）；编码列补 value 键化便于联动 */
-document.querySelectorAll('select[data-tax="prod"]').forEach(function (code) {
-  var tr = code.closest('tr'); var name = tr.querySelector('select.soName');
-  if (!name) return;
-  SSEL.fillEntity(code, 'products', { label: function (k) { return k; } });
-  SSEL.fillEntity(name, 'products', { label: function (k, f) { return f.name || k; } });
-  name.value = code.value;
-  code.addEventListener('change', function () { name.value = code.value; MSEL.syncAll(); });
-  name.addEventListener('change', function () { code.value = name.value; MSEL.syncAll(); });
-});
-MSEL.attachAll('select.soName', { placeholder: '输入名称搜索' });
+/* 物料搜索下拉（2026-09-17 道远指示）：明细物料编码/物料名称换搜索选择·共享件接线 */
+MSEL.attachAll('.edit-tbl select[data-prod-key]', { placeholder: '输入编码搜索' });
+MSEL.attachAll('.edit-tbl select[data-prod-name]', { placeholder: '输入名称搜索' });
 </script>
 </body>
 </html>

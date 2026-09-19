@@ -416,7 +416,7 @@ th.td-num { text-align:right; }
           <td><span class="tag tag-blue">待发货</span></td>
           <td>江强</td>
           <td>2026-09-03 11:20</td>
-          <td class="sticky-op"><span class="ops"><a onclick="go('../销售管理/销售订单新建.html')">编辑</a><a onclick="go('../销售管理/销售订单审核.html')">审核</a><a>关闭</a><a onclick="openAttModal(this)">上传附件</a><a onclick="orderPrint(this)">打印</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../销售管理/销售订单新建.html')">编辑</a><a onclick="go('../销售管理/销售订单审核.html')">审核</a><a>关闭</a><a onclick="openAttModal(this)">上传</a><a onclick="orderPrint(this)">打印</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
@@ -430,7 +430,7 @@ th.td-num { text-align:right; }
           <td><span class="tag tag-orange">待审核</span></td>
           <td>江强</td>
           <td>2026-09-02 10:24</td>
-                    <td class="sticky-op"><span class="ops"><a onclick="go('../销售管理/销售订单新建.html')">编辑</a><a onclick="go('../销售管理/销售订单审核.html')">审核</a><a>关闭</a><a onclick="openAttModal(this)">上传附件</a><a onclick="orderPrint(this)">打印</a></span></td>
+                    <td class="sticky-op"><span class="ops"><a onclick="go('../销售管理/销售订单新建.html')">编辑</a><a onclick="go('../销售管理/销售订单审核.html')">审核</a><a>关闭</a><a onclick="openAttModal(this)">上传</a><a onclick="orderPrint(this)">打印</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
@@ -445,7 +445,7 @@ th.td-num { text-align:right; }
           <td>何雅</td>
           <td>2026-09-01 16:40</td>
           <td>—</td>
-                    <td class="sticky-op"><span class="ops"><a onclick="go('../销售管理/销售订单新建.html')">编辑</a><a onclick="go('../销售管理/销售订单审核.html')">审核</a><a>关闭</a><a onclick="openAttModal(this)">上传附件</a><a onclick="orderPrint(this)">打印</a></span></td>
+                    <td class="sticky-op"><span class="ops"><a onclick="go('../销售管理/销售订单新建.html')">编辑</a><a onclick="go('../销售管理/销售订单审核.html')">审核</a><a>关闭</a><a onclick="openAttModal(this)">上传</a><a onclick="orderPrint(this)">打印</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
@@ -823,7 +823,7 @@ SSEL.fillEntity(SSEL.byLabel('所属项目'),'projects',{keepFirst:true});
     <div class="modal-body">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
         <span class="pn-hint" style="margin:0;">支持 PDF / 图片 / Excel，可多选 · 演示上传（文件不真实传输）</span>
-        <button class="btn btn-dashed btn-sm" type="button" onclick="attModalPick(this)">上传附件</button>
+        <button class="btn btn-dashed btn-sm" type="button" onclick="attModalPick(this)">上传</button>
       </div>
       <input type="file" id="attModalFile" multiple style="display:none">
       <div class="table-wrap" style="border:1px solid var(--border);border-radius:6px;max-height:300px;overflow:auto;">

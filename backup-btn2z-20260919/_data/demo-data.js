@@ -4018,7 +4018,7 @@ window.DEMO_DATA = {
   /* B1 独立采购线 · 不以销定采；SO 号仅参考关联 */
   purchaseOrders: {
     'PO-20260902-018': {
-      'row': {"fields": {"supplier": "吴越联合五金制品有限公司", "mtype": "零部件", "summary": "锁扣组件×5,000 / 铰链×2,500", "date": "2026-08-26", "so": "SO-20260831-0042", "status": "已审核"}, "note": "1", "cells": ["吴越联合五金制品有限公司", "<span class=\"tag tag-blue\">零部件</span>", "锁扣组件×5,000 / 铰链×2,500", "<span class=\"td-num\">7,500</span>", "<span class=\"td-num\">13,500.00</span>", "CNY", "2026-08-26", "<span class=\"lk\">SO-20260831-0042</span>", "<span class=\"tag tag-blue\">已审核</span>"], "ops": [{"t": "生成入库单", "act": "go('../采购管理/采购入库列表.html')"}, {"t": "关闭"}, {"t": "上传", "act": "openAttModal('PO-20260902-018')"}, {"t": "打印", "act": "orderPrint('PO-20260902-018')"}]},
+      'row': {"fields": {"supplier": "吴越联合五金制品有限公司", "mtype": "零部件", "summary": "锁扣组件×5,000 / 铰链×2,500", "date": "2026-08-26", "so": "SO-20260831-0042", "status": "已审核"}, "note": "1", "cells": ["吴越联合五金制品有限公司", "<span class=\"tag tag-blue\">零部件</span>", "锁扣组件×5,000 / 铰链×2,500", "<span class=\"td-num\">7,500</span>", "<span class=\"td-num\">13,500.00</span>", "CNY", "2026-08-26", "<span class=\"lk\">SO-20260831-0042</span>", "<span class=\"tag tag-blue\">已审核</span>"], "ops": [{"t": "生成入库单", "act": "go('../采购管理/采购入库列表.html')"}, {"t": "关闭"}, {"t": "上传附件", "act": "openAttModal('PO-20260902-018')"}, {"t": "打印", "act": "orderPrint('PO-20260902-018')"}]},
       'title': '采购订单详情',
       'formTitle': '订单信息',
       'formRows': [
@@ -4101,7 +4101,7 @@ window.DEMO_DATA = {
       ]
     },
     'PO-20260901-017': {
-      'row': {"fields": {"supplier": "甬城塑业包装制品有限公司", "mtype": "器具", "summary": "围板箱 1200×1000×970×300", "date": "2026-08-25", "so": "—", "status": "已完成"}, "cells": ["甬城塑业包装制品有限公司", "<span class=\"tag tag-green\">器具</span>", "围板箱 1200×1000×970×300", "<span class=\"td-num\">300</span>", "<span class=\"td-num\">84,000.00</span>", "CNY", "2026-08-25", "—", "<span class=\"tag tag-green\">已完成</span>"], "ops": [{"t": "详情", "act": "go('../采购管理/采购订单详情.html?id=PO-20260901-017')"}, {"t": "入库记录", "act": "go('../采购管理/采购入库列表.html')"}, {"t": "上传", "act": "openAttModal('PO-20260901-017')"}, {"t": "打印", "act": "orderPrint('PO-20260901-017')"}]},
+      'row': {"fields": {"supplier": "甬城塑业包装制品有限公司", "mtype": "器具", "summary": "围板箱 1200×1000×970×300", "date": "2026-08-25", "so": "—", "status": "已完成"}, "cells": ["甬城塑业包装制品有限公司", "<span class=\"tag tag-green\">器具</span>", "围板箱 1200×1000×970×300", "<span class=\"td-num\">300</span>", "<span class=\"td-num\">84,000.00</span>", "CNY", "2026-08-25", "—", "<span class=\"tag tag-green\">已完成</span>"], "ops": [{"t": "详情", "act": "go('../采购管理/采购订单详情.html?id=PO-20260901-017')"}, {"t": "入库记录", "act": "go('../采购管理/采购入库列表.html')"}, {"t": "上传附件", "act": "openAttModal('PO-20260901-017')"}, {"t": "打印", "act": "orderPrint('PO-20260901-017')"}]},
       'title': '采购订单详情',
       'formTitle': '订单信息',
       'formRows': [
@@ -4164,7 +4164,7 @@ window.DEMO_DATA = {
       ]
     },
     'PO-20260830-016': {
-      'row': {"fields": {"supplier": "延陵塑料托盘厂", "mtype": "器具", "summary": "塑料托盘 1200×1000×500", "date": "2026-09-08", "so": "—", "status": "已审核"}, "cells": ["延陵塑料托盘厂", "<span class=\"tag tag-green\">器具</span>", "塑料托盘 1200×1000×500", "<span class=\"td-num\">500</span>", "<span class=\"td-num\">42,500.00</span>", "CNY", "2026-09-08", "—", "<span class=\"tag tag-blue\">已审核</span>"], "ops": [{"t": "生成入库单", "act": "go('../采购管理/采购入库列表.html')"}, {"t": "关闭"}, {"t": "上传", "act": "openAttModal('PO-20260830-016')"}, {"t": "打印", "act": "orderPrint('PO-20260830-016')"}]},
+      'row': {"fields": {"supplier": "延陵塑料托盘厂", "mtype": "器具", "summary": "塑料托盘 1200×1000×500", "date": "2026-09-08", "so": "—", "status": "已审核"}, "cells": ["延陵塑料托盘厂", "<span class=\"tag tag-green\">器具</span>", "塑料托盘 1200×1000×500", "<span class=\"td-num\">500</span>", "<span class=\"td-num\">42,500.00</span>", "CNY", "2026-09-08", "—", "<span class=\"tag tag-blue\">已审核</span>"], "ops": [{"t": "生成入库单", "act": "go('../采购管理/采购入库列表.html')"}, {"t": "关闭"}, {"t": "上传附件", "act": "openAttModal('PO-20260830-016')"}, {"t": "打印", "act": "orderPrint('PO-20260830-016')"}]},
       'title': '采购订单详情',
       'formTitle': '订单信息',
       'formRows': [
@@ -4222,7 +4222,7 @@ window.DEMO_DATA = {
       ]
     },
     'PO-20260828-015': {
-      'row': {"fields": {"supplier": "吴越联合五金制品有限公司", "mtype": "零部件", "summary": "箱盖 ABS 吸塑×2,000", "date": "2026-09-25", "so": "SO-20260827-0039", "status": "已审核"}, "cells": ["吴越联合五金制品有限公司", "<span class=\"tag tag-blue\">零部件</span>", "箱盖 ABS 吸塑×2,000", "<span class=\"td-num\">2,000</span>", "<span class=\"td-num\">6,300.00</span>", "CNY", "2026-09-25", "<span class=\"lk\">SO-20260827-0039</span>", "<span class=\"tag tag-blue\">已审核</span>"], "ops": [{"t": "生成入库单", "act": "go('../采购管理/采购入库列表.html')"}, {"t": "关闭"}, {"t": "上传", "act": "openAttModal('PO-20260828-015')"}, {"t": "打印", "act": "orderPrint('PO-20260828-015')"}]},
+      'row': {"fields": {"supplier": "吴越联合五金制品有限公司", "mtype": "零部件", "summary": "箱盖 ABS 吸塑×2,000", "date": "2026-09-25", "so": "SO-20260827-0039", "status": "已审核"}, "cells": ["吴越联合五金制品有限公司", "<span class=\"tag tag-blue\">零部件</span>", "箱盖 ABS 吸塑×2,000", "<span class=\"td-num\">2,000</span>", "<span class=\"td-num\">6,300.00</span>", "CNY", "2026-09-25", "<span class=\"lk\">SO-20260827-0039</span>", "<span class=\"tag tag-blue\">已审核</span>"], "ops": [{"t": "生成入库单", "act": "go('../采购管理/采购入库列表.html')"}, {"t": "关闭"}, {"t": "上传附件", "act": "openAttModal('PO-20260828-015')"}, {"t": "打印", "act": "orderPrint('PO-20260828-015')"}]},
       'title': '采购订单详情',
       'formTitle': '订单信息',
       'formRows': [
@@ -4280,7 +4280,7 @@ window.DEMO_DATA = {
       ]
     },
     'PO-20260825-014': {
-      'row': {"fields": {"supplier": "甬城塑业包装制品有限公司", "mtype": "器具", "summary": "料箱 600×400×340×800", "date": "2026-09-02", "so": "—", "status": "已完成"}, "cells": ["甬城塑业包装制品有限公司", "<span class=\"tag tag-green\">器具</span>", "料箱 600×400×340×800", "<span class=\"td-num\">800</span>", "<span class=\"td-num\">35,200.00</span>", "CNY", "2026-09-02", "—", "<span class=\"tag tag-green\">已完成</span>"], "ops": [{"t": "详情", "act": "go('../采购管理/采购订单详情.html?id=PO-20260825-014')"}, {"t": "入库记录", "act": "go('../采购管理/采购入库列表.html')"}, {"t": "上传", "act": "openAttModal('PO-20260825-014')"}, {"t": "打印", "act": "orderPrint('PO-20260825-014')"}]},
+      'row': {"fields": {"supplier": "甬城塑业包装制品有限公司", "mtype": "器具", "summary": "料箱 600×400×340×800", "date": "2026-09-02", "so": "—", "status": "已完成"}, "cells": ["甬城塑业包装制品有限公司", "<span class=\"tag tag-green\">器具</span>", "料箱 600×400×340×800", "<span class=\"td-num\">800</span>", "<span class=\"td-num\">35,200.00</span>", "CNY", "2026-09-02", "—", "<span class=\"tag tag-green\">已完成</span>"], "ops": [{"t": "详情", "act": "go('../采购管理/采购订单详情.html?id=PO-20260825-014')"}, {"t": "入库记录", "act": "go('../采购管理/采购入库列表.html')"}, {"t": "上传附件", "act": "openAttModal('PO-20260825-014')"}, {"t": "打印", "act": "orderPrint('PO-20260825-014')"}]},
       'title': '采购订单详情',
       'formTitle': '订单信息',
       'formRows': [
@@ -4343,7 +4343,7 @@ window.DEMO_DATA = {
       ]
     },
     'PO-20260820-013': {
-      'row': {"fields": {"supplier": "延陵塑料托盘厂", "mtype": "器具", "summary": "木托盘 1200×1000×400", "date": "2026-08-30", "so": "—", "status": "已完成"}, "cells": ["延陵塑料托盘厂", "<span class=\"tag tag-green\">器具</span>", "木托盘 1200×1000×400", "<span class=\"td-num\">400</span>", "<span class=\"td-num\">19,600.00</span>", "CNY", "2026-08-30", "—", "<span class=\"tag tag-green\">已完成</span>"], "ops": [{"t": "详情", "act": "go('../采购管理/采购订单详情.html?id=PO-20260820-013')"}, {"t": "入库记录", "act": "go('../采购管理/采购入库列表.html')"}, {"t": "上传", "act": "openAttModal('PO-20260820-013')"}, {"t": "打印", "act": "orderPrint('PO-20260820-013')"}]},
+      'row': {"fields": {"supplier": "延陵塑料托盘厂", "mtype": "器具", "summary": "木托盘 1200×1000×400", "date": "2026-08-30", "so": "—", "status": "已完成"}, "cells": ["延陵塑料托盘厂", "<span class=\"tag tag-green\">器具</span>", "木托盘 1200×1000×400", "<span class=\"td-num\">400</span>", "<span class=\"td-num\">19,600.00</span>", "CNY", "2026-08-30", "—", "<span class=\"tag tag-green\">已完成</span>"], "ops": [{"t": "详情", "act": "go('../采购管理/采购订单详情.html?id=PO-20260820-013')"}, {"t": "入库记录", "act": "go('../采购管理/采购入库列表.html')"}, {"t": "上传附件", "act": "openAttModal('PO-20260820-013')"}, {"t": "打印", "act": "orderPrint('PO-20260820-013')"}]},
       'title': '采购订单详情',
       'formTitle': '订单信息',
       'formRows': [
@@ -4415,7 +4415,7 @@ window.DEMO_DATA = {
       ]
     },
     'PO-20260815-012': {
-      'row': {"fields": {"supplier": "吴越联合五金制品有限公司", "mtype": "零部件", "summary": "内衬 EPE 珍珠棉×3,000", "date": "2026-08-25", "so": "—", "status": "已关闭"}, "cells": ["吴越联合五金制品有限公司", "<span class=\"tag tag-blue\">零部件</span>", "内衬 EPE 珍珠棉×3,000", "<span class=\"td-num\">3,000</span>", "<span class=\"td-num\">4,500.00</span>", "CNY", "2026-08-25", "—", "<span class=\"tag tag-gray\">已关闭</span>"], "ops": [{"t": "详情", "act": "go('../采购管理/采购订单详情.html?id=PO-20260815-012')"}, {"t": "上传", "act": "openAttModal('PO-20260815-012')"}, {"t": "打印", "act": "orderPrint('PO-20260815-012')"}]},
+      'row': {"fields": {"supplier": "吴越联合五金制品有限公司", "mtype": "零部件", "summary": "内衬 EPE 珍珠棉×3,000", "date": "2026-08-25", "so": "—", "status": "已关闭"}, "cells": ["吴越联合五金制品有限公司", "<span class=\"tag tag-blue\">零部件</span>", "内衬 EPE 珍珠棉×3,000", "<span class=\"td-num\">3,000</span>", "<span class=\"td-num\">4,500.00</span>", "CNY", "2026-08-25", "—", "<span class=\"tag tag-gray\">已关闭</span>"], "ops": [{"t": "详情", "act": "go('../采购管理/采购订单详情.html?id=PO-20260815-012')"}, {"t": "上传附件", "act": "openAttModal('PO-20260815-012')"}, {"t": "打印", "act": "orderPrint('PO-20260815-012')"}]},
       'title': '采购订单详情',
       'formTitle': '订单信息',
       'formRows': [
@@ -4474,7 +4474,7 @@ window.DEMO_DATA = {
   /* 订单唯一来源=项目经理代下；客户自助为演示例外 */
   salesOrders: {
     'SO-20260903-0047': {
-      'row': {"fields": {"customer": "东海商用汽车有限公司宁波分公司", "project": "PRJ-2602", "summary": "冲压件隔板×2,400（先采后销 · 采购在途）", "status": "待发货", "agent": "江强", "date": "2026-09-03"}, "note": "1", "cells": ["东海商用汽车有限公司宁波分公司", "PRJ-2602", "冲压件隔板×2,400（先采后销 · 采购在途）", "<span class=\"td-num\">2,400</span>", "<span class=\"td-num\">28,800.00</span>", "<span class=\"tag tag-blue\">待发货</span>", "江强", "2026-09-03 11:20"], "ops": [{"t": "编辑", "act": "go('../销售管理/销售订单新建.html')"}, {"t": "审核", "act": "go('../销售管理/销售订单审核.html?id=SO-20260903-0047')"}, {"t": "关闭"}, {"t": "上传", "act": "openAttModal('SO-20260903-0047')"}, {"t": "打印", "act": "orderPrint('SO-20260903-0047')"}]},
+      'row': {"fields": {"customer": "东海商用汽车有限公司宁波分公司", "project": "PRJ-2602", "summary": "冲压件隔板×2,400（先采后销 · 采购在途）", "status": "待发货", "agent": "江强", "date": "2026-09-03"}, "note": "1", "cells": ["东海商用汽车有限公司宁波分公司", "PRJ-2602", "冲压件隔板×2,400（先采后销 · 采购在途）", "<span class=\"td-num\">2,400</span>", "<span class=\"td-num\">28,800.00</span>", "<span class=\"tag tag-blue\">待发货</span>", "江强", "2026-09-03 11:20"], "ops": [{"t": "编辑", "act": "go('../销售管理/销售订单新建.html')"}, {"t": "审核", "act": "go('../销售管理/销售订单审核.html?id=SO-20260903-0047')"}, {"t": "关闭"}, {"t": "上传附件", "act": "openAttModal('SO-20260903-0047')"}, {"t": "打印", "act": "orderPrint('SO-20260903-0047')"}]},
       'title': '销售订单详情',
       'formTitle': '订单信息',
       'formRows': [
@@ -4535,7 +4535,7 @@ window.DEMO_DATA = {
       ]
     },
     'SO-20260902-0046': {
-      'row': {"fields": {"customer": "华骏重卡汽车有限公司", "project": "PRJ-2601", "summary": "锁扣组件×3,000", "status": "待审核", "agent": "江强", "date": "2026-09-02"}, "cells": ["华骏重卡汽车有限公司", "PRJ-2601", "锁扣组件×3,000", "<span class=\"td-num\">3,000</span>", "<span class=\"td-num\">4,800.00</span>", "<span class=\"tag tag-orange\">待审核</span>", "江强", "2026-09-02 10:24"], "ops": [{"t": "编辑", "act": "go('../销售管理/销售订单新建.html')"}, {"t": "审核", "act": "go('../销售管理/销售订单审核.html?id=SO-20260902-0046')"}, {"t": "关闭"}, {"t": "上传", "act": "openAttModal('SO-20260902-0046')"}, {"t": "打印", "act": "orderPrint('SO-20260902-0046')"}]},
+      'row': {"fields": {"customer": "华骏重卡汽车有限公司", "project": "PRJ-2601", "summary": "锁扣组件×3,000", "status": "待审核", "agent": "江强", "date": "2026-09-02"}, "cells": ["华骏重卡汽车有限公司", "PRJ-2601", "锁扣组件×3,000", "<span class=\"td-num\">3,000</span>", "<span class=\"td-num\">4,800.00</span>", "<span class=\"tag tag-orange\">待审核</span>", "江强", "2026-09-02 10:24"], "ops": [{"t": "编辑", "act": "go('../销售管理/销售订单新建.html')"}, {"t": "审核", "act": "go('../销售管理/销售订单审核.html?id=SO-20260902-0046')"}, {"t": "关闭"}, {"t": "上传附件", "act": "openAttModal('SO-20260902-0046')"}, {"t": "打印", "act": "orderPrint('SO-20260902-0046')"}]},
       'title': '销售订单详情',
       'formTitle': '订单信息',
       'formRows': [
@@ -4591,7 +4591,7 @@ window.DEMO_DATA = {
       ]
     },
     'SO-20260901-0045': {
-      'row': {"fields": {"customer": "东海商用汽车有限公司宁波分公司", "project": "PRJ-2602", "summary": "铰链×1,200 / 箱盖×800", "status": "待审核", "agent": "何雅", "date": "2026-09-01", "po": "—"}, "cells": ["东海商用汽车有限公司宁波分公司", "PRJ-2602", "铰链×1,200 / 箱盖×800", "<span class=\"td-num\">2,000</span>", "<span class=\"td-num\">6,050.00</span>", "<span class=\"tag tag-orange\">待审核</span>", "何雅", "2026-09-01 16:40"], "ops": [{"t": "编辑", "act": "go('../销售管理/销售订单新建.html')"}, {"t": "审核", "act": "go('../销售管理/销售订单审核.html?id=SO-20260901-0045')"}, {"t": "关闭"}, {"t": "上传", "act": "openAttModal('SO-20260901-0045')"}, {"t": "打印", "act": "orderPrint('SO-20260901-0045')"}]},
+      'row': {"fields": {"customer": "东海商用汽车有限公司宁波分公司", "project": "PRJ-2602", "summary": "铰链×1,200 / 箱盖×800", "status": "待审核", "agent": "何雅", "date": "2026-09-01", "po": "—"}, "cells": ["东海商用汽车有限公司宁波分公司", "PRJ-2602", "铰链×1,200 / 箱盖×800", "<span class=\"td-num\">2,000</span>", "<span class=\"td-num\">6,050.00</span>", "<span class=\"tag tag-orange\">待审核</span>", "何雅", "2026-09-01 16:40"], "ops": [{"t": "编辑", "act": "go('../销售管理/销售订单新建.html')"}, {"t": "审核", "act": "go('../销售管理/销售订单审核.html?id=SO-20260901-0045')"}, {"t": "关闭"}, {"t": "上传附件", "act": "openAttModal('SO-20260901-0045')"}, {"t": "打印", "act": "orderPrint('SO-20260901-0045')"}]},
       'title': '销售订单详情',
       'formTitle': '订单信息',
       'formRows': [
@@ -4643,7 +4643,7 @@ window.DEMO_DATA = {
       ]
     },
     'SO-20260831-0044': {
-      'row': {"fields": {"customer": "星途新能源汽车科技有限公司", "project": "PRJ-2603", "summary": "内衬 EPE 珍珠棉×5,000", "status": "已审核", "agent": "陈锋", "date": "2026-08-31", "po": "—"}, "cells": ["星途新能源汽车科技有限公司", "PRJ-2603", "内衬 EPE 珍珠棉×5,000", "<span class=\"td-num\">5,000</span>", "<span class=\"td-num\">9,000.00</span>", "<span class=\"tag tag-blue\">已审核</span>", "陈锋", "2026-08-31 11:05"], "ops": [{"t": "发货", "act": "go('../销售管理/销售出库列表.html')"}, {"t": "关闭"}, {"t": "上传", "act": "openAttModal('SO-20260831-0044')"}, {"t": "打印", "act": "orderPrint('SO-20260831-0044')"}]},
+      'row': {"fields": {"customer": "星途新能源汽车科技有限公司", "project": "PRJ-2603", "summary": "内衬 EPE 珍珠棉×5,000", "status": "已审核", "agent": "陈锋", "date": "2026-08-31", "po": "—"}, "cells": ["星途新能源汽车科技有限公司", "PRJ-2603", "内衬 EPE 珍珠棉×5,000", "<span class=\"td-num\">5,000</span>", "<span class=\"td-num\">9,000.00</span>", "<span class=\"tag tag-blue\">已审核</span>", "陈锋", "2026-08-31 11:05"], "ops": [{"t": "发货", "act": "go('../销售管理/销售出库列表.html')"}, {"t": "关闭"}, {"t": "上传附件", "act": "openAttModal('SO-20260831-0044')"}, {"t": "打印", "act": "orderPrint('SO-20260831-0044')"}]},
       'title': '销售订单详情',
       'formTitle': '订单信息',
       'formRows': [
@@ -4699,7 +4699,7 @@ window.DEMO_DATA = {
       ]
     },
     'SO-20260830-0043': {
-      'row': {"fields": {"customer": "华骏重卡汽车有限公司", "project": "PRJ-2601", "summary": "箱盖 ABS 吸塑×1,500", "status": "待发货", "agent": "严明", "date": "2026-08-30", "po": "—"}, "cells": ["华骏重卡汽车有限公司", "PRJ-2601", "箱盖 ABS 吸塑×1,500", "<span class=\"td-num\">1,500</span>", "<span class=\"td-num\">5,400.00</span>", "<span class=\"tag tag-blue\">待发货</span>", "严明", "2026-08-30 09:18"], "ops": [{"t": "发货", "act": "go('../销售管理/销售出库列表.html')"}, {"t": "关闭"}, {"t": "上传", "act": "openAttModal('SO-20260830-0043')"}, {"t": "打印", "act": "orderPrint('SO-20260830-0043')"}]},
+      'row': {"fields": {"customer": "华骏重卡汽车有限公司", "project": "PRJ-2601", "summary": "箱盖 ABS 吸塑×1,500", "status": "待发货", "agent": "严明", "date": "2026-08-30", "po": "—"}, "cells": ["华骏重卡汽车有限公司", "PRJ-2601", "箱盖 ABS 吸塑×1,500", "<span class=\"td-num\">1,500</span>", "<span class=\"td-num\">5,400.00</span>", "<span class=\"tag tag-blue\">待发货</span>", "严明", "2026-08-30 09:18"], "ops": [{"t": "发货", "act": "go('../销售管理/销售出库列表.html')"}, {"t": "关闭"}, {"t": "上传附件", "act": "openAttModal('SO-20260830-0043')"}, {"t": "打印", "act": "orderPrint('SO-20260830-0043')"}]},
       'title': '销售订单详情',
       'formTitle': '订单信息',
       'formRows': [
@@ -4760,7 +4760,7 @@ window.DEMO_DATA = {
       ]
     },
     'SO-20260828-0041': {
-      'row': {"fields": {"customer": "长风汽车制造有限公司", "project": "PRJ-2604", "summary": "锁扣组件×800", "status": "已完成", "agent": "江强", "date": "2026-08-28"}, "cells": ["长风汽车制造有限公司", "PRJ-2604", "锁扣组件×800", "<span class=\"td-num\">800</span>", "<span class=\"td-num\">1,280.00</span>", "<span class=\"tag tag-green\">已完成</span>", "江强", "2026-08-28 15:52"], "ops": [{"t": "详情", "act": "go('../销售管理/销售订单详情.html?id=SO-20260828-0041')"}, {"t": "上传", "act": "openAttModal('SO-20260828-0041')"}, {"t": "打印", "act": "orderPrint('SO-20260828-0041')"}]},
+      'row': {"fields": {"customer": "长风汽车制造有限公司", "project": "PRJ-2604", "summary": "锁扣组件×800", "status": "已完成", "agent": "江强", "date": "2026-08-28"}, "cells": ["长风汽车制造有限公司", "PRJ-2604", "锁扣组件×800", "<span class=\"td-num\">800</span>", "<span class=\"td-num\">1,280.00</span>", "<span class=\"tag tag-green\">已完成</span>", "江强", "2026-08-28 15:52"], "ops": [{"t": "详情", "act": "go('../销售管理/销售订单详情.html?id=SO-20260828-0041')"}, {"t": "上传附件", "act": "openAttModal('SO-20260828-0041')"}, {"t": "打印", "act": "orderPrint('SO-20260828-0041')"}]},
       'title': '销售订单详情',
       'formTitle': '订单信息',
       'formRows': [
@@ -4826,7 +4826,7 @@ window.DEMO_DATA = {
       ]
     },
     'SO-20260827-0039': {
-      'row': {"fields": {"customer": "华骏重卡汽车有限公司", "project": "PRJ-2601", "summary": "箱盖 ABS 吸塑×2,500", "status": "已完成", "agent": "严明", "date": "2026-08-27"}, "cells": ["华骏重卡汽车有限公司", "PRJ-2601", "箱盖 ABS 吸塑×2,500", "<span class=\"td-num\">2,500</span>", "<span class=\"td-num\">9,000.00</span>", "<span class=\"tag tag-green\">已完成</span>", "严明", "2026-08-27 14:03"], "ops": [{"t": "详情", "act": "go('../销售管理/销售订单详情.html?id=SO-20260827-0039')"}, {"t": "上传", "act": "openAttModal('SO-20260827-0039')"}, {"t": "打印", "act": "orderPrint('SO-20260827-0039')"}]},
+      'row': {"fields": {"customer": "华骏重卡汽车有限公司", "project": "PRJ-2601", "summary": "箱盖 ABS 吸塑×2,500", "status": "已完成", "agent": "严明", "date": "2026-08-27"}, "cells": ["华骏重卡汽车有限公司", "PRJ-2601", "箱盖 ABS 吸塑×2,500", "<span class=\"td-num\">2,500</span>", "<span class=\"td-num\">9,000.00</span>", "<span class=\"tag tag-green\">已完成</span>", "严明", "2026-08-27 14:03"], "ops": [{"t": "详情", "act": "go('../销售管理/销售订单详情.html?id=SO-20260827-0039')"}, {"t": "上传附件", "act": "openAttModal('SO-20260827-0039')"}, {"t": "打印", "act": "orderPrint('SO-20260827-0039')"}]},
       'title': '销售订单详情',
       'formTitle': '订单信息',
       'formRows': [
@@ -4912,7 +4912,7 @@ window.DEMO_DATA = {
       ]
     },
     'SO-20260820-0036': {
-      'row': {"fields": {"customer": "东海商用汽车有限公司宁波分公司", "project": "PRJ-2602", "summary": "铰链×600", "status": "已关闭", "agent": "江强", "date": "2026-08-20", "po": "—"}, "cells": ["东海商用汽车有限公司宁波分公司", "PRJ-2602", "铰链×600", "<span class=\"td-num\">600</span>", "<span class=\"td-num\">1,890.00</span>", "<span class=\"tag tag-gray\">已关闭</span>", "江强", "2026-08-20 10:44"], "ops": [{"t": "详情", "act": "go('../销售管理/销售订单详情.html?id=SO-20260820-0036')"}, {"t": "上传", "act": "openAttModal('SO-20260820-0036')"}, {"t": "打印", "act": "orderPrint('SO-20260820-0036')"}]},
+      'row': {"fields": {"customer": "东海商用汽车有限公司宁波分公司", "project": "PRJ-2602", "summary": "铰链×600", "status": "已关闭", "agent": "江强", "date": "2026-08-20", "po": "—"}, "cells": ["东海商用汽车有限公司宁波分公司", "PRJ-2602", "铰链×600", "<span class=\"td-num\">600</span>", "<span class=\"td-num\">1,890.00</span>", "<span class=\"tag tag-gray\">已关闭</span>", "江强", "2026-08-20 10:44"], "ops": [{"t": "详情", "act": "go('../销售管理/销售订单详情.html?id=SO-20260820-0036')"}, {"t": "上传附件", "act": "openAttModal('SO-20260820-0036')"}, {"t": "打印", "act": "orderPrint('SO-20260820-0036')"}]},
       'title': '销售订单详情',
       'formTitle': '订单信息',
       'formRows': [
