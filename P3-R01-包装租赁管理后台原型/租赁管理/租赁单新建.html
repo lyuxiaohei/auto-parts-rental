@@ -444,6 +444,8 @@ function toggleBillingMode(byUsage) { var h = document.getElementById('billingHi
     if (!st) { cell.textContent = '—（无库存记录）'; cell.style.color = '#8c8c8c'; return; }
     cell.textContent = st[0].toLocaleString('zh-CN') + ' ' + st[1];
     cell.style.color = rowQty(tr) > st[0] ? '#ff4d4f' : '#52c41a';
+    var qi = tr.querySelector('input[data-tax="qty"]');
+    if (qi) qi.style.color = rowQty(tr) > st[0] ? '#ff4d4f' : '';
   }
   function refresh() {
     var lack = null;
