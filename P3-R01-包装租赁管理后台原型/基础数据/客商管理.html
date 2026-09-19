@@ -372,7 +372,22 @@ th.td-num { text-align:right; }
 <div class="card">
   <div class="card-head">
     <h3 class="card-title">客商管理</h3>
-    <div class="head-btns"><button class="btn btn-default btn-sm">批量导出</button><button class="btn btn-sm" onclick="go('../基础数据/客商新建.html')" data-note="1">新建客商</button></div>
+    <div class="head-btns" style="position:relative;"><button class="btn btn-default btn-sm" onclick="toggleColSett(event)">列设置</button>
+      <div id="colSettPanel" style="display:none;position:absolute;right:0;top:calc(100% + 6px);z-index:60;background:#fff;border:1px solid #e5e6eb;border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,.1);padding:10px 12px;width:150px;font-size:13px;">
+        <div style="font-weight:600;color:#595959;margin-bottom:6px;">显示列</div>
+        <div id="colSettList" style="display:flex;flex-direction:column;gap:4px;">
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" class="csItem" value="客商编码" checked>客商编码</label>
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" class="csItem" value="客商" checked>客商</label>
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" class="csItem" value="客商类型" checked>客商类型</label>
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" class="csItem" value="联系人" checked>联系人</label>
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" class="csItem" value="联系电话" checked>联系电话</label>
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" class="csItem" value="开票资料" checked>开票资料</label>
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" class="csItem" value="合作状态" checked>合作状态</label>
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" class="csItem" value="更新日期" checked>更新日期</label>
+        </div>
+        <div style="border-top:1px solid #f0f0f0;margin-top:8px;padding-top:6px;text-align:right;"><a style="color:#1677ff;cursor:pointer;font-size:12px;" onclick="resetColSett(this)">恢复默认</a></div>
+      </div>
+    <button class="btn btn-default btn-sm">批量导出</button><button class="btn btn-sm" onclick="go('../基础数据/客商新建.html')" data-note="1">新建客商</button></div>
   </div>
 <div class="stabs">
   <span class="stab active">全部<span class="stab-count">42</span></span>
@@ -380,7 +395,7 @@ th.td-num { text-align:right; }
   <span class="stab">供应商<span class="stab-count">22</span></span>
 </div>
   <div class="table-wrap">
-    <table>
+    <table class="colsett-tbl">
       <thead>
         <tr>
           <th></th>
@@ -707,5 +722,52 @@ document.querySelectorAll('.tab').forEach(function (t) {
 <style id="f01-fab-style">.fab-row{position:fixed;right:12px;bottom:12px;z-index:880;display:flex;align-items:center;gap:6px}.fab-row .pn-fab{position:static}.f01-fab{display:flex;text-decoration:none;align-items:center;height:24px;padding:0 10px;border-radius:4px;background:#fff;border:1px solid #d9d9d9;color:#8c8c8c;font-size:11px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.06);opacity:.6;transition:opacity .15s}.f01-fab:hover{opacity:1;border-color:#722ed1;color:#722ed1}</style><div class="fab-row"><a class="f01-fab" href="../P3-R01-F01-业务流程导航图.html">流程图</a></div>
 <script src="../_data/notes-data.js"></script>
 <script src="../_data/notes-drawer.js"></script>
+<script>/* 列显示设置（0918 会后待办 #5·客商管理=样板页·道远 09-19 拍板）：勾选显隐现有数据列——勾选框列/操作列固定；CSS nth-child 显隐（免疫列表重渲染）；localStorage 记忆（colsett-ksgl）；「恢复默认」一键全显 */
+function toggleColSett(ev) {
+  ev && ev.stopPropagation();
+  var p = document.getElementById('colSettPanel');
+  if (p) p.style.display = (p.style.display === 'none' || !p.style.display) ? 'block' : 'none';
+}
+function applyColSett() {
+  var tbl = document.querySelector('table.colsett-tbl'); if (!tbl) return;
+  var ths = Array.prototype.slice.call(tbl.querySelectorAll('thead th'));
+  var hidden = Array.prototype.slice.call(document.querySelectorAll('#colSettList .csItem:not(:checked)')).map(function (i) { return i.value; });
+  try { localStorage.setItem('colsett-ksgl', JSON.stringify(hidden)); } catch (e) {}
+  var css = '';
+  hidden.forEach(function (name) {
+    ths.forEach(function (th, i) { if (th.textContent.trim() === name) css += '.colsett-tbl th:nth-child(' + (i + 1) + '),.colsett-tbl td:nth-child(' + (i + 1) + '){display:none;}'; });
+  });
+  var st = document.getElementById('colSettStyle');
+  if (!st) { st = document.createElement('style'); st.id = 'colSettStyle'; document.head.appendChild(st); }
+  st.textContent = css;
+}
+function resetColSett(el) {
+  Array.prototype.slice.call(document.querySelectorAll('#colSettList .csItem')).forEach(function (i) { i.checked = true; });
+  applyColSett();
+  var tip = document.getElementById('colSettTip');
+  if (!tip) {
+    tip = document.createElement('div');
+    tip.id = 'colSettTip';
+    tip.style.cssText = 'color:#52c41a;font-size:12px;text-align:center;padding-top:4px;';
+    var panel = document.getElementById('colSettPanel');
+    panel.insertBefore(tip, panel.lastElementChild);
+  }
+  tip.textContent = '已恢复默认显示';
+  clearTimeout(resetColSett._t);
+  resetColSett._t = setTimeout(function () { tip.textContent = ''; }, 1500);
+  if (el) el.style.color = '#52c41a', setTimeout(function () { el.style.color = ''; }, 600);
+}
+(function () {
+  Array.prototype.slice.call(document.querySelectorAll('#colSettList .csItem')).forEach(function (i) { i.addEventListener('change', applyColSett); });
+  try {
+    var saved = JSON.parse(localStorage.getItem('colsett-ksgl') || '[]');
+    if (Array.isArray(saved)) saved.forEach(function (name) { var i = document.querySelector('#colSettList .csItem[value="' + name + '"]'); if (i) i.checked = false; });
+  } catch (e) {}
+  applyColSett();
+  document.addEventListener('click', function (e) {
+    var p = document.getElementById('colSettPanel');
+    if (p && p.style.display === 'block' && !p.contains(e.target) && !(e.target.closest && e.target.closest('button[onclick*="toggleColSett"]'))) p.style.display = 'none';
+  });
+})();</script>
 </body>
 </html>
