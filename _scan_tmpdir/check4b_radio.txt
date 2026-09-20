@@ -1,2 +1,0 @@
-[财务协同/付款确认.html] .radio=2 texts=['通过', '驳回'] 审核结论inBody=True perr=0 cerr=0
-[租赁管理/租赁出库确认.html] .radio=2 texts=['通过', '驳回'] 审核结论inBody=True perr=0 cerr=0

@@ -1,3 +1,0 @@
-files scanned: 137
-TOTAL modal-path refs: 0
-demo-data.js '?id=row' count: 0

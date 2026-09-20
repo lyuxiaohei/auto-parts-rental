@@ -1,7 +1,0 @@
-[财务协同/付款确认.html] pageerror=0 consoleErr=0
-[财务协同/应付详情.html?id=AP-20260905-013] pageerror=0 consoleErr=0 | detailBody dt-sec=4 drow=9 pass=True
-[系统管理/权限配置.html?role=财务主管] pageerror=0 consoleErr=0 | rolePermTitle='权限配置 · 财务主管' contains财务主管=True
-[租赁管理/租赁出库确认.html] pageerror=0 consoleErr=0 | .radio count=2 pass=True
-[仓储作业/库存流水.html] pageerror=0 consoleErr=0
-[销售管理/销售订单新建.html] pageerror=0 consoleErr=0 | submit-bar=1 justifyContent=center pass=True
-DONE check4

@@ -1,8 +1,0 @@
-===== audit_results.json exists: True
- type=list, len = 129
- sample entry: {"page": "mobile\\审批详情.html", "js_errors": [], "problems": [], "stats": {"buttons": 2, "links": 0, "onclickEls": 0, "modals": 0, "modalTitles": [], "selects": 0, "fakeSelects": 0, "radios": 0, "checkboxes": 0, "inputs": 2, "stabs": 0, "tabs": 0, "bgMut": 0}, "dead_links": [], "nav_anomaly": "file:///D:/%E5%B7%A5%E4%BD%9C%E5%8F%B0-%E5%90%95%E9%81%93%E8%BF%9C/5-%E3%80%90ACTIVE%E3%80%91%E6%B1%BD%E8%B
- aggregated deadLinks: 0 jsErrors: 0 problems: 0
-===== audit_results_g36final.json exists: True
- type=list, len = 129
- sample entry: {"page": "mobile\\审批详情.html", "js_errors": [], "problems": [], "stats": {"buttons": 2, "links": 0, "onclickEls": 0, "modals": 0, "modalTitles": [], "selects": 0, "fakeSelects": 0, "radios": 0, "checkboxes": 0, "inputs": 2, "stabs": 0, "tabs": 0, "bgMut": 0}, "dead_links": [], "nav_anomaly": "file:///D:/%E5%B7%A5%E4%BD%9C%E5%8F%B0-%E5%90%95%E9%81%93%E8%BF%9C/5-%E3%80%90ACTIVE%E3%80%91%E6%B1%BD%E8%B
- aggregated deadLinks: 0 jsErrors: 0 problems: 0

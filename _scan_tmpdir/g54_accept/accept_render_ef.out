@@ -1,3 +1,0 @@
-[e] 租入单新建: 默认态={'self': {'txt': '自发单', 'checked': True}, 'direct': {'txt': '直发单', 'checked': False}, 'hintHidden': True}; 点击直发单后={'hintVisible': True, 'hintTxt': '直发租入：审核通过后系统自动生成租入入库（直发虚拟仓）并自动生成租赁出库，无需实物入库', 'directChecked': True, 'selfChecked': False}; 提示含直发虚拟仓=True; pageerror=0 []
-[f] 退租入库详情: 入库库位段='入库库位：|直发虚拟仓（XNC-ZF·识别背靠背自动带出）|拆散方式：|整箱退回（不拆散）|退回日期：|2026-09-03|验收备注：|—|缺损情况：|验收完'; 含XNC-ZF=True; 含直发虚拟仓=True; timeline识别节点=True; pageerror=0 []
-[a补充] XNC-ZF行详情: rowTxt='	XNC-ZF	直发虚拟仓 系统内置	虚拟仓	—	系统维护	启用	'; 可点元素=[{'tag': 'TD', 'cls': 'sticky-op', 'txt': ''}, {'tag': 'SPAN', 'cls': 'ops', 'txt': ''}]
