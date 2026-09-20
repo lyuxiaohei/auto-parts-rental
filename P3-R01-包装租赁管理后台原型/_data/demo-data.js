@@ -10874,75 +10874,30 @@ window.DEMO_DATA = {
     'WBX-1210L': {
       'row': {"fields": {"name": "围板箱 1200×1000×970", "model": "WBX-1210L", "innerCode": "HJ-BX-0970", "cls": "围板箱", "spec": "1200×1000×970 mm", "status": "启用", "date": "2026-01-06", "rentInMode": "按月", "rentInPrice": "45.00", "rentalMode": "按月", "rentalPrice": "60.00", "buyPrice": "380.00", "salePrice": "—"}, "cells": ["围板箱 1200×1000×970", "<span class=\"tag tag-blue\">围板箱</span>", "1200×1000×970 mm", "只", "<span class=\"td-num\">380.00</span>", "—", "<span class=\"td-num\">45.00 元/只·月</span>", "<span class=\"td-num\">60.00 元/只·月</span>", "<span class=\"tag tag-green\">启用</span>", "2026-01-06"], "ops": [{"t": "详情", "act": "go('../基础数据/物料详情.html?id=WBX-1210L')"}, {"t": "编辑", "act": "go('../基础数据/物料新建.html')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
       'title': '物料详情',
-      'info': [
-        {
-          'label': '物料编码',
-          'text': 'WBX-1210L'
-        },
-        {
-          'label': '物料名称',
-          'text': '围板箱 1200×1000×970',
-          'full': true
-        },
-        {
-          'label': '物料类型',
-          'text': '围板箱'
-        },
-        {
-          'label': '规格',
-          'text': '1200×1000×970 mm',
-          'full': true
-        },
-        {
-          'label': '计量单位',
-          'text': '只'
-        },
-        {
-          'label': '参考未税采购价',
-          'text': '380.00 元'
-        },
-        {
-          'label': '参考未税销售价',
-          'text': '—（租赁器具不零售）'
-        },
-        {
-          'label': '参考未税租入价',
-          'text': '45.00 元/只·月'
-        },
-        {
-          'label': '参考未税租赁价',
-          'text': '60.00 元/只·月'
-        },
-        {
-          'label': '状态',
-          'tag': '启用'
-        },
-        {
-          'label': '建档日期',
-          'text': '2026-01-06'
-        },
-        {
-          'label': '物料型号',
-          'text': 'WBX-1210L'
-        },
-        {
-          'label': '供应商内部编码',
-          'text': 'HJ-BX-0970'
-        },
-        {
-          'label': '备注',
-          'text': '—'
-        }
+      'titleNo': '围板箱 1200×1000×970',
+      'formTitle': '物料信息',
+      'formRows': [
+        { 'label': '物料编码', 'text': 'WBX-1210L' },
+        { 'label': '状态', 'tag': '启用' },
+        { 'label': '物料名称', 'text': '围板箱 1200×1000×970' },
+        { 'label': '物料类型', 'text': '围板箱' },
+        { 'label': '供应商内部编码', 'text': 'HJ-BX-0970' },
+        { 'label': '物料型号', 'text': 'WBX-1210L' },
+        { 'label': '规格', 'text': '1200×1000×970 mm' },
+        { 'label': '单位', 'text': '只' },
+        { 'label': '参考未税采购价', 'text': '380.00 元' },
+        { 'label': '参考未税销售价', 'text': '—（租赁器具不零售）' },
+        { 'label': '参考未税租入价', 'text': '45.00 元/只·月' },
+        { 'label': '参考未税租赁价', 'text': '60.00 元/只·月' },
+        { 'label': '备注', 'text': '—' },
+        { 'label': '库存状态', 'text': '在租 3,120 只 · 待归还（超期）128 只 · 平均循环 21.6 次 · 平均租期 86 天', 'url': '仓储作业/库存查询.html' },
+        { 'label': '建档日期', 'text': '2026-01-06' }
       ],
-      'feeSecTitle': '在租状态（库存状态口径）',
-      'feeCols': ['在租', '待归还（超期）', '平均循环', '平均租期', '台账'],
-      'fees': [
-        {
-          'cells': ['3,120 只', '128 只', '21.6 次', '86 天', '客户在租'],
-          'links': {
-            4: '仓储作业/库存查询.html'
-          }
-        }
+      'itemTitle': '供应商税率',
+      'itemCols': ['供应商', '税率', '结算周期'],
+      'items': [
+        ['甬城塑业包装制品有限公司', '13%', '月结'],
+        ['环通循环包装运营（上海）有限公司', '13%', '月结']
       ],
       'chain': [
         {
@@ -10980,75 +10935,24 @@ window.DEMO_DATA = {
     'WBX-1210M': {
       'row': {"fields": {"name": "围板箱 1200×1000×590", "cls": "围板箱", "spec": "1200×1000×590 mm", "status": "启用", "date": "2026-01-06", "rentInMode": null, "rentInPrice": null, "rentalMode": "按月", "rentalPrice": "55.00", "buyPrice": "340.00", "salePrice": "—"}, "cells": ["围板箱 1200×1000×590", "<span class=\"tag tag-blue\">围板箱</span>", "1200×1000×590 mm", "只", "<span class=\"td-num\">340.00</span>", "—", "—", "<span class=\"td-num\">55.00 元/只·月</span>", "<span class=\"tag tag-green\">启用</span>", "2026-01-06"], "ops": [{"t": "详情", "act": "go('../基础数据/物料详情.html?id=WBX-1210M')"}, {"t": "编辑", "act": "go('../基础数据/物料新建.html')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
       'title': '物料详情',
-      'info': [
-        {
-          'label': '物料编码',
-          'text': 'WBX-1210M'
-        },
-        {
-          'label': '物料名称',
-          'text': '围板箱 1200×1000×590',
-          'full': true
-        },
-        {
-          'label': '物料类型',
-          'text': '围板箱'
-        },
-        {
-          'label': '规格',
-          'text': '1200×1000×590 mm',
-          'full': true
-        },
-        {
-          'label': '计量单位',
-          'text': '只'
-        },
-        {
-          'label': '参考未税采购价',
-          'text': '340.00 元'
-        },
-        {
-          'label': '参考未税销售价',
-          'text': '—（租赁器具不零售）'
-        },
-        {
-          'label': '参考未税租入价',
-          'text': '—（无租入来源）'
-        },
-        {
-          'label': '参考未税租赁价',
-          'text': '55.00 元/只·月'
-        },
-        {
-          'label': '状态',
-          'tag': '启用'
-        },
-        {
-          'label': '建档日期',
-          'text': '2026-01-06'
-        },
-        {
-          'label': '物料型号',
-          'text': '—'
-        },
-        {
-          'label': '供应商内部编码',
-          'text': '—'
-        },
-        {
-          'label': '备注',
-          'text': '—'
-        }
-      ],
-      'feeSecTitle': '在租状态（库存状态口径）',
-      'feeCols': ['在租', '待归还（超期）', '平均循环', '平均租期', '台账'],
-      'fees': [
-        {
-          'cells': ['1,020 只', '0 只', '14.2 次', '64 天', '客户在租'],
-          'links': {
-            4: '仓储作业/库存查询.html'
-          }
-        }
+      'titleNo': '围板箱 1200×1000×590',
+      'formTitle': '物料信息',
+      'formRows': [
+        { 'label': '物料编码', 'text': 'WBX-1210M' },
+        { 'label': '状态', 'tag': '启用' },
+        { 'label': '物料名称', 'text': '围板箱 1200×1000×590' },
+        { 'label': '物料类型', 'text': '围板箱' },
+        { 'label': '供应商内部编码', 'text': '—' },
+        { 'label': '物料型号', 'text': '—' },
+        { 'label': '规格', 'text': '1200×1000×590 mm' },
+        { 'label': '单位', 'text': '只' },
+        { 'label': '参考未税采购价', 'text': '340.00 元' },
+        { 'label': '参考未税销售价', 'text': '—（租赁器具不零售）' },
+        { 'label': '参考未税租入价', 'text': '—（无租入来源）' },
+        { 'label': '参考未税租赁价', 'text': '55.00 元/只·月' },
+        { 'label': '备注', 'text': '—' },
+        { 'label': '库存状态', 'text': '在租 1,020 只 · 待归还（超期）0 只 · 平均循环 14.2 次 · 平均租期 64 天', 'url': '仓储作业/库存查询.html' },
+        { 'label': '建档日期', 'text': '2026-01-06' }
       ],
       'chain': [
         {
@@ -11082,75 +10986,24 @@ window.DEMO_DATA = {
     'PLT-1210W': {
       'row': {"fields": {"name": "木托盘 1200×1000", "cls": "木托盘", "spec": "1200×1000×144 mm", "status": "启用", "date": "2026-02-11", "rentInMode": null, "rentInPrice": null, "rentInMode": "按次", "rentInPrice": "6.00", "rentalMode": "按次", "rentalPrice": "15.00", "buyPrice": "95.00", "salePrice": "—"}, "cells": ["木托盘 1200×1000", "<span class=\"tag tag-green\">木托盘</span>", "1200×1000×144 mm", "块", "<span class=\"td-num\">95.00</span>", "—", "<span class=\"td-num\">6.00 元/块·次</span>", "<span class=\"td-num\">15.00 元/块·次</span>", "<span class=\"tag tag-green\">启用</span>", "2026-02-11"], "ops": [{"t": "详情", "act": "go('../基础数据/物料详情.html?id=PLT-1210W')"}, {"t": "编辑", "act": "go('../基础数据/物料新建.html')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
       'title': '物料详情',
-      'info': [
-        {
-          'label': '物料编码',
-          'text': 'PLT-1210W'
-        },
-        {
-          'label': '物料名称',
-          'text': '木托盘 1200×1000',
-          'full': true
-        },
-        {
-          'label': '物料类型',
-          'text': '托盘'
-        },
-        {
-          'label': '规格',
-          'text': '1200×1000×144 mm',
-          'full': true
-        },
-        {
-          'label': '计量单位',
-          'text': '块'
-        },
-        {
-          'label': '参考未税采购价',
-          'text': '95.00 元'
-        },
-        {
-          'label': '参考未税销售价',
-          'text': '—（租赁器具不零售）'
-        },
-        {
-          'label': '参考未税租入价',
-          'text': '6.00 元/块·次（按次·G39 演示）'
-        },
-        {
-          'label': '参考未税租赁价',
-          'text': '15.00 元/块·次'
-        },
-        {
-          'label': '状态',
-          'tag': '启用'
-        },
-        {
-          'label': '建档日期',
-          'text': '2026-02-11'
-        },
-        {
-          'label': '物料型号',
-          'text': '—'
-        },
-        {
-          'label': '供应商内部编码',
-          'text': '—'
-        },
-        {
-          'label': '备注',
-          'text': '—'
-        }
-      ],
-      'feeSecTitle': '在租状态（库存状态口径）',
-      'feeCols': ['在租', '待归还（超期）', '平均循环', '平均租期', '台账'],
-      'fees': [
-        {
-          'cells': ['0 块', '0 块', '—', '—', '客户在租（已退回）'],
-          'links': {
-            4: '仓储作业/库存查询.html'
-          }
-        }
+      'titleNo': '木托盘 1200×1000',
+      'formTitle': '物料信息',
+      'formRows': [
+        { 'label': '物料编码', 'text': 'PLT-1210W' },
+        { 'label': '状态', 'tag': '启用' },
+        { 'label': '物料名称', 'text': '木托盘 1200×1000' },
+        { 'label': '物料类型', 'text': '托盘' },
+        { 'label': '供应商内部编码', 'text': '—' },
+        { 'label': '物料型号', 'text': '—' },
+        { 'label': '规格', 'text': '1200×1000×144 mm' },
+        { 'label': '单位', 'text': '块' },
+        { 'label': '参考未税采购价', 'text': '95.00 元' },
+        { 'label': '参考未税销售价', 'text': '—（租赁器具不零售）' },
+        { 'label': '参考未税租入价', 'text': '6.00 元/块·次（按次·G39 演示）' },
+        { 'label': '参考未税租赁价', 'text': '15.00 元/块·次' },
+        { 'label': '备注', 'text': '—' },
+        { 'label': '库存状态', 'text': '在租 0 块 · 待归还（超期）0 块 · 客户在租（已退回）', 'url': '仓储作业/库存查询.html' },
+        { 'label': '建档日期', 'text': '2026-02-11' }
       ],
       'chain': [
         {
@@ -11180,75 +11033,24 @@ window.DEMO_DATA = {
     'PLT-1210P': {
       'row': {"fields": {"name": "塑料托盘 1200×1000", "cls": "塑料托盘", "spec": "1200×1000×150 mm", "status": "启用", "date": "2026-02-11", "rentInMode": "按月", "rentInPrice": "12.00", "rentalMode": "按月", "rentalPrice": "18.00", "buyPrice": "110.00", "salePrice": "—"}, "cells": ["塑料托盘 1200×1000", "<span class=\"tag tag-green\">塑料托盘</span>", "1200×1000×150 mm", "块", "<span class=\"td-num\">110.00</span>", "—", "<span class=\"td-num\">12.00 元/块·月</span>", "<span class=\"td-num\">18.00 元/块·月</span>", "<span class=\"tag tag-green\">启用</span>", "2026-02-11"], "ops": [{"t": "详情", "act": "go('../基础数据/物料详情.html?id=PLT-1210P')"}, {"t": "编辑", "act": "go('../基础数据/物料新建.html')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
       'title': '物料详情',
-      'info': [
-        {
-          'label': '物料编码',
-          'text': 'PLT-1210P'
-        },
-        {
-          'label': '物料名称',
-          'text': '塑料托盘 1200×1000',
-          'full': true
-        },
-        {
-          'label': '物料类型',
-          'text': '托盘'
-        },
-        {
-          'label': '规格',
-          'text': '1200×1000×150 mm',
-          'full': true
-        },
-        {
-          'label': '计量单位',
-          'text': '块'
-        },
-        {
-          'label': '参考未税采购价',
-          'text': '110.00 元'
-        },
-        {
-          'label': '参考未税销售价',
-          'text': '—（租赁器具不零售）'
-        },
-        {
-          'label': '参考未税租入价',
-          'text': '12.00 元/块·月'
-        },
-        {
-          'label': '参考未税租赁价',
-          'text': '18.00 元/块·月'
-        },
-        {
-          'label': '状态',
-          'tag': '启用'
-        },
-        {
-          'label': '建档日期',
-          'text': '2026-02-11'
-        },
-        {
-          'label': '物料型号',
-          'text': '—'
-        },
-        {
-          'label': '供应商内部编码',
-          'text': '—'
-        },
-        {
-          'label': '备注',
-          'text': '—'
-        }
-      ],
-      'feeSecTitle': '在租状态（库存状态口径）',
-      'feeCols': ['在租', '待归还（超期）', '平均循环', '平均租期', '台账'],
-      'fees': [
-        {
-          'cells': ['1,860 块', '36 块', '26.4 次', '102 天', '客户在租'],
-          'links': {
-            4: '仓储作业/库存查询.html'
-          }
-        }
+      'titleNo': '塑料托盘 1200×1000',
+      'formTitle': '物料信息',
+      'formRows': [
+        { 'label': '物料编码', 'text': 'PLT-1210P' },
+        { 'label': '状态', 'tag': '启用' },
+        { 'label': '物料名称', 'text': '塑料托盘 1200×1000' },
+        { 'label': '物料类型', 'text': '托盘' },
+        { 'label': '供应商内部编码', 'text': '—' },
+        { 'label': '物料型号', 'text': '—' },
+        { 'label': '规格', 'text': '1200×1000×150 mm' },
+        { 'label': '单位', 'text': '块' },
+        { 'label': '参考未税采购价', 'text': '110.00 元' },
+        { 'label': '参考未税销售价', 'text': '—（租赁器具不零售）' },
+        { 'label': '参考未税租入价', 'text': '12.00 元/块·月' },
+        { 'label': '参考未税租赁价', 'text': '18.00 元/块·月' },
+        { 'label': '备注', 'text': '—' },
+        { 'label': '库存状态', 'text': '在租 1,860 块 · 待归还（超期）36 块 · 平均循环 26.4 次 · 平均租期 102 天', 'url': '仓储作业/库存查询.html' },
+        { 'label': '建档日期', 'text': '2026-02-11' }
       ],
       'chain': [
         {
@@ -11282,75 +11084,24 @@ window.DEMO_DATA = {
     'BTC-6040S': {
       'row': {"fields": {"name": "料箱 600×400×220（带盖）", "cls": "料箱", "spec": "600×400×220 mm", "status": "停用", "date": "2026-03-02", "rentInMode": null, "rentInPrice": null, "rentalMode": null, "rentalPrice": null, "buyPrice": "78.00", "salePrice": "—"}, "cells": ["料箱 600×400×220（带盖）", "<span class=\"tag tag-orange\">料箱</span>", "600×400×220 mm", "只", "<span class=\"td-num\">78.00</span>", "—", "—", "—", "<span class=\"tag tag-gray\">停用</span>", "2026-03-02"], "ops": [{"t": "详情", "act": "go('../基础数据/物料详情.html?id=BTC-6040S')"}, {"t": "编辑", "act": "go('../基础数据/物料新建.html')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
       'title': '物料详情',
-      'info': [
-        {
-          'label': '物料编码',
-          'text': 'BTC-6040S'
-        },
-        {
-          'label': '物料名称',
-          'text': '料箱 600×400×220（带盖）',
-          'full': true
-        },
-        {
-          'label': '物料类型',
-          'text': '料箱'
-        },
-        {
-          'label': '规格',
-          'text': '600×400×220 mm',
-          'full': true
-        },
-        {
-          'label': '计量单位',
-          'text': '只'
-        },
-        {
-          'label': '参考未税采购价',
-          'text': '78.00 元'
-        },
-        {
-          'label': '参考未税销售价',
-          'text': '—（租赁器具不零售）'
-        },
-        {
-          'label': '参考未税租入价',
-          'text': '—（无租入来源）'
-        },
-        {
-          'label': '参考未税租赁价',
-          'text': '—（采购件 / 停用不计租）'
-        },
-        {
-          'label': '状态',
-          'tag': '停用'
-        },
-        {
-          'label': '建档日期',
-          'text': '2026-03-02'
-        },
-        {
-          'label': '物料型号',
-          'text': '—'
-        },
-        {
-          'label': '供应商内部编码',
-          'text': '—'
-        },
-        {
-          'label': '备注',
-          'text': '—'
-        }
-      ],
-      'feeSecTitle': '在租状态（库存状态口径）',
-      'feeCols': ['在租', '待归还（超期）', '平均循环', '平均租期', '台账'],
-      'fees': [
-        {
-          'cells': ['0 只', '0 只', '—', '—', '客户在租（无在租）'],
-          'links': {
-            4: '仓储作业/库存查询.html'
-          }
-        }
+      'titleNo': '料箱 600×400×220（带盖）',
+      'formTitle': '物料信息',
+      'formRows': [
+        { 'label': '物料编码', 'text': 'BTC-6040S' },
+        { 'label': '状态', 'tag': '停用' },
+        { 'label': '物料名称', 'text': '料箱 600×400×220（带盖）' },
+        { 'label': '物料类型', 'text': '料箱' },
+        { 'label': '供应商内部编码', 'text': '—' },
+        { 'label': '物料型号', 'text': '—' },
+        { 'label': '规格', 'text': '600×400×220 mm' },
+        { 'label': '单位', 'text': '只' },
+        { 'label': '参考未税采购价', 'text': '78.00 元' },
+        { 'label': '参考未税销售价', 'text': '—（租赁器具不零售）' },
+        { 'label': '参考未税租入价', 'text': '—（无租入来源）' },
+        { 'label': '参考未税租赁价', 'text': '—（采购件 / 停用不计租）' },
+        { 'label': '备注', 'text': '—' },
+        { 'label': '库存状态', 'text': '在租 0 只 · 待归还（超期）0 只 · 客户在租（无在租）', 'url': '仓储作业/库存查询.html' },
+        { 'label': '建档日期', 'text': '2026-03-02' }
       ],
       'chain': [
         {
@@ -11375,75 +11126,29 @@ window.DEMO_DATA = {
     'BTC-6040': {
       'row': {"fields": {"name": "料箱 600×400×340", "cls": "料箱", "spec": "600×400×340 mm", "status": "启用", "date": "2026-03-02", "rentInMode": "按月", "rentInPrice": "10.00", "rentalMode": "按次", "rentalPrice": "14.00", "buyPrice": "85.00", "salePrice": "—"}, "cells": ["料箱 600×400×340", "<span class=\"tag tag-orange\">料箱</span>", "600×400×340 mm", "只", "<span class=\"td-num\">85.00</span>", "—", "<span class=\"td-num\">10.00 元/只·月</span>", "<span class=\"td-num\">14.00 元/只·次</span>", "<span class=\"tag tag-green\">启用</span>", "2026-03-02"], "ops": [{"t": "详情", "act": "go('../基础数据/物料详情.html?id=BTC-6040')"}, {"t": "编辑", "act": "go('../基础数据/物料新建.html')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
       'title': '物料详情',
-      'info': [
-        {
-          'label': '物料编码',
-          'text': 'BTC-6040'
-        },
-        {
-          'label': '物料名称',
-          'text': '料箱 600×400×340',
-          'full': true
-        },
-        {
-          'label': '物料类型',
-          'text': '料箱'
-        },
-        {
-          'label': '规格',
-          'text': '600×400×340 mm',
-          'full': true
-        },
-        {
-          'label': '计量单位',
-          'text': '只'
-        },
-        {
-          'label': '参考未税采购价',
-          'text': '85.00 元'
-        },
-        {
-          'label': '参考未税销售价',
-          'text': '—（租赁器具不零售）'
-        },
-        {
-          'label': '参考未税租入价',
-          'text': '10.00 元/只·月'
-        },
-        {
-          'label': '参考未税租赁价',
-          'text': '14.00 元/只·次'
-        },
-        {
-          'label': '状态',
-          'tag': '启用'
-        },
-        {
-          'label': '建档日期',
-          'text': '2026-03-02'
-        },
-        {
-          'label': '物料型号',
-          'text': '—'
-        },
-        {
-          'label': '供应商内部编码',
-          'text': '—'
-        },
-        {
-          'label': '备注',
-          'text': '—'
-        }
+      'titleNo': '料箱 600×400×340',
+      'formTitle': '物料信息',
+      'formRows': [
+        { 'label': '物料编码', 'text': 'BTC-6040' },
+        { 'label': '状态', 'tag': '启用' },
+        { 'label': '物料名称', 'text': '料箱 600×400×340' },
+        { 'label': '物料类型', 'text': '料箱' },
+        { 'label': '供应商内部编码', 'text': '—' },
+        { 'label': '物料型号', 'text': '—' },
+        { 'label': '规格', 'text': '600×400×340 mm' },
+        { 'label': '单位', 'text': '只' },
+        { 'label': '参考未税采购价', 'text': '85.00 元' },
+        { 'label': '参考未税销售价', 'text': '—（租赁器具不零售）' },
+        { 'label': '参考未税租入价', 'text': '10.00 元/只·月' },
+        { 'label': '参考未税租赁价', 'text': '14.00 元/只·次' },
+        { 'label': '备注', 'text': '—' },
+        { 'label': '库存状态', 'text': '在租 2,480 只 · 待归还（超期）0 只 · 平均循环 31.8 次 · 平均租期 118 天', 'url': '仓储作业/库存查询.html' },
+        { 'label': '建档日期', 'text': '2026-03-02' }
       ],
-      'feeSecTitle': '在租状态（库存状态口径）',
-      'feeCols': ['在租', '待归还（超期）', '平均循环', '平均租期', '台账'],
-      'fees': [
-        {
-          'cells': ['2,480 只', '0 只', '31.8 次', '118 天', '客户在租'],
-          'links': {
-            4: '仓储作业/库存查询.html'
-          }
-        }
+      'itemTitle': '供应商税率',
+      'itemCols': ['供应商', '税率', '结算周期'],
+      'items': [
+        ['环通循环包装运营（上海）有限公司', '13%', '月结']
       ],
       'chain': [
         {
@@ -11479,77 +11184,30 @@ window.DEMO_DATA = {
     'LJ-A100': {
       'row': {"fields": {"name": "锁扣组件", "cls": "零部件", "spec": "不锈钢 304 · M8", "status": "启用", "date": "2026-01-06", "supplier": "吴越联合五金制品有限公司", "rentInMode": null, "rentInPrice": null, "rentalMode": null, "rentalPrice": null, "buyPrice": "6.80", "salePrice": "9.80"}, "cells": ["锁扣组件", "<span class=\"tag tag-blue\">零部件</span>", "不锈钢 304 · M8", "件", "<span class=\"td-num\">6.80</span>", "<span class=\"td-num\">9.80</span>", "—", "—", "<span class=\"tag tag-green\">启用</span>", "2026-01-06"], "ops": [{"t": "详情", "act": "go('../基础数据/物料详情.html?id=LJ-A100')"}, {"t": "编辑", "act": "go('../基础数据/物料新建.html')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
 'title': '物料详情',
-      'info': [
-        {
-          'label': '物料编码',
-          'text': 'LJ-A100'
-        },
-        {
-          'label': '物料名称',
-          'text': '锁扣组件',
-          'full': true
-        },
-        {
-          'label': '物料类型',
-          'text': '零部件'
-        },
-        {
-          'label': '规格',
-          'text': '不锈钢 304 · M8',
-          'full': true
-        },
-        {
-          'label': '计量单位',
-          'text': '件'
-        },
-        {
-          'label': '参考未税采购价',
-          'text': '6.80 元'
-        },
-        {
-          'label': '参考未税销售价',
-          'text': '9.80 元'
-        },
-        {
-          'label': '参考未税租入价',
-          'text': '—（无租入来源）'
-        },
-        {
-          'label': '参考未税租赁价',
-          'text': '—（采购件 / 停用不计租）'
-        },
-        {
-          'label': '供应商（带出）',
-          'text': '吴越联合五金制品有限公司',
-          'full': true
-        },
-        {
-          'label': '状态',
-          'tag': '启用'
-        },
-        {
-          'label': '建档日期',
-          'text': '2026-01-06'
-        },
-        {
-          'label': '物料型号',
-          'text': '—'
-        },
-        {
-          'label': '供应商内部编码',
-          'text': '—'
-        },
-        {
-          'label': '备注',
-          'text': '—'
-        }
+      'titleNo': '锁扣组件',
+      'formTitle': '物料信息',
+      'formRows': [
+        { 'label': '物料编码', 'text': 'LJ-A100' },
+        { 'label': '状态', 'tag': '启用' },
+        { 'label': '物料名称', 'text': '锁扣组件' },
+        { 'label': '物料类型', 'text': '零部件' },
+        { 'label': '供应商', 'text': '吴越联合五金制品有限公司' },
+        { 'label': '供应商内部编码', 'text': '—' },
+        { 'label': '物料型号', 'text': '—' },
+        { 'label': '规格', 'text': '不锈钢 304 · M8' },
+        { 'label': '单位', 'text': '件' },
+        { 'label': '参考未税采购价', 'text': '6.80 元' },
+        { 'label': '参考未税销售价', 'text': '9.80 元' },
+        { 'label': '参考未税租入价', 'text': '—（无租入来源）' },
+        { 'label': '参考未税租赁价', 'text': '—（采购件 / 停用不计租）' },
+        { 'label': '备注', 'text': '—' },
+        { 'label': '库存与用途', 'text': '在库 5,260 件（原料区 RA） · 在途 1,200 件 · 客户端 800 件 · 用途：BOM 子件 · ZH-2601-A（V2.1 配比 4 只/套）' },
+        { 'label': '建档日期', 'text': '2026-01-06' }
       ],
-      'feeSecTitle': '库存与用途',
-      'feeCols': ['在库', '在途', '客户端', '用途'],
-      'fees': [
-        {
-          'cells': ['5,260 件（原料区 RA）', '1,200 件', '800 件', 'BOM 子件 · ZH-2601-A（V2.1 配比 4 只/套）']
-        }
+      'itemTitle': '供应商税率',
+      'itemCols': ['供应商', '税率', '结算周期'],
+      'items': [
+        ['吴越联合五金制品有限公司', '13%', '发票后 60 天']
       ],
       'chain': [
         {
@@ -11592,77 +11250,25 @@ window.DEMO_DATA = {
     'LJ-B200': {
       'row': {"fields": {"name": "铰链", "cls": "零部件", "spec": "锌合金 · 65mm", "status": "启用", "date": "2026-01-06", "supplier": "吴越联合五金制品有限公司", "rentInMode": null, "rentInPrice": null, "rentalMode": null, "rentalPrice": null, "buyPrice": "4.20", "salePrice": "6.50"}, "cells": ["铰链", "<span class=\"tag tag-blue\">零部件</span>", "锌合金 · 65mm", "件", "<span class=\"td-num\">4.20</span>", "<span class=\"td-num\">6.50</span>", "—", "—", "<span class=\"tag tag-green\">启用</span>", "2026-01-06"], "ops": [{"t": "详情", "act": "go('../基础数据/物料详情.html?id=LJ-B200')"}, {"t": "编辑", "act": "go('../基础数据/物料新建.html')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
 'title': '物料详情',
-      'info': [
-        {
-          'label': '物料编码',
-          'text': 'LJ-B200'
-        },
-        {
-          'label': '物料名称',
-          'text': '铰链',
-          'full': true
-        },
-        {
-          'label': '物料类型',
-          'text': '零部件'
-        },
-        {
-          'label': '规格',
-          'text': '锌合金 · 65mm',
-          'full': true
-        },
-        {
-          'label': '计量单位',
-          'text': '件'
-        },
-        {
-          'label': '参考未税采购价',
-          'text': '4.20 元'
-        },
-        {
-          'label': '参考未税销售价',
-          'text': '6.50 元'
-        },
-        {
-          'label': '参考未税租入价',
-          'text': '—（无租入来源）'
-        },
-        {
-          'label': '参考未税租赁价',
-          'text': '—（采购件 / 停用不计租）'
-        },
-        {
-          'label': '供应商（带出）',
-          'text': '吴越联合五金制品有限公司',
-          'full': true
-        },
-        {
-          'label': '状态',
-          'tag': '启用'
-        },
-        {
-          'label': '建档日期',
-          'text': '2026-01-06'
-        },
-        {
-          'label': '物料型号',
-          'text': '—'
-        },
-        {
-          'label': '供应商内部编码',
-          'text': '—'
-        },
-        {
-          'label': '备注',
-          'text': '—'
-        }
-      ],
-      'feeSecTitle': '库存与用途',
-      'feeCols': ['在库', '在途', '客户端', '用途'],
-      'fees': [
-        {
-          'cells': ['2,640 件（原料区 RA）', '400 件', '1,600 件', '采购件 · B1 直接销售（销售订单行）+ 组装辅材']
-        }
+      'titleNo': '铰链',
+      'formTitle': '物料信息',
+      'formRows': [
+        { 'label': '物料编码', 'text': 'LJ-B200' },
+        { 'label': '状态', 'tag': '启用' },
+        { 'label': '物料名称', 'text': '铰链' },
+        { 'label': '物料类型', 'text': '零部件' },
+        { 'label': '供应商', 'text': '吴越联合五金制品有限公司' },
+        { 'label': '供应商内部编码', 'text': '—' },
+        { 'label': '物料型号', 'text': '—' },
+        { 'label': '规格', 'text': '锌合金 · 65mm' },
+        { 'label': '单位', 'text': '件' },
+        { 'label': '参考未税采购价', 'text': '4.20 元' },
+        { 'label': '参考未税销售价', 'text': '6.50 元' },
+        { 'label': '参考未税租入价', 'text': '—（无租入来源）' },
+        { 'label': '参考未税租赁价', 'text': '—（采购件 / 停用不计租）' },
+        { 'label': '备注', 'text': '—' },
+        { 'label': '库存与用途', 'text': '在库 2,640 件（原料区 RA） · 在途 400 件 · 客户端 1,600 件 · 用途：采购件 · B1 直接销售（销售订单行）+ 组装辅材' },
+        { 'label': '建档日期', 'text': '2026-01-06' }
       ],
       'chain': [
         {
@@ -11701,77 +11307,25 @@ window.DEMO_DATA = {
     'LJ-C300': {
       'row': {"fields": {"name": "围板", "cls": "零部件", "spec": "HDPE 波纹板 · 970 高", "status": "启用", "date": "2026-02-02", "supplier": "甬城塑业包装制品有限公司", "rentInMode": null, "rentInPrice": null, "rentalMode": null, "rentalPrice": null, "buyPrice": "52.00", "salePrice": "68.00"}, "cells": ["围板", "<span class=\"tag tag-blue\">零部件</span>", "HDPE 波纹板 · 970 高", "件", "<span class=\"td-num\">52.00</span>", "<span class=\"td-num\">68.00</span>", "—", "—", "<span class=\"tag tag-green\">启用</span>", "2026-02-02"], "ops": [{"t": "详情", "act": "go('../基础数据/物料详情.html?id=LJ-C300')"}, {"t": "编辑", "act": "go('../基础数据/物料新建.html')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
 'title': '物料详情',
-      'info': [
-        {
-          'label': '物料编码',
-          'text': 'LJ-C300'
-        },
-        {
-          'label': '物料名称',
-          'text': '围板',
-          'full': true
-        },
-        {
-          'label': '物料类型',
-          'text': '零部件'
-        },
-        {
-          'label': '规格',
-          'text': 'HDPE 波纹板 · 970 高',
-          'full': true
-        },
-        {
-          'label': '计量单位',
-          'text': '件'
-        },
-        {
-          'label': '参考未税采购价',
-          'text': '52.00 元'
-        },
-        {
-          'label': '参考未税销售价',
-          'text': '68.00 元'
-        },
-        {
-          'label': '参考未税租入价',
-          'text': '—（无租入来源）'
-        },
-        {
-          'label': '参考未税租赁价',
-          'text': '—（采购件 / 停用不计租）'
-        },
-        {
-          'label': '供应商（带出）',
-          'text': '甬城塑业包装制品有限公司',
-          'full': true
-        },
-        {
-          'label': '状态',
-          'tag': '启用'
-        },
-        {
-          'label': '建档日期',
-          'text': '2026-02-02'
-        },
-        {
-          'label': '物料型号',
-          'text': '—'
-        },
-        {
-          'label': '供应商内部编码',
-          'text': '—'
-        },
-        {
-          'label': '备注',
-          'text': '—'
-        }
-      ],
-      'feeSecTitle': '库存与用途',
-      'feeCols': ['在库', '在途', '客户端', '用途'],
-      'fees': [
-        {
-          'cells': ['1,860 件（原料区 RA）', '0 件', '1,600 件', 'BOM 子件 · ZH-2601-A（V2.1 配比 4 件/套）']
-        }
+      'titleNo': '围板',
+      'formTitle': '物料信息',
+      'formRows': [
+        { 'label': '物料编码', 'text': 'LJ-C300' },
+        { 'label': '状态', 'tag': '启用' },
+        { 'label': '物料名称', 'text': '围板' },
+        { 'label': '物料类型', 'text': '零部件' },
+        { 'label': '供应商', 'text': '甬城塑业包装制品有限公司' },
+        { 'label': '供应商内部编码', 'text': '—' },
+        { 'label': '物料型号', 'text': '—' },
+        { 'label': '规格', 'text': 'HDPE 波纹板 · 970 高' },
+        { 'label': '单位', 'text': '件' },
+        { 'label': '参考未税采购价', 'text': '52.00 元' },
+        { 'label': '参考未税销售价', 'text': '68.00 元' },
+        { 'label': '参考未税租入价', 'text': '—（无租入来源）' },
+        { 'label': '参考未税租赁价', 'text': '—（采购件 / 停用不计租）' },
+        { 'label': '备注', 'text': '—' },
+        { 'label': '库存与用途', 'text': '在库 1,860 件（原料区 RA） · 在途 0 件 · 客户端 1,600 件 · 用途：BOM 子件 · ZH-2601-A（V2.1 配比 4 件/套）' },
+        { 'label': '建档日期', 'text': '2026-02-02' }
       ],
       'chain': [
         {
@@ -11808,77 +11362,25 @@ window.DEMO_DATA = {
     'LJ-D400': {
       'row': {"fields": {"name": "箱盖", "cls": "零部件", "spec": "ABS 吸塑 · 1200×1000", "status": "启用", "date": "2026-02-02", "supplier": "甬城塑业包装制品有限公司", "rentInMode": null, "rentInPrice": null, "rentalMode": null, "rentalPrice": null, "buyPrice": "36.00", "salePrice": "48.00"}, "cells": ["箱盖", "<span class=\"tag tag-blue\">零部件</span>", "ABS 吸塑 · 1200×1000", "件", "<span class=\"td-num\">36.00</span>", "<span class=\"td-num\">48.00</span>", "—", "—", "<span class=\"tag tag-green\">启用</span>", "2026-02-02"], "ops": [{"t": "详情", "act": "go('../基础数据/物料详情.html?id=LJ-D400')"}, {"t": "编辑", "act": "go('../基础数据/物料新建.html')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
 'title': '物料详情',
-      'info': [
-        {
-          'label': '物料编码',
-          'text': 'LJ-D400'
-        },
-        {
-          'label': '物料名称',
-          'text': '箱盖',
-          'full': true
-        },
-        {
-          'label': '物料类型',
-          'text': '零部件'
-        },
-        {
-          'label': '规格',
-          'text': 'ABS 吸塑 · 1200×1000',
-          'full': true
-        },
-        {
-          'label': '计量单位',
-          'text': '件'
-        },
-        {
-          'label': '参考未税采购价',
-          'text': '36.00 元'
-        },
-        {
-          'label': '参考未税销售价',
-          'text': '48.00 元'
-        },
-        {
-          'label': '参考未税租入价',
-          'text': '—（无租入来源）'
-        },
-        {
-          'label': '参考未税租赁价',
-          'text': '—（采购件 / 停用不计租）'
-        },
-        {
-          'label': '供应商（带出）',
-          'text': '甬城塑业包装制品有限公司',
-          'full': true
-        },
-        {
-          'label': '状态',
-          'tag': '启用'
-        },
-        {
-          'label': '建档日期',
-          'text': '2026-02-02'
-        },
-        {
-          'label': '物料型号',
-          'text': '—'
-        },
-        {
-          'label': '供应商内部编码',
-          'text': '—'
-        },
-        {
-          'label': '备注',
-          'text': '—'
-        }
-      ],
-      'feeSecTitle': '库存与用途',
-      'feeCols': ['在库', '在途', '客户端', '用途'],
-      'fees': [
-        {
-          'cells': ['980 件（原料区 RA）', '480 件', '400 件', 'BOM 子件 · ZH-2601-A（配比 1 件/套）+ B1 直接销售']
-        }
+      'titleNo': '箱盖',
+      'formTitle': '物料信息',
+      'formRows': [
+        { 'label': '物料编码', 'text': 'LJ-D400' },
+        { 'label': '状态', 'tag': '启用' },
+        { 'label': '物料名称', 'text': '箱盖' },
+        { 'label': '物料类型', 'text': '零部件' },
+        { 'label': '供应商', 'text': '甬城塑业包装制品有限公司' },
+        { 'label': '供应商内部编码', 'text': '—' },
+        { 'label': '物料型号', 'text': '—' },
+        { 'label': '规格', 'text': 'ABS 吸塑 · 1200×1000' },
+        { 'label': '单位', 'text': '件' },
+        { 'label': '参考未税采购价', 'text': '36.00 元' },
+        { 'label': '参考未税销售价', 'text': '48.00 元' },
+        { 'label': '参考未税租入价', 'text': '—（无租入来源）' },
+        { 'label': '参考未税租赁价', 'text': '—（采购件 / 停用不计租）' },
+        { 'label': '备注', 'text': '—' },
+        { 'label': '库存与用途', 'text': '在库 980 件（原料区 RA） · 在途 480 件 · 客户端 400 件 · 用途：BOM 子件 · ZH-2601-A（配比 1 件/套）+ B1 直接销售' },
+        { 'label': '建档日期', 'text': '2026-02-02' }
       ],
       'chain': [
         {
@@ -11916,77 +11418,25 @@ window.DEMO_DATA = {
     'LJ-E500': {
       'row': {"fields": {"name": "底托架", "cls": "内衬", "spec": "钢制喷塑 · 1200×1000", "status": "启用", "date": "2026-03-06", "supplier": "延陵塑料托盘厂", "rentInMode": null, "rentInPrice": null, "rentalMode": null, "rentalPrice": null, "buyPrice": "78.00", "salePrice": "98.00"}, "cells": ["底托架", "<span class=\"tag tag-blue\">内衬</span>", "钢制喷塑 · 1200×1000", "件", "<span class=\"td-num\">78.00</span>", "<span class=\"td-num\">98.00</span>", "—", "—", "<span class=\"tag tag-green\">启用</span>", "2026-03-06"], "ops": [{"t": "详情", "act": "go('../基础数据/物料详情.html?id=LJ-E500')"}, {"t": "编辑", "act": "go('../基础数据/物料新建.html')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
 'title': '物料详情',
-      'info': [
-        {
-          'label': '物料编码',
-          'text': 'LJ-E500'
-        },
-        {
-          'label': '物料名称',
-          'text': '底托架',
-          'full': true
-        },
-        {
-          'label': '物料类型',
-          'text': '内衬'
-        },
-        {
-          'label': '规格',
-          'text': '钢制喷塑 · 1200×1000',
-          'full': true
-        },
-        {
-          'label': '计量单位',
-          'text': '件'
-        },
-        {
-          'label': '参考未税采购价',
-          'text': '78.00 元'
-        },
-        {
-          'label': '参考未税销售价',
-          'text': '98.00 元'
-        },
-        {
-          'label': '参考未税租入价',
-          'text': '—（无租入来源）'
-        },
-        {
-          'label': '参考未税租赁价',
-          'text': '—（采购件 / 停用不计租）'
-        },
-        {
-          'label': '供应商（带出）',
-          'text': '延陵塑料托盘厂',
-          'full': true
-        },
-        {
-          'label': '状态',
-          'tag': '启用'
-        },
-        {
-          'label': '建档日期',
-          'text': '2026-03-06'
-        },
-        {
-          'label': '物料型号',
-          'text': '—'
-        },
-        {
-          'label': '供应商内部编码',
-          'text': '—'
-        },
-        {
-          'label': '备注',
-          'text': '—'
-        }
-      ],
-      'feeSecTitle': '库存与用途',
-      'feeCols': ['在库', '在途', '客户端', '用途'],
-      'fees': [
-        {
-          'cells': ['0 件（暂无入库）', '0 件', '0 件', '项目备选件 · PRJ-2603 护角套件升级方案（未启用）']
-        }
+      'titleNo': '底托架',
+      'formTitle': '物料信息',
+      'formRows': [
+        { 'label': '物料编码', 'text': 'LJ-E500' },
+        { 'label': '状态', 'tag': '启用' },
+        { 'label': '物料名称', 'text': '底托架' },
+        { 'label': '物料类型', 'text': '内衬' },
+        { 'label': '供应商', 'text': '延陵塑料托盘厂' },
+        { 'label': '供应商内部编码', 'text': '—' },
+        { 'label': '物料型号', 'text': '—' },
+        { 'label': '规格', 'text': '钢制喷塑 · 1200×1000' },
+        { 'label': '单位', 'text': '件' },
+        { 'label': '参考未税采购价', 'text': '78.00 元' },
+        { 'label': '参考未税销售价', 'text': '98.00 元' },
+        { 'label': '参考未税租入价', 'text': '—（无租入来源）' },
+        { 'label': '参考未税租赁价', 'text': '—（采购件 / 停用不计租）' },
+        { 'label': '备注', 'text': '—' },
+        { 'label': '库存与用途', 'text': '在库 0 件（暂无入库） · 在途 0 件 · 客户端 0 件 · 用途：项目备选件 · PRJ-2603 护角套件升级方案（未启用）' },
+        { 'label': '建档日期', 'text': '2026-03-06' }
       ],
       'chain': [
         {
@@ -12015,77 +11465,30 @@ window.DEMO_DATA = {
     'LJ-F600': {
       'row': {"fields": {"name": "内衬", "cls": "内衬", "spec": "EPE 珍珠棉 · 定制", "status": "启用", "date": "2026-03-06", "supplier": "甬城塑业包装制品有限公司", "rentInMode": null, "rentInPrice": null, "rentalMode": null, "rentalPrice": null, "buyPrice": "15.50", "salePrice": "22.00"}, "cells": ["内衬", "<span class=\"tag tag-blue\">内衬</span>", "EPE 珍珠棉 · 定制", "件", "<span class=\"td-num\">15.50</span>", "<span class=\"td-num\">22.00</span>", "—", "—", "<span class=\"tag tag-green\">启用</span>", "2026-03-06"], "ops": [{"t": "详情", "act": "go('../基础数据/物料详情.html?id=LJ-F600')"}, {"t": "编辑", "act": "go('../基础数据/物料新建.html')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
 'title': '物料详情',
-      'info': [
-        {
-          'label': '物料编码',
-          'text': 'LJ-F600'
-        },
-        {
-          'label': '物料名称',
-          'text': '内衬',
-          'full': true
-        },
-        {
-          'label': '物料类型',
-          'text': '内衬'
-        },
-        {
-          'label': '规格',
-          'text': 'EPE 珍珠棉 · 定制',
-          'full': true
-        },
-        {
-          'label': '计量单位',
-          'text': '件'
-        },
-        {
-          'label': '参考未税采购价',
-          'text': '15.50 元'
-        },
-        {
-          'label': '参考未税销售价',
-          'text': '22.00 元'
-        },
-        {
-          'label': '参考未税租入价',
-          'text': '—（无租入来源）'
-        },
-        {
-          'label': '参考未税租赁价',
-          'text': '—（采购件 / 停用不计租）'
-        },
-        {
-          'label': '供应商（带出）',
-          'text': '甬城塑业包装制品有限公司',
-          'full': true
-        },
-        {
-          'label': '状态',
-          'tag': '启用'
-        },
-        {
-          'label': '建档日期',
-          'text': '2026-03-06'
-        },
-        {
-          'label': '物料型号',
-          'text': '—'
-        },
-        {
-          'label': '供应商内部编码',
-          'text': '—'
-        },
-        {
-          'label': '备注',
-          'text': '—'
-        }
+      'titleNo': '内衬',
+      'formTitle': '物料信息',
+      'formRows': [
+        { 'label': '物料编码', 'text': 'LJ-F600' },
+        { 'label': '状态', 'tag': '启用' },
+        { 'label': '物料名称', 'text': '内衬' },
+        { 'label': '物料类型', 'text': '内衬' },
+        { 'label': '供应商', 'text': '甬城塑业包装制品有限公司' },
+        { 'label': '供应商内部编码', 'text': '—' },
+        { 'label': '物料型号', 'text': '—' },
+        { 'label': '规格', 'text': 'EPE 珍珠棉 · 定制' },
+        { 'label': '单位', 'text': '件' },
+        { 'label': '参考未税采购价', 'text': '15.50 元' },
+        { 'label': '参考未税销售价', 'text': '22.00 元' },
+        { 'label': '参考未税租入价', 'text': '—（无租入来源）' },
+        { 'label': '参考未税租赁价', 'text': '—（采购件 / 停用不计租）' },
+        { 'label': '备注', 'text': '—' },
+        { 'label': '库存与用途', 'text': '在库 1,520 件（原料区 RA） · 在途 120 件 · 客户端 0 件 · 用途：BOM 可选配（V2.0 起）+ B1 直接销售' },
+        { 'label': '建档日期', 'text': '2026-03-06' }
       ],
-      'feeSecTitle': '库存与用途',
-      'feeCols': ['在库', '在途', '客户端', '用途'],
-      'fees': [
-        {
-          'cells': ['1,520 件（原料区 RA）', '120 件', '0 件', 'BOM 可选配（V2.0 起）+ B1 直接销售']
-        }
+      'itemTitle': '供应商税率',
+      'itemCols': ['供应商', '税率', '结算周期'],
+      'items': [
+        ['甬城塑业包装制品有限公司', '13%', '发票后 60 天']
       ],
       'chain': [
         {
@@ -12124,75 +11527,24 @@ window.DEMO_DATA = {
     'KBX-1040M': {
       'row': {"fields": {"name": "卡板箱 1040×800×590", "cls": "卡板箱", "spec": "1040×800×590 mm", "status": "启用", "date": "2026-06-18", "supplier": "甬城塑业包装制品有限公司", "rentInMode": "按月", "rentInPrice": 8.00, "rentalMode": "按月", "rentalPrice": 12.00, "buyPrice": "120.00", "salePrice": "—"}, "cells": ["卡板箱 1040×800×590", "<span class=\"tag tag-blue\">卡板箱</span>", "1040×800×590 mm", "只", "<span class=\"td-num\">120.00</span>", "—", "<span class=\"td-num\">8.00 元/只·月</span>", "<span class=\"td-num\">12.00 元/只·月</span>", "<span class=\"tag tag-green\">启用</span>", "2026-06-18"], "ops": [{"t": "详情", "act": "go('../基础数据/物料详情.html?id=KBX-1040M')"}, {"t": "编辑", "act": "go('../基础数据/物料新建.html')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
       'title': '物料详情',
-      'info': [
-        {
-          'label': '物料编码',
-          'text': 'KBX-1040M'
-        },
-        {
-          'label': '物料名称',
-          'text': '卡板箱 1040×800×590',
-          'full': true
-        },
-        {
-          'label': '物料类型',
-          'text': '卡板箱'
-        },
-        {
-          'label': '规格',
-          'text': '1040×800×590 mm',
-          'full': true
-        },
-        {
-          'label': '计量单位',
-          'text': '只'
-        },
-        {
-          'label': '参考未税采购价',
-          'text': '120.00 元'
-        },
-        {
-          'label': '参考未税销售价',
-          'text': '—（租赁器具不零售）'
-        },
-        {
-          'label': '参考未税租入价',
-          'text': '8.00 元/只·月'
-        },
-        {
-          'label': '参考未税租赁价',
-          'text': '12.00 元/只·月'
-        },
-        {
-          'label': '状态',
-          'tag': '启用'
-        },
-        {
-          'label': '建档日期',
-          'text': '2026-06-18'
-        },
-        {
-          'label': '物料型号',
-          'text': '—'
-        },
-        {
-          'label': '供应商内部编码',
-          'text': '—'
-        },
-        {
-          'label': '备注',
-          'text': '—'
-        }
-      ],
-      'feeSecTitle': '在租状态（库存状态口径）',
-      'feeCols': ['在租', '待归还（超期）', '平均循环', '平均租期', '台账'],
-      'fees': [
-        {
-          'cells': ['0 只', '0 只', '—', '—', '客户在租（无在租）'],
-          'links': {
-            4: '仓储作业/库存查询.html'
-          }
-        }
+      'titleNo': '卡板箱 1040×800×590',
+      'formTitle': '物料信息',
+      'formRows': [
+        { 'label': '物料编码', 'text': 'KBX-1040M' },
+        { 'label': '状态', 'tag': '启用' },
+        { 'label': '物料名称', 'text': '卡板箱 1040×800×590' },
+        { 'label': '物料类型', 'text': '卡板箱' },
+        { 'label': '供应商内部编码', 'text': '—' },
+        { 'label': '物料型号', 'text': '—' },
+        { 'label': '规格', 'text': '1040×800×590 mm' },
+        { 'label': '单位', 'text': '只' },
+        { 'label': '参考未税采购价', 'text': '120.00 元' },
+        { 'label': '参考未税销售价', 'text': '—（租赁器具不零售）' },
+        { 'label': '参考未税租入价', 'text': '8.00 元/只·月' },
+        { 'label': '参考未税租赁价', 'text': '12.00 元/只·月' },
+        { 'label': '备注', 'text': '—' },
+        { 'label': '库存状态', 'text': '在租 0 只 · 待归还（超期）0 只 · 客户在租（无在租）', 'url': '仓储作业/库存查询.html' },
+        { 'label': '建档日期', 'text': '2026-06-18' }
       ],
       'chain': [
         {
@@ -12212,75 +11564,24 @@ window.DEMO_DATA = {
     'PLT-1210G': {
       'row': {"fields": {"name": "金属托盘 1200×1000", "cls": "金属托盘", "spec": "1200×1000×144 mm", "status": "启用", "date": "2026-02-10", "supplier": "吴越联合五金制品有限公司", "rentInMode": "按月", "rentInPrice": 10.00, "rentalMode": "按月", "rentalPrice": 15.00, "buyPrice": "165.00", "salePrice": "—"}, "cells": ["金属托盘 1200×1000", "<span class=\"tag tag-blue\">金属托盘</span>", "1200×1000×144 mm", "块", "<span class=\"td-num\">165.00</span>", "—", "<span class=\"td-num\">10.00 元/块·月</span>", "<span class=\"td-num\">15.00 元/块·月</span>", "<span class=\"tag tag-green\">启用</span>", "2026-02-10"], "ops": [{"t": "详情", "act": "go('../基础数据/物料详情.html?id=PLT-1210G')"}, {"t": "编辑", "act": "go('../基础数据/物料新建.html')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
       'title': '物料详情',
-      'info': [
-        {
-          'label': '物料编码',
-          'text': 'PLT-1210G'
-        },
-        {
-          'label': '物料名称',
-          'text': '金属托盘 1200×1000',
-          'full': true
-        },
-        {
-          'label': '物料类型',
-          'text': '金属托盘'
-        },
-        {
-          'label': '规格',
-          'text': '1200×1000×144 mm',
-          'full': true
-        },
-        {
-          'label': '计量单位',
-          'text': '块'
-        },
-        {
-          'label': '参考未税采购价',
-          'text': '165.00 元'
-        },
-        {
-          'label': '参考未税销售价',
-          'text': '—（租赁器具不零售）'
-        },
-        {
-          'label': '参考未税租入价',
-          'text': '10.00 元/块·月'
-        },
-        {
-          'label': '参考未税租赁价',
-          'text': '15.00 元/块·月'
-        },
-        {
-          'label': '状态',
-          'tag': '启用'
-        },
-        {
-          'label': '建档日期',
-          'text': '2026-02-10'
-        },
-        {
-          'label': '物料型号',
-          'text': '—'
-        },
-        {
-          'label': '供应商内部编码',
-          'text': '—'
-        },
-        {
-          'label': '备注',
-          'text': '—'
-        }
-      ],
-      'feeSecTitle': '在租状态（库存状态口径）',
-      'feeCols': ['在租', '待归还（超期）', '平均循环', '平均租期', '台账'],
-      'fees': [
-        {
-          'cells': ['0 块', '0 块', '—', '—', '客户在租（无在租）'],
-          'links': {
-            4: '仓储作业/库存查询.html'
-          }
-        }
+      'titleNo': '金属托盘 1200×1000',
+      'formTitle': '物料信息',
+      'formRows': [
+        { 'label': '物料编码', 'text': 'PLT-1210G' },
+        { 'label': '状态', 'tag': '启用' },
+        { 'label': '物料名称', 'text': '金属托盘 1200×1000' },
+        { 'label': '物料类型', 'text': '金属托盘' },
+        { 'label': '供应商内部编码', 'text': '—' },
+        { 'label': '物料型号', 'text': '—' },
+        { 'label': '规格', 'text': '1200×1000×144 mm' },
+        { 'label': '单位', 'text': '块' },
+        { 'label': '参考未税采购价', 'text': '165.00 元' },
+        { 'label': '参考未税销售价', 'text': '—（租赁器具不零售）' },
+        { 'label': '参考未税租入价', 'text': '10.00 元/块·月' },
+        { 'label': '参考未税租赁价', 'text': '15.00 元/块·月' },
+        { 'label': '备注', 'text': '—' },
+        { 'label': '库存状态', 'text': '在租 0 块 · 待归还（超期）0 块 · 客户在租（无在租）', 'url': '仓储作业/库存查询.html' },
+        { 'label': '建档日期', 'text': '2026-02-10' }
       ],
       'chain': [
         {
@@ -12300,75 +11601,24 @@ window.DEMO_DATA = {
     'KJ-2701': {
       'row': {"fields": {"name": "料架 1850×1000×1200", "cls": "料架", "spec": "1850×1000×1200 mm", "status": "启用", "date": "2026-04-22", "supplier": "吴越联合五金制品有限公司", "rentInMode": "按月", "rentInPrice": 25.00, "rentalMode": "按月", "rentalPrice": 38.00, "buyPrice": "420.00", "salePrice": "—"}, "cells": ["料架 1850×1000×1200", "<span class=\"tag tag-blue\">料架</span>", "1850×1000×1200 mm", "套", "<span class=\"td-num\">420.00</span>", "—", "<span class=\"td-num\">25.00 元/套·月</span>", "<span class=\"td-num\">38.00 元/套·月</span>", "<span class=\"tag tag-green\">启用</span>", "2026-04-22"], "ops": [{"t": "详情", "act": "go('../基础数据/物料详情.html?id=KJ-2701')"}, {"t": "编辑", "act": "go('../基础数据/物料新建.html')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
       'title': '物料详情',
-      'info': [
-        {
-          'label': '物料编码',
-          'text': 'KJ-2701'
-        },
-        {
-          'label': '物料名称',
-          'text': '料架 1850×1000×1200',
-          'full': true
-        },
-        {
-          'label': '物料类型',
-          'text': '料架'
-        },
-        {
-          'label': '规格',
-          'text': '1850×1000×1200 mm',
-          'full': true
-        },
-        {
-          'label': '计量单位',
-          'text': '套'
-        },
-        {
-          'label': '参考未税采购价',
-          'text': '420.00 元'
-        },
-        {
-          'label': '参考未税销售价',
-          'text': '—（租赁器具不零售）'
-        },
-        {
-          'label': '参考未税租入价',
-          'text': '25.00 元/套·月'
-        },
-        {
-          'label': '参考未税租赁价',
-          'text': '38.00 元/套·月'
-        },
-        {
-          'label': '状态',
-          'tag': '启用'
-        },
-        {
-          'label': '建档日期',
-          'text': '2026-04-22'
-        },
-        {
-          'label': '物料型号',
-          'text': '—'
-        },
-        {
-          'label': '供应商内部编码',
-          'text': '—'
-        },
-        {
-          'label': '备注',
-          'text': '—'
-        }
-      ],
-      'feeSecTitle': '在租状态（库存状态口径）',
-      'feeCols': ['在租', '待归还（超期）', '平均循环', '平均租期', '台账'],
-      'fees': [
-        {
-          'cells': ['0 套', '0 套', '—', '—', '客户在租（无在租）'],
-          'links': {
-            4: '仓储作业/库存查询.html'
-          }
-        }
+      'titleNo': '料架 1850×1000×1200',
+      'formTitle': '物料信息',
+      'formRows': [
+        { 'label': '物料编码', 'text': 'KJ-2701' },
+        { 'label': '状态', 'tag': '启用' },
+        { 'label': '物料名称', 'text': '料架 1850×1000×1200' },
+        { 'label': '物料类型', 'text': '料架' },
+        { 'label': '供应商内部编码', 'text': '—' },
+        { 'label': '物料型号', 'text': '—' },
+        { 'label': '规格', 'text': '1850×1000×1200 mm' },
+        { 'label': '单位', 'text': '套' },
+        { 'label': '参考未税采购价', 'text': '420.00 元' },
+        { 'label': '参考未税销售价', 'text': '—（租赁器具不零售）' },
+        { 'label': '参考未税租入价', 'text': '25.00 元/套·月' },
+        { 'label': '参考未税租赁价', 'text': '38.00 元/套·月' },
+        { 'label': '备注', 'text': '—' },
+        { 'label': '库存状态', 'text': '在租 0 套 · 待归还（超期）0 套 · 客户在租（无在租）', 'url': '仓储作业/库存查询.html' },
+        { 'label': '建档日期', 'text': '2026-04-22' }
       ],
       'chain': [
         {
