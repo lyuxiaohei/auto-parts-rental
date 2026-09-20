@@ -1,0 +1,14 @@
+/goal 【G54·背靠背直发与虚拟仓完全闭环】项目根=D:\工作台-吕道远\5-【ACTIVE】汽车物流包装租赁（下称 ROOT）
+【第0步·上下文获取】必读 ①ROOT\agent-handoff\_AGENT基线.md ②ROOT\agent-handoff\20260919-G54-虚拟仓基础设施落地.md（本 goal 任务书·完全闭环版·全部细节与锚点以任务书为真值源）。前置校验（任一不过→写 ROOT\agent-handoff\goal-failures-g54.md 后停止）：并行写者检测（git log --since=2.hours --oneline＋.git mtime，有他人新提交→停）；幂等断点检测（任务书第0步.4 五锚点）；备份（任务书第0步.4 清单→ROOT\backup-xnc-20260919\）；路径自检（任务书全部绝对路径 os.path.exists 输出贴对话）。
+【任务】按任务书 T1→T8 顺序执行，已完成步不重做、从断点续：
+- T1 虚拟仓基础：dictItems+KW-05；locations+XNC-ZF（ops=[]不可删改）；RZRK-20260903-023 入库库位对齐；7 处 fillEntity 补 filterV 排除（6 文件）；预埋 2 处旧注释更新；库位档案兜底行+筛选修复；数据字典（P3\系统管理\数据字典.html）cnt 修正。
+- T2 租入单类型字段（#11）：rentInOrders 6 单 fields/cells/formRows 加「类型」（直发 2/自发 4）；租入单列表加列；租入单新建加 radio 组+直发提示。
+- T3 直发链补强（#12）：CK-20260914-023 补 chain 三节点＋「来源」文案改类型驱动；造终态链 3 单。
+- T4 退租链虚拟仓口径（#13）：TZRK-20260903-009 库位改直发虚拟仓+timeline 系统识别节点；GHCK-20260903-001 timeline 自动生成节点；退租入库新建加 hint。
+- T5 人工报数维护：otherInbounds 造「客户报数调整」演示单；A03 json＋notes-data.js 双处加标注 4 条（库位档案/租入单列表/租入入库详情/退租入库详情）。
+- T6 文档回灌：A05/A02/A06/F01 §12.3 划界句与使用规则；09-08 旧口径残留排查更新；拍板登记补 G54 上游指示；P2-R01 D-167；会后待办 #11~#15 刷 ✅。
+- T7 验证门六门（语法/数据/渲染/审计≥15 页/grep 收口/独立验收只读子 agent）——详见任务书，全部满足才算完成，证据逐门贴对话。
+- T8 收尾：失败清单；任务书标 ✅+执行记录+待追认清单；_索引.md 挂行；_AGENT基线.md 滚动；git 两笔提交（禁 add -A·禁 push）＋哈希回填。
+【完成判定】任务书 T7 六门全过且独立验收子 agent 总判定 0 FAIL（结论原样贴对话）；T8 收尾三件套（任务书 ✅/索引挂行/基线滚动）完成。完成判定不得自证——必须派只读子 agent 复验（提示词四要素见任务书 T7.6）。
+【约束】①拿不准按任务书【默认决策表】执行，不需要也不得向用户提问，收尾报告注明命中项与待追认清单；②失败→跳过+留档 goal-failures-g54.md+继续，禁猜测改写，无死路；③禁脚本批量刷数据，demo-data/页面一律 Edit 手动改，脚本仅限验证与只读提取；④红线零改动：stockFlows/库存查询数据/现有 10 库位行/共享件 select-source.js·list-generic.js·notes-drawer.js/XNC-ZZ-*/mobile/预埋 filterV 逻辑；⑤同一工作区同一时刻只允许本 agent 一个写者；⑥标注只动 A03+notes-data 双处；⑦路径含中文，写文件遇 Errno 22 同路径重试 3 次+临时文件 os.replace。
+or stop after 150 turns
