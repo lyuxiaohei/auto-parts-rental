@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>P3-R01-M01 · 登录</title>
-<link rel="stylesheet" href="_m.css">
+<link rel="stylesheet" href="_m.css?v=20260918">
 </head>
 <body>
 <div class="m-page" id="m-app">
@@ -12,13 +12,13 @@
   <div class="m-login-hero">
     <div class="m-logo">包</div>
     <div class="m-login-name">汽车物流包装租赁</div>
-    <div class="m-login-sub">移动端审批 · 企业微信 H5（演示）</div>
+    <div class="m-login-sub">移动端审批 · 企业微信 H5</div>
   </div>
 
   <div style="padding: 0 20px;">
     <div class="m-card" style="padding:20px 16px;">
     <div class="m-field">
-      <input id="m-acc" type="text" placeholder="请输入账号（演示：wanglin）" autocomplete="off">
+      <input id="m-acc" type="text" placeholder="请输入账号" autocomplete="off">
       <div class="m-field-err" id="m-acc-err"></div>
     </div>
     <div class="m-field">
@@ -27,7 +27,6 @@
     </div>
     <button class="m-btn m-btn-primary" id="m-btn-login" style="margin-top:6px;">登 录</button>
     <button class="m-btn m-btn-wx" id="m-btn-wx" style="margin-top:14px;">企业微信一键登录</button>
-    <div class="m-login-tip">首次登录后本机将记住登录状态（免二次登录），下次打开免验证直达待办；在「我的」页可随时退出。演示原型：任意账号密码均可登录。</div>
     </div>
     <div style="text-align:center;color:#bfbfbf;font-size:11px;margin-top:26px;">P3-R01 移动端 H5 · v1.2 · 2026-09-16</div>
   </div>
@@ -37,7 +36,7 @@
 <script>
 /* ---- 登录页逻辑（演示认证：空值行内提示，非空即登录成功） ---- */
 (function () {
-  var ACC = { wanglin: '沈婷', jiangqiang: '江强', chenfeng: '陈锋', lijing: '李婧' };
+  var ACC = { shenting: '沈婷', jiangqiang: '江强', chenfeng: '陈锋', lijing: '李婧' };
   var ROLE = { 沈婷: '商务主管', 江强: '商务主管', 陈锋: '商务', 李婧: '财务主管' };
 
   function err(id, msg) {
@@ -61,7 +60,7 @@
 
   document.getElementById('m-btn-wx').onclick = function () {
     localStorage.setItem('m-auth', JSON.stringify({ name: '沈婷', role: '商务主管', ts: Date.now() }));   // 企微一键登录同样写标记
-    mToast('企业微信登录成功（演示）');
+    mToast('企业微信登录成功');
     setTimeout(function () { go('待办审批.html'); }, 500);
   };
 

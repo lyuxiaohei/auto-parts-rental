@@ -530,5 +530,9 @@ if(typeof syncReturnItems==='function'){var _r=document.getElementById('riSelect
 /* 关联单据号搜索下拉（2026-09-17 道远指示·采购入库录单样板推广） */
 MSEL.attach(document.getElementById('riSelect'), { placeholder: '输入单号搜索' });
 </script>
+<style>/* 列对齐规范（2026-09-20 道远拍板·全量）：数字/日期列右对齐＋tabular-nums·表头随列·其余左（标签不居中） */
+table th:nth-child(4),table td:nth-child(4),
+table th:nth-child(5),table td:nth-child(5),
+table th:nth-child(6),table td:nth-child(6){text-align:right;font-variant-numeric:tabular-nums}</style>
 </body>
 </html>

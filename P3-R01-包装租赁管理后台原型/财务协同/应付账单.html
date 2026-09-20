@@ -694,7 +694,7 @@ th.td-num { text-align:right; }
       <input id="instBase" value="68,400.00" style="border:1px solid #d9d9d9;border-radius:4px;padding:2px 8px;font:inherit;width:120px;text-align:right;" title="账单金额">
   </div>
   <div class="table-wrap">
-    <table>
+    <table class="aln-b">
       <thead><tr><th>笔次</th><th>比例(%)</th><th>分期金额(元)</th><th>计划日期</th><th>状态</th><th></th></tr></thead>
       <tbody id="instBody"></tbody>
     </table>
@@ -909,5 +909,15 @@ document.querySelectorAll('.tab').forEach(function (t) {
 SSEL.fillDict(SSEL.byLabel('账单类型'),'应付账单类型',true,{value:{'丢损赔偿（赔付供应商）':'赔付应付','无订单预付款':'预付'},title:{'丢损赔偿（赔付供应商）':'赔付供应商','无订单预付款':'付供应商保证金·T2 挂账侧待财务确认'}});
 SSEL.fillEntity(SSEL.byLabel('供应商名称'),'partners',{label:'name',keepFirst:true,filter:function(k,f){return f.type==='供应商';}});
 </script>
+<style>/* 列对齐规范（2026-09-20 道远拍板·全量）：数字/日期列右对齐＋tabular-nums·表头随列·其余左（标签不居中）；aln-a=主表·aln-b=分期弹窗表 */
+.aln-a th:nth-child(8),.aln-a td:nth-child(8),
+.aln-a th:nth-child(9),.aln-a td:nth-child(9),
+.aln-a th:nth-child(10),.aln-a td:nth-child(10),
+.aln-a th:nth-child(11),.aln-a td:nth-child(11),
+.aln-a th:nth-child(12),.aln-a td:nth-child(12),
+.aln-b th:nth-child(1),.aln-b td:nth-child(1),
+.aln-b th:nth-child(2),.aln-b td:nth-child(2),
+.aln-b th:nth-child(3),.aln-b td:nth-child(3),
+.aln-b th:nth-child(4),.aln-b td:nth-child(4){text-align:right;font-variant-numeric:tabular-nums}</style>
 </body>
 </html>

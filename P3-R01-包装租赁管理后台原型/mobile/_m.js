@@ -26,10 +26,14 @@ function mGuardAuthed(delay) {
   }, delay || 600);
 }
 
-/* ---- 登录标记读写 ---- */
+/* ---- 登录标记读写（白名单归一：旧版登录态残留的演示外姓名——如脱敏前真名——就地归位默认账号，防止页面回显） ---- */
+var M_DEMO_USERS = { '沈婷': '商务主管', '江强': '商务主管', '陈锋': '商务', '李婧': '财务主管' };
 function mUser() {
-  try { return JSON.parse(localStorage.getItem('m-auth') || 'null'); }
-  catch (e) { return null; }
+  try {
+    var u = JSON.parse(localStorage.getItem('m-auth') || 'null');
+    if (u && !M_DEMO_USERS[u.name]) u = { name: '沈婷', role: '商务主管', ts: u.ts || Date.now() };
+    return u;
+  } catch (e) { return null; }
 }
 function mLogin(name, role) {
   localStorage.setItem('m-auth', JSON.stringify({ name: name, role: role, ts: Date.now() }));
@@ -92,7 +96,7 @@ function mTypeCls(type) {
   var t = String(type || '');
   if (t === '销售订单' || t === '销售出库') return 'm-badge-blue';
   if (t === '采购订单' || t === '采购入库') return 'm-badge-purple';
-  if (t === '租赁单' || t === '租入库' || t === '租入归还') return 'm-badge-green';
+  if (t === '租赁单' || t === '租入库' || t === '归还出库') return 'm-badge-green';
   if (t === '退租入库' || t === '盘点' || t === '其他入库') return 'm-badge-orange';
   if (t === '付款登记' || t === '收款确认') return 'm-badge-red';
   return 'm-badge-gray';

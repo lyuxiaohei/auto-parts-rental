@@ -6,105 +6,155 @@
 <title>现有管理不合理清单（会议证据版）· 2026-09-16</title>
 <style>
   :root{
-    --blue:#1B5FAD; --navy:#16357F; --ink:#1a2433; --muted:#4f5d75; --soft:#8a93a6;
-    --line:rgba(27,95,173,.20); --t1:#E3EDF9; --t2:#CBDEF3; --bg:#F5F8FC; --warn:#C00000;
+    --blue:#1E5FAE; --navy:#15386B; --ink:#243244; --muted:#54657C; --soft:#8B96A8;
+    --line:#E3E9F2; --line2:#CBD6E4; --tint:#EDF3FB; --tint2:#DCE8F7;
+    --bg:#F4F7FB; --gold:#B7791F; --hl:#FFF3B8;
   }
   *{margin:0;padding:0;box-sizing:border-box}
-  body{background:var(--bg);color:var(--ink);font-family:"Segoe UI","Microsoft YaHei",sans-serif;line-height:1.7}
-  .wrap{max-width:1080px;margin:0 auto;padding:36px 24px 60px}
+  body{background:var(--bg);color:var(--ink);
+       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei","PingFang SC",sans-serif;line-height:1.75}
+  .wrap{max-width:1060px;margin:0 auto;padding:34px 24px 64px}
 
   /* 页眉 */
-  .hbar{width:10px;height:40px;background:var(--blue);float:left;margin-right:14px;margin-top:6px}
-  h1{font-size:26px;color:var(--navy);line-height:1.3}
-  .meta{color:var(--soft);font-size:12px;font-family:Consolas,monospace;letter-spacing:.04em;margin-top:6px}
-  .notes{clear:both;margin-top:18px;background:#fff;border:1px solid var(--line);border-radius:6px;padding:12px 16px;font-size:13px;color:var(--muted)}
-  .notes b{color:var(--navy)}
-  .notes li{margin-left:18px;margin-top:4px}
+  .masthead{display:flex;gap:14px;align-items:stretch;padding-bottom:16px;border-bottom:2px solid var(--navy)}
+  .hbar{flex:0 0 6px;border-radius:3px;background:linear-gradient(180deg,var(--blue),#5B93DC)}
+  h1{font-size:25px;line-height:1.35;color:var(--navy)}
+  h1 .sub{font-size:13.5px;color:var(--soft);font-weight:400;margin-left:8px}
+  .meta{margin-top:7px;font-size:12px;color:var(--soft)}
+
+  /* 落地前提提示条（常显） */
+  .callout{margin-top:16px;background:#FDF8EC;border:1px solid #EEDFAE;border-left:4px solid #D5A021;border-radius:8px;
+           padding:10px 14px;font-size:13px;color:#6B5518;line-height:1.75}
+  .callout b{color:#54430F}
+
+  /* 阅读说明（默认折叠） */
+  details.notes{margin-top:10px;background:#fff;border:1px solid var(--line);border-radius:8px;font-size:12.5px;color:var(--muted)}
+  details.notes summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:9px;padding:9px 14px;user-select:none;transition:color .15s}
+  details.notes summary::-webkit-details-marker{display:none}
+  details.notes summary:hover{color:var(--blue)}
+  details.notes ul{margin-top:0;padding:10px 18px 12px 34px;border-top:1px dashed var(--line)}
+  details.notes li{margin-top:5px;line-height:1.7}
+  details.notes b{color:var(--navy)}
+  details.notes[open] summary .cv{transform:rotate(225deg)}
+
+  /* 小箭头（通用） */
+  .cv{flex:0 0 auto;width:7px;height:7px;border-right:1.6px solid currentColor;border-bottom:1.6px solid currentColor;
+      transform:rotate(45deg);transition:transform .18s;opacity:.65}
 
   /* 工具条 */
-  .toolbar{position:sticky;top:0;z-index:9;background:var(--bg);padding:12px 0;border-bottom:1px solid var(--line);margin-top:20px;
-           display:flex;gap:8px;flex-wrap:wrap;align-items:center}
-  .toolbar button{border:1px solid var(--blue);background:#fff;color:var(--blue);border-radius:4px;padding:5px 12px;font-size:12.5px;cursor:pointer}
-  .toolbar button:hover{background:var(--t1)}
-  .toolbar button.on{background:var(--blue);color:#fff}
-  .toolbar .gap{flex:0 0 10px}
+  .toolbar{position:sticky;top:0;z-index:30;display:flex;gap:8px;flex-wrap:wrap;align-items:center;
+           margin-top:18px;padding:10px 0;background:rgba(244,247,251,.92);backdrop-filter:blur(10px);
+           border-bottom:1px solid var(--line)}
+  .toolbar button{border:1px solid var(--line2);background:#fff;color:var(--muted);border-radius:999px;
+                  padding:5px 14px;font-size:12.5px;cursor:pointer;transition:all .15s}
+  .toolbar button:hover{border-color:var(--blue);color:var(--blue);background:var(--tint)}
+  .toolbar button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+  .toolbar .gap{flex:0 0 8px}
+
+  /* 章节标题 */
+  h2,.cat{display:flex;align-items:baseline;font-size:17px;font-weight:700;color:var(--navy);
+          margin:34px 0 13px;padding-left:11px;border-left:4px solid var(--blue);line-height:1.4}
+  .cat small{margin-left:10px;font-size:12px;font-weight:400;color:var(--soft);letter-spacing:.05em}
 
   /* 总览表 */
-  h2{font-size:19px;color:var(--navy);margin:30px 0 12px;border-left:5px solid var(--blue);padding-left:10px}
-  table.ov{width:100%;border-collapse:collapse;background:#fff;font-size:13.5px}
-  table.ov th,table.ov td{border:1px solid var(--line);padding:8px 12px;text-align:left;vertical-align:top}
-  table.ov th{background:var(--t1);color:var(--navy);font-size:12.5px}
+  .ovcard{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;
+          box-shadow:0 1px 2px rgba(21,56,107,.04),0 6px 18px rgba(21,56,107,.05)}
+  table.ov{width:100%;border-collapse:collapse;font-size:13.5px}
+  table.ov th{background:#F0F5FB;color:var(--navy);font-size:12px;font-weight:600;letter-spacing:.06em;
+              padding:9px 16px;text-align:left;border-bottom:1px solid var(--line)}
+  table.ov td{padding:11px 16px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.7}
+  table.ov tr:last-child td{border-bottom:none}
+  table.ov tr:hover td{background:#F7FAFE}
   table.ov td.no{width:36px;text-align:center;font-family:Consolas,monospace;color:var(--blue);font-weight:700}
-  table.ov td.imp{width:52px;text-align:center;white-space:nowrap;color:var(--blue)}
-  table.ov a{color:var(--blue);text-decoration:none}
-  table.ov a:hover{text-decoration:underline}
-
-  /* 分类标题 */
-  .cat{font-size:17px;color:var(--navy);margin:30px 0 12px;border-left:5px solid var(--blue);padding-left:10px}
-  .cat small{color:var(--soft);font-weight:400;font-size:12px;margin-left:8px}
+  table.ov td.imp{width:64px;text-align:center;white-space:nowrap;color:var(--gold);letter-spacing:2px;font-size:12px}
+  table.ov td.ref{width:92px;white-space:nowrap}
+  table.ov td b{color:var(--navy)}
+  table.ov a{color:var(--blue);text-decoration:none;border-bottom:1px solid #C7D9F0}
+  table.ov a:hover{border-bottom-color:var(--blue)}
 
   /* 条目卡片 */
-  details.item{background:#fff;border:1px solid var(--line);border-radius:6px;margin-bottom:10px;overflow:hidden}
-  details.item summary{list-style:none;cursor:pointer;padding:12px 16px;display:flex;gap:12px;align-items:flex-start}
+  details.item{background:#fff;border:1px solid var(--line);border-radius:10px;margin-bottom:10px;overflow:hidden;
+               box-shadow:0 1px 2px rgba(21,56,107,.03);transition:border-color .15s,box-shadow .15s}
+  details.item:hover{border-color:var(--line2);box-shadow:0 2px 8px rgba(21,56,107,.07)}
+  details.item[open]{border-color:#BFD4EE;box-shadow:0 2px 10px rgba(21,56,107,.08)}
+  details.item summary{list-style:none;cursor:pointer;padding:13px 18px;display:flex;gap:13px;align-items:flex-start}
   details.item summary::-webkit-details-marker{display:none}
-  details.item summary:hover{background:var(--t1)}
-  .no{flex:0 0 30px;height:30px;border-radius:4px;background:var(--t2);color:var(--navy);font-family:Consolas,monospace;
-      font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center;margin-top:2px}
-  .sumbody{flex:1}
-  .it{font-size:15.5px;font-weight:700;color:var(--ink)}
-  .gs{font-size:13px;color:var(--muted);margin-top:3px}
-  .gs .lab,.detail .lab,.src .lab{display:inline-block;font-size:10.5px;font-family:Consolas,monospace;color:var(--blue);
-      border:1px solid var(--blue);border-radius:3px;padding:0 5px;margin-right:6px;vertical-align:1px;letter-spacing:.08em}
-  .chev{flex:0 0 auto;color:var(--blue);font-size:12px;margin-top:6px;transition:transform .15s}
-  details[open] .chev{transform:rotate(180deg)}
-  .detail{padding:2px 16px 12px 58px;font-size:13.5px}
-  .src{margin:0 16px 14px 58px;background:var(--bg);border:1px dashed var(--line);border-radius:5px;padding:8px 12px;
-       font-size:12px;color:var(--soft);font-family:Consolas,monospace;line-height:1.8}
-  .q{margin:7px 0;padding-left:12px;border-left:3px solid var(--t2)}
-  .q .qt{color:var(--ink)}
-  .q .who{color:var(--soft);font-size:12px}
-  .note{color:var(--muted);margin-top:6px}
+  details.item summary:hover{background:#FAFCFF}
+  details.item .no{flex:0 0 30px;height:30px;border-radius:8px;background:var(--tint);border:1px solid var(--tint2);color:var(--blue);
+      font-family:Consolas,monospace;font-weight:700;font-size:13.5px;display:flex;align-items:center;justify-content:center;margin-top:1px}
+  details.item[open] .no{background:var(--blue);border-color:var(--blue);color:#fff}
+  .sumbody{flex:1;min-width:0}
+  .it{font-size:15px;font-weight:700;color:var(--ink);line-height:1.5}
+  .gs{margin-top:4px;font-size:12.5px;color:var(--muted);line-height:1.65}
+  .gs .lab,.detail .lab,.src .lab{display:inline-block;font-size:10.5px;font-family:Consolas,monospace;font-weight:600;
+      color:var(--blue);background:var(--tint);border-radius:4px;padding:1px 7px;margin-right:7px;vertical-align:1px;letter-spacing:.12em}
+  .src .lab{background:#EEF2F8;color:var(--muted)}
+  .chev{flex:0 0 auto;display:flex;align-items:center;gap:7px;margin-top:6px;font-size:11.5px;color:var(--soft);white-space:nowrap}
+  details.item[open] .chev .cv{transform:rotate(225deg)}
+  .detail{padding:2px 18px 6px 61px;font-size:13.5px}
+  .q{margin:9px 0;padding:9px 13px;background:#F8FAFD;border-left:3px solid #CBDCF1;border-radius:0 8px 8px 0}
+  .q .qt{color:var(--ink);line-height:1.8}
+  .q .who{color:var(--soft);font-size:11.5px;margin-top:3px}
+  .note{color:var(--muted);margin-top:9px;font-size:13px}
   .note::before{content:"说明｜";color:var(--blue);font-weight:700}
-  em.hl{font-style:normal;background:#FFF3B8;padding:0 2px}
+  em.hl{font-style:normal;background:var(--hl);padding:0 2px;border-radius:2px}
+  .src{margin:4px 18px 16px 61px;background:#FAFBFD;border:1px dashed var(--line2);border-radius:8px;padding:8px 13px;
+       font-size:11.5px;color:var(--soft);font-family:Consolas,monospace;line-height:1.9}
 
   /* 拍板事项 */
-  .decide{background:#fff;border:2px solid var(--blue);border-radius:8px;padding:16px 20px;margin-top:14px}
-  .decide ol{margin-left:22px}
-  .decide li{margin-top:6px;font-size:14px}
-  .decide .t{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:8px}
+  .decide{background:#fff;border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:10px;
+          box-shadow:0 1px 2px rgba(21,56,107,.04);padding:16px 22px;margin-top:14px}
+  .decide ol{margin-left:20px}
+  .decide li{margin-top:8px;font-size:13.5px;line-height:1.7}
+  .decide li::marker{color:var(--blue);font-weight:700}
+  .decide li b{color:var(--navy)}
 
-  .foot{margin-top:26px;border-top:1px solid var(--line);padding-top:12px;font-size:12px;color:var(--soft);
-        font-family:Consolas,monospace;line-height:1.9}
+  .foot{margin-top:30px;border-top:1px solid var(--line);padding-top:14px;font-size:11.5px;color:var(--soft);line-height:2}
 
   @media print{
     body{background:#fff}
     .toolbar{display:none}
-    details.item{break-inside:avoid}
-    .wrap{max-width:none;padding:10mm}
+    details.item{break-inside:avoid;box-shadow:none}
+    .ovcard{box-shadow:none}
+    .wrap{max-width:none;padding:8mm 2mm}
+  }
+  @media (max-width:640px){
+    .wrap{padding:22px 14px 48px}
+    h1{font-size:21px}
+    h1 .sub{display:block;margin-left:0;margin-top:4px}
+    .detail{padding-left:18px}
+    .src{margin-left:18px}
+    table.ov th,table.ov td{padding:8px 10px}
+    table.ov td.imp,table.ov th.h-imp{display:none}
+    details.item summary{padding:12px 14px}
+    .chev{display:none}
   }
 </style>
 </head>
 <body>
 <div class="wrap">
 
-  <div class="hbar"></div>
-  <h1>现有管理不合理清单<span style="font-size:15px;color:var(--soft);font-weight:400">（会议证据版 · 向客户高层汇报用）</span></h1>
-  <div class="meta">整理 2026-09-16 ｜ 任务出处：第4次会议纪要「需在周末前梳理出现有管理不合理之处（如编码规范、流程缺失），以便与客户高层沟通改进」</div>
+  <header class="masthead">
+    <div class="hbar"></div>
+    <div>
+      <h1>现有管理不合理清单<span class="sub">会议证据版</span></h1>
+      <div class="meta">整理 2026-09-16 ｜ 任务出处：第4次会议纪要「需在周末前梳理出现有管理不合理之处（如编码规范、流程缺失），以便与客户高层沟通改进」</div>
+    </div>
+  </header>
 
-  <div class="notes">
+  <div class="callout"><b>落地前提</b>：上述问题的整改，除系统与流程建设外，还需同步评估客户方<b>人员配置能否支撑</b>——编码、验收、盘点、审批等新做法均需专人、专岗承接；若人员数量与分工无法匹配，规则难以落地执行。</div>
+
+  <details class="notes">
+    <summary><span class="cv"></span>阅读说明｜证据口径 · 场次对照 · 说话人侧别 · 用法（点击展开）</summary>
     <ul>
       <li><b>证据口径</b>：全部取自第1~4次客户会议的录音转写与会议纪要原文，每条引文已逐条回原文核对；引文照录口语，转写音误以〔〕括注正字；不含原型页面与演示数据的任何推断。</li>
       <li><b>场次对照</b>：第1次＝2026-08-31 对接 ｜ 第2次＝2026-09-02 沟通 ｜ 第3次＝2026-09-08 原型演示 ｜ 第4次＝2026-09-14 会议。</li>
       <li><b>说话人侧别</b>（只分侧别不带岗位）：我方＝王琳总、徐蔚、吕道远、陈金；对方（客户）＝袁丽晶、刘小钢、姚宇涛。转写中的「袁」即袁丽晶，「王总」即王琳总。</li>
-      <li><b>用法</b>：每条分三块——<b>概括版</b>（卡片正面，讲结论）、<b>详细版</b>（展开看原话引文与说明）、<b>来源</b>（场次·文件·时间戳·说话人）。点击卡片展开；顶部可一键展开/收起、按板块筛选。</li>
+      <li><b>用法</b>：每条分三块——<b>概括版</b>（卡片正面，讲结论）、<b>详细版</b>（展开看原话引文与说明）、<b>来源</b>（场次·文件·时间戳·说话人）。点击卡片展开；顶部可按板块筛选。</li>
     </ul>
-  </div>
+  </details>
 
   <div class="toolbar">
-    <button onclick="toggleAll(true)">全部展开</button>
-    <button onclick="toggleAll(false)">全部收起</button>
-    <button onclick="window.print()">打印 / 导PDF</button>
-    <span class="gap"></span>
     <button class="cat-btn on" data-cat="all">全部</button>
     <button class="cat-btn" data-cat="c1">一·钱与账</button>
     <button class="cat-btn" data-cat="c2">二·编码与基础数据</button>
@@ -114,25 +164,27 @@
     <button class="cat-btn" data-cat="c6">六·组织与流程</button>
   </div>
 
-  <h2 id="ov">一页总览（汇报开场用）</h2>
+  <h2 id="ov">清单总览</h2>
+  <div class="ovcard" id="ovcard">
   <table class="ov">
-    <tr><th style="width:36px">#</th><th>一句话结论</th><th style="width:70px">分量</th><th style="width:90px">对应条目</th></tr>
-    <tr><td class="no">1</td><td>钱的账全在手工：系统只管货不管钱，应收应付、旧账全靠手工</td><td class="imp">★★★</td><td><a href="#i1">1~5、7</a></td></tr>
-    <tr><td class="no">2</td><td>编码混乱：项目号混进零部件编码、一物多码、调剂靠撕标签不留痕</td><td class="imp">★★★</td><td><a href="#i8">8~11</a></td></tr>
-    <tr><td class="no">3</td><td>租赁没有闭环：哪个单还没还「我们是不知道的」，退租理不清批次</td><td class="imp">★★★</td><td><a href="#i14">14、15</a></td></tr>
-    <tr><td class="no">4</td><td>计费口径扯皮：按数量不计时间→按月→按天，合同与账单两张皮</td><td class="imp">★★★</td><td><a href="#i12">12、13</a></td></tr>
-    <tr><td class="no">5</td><td>核心业务寄生在路凯系统：库存运营在别人手里，「还了他也不告知」</td><td class="imp">★★★</td><td><a href="#i24">24</a></td></tr>
-    <tr><td class="no">6</td><td>库存现场粗放：无库位、无扫码、组装无记录、盘盈盘亏从没做过</td><td class="imp">★★☆</td><td><a href="#i17">17~22</a></td></tr>
-    <tr><td class="no">7</td><td>订单靠人肉转录：客户只发 PDF，项目经理代录，还拒绝电子档</td><td class="imp">★★☆</td><td><a href="#i23">23</a></td></tr>
-    <tr><td class="no">8</td><td>管理基础缺失：无验收单、审批名单拿不出、企微未用、历史数据不敢迁</td><td class="imp">★★☆</td><td><a href="#i25">22、25~29</a></td></tr>
+    <tr><th class="c-no">#</th><th>一句话结论</th><th class="h-imp">分量</th><th class="c-ref">对应条目</th></tr>
+    <tr><td class="no">1</td><td><b>资金账务游离于系统之外</b>：两套在用系统仅覆盖出入库作业，应收应付、回单核销与历史账目均依赖人工台账，账实一致性缺乏校验手段</td><td class="imp">★★★</td><td class="ref"><a href="#i1">1~5、7</a></td></tr>
+    <tr><td class="no">2</td><td><b>物料编码体系失控</b>：项目编号直接写入物料编码，同一物料在不同项目下形成多套编码；跨项目调剂无单据留痕，按项目归集核算缺乏数据基础</td><td class="imp">★★★</td><td class="ref"><a href="#i8">8~11</a></td></tr>
+    <tr><td class="no">3</td><td><b>租赁业务缺乏回收闭环</b>：租赁单是否归还无人掌握，退租无法关联原单与批次，资产在客户端的存放状态与时长失去管控</td><td class="imp">★★★</td><td class="ref"><a href="#i14">14、15</a></td></tr>
+    <tr><td class="no">4</td><td><b>计费口径相互矛盾且临时变更</b>：租金按数量一次性结算、不计占用时长，与租赁属性脱节；按月计费在 28/30/31 天差异上易生争议（客户已当场要求改为按天）；两年期框架合同与按月出账口径不一致</td><td class="imp">★★★</td><td class="ref"><a href="#i12">12、13</a></td></tr>
+    <tr><td class="no">5</td><td><b>核心业务数据受制于合作方</b>：路凯项目的库存与运营均记录于对方系统，归还信息己方不知情，公司仅获差价收益、无法掌握自身资产动向</td><td class="imp">★★★</td><td class="ref"><a href="#i24">24</a></td></tr>
+    <tr><td class="no">6</td><td><b>仓储现场管理粗放</b>：无库区库位划分、无扫码作业条件，组装过程无记录可查，盘盈盘亏从未执行，账实不符长期存在且难以定位原因</td><td class="imp">★★☆</td><td class="ref"><a href="#i17">17~22</a></td></tr>
+    <tr><td class="no">7</td><td><b>订单环节依赖人工转录</b>：客户不自助下单、仅提供纸质/PDF 订单，由项目经理逐单录入系统，并明确拒绝电子档，效率与准确性均无保障</td><td class="imp">★★☆</td><td class="ref"><a href="#i23">23</a></td></tr>
+    <tr><td class="no">8</td><td><b>基础管理制度缺位</b>：收货无验收单据、审批名单无法提供、企业微信未启用、历史数据经人工调整不敢迁移，新流程落地缺乏基础支撑</td><td class="imp">★★☆</td><td class="ref"><a href="#i25">22、25~29</a></td></tr>
   </table>
+  </div>
 
   <!-- ================= 一、钱与账 ================= -->
   <div class="cat" data-sec="c1">一 · 钱与账<small>7 条</small></div>
 
   <details class="item" id="i1" data-cat="c1">
     <summary><span class="no">1</span><div class="sumbody"><div class="it">应收应付全靠手工，现有系统只管货不管钱</div>
-      <div class="gs"><span class="lab">概括版</span>两套在用系统只承载出入库动作，应收应付账全在人脑和表格里，租赁应收同样没有系统承载。</div></div><span class="chev">▼ 详细版/来源</span></summary>
+      <div class="gs"><span class="lab">概括版</span>两套在用系统只承载出入库动作，应收应付账全在人脑和表格里，租赁应收同样没有系统承载。</div></div><span class="chev">详细版 / 来源<i class="cv"></i></span></summary>
     <div class="detail"><span class="lab">详细版</span>
       <div class="q"><div class="qt">「没有，没系统，我们现在系统只用来是发布的，然后全部应收应付——（王琳总：全部手工做账〔转写作“障碍”〕）」</div><div class="who">第3次·音频转写 46:46 前后</div></div>
       <div class="q"><div class="qt">纪要原文：「客户现无财务系统模块，应收应付全手工；客户有金蝶类财务系统，名称版本待问」</div><div class="who">第3次·会议纪要 四-3</div></div>
@@ -143,7 +195,7 @@
 
   <details class="item" id="i2" data-cat="c1">
     <summary><span class="no">2</span><div class="sumbody"><div class="it">自家财务系统是什么版本，会上没人答得上来</div>
-      <div class="gs"><span class="lab">概括版</span>公司有金蝶类财务系统，但名称版本当场无人说清，「问清版本」至今还挂在客户方的行动项上。</div></div><span class="chev">▼ 详细版/来源</span></summary>
+      <div class="gs"><span class="lab">概括版</span>公司有金蝶类财务系统，但名称版本当场无人说清，「问清版本」至今还挂在客户方的行动项上。</div></div><span class="chev">详细版 / 来源<i class="cv"></i></span></summary>
     <div class="detail"><span class="lab">详细版</span>
       <div class="q"><div class="qt">「用的什么版本，您知道吧？……帮我问一下用的哪个财务〔转写作“采务”〕系统是金蝶的，拥有的是什么版本的」</div><div class="who">第3次·音频转写（我方当场发问）</div></div>
       <div class="q"><div class="qt">纪要行动项第3条：「问清公司财务系统名称与版本（金蝶？）——袁丽晶」</div><div class="who">第3次·会议纪要·会后行动项</div></div>
@@ -154,7 +206,7 @@
 
   <details class="item" id="i3" data-cat="c1">
     <summary><span class="no">3</span><div class="sumbody"><div class="it">银行回单（水单）与出入库的核销，现状做不到</div>
-      <div class="gs"><span class="lab">概括版</span>「水单和出入库核销」是客户自己提的诉求，现有系统只做开单发货，与财务完全脱节。</div></div><span class="chev">▼ 详细版/来源</span></summary>
+      <div class="gs"><span class="lab">概括版</span>「水单和出入库核销」是客户自己提的诉求，现有系统只做开单发货，与财务完全脱节。</div></div><span class="chev">详细版 / 来源<i class="cv"></i></span></summary>
     <div class="detail"><span class="lab">详细版</span>
       <div class="q"><div class="qt">「还有一个银行卡水单的一个跟我的出入库的是一个核销。但是目前系统里面，目前我们使用的系统只是做一个开单发货，跟财务这一块完全给关联上〔脱节〕」</div><div class="who">第1次·音频转写</div></div>
       <div class="note">核销是客户自己提出来的痛点，现状系统完全承载不了。</div>
@@ -164,7 +216,7 @@
 
   <details class="item" id="i4" data-cat="c1">
     <summary><span class="no">4</span><div class="sumbody"><div class="it">旧系统账单靠手工调，账目不实、不敢迁</div>
-      <div class="gs"><span class="lab">概括版</span>旧系统里的账单是手工调出来的，历史账目不实，直接搬进新系统必有差异。</div></div><span class="chev">▼ 详细版/来源</span></summary>
+      <div class="gs"><span class="lab">概括版</span>旧系统里的账单是手工调出来的，历史账目不实，直接搬进新系统必有差异。</div></div><span class="chev">详细版 / 来源<i class="cv"></i></span></summary>
     <div class="detail"><span class="lab">详细版</span>
       <div class="q"><div class="qt">「他们系统的数据也不一定有些账单之类的都是手工调的。可能如果我按这个角〔口径〕进来，同步到我们的系统里面，肯定还会是会有差异的」</div><div class="who">第3次·音频转写</div></div>
       <div class="note">历史账不是账，是手工调出来的结果。</div>
@@ -174,7 +226,7 @@
 
   <details class="item" id="i5" data-cat="c1">
     <summary><span class="no">5</span><div class="sumbody"><div class="it">未立单先付保证金，退款无流程承载</div>
-      <div class="gs"><span class="lab">概括版</span>「先付保证金、项目还没产生」是现行惯例，等立了项目再事后关联，退款场景没有单据可挂。</div></div><span class="chev">▼ 详细版/来源</span></summary>
+      <div class="gs"><span class="lab">概括版</span>「先付保证金、项目还没产生」是现行惯例，等立了项目再事后关联，退款场景没有单据可挂。</div></div><span class="chev">详细版 / 来源<i class="cv"></i></span></summary>
     <div class="detail"><span class="lab">详细版</span>
       <div class="q"><div class="qt">「他要买或者租，他先付一个保证金给别人，然后这个时候项目还没产生，然后等项目产生了之后，可能才能关联到那个项目去」</div><div class="who">第3次·音频转写 34:14（王琳总转述客户做法）</div></div>
     </div>
@@ -183,7 +235,7 @@
 
   <details class="item" id="i6" data-cat="c1">
     <summary><span class="no">6</span><div class="sumbody"><div class="it">付款与实际收货不背靠背：少付了事、差额长期挂账</div>
-      <div class="gs"><span class="lab">概括版</span>付款存在「少付了事、十块钱长期挂账」的做法；付款方式客户自认「规范不了」，结算周期 30/60/90/120 天并存。</div></div><span class="chev">▼ 详细版/来源</span></summary>
+      <div class="gs"><span class="lab">概括版</span>付款存在「少付了事、十块钱长期挂账」的做法；付款方式客户自认「规范不了」，结算周期 30/60/90/120 天并存。</div></div><span class="chev">详细版 / 来源<i class="cv"></i></span></summary>
     <div class="detail"><span class="lab">详细版</span>
       <div class="q"><div class="qt">「跟我的实际收货数量肯定要背靠背的，不能说以少付的形式去……那我付款的时候勾起我的订单，我不能付390，我还有十块钱挂在那边」</div><div class="who">第4次·音频转写 22:34 前（我方会上还原现状）</div></div>
       <div class="q"><div class="qt">「你们第一个你能不能规范一下——规范付款方式，这个规范不了，每个供应商的结〔算〕……方式不一样的」</div><div class="who">第4次·音频转写 23:23~23:27（袁丽晶）</div></div>
@@ -194,7 +246,7 @@
 
   <details class="item" id="i7" data-cat="c1">
     <summary><span class="no">7</span><div class="sumbody"><div class="it">赔付类支出已现实存在，无科目承载</div>
-      <div class="gs"><span class="lab">概括版</span>「赔付客户交付延误断产、回款违约金」已在发生，现状没有单据类型和科目承载。</div></div><span class="chev">▼ 详细版/来源</span></summary>
+      <div class="gs"><span class="lab">概括版</span>「赔付客户交付延误断产、回款违约金」已在发生，现状没有单据类型和科目承载。</div></div><span class="chev">详细版 / 来源<i class="cv"></i></span></summary>
     <div class="detail"><span class="lab">详细版</span>
       <div class="q"><div class="qt">纪要原文：「对客户的应付（我方赔付客户：交付延误断产、回款违约金等）」</div><div class="who">第3次·会议纪要 五-应付来源</div></div>
       <div class="note">赔客户断产、违约金这类支出已经在发生，现状没有单据类型承载。</div>
@@ -207,18 +259,18 @@
 
   <details class="item" id="i8" data-cat="c2">
     <summary><span class="no">8</span><div class="sumbody"><div class="it">项目编码混进零部件编码（我方已在会上点名的第一个问题）</div>
-      <div class="gs"><span class="lab">概括版</span>项目号直接编进零部件编码，一物多码；王琳总在会上点名为第一个不合理问题，纪要已写整改方向。</div></div><span class="chev">▼ 详细版/来源</span></summary>
+      <div class="gs"><span class="lab">概括版</span>项目号直接编进零部件编码，一物多码；王琳总在会上点名为第一个不合理问题，纪要已写整改方向。</div></div><span class="chev">详细版 / 来源<i class="cv"></i></span></summary>
     <div class="detail"><span class="lab">详细版</span>
       <div class="q"><div class="qt">「他其实有些不合理的管理的地方，就像我刚才举的例子，他就把项目和那个零部件这种编码混在一起，这是第一个」</div><div class="who">第4次·音频转写 1:11:12（王琳总）</div></div>
       <div class="q"><div class="qt">纪要整改结论：「建议通过“物料编码+项目编码”组合查询，避免将项目编号直接写入物料编码导致管理混乱」</div><div class="who">第4次·会议纪要</div></div>
-      <div class="note">这是本清单的立项源头之一，客户高层层面需要拍板废弃旧编法。</div>
+      <div class="note">这是本清单的立项源头之一，废弃旧编法需客户方正式确认。</div>
     </div>
     <div class="src"><span class="lab">来源</span>第4次会议（09-14）音频转写 1:11:12（王琳总）；第4次会议纪要·库存区分段</div>
   </details>
 
   <details class="item" id="i9" data-cat="c2">
     <summary><span class="no">9</span><div class="sumbody"><div class="it">跨项目调剂靠撕标签，不留痕；现场挪用直接造成账实不符</div>
-      <div class="gs"><span class="lab">概括版</span>项目间调剂物料靠撕标签、无任何留痕；底下人挪用「四张纸就过去了」，账就记错了——账实不符有现实路径。</div></div><span class="chev">▼ 详细版/来源</span></summary>
+      <div class="gs"><span class="lab">概括版</span>项目间调剂物料靠撕标签、无任何留痕；底下人挪用「四张纸就过去了」，账就记错了——账实不符有现实路径。</div></div><span class="chev">详细版 / 来源<i class="cv"></i></span></summary>
     <div class="detail"><span class="lab">详细版</span>
       <div class="q"><div class="qt">「还没发生过，那我们的标签都是可撕标签了，到时候把标签给删撕掉，而且都是不留痕的标签」</div><div class="who">第4次·音频转写 53:06（袁丽晶）</div></div>
       <div class="q"><div class="qt">「你底下的人把A项目的挪到B项目用户，他反正四张纸就过去了。但是你这记得是错的，你知道吧？」</div><div class="who">第4次·音频转写 53:13 前（王琳总）</div></div>
@@ -228,7 +280,7 @@
 
   <details class="item" id="i10" data-cat="c2">
     <summary><span class="no">10</span><div class="sumbody"><div class="it">一物多码：同一物料 5 个项目 6 个编码，备用货靠人工调拨</div>
-      <div class="gs"><span class="lab">概括版</span>同一颗物料在不同项目下是不同编码（5 项目 6 码），备用货不贴标、靠人工随时调拨。</div></div><span class="chev">▼ 详细版/来源</span></summary>
+      <div class="gs"><span class="lab">概括版</span>同一颗物料在不同项目下是不同编码（5 项目 6 码），备用货不贴标、靠人工随时调拨。</div></div><span class="chev">详细版 / 来源<i class="cv"></i></span></summary>
     <div class="detail"><span class="lab">详细版</span>
       <div class="q"><div class="qt">「他可能会有涉及到5个项目，可能会有涉及到6个产品编码。其中有一部分是放在那边备用的，就是没有贴任何东西。然后这一部分备用的就是随时可以调拨」</div><div class="who">第4次·音频转写 54:09（袁丽晶）</div></div>
     </div>
@@ -237,7 +289,7 @@
 
   <details class="item" id="i11" data-cat="c2">
     <summary><span class="no">11</span><div class="sumbody"><div class="it">客户、供应商各有编号，三套码并存</div>
-      <div class="gs"><span class="lab">概括版</span>同一物料身上贴着客户码、供应商码、我方码；系统需增设「型号＋内部编码」兼容，按项目归集是客户第1次就提的诉求。</div></div><span class="chev">▼ 详细版/来源</span></summary>
+      <div class="gs"><span class="lab">概括版</span>同一物料身上贴着客户码、供应商码、我方码；系统需增设「型号＋内部编码」兼容，按项目归集是客户第1次就提的诉求。</div></div><span class="chev">详细版 / 来源<i class="cv"></i></span></summary>
     <div class="detail"><span class="lab">详细版</span>
       <div class="q"><div class="qt">「他可能有些供应商还有型号，他有自己的内部编码，有名称还有型号，还有规格」；纪要：「增加“型号”和“内部编码”（用于记录供应商或客户提供的产品编码）」</div><div class="who">第4次·音频转写 4:56 前；第4次·会议纪要</div></div>
       <div class="q"><div class="qt">佐证（诉求侧）：「按照项目我们来建立编码，然后实现在某个项目下实现一个绑定上下游的关系……按项目来看到我们整个项目的一个盈利或者营收」</div><div class="who">第1次·音频转写</div></div>
@@ -251,7 +303,7 @@
 
   <details class="item" id="i12" data-cat="c3">
     <summary><span class="no">12</span><div class="sumbody"><div class="it">租金按数量结算、不计时间</div>
-      <div class="gs"><span class="lab">概括版</span>租金按数量/套数一次性结算、不计占用时长——只按使用不按时间，与租赁的时长属性脱节。</div></div><span class="chev">▼ 详细版/来源</span></summary>
+      <div class="gs"><span class="lab">概括版</span>租金按数量/套数一次性结算、不计占用时长——只按使用不按时间，与租赁的时长属性脱节。</div></div><span class="chev">详细版 / 来源<i class="cv"></i></span></summary>
     <div class="detail"><span class="lab">详细版</span>
       <div class="q"><div class="qt">「我跟他对公结算的时候，都是以数量跟他结算，而不是以他次数跟他结」</div><div class="who">第2次·音频转写</div></div>
       <div class="q"><div class="qt">「不记时间吗？不记时间，我们是按使用，不计时间，我们是动态的，不是静态的」</div><div class="who">第3次·音频转写 1:02:03（袁丽晶）</div></div>
@@ -262,7 +314,7 @@
 
   <details class="item" id="i13" data-cat="c3">
     <summary><span class="no">13</span><div class="sumbody"><div class="it">计费口径会上临时变更：按月改按天，合同与账单两张皮</div>
-      <div class="gs"><span class="lab">概括版</span>按月计费在 28/30/31 天上必然扯皮，客户当场要求改按天；框架合同签两年、账单按月算，两张皮。</div></div><span class="chev">▼ 详细版/来源</span></summary>
+      <div class="gs"><span class="lab">概括版</span>按月计费在 28/30/31 天上必然扯皮，客户当场要求改按天；框架合同签两年、账单按月算，两张皮。</div></div><span class="chev">详细版 / 来源<i class="cv"></i></span></summary>
     <div class="detail"><span class="lab">详细版</span>
       <div class="q"><div class="qt">「你这个按月你直接帮我改为按天数可以吗？」</div><div class="who">第4次·音频转写 32:37（袁丽晶）</div></div>
       <div class="q"><div class="qt">「合同可能是签的还是两年的。但是我们账单是跟他按一个月来算，他一个月当中有涉及28、30 31天，那我们索性按照天数来给他算」</div><div class="who">第4次·音频转写 34:31（袁丽晶）</div></div>
@@ -273,7 +325,7 @@
 
   <details class="item" id="i14" data-cat="c3">
     <summary><span class="no">14</span><div class="sumbody"><div class="it">租赁单没有闭环，还没还没人知道</div>
-      <div class="gs"><span class="lab">概括版</span>「哪个租赁单还了、哪个没还，我们是不知道的」——资产放出去收没收回没人说得清。</div></div><span class="chev">▼ 详细版/来源</span></summary>
+      <div class="gs"><span class="lab">概括版</span>「哪个租赁单还了、哪个没还，我们是不知道的」——资产放出去收没收回没人说得清。</div></div><span class="chev">详细版 / 来源<i class="cv"></i></span></summary>
     <div class="detail"><span class="lab">详细版</span>
       <div class="q"><div class="qt">「现在有一个问题，你现在租有很多租赁单的，我们是没有闭环的，有些他还了，有些没还。哪个租赁单还了，哪个租赁单没还，我们是不知道的」</div><div class="who">第3次·音频转写 1:19:22（王琳总）</div></div>
     </div>
@@ -282,7 +334,7 @@
 
   <details class="item" id="i15" data-cat="c3">
     <summary><span class="no">15</span><div class="sumbody"><div class="it">退租与原单关联不上、批次理不清；调箱无正式单据</div>
-      <div class="gs"><span class="lab">概括版</span>退租对不上原单批次；年度框架下的调箱连租赁单都没有，靠邮件/微信口头通知。</div></div><span class="chev">▼ 详细版/来源</span></summary>
+      <div class="gs"><span class="lab">概括版</span>退租对不上原单批次；年度框架下的调箱连租赁单都没有，靠邮件/微信口头通知。</div></div><span class="chev">详细版 / 来源<i class="cv"></i></span></summary>
     <div class="detail"><span class="lab">详细版</span>
       <div class="q"><div class="qt">「退租的，因为这个相关的东西你跟原单不好做关联，因为你不知道他到底退租给你是哪一批次的」</div><div class="who">第4次·音频转写 47:11</div></div>
       <div class="q"><div class="qt">「没有租赁订单，他只是做那个订单……以邮件或者微信的方式告诉我们」</div><div class="who">第3次·音频转写 1:22:24~1:22:28（袁丽晶）</div></div>
@@ -293,7 +345,7 @@
 
   <details class="item" id="i16" data-cat="c3">
     <summary><span class="no">16</span><div class="sumbody"><div class="it">强势客户的丢损全由公司自行承担；免费借用靠单价选零</div>
-      <div class="gs"><span class="lab">概括版</span>强势客户（安波福等）丢损全由公司自己兜底、无追偿流程；免费借用靠把租赁出库单价填成 0 混过去。</div></div><span class="chev">▼ 详细版/来源</span></summary>
+      <div class="gs"><span class="lab">概括版</span>强势客户（安波福等）丢损全由公司自己兜底、无追偿流程；免费借用靠把租赁出库单价填成 0 混过去。</div></div><span class="chev">详细版 / 来源<i class="cv"></i></span></summary>
     <div class="detail"><span class="lab">详细版</span>
       <div class="q"><div class="qt">「像我们现在很多车企的供应客户那边他比较强势，像那种英吧〔安波福〕或者什么基本上都是由我们自己承担的」</div><div class="who">第3次·音频转写 1:17:23（袁丽晶；「我们自己」即公司自身，丢损无追偿流程）</div></div>
       <div class="q"><div class="qt">「如果说我要借给客户，我不是卖给他的……我不收他钱的那种，那我这种怎么做？还是做租赁出库的时候，我单价选零，我就跟他不结算了」</div><div class="who">第4次·音频转写 1:01:33（袁丽晶）</div></div>
@@ -306,7 +358,7 @@
 
   <details class="item" id="i17" data-cat="c4">
     <summary><span class="no">17</span><div class="sumbody"><div class="it">仓库没有库区库位概念</div>
-      <div class="gs"><span class="lab">概括版</span>「还没精确到哪个库区，只要能区分就行」——库区层当场被客户砍掉，仓库管理停留在“能找到”级别。</div></div><span class="chev">▼ 详细版/来源</span></summary>
+      <div class="gs"><span class="lab">概括版</span>「还没精确到哪个库区，只要能区分就行」——库区层当场被客户砍掉，仓库管理停留在“能找到”级别。</div></div><span class="chev">详细版 / 来源<i class="cv"></i></span></summary>
     <div class="detail"><span class="lab">详细版</span>
       <div class="q"><div class="qt">「我觉得库区倒也不需要，直接写仓库就好了，我们直接按仓库来……现在目前东西也还没有精确到有哪个库区之类的，只要能区分就行」</div><div class="who">第4次·音频转写 15:53（袁丽晶）</div></div>
     </div>
@@ -315,7 +367,7 @@
 
   <details class="item" id="i18" data-cat="c4">
     <summary><span class="no">18</span><div class="sumbody"><div class="it">无扫描枪，库位精细管理做不到，只能编号+手工</div>
-      <div class="gs"><span class="lab">概括版</span>现场无扫码能力，扫描枪「大概率做不到」，只能编号＋手工登记。</div></div><span class="chev">▼ 详细版/来源</span></summary>
+      <div class="gs"><span class="lab">概括版</span>现场无扫码能力，扫描枪「大概率做不到」，只能编号＋手工登记。</div></div><span class="chev">详细版 / 来源<i class="cv"></i></span></summary>
     <div class="detail"><span class="lab">详细版</span>
       <div class="q"><div class="qt">「你要想做库位〔转写作“库域”〕管理，就要去上扫描枪。他现在肯定大概率做不到，你就给他做个编号，然后有个标，就是自己手工」</div><div class="who">第2次·音频转写</div></div>
     </div>
@@ -324,7 +376,7 @@
 
   <details class="item" id="i19" data-cat="c4">
     <summary><span class="no">19</span><div class="sumbody"><div class="it">出库环节粗放：车牌不登记、退回不登记、自有租入混管</div>
-      <div class="gs"><span class="lab">概括版</span>出库车辆车牌不登记；退租回来的数据「入仓才补账」；自有资产与租入资产没有分开管（客户当场确认）。</div></div><span class="chev">▼ 详细版/来源</span></summary>
+      <div class="gs"><span class="lab">概括版</span>出库车辆车牌不登记；退租回来的数据「入仓才补账」；自有资产与租入资产没有分开管（客户当场确认）。</div></div><span class="chev">详细版 / 来源<i class="cv"></i></span></summary>
     <div class="detail"><span class="lab">详细版</span>
       <div class="q"><div class="qt">「车牌号你也不管是吧？对，问题不大。这一块不用」</div><div class="who">第1次·音频转写 15:25</div></div>
       <div class="q"><div class="qt">「但我们数据不登记回来，回来之后入仓就是那个了」</div><div class="who">第2次·音频转写 29:26（袁丽晶）</div></div>
@@ -335,7 +387,7 @@
 
   <details class="item" id="i20" data-cat="c4">
     <summary><span class="no">20</span><div class="sumbody"><div class="it">组装过程完全没有记录（我方第1次就定性不合理）</div>
-      <div class="gs"><span class="lab">概括版</span>组装动作没有任何台账，出库才从零件里倒扣；且「正式运营当中全部组装完」，库存被提前占用。</div></div><span class="chev">▼ 详细版/来源</span></summary>
+      <div class="gs"><span class="lab">概括版</span>组装动作没有任何台账，出库才从零件里倒扣；且「正式运营当中全部组装完」，库存被提前占用。</div></div><span class="chev">详细版 / 来源<i class="cv"></i></span></summary>
     <div class="detail"><span class="lab">详细版</span>
       <div class="q"><div class="qt">「这个东西其实这个小组装的动作，其实现在这种管理方式是有点不太合理的。我可能说的比较直接了」</div><div class="who">第1次·音频转写 28:16（王琳总）</div></div>
       <div class="q"><div class="qt">「项目初期不会组，正式运营当中，我们会把东西全部给组装完的」</div><div class="who">第3次·音频转写 1:33:41（袁丽晶）</div></div>
@@ -346,7 +398,7 @@
 
   <details class="item" id="i21" data-cat="c4">
     <summary><span class="no">21</span><div class="sumbody"><div class="it">盘盈盘亏从没做过；瑕疵品靠换库位区分</div>
-      <div class="gs"><span class="lab">概括版</span>「盘盈盘亏之前没做过」；损耗没有正规处理流程，打算靠次品/破损库位凑合；已审核单出错缺正规调整出口。</div></div><span class="chev">▼ 详细版/来源</span></summary>
+      <div class="gs"><span class="lab">概括版</span>「盘盈盘亏之前没做过」；损耗没有正规处理流程，打算靠次品/破损库位凑合；已审核单出错缺正规调整出口。</div></div><span class="chev">详细版 / 来源<i class="cv"></i></span></summary>
     <div class="detail"><span class="lab">详细版</span>
       <div class="q"><div class="qt">「我这个盘盈盘亏〔转写作“盘银盘会”〕之前没做过，我之前做的是审批工作」</div><div class="who">第4次·音频转写 26:39（袁丽晶）</div></div>
       <div class="q"><div class="qt">「如果说有一些损耗什么的，我们可以在库存里面区分好的库位跟次品库位或者破损库位，我们到时候统一录到库存里面去做那个好了区分」</div><div class="who">第4次·音频转写 11:16（袁丽晶）</div></div>
@@ -357,7 +409,7 @@
 
   <details class="item" id="i22" data-cat="c4">
     <summary><span class="no">22</span><div class="sumbody"><div class="it">背靠背直发不过库；历史数据乱、不敢迁</div>
-      <div class="gs"><span class="lab">概括版</span>直发业务「实物没到我的库位，就是个虚拟仓直接发掉」；往期数据「太多、很乱」且旧账手工调过，方案倾向不做历史迁移。</div></div><span class="chev">▼ 详细版/来源</span></summary>
+      <div class="gs"><span class="lab">概括版</span>直发业务「实物没到我的库位，就是个虚拟仓直接发掉」；往期数据「太多、很乱」且旧账手工调过，方案倾向不做历史迁移。</div></div><span class="chev">详细版 / 来源<i class="cv"></i></span></summary>
     <div class="detail"><span class="lab">详细版</span>
       <div class="q"><div class="qt">「实际这个库存其实没到我的库位，可能就是一个虚拟仓，他直接发掉了，实际没有进我们仓库的」</div><div class="who">第4次·音频转写 36:40 前</div></div>
       <div class="q"><div class="qt">「因为往期〔转写作“网期”〕数据太多了，然后很乱……先把安波福〔转写作“安装服务”〕，然后佛吉亚〔转写作“佛期”〕，这两个项目先搞进去」</div><div class="who">第2次·音频转写 33:23（袁丽晶）</div></div>
@@ -371,7 +423,7 @@
 
   <details class="item" id="i23" data-cat="c5">
     <summary><span class="no">23</span><div class="sumbody"><div class="it">客户不下单，PDF 发给项目经理代录</div>
-      <div class="gs"><span class="lab">概括版</span>客户不愿意自助下单，PDF 订单由项目经理代录（客户方自己陈述）；且「不接受电子档」，坚持纸质/PDF。</div></div><span class="chev">▼ 详细版/来源</span></summary>
+      <div class="gs"><span class="lab">概括版</span>客户不愿意自助下单，PDF 订单由项目经理代录（客户方自己陈述）；且「不接受电子档」，坚持纸质/PDF。</div></div><span class="chev">详细版 / 来源<i class="cv"></i></span></summary>
     <div class="detail"><span class="lab">详细版</span>
       <div class="q"><div class="qt">「一般来说目前我们的客户基本是需要他会发个订单的PU〔即PDF〕过来给到项目经理，然后这一段操作是项目经理的做」</div><div class="who">第2次·音频转写 17:17（姚宇涛，客户方）</div></div>
       <div class="q"><div class="qt">「客户不愿意下，让我们能带下」</div><div class="who">第2次·音频转写 16:42（袁丽晶）</div></div>
@@ -382,7 +434,7 @@
 
   <details class="item" id="i24" data-cat="c5">
     <summary><span class="no">24</span><div class="sumbody"><div class="it">核心业务寄生在路凯系统，数据黑箱</div>
-      <div class="gs"><span class="lab">概括版</span>路凯项目「库存和运营都在他那边，我是中间赚了差价」；数量对方说了算「明明还了他也不告知」；海外项目跟踪不到流转。</div></div><span class="chev">▼ 详细版/来源</span></summary>
+      <div class="gs"><span class="lab">概括版</span>路凯项目「库存和运营都在他那边，我是中间赚了差价」；数量对方说了算「明明还了他也不告知」；海外项目跟踪不到流转。</div></div><span class="chev">详细版 / 来源<i class="cv"></i></span></summary>
     <div class="detail"><span class="lab">详细版</span>
       <div class="q"><div class="qt">「我的库存也是在他那边，运营〔转写作“目营”〕也是他在他那边，我是中间赚了差价」</div><div class="who">第3次·音频转写 53:59 前（袁丽晶）</div></div>
       <div class="q"><div class="qt">「那现在所有数量都是他在掌，他说你要租你就租了。明明还了他也不告〔知〕了。那现在你自己管理了，那你就应该把这个管理权拿回来」</div><div class="who">第3次·音频转写（王琳总）</div></div>
@@ -393,10 +445,10 @@
 
   <details class="item" id="i25" data-cat="c5">
     <summary><span class="no">25</span><div class="sumbody"><div class="it">企业微信未启用（我方已在会上点名的第二个问题）</div>
-      <div class="gs"><span class="lab">概括版</span>「企业微信他们现在没有用」——移动审批、组织架构同步都以企微为前提，需要客户高层拍板开通。</div></div><span class="chev">▼ 详细版/来源</span></summary>
+      <div class="gs"><span class="lab">概括版</span>「企业微信他们现在没有用」——移动审批、组织架构同步都以企微为前提，开通尚待客户方决策。</div></div><span class="chev">详细版 / 来源<i class="cv"></i></span></summary>
     <div class="detail"><span class="lab">详细版</span>
       <div class="q"><div class="qt">「第二个企业微信他们现在没有用」</div><div class="who">第4次·音频转写 1:11:12（王琳总）</div></div>
-      <div class="note">移动审批、组织架构同步都以企微为前提，这一条需要客户高层拍板开通。</div>
+      <div class="note">移动审批、组织架构同步都以企微为前提，开通尚待客户方决策。</div>
     </div>
     <div class="src"><span class="lab">来源</span>第4次会议（09-14）音频转写 1:11:12</div>
   </details>
@@ -406,7 +458,7 @@
 
   <details class="item" id="i26" data-cat="c6">
     <summary><span class="no">26</span><div class="sumbody"><div class="it">收货无验收单据</div>
-      <div class="gs"><span class="lab">概括版</span>「现无验收单/收货单，出库只需送货单模板」——收货环节没有验收，质量与数量责任无法划分。</div></div><span class="chev">▼ 详细版/来源</span></summary>
+      <div class="gs"><span class="lab">概括版</span>「现无验收单/收货单，出库只需送货单模板」——收货环节没有验收，质量与数量责任无法划分。</div></div><span class="chev">详细版 / 来源<i class="cv"></i></span></summary>
     <div class="detail"><span class="lab">详细版</span>
       <div class="q"><div class="qt">纪要原文：「客户现无验收单/收货单，出库只需送货单/出货单模板」</div><div class="who">第3次·会议纪要 四-4</div></div>
       <div class="note">收货环节没有验收，质量与数量责任无法划分。</div>
@@ -416,7 +468,7 @@
 
   <details class="item" id="i27" data-cat="c6">
     <summary><span class="no">27</span><div class="sumbody"><div class="it">审批与权限拿不出清单</div>
-      <div class="gs"><span class="lab">概括版</span>审核角色名单「待定」、哪些单据要审「会后核对」，行动项挂在袁丽晶处；单据状态流是会后补的诉求，现状没有。</div></div><span class="chev">▼ 详细版/来源</span></summary>
+      <div class="gs"><span class="lab">概括版</span>审核角色名单「待定」、哪些单据要审「会后核对」，行动项挂在袁丽晶处；单据状态流是会后补的诉求，现状没有。</div></div><span class="chev">详细版 / 来源<i class="cv"></i></span></summary>
     <div class="detail"><span class="lab">详细版</span>
       <div class="q"><div class="qt">纪要原文：「审核按角色配置：财务、商务、物流三类角色……角色名单待定（袁丽晶会后提供）；具体哪些单据需审核会后核对」；行动项第4条「审核角色名单给到开发——袁丽晶」</div><div class="who">第3次·会议纪要 七-1 及会后行动项</div></div>
       <div class="q"><div class="qt">佐证（诉求侧）：「所有模块最好涉及审核结点状态：待提交，待审核，待发货，已完成等状态」</div><div class="who">第2次·会后补充</div></div>
@@ -427,7 +479,7 @@
 
   <details class="item" id="i28" data-cat="c6">
     <summary><span class="no">28</span><div class="sumbody"><div class="it">关键部门至今未参与需求确认</div>
-      <div class="gs"><span class="lab">概括版</span>采购部、仓库「到时候再同步一下」——需求确认至今靠商务一人转述。</div></div><span class="chev">▼ 详细版/来源</span></summary>
+      <div class="gs"><span class="lab">概括版</span>采购部、仓库「到时候再同步一下」——需求确认至今靠商务一人转述。</div></div><span class="chev">详细版 / 来源<i class="cv"></i></span></summary>
     <div class="detail"><span class="lab">详细版</span>
       <div class="q"><div class="qt">「我到时候结合我们采购部还有我们仓库那边……我把这个模块到时候给他们再同步一下，让他们再看一下」</div><div class="who">第4次·音频转写（袁丽晶）</div></div>
     </div>
@@ -436,7 +488,7 @@
 
   <details class="item" id="i29" data-cat="c6">
     <summary><span class="no">29</span><div class="sumbody"><div class="it">库存监控口径客户自己也说不清</div>
-      <div class="gs"><span class="lab">概括版</span>我方要一个「需要看哪些库存」的规则，客户当场给不出；四态库存口径是会后补的诉求——现状掌握不了资产在哪。</div></div><span class="chev">▼ 详细版/来源</span></summary>
+      <div class="gs"><span class="lab">概括版</span>我方要一个「需要看哪些库存」的规则，客户当场给不出；四态库存口径是会后补的诉求——现状掌握不了资产在哪。</div></div><span class="chev">详细版 / 来源<i class="cv"></i></span></summary>
     <div class="detail"><span class="lab">详细版</span>
       <div class="q"><div class="qt">「你给我们一个规则，你需要看哪些库存，你给我们一个规则都算得清楚就行」——随后袁丽晶：「其实倒也是……」当场未能给出口径</div><div class="who">第4次·音频转写 9:09（王琳总）</div></div>
       <div class="q"><div class="qt">佐证（诉求侧）：「（库存状态：在库库存，在途库存，客户端库存，退租库存）」</div><div class="who">第2次·会后补充</div></div>
@@ -446,10 +498,10 @@
   </details>
 
   <!-- ================= 拍板事项 ================= -->
-  <h2 id="decide">需要客户高层拍板的事项（从上表汇总）</h2>
-  <div class="decide">
+  <h2 id="decide">需要客户方明确的事项（从上表汇总）</h2>
+  <div class="decide" id="decidecard">
     <ol>
-      <li><b>编码规则</b>：废弃「项目号写进物料码」，改为物料编码全局唯一＋按项目归集（第4次纪要已提议，待拍板）</li>
+      <li><b>编码规则</b>：废弃「项目号写进物料码」，改为物料编码全局唯一＋按项目归集（第4次纪要已提议，待确认）</li>
       <li><b>计费口径</b>：确认按天计租及日租金、押金标准（客户方发起改为按天，标准尚未给出）</li>
       <li><b>企业微信</b>：开通并推广（移动审批与组织同步的前置条件）</li>
       <li><b>审批矩阵</b>：给出各部门审批人与需审批的单据范围（第3次会议起多次索要，尚未提供）</li>
@@ -466,9 +518,6 @@
 </div>
 
 <script>
-  function toggleAll(open){
-    document.querySelectorAll('details.item').forEach(function(d){d.open=open});
-  }
   // 分类筛选
   document.querySelectorAll('.cat-btn').forEach(function(btn){
     btn.addEventListener('click',function(){
@@ -481,12 +530,11 @@
       document.querySelectorAll('details.item').forEach(function(d){
         d.style.display=(cat==='all'||d.dataset.cat===cat)?'':'none';
       });
-      var ov=document.getElementById('ov');
-      var dc=document.getElementById('decide');
       var showOv=(cat==='all');
-      ov.style.display=showOv?'':'none';
-      if(dc) dc.style.display=showOv?'':'none';
-      if(dc) dc.previousElementSibling.style.display=showOv?'':'none';
+      ['ov','ovcard','decide','decidecard'].forEach(function(id){
+        var el=document.getElementById(id);
+        if(el) el.style.display=showOv?'':'none';
+      });
     });
   });
   // 打印时全部展开，打完恢复

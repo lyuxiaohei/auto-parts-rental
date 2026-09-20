@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>P3-R01-M02 · 待办审批</title>
-<link rel="stylesheet" href="_m.css">
+<link rel="stylesheet" href="_m.css?v=20260918">
 </head>
 <body>
 <div class="m-page" id="m-app">
 
   <div class="m-header">
     <div class="m-hd-title">待办审批</div>
-    <div class="m-hd-sub" id="m-hd-sub">— · 免二次登录</div>
+    <div class="m-hd-sub" id="m-hd-sub">—</div>
   </div>
 
   <div class="m-body">
@@ -36,7 +36,7 @@
 /* ---- 待办审批：消费 DEMO_DATA.todoItems（20 行·D-151 后），统计卡点选下钻 + 卡片列表 ---- */
 (function () {
   var u = mUser() || { name: '沈婷', role: '商务主管' };
-  document.getElementById('m-hd-sub').textContent = u.name + ' · ' + u.role + ' · 免二次登录';
+  document.getElementById('m-hd-sub').textContent = u.name + ' · ' + u.role;
 
   var rows = mRows('todoItems');                 // [{id: 单号, row: {fields: {...}}}]
   var done = mDoneMap();                         // 本机已审结果回显 { 单号: 已通过|已驳回 }

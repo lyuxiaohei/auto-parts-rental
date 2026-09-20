@@ -386,7 +386,7 @@ th.td-num { text-align:right; }
   <span class="stab">已关闭<span class="stab-count">2</span></span>
 </div>
 <div class="table-wrap">
-    <table>
+    <table class="aln-a">
       <thead>
         <tr>
           <th></th>
@@ -827,7 +827,7 @@ SSEL.fillEntity(SSEL.byLabel('所属项目'),'projects',{keepFirst:true});
       </div>
       <input type="file" id="attModalFile" multiple style="display:none">
       <div class="table-wrap" style="border:1px solid var(--border);border-radius:6px;max-height:300px;overflow:auto;">
-        <table>
+        <table class="aln-b">
           <thead><tr><th>文件名</th><th style="width:80px;">大小</th><th style="width:80px;">上传人</th><th style="width:100px;">上传时间</th><th style="width:60px;">操作</th></tr></thead>
           <tbody id="attModalList">
             <tr><td>📄 订单确认件.pdf</td><td>412 KB</td><td>沈婷</td><td>09-17 09:05</td><td><a onclick="this.closest('tr').remove()" style="color:#ff4d4f;cursor:pointer;">删除</a></td></tr>
@@ -880,5 +880,11 @@ function orderPrint(key) {
   });
 })();
 </script>
+<style>/* 列对齐规范（2026-09-20 道远拍板·全量）：数字/日期列右对齐＋tabular-nums·表头随列·其余左（标签不居中）；aln-a=主表·aln-b=附件弹窗表 */
+.aln-a th:nth-child(5),.aln-a td:nth-child(5),
+.aln-a th:nth-child(6),.aln-a td:nth-child(6),
+.aln-a th:nth-child(9),.aln-a td:nth-child(9),
+.aln-b th:nth-child(2),.aln-b td:nth-child(2),
+.aln-b th:nth-child(4),.aln-b td:nth-child(4){text-align:right;font-variant-numeric:tabular-nums}</style>
 </body>
 </html>

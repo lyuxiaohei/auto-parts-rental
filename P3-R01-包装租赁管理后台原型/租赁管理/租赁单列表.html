@@ -385,7 +385,7 @@ th.td-num { text-align:right; }
   <span class="stab">已关闭<span class="stab-count">1</span></span>
 </div>
 <div class="table-wrap">
-    <table>
+    <table class="aln-a">
       <thead>
         <tr>
           <th></th>
@@ -539,7 +539,7 @@ th.td-num { text-align:right; }
     </div>
     <div class="modal-body">
       <p style="font-size:12px;color:#8c8c8c;line-height:1.7;margin-bottom:10px;">少退/丢损对比：出库量 vs 已退回；未退回差异转丢损赔偿依据（丢损赔偿单联动应收）。静态演示数据。</p>
-      <div class="table-wrap"><table><thead><tr><th>物料</th><th>出库量</th><th>已退回</th><th>未退回差异</th><th>状态</th></tr></thead><tbody>
+      <div class="table-wrap"><table class="aln-b"><thead><tr><th>物料</th><th>出库量</th><th>已退回</th><th>未退回差异</th><th>状态</th></tr></thead><tbody>
         <tr><td>ZH-2602-B 冲压件料箱组套</td><td><span class="td-num">120 套</span></td><td><span class="td-num">118 套</span></td><td><span class="td-num" style="color:#ff4d4f;">-2 套</span></td><td><span class="tag tag-orange">丢损待赔</span></td></tr>
         <tr><td>PLT-1210P 塑料托盘 1200×1000</td><td><span class="td-num">60 块</span></td><td><span class="td-num">60 块</span></td><td><span class="td-num">0 块</span></td><td><span class="tag tag-green">全部退回</span></td></tr>
         <tr><td>LJ-D400 箱盖 ABS 吸塑</td><td><span class="td-num">300 件</span></td><td><span class="td-num">296 件</span></td><td><span class="td-num" style="color:#ff4d4f;">-4 件</span></td><td><span class="tag tag-orange">丢损待赔</span></td></tr>
@@ -806,5 +806,12 @@ function toggleBillingMode(byUsage) { var h = document.getElementById('billingHi
 SSEL.fillEntity(SSEL.byLabel('客户名称'),'partners',{label:'name',keepFirst:true,filter:function(k,f){return f.type==='客户';}});
 SSEL.fillEntity(SSEL.byLabel('所属项目'),'projects',{keepFirst:true});
 </script>
+<style>/* 列对齐规范（2026-09-20 道远拍板·全量）：数字/日期列右对齐＋tabular-nums·表头随列·其余左（标签不居中）；aln-a=主表·aln-b=退回对比弹窗表 */
+.aln-a th:nth-child(6),.aln-a td:nth-child(6),
+.aln-a th:nth-child(7),.aln-a td:nth-child(7),
+.aln-a th:nth-child(8),.aln-a td:nth-child(8),
+.aln-b th:nth-child(2),.aln-b td:nth-child(2),
+.aln-b th:nth-child(3),.aln-b td:nth-child(3),
+.aln-b th:nth-child(4),.aln-b td:nth-child(4){text-align:right;font-variant-numeric:tabular-nums}</style>
 </body>
 </html>

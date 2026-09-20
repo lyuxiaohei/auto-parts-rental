@@ -691,5 +691,12 @@ MSEL.attachAll('select.zzName', { placeholder: '输入名称搜索' });
   document.addEventListener('input', function (e) { if (e.target.matches && e.target.matches('.edit-tbl input[data-tax="qty"]')) refresh(); });
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', refresh); else refresh();
 })();</script>
+<style>/* 列对齐规范（2026-09-20 道远拍板·全量）：数字/日期列右对齐＋tabular-nums·表头随列·其余左（标签不居中） */
+table th:nth-child(5),table td:nth-child(5),
+table th:nth-child(6),table td:nth-child(6),
+table th:nth-child(8),table td:nth-child(8),
+table th:nth-child(9),table td:nth-child(9),
+table th:nth-child(10),table td:nth-child(10),
+table th:nth-child(11),table td:nth-child(11){text-align:right;font-variant-numeric:tabular-nums}</style>
 </body>
 </html>

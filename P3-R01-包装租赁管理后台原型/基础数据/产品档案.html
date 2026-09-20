@@ -843,12 +843,8 @@ document.querySelectorAll('.tab').forEach(function (t) {
 /* G43 下拉数据源化：静态 option 为无 JS 兜底，运行时按字典/实体重渲染（矩阵见 _scan_tmpdir/g43_接线差集_v2.md） */
 SSEL.fillDict(SSEL.byLabel('物料类型'),'物料类型',true);
 </script>
-<style>/* 列对齐规范（2026-09-20 道远拍板·样板页先行）：数字/日期右对齐＋tabular-nums·状态/单位/合并组表头居中·文本左·操作列保持 */
-.colsett-tbl th:nth-child(4),.colsett-tbl td:nth-child(4),
-.colsett-tbl th:nth-child(6),.colsett-tbl td:nth-child(6),
-.colsett-tbl th:nth-child(7),.colsett-tbl th:nth-child(8),
-.colsett-tbl th:nth-child(9),.colsett-tbl td:nth-child(11){text-align:center}
-.colsett-tbl th:nth-child(10),
+<style>/* 列对齐规范（2026-09-20 道远拍板·全量版）：数字/日期列右对齐＋tabular-nums·表头随列对齐（合并组表头随数字列右）·其余全部左对齐（标签不居中·道远修正） */
+.colsett-tbl th:nth-child(7),.colsett-tbl th:nth-child(8),.colsett-tbl th:nth-child(10),
 .colsett-tbl td:nth-child(7),.colsett-tbl td:nth-child(8),
 .colsett-tbl td:nth-child(9),.colsett-tbl td:nth-child(10),
 .colsett-tbl td:nth-child(12){text-align:right;font-variant-numeric:tabular-nums}</style>

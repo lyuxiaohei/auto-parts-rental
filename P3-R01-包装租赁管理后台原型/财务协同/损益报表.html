@@ -654,5 +654,15 @@ document.querySelectorAll('.tab').forEach(function (t) {
 SSEL.fillPeriods(SSEL.byLabel('账期'),12,true);
 SSEL.fillEntity(SSEL.byLabel('所属项目'),'projects',{keepFirst:true});
 </script>
+<style>/* 列对齐规范（2026-09-20 道远拍板·全量）：数字/日期列右对齐＋tabular-nums·表头随列·其余左（标签不居中）——损益报表 3~11 全数字列 */
+.table-wrap table th:nth-child(3),.table-wrap table td:nth-child(3),
+.table-wrap table th:nth-child(4),.table-wrap table td:nth-child(4),
+.table-wrap table th:nth-child(5),.table-wrap table td:nth-child(5),
+.table-wrap table th:nth-child(6),.table-wrap table td:nth-child(6),
+.table-wrap table th:nth-child(7),.table-wrap table td:nth-child(7),
+.table-wrap table th:nth-child(8),.table-wrap table td:nth-child(8),
+.table-wrap table th:nth-child(9),.table-wrap table td:nth-child(9),
+.table-wrap table th:nth-child(10),.table-wrap table td:nth-child(10),
+.table-wrap table th:nth-child(11),.table-wrap table td:nth-child(11){text-align:right;font-variant-numeric:tabular-nums}</style>
 </body>
 </html>

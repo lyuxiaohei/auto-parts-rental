@@ -132,6 +132,138 @@
   "nav_anomaly": null
  },
  {
+  "page": "P3-R01-F01-业务流程导航图-重绘候选\\P3-R01-F01-业务流程导航图-重绘-主线.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 86,
+   "links": 1,
+   "onclickEls": 0,
+   "modals": 0,
+   "modalTitles": [],
+   "selects": 0,
+   "fakeSelects": 0,
+   "radios": 0,
+   "checkboxes": 0,
+   "inputs": 1,
+   "stabs": 0,
+   "tabs": 0,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": "file:///D:/%E5%B7%A5%E4%BD%9C%E5%8F%B0-%E5%90%95%E9%81%93%E8%BF%9C/5-%E3%80%90ACTIVE%E3%80%91%E6%B1%BD%E8%BD%A6%E7%89%A9%E6%B5%81%E5%8C%85%E8%A3%85%E7%A7%9F%E8%B5%81/P3-R01-%E5%8C%85%E8%A3%85%E7%A7%9F%E8%B5%81%E7%AE%A1%E7%90%86%E5%90%8E%E5%8F%B0%E5%8E%9F%E5%9E%8B/P3-R01-F01-%E4%B8%9A%E5%8A%A1%E6%B5%81%E7%A8%8B%E5%AF%BC%E8%88%AA%E5%9B%BE-%E9%87%8D%E7%BB%98%E5%80%99%E9%80%89/P3-R01-F01-%E4%B8%9A%E5%8A%A1%E6%B5%81%E7%A8%8B%E5%AF%BC%E8%88%AA%E5%9B%BE-%E9%87%8D%E7%BB%98-%E4%B8%BB%E7%BA%BF.html?present=1#view=view-buy"
+ },
+ {
+  "page": "P3-R01-F01-业务流程导航图-重绘候选\\P3-R01-F01-业务流程导航图-重绘-支线.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 72,
+   "links": 1,
+   "onclickEls": 0,
+   "modals": 0,
+   "modalTitles": [],
+   "selects": 0,
+   "fakeSelects": 0,
+   "radios": 0,
+   "checkboxes": 0,
+   "inputs": 1,
+   "stabs": 0,
+   "tabs": 0,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": "file:///D:/%E5%B7%A5%E4%BD%9C%E5%8F%B0-%E5%90%95%E9%81%93%E8%BF%9C/5-%E3%80%90ACTIVE%E3%80%91%E6%B1%BD%E8%BD%A6%E7%89%A9%E6%B5%81%E5%8C%85%E8%A3%85%E7%A7%9F%E8%B5%81/P3-R01-%E5%8C%85%E8%A3%85%E7%A7%9F%E8%B5%81%E7%AE%A1%E7%90%86%E5%90%8E%E5%8F%B0%E5%8E%9F%E5%9E%8B/P3-R01-F01-%E4%B8%9A%E5%8A%A1%E6%B5%81%E7%A8%8B%E5%AF%BC%E8%88%AA%E5%9B%BE-%E9%87%8D%E7%BB%98%E5%80%99%E9%80%89/P3-R01-F01-%E4%B8%9A%E5%8A%A1%E6%B5%81%E7%A8%8B%E5%AF%BC%E8%88%AA%E5%9B%BE-%E9%87%8D%E7%BB%98-%E6%94%AF%E7%BA%BF.html?present=1#view=view-transfer"
+ },
+ {
+  "page": "P3-R01-F01-业务流程导航图-重绘候选\\P3-R01-F01-业务流程导航图-重绘-退租归还与财务.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 72,
+   "links": 1,
+   "onclickEls": 0,
+   "modals": 0,
+   "modalTitles": [],
+   "selects": 0,
+   "fakeSelects": 0,
+   "radios": 0,
+   "checkboxes": 0,
+   "inputs": 1,
+   "stabs": 0,
+   "tabs": 0,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": "file:///D:/%E5%B7%A5%E4%BD%9C%E5%8F%B0-%E5%90%95%E9%81%93%E8%BF%9C/5-%E3%80%90ACTIVE%E3%80%91%E6%B1%BD%E8%BD%A6%E7%89%A9%E6%B5%81%E5%8C%85%E8%A3%85%E7%A7%9F%E8%B5%81/P3-R01-%E5%8C%85%E8%A3%85%E7%A7%9F%E8%B5%81%E7%AE%A1%E7%90%86%E5%90%8E%E5%8F%B0%E5%8E%9F%E5%9E%8B/P3-R01-F01-%E4%B8%9A%E5%8A%A1%E6%B5%81%E7%A8%8B%E5%AF%BC%E8%88%AA%E5%9B%BE-%E9%87%8D%E7%BB%98%E5%80%99%E9%80%89/P3-R01-F01-%E4%B8%9A%E5%8A%A1%E6%B5%81%E7%A8%8B%E5%AF%BC%E8%88%AA%E5%9B%BE-%E9%87%8D%E7%BB%98-%E9%80%80%E7%A7%9F%E5%BD%92%E8%BF%98%E4%B8%8E%E8%B4%A2%E5%8A%A1.html?present=1#view=view-return"
+ },
+ {
+  "page": "P3-R01-F01-业务流程导航图-重绘候选\\visual-check证据\\P3-R01-F01-业务流程导航图-重绘-主线.visual-check.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 0,
+   "links": 0,
+   "onclickEls": 0,
+   "modals": 0,
+   "modalTitles": [],
+   "selects": 0,
+   "fakeSelects": 0,
+   "radios": 0,
+   "checkboxes": 0,
+   "inputs": 0,
+   "stabs": 0,
+   "tabs": 0,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "P3-R01-F01-业务流程导航图-重绘候选\\visual-check证据\\P3-R01-F01-业务流程导航图-重绘-支线.visual-check.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 0,
+   "links": 0,
+   "onclickEls": 0,
+   "modals": 0,
+   "modalTitles": [],
+   "selects": 0,
+   "fakeSelects": 0,
+   "radios": 0,
+   "checkboxes": 0,
+   "inputs": 0,
+   "stabs": 0,
+   "tabs": 0,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
+  "page": "P3-R01-F01-业务流程导航图-重绘候选\\visual-check证据\\P3-R01-F01-业务流程导航图-重绘-退租归还与财务.visual-check.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 0,
+   "links": 0,
+   "onclickEls": 0,
+   "modals": 0,
+   "modalTitles": [],
+   "selects": 0,
+   "fakeSelects": 0,
+   "radios": 0,
+   "checkboxes": 0,
+   "inputs": 0,
+   "stabs": 0,
+   "tabs": 0,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ },
+ {
   "page": "P3-R01-F01-业务流程导航图.html",
   "js_errors": [],
   "problems": [],
@@ -202,16 +334,16 @@
   "js_errors": [],
   "problems": [],
   "stats": {
-   "buttons": 3,
-   "links": 1,
-   "onclickEls": 37,
+   "buttons": 4,
+   "links": 5,
+   "onclickEls": 38,
    "modals": 0,
    "modalTitles": [],
-   "selects": 2,
+   "selects": 10,
    "fakeSelects": 0,
    "radios": 5,
    "checkboxes": 0,
-   "inputs": 4,
+   "inputs": 22,
    "stabs": 0,
    "tabs": 2,
    "bgMut": 0
@@ -290,16 +422,16 @@
   "js_errors": [],
   "problems": [],
   "stats": {
-   "buttons": 3,
-   "links": 1,
-   "onclickEls": 37,
+   "buttons": 4,
+   "links": 5,
+   "onclickEls": 38,
    "modals": 0,
    "modalTitles": [],
-   "selects": 4,
+   "selects": 12,
    "fakeSelects": 0,
    "radios": 6,
    "checkboxes": 0,
-   "inputs": 4,
+   "inputs": 22,
    "stabs": 0,
    "tabs": 2,
    "bgMut": 0
@@ -381,7 +513,7 @@
   "problems": [],
   "stats": {
    "buttons": 5,
-   "links": 6,
+   "links": 5,
    "onclickEls": 42,
    "modals": 0,
    "modalTitles": [],
@@ -499,16 +631,16 @@
   "js_errors": [],
   "problems": [],
   "stats": {
-   "buttons": 3,
-   "links": 1,
-   "onclickEls": 37,
+   "buttons": 4,
+   "links": 5,
+   "onclickEls": 38,
    "modals": 0,
    "modalTitles": [],
-   "selects": 4,
+   "selects": 12,
    "fakeSelects": 0,
    "radios": 0,
    "checkboxes": 0,
-   "inputs": 5,
+   "inputs": 23,
    "stabs": 0,
    "tabs": 2,
    "bgMut": 0
@@ -860,8 +992,8 @@
   "problems": [],
   "stats": {
    "buttons": 3,
-   "links": 21,
-   "onclickEls": 75,
+   "links": 19,
+   "onclickEls": 73,
    "modals": 0,
    "modalTitles": [],
    "selects": 4,
@@ -891,7 +1023,7 @@
   "problems": [],
   "stats": {
    "buttons": 4,
-   "links": 8,
+   "links": 7,
    "onclickEls": 46,
    "modals": 0,
    "modalTitles": [],
@@ -957,7 +1089,7 @@
   "problems": [],
   "stats": {
    "buttons": 5,
-   "links": 16,
+   "links": 15,
    "onclickEls": 52,
    "modals": 0,
    "modalTitles": [],
@@ -1045,7 +1177,7 @@
   "problems": [],
   "stats": {
    "buttons": 5,
-   "links": 7,
+   "links": 6,
    "onclickEls": 46,
    "modals": 0,
    "modalTitles": [],
@@ -1420,16 +1552,16 @@
   "js_errors": [],
   "problems": [],
   "stats": {
-   "buttons": 3,
-   "links": 1,
-   "onclickEls": 40,
+   "buttons": 4,
+   "links": 5,
+   "onclickEls": 41,
    "modals": 0,
    "modalTitles": [],
-   "selects": 3,
+   "selects": 11,
    "fakeSelects": 0,
    "radios": 2,
    "checkboxes": 0,
-   "inputs": 5,
+   "inputs": 24,
    "stabs": 0,
    "tabs": 2,
    "bgMut": 0
@@ -1961,8 +2093,8 @@
   "problems": [],
   "stats": {
    "buttons": 7,
-   "links": 59,
-   "onclickEls": 82,
+   "links": 63,
+   "onclickEls": 85,
    "modals": 1,
    "modalTitles": [
     "账单确认"
@@ -1971,7 +2103,7 @@
    "fakeSelects": 0,
    "radios": 0,
    "checkboxes": 0,
-   "inputs": 22,
+   "inputs": 23,
    "stabs": 5,
    "tabs": 4,
    "bgMut": 0
@@ -2165,8 +2297,8 @@
   "problems": [],
   "stats": {
    "buttons": 7,
-   "links": 8,
-   "onclickEls": 50,
+   "links": 6,
+   "onclickEls": 48,
    "modals": 1,
    "modalTitles": [
     "退款确认"
@@ -2175,7 +2307,7 @@
    "fakeSelects": 0,
    "radios": 2,
    "checkboxes": 0,
-   "inputs": 12,
+   "inputs": 11,
    "stabs": 3,
    "tabs": 3,
    "bgMut": 0
@@ -2345,8 +2477,8 @@
   "problems": [],
   "stats": {
    "buttons": 6,
-   "links": 31,
-   "onclickEls": 66,
+   "links": 29,
+   "onclickEls": 65,
    "modals": 1,
    "modalTitles": [
     "attModal(演示页)"
@@ -2370,7 +2502,7 @@
   "stats": {
    "buttons": 2,
    "links": 1,
-   "onclickEls": 41,
+   "onclickEls": 42,
    "modals": 0,
    "modalTitles": [],
    "selects": 0,
@@ -2414,7 +2546,7 @@
   "stats": {
    "buttons": 1,
    "links": 1,
-   "onclickEls": 41,
+   "onclickEls": 42,
    "modals": 0,
    "modalTitles": [],
    "selects": 0,
@@ -2435,8 +2567,8 @@
   "problems": [],
   "stats": {
    "buttons": 5,
-   "links": 7,
-   "onclickEls": 44,
+   "links": 5,
+   "onclickEls": 42,
    "modals": 0,
    "modalTitles": [],
    "selects": 3,
@@ -2458,7 +2590,7 @@
   "stats": {
    "buttons": 2,
    "links": 1,
-   "onclickEls": 39,
+   "onclickEls": 40,
    "modals": 0,
    "modalTitles": [],
    "selects": 0,
@@ -2502,7 +2634,7 @@
   "stats": {
    "buttons": 1,
    "links": 1,
-   "onclickEls": 39,
+   "onclickEls": 40,
    "modals": 0,
    "modalTitles": [],
    "selects": 0,
@@ -2523,15 +2655,15 @@
   "problems": [],
   "stats": {
    "buttons": 5,
-   "links": 14,
-   "onclickEls": 51,
+   "links": 22,
+   "onclickEls": 59,
    "modals": 0,
    "modalTitles": [],
    "selects": 4,
    "fakeSelects": 0,
    "radios": 0,
    "checkboxes": 0,
-   "inputs": 11,
+   "inputs": 12,
    "stabs": 3,
    "tabs": 3,
    "bgMut": 0

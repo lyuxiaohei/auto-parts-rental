@@ -750,5 +750,11 @@ function showToast(msg) {
 SSEL.fillEntity(SSEL.byLabel('供应商'),'rentInOrders',{field:'operator',keepFirst:true,filterV:function(v){return v.indexOf('待选')<0;}});
 SSEL.fillEntity(SSEL.byLabel('物料'),'rentInOrders',{field:'appliance',keepFirst:true});
 </script>
+<style>/* 列对齐规范（2026-09-20 道远拍板·全量）：数字/日期列右对齐＋tabular-nums·表头随列·其余左（标签不居中） */
+.table-wrap table th:nth-child(5),.table-wrap table td:nth-child(5),
+.table-wrap table th:nth-child(6),.table-wrap table td:nth-child(6),
+.table-wrap table th:nth-child(8),.table-wrap table td:nth-child(8),
+.table-wrap table th:nth-child(9),.table-wrap table td:nth-child(9),
+.table-wrap table th:nth-child(12),.table-wrap table td:nth-child(12){text-align:right;font-variant-numeric:tabular-nums}</style>
 </body>
 </html>

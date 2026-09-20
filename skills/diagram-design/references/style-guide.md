@@ -1,8 +1,8 @@
 # Style Guide
 
-**The single source of truth for colors, typography, and tokens.** Every diagram draws from this — not from hex values inlined in other reference files. If you want to change the visual skin of Schematic, change this file.
+**The single source of truth for colors, typography, and tokens.** Every diagram draws from this — not from hex values inlined in other reference files. If you want to change the visual skin of Diagram Design, change this file.
 
-Current skin: **Blue+Black** — white paper, near-black ink, blue accent, slate muted. Customized for logistics/supply-chain technical documentation.
+Default skin is a cool editorial palette — white-smoke paper, jet-black ink, atomic-tangerine accent, blue-slate muted. It's designed to look good out of the box; swap these values (or run [`onboarding.md`](onboarding.md)) and every new diagram inherits the new skin without touching any type-specific logic.
 
 To generate your own from a website URL, see [`onboarding.md`](onboarding.md).
 
@@ -16,16 +16,16 @@ Every token is referred to by **semantic role**, not by its hex value. Type refe
 
 | Role | Purpose | Default (light) | Default (dark) |
 |---|---|---|---|
-| `paper` | Page background, default node fill | `#fafafa` (off-white) | `#111827` (near-black) |
-| `paper-2` | Diagram container bg, secondary fill | `#f0f2f5` | `#1f2937` |
-| `ink` | Primary text, primary stroke | `#111827` (near-black) | `#f3f4f6` (off-white) |
-| `muted` | Secondary text, default arrow stroke | `#4b5563` (slate) | `#9ca3af` |
-| `soft` | Sublabels, boundary labels | `#6b7280` | `#9ca3af` |
-| `rule` | Hairline borders | `rgba(17,24,39,0.10)` | `rgba(243,244,246,0.12)` |
-| `rule-solid` | Stronger borders, baselines | `#d1d5db` | `#374151` |
-| `accent` | Focal / 1–2 max per diagram | `#2563eb` (blue) | `#3b82f6` |
-| `accent-tint` | Fill for accent-bordered boxes | `rgba(37,99,235,0.08)` | `rgba(59,130,246,0.12)` |
-| `link` | HTTP/API calls, external arrows | `#2563eb` | `#60a5fa` |
+| `paper` | Page background, default node fill | `#f5f5f5` (white-smoke) | `#2d3142` (jet-black) |
+| `paper-2` | Diagram container bg, secondary fill | `#ececec` | `#393e53` |
+| `ink` | Primary text, primary stroke | `#2d3142` (jet-black) | `#f5f5f5` (white-smoke) |
+| `muted` | Secondary text, default arrow stroke | `#4f5d75` (blue-slate) | `#bfc0c0` (silver) |
+| `soft` | Sublabels, boundary labels | `#7a8399` | `#8e98ac` |
+| `rule` | Hairline borders | `rgba(45,49,66,0.12)` | `rgba(245,245,245,0.12)` |
+| `rule-solid` | Stronger borders, baselines | `#bfc0c0` (silver) | `rgba(191,192,192,0.25)` |
+| `accent` | Focal / 1–2 max per diagram | `#eb6c36` (atomic-tangerine) | `#f08a59` |
+| `accent-tint` | Fill for accent-bordered boxes | `rgba(235,108,54,0.08)` | `rgba(240,138,89,0.10)` |
+| `link` | HTTP/API calls, external arrows | `#2e5aa8` | `#6a95d8` |
 
 > **Brand palette source:** this skin maps to a five-color brand palette — `jet-black #2d3142`, `silver #bfc0c0`, `white-smoke #f5f5f5`, `atomic-tangerine #eb6c36`, `blue-slate #4f5d75`. The `soft`, `rule`, and `link` tokens are derived (lighter slate, ink-at-opacity, and a saturated variant in the blue-slate hue family) to cover roles the brand palette doesn't name directly.
 
@@ -34,6 +34,38 @@ Every token is referred to by **semantic role**, not by its hex value. Type refe
 ### Inversion rule (light → dark)
 
 Any `rgba(28,25,23, X)` in light becomes `rgba(250,247,242, X)` in dark. Same opacities, RGB flipped. The accent gets a slight hue-shift brighter to read on dark paper.
+
+### Series palette (multi-series chart types only)
+
+A small set of desaturated, editorial-tone colors for chart types that genuinely need to distinguish multiple overlapping entities (currently: **radar**). The "1-focal" rule still holds — `accent` is reserved for the focal series; the palette below covers the rest.
+
+| Token | Light | Dark | Notes |
+|---|---|---|---|
+| `series-1` | `#7c8f6f` (sage) | `#9caf8f` | Non-focal series |
+| `series-2` | `#5e7a9b` (dusty-blue) | `#82a0c0` | Non-focal series |
+| `series-3` | `#b8915a` (mustard) | `#d3ad7a` | Non-focal series |
+| `series-4` | `#9c6b50` (rust-brown) | `#b88670` | Non-focal series |
+| `series-5` | `#6e6479` (slate) | `#8d8298` | Non-focal series |
+
+Fills sit at `0.18` opacity light, `0.22` dark; strokes use the full color. **Don't backfill these tokens to non-chart types** — architecture, swimlane, etc. continue to use muted-ink variants. The series palette is opt-in for diagrams where overlapping shapes demand distinguishable color, not a license to add color elsewhere.
+
+### Terminal skin (opt-in alternate)
+
+A self-contained palette for the terminal-window primitive (see [primitive-terminal.md](primitive-terminal.md)) — a CLI-chrome register for dev-tool posts and technical social cards. It does not replace the default skin above and isn't affected by onboarding; it's a second, fixed skin you opt into per-diagram.
+
+| Token | Hex | Purpose |
+|---|---|---|
+| `terminal-page` | `#0a0a0a` | Page background behind the window |
+| `terminal-paper` | `#141414` | Window body, node fill |
+| `terminal-bar` | `#1b1b1b` | Titlebar strip |
+| `terminal-border` | `#2b2b2b` | Window border, hairlines |
+| `terminal-ink` | `#f5f5f5` | Primary text, primary stroke (same white-smoke as default `ink`) |
+| `terminal-muted` | `#9a9a9a` | Secondary text, sublabels, ring stroke |
+| `terminal-soft` | `#5c5c5c` | Tertiary — inactive dots, spokes |
+| `terminal-accent` | `#ff5a36` | The one accent — focal station, prompt sign, active dot |
+| `terminal-accent-tint` | `rgba(255,90,54,0.12)` | Fill for accent-bordered boxes |
+
+**1-accent rule still holds.** Everything that isn't `terminal-ink` or `terminal-muted`/`terminal-soft` should be `terminal-accent` — never introduce a second hue.
 
 ---
 
@@ -90,11 +122,12 @@ Semantic role combinations — reference these by name in type specs.
 
 ## Customizing the skin
 
-Three options:
+Four options:
 
 1. **Run onboarding** — see [`onboarding.md`](onboarding.md). Drop a URL; the skill extracts the palette + fonts and rewrites this file.
 2. **Edit by hand** — change the hex values in the tables above. Run the pre-output taste gate afterward to verify the accent still reads as "focal" against the new paper color.
 3. **Brand handoff** — paste your existing design-token JSON into a new section here and map its tokens to the semantic roles above.
+4. **Client profiles** — save and switch named skins, or bind one to a project, using [`profiles.md`](profiles.md).
 
 ### Constraints (don't break these)
 
