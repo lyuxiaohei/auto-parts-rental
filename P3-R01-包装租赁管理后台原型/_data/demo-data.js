@@ -12237,12 +12237,182 @@ window.DEMO_DATA = {
  *   fields: name/ver/status/mix/updater/update 供筛选（BOM物料编码/名称/版本/状态/更新时间区间）
  * ------------------------------------------------------------------------ */
   bomList: {
-    'ZH-2601-A': { 'row': {"fields": {"name": "驾驶室围板箱整箱套件", "ver": "V2.1", "billing": "按时间周期", "status": "启用", "mix": "围板箱×1（租入）+ 围板×4（自购）+ 箱盖×1（自购）+ 锁扣×4（自购）+ 铰链×2（自购）", "updater": "陈锋", "update": "2026-08-20"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../基础数据/BOM维护.html')\">ZH-2601-A</span>", "cells": ["驾驶室围板箱整箱套件", "<span class=\"tag tag-green\">启用</span>", "<span class=\"td-num\">5</span>", "围板箱×1（租入）+ 围板×4（自购）+ 箱盖×1（自购）+ 锁扣×4（自购）+ 铰链×2（自购）", "陈锋", "2026-08-20"], "ops": [{"t": "编辑", "act": "go('../基础数据/BOM维护.html')"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
-    'ZH-2602-B': { 'row': {"fields": {"name": "保险杠料架套件", "ver": "V1.3", "billing": "按时间周期", "status": "启用", "mix": "料架×1（租入）+ 支撑臂×2（自购）+ 锁扣×2（自购）", "updater": "陈锋", "update": "2026-07-14"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../基础数据/BOM维护.html')\">ZH-2602-B</span>", "cells": ["保险杠料架套件", "<span class=\"tag tag-green\">启用</span>", "<span class=\"td-num\">4</span>", "料架×1（租入）+ 支撑臂×2（自购）+ 锁扣×2（自购）", "陈锋", "2026-07-14"], "ops": [{"t": "编辑", "act": "go('../基础数据/BOM维护.html')"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
-    'ZH-2603-C': { 'row': {"fields": {"name": "电池包周转箱套件", "ver": "V1.0", "billing": "按次", "status": "启用", "mix": "周转箱×1（租入）+ 内衬×4（自购）+ 绑带×2（自购）+ 锁扣×4（自购）+ 铰链×2（自购）+ 标签×1（自购）", "updater": "沈婷", "update": "2026-06-30"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../基础数据/BOM维护.html')\">ZH-2603-C</span>", "cells": ["电池包周转箱套件", "<span class=\"tag tag-green\">启用</span>", "<span class=\"td-num\">6</span>", "周转箱×1（租入）+ 内衬×4（自购）+ 绑带×2（自购）+ 锁扣×4（自购）+ 铰链×2（自购）+ 标签×1（自购）", "沈婷", "2026-06-30"], "ops": [{"t": "编辑", "act": "go('../基础数据/BOM维护.html')"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
-    'ZT-2201': { 'row': {"fields": {"name": "座椅周转箱套件", "ver": "V1.0", "billing": "按次", "status": "启用", "mix": "周转箱×1（租入）+ 隔板×2（自购）", "updater": "陈锋", "update": "2026-05-18"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../基础数据/BOM维护.html')\">ZT-2201</span>", "cells": ["座椅周转箱套件", "<span class=\"tag tag-green\">启用</span>", "<span class=\"td-num\">3</span>", "周转箱×1（租入）+ 隔板×2（自购）", "陈锋", "2026-05-18"], "ops": [{"t": "编辑", "act": "go('../基础数据/BOM维护.html')"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
-    'JP-3105': { 'row': {"fields": {"name": "仪表板周转架套件", "ver": "V1.3", "billing": "按时间周期", "status": "启用", "mix": "周转架×1（自购）+ 支撑×2（自购）+ 锁扣×1（自购）", "updater": "陈锋", "update": "2026-04-22"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../基础数据/BOM维护.html')\">JP-3105</span>", "cells": ["仪表板周转架套件", "<span class=\"tag tag-green\">启用</span>", "<span class=\"td-num\">4</span>", "周转架×1（自购）+ 支撑×2（自购）+ 锁扣×1（自购）", "陈锋", "2026-04-22"], "ops": [{"t": "编辑", "act": "go('../基础数据/BOM维护.html')"}, {"t": "停用", "act": "openModal('stopModal')"}]} },
-    'WBX-1210L': { 'row': {"fields": {"name": "围板箱 1200×1000×970（单件）", "ver": "V1.0", "billing": "按时间周期", "status": "停用", "mix": "—（单件器具，无子项组合）", "updater": "陈锋", "update": "2026-03-02"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../基础数据/BOM维护.html')\">WBX-1210L</span>", "cells": ["围板箱 1200×1000×970（单件）", "<span class=\"tag tag-gray\">停用</span>", "<span class=\"td-num\">0</span>", "—（单件器具，无子项组合）", "陈锋", "2026-03-02"], "ops": [{"t": "编辑", "act": "go('../基础数据/BOM维护.html')"}, {"t": "停用", "act": "openModal('stopModal')"}]} },  },
+    'ZH-2601-A': { 'row': {"fields": {"name": "驾驶室围板箱整箱套件", "ver": "V2.1", "billing": "按时间周期", "status": "启用", "mix": "围板箱×1（租入）+ 围板×4（自购）+ 箱盖×1（自购）+ 锁扣×4（自购）+ 铰链×2（自购）", "updater": "陈锋", "update": "2026-08-20"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../基础数据/BOM维护.html')\">ZH-2601-A</span>", "cells": ["驾驶室围板箱整箱套件", "<span class=\"tag tag-green\">启用</span>", "<span class=\"td-num\">5</span>", "围板箱×1（租入）+ 围板×4（自购）+ 箱盖×1（自购）+ 锁扣×4（自购）+ 铰链×2（自购）", "陈锋", "2026-08-20"], "ops": [{"t": "详情", "act": "go('../基础数据/BOM详情.html?id=ZH-2601-A')"}, {"t": "编辑", "act": "go('../基础数据/BOM维护.html')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
+      'title': 'BOM 详情',
+      'titleNo': '驾驶室围板箱整箱套件',
+      'formTitle': '组合信息',
+      'formRows': [
+        { 'label': 'BOM物料编码', 'text': 'ZH-2601-A' },
+        { 'label': '状态', 'tag': '启用' },
+        { 'label': 'BOM物料名称', 'text': '驾驶室围板箱整箱套件' },
+        { 'label': '版本', 'text': 'V2.1' },
+        { 'label': '计费方式', 'text': '按时间周期' },
+        { 'label': '子项数', 'text': '5' },
+        { 'label': '更新人', 'text': '陈锋' },
+        { 'label': '更新日期', 'text': '2026-08-20' }
+      ],
+      'itemTitle': '组合构成',
+      'itemCols': ['子项编码', '子项名称', '来源', '类型', '单位用量', '供应商（带出）'],
+      'items': [
+        ['WBX-1210L', '围板箱 1200×1000×970', '租入', '围板箱', '1', '甬城塑业包装制品有限公司'],
+        ['LJ-C300', '围板 HDPE 波纹板', '自购', '零部件', '4', '甬城塑业包装制品有限公司'],
+        ['LJ-D400', '箱盖 ABS 吸塑', '自购', '零部件', '1', '甬城塑业包装制品有限公司'],
+        ['LJ-A100', '锁扣组件', '自购', '零部件', '4', '吴越联合五金制品有限公司'],
+        ['LJ-B200', '铰链', '自购', '零部件', '2', '吴越联合五金制品有限公司']
+      ],
+      'chain': [
+        { 'role': 'BOM 档案（本档）', 'name': 'ZH-2601-A', 'self': true },
+        { 'role': 'BOM 版本', 'name': 'V2.1 · 生效中', 'url': '基础数据/BOM版本查看.html?id=V2.1' },
+        { 'role': '库存查询', 'name': 'ZH-2601-A 组合件', 'url': '仓储作业/库存查询.html' },
+        { 'role': '租赁出库', 'name': 'ZH 套件出租记录', 'url': '租赁管理/租赁出库列表.html' }
+      ],
+      'timeline': [
+        { 't': '2026-01-10', 'text': 'V1.0 初版建档', 'who': '陈锋' },
+        { 't': '2026-05-14', 'text': 'V2.0 新增内衬可选配 · 围板 5→4 块', 'who': '陈锋' },
+        { 't': '2026-08-20', 'text': 'V2.1 锁扣配比 6→4（客户产线上线反馈）', 'who': '陈锋' }
+      ] },
+    'ZH-2602-B': { 'row': {"fields": {"name": "保险杠料架套件", "ver": "V1.3", "billing": "按时间周期", "status": "启用", "mix": "料架×1（租入）+ 支撑臂×2（自购）+ 锁扣×2（自购）", "updater": "陈锋", "update": "2026-07-14"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../基础数据/BOM维护.html')\">ZH-2602-B</span>", "cells": ["保险杠料架套件", "<span class=\"tag tag-green\">启用</span>", "<span class=\"td-num\">3</span>", "料架×1（租入）+ 支撑臂×2（自购）+ 锁扣×2（自购）", "陈锋", "2026-07-14"], "ops": [{"t": "详情", "act": "go('../基础数据/BOM详情.html?id=ZH-2602-B')"}, {"t": "编辑", "act": "go('../基础数据/BOM维护.html')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
+      'title': 'BOM 详情',
+      'titleNo': '保险杠料架套件',
+      'formTitle': '组合信息',
+      'formRows': [
+        { 'label': 'BOM物料编码', 'text': 'ZH-2602-B' },
+        { 'label': '状态', 'tag': '启用' },
+        { 'label': 'BOM物料名称', 'text': '保险杠料架套件' },
+        { 'label': '版本', 'text': 'V1.3' },
+        { 'label': '计费方式', 'text': '按时间周期' },
+        { 'label': '子项数', 'text': '3' },
+        { 'label': '更新人', 'text': '陈锋' },
+        { 'label': '更新日期', 'text': '2026-07-14' }
+      ],
+      'itemTitle': '组合构成',
+      'itemCols': ['子项编码', '子项名称', '来源', '类型', '单位用量', '供应商（带出）'],
+      'items': [
+        ['KJ-2701', '料架 1850×1000×1200', '租入', '料架', '1', '—'],
+        ['—', '支撑臂', '自购', '零部件', '2', '—'],
+        ['LJ-A100', '锁扣组件', '自购', '零部件', '2', '吴越联合五金制品有限公司']
+      ],
+      'chain': [
+        { 'role': 'BOM 档案（本档）', 'name': 'ZH-2602-B', 'self': true },
+        { 'role': '库存查询', 'name': 'ZH-2602-B 组合件', 'url': '仓储作业/库存查询.html' },
+        { 'role': '租赁出库', 'name': 'ZH 套件出租记录', 'url': '租赁管理/租赁出库列表.html' }
+      ],
+      'timeline': [
+        { 't': '2026-07-14', 'text': 'V1.3 当前版建档', 'who': '陈锋' },
+        { 't': '持续', 'text': '按时间周期出租 · 宁波项目组套' }
+      ] },
+    'ZH-2603-C': { 'row': {"fields": {"name": "电池包周转箱套件", "ver": "V1.0", "billing": "按次", "status": "启用", "mix": "周转箱×1（租入）+ 内衬×4（自购）+ 绑带×2（自购）+ 锁扣×4（自购）+ 铰链×2（自购）+ 标签×1（自购）", "updater": "沈婷", "update": "2026-06-30"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../基础数据/BOM维护.html')\">ZH-2603-C</span>", "cells": ["电池包周转箱套件", "<span class=\"tag tag-green\">启用</span>", "<span class=\"td-num\">6</span>", "周转箱×1（租入）+ 内衬×4（自购）+ 绑带×2（自购）+ 锁扣×4（自购）+ 铰链×2（自购）+ 标签×1（自购）", "沈婷", "2026-06-30"], "ops": [{"t": "详情", "act": "go('../基础数据/BOM详情.html?id=ZH-2603-C')"}, {"t": "编辑", "act": "go('../基础数据/BOM维护.html')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
+      'title': 'BOM 详情',
+      'titleNo': '电池包周转箱套件',
+      'formTitle': '组合信息',
+      'formRows': [
+        { 'label': 'BOM物料编码', 'text': 'ZH-2603-C' },
+        { 'label': '状态', 'tag': '启用' },
+        { 'label': 'BOM物料名称', 'text': '电池包周转箱套件' },
+        { 'label': '版本', 'text': 'V1.0' },
+        { 'label': '计费方式', 'text': '按次' },
+        { 'label': '子项数', 'text': '6' },
+        { 'label': '更新人', 'text': '沈婷' },
+        { 'label': '更新日期', 'text': '2026-06-30' }
+      ],
+      'itemTitle': '组合构成',
+      'itemCols': ['子项编码', '子项名称', '来源', '类型', '单位用量', '供应商（带出）'],
+      'items': [
+        ['BTC-6040', '料箱 600×400×340', '租入', '料箱', '1', '环通循环包装运营（上海）有限公司'],
+        ['LJ-F600', '内衬 EPE 珍珠棉', '自购', '内衬', '4', '甬城塑业包装制品有限公司'],
+        ['—', '绑带', '自购', '零部件', '2', '—'],
+        ['LJ-A100', '锁扣组件', '自购', '零部件', '4', '吴越联合五金制品有限公司'],
+        ['LJ-B200', '铰链', '自购', '零部件', '2', '吴越联合五金制品有限公司'],
+        ['—', '标签', '自购', '零部件', '1', '—']
+      ],
+      'chain': [
+        { 'role': 'BOM 档案（本档）', 'name': 'ZH-2603-C', 'self': true },
+        { 'role': '库存查询', 'name': 'ZH-2603-C 组合件', 'url': '仓储作业/库存查询.html' },
+        { 'role': '租赁出库', 'name': 'ZH 套件出租记录', 'url': '租赁管理/租赁出库列表.html' }
+      ],
+      'timeline': [
+        { 't': '2026-06-30', 'text': 'V1.0 建档 · 广州项目护角套件', 'who': '沈婷' },
+        { 't': '当前', 'text': '按次计费出租' }
+      ] },
+    'ZT-2201': { 'row': {"fields": {"name": "座椅周转箱套件", "ver": "V1.0", "billing": "按次", "status": "启用", "mix": "周转箱×1（租入）+ 隔板×2（自购）", "updater": "陈锋", "update": "2026-05-18"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../基础数据/BOM维护.html')\">ZT-2201</span>", "cells": ["座椅周转箱套件", "<span class=\"tag tag-green\">启用</span>", "<span class=\"td-num\">2</span>", "周转箱×1（租入）+ 隔板×2（自购）", "陈锋", "2026-05-18"], "ops": [{"t": "详情", "act": "go('../基础数据/BOM详情.html?id=ZT-2201')"}, {"t": "编辑", "act": "go('../基础数据/BOM维护.html')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
+      'title': 'BOM 详情',
+      'titleNo': '座椅周转箱套件',
+      'formTitle': '组合信息',
+      'formRows': [
+        { 'label': 'BOM物料编码', 'text': 'ZT-2201' },
+        { 'label': '状态', 'tag': '启用' },
+        { 'label': 'BOM物料名称', 'text': '座椅周转箱套件' },
+        { 'label': '版本', 'text': 'V1.0' },
+        { 'label': '计费方式', 'text': '按次' },
+        { 'label': '子项数', 'text': '2' },
+        { 'label': '更新人', 'text': '陈锋' },
+        { 'label': '更新日期', 'text': '2026-05-18' }
+      ],
+      'itemTitle': '组合构成',
+      'itemCols': ['子项编码', '子项名称', '来源', '类型', '单位用量', '供应商（带出）'],
+      'items': [
+        ['BTC-6040S', '料箱 600×400×220（带盖）', '租入', '料箱', '1', '—'],
+        ['—', '隔板', '自购', '零部件', '2', '—']
+      ],
+      'chain': [
+        { 'role': 'BOM 档案（本档）', 'name': 'ZT-2201', 'self': true },
+        { 'role': '库存查询', 'name': 'ZT-2201 组合件', 'url': '仓储作业/库存查询.html' }
+      ],
+      'timeline': [
+        { 't': '2026-05-18', 'text': 'V1.0 建档', 'who': '陈锋' },
+        { 't': '当前', 'text': '按次计费 · 座椅物流专线' }
+      ] },
+    'JP-3105': { 'row': {"fields": {"name": "仪表板周转架套件", "ver": "V1.3", "billing": "按时间周期", "status": "启用", "mix": "周转架×1（自购）+ 支撑×2（自购）+ 锁扣×1（自购）", "updater": "陈锋", "update": "2026-04-22"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../基础数据/BOM维护.html')\">JP-3105</span>", "cells": ["仪表板周转架套件", "<span class=\"tag tag-green\">启用</span>", "<span class=\"td-num\">3</span>", "周转架×1（自购）+ 支撑×2（自购）+ 锁扣×1（自购）", "陈锋", "2026-04-22"], "ops": [{"t": "详情", "act": "go('../基础数据/BOM详情.html?id=JP-3105')"}, {"t": "编辑", "act": "go('../基础数据/BOM维护.html')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
+      'title': 'BOM 详情',
+      'titleNo': '仪表板周转架套件',
+      'formTitle': '组合信息',
+      'formRows': [
+        { 'label': 'BOM物料编码', 'text': 'JP-3105' },
+        { 'label': '状态', 'tag': '启用' },
+        { 'label': 'BOM物料名称', 'text': '仪表板周转架套件' },
+        { 'label': '版本', 'text': 'V1.3' },
+        { 'label': '计费方式', 'text': '按时间周期' },
+        { 'label': '子项数', 'text': '3' },
+        { 'label': '更新人', 'text': '陈锋' },
+        { 'label': '更新日期', 'text': '2026-04-22' }
+      ],
+      'itemTitle': '组合构成',
+      'itemCols': ['子项编码', '子项名称', '来源', '类型', '单位用量', '供应商（带出）'],
+      'items': [
+        ['KJ-2701', '料架 1850×1000×1200', '自购', '料架', '1', '—'],
+        ['—', '支撑', '自购', '零部件', '2', '—'],
+        ['LJ-A100', '锁扣组件', '自购', '零部件', '1', '吴越联合五金制品有限公司']
+      ],
+      'chain': [
+        { 'role': 'BOM 档案（本档）', 'name': 'JP-3105', 'self': true },
+        { 'role': '库存查询', 'name': 'JP-3105 组合件', 'url': '仓储作业/库存查询.html' }
+      ],
+      'timeline': [
+        { 't': '2026-04-22', 'text': 'V1.3 当前版', 'who': '陈锋' },
+        { 't': '当前', 'text': '按时间周期出租' }
+      ] },
+    'WBX-1210L': { 'row': {"fields": {"name": "围板箱 1200×1000×970（单件）", "ver": "V1.0", "billing": "按时间周期", "status": "停用", "mix": "—（单件器具，无子项组合）", "updater": "陈锋", "update": "2026-03-02"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../基础数据/BOM维护.html')\">WBX-1210L</span>", "cells": ["围板箱 1200×1000×970（单件）", "<span class=\"tag tag-gray\">停用</span>", "<span class=\"td-num\">0</span>", "—（单件器具，无子项组合）", "陈锋", "2026-03-02"], "ops": [{"t": "详情", "act": "go('../基础数据/BOM详情.html?id=WBX-1210L')"}, {"t": "编辑", "act": "go('../基础数据/BOM维护.html')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
+      'title': 'BOM 详情',
+      'titleNo': '围板箱 1200×1000×970（单件）',
+      'formTitle': '组合信息',
+      'formRows': [
+        { 'label': 'BOM物料编码', 'text': 'WBX-1210L' },
+        { 'label': '状态', 'tag': '停用' },
+        { 'label': 'BOM物料名称', 'text': '围板箱 1200×1000×970（单件）' },
+        { 'label': '版本', 'text': 'V1.0' },
+        { 'label': '计费方式', 'text': '按时间周期' },
+        { 'label': '子项数', 'text': '0' },
+        { 'label': '更新人', 'text': '陈锋' },
+        { 'label': '更新日期', 'text': '2026-03-02' }
+      ],
+      'chain': [
+        { 'role': 'BOM 档案（本档）', 'name': 'WBX-1210L（单件占位）', 'self': true },
+        { 'role': '物料档案', 'name': 'WBX-1210L 单件器具', 'url': '基础数据/物料详情.html?id=WBX-1210L' }
+      ],
+      'timeline': [
+        { 't': '2026-03-02', 'text': '单件器具占位建档（无子项组合）', 'who': '陈锋' },
+        { 't': '2026-03-02', 'text': '停用 · 组合概念由 ZH 系列套件承载', 'who': '陈锋' }
+      ] },  },
   productTaxes: {
     'TAX-001': {'row': {"fields": {"product": "WBX-1210L", "productName": "围板箱 1200×1000×970", "cls": "围板箱", "supplier": "甬城塑业包装制品有限公司", "taxRate": "13%", "settleCycle": "月结"}}},
     'TAX-002': {'row': {"fields": {"product": "WBX-1210L", "productName": "围板箱 1200×1000×970", "cls": "围板箱", "supplier": "环通循环包装运营（上海）有限公司", "taxRate": "13%", "settleCycle": "月结"}}},
