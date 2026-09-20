@@ -380,10 +380,10 @@ th.td-num { text-align:right; }
           <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" class="csItem" value="物料类型" checked>物料类型</label>
           <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" class="csItem" value="规格" checked>规格</label>
           <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" class="csItem" value="单位" checked>单位</label>
-          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" class="csItem" value="参考未税采购价(元)" checked>参考未税采购价(元)</label>
-          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" class="csItem" value="参考未税销售价(元)" checked>参考未税销售价(元)</label>
-          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" class="csItem" value="参考未税租入价" checked>参考未税租入价</label>
-          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" class="csItem" value="参考未税租赁价" checked>参考未税租赁价</label>
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" class="csItem" value="采购价" checked>采购价</label>
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" class="csItem" value="销售价">销售价</label>
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" class="csItem" value="租入价" checked>租入价</label>
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" class="csItem" value="租赁价" checked>租赁价</label>
           <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" class="csItem" value="状态" checked>状态</label>
           <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" class="csItem" value="更新日期" checked>更新日期</label>
         </div>
@@ -395,19 +395,22 @@ th.td-num { text-align:right; }
     <table class="colsett-tbl">
       <thead>
         <tr>
-          <th></th>
-          <th>物料编码</th>
-          <th>物料名称</th>
-          <th>物料类型</th>
-          <th>规格</th>
-          <th>单位</th>
-          <th>参考未税采购价(元)</th>
-          <th>参考未税销售价(元)</th>
-          <th>参考未税租入价</th>
-          <th>参考未税租赁价</th>
-          <th>状态</th>
-          <th>更新日期</th>
-          <th class="sticky-op">操作</th>
+          <th rowspan="2"></th>
+          <th rowspan="2">物料编码</th>
+          <th rowspan="2">物料名称</th>
+          <th rowspan="2">物料类型</th>
+          <th rowspan="2">规格</th>
+          <th rowspan="2">单位</th>
+          <th colspan="4" data-note="3">参考价（未税·元）</th>
+          <th rowspan="2">状态</th>
+          <th rowspan="2" class="num-col">更新日期</th>
+          <th rowspan="2" class="sticky-op">操作</th>
+        </tr>
+        <tr>
+          <th class="num-col">采购价</th>
+          <th class="num-col">销售价</th>
+          <th class="num-col">租入价</th>
+          <th class="num-col">租赁价</th>
         </tr>
       </thead>
       <tbody>
@@ -847,27 +850,53 @@ document.querySelectorAll('.tab').forEach(function (t) {
 /* G43 下拉数据源化：静态 option 为无 JS 兜底，运行时按字典/实体重渲染（矩阵见 _scan_tmpdir/g43_接线差集_v2.md） */
 SSEL.fillDict(SSEL.byLabel('物料类型'),'物料类型',true);
 </script>
-<script>/* 列显示设置（2026-09-20 道远指示·克隆客商管理样板件）：勾选显隐现有数据列——勾选框列/操作列固定；CSS nth-child 显隐（免疫列表重渲染）；localStorage 记忆（colsett-wlda）；「恢复默认」一键全显 */
+<style>/* 列对齐规范（2026-09-20 道远拍板）：价格列与日期列右对齐＋等宽数字 */
+.colsett-tbl tbody td:nth-child(7),.colsett-tbl tbody td:nth-child(8),.colsett-tbl tbody td:nth-child(9),.colsett-tbl tbody td:nth-child(10),.colsett-tbl tbody td:nth-child(12),.colsett-tbl thead th.num-col{text-align:right;font-variant-numeric:tabular-nums}
+</style>
+<script>/* 列显示设置（2026-09-20 道远指示·克隆客商管理样板件·当日优化版）：两层表头按 colspan/rowspan 折算列位；「销售价」默认隐藏（不常用列，恢复默认即回此态）；其余同样板——勾选框列/操作列固定、CSS nth-child 显隐（免疫列表重渲染）、localStorage 记忆（colsett-wlda）、「恢复默认」带反馈 */
+var COLSETT_DEFAULT_OFF = ['销售价'];
 function toggleColSett(ev) {
   ev && ev.stopPropagation();
   var p = document.getElementById('colSettPanel');
   if (p) p.style.display = (p.style.display === 'none' || !p.style.display) ? 'block' : 'none';
 }
+function colSettColMap(tbl) {
+  var map = {};
+  var col = 0;
+  Array.prototype.slice.call(tbl.tHead.rows[0].cells).forEach(function (th, i) {
+    map[th.textContent.trim()] = { sel: 'thead tr:first-child th:nth-child(' + (i + 1) + ')', td: col + 1 };
+    col += th.colSpan || 1;
+  });
+  if (tbl.tHead.rows[1]) { /* 第二行表头起点＝首行中第一个「不跨到第二行」的格子（colspan 组）所在列 */
+    var c2 = 0;
+    Array.prototype.slice.call(tbl.tHead.rows[0].cells).some(function (th) {
+      if ((th.rowSpan || 1) === 1) return true; /* 到达 colspan 组＝此后由第二行接替 */
+      c2 += th.colSpan || 1;
+      return false;
+    });
+    Array.prototype.slice.call(tbl.tHead.rows[1].cells).forEach(function (th, i) {
+      map[th.textContent.trim()] = { sel: 'thead tr:nth-child(2) th:nth-child(' + (i + 1) + ')', td: c2 + 1 };
+      c2 += th.colSpan || 1;
+    });
+  }
+  return map;
+}
 function applyColSett() {
   var tbl = document.querySelector('table.colsett-tbl'); if (!tbl) return;
-  var ths = Array.prototype.slice.call(tbl.querySelectorAll('thead th'));
   var hidden = Array.prototype.slice.call(document.querySelectorAll('#colSettList .csItem:not(:checked)')).map(function (i) { return i.value; });
   try { localStorage.setItem('colsett-wlda', JSON.stringify(hidden)); } catch (e) {}
+  var map = colSettColMap(tbl);
   var css = '';
   hidden.forEach(function (name) {
-    ths.forEach(function (th, i) { if (th.textContent.trim() === name) css += '.colsett-tbl th:nth-child(' + (i + 1) + '),.colsett-tbl td:nth-child(' + (i + 1) + '){display:none;}'; });
+    var m = map[name]; if (!m) return;
+    css += '.colsett-tbl ' + m.sel + ',.colsett-tbl tbody td:nth-child(' + m.td + '){display:none;}';
   });
   var st = document.getElementById('colSettStyle');
   if (!st) { st = document.createElement('style'); st.id = 'colSettStyle'; document.head.appendChild(st); }
   st.textContent = css;
 }
 function resetColSett(el) {
-  Array.prototype.slice.call(document.querySelectorAll('#colSettList .csItem')).forEach(function (i) { i.checked = true; });
+  Array.prototype.slice.call(document.querySelectorAll('#colSettList .csItem')).forEach(function (i) { i.checked = COLSETT_DEFAULT_OFF.indexOf(i.value) < 0; });
   applyColSett();
   var tip = document.getElementById('colSettTip');
   if (!tip) {
@@ -884,10 +913,10 @@ function resetColSett(el) {
 }
 (function () {
   Array.prototype.slice.call(document.querySelectorAll('#colSettList .csItem')).forEach(function (i) { i.addEventListener('change', applyColSett); });
-  try {
-    var saved = JSON.parse(localStorage.getItem('colsett-wlda') || '[]');
-    if (Array.isArray(saved)) saved.forEach(function (name) { var i = document.querySelector('#colSettList .csItem[value="' + name + '"]'); if (i) i.checked = false; });
-  } catch (e) {}
+  var saved = null;
+  try { saved = JSON.parse(localStorage.getItem('colsett-wlda')); } catch (e) {}
+  var off = Array.isArray(saved) ? saved : COLSETT_DEFAULT_OFF; /* 首访无记忆＝默认显示（销售价隐藏） */
+  Array.prototype.slice.call(document.querySelectorAll('#colSettList .csItem')).forEach(function (i) { i.checked = off.indexOf(i.value) < 0; }); /* 按记忆/默认重置勾选态（HTML 静态默认≠记忆态，须双向校准） */
   applyColSett();
   document.addEventListener('click', function (e) {
     var p = document.getElementById('colSettPanel');
