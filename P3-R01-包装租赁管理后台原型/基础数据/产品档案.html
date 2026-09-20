@@ -372,7 +372,7 @@ th.td-num { text-align:right; }
   <div class="card-head">
     <h3 class="card-title">物料档案</h3>
     <div class="head-btns" style="position:relative;"><button class="btn btn-default btn-sm" onclick="toggleColSett(event)">列设置</button>
-      <div id="colSettPanel" style="display:none;position:absolute;right:0;top:calc(100% + 6px);z-index:60;background:#fff;border:1px solid #e5e6eb;border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,.1);padding:10px 12px;width:180px;font-size:13px;">
+      <div id="colSettPanel" style="display:none;position:absolute;right:0;top:calc(100% + 6px);z-index:60;background:#fff;border:1px solid #e5e6eb;border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,.1);padding:10px 12px;width:200px;font-size:13px;">
         <div style="font-weight:600;color:#595959;margin-bottom:6px;">显示列</div>
         <div id="colSettList" style="display:flex;flex-direction:column;gap:4px;">
           <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" class="csItem" value="物料编码" checked>物料编码</label>
@@ -380,10 +380,8 @@ th.td-num { text-align:right; }
           <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" class="csItem" value="物料类型" checked>物料类型</label>
           <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" class="csItem" value="规格" checked>规格</label>
           <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" class="csItem" value="单位" checked>单位</label>
-          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" class="csItem" value="参考未税采购价(元)" checked>参考未税采购价(元)</label>
-          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" class="csItem" value="参考未税销售价(元)" checked>参考未税销售价(元)</label>
-          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" class="csItem" value="参考未税租入价" checked>参考未税租入价</label>
-          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" class="csItem" value="参考未税租赁价" checked>参考未税租赁价</label>
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" class="csItem" value="参考未税采购价 / 销售价(元)" checked>参考未税采购价 / 销售价(元)</label>
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" class="csItem" value="参考未税租入价 / 租赁价" checked>参考未税租入价 / 租赁价</label>
           <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" class="csItem" value="状态" checked>状态</label>
           <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" class="csItem" value="更新日期" checked>更新日期</label>
         </div>
@@ -401,10 +399,8 @@ th.td-num { text-align:right; }
           <th>物料类型</th>
           <th>规格</th>
           <th>单位</th>
-          <th>参考未税采购价(元)</th>
-          <th>参考未税销售价(元)</th>
-          <th>参考未税租入价</th>
-          <th>参考未税租赁价</th>
+          <th colspan="2">参考未税采购价 / 销售价(元)</th>
+          <th colspan="2">参考未税租入价 / 租赁价</th>
           <th>状态</th>
           <th>更新日期</th>
           <th class="sticky-op">操作</th>
@@ -847,16 +843,16 @@ document.querySelectorAll('.tab').forEach(function (t) {
 /* G43 下拉数据源化：静态 option 为无 JS 兜底，运行时按字典/实体重渲染（矩阵见 _scan_tmpdir/g43_接线差集_v2.md） */
 SSEL.fillDict(SSEL.byLabel('物料类型'),'物料类型',true);
 </script>
-<style>/* 列对齐规范（2026-09-20 道远拍板·样板页先行）：数字/日期右对齐＋tabular-nums·状态/单位居中·文本左·操作列保持 */
+<style>/* 列对齐规范（2026-09-20 道远拍板·样板页先行）：数字/日期右对齐＋tabular-nums·状态/单位/合并组表头居中·文本左·操作列保持 */
 .colsett-tbl th:nth-child(4),.colsett-tbl td:nth-child(4),
 .colsett-tbl th:nth-child(6),.colsett-tbl td:nth-child(6),
-.colsett-tbl th:nth-child(11),.colsett-tbl td:nth-child(11){text-align:center}
-.colsett-tbl th:nth-child(7),.colsett-tbl td:nth-child(7),
-.colsett-tbl th:nth-child(8),.colsett-tbl td:nth-child(8),
-.colsett-tbl th:nth-child(9),.colsett-tbl td:nth-child(9),
-.colsett-tbl th:nth-child(10),.colsett-tbl td:nth-child(10),
-.colsett-tbl th:nth-child(12),.colsett-tbl td:nth-child(12){text-align:right;font-variant-numeric:tabular-nums}</style>
-<script>/* 列显示设置（2026-09-20 道远指示·克隆客商管理样板件）：勾选显隐现有数据列——勾选框列/操作列固定；CSS nth-child 显隐（免疫列表重渲染）；localStorage 记忆（colsett-wlda）；「恢复默认」一键全显 */
+.colsett-tbl th:nth-child(7),.colsett-tbl th:nth-child(8),
+.colsett-tbl th:nth-child(9),.colsett-tbl td:nth-child(11){text-align:center}
+.colsett-tbl th:nth-child(10),
+.colsett-tbl td:nth-child(7),.colsett-tbl td:nth-child(8),
+.colsett-tbl td:nth-child(9),.colsett-tbl td:nth-child(10),
+.colsett-tbl td:nth-child(12){text-align:right;font-variant-numeric:tabular-nums}</style>
+<script>/* 列显示设置（2026-09-20 道远指示·克隆客商管理样板件·单行合并表头版）：勾选显隐现有数据列——勾选框列/操作列固定；合并组表头（colspan）按跨度折算列位、隐藏一对＝隐藏组表头＋其下全部数据列；CSS nth-child 显隐（免疫列表重渲染）；localStorage 记忆（colsett-wlda）；「恢复默认」一键全显 */
 function toggleColSett(ev) {
   ev && ev.stopPropagation();
   var p = document.getElementById('colSettPanel');
@@ -868,8 +864,14 @@ function applyColSett() {
   var hidden = Array.prototype.slice.call(document.querySelectorAll('#colSettList .csItem:not(:checked)')).map(function (i) { return i.value; });
   try { localStorage.setItem('colsett-wlda', JSON.stringify(hidden)); } catch (e) {}
   var css = '';
-  hidden.forEach(function (name) {
-    ths.forEach(function (th, i) { if (th.textContent.trim() === name) css += '.colsett-tbl th:nth-child(' + (i + 1) + '),.colsett-tbl td:nth-child(' + (i + 1) + '){display:none;}'; });
+  var col = 0;
+  ths.forEach(function (th, i) {
+    var span = th.colSpan || 1;
+    if (hidden.indexOf(th.textContent.trim()) > -1) {
+      css += '.colsett-tbl thead th:nth-child(' + (i + 1) + '){display:none;}';
+      for (var k = 0; k < span; k++) css += '.colsett-tbl tbody td:nth-child(' + (col + k + 1) + '){display:none;}';
+    }
+    col += span;
   });
   var st = document.getElementById('colSettStyle');
   if (!st) { st = document.createElement('style'); st.id = 'colSettStyle'; document.head.appendChild(st); }
