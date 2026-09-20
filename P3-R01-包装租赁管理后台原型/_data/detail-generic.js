@@ -59,8 +59,9 @@
     h += '<div class="card fm-card"><div class="card-head"><h3 class="card-title">' + (rec.formTitle || '单据信息') + '</h3></div>';
     rec.formRows.forEach(function (f) {
       var v;
-      /* 信息卡内段标题行（如客商详情·开票资料/收货信息）——仅含 sec 键，向后兼容 */
-      if (f.sec) { h += '<div class="fm-sec">' + f.sec + '</div>'; return; }
+      /* sec 行＝信息区拆卡（0920 道远：另两块信息独立卡片·与新建页卡结构一一对应）——
+         闭合当前卡、以 sec 为标题开新卡；无 sec 的记录行为不变 */
+      if (f.sec) { h += '</div><div class="card fm-card"><div class="card-head"><h3 class="card-title">' + f.sec + '</h3></div>'; return; }
       if (f.tag) v = '<span class="tag ' + (STATUS_CLS[f.tag] || 'tag-gray') + '">' + f.tag + '</span>';
       else v = lk(f.text, f.url, base);
       /* 值框恒 380px（道远 09-19 反馈：备注/调拨原因 full 拉伸超长·各组件宽度保持一致＝新建页约定）；
@@ -115,8 +116,6 @@
       '.fm-val{width:380px;min-height:30px;border:1px solid #e5e6eb;border-radius:6px;padding:4px 11px;background:#fafafa;color:#595959;font-size:13px;display:flex;align-items:center;flex-wrap:wrap;word-break:break-all;box-sizing:border-box;}' +
       '.fm-val .tag{margin:0;}' +
       '.fm-card > .card-head .card-title{margin-bottom:14px;}' +
-      /* 信息卡内段标题（与页面 .dt-sec 同款视觉：左蓝条粗体小标题） */
-      '.fm-sec{font-size:13px;font-weight:600;color:#262626;margin:18px 0 10px;padding-left:8px;border-left:3px solid #1677ff;line-height:1.3;}' +
       /* 流转卡内两段间距：关联单据链与时间线（道远 09-19 反馈 0px 太近·+10px） */
       '.fm-card .chain{margin-bottom:10px;}' +
       '</style>';
