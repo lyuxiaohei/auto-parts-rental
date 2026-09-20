@@ -884,7 +884,7 @@ window.NOTES_DATA = {
       "id": 1,
       "selector": "<button class=\"btn btn-sm\" onclick=\"openModal('createModal')\">",
       "title": "新建客商",
-      "note": "客户/供应商两类主体；开票资料独立弹窗维护（含结算周期）",
+      "note": "客户/供应商两类主体；开票资料、收货信息在新建/编辑页随基础信息一并维护，详情页分三段展示",
       "fp": "FP1-02",
       "req": "REQ-01"
     }

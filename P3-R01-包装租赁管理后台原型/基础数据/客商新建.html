@@ -377,6 +377,84 @@ th.td-num { text-align:right; }
   </div>
 </div>
 
+<div class="card">
+  <div class="card-head">
+    <h3 class="card-title">开票资料</h3>
+  </div>
+  <div class="form-row">
+    <div class="form-label">单位名称：</div>
+    <div>
+      <div class="input-box" style="width:380px;"><input id="ksInvName" placeholder="开票抬头 · 默认同客商名称"></div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-label">发票类型：</div>
+    <div>
+      <div class="input-box select-box" style="width:380px;"><select id="ksInvTypeSel" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>增值税专票 13%</option><option>增值税普通发票</option></select><span class="caret">▾</span></div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-label">纳税人识别号：</div>
+    <div>
+      <div class="input-box" style="width:380px;"><input id="ksInvTaxNo" placeholder="请输入"></div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-label">开户银行：</div>
+    <div>
+      <div class="input-box" style="width:380px;"><input id="ksInvBank" placeholder="请输入"></div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-label">银行账号：</div>
+    <div>
+      <div class="input-box" style="width:380px;"><input id="ksInvAcct" placeholder="请输入"></div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-label">收款账号：</div>
+    <div>
+      <div class="input-box" style="width:380px;"><input id="ksRecvAcctNo" placeholder="选填 · 收付款账号可与开票账号不一致"></div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-label"><span class="req">*</span>结算周期：</div>
+    <div>
+      <div class="input-box select-box" style="width:380px;"><select id="ksSettleSel" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>月结</option><option>货到付款</option><option>预付</option></select><span class="caret">▾</span></div>
+    </div>
+  </div>
+  <div class="form-row" style="align-items:flex-start;">
+    <div class="form-label" style="padding-top:6px;">备注：</div>
+    <div>
+      <div class="input-box" style="width:380px;height:auto;padding:6px 11px;"><textarea id="ksInvRemark" placeholder="选填" style="width:100%;border:none;outline:none;background:transparent;font:inherit;color:inherit;resize:vertical;min-height:72px;line-height:1.6;"></textarea></div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-head">
+    <h3 class="card-title">收货信息</h3>
+  </div>
+  <div class="form-row">
+    <div class="form-label">收货人：</div>
+    <div>
+      <div class="input-box" style="width:380px;"><input id="ksRecvName" placeholder="请输入"></div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-label">收货电话：</div>
+    <div>
+      <div class="input-box" style="width:380px;"><input id="ksRecvPhone" placeholder="请输入"></div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-label">收货地址：</div>
+    <div>
+      <div class="input-box" style="width:380px;"><input id="ksRecvAddr" placeholder="请输入"></div>
+    </div>
+  </div>
+</div>
+
 <div class="submit-bar"><button class="btn btn-default" onclick="go('../基础数据/客商管理.html')">取消</button><button class="btn">保存</button></div>
     </div>
   </div>
@@ -396,7 +474,7 @@ function fillSel(id, opts, keepCur) {
   s.innerHTML = opts.map(function (o) { return '<option>' + o + '</option>'; }).join('');
   if (cur && opts.indexOf(cur) > -1) s.value = cur;
 }
-(function(){ fillSel('ksTypeSel', dictOpts('客商类型'), true); })();</script>
+(function(){ fillSel('ksTypeSel', dictOpts('客商类型'), true); fillSel('ksInvTypeSel', dictOpts('发票类型'), true); fillSel('ksSettleSel', dictOpts('结算周期'), true); })();</script>
 <script>
 /* ===== 菜单折叠 / 页签与表单视觉态（统一脚本） ===== */
 function go(url) { location.href = url; }
