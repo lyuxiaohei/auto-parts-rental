@@ -216,6 +216,10 @@
     hideTip(); /* 点外关闭业务小弹窗 */
     var t = e.target.closest ? e.target.closest('[data-note]') : null;
     if (!t) return;
+    /* 0920 双轨收口：biz 元素本体点击＝元素自身功能（如按钮跳页），不得劫持——劫持仅限 dev
+       （dev 紫数字为 ::after 伪元素，点击命中宿主，须由宿主承接开抽屉）。此前 biz 按钮点击
+       被 preventDefault+stopPropagation 吞掉，新建客商/新建项目/自动匹配等全部只弹抽屉不执行 */
+    if (t.classList.contains('pn-biz')) return;
     e.preventDefault();
     e.stopPropagation();
     openDrawer(t.getAttribute('data-note'));
