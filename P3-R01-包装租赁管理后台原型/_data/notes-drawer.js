@@ -48,10 +48,10 @@
     + '.pn-src{margin-top:8px;padding-top:7px;border-top:1px dashed #e5dff0;font-size:11px;color:#595959;line-height:1.65}'
     + '.pn-src b{color:#722ed1;font-weight:600}'
     + '.pn-drawer-foot{flex:none;padding:8px 16px;border-top:1px solid #f0f0f0;font-size:11px;color:#8c8c8c}'
-    /* 双轨（0919 道远拍板 #9·0920 修正）：业务提示＝锚点旁黑白「?」圆标常显·点击弹小弹窗说明——**? 圆标及内容属正式功能需求·需开发到前端页面**（面向最终用户）；PRD 注释＝紫色数字角标·点击开抽屉——**仅开发过程内部查看·正式版不出现** */
+    /* 双轨（0919 道远拍板 #9·0920 修正）：业务提示＝锚点文字后内联白底黑描边「?」圆标·点击弹小弹窗——**? 圆标及内容属正式功能需求·需开发到前端页面**（面向最终用户·标题后水平对齐/按钮内并入文本）；PRD 注释＝紫色数字角标悬浮右上·点击开抽屉——**仅开发过程内部查看·正式版不出现** */
     + '[data-note].pn-biz{position:relative}'
     + 'body.proto-notes-on [data-note].pn-biz::after{display:none}'
-    + '.pn-q{position:absolute;top:-7px;right:-7px;width:16px;height:16px;border-radius:50%;background:#fff;color:#000;border:1px solid #000;box-sizing:border-box;font-size:10px;font-weight:600;line-height:14px;text-align:center;font-family:Consolas,monospace;cursor:pointer;box-shadow:0 0 0 1.5px #fff;z-index:6;opacity:.8;transition:opacity .15s}'
+    + '.pn-q{display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;border-radius:50%;background:#fff;color:#000;border:1px solid #000;box-sizing:border-box;font-size:10px;font-weight:600;font-family:Consolas,monospace;cursor:pointer;vertical-align:middle;margin-left:4px;position:relative;opacity:.85;transition:opacity .15s}'
     + '.pn-q:hover{opacity:1;background:#f5f5f5}'
     + '.pn-tip{position:fixed;z-index:895;width:280px;max-width:300px;background:#fff;color:#262626;border:1px solid #262626;border-radius:8px;font-size:12px;line-height:1.7;font-family:-apple-system,\'Segoe UI\',\'Microsoft YaHei\',sans-serif;box-shadow:0 6px 20px rgba(0,0,0,.22);pointer-events:auto;opacity:0;transform:translateY(4px);transition:opacity .15s,transform .15s}'
     + '.pn-tip.pn-show{opacity:1;transform:none}'
