@@ -378,7 +378,7 @@ th.td-num { text-align:right; }
 <div class="card">
   <div class="card-head">
     <h3 class="card-title" data-note="5">应付账单</h3>
-    <div class="head-btns"><button class="btn btn-default btn-sm">批量导出</button><button class="btn btn-sm" onclick="go('../财务协同/应付新建.html')">新建应付账单</button></div>
+    <div class="head-btns"><button class="btn btn-default btn-sm">批量导出</button><button class="btn btn-sm" onclick="go('../财务协同/应付新建.html')">新建</button></div>
   </div>
 <div class="stabs">
   <span class="stab active">全部<span class="stab-count">20</span></span>
@@ -609,7 +609,7 @@ th.td-num { text-align:right; }
       <textarea style="width:100%;height:60px;border:1px solid #d9d9d9;border-radius:4px;padding:8px;font-size:13px" placeholder="选填"></textarea>
     </div>
     <div class="modal-footer">
-      <button class="btn btn-default" onclick="closeModal('auditModal')">取 消</button>
+      <button class="btn btn-default" onclick="closeModal('auditModal')">取消</button>
       <button class="btn" onclick="closeModal('auditModal')">确认通过</button>
     </div>
   </div>
@@ -689,7 +689,7 @@ th.td-num { text-align:right; }
     </div>
     <div class="modal-body">
 <div style="display:flex;gap:8px;align-items:center;margin-bottom:6px;">
-      <button class="btn btn-default btn-sm" id="instAdd" type="button">+ 添加一笔</button>
+      <button class="btn btn-default btn-sm" id="instAdd" type="button">添加</button>
       <button class="btn btn-default btn-sm" id="instFill" type="button">剩余全排</button>
       <input id="instBase" value="68,400.00" style="border:1px solid #d9d9d9;border-radius:4px;padding:2px 8px;font:inherit;width:120px;text-align:right;" title="账单金额">
   </div>
@@ -702,8 +702,8 @@ th.td-num { text-align:right; }
 <div style="font-size:12px;color:#8c8c8c;margin-top:4px;">填比例算金额 / 填金额算比例；「+ 添加一笔」自由加笔，「剩余全排」把剩余填入最后一笔；合计超账单金额红框拦截。</div>
     </div>
     <div class="modal-footer">
-      <button class="btn btn-default" onclick="closeModal('instModal')">关 闭</button>
-      <button class="btn" onclick="go('../财务协同/付款登记.html')">去付款登记</button>
+      <button class="btn btn-default" onclick="closeModal('instModal')">关闭</button>
+      <button class="btn" onclick="go('../财务协同/付款登记.html')">付款登记</button>
     </div>
   </div>
 </div>

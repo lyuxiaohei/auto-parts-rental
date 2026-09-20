@@ -1158,7 +1158,7 @@ window.DEMO_DATA = {
   /* 收款登记（键 = HK 收款单号） */
   receipts: {
     'HK-20260830-014': {
-      'row': {"fields": {"customer": "华骏重卡汽车有限公司", "ref": "AR-2026-08-PRJ2601", "bank": "招行基本户 1209****8866", "receipt": "已上传", "date": "2026-08-30", "status": "待核销"}, "note": "1", "cells": ["华骏重卡汽车有限公司", "AR-2026-08-PRJ2601", "<span class=\"td-num\"><b>286,500.00</b></span>", "2026-08-30", "招行基本户 1209****8866", "<span class=\"tag tag-green\">已上传</span>", "<span class=\"tag tag-orange\">待核销</span>"], "ops": [{"t": "确认收款", "act": "openModal('auditModal')"}, {"t": "详情", "act": "go('../财务协同/收款详情.html?id=HK-20260830-014')"}, {"t": "去核销", "act": "go('../财务协同/银行回单核销.html')"}]},
+      'row': {"fields": {"customer": "华骏重卡汽车有限公司", "ref": "AR-2026-08-PRJ2601", "bank": "招行基本户 1209****8866", "receipt": "已上传", "date": "2026-08-30", "status": "待核销"}, "note": "1", "cells": ["华骏重卡汽车有限公司", "AR-2026-08-PRJ2601", "<span class=\"td-num\"><b>286,500.00</b></span>", "2026-08-30", "招行基本户 1209****8866", "<span class=\"tag tag-green\">已上传</span>", "<span class=\"tag tag-orange\">待核销</span>"], "ops": [{"t": "确认收款", "act": "openModal('auditModal')"}, {"t": "详情", "act": "go('../财务协同/收款详情.html?id=HK-20260830-014')"}, {"t": "核销", "act": "go('../财务协同/银行回单核销.html')"}]},
       title: '收款登记详情',
       formTitle: '收款信息',
       formRows: [
@@ -1191,7 +1191,7 @@ window.DEMO_DATA = {
       ]
     },
     'HK-20260828-013': {
-      'row': {"fields": {"customer": "东海商用宁波分公司", "ref": "AR-2026-07-PRJ2602", "bank": "建行一般户 3321****0417", "receipt": "已上传", "date": "2026-08-28", "status": "待核销"}, "cells": ["东海商用宁波分公司", "AR-2026-07-PRJ2602", "<span class=\"td-num\"><b>158,420.50</b></span>", "2026-08-28", "建行一般户 3321****0417", "<span class=\"tag tag-green\">已上传</span>", "<span class=\"tag tag-orange\">待核销</span>"], "ops": [{"t": "确认收款", "act": "openModal('auditModal')"}, {"t": "详情", "act": "go('../财务协同/收款详情.html?id=HK-20260828-013')"}, {"t": "去核销", "act": "go('../财务协同/银行回单核销.html')"}]},
+      'row': {"fields": {"customer": "东海商用宁波分公司", "ref": "AR-2026-07-PRJ2602", "bank": "建行一般户 3321****0417", "receipt": "已上传", "date": "2026-08-28", "status": "待核销"}, "cells": ["东海商用宁波分公司", "AR-2026-07-PRJ2602", "<span class=\"td-num\"><b>158,420.50</b></span>", "2026-08-28", "建行一般户 3321****0417", "<span class=\"tag tag-green\">已上传</span>", "<span class=\"tag tag-orange\">待核销</span>"], "ops": [{"t": "确认收款", "act": "openModal('auditModal')"}, {"t": "详情", "act": "go('../财务协同/收款详情.html?id=HK-20260828-013')"}, {"t": "核销", "act": "go('../财务协同/银行回单核销.html')"}]},
       title: '收款登记详情',
       formTitle: '收款信息',
       formRows: [
@@ -1224,7 +1224,7 @@ window.DEMO_DATA = {
       ]
     },
     'HK-20260825-012': {
-      'row': {"fields": {"customer": "华骏重卡汽车有限公司", "ref": "AR-2026-07-PRJ2601", "bank": "招行基本户 1209****8866", "receipt": "已上传", "date": "2026-08-25", "status": "部分核销"}, "cells": ["华骏重卡汽车有限公司", "AR-2026-07-PRJ2601", "<span class=\"td-num\"><b>98,000.00</b></span>", "2026-08-25", "招行基本户 1209****8866", "<span class=\"tag tag-green\">已上传</span>", "<span class=\"tag tag-blue\">部分核销</span>"], "ops": [{"t": "确认收款", "act": "openModal('auditModal')"}, {"t": "详情", "act": "go('../财务协同/收款详情.html?id=HK-20260825-012')"}, {"t": "去核销", "act": "go('../财务协同/银行回单核销.html')"}]},
+      'row': {"fields": {"customer": "华骏重卡汽车有限公司", "ref": "AR-2026-07-PRJ2601", "bank": "招行基本户 1209****8866", "receipt": "已上传", "date": "2026-08-25", "status": "部分核销"}, "cells": ["华骏重卡汽车有限公司", "AR-2026-07-PRJ2601", "<span class=\"td-num\"><b>98,000.00</b></span>", "2026-08-25", "招行基本户 1209****8866", "<span class=\"tag tag-green\">已上传</span>", "<span class=\"tag tag-blue\">部分核销</span>"], "ops": [{"t": "确认收款", "act": "openModal('auditModal')"}, {"t": "详情", "act": "go('../财务协同/收款详情.html?id=HK-20260825-012')"}, {"t": "核销", "act": "go('../财务协同/银行回单核销.html')"}]},
       title: '收款登记详情',
       formTitle: '收款信息',
       formRows: [
@@ -1258,7 +1258,7 @@ window.DEMO_DATA = {
       ]
     },
     'HK-20260822-011': {
-      'row': {"fields": {"customer": "星途新能源汽车科技有限公司", "ref": "AR-2026-07-PRJ2603", "bank": "工行一般户 0200****5533", "receipt": "补传回单", "date": "2026-08-22", "status": "已核销"}, "cells": ["星途新能源汽车科技有限公司", "AR-2026-07-PRJ2603", "<span class=\"td-num\"><b>65,320.00</b></span>", "2026-08-22", "工行一般户 0200****5533", "<span class=\"ops\"><a>补传回单</a></span>", "<span class=\"tag tag-green\">已核销</span>"], "ops": [{"t": "确认收款", "act": "openModal('auditModal')"}, {"t": "详情", "act": "go('../财务协同/收款详情.html?id=HK-20260822-011')"}, {"t": "去核销", "act": "go('../财务协同/银行回单核销.html')"}]},
+      'row': {"fields": {"customer": "星途新能源汽车科技有限公司", "ref": "AR-2026-07-PRJ2603", "bank": "工行一般户 0200****5533", "receipt": "补传回单", "date": "2026-08-22", "status": "已核销"}, "cells": ["星途新能源汽车科技有限公司", "AR-2026-07-PRJ2603", "<span class=\"td-num\"><b>65,320.00</b></span>", "2026-08-22", "工行一般户 0200****5533", "<span class=\"ops\"><a>补传回单</a></span>", "<span class=\"tag tag-green\">已核销</span>"], "ops": [{"t": "确认收款", "act": "openModal('auditModal')"}, {"t": "详情", "act": "go('../财务协同/收款详情.html?id=HK-20260822-011')"}, {"t": "核销", "act": "go('../财务协同/银行回单核销.html')"}]},
       title: '收款登记详情',
       formTitle: '收款信息',
       formRows: [
@@ -1291,7 +1291,7 @@ window.DEMO_DATA = {
       ]
     },
     'HK-20260818-010': {
-      'row': {"fields": {"customer": "华骏重卡汽车有限公司", "ref": "BS-20260802-001", "bank": "招行基本户 1209****8866", "receipt": "已上传", "date": "2026-08-18", "status": "已核销"}, "cells": ["华骏重卡汽车有限公司", "BS-20260802-001", "<span class=\"td-num\"><b>860.00</b></span>", "2026-08-18", "招行基本户 1209****8866", "<span class=\"tag tag-green\">已上传</span>", "<span class=\"tag tag-green\">已核销</span>"], "ops": [{"t": "确认收款", "act": "openModal('auditModal')"}, {"t": "详情", "act": "go('../财务协同/收款详情.html?id=HK-20260818-010')"}, {"t": "去核销", "act": "go('../财务协同/银行回单核销.html')"}]},
+      'row': {"fields": {"customer": "华骏重卡汽车有限公司", "ref": "BS-20260802-001", "bank": "招行基本户 1209****8866", "receipt": "已上传", "date": "2026-08-18", "status": "已核销"}, "cells": ["华骏重卡汽车有限公司", "BS-20260802-001", "<span class=\"td-num\"><b>860.00</b></span>", "2026-08-18", "招行基本户 1209****8866", "<span class=\"tag tag-green\">已上传</span>", "<span class=\"tag tag-green\">已核销</span>"], "ops": [{"t": "确认收款", "act": "openModal('auditModal')"}, {"t": "详情", "act": "go('../财务协同/收款详情.html?id=HK-20260818-010')"}, {"t": "核销", "act": "go('../财务协同/银行回单核销.html')"}]},
       title: '收款登记详情',
       formTitle: '收款信息',
       formRows: [
@@ -1327,7 +1327,7 @@ window.DEMO_DATA = {
   /* 开票登记（键 = INV 登记单号） */
   invoices: {
     'INV-20260902-013': {
-      'row': {"fields": {"no": "26119800421390", "itype": "专票", "buyer": "东海商用汽车有限公司宁波分公司", "ref": "AR-2026-08-PRJ2603", "date": "2026-09-02", "status": "已红冲"}, "cells": ["26119800421390", "<span class=\"tag tag-blue\">专票</span>", "东海商用汽车有限公司宁波分公司", "AR-2026-08-PRJ2603", "<span class=\"td-num\"><b>-46,800.00</b></span>", "13%", "2026-09-02", "<span class=\"tag tag-red\">已红冲</span>"], "ops": [{"t": "详情", "act": "go('../财务协同/开票详情.html?id=INV-20260902-013')"}, {"t": "查看账单", "act": "go('../财务协同/应收账单.html')"}]},
+      'row': {"fields": {"no": "26119800421390", "itype": "专票", "buyer": "东海商用汽车有限公司宁波分公司", "ref": "AR-2026-08-PRJ2603", "date": "2026-09-02", "status": "已红冲"}, "cells": ["26119800421390", "<span class=\"tag tag-blue\">专票</span>", "东海商用汽车有限公司宁波分公司", "AR-2026-08-PRJ2603", "<span class=\"td-num\"><b>-46,800.00</b></span>", "13%", "2026-09-02", "<span class=\"tag tag-red\">已红冲</span>"], "ops": [{"t": "详情", "act": "go('../财务协同/开票详情.html?id=INV-20260902-013')"}, {"t": "应收账单", "act": "go('../财务协同/应收账单.html')"}]},
       title: '开票登记详情',
       formTitle: '开票信息',
       formRows: [
@@ -1360,7 +1360,7 @@ window.DEMO_DATA = {
       ]
     },
     'INV-20260830-012': {
-      'row': {"fields": {"no": "26119800421376", "itype": "专票", "buyer": "华骏重卡汽车有限公司", "ref": "AR-2026-08-PRJ2601", "date": "2026-08-30", "status": "已登记"}, "note": "1", "cells": ["26119800421376", "<span class=\"tag tag-blue\">专票</span>", "华骏重卡汽车有限公司", "AR-2026-08-PRJ2601", "<span class=\"td-num\"><b>186,200.00</b></span>", "13%", "2026-08-30", "<span class=\"tag tag-green\">已登记</span>"], "ops": [{"t": "开票确认", "act": "openModal('auditModal')"}, {"t": "详情", "act": "go('../财务协同/开票详情.html?id=INV-20260830-012')"}, {"t": "查看账单", "act": "go('../财务协同/应收账单.html')"}, {"t": "收款", "act": "go('../财务协同/收款登记.html')"}]},
+      'row': {"fields": {"no": "26119800421376", "itype": "专票", "buyer": "华骏重卡汽车有限公司", "ref": "AR-2026-08-PRJ2601", "date": "2026-08-30", "status": "已登记"}, "note": "1", "cells": ["26119800421376", "<span class=\"tag tag-blue\">专票</span>", "华骏重卡汽车有限公司", "AR-2026-08-PRJ2601", "<span class=\"td-num\"><b>186,200.00</b></span>", "13%", "2026-08-30", "<span class=\"tag tag-green\">已登记</span>"], "ops": [{"t": "开票确认", "act": "openModal('auditModal')"}, {"t": "详情", "act": "go('../财务协同/开票详情.html?id=INV-20260830-012')"}, {"t": "应收账单", "act": "go('../财务协同/应收账单.html')"}, {"t": "收款", "act": "go('../财务协同/收款登记.html')"}]},
       title: '开票登记详情',
       formTitle: '开票信息',
       formRows: [
@@ -1394,7 +1394,7 @@ window.DEMO_DATA = {
       ]
     },
     'INV-20260826-011': {
-      'row': {"fields": {"no": "26119800420988", "itype": "专票", "buyer": "东海商用宁波分公司", "ref": "AR-2026-07-PRJ2602", "date": "2026-08-26", "status": "已登记"}, "cells": ["26119800420988", "<span class=\"tag tag-blue\">专票</span>", "东海商用宁波分公司", "AR-2026-07-PRJ2602", "<span class=\"td-num\"><b>186,200.00</b></span>", "13%", "2026-08-26", "<span class=\"tag tag-green\">已登记</span>"], "ops": [{"t": "开票确认", "act": "openModal('auditModal')"}, {"t": "详情", "act": "go('../财务协同/开票详情.html?id=INV-20260826-011')"}, {"t": "查看账单", "act": "go('../财务协同/应收账单.html')"}, {"t": "收款", "act": "go('../财务协同/收款登记.html')"}]},
+      'row': {"fields": {"no": "26119800420988", "itype": "专票", "buyer": "东海商用宁波分公司", "ref": "AR-2026-07-PRJ2602", "date": "2026-08-26", "status": "已登记"}, "cells": ["26119800420988", "<span class=\"tag tag-blue\">专票</span>", "东海商用宁波分公司", "AR-2026-07-PRJ2602", "<span class=\"td-num\"><b>186,200.00</b></span>", "13%", "2026-08-26", "<span class=\"tag tag-green\">已登记</span>"], "ops": [{"t": "开票确认", "act": "openModal('auditModal')"}, {"t": "详情", "act": "go('../财务协同/开票详情.html?id=INV-20260826-011')"}, {"t": "应收账单", "act": "go('../财务协同/应收账单.html')"}, {"t": "收款", "act": "go('../财务协同/收款登记.html')"}]},
       title: '开票登记详情',
       formTitle: '开票信息',
       formRows: [
@@ -1428,7 +1428,7 @@ window.DEMO_DATA = {
       ]
     },
     'INV-20260820-010': {
-      'row': {"fields": {"no": "26119800419501", "itype": "专票", "buyer": "华骏重卡汽车有限公司", "ref": "AR-2026-07-PRJ2601", "date": "2026-08-20", "status": "已登记"}, "cells": ["26119800419501", "<span class=\"tag tag-blue\">专票</span>", "华骏重卡汽车有限公司", "AR-2026-07-PRJ2601", "<span class=\"td-num\"><b>256,600.00</b></span>", "13%", "2026-08-20", "<span class=\"tag tag-green\">已登记</span>"], "ops": [{"t": "开票确认", "act": "openModal('auditModal')"}, {"t": "详情", "act": "go('../财务协同/开票详情.html?id=INV-20260820-010')"}, {"t": "查看账单", "act": "go('../财务协同/应收账单.html')"}, {"t": "收款", "act": "go('../财务协同/收款登记.html')"}]},
+      'row': {"fields": {"no": "26119800419501", "itype": "专票", "buyer": "华骏重卡汽车有限公司", "ref": "AR-2026-07-PRJ2601", "date": "2026-08-20", "status": "已登记"}, "cells": ["26119800419501", "<span class=\"tag tag-blue\">专票</span>", "华骏重卡汽车有限公司", "AR-2026-07-PRJ2601", "<span class=\"td-num\"><b>256,600.00</b></span>", "13%", "2026-08-20", "<span class=\"tag tag-green\">已登记</span>"], "ops": [{"t": "开票确认", "act": "openModal('auditModal')"}, {"t": "详情", "act": "go('../财务协同/开票详情.html?id=INV-20260820-010')"}, {"t": "应收账单", "act": "go('../财务协同/应收账单.html')"}, {"t": "收款", "act": "go('../财务协同/收款登记.html')"}]},
       title: '开票登记详情',
       formTitle: '开票信息',
       formRows: [
@@ -1462,7 +1462,7 @@ window.DEMO_DATA = {
       ]
     },
     'INV-20260815-009': {
-      'row': {"fields": {"no": "26119800418233", "itype": "普票", "buyer": "星途新能源汽车科技有限公司", "ref": "AR-2026-07-PRJ2603", "date": "2026-08-15", "status": "已登记"}, "cells": ["26119800418233", "<span class=\"tag tag-gray\">普票</span>", "星途新能源汽车科技有限公司", "AR-2026-07-PRJ2603", "<span class=\"td-num\"><b>98,000.00</b></span>", "13%", "2026-08-15", "<span class=\"tag tag-green\">已登记</span>"], "ops": [{"t": "开票确认", "act": "openModal('auditModal')"}, {"t": "详情", "act": "go('../财务协同/开票详情.html?id=INV-20260815-009')"}, {"t": "查看账单", "act": "go('../财务协同/应收账单.html')"}, {"t": "收款", "act": "go('../财务协同/收款登记.html')"}]},
+      'row': {"fields": {"no": "26119800418233", "itype": "普票", "buyer": "星途新能源汽车科技有限公司", "ref": "AR-2026-07-PRJ2603", "date": "2026-08-15", "status": "已登记"}, "cells": ["26119800418233", "<span class=\"tag tag-gray\">普票</span>", "星途新能源汽车科技有限公司", "AR-2026-07-PRJ2603", "<span class=\"td-num\"><b>98,000.00</b></span>", "13%", "2026-08-15", "<span class=\"tag tag-green\">已登记</span>"], "ops": [{"t": "开票确认", "act": "openModal('auditModal')"}, {"t": "详情", "act": "go('../财务协同/开票详情.html?id=INV-20260815-009')"}, {"t": "应收账单", "act": "go('../财务协同/应收账单.html')"}, {"t": "收款", "act": "go('../财务协同/收款登记.html')"}]},
       title: '开票登记详情',
       formTitle: '开票信息',
       formRows: [
@@ -1496,7 +1496,7 @@ window.DEMO_DATA = {
       ]
     },
     'INV-20260802-008': {
-      'row': {"fields": {"no": "26119800417077", "itype": "专票", "buyer": "华骏重卡汽车有限公司", "ref": "AR-2026-06-PRJ2601", "date": "2026-08-02", "status": "停用"}, "cells": ["26119800417077", "<span class=\"tag tag-blue\">专票</span>", "华骏重卡汽车有限公司", "AR-2026-06-PRJ2601", "<span class=\"td-num\"><b>442,800.00</b></span>", "13%", "2026-08-02", "<span class=\"tag tag-gray\">停用</span>"], "ops": [{"t": "开票确认", "act": "openModal('auditModal')"}, {"t": "详情", "act": "go('../财务协同/开票详情.html?id=INV-20260802-008')"}, {"t": "查看账单", "act": "go('../财务协同/应收账单.html')"}, {"t": "收款", "act": "go('../财务协同/收款登记.html')"}]},
+      'row': {"fields": {"no": "26119800417077", "itype": "专票", "buyer": "华骏重卡汽车有限公司", "ref": "AR-2026-06-PRJ2601", "date": "2026-08-02", "status": "停用"}, "cells": ["26119800417077", "<span class=\"tag tag-blue\">专票</span>", "华骏重卡汽车有限公司", "AR-2026-06-PRJ2601", "<span class=\"td-num\"><b>442,800.00</b></span>", "13%", "2026-08-02", "<span class=\"tag tag-gray\">停用</span>"], "ops": [{"t": "开票确认", "act": "openModal('auditModal')"}, {"t": "详情", "act": "go('../财务协同/开票详情.html?id=INV-20260802-008')"}, {"t": "应收账单", "act": "go('../财务协同/应收账单.html')"}, {"t": "收款", "act": "go('../财务协同/收款登记.html')"}]},
       title: '开票登记详情',
       formTitle: '开票信息',
       formRows: [
@@ -2640,7 +2640,7 @@ window.DEMO_DATA = {
   /* 关联租赁单/销售订单双关联；租入件无 SO 用 —（租赁出库） */
   comboOutbounds: {
     'CK-20260910-022': {
-      'row': {"fields": {"project": "PRJ-2603", "customer": "东海商用宁波分公司", "zl": "ZL-20260910-040", "combo": "ZH-2603-B × 30 套", "mat": "ZH-2603-B", "matName": "冲压件料箱组套", "qty": "30", "unit": "套", "so": "—（租赁出库）", "addr": "宁波杭州湾基地", "status": "待审核", "date": "2026-09-10"}, "cells": ["PRJ-2603", "东海商用宁波分公司", "<span class=\"lk\">ZL-20260910-040</span>", "ZH-2603-B × 30 套", "—（租赁出库）", "宁波杭州湾基地", "<span class=\"tag tag-orange\">待审核</span>", "2026-09-10 15:20"], "ops": [{"t": "打印出货单", "act": "go('出货单打印.html?key=CK-20260910-022')"}, {"t": "详情", "act": "go('../租赁管理/租赁出库详情.html?id=CK-20260910-022')"}, {"t": "审核", "act": "go('../租赁管理/租赁出库确认.html?id=CK-20260910-022')"}]},
+      'row': {"fields": {"project": "PRJ-2603", "customer": "东海商用宁波分公司", "zl": "ZL-20260910-040", "combo": "ZH-2603-B × 30 套", "mat": "ZH-2603-B", "matName": "冲压件料箱组套", "qty": "30", "unit": "套", "so": "—（租赁出库）", "addr": "宁波杭州湾基地", "status": "待审核", "date": "2026-09-10"}, "cells": ["PRJ-2603", "东海商用宁波分公司", "<span class=\"lk\">ZL-20260910-040</span>", "ZH-2603-B × 30 套", "—（租赁出库）", "宁波杭州湾基地", "<span class=\"tag tag-orange\">待审核</span>", "2026-09-10 15:20"], "ops": [{"t": "打印", "act": "go('出货单打印.html?key=CK-20260910-022')"}, {"t": "详情", "act": "go('../租赁管理/租赁出库详情.html?id=CK-20260910-022')"}, {"t": "审核", "act": "go('../租赁管理/租赁出库确认.html?id=CK-20260910-022')"}]},
       'title': '租赁出库单详情',
       'formTitle': '基本信息',
       'formRows': [
@@ -2696,7 +2696,7 @@ window.DEMO_DATA = {
     },
 
     'CK-20260914-023': {  /* G54 直发链溯源行（D-105 勾选触发→D-167 类型驱动·供应商直发） */
-      'row': {"fields": {"project": "PRJ-2603", "customer": "东海商用宁波分公司", "zl": "—（直发系统生成）", "combo": "塑料托盘 1200×1000 × 50 只", "mat": "PLT-1210P", "matName": "塑料托盘 1200×1000", "qty": "50", "unit": "只", "so": "—（租赁出库·直发）", "addr": "宁波杭州湾基地", "status": "待审核", "date": "2026-09-14"}, "cells": ["PRJ-2603", "东海商用宁波分公司", "<span class=\"tag tag-orange\">直发（系统生成）</span>", "塑料托盘 1200×1000 × 50 只", "—（租赁出库·直发）", "宁波杭州湾基地", "<span class=\"tag tag-orange\">待审核</span>", "2026-09-14 10:05"], "ops": [{"t": "打印出货单", "act": "go('出货单打印.html?key=CK-20260914-023')"}, {"t": "详情", "act": "go('../租赁管理/租赁出库详情.html?id=CK-20260914-023')"}, {"t": "审核", "act": "go('../租赁管理/租赁出库确认.html?id=CK-20260914-023')"}]},
+      'row': {"fields": {"project": "PRJ-2603", "customer": "东海商用宁波分公司", "zl": "—（直发系统生成）", "combo": "塑料托盘 1200×1000 × 50 只", "mat": "PLT-1210P", "matName": "塑料托盘 1200×1000", "qty": "50", "unit": "只", "so": "—（租赁出库·直发）", "addr": "宁波杭州湾基地", "status": "待审核", "date": "2026-09-14"}, "cells": ["PRJ-2603", "东海商用宁波分公司", "<span class=\"tag tag-orange\">直发（系统生成）</span>", "塑料托盘 1200×1000 × 50 只", "—（租赁出库·直发）", "宁波杭州湾基地", "<span class=\"tag tag-orange\">待审核</span>", "2026-09-14 10:05"], "ops": [{"t": "打印", "act": "go('出货单打印.html?key=CK-20260914-023')"}, {"t": "详情", "act": "go('../租赁管理/租赁出库详情.html?id=CK-20260914-023')"}, {"t": "审核", "act": "go('../租赁管理/租赁出库确认.html?id=CK-20260914-023')"}]},
       'title': '租赁出库单详情',
       'formTitle': '基本信息',
       'formRows': [
@@ -2739,7 +2739,7 @@ window.DEMO_DATA = {
       ],
     },
     'CK-20260912-024': {  /* G54 T3 直发终态链（D-167·类型驱动自动生成·已走完） */
-      'row': {"fields": {"project": "PRJ-2603", "customer": "东海商用宁波分公司", "zl": "—（直发系统生成）", "combo": "塑料托盘 1200×1000 × 40 只", "mat": "PLT-1210P", "matName": "塑料托盘 1200×1000", "qty": "40", "unit": "只", "so": "—（租赁出库·直发）", "addr": "宁波杭州湾基地", "status": "已出库", "date": "2026-09-12"}, "cells": ["PRJ-2603", "东海商用宁波分公司", "<span class=\"tag tag-blue\">直发（系统生成）</span>", "塑料托盘 1200×1000 × 40 只", "—（租赁出库·直发）", "宁波杭州湾基地", "<span class=\"tag tag-green\">已出库</span>", "2026-09-12 14:30"], "ops": [{"t": "详情", "act": "go('../租赁管理/租赁出库详情.html?id=CK-20260912-024')"}, {"t": "打印出货单", "act": "go('出货单打印.html?key=CK-20260912-024')"}, {"t": "审核", "act": "go('../租赁管理/租赁出库确认.html?id=CK-20260912-024')"}]},
+      'row': {"fields": {"project": "PRJ-2603", "customer": "东海商用宁波分公司", "zl": "—（直发系统生成）", "combo": "塑料托盘 1200×1000 × 40 只", "mat": "PLT-1210P", "matName": "塑料托盘 1200×1000", "qty": "40", "unit": "只", "so": "—（租赁出库·直发）", "addr": "宁波杭州湾基地", "status": "已出库", "date": "2026-09-12"}, "cells": ["PRJ-2603", "东海商用宁波分公司", "<span class=\"tag tag-blue\">直发（系统生成）</span>", "塑料托盘 1200×1000 × 40 只", "—（租赁出库·直发）", "宁波杭州湾基地", "<span class=\"tag tag-green\">已出库</span>", "2026-09-12 14:30"], "ops": [{"t": "详情", "act": "go('../租赁管理/租赁出库详情.html?id=CK-20260912-024')"}, {"t": "打印", "act": "go('出货单打印.html?key=CK-20260912-024')"}, {"t": "审核", "act": "go('../租赁管理/租赁出库确认.html?id=CK-20260912-024')"}]},
       'title': '租赁出库单详情',
       'formTitle': '基本信息',
       'formRows': [
@@ -2794,7 +2794,7 @@ window.DEMO_DATA = {
       ]
     },
     'CK-20260903-016': {
-      'row': {"fields": {"project": "PRJ-2601", "customer": "华骏重卡汽车有限公司", "zl": "ZL-20260903-034", "combo": "ZH-2601-A × 60 套（退租回库件循环出库）", "mat": "ZH-2601-A", "matName": "驾驶室围板箱整箱套件", "qty": "60", "unit": "套", "so": "—（租赁出库）", "addr": "长春基地一号门", "status": "已出库", "date": "2026-09-03"}, "cells": ["PRJ-2601", "华骏重卡汽车有限公司", "<span class=\"lk\">ZL-20260903-034</span>", "ZH-2601-A × 60 套（退租回库件循环出库）", "—（租赁出库）", "长春基地一号门", "<span class=\"tag tag-green\">已出库</span>", "2026-09-03 09:15"], "ops": [{"t": "详情", "act": "go('../租赁管理/租赁出库详情.html?id=CK-20260903-016')"}, {"t": "打印出货单", "act": "go('出货单打印.html?key=CK-20260903-016')"}, {"t": "审核", "act": "go('../租赁管理/租赁出库确认.html?id=CK-20260903-016')"}]},
+      'row': {"fields": {"project": "PRJ-2601", "customer": "华骏重卡汽车有限公司", "zl": "ZL-20260903-034", "combo": "ZH-2601-A × 60 套（退租回库件循环出库）", "mat": "ZH-2601-A", "matName": "驾驶室围板箱整箱套件", "qty": "60", "unit": "套", "so": "—（租赁出库）", "addr": "长春基地一号门", "status": "已出库", "date": "2026-09-03"}, "cells": ["PRJ-2601", "华骏重卡汽车有限公司", "<span class=\"lk\">ZL-20260903-034</span>", "ZH-2601-A × 60 套（退租回库件循环出库）", "—（租赁出库）", "长春基地一号门", "<span class=\"tag tag-green\">已出库</span>", "2026-09-03 09:15"], "ops": [{"t": "详情", "act": "go('../租赁管理/租赁出库详情.html?id=CK-20260903-016')"}, {"t": "打印", "act": "go('出货单打印.html?key=CK-20260903-016')"}, {"t": "审核", "act": "go('../租赁管理/租赁出库确认.html?id=CK-20260903-016')"}]},
       'title': '租赁出库单详情',
       'formTitle': '基本信息',
       'formRows': [
@@ -2853,7 +2853,7 @@ window.DEMO_DATA = {
       ]
     },
     'CK-20260830-015': {
-      'row': {"fields": {"project": "PRJ-2601", "customer": "华骏重卡汽车有限公司", "zl": "ZL-20260610-015", "combo": "ZH-2601-A × 180 套", "mat": "ZH-2601-A", "matName": "驾驶室围板箱整箱套件", "qty": "180", "unit": "套", "so": "SO-20260830-0041", "addr": "长春基地一号门", "status": "已出库", "date": "2026-08-30"}, "note": "2", "cells": ["PRJ-2601", "华骏重卡汽车有限公司", "<span class=\"lk\">ZL-20260610-015</span>", "ZH-2601-A × 180 套", "SO-20260830-0041", "长春基地一号门", "<span class=\"tag tag-green\">已出库</span>", "2026-08-30 17:20"], "ops": [{"t": "详情", "act": "go('../租赁管理/租赁出库详情.html?id=CK-20260830-015')"}, {"t": "打印出货单", "act": "go('出货单打印.html?key=CK-20260830-015')"}, {"t": "审核", "act": "go('../租赁管理/租赁出库确认.html?id=CK-20260830-015')"}]},
+      'row': {"fields": {"project": "PRJ-2601", "customer": "华骏重卡汽车有限公司", "zl": "ZL-20260610-015", "combo": "ZH-2601-A × 180 套", "mat": "ZH-2601-A", "matName": "驾驶室围板箱整箱套件", "qty": "180", "unit": "套", "so": "SO-20260830-0041", "addr": "长春基地一号门", "status": "已出库", "date": "2026-08-30"}, "note": "2", "cells": ["PRJ-2601", "华骏重卡汽车有限公司", "<span class=\"lk\">ZL-20260610-015</span>", "ZH-2601-A × 180 套", "SO-20260830-0041", "长春基地一号门", "<span class=\"tag tag-green\">已出库</span>", "2026-08-30 17:20"], "ops": [{"t": "详情", "act": "go('../租赁管理/租赁出库详情.html?id=CK-20260830-015')"}, {"t": "打印", "act": "go('出货单打印.html?key=CK-20260830-015')"}, {"t": "审核", "act": "go('../租赁管理/租赁出库确认.html?id=CK-20260830-015')"}]},
       'title': '租赁出库单详情',
       'formTitle': '基本信息',
       'formRows': [
@@ -2917,7 +2917,7 @@ window.DEMO_DATA = {
       ]
     },
     'CK-20260830-014': {
-      'row': {"fields": {"project": "PRJ-2602", "customer": "东海商用宁波分公司", "zl": "ZL-20260828-031", "combo": "ZH-2602-B × 120 套", "mat": "ZH-2602-B", "matName": "冲压件料箱组套", "qty": "120", "unit": "套", "so": "SO-20260829-0038", "addr": "宁波工厂 C 门", "status": "拣货中", "date": "—"}, "cells": ["PRJ-2602", "东海商用宁波分公司", "<span class=\"lk\">ZL-20260828-031</span>", "ZH-2602-B × 120 套", "SO-20260829-0038", "宁波工厂 C 门", "<span class=\"tag tag-blue\">拣货中</span>", "—"], "ops": [{"t": "详情", "act": "go('../租赁管理/租赁出库详情.html?id=CK-20260830-014')"}, {"t": "打印出货单", "act": "go('出货单打印.html?key=CK-20260830-014')"}, {"t": "审核", "act": "go('../租赁管理/租赁出库确认.html?id=CK-20260830-014')"}]},
+      'row': {"fields": {"project": "PRJ-2602", "customer": "东海商用宁波分公司", "zl": "ZL-20260828-031", "combo": "ZH-2602-B × 120 套", "mat": "ZH-2602-B", "matName": "冲压件料箱组套", "qty": "120", "unit": "套", "so": "SO-20260829-0038", "addr": "宁波工厂 C 门", "status": "拣货中", "date": "—"}, "cells": ["PRJ-2602", "东海商用宁波分公司", "<span class=\"lk\">ZL-20260828-031</span>", "ZH-2602-B × 120 套", "SO-20260829-0038", "宁波工厂 C 门", "<span class=\"tag tag-blue\">拣货中</span>", "—"], "ops": [{"t": "详情", "act": "go('../租赁管理/租赁出库详情.html?id=CK-20260830-014')"}, {"t": "打印", "act": "go('出货单打印.html?key=CK-20260830-014')"}, {"t": "审核", "act": "go('../租赁管理/租赁出库确认.html?id=CK-20260830-014')"}]},
       'title': '租赁出库单详情',
       'formTitle': '基本信息',
       'formRows': [
@@ -2977,7 +2977,7 @@ window.DEMO_DATA = {
       ]
     },
     'CK-20260829-013': {
-      'row': {"fields": {"project": "PRJ-2603", "customer": "星途新能源汽车科技有限公司", "zl": "ZL-20260610-015", "combo": "ZH-2603-C × 60 套", "mat": "ZH-2603-C", "matName": "电池托盘护角套件", "qty": "60", "unit": "套", "so": "SO-20260828-0035", "addr": "广州工厂收货口", "status": "已出库", "date": "2026-08-29"}, "cells": ["PRJ-2603", "星途新能源汽车科技有限公司", "<span class=\"lk\">ZL-20260610-015</span>", "ZH-2603-C × 60 套", "SO-20260828-0035", "广州工厂收货口", "<span class=\"tag tag-green\">已出库</span>", "2026-08-29 16:05"], "ops": [{"t": "详情", "act": "go('../租赁管理/租赁出库详情.html?id=CK-20260829-013')"}, {"t": "打印出货单", "act": "go('出货单打印.html?key=CK-20260829-013')"}, {"t": "审核", "act": "go('../租赁管理/租赁出库确认.html?id=CK-20260829-013')"}]},
+      'row': {"fields": {"project": "PRJ-2603", "customer": "星途新能源汽车科技有限公司", "zl": "ZL-20260610-015", "combo": "ZH-2603-C × 60 套", "mat": "ZH-2603-C", "matName": "电池托盘护角套件", "qty": "60", "unit": "套", "so": "SO-20260828-0035", "addr": "广州工厂收货口", "status": "已出库", "date": "2026-08-29"}, "cells": ["PRJ-2603", "星途新能源汽车科技有限公司", "<span class=\"lk\">ZL-20260610-015</span>", "ZH-2603-C × 60 套", "SO-20260828-0035", "广州工厂收货口", "<span class=\"tag tag-green\">已出库</span>", "2026-08-29 16:05"], "ops": [{"t": "详情", "act": "go('../租赁管理/租赁出库详情.html?id=CK-20260829-013')"}, {"t": "打印", "act": "go('出货单打印.html?key=CK-20260829-013')"}, {"t": "审核", "act": "go('../租赁管理/租赁出库确认.html?id=CK-20260829-013')"}]},
       'title': '租赁出库单详情',
       'formTitle': '基本信息',
       'formRows': [
@@ -3041,7 +3041,7 @@ window.DEMO_DATA = {
       ]
     },
     'CK-20260829-012': {
-      'row': {"fields": {"project": "PRJ-2601", "customer": "华骏重卡汽车有限公司", "zl": "ZL-20260301-006", "combo": "ZH-2601-A × 120 套", "mat": "ZH-2601-A", "matName": "驾驶室围板箱整箱套件", "qty": "120", "unit": "套", "so": "SO-20260827-0036", "addr": "长春基地一号门", "status": "已出库", "date": "2026-08-29"}, "cells": ["PRJ-2601", "华骏重卡汽车有限公司", "<span class=\"lk\">ZL-20260301-006</span>", "ZH-2601-A × 120 套", "SO-20260827-0036", "长春基地一号门", "<span class=\"tag tag-green\">已出库</span>", "2026-08-29 10:42"], "ops": [{"t": "详情", "act": "go('../租赁管理/租赁出库详情.html?id=CK-20260829-012')"}, {"t": "打印出货单", "act": "go('出货单打印.html?key=CK-20260829-012')"}, {"t": "审核", "act": "go('../租赁管理/租赁出库确认.html?id=CK-20260829-012')"}]},
+      'row': {"fields": {"project": "PRJ-2601", "customer": "华骏重卡汽车有限公司", "zl": "ZL-20260301-006", "combo": "ZH-2601-A × 120 套", "mat": "ZH-2601-A", "matName": "驾驶室围板箱整箱套件", "qty": "120", "unit": "套", "so": "SO-20260827-0036", "addr": "长春基地一号门", "status": "已出库", "date": "2026-08-29"}, "cells": ["PRJ-2601", "华骏重卡汽车有限公司", "<span class=\"lk\">ZL-20260301-006</span>", "ZH-2601-A × 120 套", "SO-20260827-0036", "长春基地一号门", "<span class=\"tag tag-green\">已出库</span>", "2026-08-29 10:42"], "ops": [{"t": "详情", "act": "go('../租赁管理/租赁出库详情.html?id=CK-20260829-012')"}, {"t": "打印", "act": "go('出货单打印.html?key=CK-20260829-012')"}, {"t": "审核", "act": "go('../租赁管理/租赁出库确认.html?id=CK-20260829-012')"}]},
       'title': '租赁出库单详情',
       'formTitle': '基本信息',
       'formRows': [
@@ -3105,7 +3105,7 @@ window.DEMO_DATA = {
       ]
     },
     'CK-20260828-011': {
-      'row': {"fields": {"project": "PRJ-2604", "customer": "长风汽车制造有限公司", "zl": "ZL-20260828-031", "combo": "ZH-2601-A × 96 套", "mat": "ZH-2601-A", "matName": "驾驶室围板箱整箱套件", "qty": "96", "unit": "套", "so": "SO-20260826-0033", "addr": "武汉工厂 2 号门", "status": "已出库", "date": "2026-08-28"}, "cells": ["PRJ-2604", "长风汽车制造有限公司", "<span class=\"lk\">ZL-20260828-031</span>", "ZH-2601-A × 96 套", "SO-20260826-0033", "武汉工厂 2 号门", "<span class=\"tag tag-green\">已出库</span>", "2026-08-28 14:55"], "ops": [{"t": "详情", "act": "go('../租赁管理/租赁出库详情.html?id=CK-20260828-011')"}, {"t": "打印出货单", "act": "go('出货单打印.html?key=CK-20260828-011')"}, {"t": "审核", "act": "go('../租赁管理/租赁出库确认.html?id=CK-20260828-011')"}]},
+      'row': {"fields": {"project": "PRJ-2604", "customer": "长风汽车制造有限公司", "zl": "ZL-20260828-031", "combo": "ZH-2601-A × 96 套", "mat": "ZH-2601-A", "matName": "驾驶室围板箱整箱套件", "qty": "96", "unit": "套", "so": "SO-20260826-0033", "addr": "武汉工厂 2 号门", "status": "已出库", "date": "2026-08-28"}, "cells": ["PRJ-2604", "长风汽车制造有限公司", "<span class=\"lk\">ZL-20260828-031</span>", "ZH-2601-A × 96 套", "SO-20260826-0033", "武汉工厂 2 号门", "<span class=\"tag tag-green\">已出库</span>", "2026-08-28 14:55"], "ops": [{"t": "详情", "act": "go('../租赁管理/租赁出库详情.html?id=CK-20260828-011')"}, {"t": "打印", "act": "go('出货单打印.html?key=CK-20260828-011')"}, {"t": "审核", "act": "go('../租赁管理/租赁出库确认.html?id=CK-20260828-011')"}]},
       'title': '租赁出库单详情',
       'formTitle': '基本信息',
       'formRows': [
@@ -3169,7 +3169,7 @@ window.DEMO_DATA = {
       ]
     },
     'CK-20260824-009': {
-      'row': {"fields": {"project": "PRJ-2604", "customer": "华骏重卡汽车有限公司", "zl": "ZL-20260823-033", "combo": "ZH-2604-D 混合组合套件 × 40 套", "mat": "ZH-2604-D", "matName": "混合组合套件", "qty": "40", "unit": "套", "so": "—", "addr": "长春基地一号门", "status": "已出库", "date": "2026-08-24"}, "note": "1", "cells": ["PRJ-2604", "华骏重卡汽车有限公司", "<span class=\"lk\">ZL-20260823-033</span>", "ZH-2604-D 混合组合套件 × 40 套", "—", "长春基地一号门", "<span class=\"tag tag-green\">已出库</span>", "2026-08-24 16:40"], "ops": [{"t": "详情", "act": "go('../租赁管理/租赁出库详情.html?id=CK-20260824-009')"}, {"t": "打印出货单", "act": "go('出货单打印.html?key=CK-20260824-009')"}, {"t": "审核", "act": "go('../租赁管理/租赁出库确认.html?id=CK-20260824-009')"}]},
+      'row': {"fields": {"project": "PRJ-2604", "customer": "华骏重卡汽车有限公司", "zl": "ZL-20260823-033", "combo": "ZH-2604-D 混合组合套件 × 40 套", "mat": "ZH-2604-D", "matName": "混合组合套件", "qty": "40", "unit": "套", "so": "—", "addr": "长春基地一号门", "status": "已出库", "date": "2026-08-24"}, "note": "1", "cells": ["PRJ-2604", "华骏重卡汽车有限公司", "<span class=\"lk\">ZL-20260823-033</span>", "ZH-2604-D 混合组合套件 × 40 套", "—", "长春基地一号门", "<span class=\"tag tag-green\">已出库</span>", "2026-08-24 16:40"], "ops": [{"t": "详情", "act": "go('../租赁管理/租赁出库详情.html?id=CK-20260824-009')"}, {"t": "打印", "act": "go('出货单打印.html?key=CK-20260824-009')"}, {"t": "审核", "act": "go('../租赁管理/租赁出库确认.html?id=CK-20260824-009')"}]},
       'title': '租赁出库单详情',
       'formTitle': '基本信息',
       'formRows': [
@@ -3228,7 +3228,7 @@ window.DEMO_DATA = {
       ]
     },
     'CK-20260828-010': {
-      'row': {"fields": {"project": "PRJ-2602", "customer": "东海商用宁波分公司", "zl": "ZL-20260815-028", "combo": "ZH-2602-B × 200 套", "mat": "ZH-2602-B", "matName": "冲压件料箱组套", "qty": "200", "unit": "套", "so": "SO-20260826-0032", "addr": "宁波工厂 C 门", "status": "已出库", "date": "2026-08-28"}, "cells": ["PRJ-2602", "东海商用宁波分公司", "<span class=\"lk\">ZL-20260815-028</span>", "ZH-2602-B × 200 套", "SO-20260826-0032", "宁波工厂 C 门", "<span class=\"tag tag-green\">已出库</span>", "2026-08-28 09:30"], "ops": [{"t": "详情", "act": "go('../租赁管理/租赁出库详情.html?id=CK-20260828-010')"}, {"t": "打印出货单", "act": "go('出货单打印.html?key=CK-20260828-010')"}, {"t": "审核", "act": "go('../租赁管理/租赁出库确认.html?id=CK-20260828-010')"}]},
+      'row': {"fields": {"project": "PRJ-2602", "customer": "东海商用宁波分公司", "zl": "ZL-20260815-028", "combo": "ZH-2602-B × 200 套", "mat": "ZH-2602-B", "matName": "冲压件料箱组套", "qty": "200", "unit": "套", "so": "SO-20260826-0032", "addr": "宁波工厂 C 门", "status": "已出库", "date": "2026-08-28"}, "cells": ["PRJ-2602", "东海商用宁波分公司", "<span class=\"lk\">ZL-20260815-028</span>", "ZH-2602-B × 200 套", "SO-20260826-0032", "宁波工厂 C 门", "<span class=\"tag tag-green\">已出库</span>", "2026-08-28 09:30"], "ops": [{"t": "详情", "act": "go('../租赁管理/租赁出库详情.html?id=CK-20260828-010')"}, {"t": "打印", "act": "go('出货单打印.html?key=CK-20260828-010')"}, {"t": "审核", "act": "go('../租赁管理/租赁出库确认.html?id=CK-20260828-010')"}]},
       'title': '租赁出库单详情',
       'formTitle': '基本信息',
       'formRows': [
@@ -5727,7 +5727,7 @@ window.DEMO_DATA = {
   /* 按库存可用量发货；销售费应收按出库自动汇总 */
   salesOutbounds: {
     'XSCK-20260910-016': {
-      'row': {"fields": {"so": "SO-20260827-0039", "customer": "华骏重卡汽车有限公司", "project": "PRJ-2601", "summary": "箱盖 ABS 吸塑×500（第二批）", "warehouse": "原料区 RA", "date": "2026-09-10", "status": "已完成", "ar": "AR-2026-09-PRJ2601-S2"}, "cells": ["<span class=\"lk\">SO-20260827-0039</span>", "华骏重卡汽车有限公司", "PRJ-2601", "箱盖 ABS 吸塑×500（第二批）", "<span class=\"td-num\">500</span>", "原料区 RA", "2026-09-10", "<span class=\"tag tag-green\">已完成</span>"], "ops": [{"t": "详情", "act": "go('../销售管理/销售出库详情.html?id=XSCK-20260910-016')"}, {"t": "打印出货单", "act": "go('../租赁管理/出货单打印.html?key=XSCK-20260910-016')"}, {"t": "应收账单", "act": "go('../财务协同/应收账单.html')"}]},
+      'row': {"fields": {"so": "SO-20260827-0039", "customer": "华骏重卡汽车有限公司", "project": "PRJ-2601", "summary": "箱盖 ABS 吸塑×500（第二批）", "warehouse": "原料区 RA", "date": "2026-09-10", "status": "已完成", "ar": "AR-2026-09-PRJ2601-S2"}, "cells": ["<span class=\"lk\">SO-20260827-0039</span>", "华骏重卡汽车有限公司", "PRJ-2601", "箱盖 ABS 吸塑×500（第二批）", "<span class=\"td-num\">500</span>", "原料区 RA", "2026-09-10", "<span class=\"tag tag-green\">已完成</span>"], "ops": [{"t": "详情", "act": "go('../销售管理/销售出库详情.html?id=XSCK-20260910-016')"}, {"t": "打印", "act": "go('../租赁管理/出货单打印.html?key=XSCK-20260910-016')"}, {"t": "应收账单", "act": "go('../财务协同/应收账单.html')"}]},
       'title': '销售出库单详情',
       'formTitle': '出库信息',
       'formRows': [
@@ -5785,7 +5785,7 @@ window.DEMO_DATA = {
       ]
     },
     'XSCK-20260902-015': {
-      'row': {"fields": {"so": "SO-20260830-0043", "customer": "华骏重卡汽车有限公司", "project": "PRJ-2601", "summary": "箱盖 ABS 吸塑×1,500", "warehouse": "原料区 RA", "date": "2026-09-02", "status": "待审核"}, "note": "1", "cells": ["<span class=\"lk\">SO-20260830-0043</span>", "华骏重卡汽车有限公司", "PRJ-2601", "箱盖 ABS 吸塑×1,500", "<span class=\"td-num\">1,500</span>", "原料区 RA", "2026-09-02", "<span class=\"tag tag-orange\">待审核</span>"], "ops": [{"t": "审核", "act": "go('../销售管理/销售出库审核.html?id=XSCK-20260902-015')"}, {"t": "详情", "act": "go('../销售管理/销售出库详情.html?id=XSCK-20260902-015')"}, {"t": "打印出货单", "act": "go('../租赁管理/出货单打印.html?key=XSCK-20260902-015')"}]},
+      'row': {"fields": {"so": "SO-20260830-0043", "customer": "华骏重卡汽车有限公司", "project": "PRJ-2601", "summary": "箱盖 ABS 吸塑×1,500", "warehouse": "原料区 RA", "date": "2026-09-02", "status": "待审核"}, "note": "1", "cells": ["<span class=\"lk\">SO-20260830-0043</span>", "华骏重卡汽车有限公司", "PRJ-2601", "箱盖 ABS 吸塑×1,500", "<span class=\"td-num\">1,500</span>", "原料区 RA", "2026-09-02", "<span class=\"tag tag-orange\">待审核</span>"], "ops": [{"t": "审核", "act": "go('../销售管理/销售出库审核.html?id=XSCK-20260902-015')"}, {"t": "详情", "act": "go('../销售管理/销售出库详情.html?id=XSCK-20260902-015')"}, {"t": "打印", "act": "go('../租赁管理/出货单打印.html?key=XSCK-20260902-015')"}]},
       'title': '销售出库单详情',
       'formTitle': '出库信息',
       'formRows': [
@@ -5837,7 +5837,7 @@ window.DEMO_DATA = {
       ]
     },
     'XSCK-20260901-014': {
-      'row': {"fields": {"so": "SO-20260828-0041", "customer": "长风汽车制造有限公司", "project": "PRJ-2604", "summary": "锁扣组件×800", "warehouse": "原料区 RA", "date": "2026-09-01", "status": "已完成", "ar": "AR-2026-09-PRJ2604-S1"}, "cells": ["<span class=\"lk\">SO-20260828-0041</span>", "长风汽车制造有限公司", "PRJ-2604", "锁扣组件×800", "<span class=\"td-num\">800</span>", "原料区 RA", "2026-09-01", "<span class=\"tag tag-green\">已完成</span>"], "ops": [{"t": "详情", "act": "go('../销售管理/销售出库详情.html?id=XSCK-20260901-014')"}, {"t": "打印出货单", "act": "go('../租赁管理/出货单打印.html?key=XSCK-20260901-014')"}, {"t": "应收账单", "act": "go('../财务协同/应收账单.html')"}]},
+      'row': {"fields": {"so": "SO-20260828-0041", "customer": "长风汽车制造有限公司", "project": "PRJ-2604", "summary": "锁扣组件×800", "warehouse": "原料区 RA", "date": "2026-09-01", "status": "已完成", "ar": "AR-2026-09-PRJ2604-S1"}, "cells": ["<span class=\"lk\">SO-20260828-0041</span>", "长风汽车制造有限公司", "PRJ-2604", "锁扣组件×800", "<span class=\"td-num\">800</span>", "原料区 RA", "2026-09-01", "<span class=\"tag tag-green\">已完成</span>"], "ops": [{"t": "详情", "act": "go('../销售管理/销售出库详情.html?id=XSCK-20260901-014')"}, {"t": "打印", "act": "go('../租赁管理/出货单打印.html?key=XSCK-20260901-014')"}, {"t": "应收账单", "act": "go('../财务协同/应收账单.html')"}]},
       'title': '销售出库单详情',
       'formTitle': '出库信息',
       'formRows': [
@@ -5895,7 +5895,7 @@ window.DEMO_DATA = {
       ]
     },
     'XSCK-20260829-013': {
-      'row': {"fields": {"so": "SO-20260827-0039", "customer": "华骏重卡汽车有限公司", "project": "PRJ-2601", "summary": "箱盖 ABS 吸塑×2,000", "warehouse": "原料区 RA", "date": "2026-08-29", "status": "已完成", "ar": "AR-2026-08-PRJ2601"}, "cells": ["<span class=\"lk\">SO-20260827-0039</span>", "华骏重卡汽车有限公司", "PRJ-2601", "箱盖 ABS 吸塑×2,000", "<span class=\"td-num\">2,000</span>", "原料区 RA", "2026-08-29", "<span class=\"tag tag-green\">已完成</span>"], "ops": [{"t": "详情", "act": "go('../销售管理/销售出库详情.html?id=XSCK-20260829-013')"}, {"t": "打印出货单", "act": "go('../租赁管理/出货单打印.html?key=XSCK-20260829-013')"}, {"t": "应收账单", "act": "go('../财务协同/应收账单.html')"}]},
+      'row': {"fields": {"so": "SO-20260827-0039", "customer": "华骏重卡汽车有限公司", "project": "PRJ-2601", "summary": "箱盖 ABS 吸塑×2,000", "warehouse": "原料区 RA", "date": "2026-08-29", "status": "已完成", "ar": "AR-2026-08-PRJ2601"}, "cells": ["<span class=\"lk\">SO-20260827-0039</span>", "华骏重卡汽车有限公司", "PRJ-2601", "箱盖 ABS 吸塑×2,000", "<span class=\"td-num\">2,000</span>", "原料区 RA", "2026-08-29", "<span class=\"tag tag-green\">已完成</span>"], "ops": [{"t": "详情", "act": "go('../销售管理/销售出库详情.html?id=XSCK-20260829-013')"}, {"t": "打印", "act": "go('../租赁管理/出货单打印.html?key=XSCK-20260829-013')"}, {"t": "应收账单", "act": "go('../财务协同/应收账单.html')"}]},
       'title': '销售出库单详情',
       'formTitle': '出库信息',
       'formRows': [
@@ -5953,7 +5953,7 @@ window.DEMO_DATA = {
       ]
     },
     'XSCK-20260826-012': {
-      'row': {"fields": {"so": "SO-20260822-0038", "customer": "东海商用汽车有限公司宁波分公司", "project": "PRJ-2602", "summary": "铰链×900 / 内衬×400", "warehouse": "原料区 RA", "date": "2026-08-26", "status": "已完成", "ar": "AR-2026-08-PRJ2602-S1"}, "cells": ["<span class=\"lk\">SO-20260822-0038</span>", "东海商用汽车有限公司宁波分公司", "PRJ-2602", "铰链×900 / 内衬×400", "<span class=\"td-num\">1,300</span>", "原料区 RA", "2026-08-26", "<span class=\"tag tag-green\">已完成</span>"], "ops": [{"t": "详情", "act": "go('../销售管理/销售出库详情.html?id=XSCK-20260826-012')"}, {"t": "打印出货单", "act": "go('../租赁管理/出货单打印.html?key=XSCK-20260826-012')"}, {"t": "应收账单", "act": "go('../财务协同/应收账单.html')"}]},
+      'row': {"fields": {"so": "SO-20260822-0038", "customer": "东海商用汽车有限公司宁波分公司", "project": "PRJ-2602", "summary": "铰链×900 / 内衬×400", "warehouse": "原料区 RA", "date": "2026-08-26", "status": "已完成", "ar": "AR-2026-08-PRJ2602-S1"}, "cells": ["<span class=\"lk\">SO-20260822-0038</span>", "东海商用汽车有限公司宁波分公司", "PRJ-2602", "铰链×900 / 内衬×400", "<span class=\"td-num\">1,300</span>", "原料区 RA", "2026-08-26", "<span class=\"tag tag-green\">已完成</span>"], "ops": [{"t": "详情", "act": "go('../销售管理/销售出库详情.html?id=XSCK-20260826-012')"}, {"t": "打印", "act": "go('../租赁管理/出货单打印.html?key=XSCK-20260826-012')"}, {"t": "应收账单", "act": "go('../财务协同/应收账单.html')"}]},
       'title': '销售出库单详情',
       'formTitle': '出库信息',
       'formRows': [
@@ -6012,7 +6012,7 @@ window.DEMO_DATA = {
       ]
     },
     'XSCK-20260822-011': {
-      'row': {"fields": {"so": "SO-20260819-0035", "customer": "星途新能源汽车科技有限公司", "project": "PRJ-2603", "summary": "锁扣组件×1,200", "warehouse": "原料区 RA", "date": "2026-08-22", "status": "已完成", "ar": "AR-2026-08-PRJ2603"}, "cells": ["<span class=\"lk\">SO-20260819-0035</span>", "星途新能源汽车科技有限公司", "PRJ-2603", "锁扣组件×1,200", "<span class=\"td-num\">1,200</span>", "原料区 RA", "2026-08-22", "<span class=\"tag tag-green\">已完成</span>"], "ops": [{"t": "详情", "act": "go('../销售管理/销售出库详情.html?id=XSCK-20260822-011')"}, {"t": "打印出货单", "act": "go('../租赁管理/出货单打印.html?key=XSCK-20260822-011')"}, {"t": "应收账单", "act": "go('../财务协同/应收账单.html')"}]},
+      'row': {"fields": {"so": "SO-20260819-0035", "customer": "星途新能源汽车科技有限公司", "project": "PRJ-2603", "summary": "锁扣组件×1,200", "warehouse": "原料区 RA", "date": "2026-08-22", "status": "已完成", "ar": "AR-2026-08-PRJ2603"}, "cells": ["<span class=\"lk\">SO-20260819-0035</span>", "星途新能源汽车科技有限公司", "PRJ-2603", "锁扣组件×1,200", "<span class=\"td-num\">1,200</span>", "原料区 RA", "2026-08-22", "<span class=\"tag tag-green\">已完成</span>"], "ops": [{"t": "详情", "act": "go('../销售管理/销售出库详情.html?id=XSCK-20260822-011')"}, {"t": "打印", "act": "go('../租赁管理/出货单打印.html?key=XSCK-20260822-011')"}, {"t": "应收账单", "act": "go('../财务协同/应收账单.html')"}]},
       'title': '销售出库单详情',
       'formTitle': '出库信息',
       'formRows': [
@@ -6070,7 +6070,7 @@ window.DEMO_DATA = {
       ]
     },
     'XSCK-20260818-010': {
-      'row': {"fields": {"so": "SO-20260815-0032", "customer": "华骏重卡汽车有限公司", "project": "PRJ-2601", "summary": "箱盖 ABS 吸塑×600", "warehouse": "原料区 RA", "date": "2026-08-18", "status": "已完成", "ar": "AR-2026-08-PRJ2601"}, "cells": ["<span class=\"lk\">SO-20260815-0032</span>", "华骏重卡汽车有限公司", "PRJ-2601", "箱盖 ABS 吸塑×600", "<span class=\"td-num\">600</span>", "原料区 RA", "2026-08-18", "<span class=\"tag tag-green\">已完成</span>"], "ops": [{"t": "详情", "act": "go('../销售管理/销售出库详情.html?id=XSCK-20260818-010')"}, {"t": "打印出货单", "act": "go('../租赁管理/出货单打印.html?key=XSCK-20260818-010')"}, {"t": "应收账单", "act": "go('../财务协同/应收账单.html')"}]},
+      'row': {"fields": {"so": "SO-20260815-0032", "customer": "华骏重卡汽车有限公司", "project": "PRJ-2601", "summary": "箱盖 ABS 吸塑×600", "warehouse": "原料区 RA", "date": "2026-08-18", "status": "已完成", "ar": "AR-2026-08-PRJ2601"}, "cells": ["<span class=\"lk\">SO-20260815-0032</span>", "华骏重卡汽车有限公司", "PRJ-2601", "箱盖 ABS 吸塑×600", "<span class=\"td-num\">600</span>", "原料区 RA", "2026-08-18", "<span class=\"tag tag-green\">已完成</span>"], "ops": [{"t": "详情", "act": "go('../销售管理/销售出库详情.html?id=XSCK-20260818-010')"}, {"t": "打印", "act": "go('../租赁管理/出货单打印.html?key=XSCK-20260818-010')"}, {"t": "应收账单", "act": "go('../财务协同/应收账单.html')"}]},
       'title': '销售出库单详情',
       'formTitle': '出库信息',
       'formRows': [
@@ -12201,17 +12201,17 @@ window.DEMO_DATA = {
  *   fields: type/summary/qty/status/date/ref；stab=单据类型（全部单据/租赁出库单/退租入库单/采购入库单/销售订单/应收账单）
  * ------------------------------------------------------------------------ */
   projectDocs: {
-    'CK-20260828-012': { 'row': {"fields": {"type": "租赁出库单", "summary": "ZH-2601-A 驾驶室围板箱整箱套件", "qty": "180 套", "status": "已出库", "date": "2026-08-28", "ref": "SO-20260827-0036"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../租赁管理/租赁出库列表.html')\">CK-20260828-012</span>", "cells": ["ZH-2601-A 驾驶室围板箱整箱套件", "<span class=\"td-num\">180 套</span>", "<span class=\"tag tag-green\">已出库</span>", "2026-08-28", "SO-20260827-0036"], "ops": [{"t": "查看单据", "act": "go('../租赁管理/租赁出库列表.html')"}]} },
-    'CK-20260822-010': { 'row': {"fields": {"type": "租赁出库单", "summary": "ZH-2601-A 驾驶室围板箱整箱套件", "qty": "120 套", "status": "已出库", "date": "2026-08-22", "ref": "SO-20260820-0033"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../租赁管理/租赁出库列表.html')\">CK-20260822-010</span>", "cells": ["ZH-2601-A 驾驶室围板箱整箱套件", "<span class=\"td-num\">120 套</span>", "<span class=\"tag tag-green\">已出库</span>", "2026-08-22", "SO-20260820-0033"], "ops": [{"t": "查看单据", "act": "go('../租赁管理/租赁出库列表.html')"}]} },
-    'CK-20260815-008': { 'row': {"fields": {"type": "租赁出库单", "summary": "ZH-2602-B 保险杠料架套件", "qty": "90 套", "status": "已出库", "date": "2026-08-15", "ref": "SO-20260813-0031"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../租赁管理/租赁出库列表.html')\">CK-20260815-008</span>", "cells": ["ZH-2602-B 保险杠料架套件", "<span class=\"td-num\">90 套</span>", "<span class=\"tag tag-green\">已出库</span>", "2026-08-15", "SO-20260813-0031"], "ops": [{"t": "查看单据", "act": "go('../租赁管理/租赁出库列表.html')"}]} },
-    'TK-20260830-005': { 'row': {"fields": {"type": "退租入库单", "summary": "华骏重卡 · 退租围板箱 86 只（缺损 3 只）", "qty": "86 只", "status": "已入库", "date": "2026-08-30", "ref": "CK-20260828-012"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../租赁管理/退租入库列表.html')\">TK-20260830-005</span>", "cells": ["华骏重卡 · 退租围板箱 86 只（缺损 3 只）", "<span class=\"td-num\">86 只</span>", "<span class=\"tag tag-green\">已入库</span>", "2026-08-30", "CK-20260828-012"], "ops": [{"t": "查看单据", "act": "go('../租赁管理/退租入库列表.html')"}]} },
-    'TK-20260818-003': { 'row': {"fields": {"type": "退租入库单", "summary": "华骏重卡 · 退租保险杠料架 54 套", "qty": "54 套", "status": "已入库", "date": "2026-08-18", "ref": "CK-20260815-008"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../租赁管理/退租入库列表.html')\">TK-20260818-003</span>", "cells": ["华骏重卡 · 退租保险杠料架 54 套", "<span class=\"td-num\">54 套</span>", "<span class=\"tag tag-green\">已入库</span>", "2026-08-18", "CK-20260815-008"], "ops": [{"t": "查看单据", "act": "go('../租赁管理/退租入库列表.html')"}]} },
-    'RK-20260826-016': { 'row': {"fields": {"type": "采购入库单", "summary": "甬城塑业包装 · 围板箱到货", "qty": "200 只", "status": "已入库", "date": "2026-08-26", "ref": "PO-20260824-016"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../采购管理/采购入库列表.html')\">RK-20260826-016</span>", "cells": ["甬城塑业包装 · 围板箱到货", "<span class=\"td-num\">200 只</span>", "<span class=\"tag tag-green\">已入库</span>", "2026-08-26", "PO-20260824-016"], "ops": [{"t": "查看单据", "act": "go('../采购管理/采购入库列表.html')"}]} },
-    'RK-20260812-011': { 'row': {"fields": {"type": "采购入库单", "summary": "甬城塑业包装 · 锁扣到货", "qty": "800 套", "status": "已入库", "date": "2026-08-12", "ref": "PO-20260810-013"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../采购管理/采购入库列表.html')\">RK-20260812-011</span>", "cells": ["甬城塑业包装 · 锁扣到货", "<span class=\"td-num\">800 套</span>", "<span class=\"tag tag-green\">已入库</span>", "2026-08-12", "PO-20260810-013"], "ops": [{"t": "查看单据", "act": "go('../采购管理/采购入库列表.html')"}]} },
-    'SO-20260827-0036': { 'row': {"fields": {"type": "销售订单", "summary": "华骏重卡 · 驾驶室围板箱", "qty": "180 套", "status": "已审核", "date": "2026-08-27", "ref": "—"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../销售管理/销售订单列表.html')\">SO-20260827-0036</span>", "cells": ["华骏重卡 · 驾驶室围板箱", "<span class=\"td-num\">180 套</span>", "<span class=\"tag tag-blue\">已审核</span>", "2026-08-27", "—"], "ops": [{"t": "查看单据", "act": "go('../销售管理/销售订单列表.html')"}]} },
-    'SO-20260820-0033': { 'row': {"fields": {"type": "销售订单", "summary": "华骏重卡 · 围板箱", "qty": "120 套", "status": "已审核", "date": "2026-08-20", "ref": "—"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../销售管理/销售订单列表.html')\">SO-20260820-0033</span>", "cells": ["华骏重卡 · 围板箱", "<span class=\"td-num\">120 套</span>", "<span class=\"tag tag-blue\">已审核</span>", "2026-08-20", "—"], "ops": [{"t": "查看单据", "act": "go('../销售管理/销售订单列表.html')"}]} },
-    'AR-2026-08-PRJ2601': { 'row': {"fields": {"type": "应收账单", "summary": "PRJ-2601 · 8 月租金（按租赁出库汇总 486,200 元）", "qty": "—", "status": "部分收款", "date": "2026-08-31", "ref": "SO-20260827-0036"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../财务协同/应收账单.html')\">AR-2026-08-PRJ2601</span>", "cells": ["PRJ-2601 · 8 月租金（按租赁出库汇总 486,200 元）", "<span class=\"td-num\">—</span>", "<span class=\"tag tag-orange\">部分收款</span>", "2026-08-31", "SO-20260827-0036"], "ops": [{"t": "查看单据", "act": "go('../财务协同/应收账单.html')"}]} },
-    'AR-2026-07-PRJ2601': { 'row': {"fields": {"type": "应收账单", "summary": "PRJ-2601 · 7 月租金（按租赁出库汇总 442,800 元 · 已结清）", "qty": "—", "status": "已结清", "date": "2026-07-31", "ref": "SO-20260820-0033"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../财务协同/应收账单.html')\">AR-2026-07-PRJ2601</span>", "cells": ["PRJ-2601 · 7 月租金（按租赁出库汇总 442,800 元 · 已结清）", "<span class=\"td-num\">—</span>", "<span class=\"tag tag-green\">已结清</span>", "2026-07-31", "SO-20260820-0033"], "ops": [{"t": "查看单据", "act": "go('../财务协同/应收账单.html')"}]} },
+    'CK-20260828-012': { 'row': {"fields": {"type": "租赁出库单", "summary": "ZH-2601-A 驾驶室围板箱整箱套件", "qty": "180 套", "status": "已出库", "date": "2026-08-28", "ref": "SO-20260827-0036"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../租赁管理/租赁出库列表.html')\">CK-20260828-012</span>", "cells": ["ZH-2601-A 驾驶室围板箱整箱套件", "<span class=\"td-num\">180 套</span>", "<span class=\"tag tag-green\">已出库</span>", "2026-08-28", "SO-20260827-0036"], "ops": [{"t": "详情", "act": "go('../租赁管理/租赁出库列表.html')"}]} },
+    'CK-20260822-010': { 'row': {"fields": {"type": "租赁出库单", "summary": "ZH-2601-A 驾驶室围板箱整箱套件", "qty": "120 套", "status": "已出库", "date": "2026-08-22", "ref": "SO-20260820-0033"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../租赁管理/租赁出库列表.html')\">CK-20260822-010</span>", "cells": ["ZH-2601-A 驾驶室围板箱整箱套件", "<span class=\"td-num\">120 套</span>", "<span class=\"tag tag-green\">已出库</span>", "2026-08-22", "SO-20260820-0033"], "ops": [{"t": "详情", "act": "go('../租赁管理/租赁出库列表.html')"}]} },
+    'CK-20260815-008': { 'row': {"fields": {"type": "租赁出库单", "summary": "ZH-2602-B 保险杠料架套件", "qty": "90 套", "status": "已出库", "date": "2026-08-15", "ref": "SO-20260813-0031"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../租赁管理/租赁出库列表.html')\">CK-20260815-008</span>", "cells": ["ZH-2602-B 保险杠料架套件", "<span class=\"td-num\">90 套</span>", "<span class=\"tag tag-green\">已出库</span>", "2026-08-15", "SO-20260813-0031"], "ops": [{"t": "详情", "act": "go('../租赁管理/租赁出库列表.html')"}]} },
+    'TK-20260830-005': { 'row': {"fields": {"type": "退租入库单", "summary": "华骏重卡 · 退租围板箱 86 只（缺损 3 只）", "qty": "86 只", "status": "已入库", "date": "2026-08-30", "ref": "CK-20260828-012"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../租赁管理/退租入库列表.html')\">TK-20260830-005</span>", "cells": ["华骏重卡 · 退租围板箱 86 只（缺损 3 只）", "<span class=\"td-num\">86 只</span>", "<span class=\"tag tag-green\">已入库</span>", "2026-08-30", "CK-20260828-012"], "ops": [{"t": "详情", "act": "go('../租赁管理/退租入库列表.html')"}]} },
+    'TK-20260818-003': { 'row': {"fields": {"type": "退租入库单", "summary": "华骏重卡 · 退租保险杠料架 54 套", "qty": "54 套", "status": "已入库", "date": "2026-08-18", "ref": "CK-20260815-008"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../租赁管理/退租入库列表.html')\">TK-20260818-003</span>", "cells": ["华骏重卡 · 退租保险杠料架 54 套", "<span class=\"td-num\">54 套</span>", "<span class=\"tag tag-green\">已入库</span>", "2026-08-18", "CK-20260815-008"], "ops": [{"t": "详情", "act": "go('../租赁管理/退租入库列表.html')"}]} },
+    'RK-20260826-016': { 'row': {"fields": {"type": "采购入库单", "summary": "甬城塑业包装 · 围板箱到货", "qty": "200 只", "status": "已入库", "date": "2026-08-26", "ref": "PO-20260824-016"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../采购管理/采购入库列表.html')\">RK-20260826-016</span>", "cells": ["甬城塑业包装 · 围板箱到货", "<span class=\"td-num\">200 只</span>", "<span class=\"tag tag-green\">已入库</span>", "2026-08-26", "PO-20260824-016"], "ops": [{"t": "详情", "act": "go('../采购管理/采购入库列表.html')"}]} },
+    'RK-20260812-011': { 'row': {"fields": {"type": "采购入库单", "summary": "甬城塑业包装 · 锁扣到货", "qty": "800 套", "status": "已入库", "date": "2026-08-12", "ref": "PO-20260810-013"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../采购管理/采购入库列表.html')\">RK-20260812-011</span>", "cells": ["甬城塑业包装 · 锁扣到货", "<span class=\"td-num\">800 套</span>", "<span class=\"tag tag-green\">已入库</span>", "2026-08-12", "PO-20260810-013"], "ops": [{"t": "详情", "act": "go('../采购管理/采购入库列表.html')"}]} },
+    'SO-20260827-0036': { 'row': {"fields": {"type": "销售订单", "summary": "华骏重卡 · 驾驶室围板箱", "qty": "180 套", "status": "已审核", "date": "2026-08-27", "ref": "—"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../销售管理/销售订单列表.html')\">SO-20260827-0036</span>", "cells": ["华骏重卡 · 驾驶室围板箱", "<span class=\"td-num\">180 套</span>", "<span class=\"tag tag-blue\">已审核</span>", "2026-08-27", "—"], "ops": [{"t": "详情", "act": "go('../销售管理/销售订单列表.html')"}]} },
+    'SO-20260820-0033': { 'row': {"fields": {"type": "销售订单", "summary": "华骏重卡 · 围板箱", "qty": "120 套", "status": "已审核", "date": "2026-08-20", "ref": "—"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../销售管理/销售订单列表.html')\">SO-20260820-0033</span>", "cells": ["华骏重卡 · 围板箱", "<span class=\"td-num\">120 套</span>", "<span class=\"tag tag-blue\">已审核</span>", "2026-08-20", "—"], "ops": [{"t": "详情", "act": "go('../销售管理/销售订单列表.html')"}]} },
+    'AR-2026-08-PRJ2601': { 'row': {"fields": {"type": "应收账单", "summary": "PRJ-2601 · 8 月租金（按租赁出库汇总 486,200 元）", "qty": "—", "status": "部分收款", "date": "2026-08-31", "ref": "SO-20260827-0036"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../财务协同/应收账单.html')\">AR-2026-08-PRJ2601</span>", "cells": ["PRJ-2601 · 8 月租金（按租赁出库汇总 486,200 元）", "<span class=\"td-num\">—</span>", "<span class=\"tag tag-orange\">部分收款</span>", "2026-08-31", "SO-20260827-0036"], "ops": [{"t": "详情", "act": "go('../财务协同/应收账单.html')"}]} },
+    'AR-2026-07-PRJ2601': { 'row': {"fields": {"type": "应收账单", "summary": "PRJ-2601 · 7 月租金（按租赁出库汇总 442,800 元 · 已结清）", "qty": "—", "status": "已结清", "date": "2026-07-31", "ref": "SO-20260820-0033"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../财务协同/应收账单.html')\">AR-2026-07-PRJ2601</span>", "cells": ["PRJ-2601 · 7 月租金（按租赁出库汇总 442,800 元 · 已结清）", "<span class=\"td-num\">—</span>", "<span class=\"tag tag-green\">已结清</span>", "2026-07-31", "SO-20260820-0033"], "ops": [{"t": "详情", "act": "go('../财务协同/应收账单.html')"}]} },
   },
 
   /* --------------------------------------------------------------------------
@@ -12219,12 +12219,12 @@ window.DEMO_DATA = {
  *   fields: name/customer/status；列=出库/退租/在租/营收/累计毛利（演示口径）
  * ------------------------------------------------------------------------ */
   boardRows: {
-    'PRJ-2601': { 'row': {"fields": {"name": "华骏重卡·长春基地 驾驶室围板箱租赁", "customer": "华骏重卡汽车有限公司", "status": "进行中"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../项目管理/项目详情.html')\">PRJ-2601</span>", "cells": ["华骏重卡·长春基地 驾驶室围板箱租赁", "华骏重卡汽车有限公司", "<span class=\"tag tag-blue\">进行中</span>", "<span class=\"td-num\">1,240</span>", "<span class=\"td-num\">986</span>", "<span class=\"td-num\">3,860</span>", "<span class=\"td-num\">486,200</span><div style=\"font-size:11px;color:#8c8c8c;margin-top:2px;white-space:nowrap;\"><span class=\"lk\" onclick=\"go('../财务协同/应收账单.html')\">AR-2026-08-PRJ2601</span></div>", "<span class=\"td-num\">212,400</span><div style=\"font-size:11px;color:#8c8c8c;margin-top:2px;white-space:nowrap;\"><span class=\"lk\" onclick=\"go('../财务协同/应付账单.html')\">AP-20260901-008</span></div>"], "ops": [{"t": "查看明细", "act": "go('../项目管理/项目详情.html')"}]} },
-    'PRJ-2602': { 'row': {"fields": {"name": "华骏重卡·青岛基地 保险杠料架租赁", "customer": "华骏重卡汽车有限公司（青岛）", "status": "进行中"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../项目管理/项目详情.html')\">PRJ-2602</span>", "cells": ["华骏重卡·青岛基地 保险杠料架租赁", "华骏重卡汽车有限公司（青岛）", "<span class=\"tag tag-blue\">进行中</span>", "<span class=\"td-num\">620</span>", "<span class=\"td-num\">410</span>", "<span class=\"td-num\">1,530</span>", "<span class=\"td-num\">268,400</span><div style=\"font-size:11px;color:#8c8c8c;margin-top:2px;white-space:nowrap;\"><span class=\"lk\" onclick=\"go('../财务协同/应收账单.html')\">AR-2026-08-PRJ2602</span></div>", "<span class=\"td-num\">96,200</span><div style=\"font-size:11px;color:#8c8c8c;margin-top:2px;white-space:nowrap;\"><span class=\"lk\" onclick=\"go('../财务协同/应付账单.html')\">AP-20260830-007</span></div>"], "ops": [{"t": "查看明细", "act": "go('../项目管理/项目详情.html')"}]} },
-    'PRJ-2603': { 'row': {"fields": {"name": "长丰锂电·电池包周转箱租赁", "customer": "长丰锂电科技", "status": "进行中"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../项目管理/项目详情.html')\">PRJ-2603</span>", "cells": ["长丰锂电·电池包周转箱租赁", "长丰锂电科技", "<span class=\"tag tag-blue\">进行中</span>", "<span class=\"td-num\">540</span>", "<span class=\"td-num\">286</span>", "<span class=\"td-num\">1,240</span>", "<span class=\"td-num\">186,300</span><div style=\"font-size:11px;color:#8c8c8c;margin-top:2px;white-space:nowrap;\"><span class=\"lk\" onclick=\"go('../财务协同/应收账单.html')\">AR-2026-08-PRJ2603</span></div>", "<span class=\"td-num\">58,900</span><div style=\"font-size:11px;color:#8c8c8c;margin-top:2px;white-space:nowrap;\"><span class=\"lk\" onclick=\"go('../财务协同/应付账单.html')\">AP-20260903-009</span></div>"], "ops": [{"t": "查看明细", "act": "go('../项目管理/项目详情.html')"}]} },
-    'PRJ-2604': { 'row': {"fields": {"name": "南方汽造·座椅周转箱试点", "customer": "南方汽造", "status": "已暂停"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../项目管理/项目详情.html')\">PRJ-2604</span>", "cells": ["南方汽造·座椅周转箱试点", "南方汽造", "<span class=\"tag tag-orange\">已暂停</span>", "<span class=\"td-num\">86</span>", "<span class=\"td-num\">132</span>", "<span class=\"td-num\">96</span>", "<span class=\"td-num\">24,600</span><div style=\"font-size:11px;color:#8c8c8c;margin-top:2px;white-space:nowrap;\"><span class=\"lk\" onclick=\"go('../财务协同/应收账单.html')\">AR-2026-09-PRJ2604-S1</span></div>", "<span class=\"td-num\">-18,600</span><div style=\"font-size:11px;color:#8c8c8c;margin-top:2px;white-space:nowrap;\"><span class=\"lk\" onclick=\"go('../财务协同/应付账单.html')\">AP-20260903-010</span></div>"], "ops": [{"t": "查看明细", "act": "go('../项目管理/项目详情.html')"}]} },
-    'PRJ-2605': { 'row': {"fields": {"name": "华骏重卡·蔚山基地 围板箱扩建", "customer": "华骏重卡汽车有限公司", "status": "筹备中"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../项目管理/项目详情.html')\">PRJ-2605</span>", "cells": ["华骏重卡·蔚山基地 围板箱扩建", "华骏重卡汽车有限公司", "<span class=\"tag tag-gray\">筹备中</span>", "<span class=\"td-num\">0</span>", "<span class=\"td-num\">0</span>", "<span class=\"td-num\">0</span>", "<span class=\"td-num\">0</span>", "<span class=\"td-num\">0</span>"], "ops": [{"t": "查看明细", "act": "go('../项目管理/项目详情.html')"}]} },
-    'PRJ-2599': { 'row': {"fields": {"name": "东海商用·南京工厂 托盘租赁（完结）", "customer": "东海商用", "status": "已完结"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../项目管理/项目详情.html')\">PRJ-2599</span>", "cells": ["东海商用·南京工厂 托盘租赁（完结）", "东海商用", "<span class=\"tag tag-green\">已完结</span>", "<span class=\"td-num\">320</span>", "<span class=\"td-num\">358</span>", "<span class=\"td-num\">0</span>", "<span class=\"td-num\">126,800</span>", "<span class=\"td-num\">41,300</span>"], "ops": [{"t": "查看明细", "act": "go('../项目管理/项目详情.html')"}]} },
+    'PRJ-2601': { 'row': {"fields": {"name": "华骏重卡·长春基地 驾驶室围板箱租赁", "customer": "华骏重卡汽车有限公司", "status": "进行中"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../项目管理/项目详情.html')\">PRJ-2601</span>", "cells": ["华骏重卡·长春基地 驾驶室围板箱租赁", "华骏重卡汽车有限公司", "<span class=\"tag tag-blue\">进行中</span>", "<span class=\"td-num\">1,240</span>", "<span class=\"td-num\">986</span>", "<span class=\"td-num\">3,860</span>", "<span class=\"td-num\">486,200</span><div style=\"font-size:11px;color:#8c8c8c;margin-top:2px;white-space:nowrap;\"><span class=\"lk\" onclick=\"go('../财务协同/应收账单.html')\">AR-2026-08-PRJ2601</span></div>", "<span class=\"td-num\">212,400</span><div style=\"font-size:11px;color:#8c8c8c;margin-top:2px;white-space:nowrap;\"><span class=\"lk\" onclick=\"go('../财务协同/应付账单.html')\">AP-20260901-008</span></div>"], "ops": [{"t": "详情", "act": "go('../项目管理/项目详情.html')"}]} },
+    'PRJ-2602': { 'row': {"fields": {"name": "华骏重卡·青岛基地 保险杠料架租赁", "customer": "华骏重卡汽车有限公司（青岛）", "status": "进行中"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../项目管理/项目详情.html')\">PRJ-2602</span>", "cells": ["华骏重卡·青岛基地 保险杠料架租赁", "华骏重卡汽车有限公司（青岛）", "<span class=\"tag tag-blue\">进行中</span>", "<span class=\"td-num\">620</span>", "<span class=\"td-num\">410</span>", "<span class=\"td-num\">1,530</span>", "<span class=\"td-num\">268,400</span><div style=\"font-size:11px;color:#8c8c8c;margin-top:2px;white-space:nowrap;\"><span class=\"lk\" onclick=\"go('../财务协同/应收账单.html')\">AR-2026-08-PRJ2602</span></div>", "<span class=\"td-num\">96,200</span><div style=\"font-size:11px;color:#8c8c8c;margin-top:2px;white-space:nowrap;\"><span class=\"lk\" onclick=\"go('../财务协同/应付账单.html')\">AP-20260830-007</span></div>"], "ops": [{"t": "详情", "act": "go('../项目管理/项目详情.html')"}]} },
+    'PRJ-2603': { 'row': {"fields": {"name": "长丰锂电·电池包周转箱租赁", "customer": "长丰锂电科技", "status": "进行中"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../项目管理/项目详情.html')\">PRJ-2603</span>", "cells": ["长丰锂电·电池包周转箱租赁", "长丰锂电科技", "<span class=\"tag tag-blue\">进行中</span>", "<span class=\"td-num\">540</span>", "<span class=\"td-num\">286</span>", "<span class=\"td-num\">1,240</span>", "<span class=\"td-num\">186,300</span><div style=\"font-size:11px;color:#8c8c8c;margin-top:2px;white-space:nowrap;\"><span class=\"lk\" onclick=\"go('../财务协同/应收账单.html')\">AR-2026-08-PRJ2603</span></div>", "<span class=\"td-num\">58,900</span><div style=\"font-size:11px;color:#8c8c8c;margin-top:2px;white-space:nowrap;\"><span class=\"lk\" onclick=\"go('../财务协同/应付账单.html')\">AP-20260903-009</span></div>"], "ops": [{"t": "详情", "act": "go('../项目管理/项目详情.html')"}]} },
+    'PRJ-2604': { 'row': {"fields": {"name": "南方汽造·座椅周转箱试点", "customer": "南方汽造", "status": "已暂停"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../项目管理/项目详情.html')\">PRJ-2604</span>", "cells": ["南方汽造·座椅周转箱试点", "南方汽造", "<span class=\"tag tag-orange\">已暂停</span>", "<span class=\"td-num\">86</span>", "<span class=\"td-num\">132</span>", "<span class=\"td-num\">96</span>", "<span class=\"td-num\">24,600</span><div style=\"font-size:11px;color:#8c8c8c;margin-top:2px;white-space:nowrap;\"><span class=\"lk\" onclick=\"go('../财务协同/应收账单.html')\">AR-2026-09-PRJ2604-S1</span></div>", "<span class=\"td-num\">-18,600</span><div style=\"font-size:11px;color:#8c8c8c;margin-top:2px;white-space:nowrap;\"><span class=\"lk\" onclick=\"go('../财务协同/应付账单.html')\">AP-20260903-010</span></div>"], "ops": [{"t": "详情", "act": "go('../项目管理/项目详情.html')"}]} },
+    'PRJ-2605': { 'row': {"fields": {"name": "华骏重卡·蔚山基地 围板箱扩建", "customer": "华骏重卡汽车有限公司", "status": "筹备中"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../项目管理/项目详情.html')\">PRJ-2605</span>", "cells": ["华骏重卡·蔚山基地 围板箱扩建", "华骏重卡汽车有限公司", "<span class=\"tag tag-gray\">筹备中</span>", "<span class=\"td-num\">0</span>", "<span class=\"td-num\">0</span>", "<span class=\"td-num\">0</span>", "<span class=\"td-num\">0</span>", "<span class=\"td-num\">0</span>"], "ops": [{"t": "详情", "act": "go('../项目管理/项目详情.html')"}]} },
+    'PRJ-2599': { 'row': {"fields": {"name": "东海商用·南京工厂 托盘租赁（完结）", "customer": "东海商用", "status": "已完结"}, "keyHtml": "<span class=\"lk\" onclick=\"go('../项目管理/项目详情.html')\">PRJ-2599</span>", "cells": ["东海商用·南京工厂 托盘租赁（完结）", "东海商用", "<span class=\"tag tag-green\">已完结</span>", "<span class=\"td-num\">320</span>", "<span class=\"td-num\">358</span>", "<span class=\"td-num\">0</span>", "<span class=\"td-num\">126,800</span>", "<span class=\"td-num\">41,300</span>"], "ops": [{"t": "详情", "act": "go('../项目管理/项目详情.html')"}]} },
   },
 
   /* --------------------------------------------------------------------------

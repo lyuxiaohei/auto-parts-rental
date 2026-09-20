@@ -65,22 +65,19 @@
         (r.keyHtml || '<span class="lk">' + key + '</span>') + '</td>\n';
       r.cells.forEach(function (c) { h += '          <td>' + c + '</td>\n'; });
       /* G12（2026-09-10）：noOps=表格无操作列（操作日志/损益报表类）；顺带防御 ops 缺失
-         0920 道远三点菜单：池前 3 直显+⋮ 收纳第 4+；每行按池展示全量——该行 ops 没有的置灰 */
+         0920 道远三点菜单：池前 3 直显+⋮ 收纳第 4+；每行按池展示全量——该行 ops 没有的置灰。
+         ⋮ 携 data-ops-key，下拉为 body 级 fixed 浮层（见文末委托）——不受 .table-wrap 等
+         滚动容器 overflow 裁剪（采购订单页空白菜单事故根因：内嵌 absolute 菜单被裁） */
       if (!cfg.noOps) {
-        var rowOps = r.ops || [];
-        var byT = {};
-        rowOps.forEach(function (o) { if (!byT[o.t]) byT[o.t] = { t: o.t, act: o.act, detail: o.detail, key: key }; });
+        var rowOps2 = r.ops || [];
+        var byT2 = {};
+        rowOps2.forEach(function (o) { if (!byT2[o.t]) byT2[o.t] = { t: o.t, act: o.act, detail: o.detail, key: key }; });
         h += '          <td class="sticky-op"><span class="ops">';
         POOL.slice(0, 3).forEach(function (t) {
-          h += byT[t] ? opLink(byT[t]) : '<a class="op-dis">' + t + '</a>';
+          h += byT2[t] ? opLink(byT2[t]) : '<a class="op-dis">' + t + '</a>';
         });
         if (POOL.length > 3) {
-          h += '<a class="op-more" title="更多操作">⋮</a>';
-          h += '<div class="op-menu">';
-          POOL.slice(3).forEach(function (t) {
-            h += byT[t] ? opLink(byT[t]) : '<a class="op-dis">' + t + '</a>';
-          });
-          h += '</div>';
+          h += '<a class="op-more" data-ops-key="' + key + '" title="更多操作">⋮</a>';
         }
         h += '</span></td>\n';
       }
@@ -202,40 +199,61 @@
       });
     });
 
-    /* 0920 道远三点菜单：⋮ 开合（document 委托·同页单开·点外/Esc/选项点击后关） */
+    /* 0920 道远三点菜单：body 级 fixed 浮层（点 ⋮ 按行键现算池 4+ 项·同页单开·点项/点外/Esc/滚动关） */
     if (!window.__opMenuReady) {
       window.__opMenuReady = true;
       var opMenuStyle = document.createElement('style');
       opMenuStyle.textContent =
-        '.ops{position:relative;}' +
         '.op-dis{color:#c0c4cc!important;pointer-events:none;}' +
         '.op-more{display:inline-block;width:18px;text-align:center;font-size:14px;font-weight:700;color:#1677ff;letter-spacing:-1px;cursor:pointer;user-select:none;padding:0 2px;}' +
         '.op-more:hover{background:#e6f4ff;border-radius:3px;}' +
-        '.op-menu{display:none;position:absolute;right:0;top:100%;z-index:960;min-width:96px;padding:4px 0;background:#fff;border:1px solid #e5e6eb;border-radius:6px;box-shadow:0 6px 16px rgba(0,0,0,.12);white-space:nowrap;}' +
-        '.op-menu.open{display:block;}' +
-        '.op-menu a{display:block;padding:6px 14px;color:#262626;cursor:pointer;}' +
-        '.op-menu a:hover{background:#f5f7fa;color:#1677ff;}' +
-        '.op-menu a.op-dis{color:#c0c4cc;background:none;cursor:default;}';
+        '#op-menu-pop{position:fixed;z-index:9960;min-width:96px;padding:4px 0;background:#fff;border:1px solid #e5e6eb;border-radius:6px;box-shadow:0 6px 16px rgba(0,0,0,.12);white-space:nowrap;}' +
+        '#op-menu-pop a{display:block;padding:6px 14px;color:#262626;cursor:pointer;}' +
+        '#op-menu-pop a:hover{background:#f5f7fa;color:#1677ff;}' +
+        '#op-menu-pop a.op-dis{color:#c0c4cc;background:none;cursor:default;}';
       document.head.appendChild(opMenuStyle);
+      var closeOpMenu = function () { var m = document.getElementById('op-menu-pop'); if (m) m.remove(); };
+      var openOpMenu = function (more) {
+        closeOpMenu();
+        var key = more.getAttribute('data-ops-key');
+        var host = window.__opMenuHost; /* {DATA, POOL, opLink} 由各 renderListPage 实例登记 */
+        if (!host || !host.DATA[key]) return;
+        var byT = {};
+        (host.DATA[key].row.ops || []).forEach(function (o) { if (!byT[o.t]) byT[o.t] = { t: o.t, act: o.act, detail: o.detail, key: key }; });
+        var menu = document.createElement('div');
+        menu.id = 'op-menu-pop';
+        host.POOL.slice(3).forEach(function (t) {
+          menu.innerHTML += byT[t] ? host.opLink(byT[t]) : '<a class="op-dis">' + t + '</a>';
+        });
+        document.body.appendChild(menu);
+        var rc = more.getBoundingClientRect(), mc = menu.getBoundingClientRect();
+        var left = Math.max(8, Math.min(rc.right - mc.width, window.innerWidth - mc.width - 8));
+        var top = rc.bottom + 4;
+        if (top + mc.height > window.innerHeight - 8) top = rc.top - mc.height - 4; /* 底部溢出翻上方 */
+        menu.style.left = left + 'px'; menu.style.top = top + 'px';
+      };
       document.addEventListener('click', function (e) {
         var more = e.target.closest ? e.target.closest('.op-more') : null;
-        document.querySelectorAll('.op-menu.open').forEach(function (m) {
-          if (!more || m !== more.parentElement.querySelector('.op-menu')) m.classList.remove('open');
-        });
+        var inMenu = e.target.closest ? e.target.closest('#op-menu-pop') : null;
         if (more) {
-          var menu = more.parentElement.querySelector('.op-menu');
-          if (menu) menu.classList.toggle('open');
+          var cur = document.getElementById('op-menu-pop');
+          if (cur && more.getAttribute('data-ops-key') === cur.getAttribute('data-key')) { closeOpMenu(); return; }
+          openOpMenu(more);
+          if (document.getElementById('op-menu-pop')) document.getElementById('op-menu-pop').setAttribute('data-key', more.getAttribute('data-ops-key'));
           e.stopPropagation();
+          return;
         }
+        if (inMenu) { setTimeout(closeOpMenu, 0); return; } /* 菜单项自身 onclick 先执行，下一拍关 */
+        closeOpMenu();
       }, true);
-      document.addEventListener('click', function (e) {
-        var menu = e.target.closest ? e.target.closest('.op-menu') : null;
-        if (menu) setTimeout(function () { menu.classList.remove('open'); }, 0);
-      });
       document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') document.querySelectorAll('.op-menu.open').forEach(function (m) { m.classList.remove('open'); });
+        if (e.key === 'Escape') closeOpMenu();
       });
+      window.addEventListener('scroll', closeOpMenu, true); /* 任一容器滚动即关，防错位 */
     }
+
+    /* 三点菜单浮层取数宿主（同页多列表时以最后渲染者为准） */
+    window.__opMenuHost = { DATA: DATA, POOL: POOL, opLink: opLink };
 
     stabsRefresh();
     render([]);
