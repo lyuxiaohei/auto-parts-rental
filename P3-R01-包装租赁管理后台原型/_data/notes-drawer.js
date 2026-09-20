@@ -51,8 +51,8 @@
     /* 双轨（0919 道远拍板 #9·0920 修正）：业务提示＝锚点旁黑白「?」圆标常显·点击弹小弹窗说明——**? 圆标及内容属正式功能需求·需开发到前端页面**（面向最终用户）；PRD 注释＝紫色数字角标·点击开抽屉——**仅开发过程内部查看·正式版不出现** */
     + '[data-note].pn-biz{position:relative}'
     + 'body.proto-notes-on [data-note].pn-biz::after{display:none}'
-    + '.pn-q{position:absolute;top:-7px;right:-7px;width:15px;height:15px;border-radius:50%;background:#262626;color:#fff;font-size:10px;font-weight:700;line-height:15px;text-align:center;font-family:Consolas,monospace;cursor:pointer;box-shadow:0 0 0 1.5px #fff;z-index:6;opacity:.75;transition:opacity .15s}'
-    + '.pn-q:hover{opacity:1;background:#000}'
+    + '.pn-q{position:absolute;top:-7px;right:-7px;width:16px;height:16px;border-radius:50%;background:#fff;color:#000;border:1px solid #000;box-sizing:border-box;font-size:10px;font-weight:600;line-height:14px;text-align:center;font-family:Consolas,monospace;cursor:pointer;box-shadow:0 0 0 1.5px #fff;z-index:6;opacity:.8;transition:opacity .15s}'
+    + '.pn-q:hover{opacity:1;background:#f5f5f5}'
     + '.pn-tip{position:fixed;z-index:895;width:280px;max-width:300px;background:#fff;color:#262626;border:1px solid #262626;border-radius:8px;font-size:12px;line-height:1.7;font-family:-apple-system,\'Segoe UI\',\'Microsoft YaHei\',sans-serif;box-shadow:0 6px 20px rgba(0,0,0,.22);pointer-events:auto;opacity:0;transform:translateY(4px);transition:opacity .15s,transform .15s}'
     + '.pn-tip.pn-show{opacity:1;transform:none}'
     + '.pn-tip .pn-tip-h{display:flex;align-items:center;justify-content:space-between;padding:9px 12px;border-bottom:1px solid #e8e8e8;font-weight:600;font-size:13px;color:#000}'
