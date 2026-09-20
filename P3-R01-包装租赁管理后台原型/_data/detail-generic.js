@@ -75,10 +75,12 @@
         '<div class="table-wrap"><table><thead><tr>';
       rec.itemCols.forEach(function (c) { h += '<th>' + c + '</th>'; });
       h += '</tr></thead><tbody>';
+      /* itemNum:false（0920 道远：统计描述类明细不执行数字右对齐·全列左对齐，如客商·联系人/往来统计） */
+      var useNum = rec.itemNum !== false;
       rec.items.forEach(function (r) {
         h += '<tr>';
         r.forEach(function (cell) {
-          var isNum = /^[\d,]+(\.\d{1,2})?$/.test(String(cell));
+          var isNum = useNum && /^[\d,]+(\.\d{1,2})?$/.test(String(cell));
           h += '<td' + (isNum ? ' class="td-num"' : '') + '>' + cell + '</td>';
         });
         h += '</tr>';

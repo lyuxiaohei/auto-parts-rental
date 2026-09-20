@@ -10299,6 +10299,7 @@ window.DEMO_DATA = {
         { 'label': '收货电话', 'text': '138****6621' },
         { 'label': '收货地址', 'text': '吉林省长春市汽开区开拓大街 2222 号 · 1 号收货口' }
       ],
+      'itemNum': false,
       'itemTitle': '联系人 / 往来统计',
       'itemCols': ['统计项', '数值', '说明'],
       'items': [
@@ -10385,6 +10386,7 @@ window.DEMO_DATA = {
         { 'label': '收货电话', 'text': '139****0233' },
         { 'label': '收货地址', 'text': '浙江省宁波市北仑区金源路 66 号 · 物流 3 号门' }
       ],
+      'itemNum': false,
       'itemTitle': '联系人 / 往来统计',
       'itemCols': ['统计项', '数值', '说明'],
       'items': [
@@ -10461,6 +10463,7 @@ window.DEMO_DATA = {
         { 'label': '收货电话', 'text': '137****8845' },
         { 'label': '收货地址', 'text': '广东省广州市黄埔区开发大道 88 号 · B 区收货口' }
       ],
+      'itemNum': false,
       'itemTitle': '联系人 / 往来统计',
       'itemCols': ['统计项', '数值', '说明'],
       'items': [
@@ -10537,6 +10540,7 @@ window.DEMO_DATA = {
         { 'label': '收货电话', 'text': '136****3312' },
         { 'label': '收货地址', 'text': '湖北省武汉市武汉经济技术开发区车城西路 5 号 · 2 号门' }
       ],
+      'itemNum': false,
       'itemTitle': '联系人 / 往来统计',
       'itemCols': ['统计项', '数值', '说明'],
       'items': [
@@ -10603,6 +10607,7 @@ window.DEMO_DATA = {
         { 'label': '收货电话', 'text': '135****7790' },
         { 'label': '收货地址', 'text': '浙江省宁波市鄞州区鄞县大道 129 号 · 包材仓库' }
       ],
+      'itemNum': false,
       'itemTitle': '联系人 / 往来统计',
       'itemCols': ['统计项', '数值', '说明'],
       'items': [
@@ -10675,6 +10680,7 @@ window.DEMO_DATA = {
         { 'label': '收货电话', 'text': '133****5567' },
         { 'label': '收货地址', 'text': '江苏省苏州工业园区金鸡湖大道 216 号 · 五金仓库收货区' }
       ],
+      'itemNum': false,
       'itemTitle': '联系人 / 往来统计',
       'itemCols': ['统计项', '数值', '说明'],
       'items': [
@@ -10747,6 +10753,7 @@ window.DEMO_DATA = {
         { 'label': '收货电话', 'text': '138****2245' },
         { 'label': '收货地址', 'text': '江苏省常州市新北区通江中路 36 号 · 托盘交货区' }
       ],
+      'itemNum': false,
       'itemTitle': '联系人 / 往来统计',
       'itemCols': ['统计项', '数值', '说明'],
       'items': [
@@ -10819,6 +10826,7 @@ window.DEMO_DATA = {
         { 'label': '收货电话', 'text': '021-66****' },
         { 'label': '收货地址', 'text': '上海市浦东新区云桥路 128 号 · 循环包装运营中心' }
       ],
+      'itemNum': false,
       'itemTitle': '联系人 / 往来统计',
       'itemCols': ['统计项', '数值', '说明'],
       'items': [
