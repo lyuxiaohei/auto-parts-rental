@@ -371,10 +371,28 @@ th.td-num { text-align:right; }
 <div class="card">
   <div class="card-head">
     <h3 class="card-title">物料档案</h3>
-    <div class="head-btns"><button class="btn btn-default btn-sm">批量导出</button><button class="btn btn-sm" onclick="go('../基础数据/物料新建.html')">新建物料</button></div>
+    <div class="head-btns" style="position:relative;"><button class="btn btn-default btn-sm" onclick="toggleColSett(event)">列设置</button>
+      <div id="colSettPanel" style="display:none;position:absolute;right:0;top:calc(100% + 6px);z-index:60;background:#fff;border:1px solid #e5e6eb;border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,.1);padding:10px 12px;width:180px;font-size:13px;">
+        <div style="font-weight:600;color:#595959;margin-bottom:6px;">显示列</div>
+        <div id="colSettList" style="display:flex;flex-direction:column;gap:4px;">
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" class="csItem" value="物料编码" checked>物料编码</label>
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" class="csItem" value="物料名称" checked>物料名称</label>
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" class="csItem" value="物料类型" checked>物料类型</label>
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" class="csItem" value="规格" checked>规格</label>
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" class="csItem" value="单位" checked>单位</label>
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" class="csItem" value="参考未税采购价(元)" checked>参考未税采购价(元)</label>
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" class="csItem" value="参考未税销售价(元)" checked>参考未税销售价(元)</label>
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" class="csItem" value="参考未税租入价" checked>参考未税租入价</label>
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" class="csItem" value="参考未税租赁价" checked>参考未税租赁价</label>
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" class="csItem" value="状态" checked>状态</label>
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox" class="csItem" value="更新日期" checked>更新日期</label>
+        </div>
+        <div style="border-top:1px solid #f0f0f0;margin-top:8px;padding-top:6px;text-align:right;"><a style="color:#1677ff;cursor:pointer;font-size:12px;" onclick="resetColSett(this)">恢复默认</a></div>
+      </div>
+    <button class="btn btn-default btn-sm">批量导出</button><button class="btn btn-sm" onclick="go('../基础数据/物料新建.html')">新建物料</button></div>
   </div>
   <div class="table-wrap">
-    <table>
+    <table class="colsett-tbl">
       <thead>
         <tr>
           <th></th>
@@ -829,5 +847,52 @@ document.querySelectorAll('.tab').forEach(function (t) {
 /* G43 下拉数据源化：静态 option 为无 JS 兜底，运行时按字典/实体重渲染（矩阵见 _scan_tmpdir/g43_接线差集_v2.md） */
 SSEL.fillDict(SSEL.byLabel('物料类型'),'物料类型',true);
 </script>
+<script>/* 列显示设置（2026-09-20 道远指示·克隆客商管理样板件）：勾选显隐现有数据列——勾选框列/操作列固定；CSS nth-child 显隐（免疫列表重渲染）；localStorage 记忆（colsett-wlda）；「恢复默认」一键全显 */
+function toggleColSett(ev) {
+  ev && ev.stopPropagation();
+  var p = document.getElementById('colSettPanel');
+  if (p) p.style.display = (p.style.display === 'none' || !p.style.display) ? 'block' : 'none';
+}
+function applyColSett() {
+  var tbl = document.querySelector('table.colsett-tbl'); if (!tbl) return;
+  var ths = Array.prototype.slice.call(tbl.querySelectorAll('thead th'));
+  var hidden = Array.prototype.slice.call(document.querySelectorAll('#colSettList .csItem:not(:checked)')).map(function (i) { return i.value; });
+  try { localStorage.setItem('colsett-wlda', JSON.stringify(hidden)); } catch (e) {}
+  var css = '';
+  hidden.forEach(function (name) {
+    ths.forEach(function (th, i) { if (th.textContent.trim() === name) css += '.colsett-tbl th:nth-child(' + (i + 1) + '),.colsett-tbl td:nth-child(' + (i + 1) + '){display:none;}'; });
+  });
+  var st = document.getElementById('colSettStyle');
+  if (!st) { st = document.createElement('style'); st.id = 'colSettStyle'; document.head.appendChild(st); }
+  st.textContent = css;
+}
+function resetColSett(el) {
+  Array.prototype.slice.call(document.querySelectorAll('#colSettList .csItem')).forEach(function (i) { i.checked = true; });
+  applyColSett();
+  var tip = document.getElementById('colSettTip');
+  if (!tip) {
+    tip = document.createElement('div');
+    tip.id = 'colSettTip';
+    tip.style.cssText = 'color:#52c41a;font-size:12px;text-align:center;padding-top:4px;';
+    var panel = document.getElementById('colSettPanel');
+    panel.insertBefore(tip, panel.lastElementChild);
+  }
+  tip.textContent = '已恢复默认显示';
+  clearTimeout(resetColSett._t);
+  resetColSett._t = setTimeout(function () { tip.textContent = ''; }, 1500);
+  if (el) el.style.color = '#52c41a', setTimeout(function () { el.style.color = ''; }, 600);
+}
+(function () {
+  Array.prototype.slice.call(document.querySelectorAll('#colSettList .csItem')).forEach(function (i) { i.addEventListener('change', applyColSett); });
+  try {
+    var saved = JSON.parse(localStorage.getItem('colsett-wlda') || '[]');
+    if (Array.isArray(saved)) saved.forEach(function (name) { var i = document.querySelector('#colSettList .csItem[value="' + name + '"]'); if (i) i.checked = false; });
+  } catch (e) {}
+  applyColSett();
+  document.addEventListener('click', function (e) {
+    var p = document.getElementById('colSettPanel');
+    if (p && p.style.display === 'block' && !p.contains(e.target) && !(e.target.closest && e.target.closest('button[onclick*="toggleColSett"]'))) p.style.display = 'none';
+  });
+})();</script>
 </body>
 </html>
