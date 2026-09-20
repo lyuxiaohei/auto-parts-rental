@@ -1,7 +1,7 @@
 /* 原型标注抽屉（notes-drawer）——0918 拍板：角标只保留数字，说明文案集中右侧抽屉
  * 依赖：_data/notes-data.js（NOTES_META.codes / NOTES_DATA[页面键]）
  * 页面只需要：data-note="N" 数字标记 ＋ 本件与 notes-data 两行引用，文案改动不碰页面
- * 开关：右下角「标注 N」按钮 / 点击任意角标（开抽屉并定位对应条目）/ Alt+N / ?notes=1 初始开
+ * 开关：右下角「标注 N」按钮 / 点击紫色数字角标（开抽屉并定位对应条目）/ 点击黑白 ? 圆标（业务提示小弹窗·0920）/ Alt+N / ?notes=1 初始开
  * 初始态：默认不展示（0918 道远「默认不要展示抽屉弹窗」·不跨页记忆）；?notes=1 仅当页初始开，不锁死开关 */
 (function () {
   var META = window.NOTES_META || { codes: {} };
@@ -48,14 +48,17 @@
     + '.pn-src{margin-top:8px;padding-top:7px;border-top:1px dashed #e5dff0;font-size:11px;color:#595959;line-height:1.65}'
     + '.pn-src b{color:#722ed1;font-weight:600}'
     + '.pn-drawer-foot{flex:none;padding:8px 16px;border-top:1px solid #f0f0f0;font-size:11px;color:#8c8c8c}'
-    /* 双轨（0919 道远拍板 #9）：业务需看＝? 圆标常显+悬停小提示；开发口径＝数字角标+抽屉 */
+    /* 双轨（0919 道远拍板 #9·0920 修正）：业务提示＝锚点旁黑白「?」圆标常显·点击弹小弹窗说明；PRD 注释＝紫色数字角标·点击开抽屉 */
     + '[data-note].pn-biz{position:relative}'
     + 'body.proto-notes-on [data-note].pn-biz::after{display:none}'
-    + '.pn-q{position:absolute;top:-7px;right:-7px;width:15px;height:15px;border-radius:50%;background:#1677ff;color:#fff;font-size:10px;font-weight:700;line-height:15px;text-align:center;font-family:Consolas,monospace;cursor:help;box-shadow:0 0 0 1.5px #fff;z-index:6;opacity:.8;transition:opacity .15s}'
-    + '.pn-q:hover{opacity:1}'
-    + '.pn-tip{position:fixed;z-index:895;max-width:300px;background:#262626;color:#fff;border-radius:6px;padding:9px 11px;font-size:12px;line-height:1.6;font-family:-apple-system,\'Segoe UI\',\'Microsoft YaHei\',sans-serif;box-shadow:0 4px 14px rgba(0,0,0,.3);pointer-events:none;opacity:0;transition:opacity .12s}'
-    + '.pn-tip.pn-show{opacity:1}'
-    + '.pn-tip b{display:block;margin-bottom:3px;font-size:12.5px}'
+    + '.pn-q{position:absolute;top:-7px;right:-7px;width:15px;height:15px;border-radius:50%;background:#262626;color:#fff;font-size:10px;font-weight:700;line-height:15px;text-align:center;font-family:Consolas,monospace;cursor:pointer;box-shadow:0 0 0 1.5px #fff;z-index:6;opacity:.75;transition:opacity .15s}'
+    + '.pn-q:hover{opacity:1;background:#000}'
+    + '.pn-tip{position:fixed;z-index:895;width:280px;max-width:300px;background:#fff;color:#262626;border:1px solid #262626;border-radius:8px;font-size:12px;line-height:1.7;font-family:-apple-system,\'Segoe UI\',\'Microsoft YaHei\',sans-serif;box-shadow:0 6px 20px rgba(0,0,0,.22);pointer-events:auto;opacity:0;transform:translateY(4px);transition:opacity .15s,transform .15s}'
+    + '.pn-tip.pn-show{opacity:1;transform:none}'
+    + '.pn-tip .pn-tip-h{display:flex;align-items:center;justify-content:space-between;padding:9px 12px;border-bottom:1px solid #e8e8e8;font-weight:600;font-size:13px;color:#000}'
+    + '.pn-tip .pn-tip-x{cursor:pointer;color:#8c8c8c;font-size:16px;line-height:1;padding:0 2px;font-weight:400}'
+    + '.pn-tip .pn-tip-x:hover{color:#000}'
+    + '.pn-tip .pn-tip-b{padding:9px 12px;color:#404040;max-height:220px;overflow-y:auto}'
     + '.pn-aud{flex:none;border-radius:3px;padding:0 5px;font-size:10px;line-height:16px;font-weight:600;margin-left:2px}'
     + '.pn-aud-dev{background:#722ed1;color:#fff}'
     + '.pn-aud-biz{background:#e6f4ff;color:#1677ff;border:1px solid #91caff}';
@@ -69,7 +72,7 @@
   mask.className = 'pn-mask';
   var drawer = document.createElement('div');
   drawer.className = 'pn-drawer';
-  var html = '<div class="pn-drawer-head"><div class="pn-drawer-title">原型标注 <span class="pn-fab-n"></span></div><span class="pn-close">×</span></div><div class="pn-drawer-body"></div><div class="pn-drawer-foot">? 蓝色圆标＝业务说明（悬停查看）；紫色数字＝开发口径注记，点击定位；Alt+N 或右下角按钮开关抽屉</div>';
+  var html = '<div class="pn-drawer-head"><div class="pn-drawer-title">原型标注 <span class="pn-fab-n"></span></div><span class="pn-close">×</span></div><div class="pn-drawer-body"></div><div class="pn-drawer-foot">? 黑白圆标＝业务说明（点击弹小窗）；紫色数字＝PRD 注释（点击开抽屉）；Alt+N 或右下角按钮开关抽屉</div>';
   drawer.innerHTML = html;
   document.body.appendChild(mask);
   document.body.appendChild(drawer);
@@ -156,7 +159,7 @@
     if (e.altKey && (e.key === 'n' || e.key === 'N')) {
       if (drawerOpen()) { closeDrawer(); notesOn(false); } else { openDrawer(); }
     }
-    if (e.key === 'Escape' && drawerOpen()) closeDrawer();
+    if (e.key === 'Escape') { hideTip(); if (drawerOpen()) closeDrawer(); }
   });
 
   /* ---------- 双轨（0919 道远拍板 #9）：业务条目＝锚点旁「?」圆标常显＋悬停小提示；开发条目＝数字角标开抽屉 ---------- */
@@ -170,32 +173,35 @@
   }
   var IMAP = idMap();
   function showTip(q, it) {
-    tip.innerHTML = '<b>' + esc(it.title) + '</b>' + esc(it.note || '');
+    tip.innerHTML = '<div class="pn-tip-h"><span>' + esc(it.title) + '</span><span class="pn-tip-x">×</span></div>'
+      + (it.note ? '<div class="pn-tip-b">' + esc(it.note) + '</div>' : '');
+    var x = tip.querySelector('.pn-tip-x');
+    if (x) x.addEventListener('click', function (e) { e.stopPropagation(); hideTip(); });
     tip.classList.add('pn-show');
     var r = q.getBoundingClientRect();
     var top = r.bottom + 6;
-    tip.style.left = Math.max(8, Math.min(r.left, window.innerWidth - 316)) + 'px';
+    tip.style.left = Math.max(8, Math.min(r.left - 4, window.innerWidth - 296)) + 'px';
     tip.style.top = (top + tip.offsetHeight > window.innerHeight - 8 ? r.top - tip.offsetHeight - 6 : top) + 'px';
   }
   function hideTip() { tip.classList.remove('pn-show'); }
   document.querySelectorAll('[data-note]').forEach(function (el) {
     var it = IMAP[el.getAttribute('data-note')];
     if (!it) return;
-    if (it.aud === 'dev') return; /* 开发口径：维持数字角标+抽屉 */
+    if (it.aud === 'dev') return; /* PRD 注释：维持紫色数字角标+抽屉 */
     el.classList.add('pn-biz');
     var q = document.createElement('span');
     q.className = 'pn-q';
     q.textContent = '?';
     q.title = '';
     el.appendChild(q);
-    q.addEventListener('mouseenter', function () { showTip(q, it); });
-    q.addEventListener('mouseleave', hideTip);
-    q.addEventListener('click', function (e) { e.stopPropagation(); tip.classList.contains('pn-show') && e.detail ? hideTip() : showTip(q, it); });
+    q.addEventListener('click', function (e) { e.stopPropagation(); tip.classList.contains('pn-show') ? hideTip() : showTip(q, it); });
   });
 
   /* ---------- 点击角标：开抽屉并定位对应条目（0918 拍板：抽屉含全部标注） ---------- */
   document.addEventListener('click', function (e) {
-    if (e.target.closest && e.target.closest('.pn-q')) return; /* ? 圆标走 tooltip，不开抽屉 */
+    if (e.target.closest && e.target.closest('.pn-tip')) return; /* 业务小弹窗内部点击：既不关窗也不开抽屉（× 自关） */
+    if (e.target.closest && e.target.closest('.pn-q')) return; /* ? 圆标＝点击弹小弹窗（自身 handler），不开抽屉 */
+    hideTip(); /* 点外关闭业务小弹窗 */
     var t = e.target.closest ? e.target.closest('[data-note]') : null;
     if (!t) return;
     e.preventDefault();
