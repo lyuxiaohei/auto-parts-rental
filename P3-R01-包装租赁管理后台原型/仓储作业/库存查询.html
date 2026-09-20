@@ -405,7 +405,7 @@ th.td-num { text-align:right; }
   </div>
   <div id="partView">
   <div class="table-wrap">
-    <table>
+    <table class="aln-a">
       <thead>
         <tr>
           <th>编码</th>
@@ -593,7 +593,7 @@ th.td-num { text-align:right; }
     <span id="comboBomSum" style="font-size:13px;font-weight:600;color:#1677ff;"></span>
   </div>
   <div class="table-wrap">
-    <table>
+    <table class="aln-b">
       <thead>
         <tr><th>BOM 编码</th><th>子件</th><th>来源</th><th>单位用量</th><th>在库可用</th><th>可组成（该子件计）</th></tr>
       </thead>
@@ -661,7 +661,7 @@ renderComboBom('ZH-2601-A');
     </div>
     <div class="modal-body">
       <p style="font-size:12px;color:#8c8c8c;line-height:1.7;margin-bottom:10px;">客户端（租出）按客户/项目下钻；行内「资产轨迹」查看该器具出租履历，「退租」直达退租入库录单。客户转租由「转移出库单」承载（G37·D-146）：行内「转移出库」跳录单页（带出物料与在租客户），审核后库存状态转「客户转租出」。</p>
-      <div class="table-wrap"><table><thead><tr><th>编码</th><th>物料</th><th>客户</th><th>所属项目</th><th>在租数量</th><th>成本单价</th><th>资产来源</th><th>状态</th><th class="sticky-op">操作</th></tr></thead><tbody>
+      <div class="table-wrap"><table class="aln-c"><thead><tr><th>编码</th><th>物料</th><th>客户</th><th>所属项目</th><th>在租数量</th><th>成本单价</th><th>资产来源</th><th>状态</th><th class="sticky-op">操作</th></tr></thead><tbody>
         <tr><td><span class="lk">WBX-1210L</span></td><td>围板箱 1200×1000×970</td><td>华骏重卡汽车有限公司</td><td>PRJ-2601/2604</td><td><span class="td-num"><b>3,120</b> 只</span></td><td><span class="td-num">340.00</span></td><td>自有</td><td><span class="tag tag-green">在租</span></td><td class="sticky-op"><span class="ops"><a onclick="openTrack('WBX-1210L')">资产轨迹</a><a onclick="go('../租赁管理/退租入库列表.html')">退租</a><a onclick="go('../租赁管理/转移出库新建.html?mat=围板箱 1200×1000×970&amp;cust=华骏重卡汽车有限公司')">转移出库</a></span></td></tr>
         <tr><td><span class="lk">WBX-1210M</span></td><td>围板箱 1200×1000×590</td><td>华骏重卡汽车有限公司</td><td>PRJ-2602</td><td><span class="td-num"><b>1,020</b> 只</span></td><td><span class="td-num">296.00</span></td><td>自有</td><td><span class="tag tag-green">在租</span></td><td class="sticky-op"><span class="ops"><a onclick="openTrack('WBX-1210M')">资产轨迹</a><a onclick="go('../租赁管理/退租入库列表.html')">退租</a><a onclick="go('../租赁管理/转移出库新建.html?mat=围板箱 1200×1000×590&amp;cust=华骏重卡汽车有限公司')">转移出库</a></span></td></tr>
         <tr><td><span class="lk">PLT-1210P</span></td><td>塑料托盘 1200×1000</td><td>华骏重卡汽车有限公司</td><td>PRJ-2602/2603</td><td><span class="td-num"><b>1,860</b> 块</span></td><td><span class="td-num">98.00</span></td><td>自有</td><td><span class="tag tag-green">在租</span></td><td class="sticky-op"><span class="ops"><a onclick="openTrack('PLT-1210P')">资产轨迹</a><a onclick="go('../租赁管理/退租入库列表.html')">退租</a><a onclick="go('../租赁管理/转移出库新建.html?mat=塑料托盘 1200×1000&amp;cust=华骏重卡汽车有限公司')">转移出库</a></span></td></tr>
@@ -929,5 +929,17 @@ SSEL.fillEntity(SSEL.byLabel('库房'),'stockFlows',{field:'area',keepFirst:true
 SSEL.fillEntity(SSEL.byLabel('库位'),'stockFlows',{field:'loc',keepFirst:true});
 SSEL.fillEntity(SSEL.byLabel('项目'),'projects',{keepFirst:true});
 </script>
+<style>/* 列对齐规范（2026-09-20 道远拍板·全量）：数字/日期列右对齐＋tabular-nums·表头随列·其余左（标签不居中）；aln-a=库存主表·aln-b=BOM 子件表·aln-c=在租明细弹窗表 */
+.aln-a th:nth-child(5),.aln-a td:nth-child(5),
+.aln-a th:nth-child(6),.aln-a td:nth-child(6),
+.aln-a th:nth-child(7),.aln-a td:nth-child(7),
+.aln-a th:nth-child(8),.aln-a td:nth-child(8),
+.aln-a th:nth-child(9),.aln-a td:nth-child(9),
+.aln-a th:nth-child(10),.aln-a td:nth-child(10),
+.aln-b th:nth-child(4),.aln-b td:nth-child(4),
+.aln-b th:nth-child(5),.aln-b td:nth-child(5),
+.aln-b th:nth-child(6),.aln-b td:nth-child(6),
+.aln-c th:nth-child(5),.aln-c td:nth-child(5),
+.aln-c th:nth-child(6),.aln-c td:nth-child(6){text-align:right;font-variant-numeric:tabular-nums}</style>
 </body>
 </html>

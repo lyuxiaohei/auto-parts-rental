@@ -866,5 +866,15 @@ document.querySelectorAll('.tab').forEach(function (t) {
 <script src="../_data/notes-data.js"></script>
 <script src="../_data/notes-drawer.js"></script>
 </div>
+<style>/* 列对齐规范（2026-09-20 道远拍板·全量）：数字/日期列右对齐＋tabular-nums·表头随列·其余左（标签不居中）；sdTable=回单表·dzTable=待核销表·hxTable=核销记录表 */
+#sdTable th:nth-child(3),#sdTable td:nth-child(3),
+#sdTable th:nth-child(5),#sdTable td:nth-child(5),
+#sdTable th:nth-child(6),#sdTable td:nth-child(6),
+#sdTable th:nth-child(7),#sdTable td:nth-child(7),
+#dzTable th:nth-child(5),#dzTable td:nth-child(5),
+#dzTable th:nth-child(6),#dzTable td:nth-child(6),
+#dzTable th:nth-child(7),#dzTable td:nth-child(7),
+#hxTable th:nth-child(4),#hxTable td:nth-child(4),
+#hxTable th:nth-child(6),#hxTable td:nth-child(6){text-align:right;font-variant-numeric:tabular-nums}</style>
 </body>
 </html>

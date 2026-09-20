@@ -840,5 +840,7 @@ document.querySelectorAll('.tab').forEach(function (t) {
 SSEL.fillDict(document.getElementById('todoType'),'待办单据类型',true);
 SSEL.fillEntity(document.getElementById('todoAuditor'),'todoItems',{field:'auditor',keepFirst:true});
 </script>
+<style>/* 列对齐规范（2026-09-20 道远拍板·全量）：数字/日期列右对齐＋tabular-nums·表头随列·其余左（标签不居中） */
+.table-wrap table th:nth-child(6),.table-wrap table td:nth-child(6){text-align:right;font-variant-numeric:tabular-nums}</style>
 </body>
 </html>
