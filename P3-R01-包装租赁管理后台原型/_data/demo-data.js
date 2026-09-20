@@ -11278,7 +11278,7 @@ window.DEMO_DATA = {
   /* 器具档案 appliances：键 = 器具编码（基础数据/器具档案.html 6 行全量） */
   /* BTC-6040S 键先于 BTC-6040（前缀包含防误匹配）；在租状态对齐库存查询客户态 */  products: {
     'WBX-1210L': {
-      'row': {"fields": {"name": "围板箱 1200×1000×970", "model": "WBX-1210L", "innerCode": "HJ-BX-0970", "cls": "围板箱", "spec": "1200×1000×970 mm", "status": "启用", "date": "2026-01-06", "rentInMode": "按月", "rentInPrice": "45.00", "rentalMode": "按月", "rentalPrice": "60.00", "buyPrice": "380.00", "salePrice": "—"}, "cells": ["围板箱 1200×1000×970", "<span class=\"tag tag-blue\">围板箱</span>", "1200×1000×970 mm", "只", "<span class=\"td-num\">380.00</span>", "—", "<span class=\"td-num\">45.00/月</span>", "<span class=\"td-num\">60.00/月</span>", "<span class=\"tag tag-green\">启用</span>", "2026-01-06"], "ops": [{"t": "详情", "act": "go('../基础数据/物料详情.html?id=WBX-1210L')"}, {"t": "编辑", "act": "go('../基础数据/物料新建.html')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
+      'row': {"fields": {"name": "围板箱 1200×1000×970", "model": "WBX-1210L", "innerCode": "HJ-BX-0970", "cls": "围板箱", "spec": "1200×1000×970 mm", "status": "启用", "date": "2026-01-06", "rentInMode": "按月", "rentInPrice": "45.00", "rentalMode": "按月", "rentalPrice": "60.00", "buyPrice": "380.00", "salePrice": "—"}, "cells": ["围板箱 1200×1000×970", "<span class=\"tag tag-blue\">围板箱</span>", "1200×1000×970 mm", "只", "<span class=\"td-num\">380.00</span>", "—", "<span class=\"td-num\">45.00 元/只·月</span>", "<span class=\"td-num\">60.00 元/只·月</span>", "<span class=\"tag tag-green\">启用</span>", "2026-01-06"], "ops": [{"t": "详情", "act": "go('../基础数据/物料详情.html?id=WBX-1210L')"}, {"t": "编辑", "act": "go('../基础数据/物料新建.html')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
       'title': '物料详情',
       'info': [
         {
@@ -11384,7 +11384,7 @@ window.DEMO_DATA = {
       ]
     },
     'WBX-1210M': {
-      'row': {"fields": {"name": "围板箱 1200×1000×590", "cls": "围板箱", "spec": "1200×1000×590 mm", "status": "启用", "date": "2026-01-06", "rentInMode": null, "rentInPrice": null, "rentalMode": "按月", "rentalPrice": "55.00", "buyPrice": "340.00", "salePrice": "—"}, "cells": ["围板箱 1200×1000×590", "<span class=\"tag tag-blue\">围板箱</span>", "1200×1000×590 mm", "只", "<span class=\"td-num\">340.00</span>", "—", "—", "<span class=\"td-num\">55.00/月</span>", "<span class=\"tag tag-green\">启用</span>", "2026-01-06"], "ops": [{"t": "详情", "act": "go('../基础数据/物料详情.html?id=WBX-1210M')"}, {"t": "编辑", "act": "go('../基础数据/物料新建.html')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
+      'row': {"fields": {"name": "围板箱 1200×1000×590", "cls": "围板箱", "spec": "1200×1000×590 mm", "status": "启用", "date": "2026-01-06", "rentInMode": null, "rentInPrice": null, "rentalMode": "按月", "rentalPrice": "55.00", "buyPrice": "340.00", "salePrice": "—"}, "cells": ["围板箱 1200×1000×590", "<span class=\"tag tag-blue\">围板箱</span>", "1200×1000×590 mm", "只", "<span class=\"td-num\">340.00</span>", "—", "—", "<span class=\"td-num\">55.00 元/只·月</span>", "<span class=\"tag tag-green\">启用</span>", "2026-01-06"], "ops": [{"t": "详情", "act": "go('../基础数据/物料详情.html?id=WBX-1210M')"}, {"t": "编辑", "act": "go('../基础数据/物料新建.html')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
       'title': '物料详情',
       'info': [
         {
@@ -11486,7 +11486,7 @@ window.DEMO_DATA = {
       ]
     },
     'PLT-1210W': {
-      'row': {"fields": {"name": "木托盘 1200×1000", "cls": "木托盘", "spec": "1200×1000×144 mm", "status": "启用", "date": "2026-02-11", "rentInMode": null, "rentInPrice": null, "rentInMode": "按次", "rentInPrice": "6.00", "rentalMode": "按次", "rentalPrice": "15.00", "buyPrice": "95.00", "salePrice": "—"}, "cells": ["木托盘 1200×1000", "<span class=\"tag tag-green\">木托盘</span>", "1200×1000×144 mm", "块", "<span class=\"td-num\">95.00</span>", "—", "<span class=\"td-num\">6.00/次</span>", "<span class=\"td-num\">15.00/次</span>", "<span class=\"tag tag-green\">启用</span>", "2026-02-11"], "ops": [{"t": "详情", "act": "go('../基础数据/物料详情.html?id=PLT-1210W')"}, {"t": "编辑", "act": "go('../基础数据/物料新建.html')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
+      'row': {"fields": {"name": "木托盘 1200×1000", "cls": "木托盘", "spec": "1200×1000×144 mm", "status": "启用", "date": "2026-02-11", "rentInMode": null, "rentInPrice": null, "rentInMode": "按次", "rentInPrice": "6.00", "rentalMode": "按次", "rentalPrice": "15.00", "buyPrice": "95.00", "salePrice": "—"}, "cells": ["木托盘 1200×1000", "<span class=\"tag tag-green\">木托盘</span>", "1200×1000×144 mm", "块", "<span class=\"td-num\">95.00</span>", "—", "<span class=\"td-num\">6.00 元/块·次</span>", "<span class=\"td-num\">15.00 元/块·次</span>", "<span class=\"tag tag-green\">启用</span>", "2026-02-11"], "ops": [{"t": "详情", "act": "go('../基础数据/物料详情.html?id=PLT-1210W')"}, {"t": "编辑", "act": "go('../基础数据/物料新建.html')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
       'title': '物料详情',
       'info': [
         {
@@ -11584,7 +11584,7 @@ window.DEMO_DATA = {
       ]
     },
     'PLT-1210P': {
-      'row': {"fields": {"name": "塑料托盘 1200×1000", "cls": "塑料托盘", "spec": "1200×1000×150 mm", "status": "启用", "date": "2026-02-11", "rentInMode": "按月", "rentInPrice": "12.00", "rentalMode": "按月", "rentalPrice": "18.00", "buyPrice": "110.00", "salePrice": "—"}, "cells": ["塑料托盘 1200×1000", "<span class=\"tag tag-green\">塑料托盘</span>", "1200×1000×150 mm", "块", "<span class=\"td-num\">110.00</span>", "—", "<span class=\"td-num\">12.00/月</span>", "<span class=\"td-num\">18.00/月</span>", "<span class=\"tag tag-green\">启用</span>", "2026-02-11"], "ops": [{"t": "详情", "act": "go('../基础数据/物料详情.html?id=PLT-1210P')"}, {"t": "编辑", "act": "go('../基础数据/物料新建.html')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
+      'row': {"fields": {"name": "塑料托盘 1200×1000", "cls": "塑料托盘", "spec": "1200×1000×150 mm", "status": "启用", "date": "2026-02-11", "rentInMode": "按月", "rentInPrice": "12.00", "rentalMode": "按月", "rentalPrice": "18.00", "buyPrice": "110.00", "salePrice": "—"}, "cells": ["塑料托盘 1200×1000", "<span class=\"tag tag-green\">塑料托盘</span>", "1200×1000×150 mm", "块", "<span class=\"td-num\">110.00</span>", "—", "<span class=\"td-num\">12.00 元/块·月</span>", "<span class=\"td-num\">18.00 元/块·月</span>", "<span class=\"tag tag-green\">启用</span>", "2026-02-11"], "ops": [{"t": "详情", "act": "go('../基础数据/物料详情.html?id=PLT-1210P')"}, {"t": "编辑", "act": "go('../基础数据/物料新建.html')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
       'title': '物料详情',
       'info': [
         {
@@ -11779,7 +11779,7 @@ window.DEMO_DATA = {
       ]
     },
     'BTC-6040': {
-      'row': {"fields": {"name": "料箱 600×400×340", "cls": "料箱", "spec": "600×400×340 mm", "status": "启用", "date": "2026-03-02", "rentInMode": "按月", "rentInPrice": "10.00", "rentalMode": "按次", "rentalPrice": "14.00", "buyPrice": "85.00", "salePrice": "—"}, "cells": ["料箱 600×400×340", "<span class=\"tag tag-orange\">料箱</span>", "600×400×340 mm", "只", "<span class=\"td-num\">85.00</span>", "—", "<span class=\"td-num\">10.00/月</span>", "<span class=\"td-num\">14.00/次</span>", "<span class=\"tag tag-green\">启用</span>", "2026-03-02"], "ops": [{"t": "详情", "act": "go('../基础数据/物料详情.html?id=BTC-6040')"}, {"t": "编辑", "act": "go('../基础数据/物料新建.html')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
+      'row': {"fields": {"name": "料箱 600×400×340", "cls": "料箱", "spec": "600×400×340 mm", "status": "启用", "date": "2026-03-02", "rentInMode": "按月", "rentInPrice": "10.00", "rentalMode": "按次", "rentalPrice": "14.00", "buyPrice": "85.00", "salePrice": "—"}, "cells": ["料箱 600×400×340", "<span class=\"tag tag-orange\">料箱</span>", "600×400×340 mm", "只", "<span class=\"td-num\">85.00</span>", "—", "<span class=\"td-num\">10.00 元/只·月</span>", "<span class=\"td-num\">14.00 元/只·次</span>", "<span class=\"tag tag-green\">启用</span>", "2026-03-02"], "ops": [{"t": "详情", "act": "go('../基础数据/物料详情.html?id=BTC-6040')"}, {"t": "编辑", "act": "go('../基础数据/物料新建.html')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
       'title': '物料详情',
       'info': [
         {
@@ -12528,7 +12528,7 @@ window.DEMO_DATA = {
       ]
     },
     'KBX-1040M': {
-      'row': {"fields": {"name": "卡板箱 1040×800×590", "cls": "卡板箱", "spec": "1040×800×590 mm", "status": "启用", "date": "2026-06-18", "supplier": "甬城塑业包装制品有限公司", "rentInMode": "按月", "rentInPrice": 8.00, "rentalMode": "按月", "rentalPrice": 12.00, "buyPrice": "120.00", "salePrice": "—"}, "cells": ["卡板箱 1040×800×590", "<span class=\"tag tag-blue\">卡板箱</span>", "1040×800×590 mm", "只", "<span class=\"td-num\">120.00</span>", "—", "<span class=\"td-num\">8.00/月</span>", "<span class=\"td-num\">12.00/月</span>", "<span class=\"tag tag-green\">启用</span>", "2026-06-18"], "ops": [{"t": "详情", "act": "go('../基础数据/物料详情.html?id=KBX-1040M')"}, {"t": "编辑", "act": "go('../基础数据/物料新建.html')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
+      'row': {"fields": {"name": "卡板箱 1040×800×590", "cls": "卡板箱", "spec": "1040×800×590 mm", "status": "启用", "date": "2026-06-18", "supplier": "甬城塑业包装制品有限公司", "rentInMode": "按月", "rentInPrice": 8.00, "rentalMode": "按月", "rentalPrice": 12.00, "buyPrice": "120.00", "salePrice": "—"}, "cells": ["卡板箱 1040×800×590", "<span class=\"tag tag-blue\">卡板箱</span>", "1040×800×590 mm", "只", "<span class=\"td-num\">120.00</span>", "—", "<span class=\"td-num\">8.00 元/只·月</span>", "<span class=\"td-num\">12.00 元/只·月</span>", "<span class=\"tag tag-green\">启用</span>", "2026-06-18"], "ops": [{"t": "详情", "act": "go('../基础数据/物料详情.html?id=KBX-1040M')"}, {"t": "编辑", "act": "go('../基础数据/物料新建.html')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
       'title': '物料详情',
       'info': [
         {
@@ -12616,7 +12616,7 @@ window.DEMO_DATA = {
       ]
     },
     'PLT-1210G': {
-      'row': {"fields": {"name": "金属托盘 1200×1000", "cls": "金属托盘", "spec": "1200×1000×144 mm", "status": "启用", "date": "2026-02-10", "supplier": "吴越联合五金制品有限公司", "rentInMode": "按月", "rentInPrice": 10.00, "rentalMode": "按月", "rentalPrice": 15.00, "buyPrice": "165.00", "salePrice": "—"}, "cells": ["金属托盘 1200×1000", "<span class=\"tag tag-blue\">金属托盘</span>", "1200×1000×144 mm", "块", "<span class=\"td-num\">165.00</span>", "—", "<span class=\"td-num\">10.00/月</span>", "<span class=\"td-num\">15.00/月</span>", "<span class=\"tag tag-green\">启用</span>", "2026-02-10"], "ops": [{"t": "详情", "act": "go('../基础数据/物料详情.html?id=PLT-1210G')"}, {"t": "编辑", "act": "go('../基础数据/物料新建.html')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
+      'row': {"fields": {"name": "金属托盘 1200×1000", "cls": "金属托盘", "spec": "1200×1000×144 mm", "status": "启用", "date": "2026-02-10", "supplier": "吴越联合五金制品有限公司", "rentInMode": "按月", "rentInPrice": 10.00, "rentalMode": "按月", "rentalPrice": 15.00, "buyPrice": "165.00", "salePrice": "—"}, "cells": ["金属托盘 1200×1000", "<span class=\"tag tag-blue\">金属托盘</span>", "1200×1000×144 mm", "块", "<span class=\"td-num\">165.00</span>", "—", "<span class=\"td-num\">10.00 元/块·月</span>", "<span class=\"td-num\">15.00 元/块·月</span>", "<span class=\"tag tag-green\">启用</span>", "2026-02-10"], "ops": [{"t": "详情", "act": "go('../基础数据/物料详情.html?id=PLT-1210G')"}, {"t": "编辑", "act": "go('../基础数据/物料新建.html')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
       'title': '物料详情',
       'info': [
         {
@@ -12704,7 +12704,7 @@ window.DEMO_DATA = {
       ]
     },
     'KJ-2701': {
-      'row': {"fields": {"name": "料架 1850×1000×1200", "cls": "料架", "spec": "1850×1000×1200 mm", "status": "启用", "date": "2026-04-22", "supplier": "吴越联合五金制品有限公司", "rentInMode": "按月", "rentInPrice": 25.00, "rentalMode": "按月", "rentalPrice": 38.00, "buyPrice": "420.00", "salePrice": "—"}, "cells": ["料架 1850×1000×1200", "<span class=\"tag tag-blue\">料架</span>", "1850×1000×1200 mm", "套", "<span class=\"td-num\">420.00</span>", "—", "<span class=\"td-num\">25.00/月</span>", "<span class=\"td-num\">38.00/月</span>", "<span class=\"tag tag-green\">启用</span>", "2026-04-22"], "ops": [{"t": "详情", "act": "go('../基础数据/物料详情.html?id=KJ-2701')"}, {"t": "编辑", "act": "go('../基础数据/物料新建.html')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
+      'row': {"fields": {"name": "料架 1850×1000×1200", "cls": "料架", "spec": "1850×1000×1200 mm", "status": "启用", "date": "2026-04-22", "supplier": "吴越联合五金制品有限公司", "rentInMode": "按月", "rentInPrice": 25.00, "rentalMode": "按月", "rentalPrice": 38.00, "buyPrice": "420.00", "salePrice": "—"}, "cells": ["料架 1850×1000×1200", "<span class=\"tag tag-blue\">料架</span>", "1850×1000×1200 mm", "套", "<span class=\"td-num\">420.00</span>", "—", "<span class=\"td-num\">25.00 元/套·月</span>", "<span class=\"td-num\">38.00 元/套·月</span>", "<span class=\"tag tag-green\">启用</span>", "2026-04-22"], "ops": [{"t": "详情", "act": "go('../基础数据/物料详情.html?id=KJ-2701')"}, {"t": "编辑", "act": "go('../基础数据/物料新建.html')"}, {"t": "停用", "act": "openModal('stopModal')"}]},
       'title': '物料详情',
       'info': [
         {
