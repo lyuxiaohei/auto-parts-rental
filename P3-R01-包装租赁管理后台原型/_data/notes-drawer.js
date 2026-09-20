@@ -48,7 +48,7 @@
     + '.pn-src{margin-top:8px;padding-top:7px;border-top:1px dashed #e5dff0;font-size:11px;color:#595959;line-height:1.65}'
     + '.pn-src b{color:#722ed1;font-weight:600}'
     + '.pn-drawer-foot{flex:none;padding:8px 16px;border-top:1px solid #f0f0f0;font-size:11px;color:#8c8c8c}'
-    /* 双轨（0919 道远拍板 #9·0920 修正）：业务提示＝锚点旁黑白「?」圆标常显·点击弹小弹窗说明；PRD 注释＝紫色数字角标·点击开抽屉 */
+    /* 双轨（0919 道远拍板 #9·0920 修正）：业务提示＝锚点旁黑白「?」圆标常显·点击弹小弹窗说明——**? 圆标及内容属正式功能需求·需开发到前端页面**（面向最终用户）；PRD 注释＝紫色数字角标·点击开抽屉——**仅开发过程内部查看·正式版不出现** */
     + '[data-note].pn-biz{position:relative}'
     + 'body.proto-notes-on [data-note].pn-biz::after{display:none}'
     + '.pn-q{position:absolute;top:-7px;right:-7px;width:15px;height:15px;border-radius:50%;background:#262626;color:#fff;font-size:10px;font-weight:700;line-height:15px;text-align:center;font-family:Consolas,monospace;cursor:pointer;box-shadow:0 0 0 1.5px #fff;z-index:6;opacity:.75;transition:opacity .15s}'
