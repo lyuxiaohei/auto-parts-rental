@@ -13619,7 +13619,7 @@
 /* 交付后追加的状态节点→页面跳转层（archify 原生不含外链）· 事件委托 + MutationObserver */
 (function () {
   if (window.__f01NavLinks) return; window.__f01NavLinks = true;
-  var MAP = {"ph1": "P3-R01-包装租赁管理后台原型/租赁管理/转移出库列表.html", "ph2": "P3-R01-包装租赁管理后台原型/租赁管理/转移出库列表.html", "ph3": "P3-R01-包装租赁管理后台原型/租赁管理/转移出库列表.html", "k1": "P3-R01-包装租赁管理后台原型/仓储作业/库存查询.html", "k2": "P3-R01-包装租赁管理后台原型/仓储作业/库存查询.html"};
+  var MAP = {"ph1": "../../租赁管理/转移出库列表.html", "ph2": "../../租赁管理/转移出库列表.html", "ph3": "../../租赁管理/转移出库列表.html", "k1": "../../仓储作业/库存查询.html", "k2": "../../仓储作业/库存查询.html"};
   function decorate(root) {
     var n = 0;
     root.querySelectorAll('[data-node-id]').forEach(function (el) {
@@ -13655,7 +13655,7 @@
 /* 图页互跳导航（左下角 · 点开菜单 · 当前页置灰） */
 (function () {
   if (window.__f01NavMenu) return; window.__f01NavMenu = true;
-  var ITEMS = [{"t": "主线 · B1＋L1–L4", "h": "../P3-R01-F01-业务流程导航图-重绘-主线.html", "cur": false}, {"t": "退租归还与财务 · T1/T2＋F1/F2", "h": "../P3-R01-F01-业务流程导航图-重绘-退租归还与财务.html", "cur": false}, {"t": "支线 · S1–S7", "h": "../P3-R01-F01-业务流程导航图-重绘-支线.html", "cur": false}, {"t": "状态机 · 转移出库", "h": "../状态机/状态机-转移出库.html", "cur": false}, {"t": "状态机 · 销售订单", "h": "../状态机/状态机-销售订单.html", "cur": false}, {"t": "状态机 · 库存五态", "h": "../状态机/状态机-库存五态.html", "cur": false}, {"t": "原版 F01 对照（v3.9）", "h": "../P3-R01-包装租赁管理后台原型/P3-R01-F01-业务流程导航图.html", "cur": false}];
+  var ITEMS = [{"t": "主线 · B1＋L1–L4", "h": "../P3-R01-F01-业务流程导航图-主线.html", "cur": false}, {"t": "退租归还与财务 · T1/T2＋F1/F2", "h": "../P3-R01-F01-业务流程导航图-退租归还与财务.html", "cur": false}, {"t": "支线 · S1–S7", "h": "../P3-R01-F01-业务流程导航图-支线.html", "cur": false}, {"t": "状态机 · 转移出库", "h": "../状态机/状态机-转移出库.html", "cur": false}, {"t": "状态机 · 销售订单", "h": "../状态机/状态机-销售订单.html", "cur": false}, {"t": "状态机 · 库存五态", "h": "../状态机/状态机-库存五态.html", "cur": false}, {"t": "流程信息 · 会议依据与沿革", "h": "../P3-R01-F01-业务流程导航图-流程信息.md", "cur": false}];
   var b = document.getElementById('f01-nav-badge'); if (b) b.remove();
   var wrap = document.createElement('div'); wrap.id = 'f01-nav-menu';
   wrap.style.cssText = 'position:fixed;right:12px;bottom:12px;z-index:2147483647;';

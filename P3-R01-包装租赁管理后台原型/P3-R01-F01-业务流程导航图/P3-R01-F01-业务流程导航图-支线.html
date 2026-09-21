@@ -13978,7 +13978,7 @@
    文档级事件委托 + MutationObserver，查看器运行时重建 DOM 后依然有效。 */
 (function () {
   if (window.__f01NavLinks) return; window.__f01NavLinks = true;
-  var MAP = {"sq": "P3-R01-包装租赁管理后台原型/仓储作业/库存查询.html", "pd": "P3-R01-包装租赁管理后台原型/仓储作业/盘点列表.html", "pr": "P3-R01-包装租赁管理后台原型/仓储作业/盘点录入.html", "db": "P3-R01-包装租赁管理后台原型/仓储作业/库存调拨列表.html", "oi": "P3-R01-包装租赁管理后台原型/仓储作业/其他入库列表.html", "oo": "P3-R01-包装租赁管理后台原型/仓储作业/其他出库列表.html", "rp": "P3-R01-包装租赁管理后台原型/租赁管理/退租入库列表.html", "kb": "P3-R01-包装租赁管理后台原型/首页/项目看板.html", "da": "P3-R01-包装租赁管理后台原型/项目管理/项目档案.html", "dd": "P3-R01-包装租赁管理后台原型/项目管理/项目详情.html", "fb": "P3-R01-包装租赁管理后台原型/财务协同/损益报表.html", "up": "P3-R01-包装租赁管理后台原型/系统管理/用户权限.html", "dc": "P3-R01-包装租赁管理后台原型/系统管理/数据字典.html", "ol3": "P3-R01-包装租赁管理后台原型/系统管理/操作日志.html", "ga": "P3-R01-包装租赁管理后台原型/财务协同/应付账单.html", "ar4": "P3-R01-包装租赁管理后台原型/财务协同/应收账单.html", "ap4": "P3-R01-包装租赁管理后台原型/财务协同/应付账单.html", "pi5": "P3-R01-包装租赁管理后台原型/采购管理/采购入库录单.html", "po5": "P3-R01-包装租赁管理后台原型/租赁管理/租赁出库录单.html", "ti5": "P3-R01-包装租赁管理后台原型/租赁管理/退租入库新建.html", "bm5": "P3-R01-包装租赁管理后台原型/基础数据/BOM维护.html", "tp5": "P3-R01-包装租赁管理后台原型/租赁管理/租赁单列表.html", "rh5": "P3-R01-包装租赁管理后台原型/租入管理/归还出库新建.html", "td": "P3-R01-包装租赁管理后台原型/我的待办.html", "au": "P3-R01-包装租赁管理后台原型/采购管理/采购入库审核.html", "st": "P3-R01-包装租赁管理后台原型/销售管理/销售订单列表.html", "ol2": "P3-R01-包装租赁管理后台原型/系统管理/操作日志.html", "tl": "P3-R01-包装租赁管理后台原型/租赁管理/转移出库列表.html", "tn": "P3-R01-包装租赁管理后台原型/租赁管理/转移出库新建.html", "tdt": "P3-R01-包装租赁管理后台原型/租赁管理/转移出库单详情.html"};
+  var MAP = {"sq": "../仓储作业/库存查询.html", "pd": "../仓储作业/盘点列表.html", "pr": "../仓储作业/盘点录入.html", "db": "../仓储作业/库存调拨列表.html", "oi": "../仓储作业/其他入库列表.html", "oo": "../仓储作业/其他出库列表.html", "rp": "../租赁管理/退租入库列表.html", "kb": "../首页/项目看板.html", "da": "../项目管理/项目档案.html", "dd": "../项目管理/项目详情.html", "fb": "../财务协同/损益报表.html", "up": "../系统管理/用户权限.html", "dc": "../系统管理/数据字典.html", "ol3": "../系统管理/操作日志.html", "ga": "../财务协同/应付账单.html", "ar4": "../财务协同/应收账单.html", "ap4": "../财务协同/应付账单.html", "pi5": "../采购管理/采购入库录单.html", "po5": "../租赁管理/租赁出库录单.html", "ti5": "../租赁管理/退租入库新建.html", "bm5": "../基础数据/BOM维护.html", "tp5": "../租赁管理/租赁单列表.html", "rh5": "../租入管理/归还出库新建.html", "td": "../我的待办.html", "au": "../采购管理/采购入库审核.html", "st": "../销售管理/销售订单列表.html", "ol2": "../系统管理/操作日志.html", "tl": "../租赁管理/转移出库列表.html", "tn": "../租赁管理/转移出库新建.html", "tdt": "../租赁管理/转移出库单详情.html"};
   function decorate(root) {
     var n = 0;
     root.querySelectorAll('[data-node-id]').forEach(function (el) {
@@ -14010,7 +14010,7 @@
   mo.observe(document.documentElement, { childList: true, subtree: true });
   var bar = document.createElement('div');
   bar.id = 'f01-nav-badge';
-  bar.textContent = '重绘导航版 v3.9 同步 · 节点点击直达原型页（archify 校验产物 ＋ 追加跳转层 · 共 ' + total + ' 个可点节点）';
+  bar.textContent = '业务流程导航 v4.0 · 节点点击直达原型页 · 会议依据/沿革/口径见「流程信息.md」（共 ' + total + ' 个可点节点）';
   bar.style.cssText = 'position:fixed;left:12px;bottom:12px;z-index:2147483647;';
   bar.style.font = '11px/1.6 "Microsoft YaHei",sans-serif';
   bar.style.color = '#4b5563';
@@ -14026,7 +14026,7 @@
 /* 图页互跳导航（左下角 · 点开菜单 · 当前页置灰） */
 (function () {
   if (window.__f01NavMenu) return; window.__f01NavMenu = true;
-  var ITEMS = [{"t": "主线 · B1＋L1–L4", "h": "P3-R01-F01-业务流程导航图-重绘-主线.html", "cur": false}, {"t": "退租归还与财务 · T1/T2＋F1/F2", "h": "P3-R01-F01-业务流程导航图-重绘-退租归还与财务.html", "cur": false}, {"t": "支线 · S1–S7", "h": "P3-R01-F01-业务流程导航图-重绘-支线.html", "cur": true}, {"t": "状态机 · 转移出库", "h": "状态机/状态机-转移出库.html", "cur": false}, {"t": "状态机 · 销售订单", "h": "状态机/状态机-销售订单.html", "cur": false}, {"t": "状态机 · 库存五态", "h": "状态机/状态机-库存五态.html", "cur": false}, {"t": "原版 F01 对照（v3.9）", "h": "../P3-R01-包装租赁管理后台原型/P3-R01-F01-业务流程导航图.html", "cur": false}];
+  var ITEMS = [{"t": "主线 · B1＋L1–L4", "h": "P3-R01-F01-业务流程导航图-主线.html", "cur": false}, {"t": "退租归还与财务 · T1/T2＋F1/F2", "h": "P3-R01-F01-业务流程导航图-退租归还与财务.html", "cur": false}, {"t": "支线 · S1–S7", "h": "P3-R01-F01-业务流程导航图-支线.html", "cur": true}, {"t": "状态机 · 转移出库", "h": "状态机/状态机-转移出库.html", "cur": false}, {"t": "状态机 · 销售订单", "h": "状态机/状态机-销售订单.html", "cur": false}, {"t": "状态机 · 库存五态", "h": "状态机/状态机-库存五态.html", "cur": false}, {"t": "流程信息 · 会议依据与沿革", "h": "P3-R01-F01-业务流程导航图-流程信息.md", "cur": false}];
   var b = document.getElementById('f01-nav-badge'); if (b) b.remove();
   var wrap = document.createElement('div'); wrap.id = 'f01-nav-menu';
   wrap.style.cssText = 'position:fixed;right:12px;bottom:12px;z-index:2147483647;';
