@@ -73,7 +73,7 @@
     <span class="sec-note">全部流程第一期实现 · 引号内为转写原话（附时间戳）· 实体节点点击直达</span>
   </div>
 
-<svg viewBox="0 0 880 2484" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="p3r01f01-main-title p3r01f01-main-desc">
+<svg viewBox="0 0 880 2584" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="p3r01f01-main-title p3r01f01-main-desc">
     <title id="p3r01f01-main-title">业务流程导航图 · 主线泳道（B1/L1–L4/T1/T2/F1/F2）</title>
     <desc id="p3r01f01-main-desc">包装租赁管理后台原型的 7 条主业务线泳道导航：B1 物料买卖、L1 单一出租、L2 组合出租、L3 租入转租、L4 混合转租、T1 客户退租、T2 归还出库，以及 F1 应收 / F2 应付财务通道；每条业务线分补给线与业务线两段，经库存缓冲衔接，非顺序发生；节点可点击跳转到对应原型页面。</desc>
     <defs>
@@ -136,7 +136,7 @@
       <text x="422" y="260" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">⇢ F1 · 销售费自动汇总</text>
     </a>
 
-    <text x="40" y="300" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">退货回程线 · 采购侧／销售侧两条独立回程（采购退货→退款＝已付条件链 ｜ 销售退货独立）</text>
+    <text x="40" y="300" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">退货回程线① · 采购侧（退供应商 · 已付方条件生成退款）</text>
     <a href="采购管理/采购退货单列表.html">
       <rect x="40" y="308" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1" stroke-dasharray="4,3"/>
       <text x="110" y="333" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">采购退货单</text>
@@ -145,476 +145,488 @@
     <line x1="180" y1="336" x2="196" y2="336" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
     <a href="财务协同/退款登记.html">
       <rect x="196" y="308" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1" stroke-dasharray="4,3"/>
-      <text x="266" y="333" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">退款单</text>
-      <text x="266" y="352" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">已付方条件生成 · ⇢ F2</text>
-    </a>
-    <a href="销售管理/销售退货单列表.html">
-      <rect x="380" y="308" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1" stroke-dasharray="4,3"/>
-      <text x="450" y="333" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">销售退货单</text>
-      <text x="450" y="352" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">冲减应收 · ⇢ F1（G33）</text>
+      <text x="266" y="333" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">退款登记</text>
+      <text x="266" y="352" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">供应商退我方 · ⇢ F2</text>
     </a>
     <rect x="532" y="308" width="308" height="56" rx="6" fill="rgba(17,24,39,0.02)" stroke="#d1d5db" stroke-width="0.8" stroke-dasharray="4,3"/>
     <text x="544" y="326" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">两守卫（D-157）：入库前已付 → 生成退款单（退款额 ≤ 已付额）</text>
     <text x="544" y="340" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">入库前未付 → 不立退款（拒收自终结／冲在途应付）</text>
     <text x="544" y="354" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">应付按验收通过的实际入库数量</text>
 
-    <line x1="40" y1="388" x2="840" y2="388" stroke="rgba(17,24,39,0.10)" stroke-width="1"/>
+    <text x="40" y="400" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">退货回程线② · 销售侧（客户退回 · 审核后登记退款）</text>
+    <line x1="180" y1="436" x2="196" y2="436" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
+    <a href="销售管理/销售退货单列表.html">
+      <rect x="40" y="408" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1" stroke-dasharray="4,3"/>
+      <text x="110" y="433" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">销售退货单</text>
+      <text x="110" y="452" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">收货拒收／入库后退货</text>
+    </a>
+    <a href="财务协同/退款登记.html">
+      <rect x="196" y="408" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1" stroke-dasharray="4,3"/>
+      <text x="266" y="433" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">退款登记</text>
+      <text x="266" y="452" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">我方退客户 · ⇢ F1</text>
+    </a>
+    <rect x="380" y="408" width="460" height="56" rx="6" fill="rgba(17,24,39,0.02)" stroke="#d1d5db" stroke-width="0.8" stroke-dasharray="4,3"/>
+    <text x="392" y="426" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">审核后可登记应收退款（对客户 · 客户已付部分）</text>
+    <text x="392" y="440" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">未收部分冲减应收（G33 负数行 · 历史账单不回改）</text>
+    <text x="392" y="454" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">状态流：待审核 → 已审核 → 已退款 · 退款付讫转已退款</text>
+
+    <line x1="40" y1="488" x2="840" y2="488" stroke="rgba(17,24,39,0.10)" stroke-width="1"/>
 
     <!-- ======== L1 · 单一出租 ======== -->
-    <text x="40" y="412" fill="#111827" font-size="16" font-weight="700" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif">L1 · 租赁 · 单一出租（采购A → 出租A · 不经组装）</text>
-    <rect x="400" y="399" width="64" height="16" rx="4" fill="rgba(37,99,235,0.08)" stroke="#2563eb" stroke-width="0.8"/>
-    <text x="432" y="410" fill="#2563eb" font-size="8" font-weight="600" font-family="Consolas,Monaco,monospace" text-anchor="middle">第一期实现</text>
+    <text x="40" y="512" fill="#111827" font-size="16" font-weight="700" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif">L1 · 租赁 · 单一出租（采购A → 出租A · 不经组装）</text>
+    <rect x="400" y="499" width="64" height="16" rx="4" fill="rgba(37,99,235,0.08)" stroke="#2563eb" stroke-width="0.8"/>
+    <text x="432" y="510" fill="#2563eb" font-size="8" font-weight="600" font-family="Consolas,Monaco,monospace" text-anchor="middle">第一期实现</text>
     <g class="src-tag" onclick="showSrc(event,'l1')" style="cursor:pointer">
-      <rect x="620" y="396" width="96" height="20" rx="4" fill="#fafafa" stroke="#d1d5db" stroke-width="0.8"/>
-      <text x="668" y="409" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">📎 会议材料 ▸</text>
+      <rect x="620" y="496" width="96" height="20" rx="4" fill="#fafafa" stroke="#d1d5db" stroke-width="0.8"/>
+      <text x="668" y="509" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">📎 会议材料 ▸</text>
     </g>
-    <text x="840" y="428" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="end">租赁费 → <a href="财务协同/应收账单.html" fill="#2563eb">应收账单</a>（按持有量计租 · 期段账单＝起租日｜止租日｜天数｜日单价｜小计）</text>
-    <text x="40" y="428" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">采购线 · 独立补货</text>
-    <line x1="180" y1="464" x2="196" y2="464" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
-    <line x1="336" y1="464" x2="352" y2="464" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
-    <a href="采购管理/采购订单列表.html">
-      <rect x="40" y="436" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
-      <text x="110" y="461" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">采购订单</text>
-      <text x="110" y="480" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">物料 · 资产采购</text>
-    </a>
-    <a href="采购管理/采购入库列表.html">
-      <rect x="196" y="436" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
-      <text x="266" y="461" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">采购入库</text>
-      <text x="266" y="480" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">凭单验收 · 资产入库</text>
-    </a>
-    <a href="仓储作业/库存查询.html">
-      <rect x="352" y="436" width="140" height="56" rx="6" fill="rgba(37,99,235,0.08)" stroke="#2563eb" stroke-width="1"/>
-      <text x="422" y="461" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">库存</text>
-      <text x="422" y="480" fill="#2563eb" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">自有在库</text>
-    </a>
-    <path d="M 422 492 V 514 H 266 V 536" fill="none" stroke="#2563eb" stroke-width="1" stroke-dasharray="5,4" marker-end="url(#arr-blue)"/>
-    <rect x="292" y="496" width="104" height="12" rx="4" fill="#fafafa"/>
-    <text x="344" y="505" fill="#2563eb" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">按可用量 · 非顺序衔接</text>
-    <text x="40" y="528" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">租赁线 · 有单发生</text>
+    <text x="840" y="528" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="end">租赁费 → <a href="财务协同/应收账单.html" fill="#2563eb">应收账单</a>（按持有量计租 · 期段账单＝起租日｜止租日｜天数｜日单价｜小计）</text>
+    <text x="40" y="528" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">采购线 · 独立补货</text>
     <line x1="180" y1="564" x2="196" y2="564" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
     <line x1="336" y1="564" x2="352" y2="564" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
-    <a href="租赁管理/租赁单列表.html">
+    <a href="采购管理/采购订单列表.html">
       <rect x="40" y="536" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
-      <text x="110" y="561" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">租赁单</text>
-      <text x="110" y="580" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">单一物料 · 直接出租</text>
+      <text x="110" y="561" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">采购订单</text>
+      <text x="110" y="580" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">物料 · 资产采购</text>
+    </a>
+    <a href="采购管理/采购入库列表.html">
+      <rect x="196" y="536" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
+      <text x="266" y="561" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">采购入库</text>
+      <text x="266" y="580" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">凭单验收 · 资产入库</text>
+    </a>
+    <a href="仓储作业/库存查询.html">
+      <rect x="352" y="536" width="140" height="56" rx="6" fill="rgba(37,99,235,0.08)" stroke="#2563eb" stroke-width="1"/>
+      <text x="422" y="561" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">库存</text>
+      <text x="422" y="580" fill="#2563eb" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">自有在库</text>
+    </a>
+    <path d="M 422 592 V 614 H 266 V 636" fill="none" stroke="#2563eb" stroke-width="1" stroke-dasharray="5,4" marker-end="url(#arr-blue)"/>
+    <rect x="292" y="596" width="104" height="12" rx="4" fill="#fafafa"/>
+    <text x="344" y="605" fill="#2563eb" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">按可用量 · 非顺序衔接</text>
+    <text x="40" y="628" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">租赁线 · 有单发生</text>
+    <line x1="180" y1="664" x2="196" y2="664" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
+    <line x1="336" y1="664" x2="352" y2="664" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
+    <a href="租赁管理/租赁单列表.html">
+      <rect x="40" y="636" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
+      <text x="110" y="661" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">租赁单</text>
+      <text x="110" y="680" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">单一物料 · 直接出租</text>
     </a>
     <a href="租赁管理/租赁出库列表.html">
-      <rect x="196" y="536" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
-      <text x="266" y="561" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">租赁出库</text>
-      <text x="266" y="580" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">出库确认</text>
+      <rect x="196" y="636" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
+      <text x="266" y="661" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">租赁出库</text>
+      <text x="266" y="680" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">出库确认</text>
     </a>
     <a href="租赁管理/退租入库列表.html">
-      <rect x="352" y="536" width="96" height="56" rx="6" fill="rgba(75,85,99,0.10)" stroke="#4b5563" stroke-width="1"/>
-      <text x="400" y="568" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">⇢ T1 退租</text>
+      <rect x="352" y="636" width="96" height="56" rx="6" fill="rgba(75,85,99,0.10)" stroke="#4b5563" stroke-width="1"/>
+      <text x="400" y="668" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">⇢ T1 退租</text>
     </a>
 
-    <line x1="40" y1="616" x2="840" y2="616" stroke="rgba(17,24,39,0.10)" stroke-width="1"/>
+    <line x1="40" y1="716" x2="840" y2="716" stroke="rgba(17,24,39,0.10)" stroke-width="1"/>
 
     <!-- ======== L2 · 组合出租 ======== -->
-    <text x="40" y="640" fill="#111827" font-size="16" font-weight="700" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif">L2 · 租赁 · 组合出租（A+B→C · 自有资产）</text>
-    <rect x="380" y="627" width="64" height="16" rx="4" fill="rgba(37,99,235,0.08)" stroke="#2563eb" stroke-width="0.8"/>
-    <text x="412" y="638" fill="#2563eb" font-size="8" font-weight="600" font-family="Consolas,Monaco,monospace" text-anchor="middle">第一期实现</text>
+    <text x="40" y="740" fill="#111827" font-size="16" font-weight="700" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif">L2 · 租赁 · 组合出租（A+B→C · 自有资产）</text>
+    <rect x="380" y="727" width="64" height="16" rx="4" fill="rgba(37,99,235,0.08)" stroke="#2563eb" stroke-width="0.8"/>
+    <text x="412" y="738" fill="#2563eb" font-size="8" font-weight="600" font-family="Consolas,Monaco,monospace" text-anchor="middle">第一期实现</text>
     <g class="src-tag" onclick="showSrc(event,'l2')" style="cursor:pointer">
-      <rect x="620" y="624" width="96" height="20" rx="4" fill="#fafafa" stroke="#d1d5db" stroke-width="0.8"/>
-      <text x="668" y="637" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">📎 会议材料 ▸</text>
+      <rect x="620" y="724" width="96" height="20" rx="4" fill="#fafafa" stroke="#d1d5db" stroke-width="0.8"/>
+      <text x="668" y="737" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">📎 会议材料 ▸</text>
     </g>
-    <text x="840" y="656" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="end">租赁费 → <a href="财务协同/应收账单.html" fill="#2563eb">应收账单</a>（按持有量计租 · 期段账单）</text>
-    <text x="40" y="656" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">采购线 · 独立补货</text>
-    <line x1="180" y1="692" x2="196" y2="692" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
-    <line x1="336" y1="692" x2="352" y2="692" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
-    <a href="采购管理/采购订单列表.html">
-      <rect x="40" y="664" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
-      <text x="110" y="689" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">采购订单</text>
-      <text x="110" y="708" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">物料A/B/C 采购</text>
-    </a>
-    <a href="采购管理/采购入库列表.html">
-      <rect x="196" y="664" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
-      <text x="266" y="689" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">采购入库</text>
-      <text x="266" y="708" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">凭单验收 · 入库</text>
-    </a>
-    <a href="仓储作业/库存查询.html">
-      <rect x="352" y="664" width="140" height="56" rx="6" fill="rgba(37,99,235,0.08)" stroke="#2563eb" stroke-width="1"/>
-      <text x="422" y="689" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">库存</text>
-      <text x="422" y="708" fill="#2563eb" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">自有在库 · 组合前</text>
-    </a>
-    <path d="M 422 720 V 742 H 266 V 764" fill="none" stroke="#2563eb" stroke-width="1" stroke-dasharray="5,4" marker-end="url(#arr-blue)"/>
-    <rect x="292" y="724" width="104" height="12" rx="4" fill="#fafafa"/>
-    <text x="344" y="733" fill="#2563eb" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">按可用量 · 非顺序衔接</text>
-    <text x="40" y="756" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">租赁线 · 有单发生</text>
+    <text x="840" y="756" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="end">租赁费 → <a href="财务协同/应收账单.html" fill="#2563eb">应收账单</a>（按持有量计租 · 期段账单）</text>
+    <text x="40" y="756" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">采购线 · 独立补货</text>
     <line x1="180" y1="792" x2="196" y2="792" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
     <line x1="336" y1="792" x2="352" y2="792" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
-    <line x1="492" y1="792" x2="508" y2="792" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
-    <line x1="648" y1="792" x2="664" y2="792" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
-    <a href="基础数据/BOM.html">
-      <rect x="40" y="764" width="140" height="56" rx="6" fill="rgba(17,24,39,0.02)" stroke="rgba(17,24,39,0.35)" stroke-width="1" stroke-dasharray="4,3"/>
-      <text x="110" y="789" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">BOM组合</text>
-      <text x="110" y="808" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">定义配方 A+B→C · 无库存</text>
-    </a>
-    <a href="租赁管理/租赁出库列表.html">
-      <rect x="196" y="764" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
-      <text x="266" y="789" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">按 BOM 租赁出库</text>
-      <text x="266" y="808" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">出库时组合扣减组件（无组装单）</text>
-    </a>
-    <a href="租赁管理/租赁单列表.html">
-      <rect x="352" y="764" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
-      <text x="422" y="789" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">租赁单</text>
-      <text x="422" y="808" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">组合件C · 收租金</text>
-    </a>
-    <a href="租赁管理/租赁出库列表.html">
-      <rect x="508" y="764" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
-      <text x="578" y="789" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">租赁出库</text>
-      <text x="578" y="808" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">一箱一件 · 出库确认</text>
-    </a>
-    <a href="租赁管理/退租入库列表.html">
-      <rect x="664" y="764" width="96" height="56" rx="6" fill="rgba(75,85,99,0.10)" stroke="#4b5563" stroke-width="1"/>
-      <text x="712" y="796" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">⇢ T1 退租</text>
-    </a>
-
-    <line x1="40" y1="844" x2="840" y2="844" stroke="rgba(17,24,39,0.10)" stroke-width="1"/>
-
-    <!-- ======== L3 · 租入转租（v3.9 自发/直发双路径） ======== -->
-    <text x="40" y="868" fill="#111827" font-size="16" font-weight="700" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif">L3 · 租赁 · 租入转租（向供应商租入 → 转租客户）</text>
-    <rect x="502" y="855" width="64" height="16" rx="4" fill="rgba(37,99,235,0.08)" stroke="#2563eb" stroke-width="0.8"/>
-    <text x="534" y="866" fill="#2563eb" font-size="8" font-weight="600" font-family="Consolas,Monaco,monospace" text-anchor="middle">第一期实现</text>
-    <g class="src-tag" onclick="showSrc(event,'l3')" style="cursor:pointer">
-      <rect x="620" y="852" width="96" height="20" rx="4" fill="#fafafa" stroke="#d1d5db" stroke-width="0.8"/>
-      <text x="668" y="865" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">📎 会议材料 ▸</text>
-    </g>
-    <text x="840" y="884" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="end">租赁费 → <a href="财务协同/应收账单.html" fill="#2563eb">应收账单</a> · 租金 → <a href="财务协同/应付账单.html" fill="#2563eb">应付账单</a>（按持有量计租 · 期段账单）</text>
-    <text x="40" y="884" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">租入线（自发）· 独立补货</text>
-    <line x1="180" y1="920" x2="196" y2="920" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
-    <line x1="336" y1="920" x2="352" y2="920" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
-    <a href="租入管理/租入单列表.html">
-      <rect x="40" y="892" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
-      <text x="110" y="917" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">租入单</text>
-      <text x="110" y="936" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">向供应商租入 · 自发单</text>
-    </a>
-    <a href="租入管理/租入入库列表.html">
-      <rect x="196" y="892" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
-      <text x="266" y="917" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">租入入库</text>
-      <text x="266" y="936" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">租入资产入库 · 自发</text>
-    </a>
-    <a href="仓储作业/库存查询.html">
-      <rect x="352" y="892" width="140" height="56" rx="6" fill="rgba(37,99,235,0.08)" stroke="#2563eb" stroke-width="1"/>
-      <text x="422" y="917" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">库存</text>
-      <text x="422" y="936" fill="#2563eb" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">租入在库</text>
-    </a>
-    <rect x="516" y="892" width="324" height="56" rx="6" fill="rgba(17,24,39,0.02)" stroke="#d1d5db" stroke-width="0.8" stroke-dasharray="4,3"/>
-    <text x="528" y="910" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">决策变更 · 09-04 道远拍板第一期闭环</text>
-    <text x="528" y="924" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">（原会议暂缓 · 袁丽晶 37:35 · 第2次沟通）</text>
-    <text x="528" y="938" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">租入单 / 租入入库 / 归还出库独立成单 · 租金按持有量计租生成「租金应付」进应付账单（期段账单）</text>
-    <path d="M 422 948 V 970 H 266 V 992" fill="none" stroke="#2563eb" stroke-width="1" stroke-dasharray="5,4" marker-end="url(#arr-blue)"/>
-    <rect x="292" y="952" width="104" height="12" rx="4" fill="#fafafa"/>
-    <text x="344" y="961" fill="#2563eb" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">按可用量 · 非顺序衔接</text>
-    <text x="40" y="984" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">租赁线 · 有单发生（自发/直发共用）</text>
-    <line x1="180" y1="1020" x2="196" y2="1020" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
-    <line x1="336" y1="1020" x2="352" y2="1020" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
-    <a href="租赁管理/租赁单列表.html">
-      <rect x="40" y="992" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
-      <text x="110" y="1017" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">租赁单</text>
-      <text x="110" y="1036" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">转租客户</text>
-    </a>
-    <a href="租赁管理/租赁出库列表.html">
-      <rect x="196" y="992" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
-      <text x="266" y="1017" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">租赁出库</text>
-      <text x="266" y="1036" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">出库确认</text>
-    </a>
-    <a href="租赁管理/退租入库列表.html">
-      <rect x="352" y="992" width="96" height="56" rx="6" fill="rgba(75,85,99,0.10)" stroke="#4b5563" stroke-width="1"/>
-      <text x="400" y="1024" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">⇢ T1/T2</text>
-    </a>
-
-    <text x="40" y="1084" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">直发线（背靠背）· 审核后系统自动 · 不经库存实体节点</text>
-    <line x1="180" y1="1128" x2="196" y2="1128" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
-    <line x1="336" y1="1128" x2="352" y2="1128" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
-    <line x1="492" y1="1128" x2="508" y2="1128" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
-    <a href="租入管理/租入单列表.html">
-      <rect x="40" y="1100" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
-      <text x="110" y="1125" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">租入单（直发）</text>
-      <text x="110" y="1144" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">系统自动 · 审核后启动直发链</text>
-    </a>
-    <a href="租入管理/租入入库列表.html">
-      <rect x="196" y="1100" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
-      <text x="266" y="1125" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">租入入库</text>
-      <text x="266" y="1144" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">系统自动 · 直发虚拟仓 XNC-ZF</text>
-    </a>
-    <a href="租赁管理/租赁出库列表.html">
-      <rect x="352" y="1100" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
-      <text x="422" y="1125" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">租赁出库</text>
-      <text x="422" y="1144" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">系统自动 · 供应商直发客户</text>
-    </a>
-    <a href="租赁管理/退租入库列表.html">
-      <rect x="508" y="1100" width="96" height="56" rx="6" fill="rgba(75,85,99,0.10)" stroke="#4b5563" stroke-width="1"/>
-      <text x="556" y="1132" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">⇢ T1/T2</text>
-    </a>
-    <rect x="40" y="1180" width="800" height="56" rx="6" fill="rgba(17,24,39,0.02)" stroke="#d1d5db" stroke-width="0.8" stroke-dasharray="4,3"/>
-    <text x="52" y="1198" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">类型＝直发单／自发单（租入单 radio · D-167）</text>
-    <text x="52" y="1212" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">直发链系统自动：租入入库入直发虚拟仓 XNC-ZF（字典 KW-05 · 系统内置不可删改 · 不占实体库存）→ 自动生成租赁出库</text>
-    <text x="52" y="1226" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">人工单据不可手选虚拟仓（下拉 filterV 排除）</text>
-    <text x="40" y="1256" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">报数调整：客户报数增减经其他入库「报数调整」单人工调整虚拟仓账面（QTRK-004）</text>
-
-    <line x1="40" y1="1280" x2="840" y2="1280" stroke="rgba(17,24,39,0.10)" stroke-width="1"/>
-
-    <!-- ======== L4 · 混合转租（自购/租入双线并行汇入库存） ======== -->
-    <text x="40" y="1304" fill="#111827" font-size="16" font-weight="700" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif">L4 · 租赁 · 混合转租（自购+租入→组合C→转租）</text>
-    <rect x="440" y="1291" width="64" height="16" rx="4" fill="rgba(37,99,235,0.08)" stroke="#2563eb" stroke-width="0.8"/>
-    <text x="472" y="1302" fill="#2563eb" font-size="8" font-weight="600" font-family="Consolas,Monaco,monospace" text-anchor="middle">第一期实现</text>
-    <g class="src-tag" onclick="showSrc(event,'l4')" style="cursor:pointer">
-      <rect x="620" y="1288" width="96" height="20" rx="4" fill="#fafafa" stroke="#d1d5db" stroke-width="0.8"/>
-      <text x="668" y="1301" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">📎 会议材料 ▸</text>
-    </g>
-    <text x="840" y="1320" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="end">租赁费 → <a href="财务协同/应收账单.html" fill="#2563eb">应收账单</a> · 租金 → <a href="财务协同/应付账单.html" fill="#2563eb">应付账单</a>（按持有量计租 · 期段账单）</text>
-    <text x="40" y="1320" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">自购线</text>
-    <line x1="180" y1="1356" x2="196" y2="1356" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
     <a href="采购管理/采购订单列表.html">
-      <rect x="40" y="1328" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
-      <text x="110" y="1353" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">采购订单</text>
-      <text x="110" y="1372" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">自购辅材 · 器具类</text>
+      <rect x="40" y="764" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
+      <text x="110" y="789" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">采购订单</text>
+      <text x="110" y="808" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">物料A/B/C 采购</text>
     </a>
     <a href="采购管理/采购入库列表.html">
-      <rect x="196" y="1328" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
-      <text x="266" y="1353" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">采购入库</text>
-      <text x="266" y="1372" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">凭单验收 · 入库</text>
+      <rect x="196" y="764" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
+      <text x="266" y="789" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">采购入库</text>
+      <text x="266" y="808" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">凭单验收 · 入库</text>
     </a>
-    <text x="40" y="1396" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">租入线</text>
-    <line x1="180" y1="1432" x2="196" y2="1432" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
+    <a href="仓储作业/库存查询.html">
+      <rect x="352" y="764" width="140" height="56" rx="6" fill="rgba(37,99,235,0.08)" stroke="#2563eb" stroke-width="1"/>
+      <text x="422" y="789" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">库存</text>
+      <text x="422" y="808" fill="#2563eb" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">自有在库 · 组合前</text>
+    </a>
+    <path d="M 422 820 V 842 H 266 V 864" fill="none" stroke="#2563eb" stroke-width="1" stroke-dasharray="5,4" marker-end="url(#arr-blue)"/>
+    <rect x="292" y="824" width="104" height="12" rx="4" fill="#fafafa"/>
+    <text x="344" y="833" fill="#2563eb" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">按可用量 · 非顺序衔接</text>
+    <text x="40" y="856" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">租赁线 · 有单发生</text>
+    <line x1="180" y1="892" x2="196" y2="892" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
+    <line x1="336" y1="892" x2="352" y2="892" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
+    <line x1="492" y1="892" x2="508" y2="892" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
+    <line x1="648" y1="892" x2="664" y2="892" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
+    <a href="基础数据/BOM.html">
+      <rect x="40" y="864" width="140" height="56" rx="6" fill="rgba(17,24,39,0.02)" stroke="rgba(17,24,39,0.35)" stroke-width="1" stroke-dasharray="4,3"/>
+      <text x="110" y="889" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">BOM组合</text>
+      <text x="110" y="908" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">定义配方 A+B→C · 无库存</text>
+    </a>
+    <a href="租赁管理/租赁出库列表.html">
+      <rect x="196" y="864" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
+      <text x="266" y="889" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">按 BOM 租赁出库</text>
+      <text x="266" y="908" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">出库时组合扣减组件（无组装单）</text>
+    </a>
+    <a href="租赁管理/租赁单列表.html">
+      <rect x="352" y="864" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
+      <text x="422" y="889" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">租赁单</text>
+      <text x="422" y="908" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">组合件C · 收租金</text>
+    </a>
+    <a href="租赁管理/租赁出库列表.html">
+      <rect x="508" y="864" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
+      <text x="578" y="889" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">租赁出库</text>
+      <text x="578" y="908" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">一箱一件 · 出库确认</text>
+    </a>
+    <a href="租赁管理/退租入库列表.html">
+      <rect x="664" y="864" width="96" height="56" rx="6" fill="rgba(75,85,99,0.10)" stroke="#4b5563" stroke-width="1"/>
+      <text x="712" y="896" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">⇢ T1 退租</text>
+    </a>
+
+    <line x1="40" y1="944" x2="840" y2="944" stroke="rgba(17,24,39,0.10)" stroke-width="1"/>
+
+    <!-- ======== L3 · 租入转租（v3.9 自发/直发双路径） ======== -->
+    <text x="40" y="968" fill="#111827" font-size="16" font-weight="700" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif">L3 · 租赁 · 租入转租（向供应商租入 → 转租客户）</text>
+    <rect x="502" y="955" width="64" height="16" rx="4" fill="rgba(37,99,235,0.08)" stroke="#2563eb" stroke-width="0.8"/>
+    <text x="534" y="966" fill="#2563eb" font-size="8" font-weight="600" font-family="Consolas,Monaco,monospace" text-anchor="middle">第一期实现</text>
+    <g class="src-tag" onclick="showSrc(event,'l3')" style="cursor:pointer">
+      <rect x="620" y="952" width="96" height="20" rx="4" fill="#fafafa" stroke="#d1d5db" stroke-width="0.8"/>
+      <text x="668" y="965" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">📎 会议材料 ▸</text>
+    </g>
+    <text x="840" y="984" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="end">租赁费 → <a href="财务协同/应收账单.html" fill="#2563eb">应收账单</a> · 租金 → <a href="财务协同/应付账单.html" fill="#2563eb">应付账单</a>（按持有量计租 · 期段账单）</text>
+    <text x="40" y="984" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">租入线（自发）· 独立补货</text>
+    <line x1="180" y1="1020" x2="196" y2="1020" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
+    <line x1="336" y1="1020" x2="352" y2="1020" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
     <a href="租入管理/租入单列表.html">
-      <rect x="40" y="1404" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
-      <text x="110" y="1429" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">租入单</text>
-      <text x="110" y="1448" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">租入大箱/围板箱</text>
+      <rect x="40" y="992" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
+      <text x="110" y="1017" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">租入单</text>
+      <text x="110" y="1036" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">向供应商租入 · 自发单</text>
     </a>
     <a href="租入管理/租入入库列表.html">
-      <rect x="196" y="1404" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
-      <text x="266" y="1429" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">租入入库</text>
-      <text x="266" y="1448" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">租入资产入库</text>
+      <rect x="196" y="992" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
+      <text x="266" y="1017" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">租入入库</text>
+      <text x="266" y="1036" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">租入资产入库 · 自发</text>
     </a>
-    <path d="M 336 1356 H 348 Q 356 1356 356 1364 V 1424 Q 356 1432 364 1432 H 376" fill="none" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
-    <line x1="336" y1="1432" x2="376" y2="1432" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
     <a href="仓储作业/库存查询.html">
-      <rect x="376" y="1404" width="140" height="56" rx="6" fill="rgba(37,99,235,0.08)" stroke="#2563eb" stroke-width="1"/>
-      <text x="446" y="1429" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">库存</text>
-      <text x="446" y="1448" fill="#2563eb" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">自有+租入在库</text>
+      <rect x="352" y="992" width="140" height="56" rx="6" fill="rgba(37,99,235,0.08)" stroke="#2563eb" stroke-width="1"/>
+      <text x="422" y="1017" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">库存</text>
+      <text x="422" y="1036" fill="#2563eb" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">租入在库</text>
     </a>
-    <rect x="532" y="1404" width="308" height="56" rx="6" fill="rgba(17,24,39,0.02)" stroke="#d1d5db" stroke-width="0.8" stroke-dasharray="4,3"/>
-    <text x="544" y="1428" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">决策升级 · 09-04 拍板</text>
-    <text x="544" y="1444" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">拍板 A1 → 租入单据独立闭环</text>
-    <path d="M 446 1460 V 1492 H 170 V 1524" fill="none" stroke="#2563eb" stroke-width="1" stroke-dasharray="5,4" marker-end="url(#arr-blue)"/>
-    <rect x="256" y="1474" width="104" height="12" rx="4" fill="#fafafa"/>
-    <text x="308" y="1483" fill="#2563eb" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">按可用量 · 非顺序衔接</text>
-    <text x="40" y="1516" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">租赁线 · 有单发生</text>
-    <line x1="180" y1="1552" x2="196" y2="1552" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
-    <line x1="336" y1="1552" x2="352" y2="1552" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
-    <line x1="492" y1="1552" x2="508" y2="1552" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
-    <a href="租赁管理/租赁出库列表.html">
-      <rect x="40" y="1524" width="140" height="56" rx="6" fill="rgba(17,24,39,0.02)" stroke="rgba(17,24,39,0.35)" stroke-width="1" stroke-dasharray="4,3"/>
-      <text x="110" y="1549" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">组合 C · BOM 计算</text>
-      <text x="110" y="1568" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">按 BOM 扣减组件（无组装单）</text>
-    </a>
+    <rect x="516" y="992" width="324" height="56" rx="6" fill="rgba(17,24,39,0.02)" stroke="#d1d5db" stroke-width="0.8" stroke-dasharray="4,3"/>
+    <text x="528" y="1010" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">决策变更 · 09-04 道远拍板第一期闭环</text>
+    <text x="528" y="1024" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">（原会议暂缓 · 袁丽晶 37:35 · 第2次沟通）</text>
+    <text x="528" y="1038" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">租入单 / 租入入库 / 归还出库独立成单 · 租金按持有量计租生成「租金应付」进应付账单（期段账单）</text>
+    <path d="M 422 1048 V 1070 H 266 V 1092" fill="none" stroke="#2563eb" stroke-width="1" stroke-dasharray="5,4" marker-end="url(#arr-blue)"/>
+    <rect x="292" y="1052" width="104" height="12" rx="4" fill="#fafafa"/>
+    <text x="344" y="1061" fill="#2563eb" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">按可用量 · 非顺序衔接</text>
+    <text x="40" y="1084" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">租赁线 · 有单发生（自发/直发共用）</text>
+    <line x1="180" y1="1120" x2="196" y2="1120" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
+    <line x1="336" y1="1120" x2="352" y2="1120" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
     <a href="租赁管理/租赁单列表.html">
-      <rect x="196" y="1524" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
-      <text x="266" y="1549" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">租赁单</text>
-      <text x="266" y="1568" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">组合C出租</text>
+      <rect x="40" y="1092" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
+      <text x="110" y="1117" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">租赁单</text>
+      <text x="110" y="1136" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">转租客户</text>
     </a>
     <a href="租赁管理/租赁出库列表.html">
-      <rect x="352" y="1524" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
-      <text x="422" y="1549" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">租赁出库</text>
-      <text x="422" y="1568" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">出库确认</text>
+      <rect x="196" y="1092" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
+      <text x="266" y="1117" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">租赁出库</text>
+      <text x="266" y="1136" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">出库确认</text>
     </a>
     <a href="租赁管理/退租入库列表.html">
-      <rect x="508" y="1524" width="96" height="56" rx="6" fill="rgba(75,85,99,0.10)" stroke="#4b5563" stroke-width="1"/>
-      <text x="556" y="1556" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">⇢ T1/T2</text>
+      <rect x="352" y="1092" width="96" height="56" rx="6" fill="rgba(75,85,99,0.10)" stroke="#4b5563" stroke-width="1"/>
+      <text x="400" y="1124" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">⇢ T1/T2</text>
     </a>
 
-    <line x1="40" y1="1604" x2="840" y2="1604" stroke="rgba(17,24,39,0.10)" stroke-width="1"/>
+    <text x="40" y="1184" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">直发线（背靠背）· 审核后系统自动 · 不经库存实体节点</text>
+    <line x1="180" y1="1228" x2="196" y2="1228" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
+    <line x1="336" y1="1228" x2="352" y2="1228" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
+    <line x1="492" y1="1228" x2="508" y2="1228" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
+    <a href="租入管理/租入单列表.html">
+      <rect x="40" y="1200" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
+      <text x="110" y="1225" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">租入单（直发）</text>
+      <text x="110" y="1244" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">系统自动 · 审核后启动直发链</text>
+    </a>
+    <a href="租入管理/租入入库列表.html">
+      <rect x="196" y="1200" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
+      <text x="266" y="1225" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">租入入库</text>
+      <text x="266" y="1244" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">系统自动 · 直发虚拟仓 XNC-ZF</text>
+    </a>
+    <a href="租赁管理/租赁出库列表.html">
+      <rect x="352" y="1200" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
+      <text x="422" y="1225" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">租赁出库</text>
+      <text x="422" y="1244" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">系统自动 · 供应商直发客户</text>
+    </a>
+    <a href="租赁管理/退租入库列表.html">
+      <rect x="508" y="1200" width="96" height="56" rx="6" fill="rgba(75,85,99,0.10)" stroke="#4b5563" stroke-width="1"/>
+      <text x="556" y="1232" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">⇢ T1/T2</text>
+    </a>
+    <rect x="40" y="1280" width="800" height="56" rx="6" fill="rgba(17,24,39,0.02)" stroke="#d1d5db" stroke-width="0.8" stroke-dasharray="4,3"/>
+    <text x="52" y="1298" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">类型＝直发单／自发单（租入单 radio · D-167）</text>
+    <text x="52" y="1312" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">直发链系统自动：租入入库入直发虚拟仓 XNC-ZF（字典 KW-05 · 系统内置不可删改 · 不占实体库存）→ 自动生成租赁出库</text>
+    <text x="52" y="1326" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">人工单据不可手选虚拟仓（下拉 filterV 排除）</text>
+    <text x="40" y="1356" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">报数调整：客户报数增减经其他入库「报数调整」单人工调整虚拟仓账面（QTRK-004）</text>
+
+    <line x1="40" y1="1380" x2="840" y2="1380" stroke="rgba(17,24,39,0.10)" stroke-width="1"/>
+
+    <!-- ======== L4 · 混合转租（自购/租入双线并行汇入库存） ======== -->
+    <text x="40" y="1404" fill="#111827" font-size="16" font-weight="700" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif">L4 · 租赁 · 混合转租（自购+租入→组合C→转租）</text>
+    <rect x="440" y="1391" width="64" height="16" rx="4" fill="rgba(37,99,235,0.08)" stroke="#2563eb" stroke-width="0.8"/>
+    <text x="472" y="1402" fill="#2563eb" font-size="8" font-weight="600" font-family="Consolas,Monaco,monospace" text-anchor="middle">第一期实现</text>
+    <g class="src-tag" onclick="showSrc(event,'l4')" style="cursor:pointer">
+      <rect x="620" y="1388" width="96" height="20" rx="4" fill="#fafafa" stroke="#d1d5db" stroke-width="0.8"/>
+      <text x="668" y="1401" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">📎 会议材料 ▸</text>
+    </g>
+    <text x="840" y="1420" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="end">租赁费 → <a href="财务协同/应收账单.html" fill="#2563eb">应收账单</a> · 租金 → <a href="财务协同/应付账单.html" fill="#2563eb">应付账单</a>（按持有量计租 · 期段账单）</text>
+    <text x="40" y="1420" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">自购线</text>
+    <line x1="180" y1="1456" x2="196" y2="1456" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
+    <a href="采购管理/采购订单列表.html">
+      <rect x="40" y="1428" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
+      <text x="110" y="1453" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">采购订单</text>
+      <text x="110" y="1472" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">自购辅材 · 器具类</text>
+    </a>
+    <a href="采购管理/采购入库列表.html">
+      <rect x="196" y="1428" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
+      <text x="266" y="1453" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">采购入库</text>
+      <text x="266" y="1472" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">凭单验收 · 入库</text>
+    </a>
+    <text x="40" y="1496" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">租入线</text>
+    <line x1="180" y1="1532" x2="196" y2="1532" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
+    <a href="租入管理/租入单列表.html">
+      <rect x="40" y="1504" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
+      <text x="110" y="1529" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">租入单</text>
+      <text x="110" y="1548" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">租入大箱/围板箱</text>
+    </a>
+    <a href="租入管理/租入入库列表.html">
+      <rect x="196" y="1504" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
+      <text x="266" y="1529" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">租入入库</text>
+      <text x="266" y="1548" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">租入资产入库</text>
+    </a>
+    <path d="M 336 1456 H 348 Q 356 1456 356 1464 V 1524 Q 356 1532 364 1532 H 376" fill="none" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
+    <line x1="336" y1="1532" x2="376" y2="1532" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
+    <a href="仓储作业/库存查询.html">
+      <rect x="376" y="1504" width="140" height="56" rx="6" fill="rgba(37,99,235,0.08)" stroke="#2563eb" stroke-width="1"/>
+      <text x="446" y="1529" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">库存</text>
+      <text x="446" y="1548" fill="#2563eb" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">自有+租入在库</text>
+    </a>
+    <rect x="532" y="1504" width="308" height="56" rx="6" fill="rgba(17,24,39,0.02)" stroke="#d1d5db" stroke-width="0.8" stroke-dasharray="4,3"/>
+    <text x="544" y="1528" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">决策升级 · 09-04 拍板</text>
+    <text x="544" y="1544" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">拍板 A1 → 租入单据独立闭环</text>
+    <path d="M 446 1560 V 1592 H 170 V 1624" fill="none" stroke="#2563eb" stroke-width="1" stroke-dasharray="5,4" marker-end="url(#arr-blue)"/>
+    <rect x="256" y="1574" width="104" height="12" rx="4" fill="#fafafa"/>
+    <text x="308" y="1583" fill="#2563eb" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">按可用量 · 非顺序衔接</text>
+    <text x="40" y="1616" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">租赁线 · 有单发生</text>
+    <line x1="180" y1="1652" x2="196" y2="1652" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
+    <line x1="336" y1="1652" x2="352" y2="1652" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
+    <line x1="492" y1="1652" x2="508" y2="1652" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
+    <a href="租赁管理/租赁出库列表.html">
+      <rect x="40" y="1624" width="140" height="56" rx="6" fill="rgba(17,24,39,0.02)" stroke="rgba(17,24,39,0.35)" stroke-width="1" stroke-dasharray="4,3"/>
+      <text x="110" y="1649" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">组合 C · BOM 计算</text>
+      <text x="110" y="1668" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">按 BOM 扣减组件（无组装单）</text>
+    </a>
+    <a href="租赁管理/租赁单列表.html">
+      <rect x="196" y="1624" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
+      <text x="266" y="1649" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">租赁单</text>
+      <text x="266" y="1668" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">组合C出租</text>
+    </a>
+    <a href="租赁管理/租赁出库列表.html">
+      <rect x="352" y="1624" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
+      <text x="422" y="1649" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">租赁出库</text>
+      <text x="422" y="1668" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">出库确认</text>
+    </a>
+    <a href="租赁管理/退租入库列表.html">
+      <rect x="508" y="1624" width="96" height="56" rx="6" fill="rgba(75,85,99,0.10)" stroke="#4b5563" stroke-width="1"/>
+      <text x="556" y="1656" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">⇢ T1/T2</text>
+    </a>
+
+    <line x1="40" y1="1704" x2="840" y2="1704" stroke="rgba(17,24,39,0.10)" stroke-width="1"/>
 
     <!-- ======== T1 · 客户退租（退租入库统一入口 · 09-10 两事件拆分） ======== -->
-    <text x="40" y="1628" fill="#111827" font-size="16" font-weight="700" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif">T1 · 租赁 · 客户退租（退租入库 · 统一入口 · 2026-09-10 拍板）</text>
+    <text x="40" y="1728" fill="#111827" font-size="16" font-weight="700" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif">T1 · 租赁 · 客户退租（退租入库 · 统一入口 · 2026-09-10 拍板）</text>
     <g class="src-tag" onclick="showSrc(event,'t1')" style="cursor:pointer">
-      <rect x="620" y="1612" width="96" height="20" rx="4" fill="#fafafa" stroke="#d1d5db" stroke-width="0.8"/>
-      <text x="668" y="1625" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">📎 会议材料 ▸</text>
+      <rect x="620" y="1712" width="96" height="20" rx="4" fill="#fafafa" stroke="#d1d5db" stroke-width="0.8"/>
+      <text x="668" y="1725" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">📎 会议材料 ▸</text>
     </g>
-    <text x="840" y="1644" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="end">核对：要么赔偿，要么继续 · 完好：自有回库再出租 / 租入回库后交棒 T2</text>
-    <line x1="180" y1="1680" x2="196" y2="1680" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
+    <text x="840" y="1744" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="end">核对：要么赔偿，要么继续 · 完好：自有回库再出租 / 租入回库后交棒 T2</text>
+    <line x1="180" y1="1780" x2="196" y2="1780" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
     <a href="租赁管理/租赁单列表.html">
-      <rect x="40" y="1652" width="140" height="56" rx="6" fill="rgba(75,85,99,0.10)" stroke="#4b5563" stroke-width="1"/>
-      <text x="110" y="1677" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">租赁单「退租」</text>
-      <text x="110" y="1696" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">客户退回 · 直接录入</text>
+      <rect x="40" y="1752" width="140" height="56" rx="6" fill="rgba(75,85,99,0.10)" stroke="#4b5563" stroke-width="1"/>
+      <text x="110" y="1777" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">租赁单「退租」</text>
+      <text x="110" y="1796" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">客户退回 · 直接录入</text>
     </a>
     <a href="租赁管理/退租入库列表.html">
-      <rect x="196" y="1652" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
-      <text x="266" y="1677" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">退租入库</text>
-      <text x="266" y="1696" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">统一入口 · 验收+缺损核对</text>
+      <rect x="196" y="1752" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
+      <text x="266" y="1777" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">退租入库</text>
+      <text x="266" y="1796" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">统一入口 · 验收+缺损核对</text>
     </a>
-    <text x="368" y="1672" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">退租无申请单：客户退回后直接录入退租入库单 · 入库仅更新库存（09-08 会议）</text>
-    <text x="368" y="1688" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">核对二分（赔偿 / 继续）· 完好后按资产归属分流（见下方 ②③）</text>
-    <text x="368" y="1704" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">直发件退租＝人工录入（客户报数触发）→ 系统识别直发类型 → 库位自动带出直发虚拟仓（D-167）</text>
-    <path d="M 336 1680 H 356 Q 364 1680 364 1688 V 1906" fill="none" stroke="#4b5563" stroke-width="1"/>
+    <text x="368" y="1772" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">退租无申请单：客户退回后直接录入退租入库单 · 入库仅更新库存（09-08 会议）</text>
+    <text x="368" y="1788" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">核对二分（赔偿 / 继续）· 完好后按资产归属分流（见下方 ②③）</text>
+    <text x="368" y="1804" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">直发件退租＝人工录入（客户报数触发）→ 系统识别直发类型 → 库位自动带出直发虚拟仓（D-167）</text>
+    <path d="M 336 1780 H 356 Q 364 1780 364 1788 V 2006" fill="none" stroke="#4b5563" stroke-width="1"/>
 
-    <text x="40" y="1758" fill="#111827" font-size="12" font-weight="700" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif">① 缺损核对 · 要么赔偿，要么继续</text>
-    <line x1="364" y1="1754" x2="384" y2="1754" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
+    <text x="40" y="1858" fill="#111827" font-size="12" font-weight="700" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif">① 缺损核对 · 要么赔偿，要么继续</text>
+    <line x1="364" y1="1854" x2="384" y2="1854" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
     <a href="财务协同/应付账单.html">
-      <rect x="384" y="1726" width="140" height="56" rx="6" fill="rgba(75,85,99,0.10)" stroke="#4b5563" stroke-width="1"/>
-      <text x="454" y="1751" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">直接转应收/应付</text>
-      <text x="454" y="1770" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">缺损/丢失/损坏 · ⇢ F1/F2</text>
+      <rect x="384" y="1826" width="140" height="56" rx="6" fill="rgba(75,85,99,0.10)" stroke="#4b5563" stroke-width="1"/>
+      <text x="454" y="1851" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">直接转应收/应付</text>
+      <text x="454" y="1870" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">缺损/丢失/损坏 · ⇢ F1/F2</text>
     </a>
-    <text x="556" y="1758" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">自有 → 应收（客户赔）· 租入 → 应付（供应商赔）·</text>
-    <text x="556" y="1772" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">无赔偿单直接建账单（费用分类）· 详见 S4</text>
+    <text x="556" y="1858" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">自有 → 应收（客户赔）· 租入 → 应付（供应商赔）·</text>
+    <text x="556" y="1872" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">无赔偿单直接建账单（费用分类）· 详见 S4</text>
 
-    <text x="40" y="1834" fill="#111827" font-size="12" font-weight="700" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif">② 完好 · 自有回库（是否拆散＝退租入库的记录粒度 · 非流程分支）</text>
-    <line x1="364" y1="1830" x2="384" y2="1830" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
+    <text x="40" y="1934" fill="#111827" font-size="12" font-weight="700" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif">② 完好 · 自有回库（是否拆散＝退租入库的记录粒度 · 非流程分支）</text>
+    <line x1="364" y1="1930" x2="384" y2="1930" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
     <g>
-      <rect x="384" y="1802" width="96" height="56" rx="6" fill="rgba(17,24,39,0.03)" stroke="rgba(17,24,39,0.30)" stroke-width="1"/>
-      <text x="432" y="1827" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">自有资产</text>
-      <text x="432" y="1846" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">回库 · 按物料入库</text>
+      <rect x="384" y="1902" width="96" height="56" rx="6" fill="rgba(17,24,39,0.03)" stroke="rgba(17,24,39,0.30)" stroke-width="1"/>
+      <text x="432" y="1927" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">自有资产</text>
+      <text x="432" y="1946" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">回库 · 按物料入库</text>
     </g>
-    <line x1="480" y1="1830" x2="496" y2="1830" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
+    <line x1="480" y1="1930" x2="496" y2="1930" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
     <a href="仓储作业/库存查询.html">
-      <rect x="496" y="1802" width="170" height="56" rx="6" fill="rgba(37,99,235,0.08)" stroke="#2563eb" stroke-width="1"/>
-      <text x="581" y="1827" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">在库</text>
-      <text x="581" y="1846" fill="#2563eb" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">整器或拆后零件 · 统一按单一物料记录</text>
+      <rect x="496" y="1902" width="170" height="56" rx="6" fill="rgba(37,99,235,0.08)" stroke="#2563eb" stroke-width="1"/>
+      <text x="581" y="1927" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">在库</text>
+      <text x="581" y="1946" fill="#2563eb" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">整器或拆后零件 · 统一按单一物料记录</text>
     </a>
-    <line x1="666" y1="1830" x2="682" y2="1830" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
+    <line x1="666" y1="1930" x2="682" y2="1930" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
     <a href="租赁管理/租赁单列表.html">
-      <rect x="682" y="1802" width="140" height="56" rx="6" fill="rgba(75,85,99,0.10)" stroke="#4b5563" stroke-width="1"/>
-      <text x="752" y="1827" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">循环再出租</text>
-      <text x="752" y="1846" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">⇢ L1/L2 · 退回进度跟踪</text>
+      <rect x="682" y="1902" width="140" height="56" rx="6" fill="rgba(75,85,99,0.10)" stroke="#4b5563" stroke-width="1"/>
+      <text x="752" y="1927" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">循环再出租</text>
+      <text x="752" y="1946" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">⇢ L1/L2 · 退回进度跟踪</text>
     </a>
-    <text x="682" y="1872" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">适用：L1/L2（自有资产）</text>
+    <text x="682" y="1972" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">适用：L1/L2（自有资产）</text>
 
-    <text x="40" y="1910" fill="#111827" font-size="12" font-weight="700" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif">③ 完好 · 租入回库（回库后交棒 T2）</text>
-    <line x1="364" y1="1906" x2="384" y2="1906" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
+    <text x="40" y="2010" fill="#111827" font-size="12" font-weight="700" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif">③ 完好 · 租入回库（回库后交棒 T2）</text>
+    <line x1="364" y1="2006" x2="384" y2="2006" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
     <g>
-      <rect x="384" y="1878" width="96" height="56" rx="6" fill="rgba(17,24,39,0.03)" stroke="rgba(17,24,39,0.30)" stroke-width="1"/>
-      <text x="432" y="1903" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">租入资产</text>
-      <text x="432" y="1922" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">回库 · 租入在库</text>
+      <rect x="384" y="1978" width="96" height="56" rx="6" fill="rgba(17,24,39,0.03)" stroke="rgba(17,24,39,0.30)" stroke-width="1"/>
+      <text x="432" y="2003" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">租入资产</text>
+      <text x="432" y="2022" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">回库 · 租入在库</text>
     </g>
-    <line x1="480" y1="1906" x2="496" y2="1906" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
+    <line x1="480" y1="2006" x2="496" y2="2006" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
     <a href="仓储作业/库存查询.html">
-      <rect x="496" y="1878" width="170" height="56" rx="6" fill="rgba(37,99,235,0.08)" stroke="#2563eb" stroke-width="1"/>
-      <text x="581" y="1903" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">租入在库</text>
-      <text x="581" y="1922" fill="#2563eb" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">客户态 → 租入在库（待归还）</text>
+      <rect x="496" y="1978" width="170" height="56" rx="6" fill="rgba(37,99,235,0.08)" stroke="#2563eb" stroke-width="1"/>
+      <text x="581" y="2003" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">租入在库</text>
+      <text x="581" y="2022" fill="#2563eb" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">客户态 → 租入在库（待归还）</text>
     </a>
-    <line x1="666" y1="1906" x2="682" y2="1906" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
+    <line x1="666" y1="2006" x2="682" y2="2006" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
     <a href="租入管理/归还出库列表.html">
-      <rect x="682" y="1878" width="140" height="56" rx="6" fill="rgba(75,85,99,0.10)" stroke="#4b5563" stroke-width="1"/>
-      <text x="752" y="1903" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">⇢ T2 · 归还出库</text>
-      <text x="752" y="1922" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">归还供应商 · 见 T2</text>
+      <rect x="682" y="1978" width="140" height="56" rx="6" fill="rgba(75,85,99,0.10)" stroke="#4b5563" stroke-width="1"/>
+      <text x="752" y="2003" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">⇢ T2 · 归还出库</text>
+      <text x="752" y="2022" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">归还供应商 · 见 T2</text>
     </a>
-    <text x="556" y="1946" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">适用：L3/L4（租入资产）</text>
+    <text x="556" y="2046" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">适用：L3/L4（租入资产）</text>
 
     <!-- T1 → T2 跨泳道交棒（租入行：先回库再归还） -->
-    <path d="M 752 1934 V 1996 H 110 V 2012" fill="none" stroke="#4b5563" stroke-width="1" stroke-dasharray="5,4" marker-end="url(#arr)"/>
-    <rect x="556" y="1977" width="44" height="12" rx="4" fill="#fafafa"/>
-    <text x="578" y="1986" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">T1 交棒</text>
+    <path d="M 752 2034 V 2096 H 110 V 2112" fill="none" stroke="#4b5563" stroke-width="1" stroke-dasharray="5,4" marker-end="url(#arr)"/>
+    <rect x="556" y="2077" width="44" height="12" rx="4" fill="#fafafa"/>
+    <text x="578" y="2086" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">T1 交棒</text>
 
-    <line x1="40" y1="1958" x2="840" y2="1958" stroke="rgba(17,24,39,0.10)" stroke-width="1"/>
+    <line x1="40" y1="2058" x2="840" y2="2058" stroke="rgba(17,24,39,0.10)" stroke-width="1"/>
 
     <!-- ======== T2 · 归还出库（归还供应商 · 独立事件 · 双入口） ======== -->
-    <text x="40" y="1982" fill="#111827" font-size="16" font-weight="700" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif">T2 · 租赁 · 归还出库（归还供应商 · 独立事件 · 2026-09-10 拍板）</text>
+    <text x="40" y="2082" fill="#111827" font-size="16" font-weight="700" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif">T2 · 租赁 · 归还出库（归还供应商 · 独立事件 · 2026-09-10 拍板）</text>
     <g class="src-tag" onclick="showSrc(event,'t2')" style="cursor:pointer">
-      <rect x="620" y="1966" width="96" height="20" rx="4" fill="#fafafa" stroke="#d1d5db" stroke-width="0.8"/>
-      <text x="668" y="1979" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">📎 会议材料 ▸</text>
+      <rect x="620" y="2066" width="96" height="20" rx="4" fill="#fafafa" stroke="#d1d5db" stroke-width="0.8"/>
+      <text x="668" y="2079" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">📎 会议材料 ▸</text>
     </g>
-    <text x="840" y="2008" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="end">方向：我方仓库 → 供应商 · 与 T1（客户 → 我方仓库）两事件方向相反</text>
-    <text x="524" y="2024" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">双入口：① T1 退租回库的租入行（先回库再归还）</text>
-    <text x="524" y="2040" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">② 租入未转租（租入在库）直接归还——不经退租入库（无客户环节）</text>
-    <line x1="180" y1="2040" x2="196" y2="2040" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
-    <line x1="336" y1="2040" x2="352" y2="2040" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
+    <text x="840" y="2108" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="end">方向：我方仓库 → 供应商 · 与 T1（客户 → 我方仓库）两事件方向相反</text>
+    <text x="524" y="2124" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">双入口：① T1 退租回库的租入行（先回库再归还）</text>
+    <text x="524" y="2140" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">② 租入未转租（租入在库）直接归还——不经退租入库（无客户环节）</text>
+    <line x1="180" y1="2140" x2="196" y2="2140" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
+    <line x1="336" y1="2140" x2="352" y2="2140" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
     <a href="仓储作业/库存查询.html">
-      <rect x="40" y="2012" width="140" height="56" rx="6" fill="rgba(37,99,235,0.08)" stroke="#2563eb" stroke-width="1"/>
-      <text x="110" y="2037" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">租入在库</text>
-      <text x="110" y="2056" fill="#2563eb" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">待归还 · 库存查询</text>
+      <rect x="40" y="2112" width="140" height="56" rx="6" fill="rgba(37,99,235,0.08)" stroke="#2563eb" stroke-width="1"/>
+      <text x="110" y="2137" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">租入在库</text>
+      <text x="110" y="2156" fill="#2563eb" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">待归还 · 库存查询</text>
     </a>
     <a href="租入管理/归还出库列表.html">
-      <rect x="196" y="2012" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
-      <text x="266" y="2037" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">归还出库</text>
-      <text x="266" y="2056" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">关联租入单 · 同步明细 · 分批</text>
+      <rect x="196" y="2112" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
+      <text x="266" y="2137" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">归还出库</text>
+      <text x="266" y="2156" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">关联租入单 · 同步明细 · 分批</text>
     </a>
     <a href="财务协同/应付账单.html">
-      <rect x="352" y="2012" width="140" height="56" rx="6" fill="rgba(75,85,99,0.10)" stroke="#4b5563" stroke-width="1"/>
-      <text x="422" y="2037" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">租金应付</text>
-      <text x="422" y="2056" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">⇢ F2 · 租金＋归还侧赔付</text>
+      <rect x="352" y="2112" width="140" height="56" rx="6" fill="rgba(75,85,99,0.10)" stroke="#4b5563" stroke-width="1"/>
+      <text x="422" y="2137" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">租金应付</text>
+      <text x="422" y="2156" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">⇢ F2 · 租金＋归还侧赔付</text>
     </a>
-    <text x="524" y="2060" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">租金应付进 F2 应付账单（L3/L4 已实现 · 按持有量计租 · 期段账单）</text>
-    <text x="40" y="2080" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">背靠背（GHCK）＝系统识别直发类型自动生成 · 退租入库=人工 · 归还出库=系统（09-18 口径 · D-167）</text>
-    <text x="40" y="2092" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">L4 混合转租＝T1+T2 两事件按明细行归属组合：自有行 T1 内回库、租入行 T1 回库后交棒 T2 归还供应商——组合关系，非独立分支</text>
-    <text x="40" y="2108" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">退租入库仅更新库存、与财务结算解耦（应收按持有量计租、期段账单独立生成）；缺损核对在 T1 入口一次完成，T2 只挂租金与归还侧赔付</text>
-    <text x="40" y="2124" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">客户转租：由转移出库单承载——行内「转移出库」跳转录单页 · 「客户转租出」由转移单审核驱动 · 还回＝「终止转移」（D-146 替代原转租登记弹窗）</text>
-    <text x="40" y="2140" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">客户在租以库存状态「在客户（租出）」维度表达；客户虚拟仓不维护（D-145 · 状态驱动见 S1 五态行）</text>
+    <text x="524" y="2160" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">租金应付进 F2 应付账单（L3/L4 已实现 · 按持有量计租 · 期段账单）</text>
+    <text x="40" y="2180" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">背靠背（GHCK）＝系统识别直发类型自动生成 · 退租入库=人工 · 归还出库=系统（09-18 口径 · D-167）</text>
+    <text x="40" y="2192" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">L4 混合转租＝T1+T2 两事件按明细行归属组合：自有行 T1 内回库、租入行 T1 回库后交棒 T2 归还供应商——组合关系，非独立分支</text>
+    <text x="40" y="2208" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">退租入库仅更新库存、与财务结算解耦（应收按持有量计租、期段账单独立生成）；缺损核对在 T1 入口一次完成，T2 只挂租金与归还侧赔付</text>
+    <text x="40" y="2224" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">客户转租：由转移出库单承载——行内「转移出库」跳转录单页 · 「客户转租出」由转移单审核驱动 · 还回＝「终止转移」（D-146 替代原转租登记弹窗）</text>
+    <text x="40" y="2240" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">客户在租以库存状态「在客户（租出）」维度表达；客户虚拟仓不维护（D-145 · 状态驱动见 S1 五态行）</text>
 
-    <line x1="40" y1="2164" x2="840" y2="2164" stroke="rgba(17,24,39,0.10)" stroke-width="1"/>
+    <line x1="40" y1="2264" x2="840" y2="2264" stroke="rgba(17,24,39,0.10)" stroke-width="1"/>
 
     <!-- ======== 财务通道 F1 应收 / F2 应付 · 全线共用（标签行 + 标准节点链） ======== -->
-    <text x="40" y="2188" fill="#111827" font-size="16" font-weight="700" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif">财务通道 F1 应收 / F2 应付 · 全线共用</text>
+    <text x="40" y="2288" fill="#111827" font-size="16" font-weight="700" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif">财务通道 F1 应收 / F2 应付 · 全线共用</text>
     <g class="src-tag" onclick="showSrc(event,'fin')" style="cursor:pointer">
-      <rect x="620" y="2172" width="96" height="20" rx="4" fill="#fafafa" stroke="#d1d5db" stroke-width="0.8"/>
-      <text x="668" y="2185" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">📎 会议材料 ▸</text>
+      <rect x="620" y="2272" width="96" height="20" rx="4" fill="#fafafa" stroke="#d1d5db" stroke-width="0.8"/>
+      <text x="668" y="2285" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">📎 会议材料 ▸</text>
     </g>
-    <text x="840" y="2204" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="end">按客户/供应商汇总 · 同一账单可部分核销</text>
-    <text x="40" y="2212" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">F1 · 应收（对客户）＋ 销售退货冲减（B1 回程 · G33）</text>
-    <line x1="180" y1="2248" x2="196" y2="2248" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
-    <line x1="336" y1="2248" x2="352" y2="2248" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
-    <line x1="492" y1="2248" x2="508" y2="2248" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
+    <text x="840" y="2304" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="end">按客户/供应商汇总 · 同一账单可部分核销</text>
+    <text x="40" y="2312" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">F1 · 应收（对客户）＋ 销售退货退款（我方退客户 · 回程② · G33）</text>
+    <line x1="180" y1="2348" x2="196" y2="2348" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
+    <line x1="336" y1="2348" x2="352" y2="2348" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
+    <line x1="492" y1="2348" x2="508" y2="2348" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
     <a href="财务协同/应收账单.html">
-      <rect x="40" y="2220" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
-      <text x="110" y="2245" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">应收账单</text>
-      <text x="110" y="2264" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">五类应收来源 · 含供应商应收/预收</text>
+      <rect x="40" y="2320" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
+      <text x="110" y="2345" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">应收账单</text>
+      <text x="110" y="2364" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">五类应收来源 · 含供应商应收/预收</text>
     </a>
     <a href="财务协同/开票登记.html">
-      <rect x="196" y="2220" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
-      <text x="266" y="2245" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">开票登记</text>
-      <text x="266" y="2264" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">发票登记 · 上传</text>
+      <rect x="196" y="2320" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
+      <text x="266" y="2345" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">开票登记</text>
+      <text x="266" y="2364" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">发票登记 · 上传</text>
     </a>
     <a href="财务协同/收款登记.html">
-      <rect x="352" y="2220" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
-      <text x="422" y="2245" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">收款登记</text>
-      <text x="422" y="2264" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">收款录入 · 待审核</text>
+      <rect x="352" y="2320" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
+      <text x="422" y="2345" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">收款登记</text>
+      <text x="422" y="2364" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">收款录入 · 待审核</text>
     </a>
     <a href="财务协同/银行回单核销.html">
-      <rect x="508" y="2220" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
-      <text x="578" y="2245" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">收款核销</text>
-      <text x="578" y="2264" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">银行回单勾对 · 部分/撤销</text>
+      <rect x="508" y="2320" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
+      <text x="578" y="2345" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">收款核销</text>
+      <text x="578" y="2364" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">银行回单勾对 · 部分/撤销</text>
     </a>
-    <text x="680" y="2252" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">来源 5 类：B1 销售费 · L1~L4 租赁费 · 丢损赔偿（对客户）·</text>
-    <text x="680" y="2266" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">供应商应收 · 预收款（保证金）</text>
-    <text x="40" y="2300" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">F2 · 应付（对供应商/客户）＋ 退款（已付退货 · B1 回程 · D-157）</text>
-    <line x1="180" y1="2336" x2="196" y2="2336" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
+    <text x="680" y="2352" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">来源 5 类：B1 销售费 · L1~L4 租赁费 · 丢损赔偿（对客户）·</text>
+    <text x="680" y="2366" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">供应商应收 · 预收款（保证金）</text>
+    <text x="40" y="2400" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">F2 · 应付（对供应商/客户）＋ 采购退货退款（供应商退我方 · 回程① · D-157）</text>
+    <line x1="180" y1="2436" x2="196" y2="2436" stroke="#4b5563" stroke-width="1" marker-end="url(#arr)"/>
     <a href="财务协同/应付账单.html">
-      <rect x="40" y="2308" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
-      <text x="110" y="2333" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">应付账单</text>
-      <text x="110" y="2352" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">五类应付来源 · 含对客户应付/预付</text>
+      <rect x="40" y="2408" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
+      <text x="110" y="2433" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">应付账单</text>
+      <text x="110" y="2452" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">五类应付来源 · 含对客户应付/预付</text>
     </a>
     <a href="财务协同/付款登记.html">
-      <rect x="196" y="2308" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
-      <text x="266" y="2333" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">付款登记</text>
-      <text x="266" y="2352" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">付款确认 · 待审核</text>
+      <rect x="196" y="2408" width="140" height="56" rx="6" fill="#ffffff" stroke="#111827" stroke-width="1"/>
+      <text x="266" y="2433" fill="#111827" font-size="12" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif" text-anchor="middle">付款登记</text>
+      <text x="266" y="2452" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace" text-anchor="middle">付款确认 · 待审核</text>
     </a>
-    <text x="368" y="2338" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">来源 5 类：采购应付 · 租金应付 · 赔付应付 · 对客户应付 · 预付款</text>
-    <text x="368" y="2354" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">付款确认 <a href="财务协同/付款确认.html" fill="#2563eb">弹窗独立打开</a> · 租金应付 L3/L4 已实现（按持有量计租 · 期段账单）</text>
+    <text x="368" y="2438" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">来源 5 类：采购应付 · 租金应付 · 赔付应付 · 对客户应付 · 预付款</text>
+    <text x="368" y="2454" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">付款确认 <a href="财务协同/付款确认.html" fill="#2563eb">弹窗独立打开</a> · 租金应付 L3/L4 已实现（按持有量计租 · 期段账单）</text>
 
-    <text x="40" y="2388" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">押金：租赁单现有押金字段；2026-09-14 拍板：收取记应收押金行、退租结清退还转对客户应付（走应收应付）；金额计价口径仍待客户确认</text>
-    <text x="40" y="2404" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">预收/预付：客户预付租金记预收按月冲抵；预付供应商租金记预付（09-06 补充）</text>
+    <text x="40" y="2488" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">押金：租赁单现有押金字段；2026-09-14 拍板：收取记应收押金行、退租结清退还转对客户应付（走应收应付）；金额计价口径仍待客户确认</text>
+    <text x="40" y="2504" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace">预收/预付：客户预付租金记预收按月冲抵；预付供应商租金记预付（09-06 补充）</text>
 
     <!-- 图例（底部横条） -->
-    <line x1="40" y1="2428" x2="840" y2="2428" stroke="rgba(17,24,39,0.10)" stroke-width="0.8"/>
-    <text x="40" y="2448" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace" letter-spacing="0.14em">图例</text>
-    <rect x="120" y="2438" width="16" height="12" rx="4" fill="#ffffff" stroke="#111827" stroke-width="1"/>
-    <text x="140" y="2448" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace">流程节点 · 点击直达</text>
-    <rect x="236" y="2438" width="16" height="12" rx="4" fill="rgba(37,99,235,0.08)" stroke="#2563eb" stroke-width="1"/>
-    <text x="256" y="2448" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace">枢纽页 · 库存查询</text>
-    <rect x="364" y="2438" width="16" height="12" rx="4" fill="rgba(75,85,99,0.10)" stroke="#4b5563" stroke-width="1"/>
-    <text x="384" y="2448" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace">入口 / 出口 / 交棒</text>
-    <rect x="494" y="2438" width="16" height="12" rx="4" fill="rgba(17,24,39,0.03)" stroke="rgba(17,24,39,0.30)" stroke-width="1"/>
-    <text x="514" y="2448" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace">资产分类 · 非页面</text>
-    <rect x="624" y="2438" width="16" height="12" rx="4" fill="rgba(17,24,39,0.02)" stroke="rgba(17,24,39,0.35)" stroke-width="1" stroke-dasharray="4,3"/>
-    <text x="644" y="2448" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace">BOM 自动计算 · 无库存</text>
-    <rect x="120" y="2454" width="16" height="12" rx="4" fill="rgba(17,24,39,0.02)" stroke="#d1d5db" stroke-width="0.8" stroke-dasharray="4,3"/>
-    <text x="140" y="2464" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace">决策备注</text>
-    <line x1="200" y1="2460" x2="216" y2="2460" stroke="#2563eb" stroke-width="1" stroke-dasharray="5,4" marker-end="url(#arr-blue)"/>
-    <text x="224" y="2464" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace">库存缓冲 · 非顺序衔接</text>
-    <line x1="340" y1="2460" x2="356" y2="2460" stroke="#4b5563" stroke-width="1" stroke-dasharray="5,4" marker-end="url(#arr)"/>
-    <text x="364" y="2464" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace">跨泳道交棒</text>
-    <text x="440" y="2464" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace">📎 = 会议依据弹窗</text>
+    <line x1="40" y1="2528" x2="840" y2="2528" stroke="rgba(17,24,39,0.10)" stroke-width="0.8"/>
+    <text x="40" y="2548" fill="#6b7280" font-size="8" font-family="Consolas,Monaco,monospace" letter-spacing="0.14em">图例</text>
+    <rect x="120" y="2538" width="16" height="12" rx="4" fill="#ffffff" stroke="#111827" stroke-width="1"/>
+    <text x="140" y="2548" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace">流程节点 · 点击直达</text>
+    <rect x="236" y="2538" width="16" height="12" rx="4" fill="rgba(37,99,235,0.08)" stroke="#2563eb" stroke-width="1"/>
+    <text x="256" y="2548" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace">枢纽页 · 库存查询</text>
+    <rect x="364" y="2538" width="16" height="12" rx="4" fill="rgba(75,85,99,0.10)" stroke="#4b5563" stroke-width="1"/>
+    <text x="384" y="2548" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace">入口 / 出口 / 交棒</text>
+    <rect x="494" y="2538" width="16" height="12" rx="4" fill="rgba(17,24,39,0.03)" stroke="rgba(17,24,39,0.30)" stroke-width="1"/>
+    <text x="514" y="2548" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace">资产分类 · 非页面</text>
+    <rect x="624" y="2538" width="16" height="12" rx="4" fill="rgba(17,24,39,0.02)" stroke="rgba(17,24,39,0.35)" stroke-width="1" stroke-dasharray="4,3"/>
+    <text x="644" y="2548" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace">BOM 自动计算 · 无库存</text>
+    <rect x="120" y="2554" width="16" height="12" rx="4" fill="rgba(17,24,39,0.02)" stroke="#d1d5db" stroke-width="0.8" stroke-dasharray="4,3"/>
+    <text x="140" y="2564" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace">决策备注</text>
+    <line x1="200" y1="2560" x2="216" y2="2560" stroke="#2563eb" stroke-width="1" stroke-dasharray="5,4" marker-end="url(#arr-blue)"/>
+    <text x="224" y="2564" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace">库存缓冲 · 非顺序衔接</text>
+    <line x1="340" y1="2560" x2="356" y2="2560" stroke="#4b5563" stroke-width="1" stroke-dasharray="5,4" marker-end="url(#arr)"/>
+    <text x="364" y="2564" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace">跨泳道交棒</text>
+    <text x="440" y="2564" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace">📎 = 会议依据弹窗</text>
     </svg>
 
 
@@ -724,7 +736,7 @@
     <text x="684" y="924" fill="#4b5563" font-size="8" font-family="Consolas,Monaco,monospace">⟷ = 双向联动（副标标注）</text>
   </svg>
 
-  <footer>P3-R01-F01 · v3.9 · 2026-09-20 · 汽车物流包装租赁 · 包装租赁管理后台原型 · 131 页（PC 126＋mobile 5）· 本图 49 个可点页面目标 / 7 条主线泳道（B1/L1/L2/L3/L4 全部第一期实现·L3/L4 为 2026-09-04 拍板升级·退租两事件=T1 客户退租＋T2 归还出库·泳道止于出库，退租及后续在 T1/T2）+ 7 条支线 S1-S7（转移出库自 L1–L4 抽离为独立支线 · 采购应付已并入 F2） · 全部流程化跳转 · 弹窗页面化后仅余 3 个确认类弹窗 · 单一管理端 · 订单唯一来源：项目经理代下销售订单（客户PO）· 演示建议：从 L1/L2 租赁线开始（库存查询「客户在租」下钻+租赁单退回进度为亮点），再走 B1 买卖线（更简单快速）· F02 演示流程图已归档，演示统一用本图 · v3.0（09-08 会议）：四模块移除·按 BOM 租赁出库/按零件入库·赔偿直建 4v4·分期互算·物料档案合并·客户虚拟仓/客户转租·六角色审核 · v3.1（09-09 修正）：租赁四线以库存为联系（与买卖线同构）·出库术语与菜单对齐（租赁出库）· v3.2（09-10 修正）：退租两事件模型·台账合并（租出台账→租赁单列表·在租台账→库存查询）·L4 组合去流程化·40→38 页 · v3.3（09-10 修正）：退租专项拆 T1/T2 两条编号流程（T1 客户退租止于回库交棒 T2 · T2 归还出库双入口）·6→7 条主线泳道 · v3.4（09-10 规则化样式统一）：文本 6 级规则·节点 6 类型·蓝底仅库存枢纽·BOM 节点虚线化·交棒 chip 统一收尾·补 T1→T2 跨泳道交棒虚线·决策备注统一虚线框 · v3.5（09-10 结构修正）：前 5 条业务线改双线制——补给线（采购/租入→入库→库存）与业务线（单据→出库→交棒）不串行 · v3.6（09-11 支线核验修正）：S5 重复节点修正+补退租入库新建/归还出库新建两入口 · S1 五态命名对齐原型 · S3 角色管理改链独立页 · 应收应付来源改 5 类，库存到出库改蓝色虚线「按可用量·非顺序衔接」· 财务通道 F1/F2 去来源聚合框、统一为标签行+标准节点链 · 徽章统一「第一期实现」 · v3.7（09-16 转移出库与计租口径同步）：L1/L3 各补「转移出库」节点＋补给线右侧跨线注记「L1–L4 通用」（四点＝不勾稽原单 D-106／按租出结算＝默认·不进财务链路／按终端结算＝特例·账单主体切终端·历史不回改／终止转移＝回「在客户（租出）」）· 计费文案改「按持有量计租＋期段账单（起租日｜止租日｜天数｜日单价｜小计）」· 状态驱动方 2 处改「转移单审核驱动」 · 虚拟仓注记改「客户虚拟仓不维护」（D-145）· 附 Mermaid 源数据（页尾折叠） · v3.8（09-16 转移出库抽离）：L1/L3 泳道内「转移出库」节点与跨线注记框全部撤除——转移出库每个租赁流程均可能出现，抽离为独立支线 S7（L1–L4 通用）承载页面节点链＋状态流＋结算两模式＋四点注记，主线 L1–L4 不再出现转移出库 · Mermaid 源同步 · v3.9（09-20 直发与退货对齐）：L3 补背靠背直发分叉（租入单直发→系统自动租入入库入直发虚拟仓 XNC-ZF→系统自动租赁出库·不经库存实体节点·D-167）＋T1/T2 退租归还链虚拟仓口径注记＋B1 补采购/销售退货回程（两守卫·D-157·采购侧条件链＋销售侧独立·两条回程）＋F2 补退款·F1 补冲减＋页数/弹窗口径刷新（131 页·弹窗余 3）·Mermaid 源同步</footer>
+  <footer>P3-R01-F01 · v3.9 · 2026-09-20 · 汽车物流包装租赁 · 包装租赁管理后台原型 · 131 页（PC 126＋mobile 5）· 本图 49 个可点页面目标 / 7 条主线泳道（B1/L1/L2/L3/L4 全部第一期实现·L3/L4 为 2026-09-04 拍板升级·退租两事件=T1 客户退租＋T2 归还出库·泳道止于出库，退租及后续在 T1/T2）+ 7 条支线 S1-S7（转移出库自 L1–L4 抽离为独立支线 · 采购应付已并入 F2） · 全部流程化跳转 · 弹窗页面化后仅余 3 个确认类弹窗 · 单一管理端 · 订单唯一来源：项目经理代下销售订单（客户PO）· 演示建议：从 L1/L2 租赁线开始（库存查询「客户在租」下钻+租赁单退回进度为亮点），再走 B1 买卖线（更简单快速）· F02 演示流程图已归档，演示统一用本图 · v3.0（09-08 会议）：四模块移除·按 BOM 租赁出库/按零件入库·赔偿直建 4v4·分期互算·物料档案合并·客户虚拟仓/客户转租·六角色审核 · v3.1（09-09 修正）：租赁四线以库存为联系（与买卖线同构）·出库术语与菜单对齐（租赁出库）· v3.2（09-10 修正）：退租两事件模型·台账合并（租出台账→租赁单列表·在租台账→库存查询）·L4 组合去流程化·40→38 页 · v3.3（09-10 修正）：退租专项拆 T1/T2 两条编号流程（T1 客户退租止于回库交棒 T2 · T2 归还出库双入口）·6→7 条主线泳道 · v3.4（09-10 规则化样式统一）：文本 6 级规则·节点 6 类型·蓝底仅库存枢纽·BOM 节点虚线化·交棒 chip 统一收尾·补 T1→T2 跨泳道交棒虚线·决策备注统一虚线框 · v3.5（09-10 结构修正）：前 5 条业务线改双线制——补给线（采购/租入→入库→库存）与业务线（单据→出库→交棒）不串行 · v3.6（09-11 支线核验修正）：S5 重复节点修正+补退租入库新建/归还出库新建两入口 · S1 五态命名对齐原型 · S3 角色管理改链独立页 · 应收应付来源改 5 类，库存到出库改蓝色虚线「按可用量·非顺序衔接」· 财务通道 F1/F2 去来源聚合框、统一为标签行+标准节点链 · 徽章统一「第一期实现」 · v3.7（09-16 转移出库与计租口径同步）：L1/L3 各补「转移出库」节点＋补给线右侧跨线注记「L1–L4 通用」（四点＝不勾稽原单 D-106／按租出结算＝默认·不进财务链路／按终端结算＝特例·账单主体切终端·历史不回改／终止转移＝回「在客户（租出）」）· 计费文案改「按持有量计租＋期段账单（起租日｜止租日｜天数｜日单价｜小计）」· 状态驱动方 2 处改「转移单审核驱动」 · 虚拟仓注记改「客户虚拟仓不维护」（D-145）· 附 Mermaid 源数据（页尾折叠） · v3.8（09-16 转移出库抽离）：L1/L3 泳道内「转移出库」节点与跨线注记框全部撤除——转移出库每个租赁流程均可能出现，抽离为独立支线 S7（L1–L4 通用）承载页面节点链＋状态流＋结算两模式＋四点注记，主线 L1–L4 不再出现转移出库 · Mermaid 源同步 · v3.9（09-20 直发与退货对齐）：L3 补背靠背直发分叉（租入单直发→系统自动租入入库入直发虚拟仓 XNC-ZF→系统自动租赁出库·不经库存实体节点·D-167）＋T1/T2 退租归还链虚拟仓口径注记＋B1 补采购/销售退货回程两行两链（①采购侧：采购退货单→已付条件→退款登记⇢F2·两守卫 D-157 ②销售侧：销售退货单→审核后→退款登记⇢F1·我方退客户＋未收冲减应收 G33）＋F2/F1 标签同步·F1 补冲减＋页数/弹窗口径刷新（131 页·弹窗余 3）·Mermaid 源同步</footer>
 
   <!-- ============ Mermaid 源数据（信息记录 · 默认折叠 · 页面不渲染） ============ -->
   <details class="src-mermaid">
@@ -734,8 +746,8 @@
     B1a[采购订单] --> B1b[采购入库] --> B1c[(库存)]
     B1d[销售订单] --> B1e[销售出库] --> B1f[应收账单 ⇢ F1]
     B1c -. 按可用量·非顺序 .-> B1e
-    B1g[采购退货单·D-157 两守卫] -->|已付·条件| B1h[退款单 ⇢ F2]
-    B1i[销售退货单 ⇢ 冲减应收 F1·G33·独立回程]
+    B1g[采购退货单·D-157 两守卫] -->|已付·条件| B1h[退款登记 ⇢ F2·供应商退我方]
+    B1i[销售退货单·收货拒收/入库后退货] -->|审核后·客户已付| B1i2[退款登记 ⇢ F1·我方退客户]
   end
   subgraph L1["L1 · 单一出租"]
     L1a[采购订单] --> L1b[采购入库] --> L1c[(库存·自有)]
@@ -798,7 +810,7 @@ var SRC_DATA = {
     ['v3.0 · 2026-09-08 会议拍板','组装/拆卸/退租申请/丢损赔偿单四模块移除——库存结果导向（出库按 BOM 组合扣减·退租按零件入库·赔偿直接建应收/应付）；财务应收应付各 4 来源；器具+零部件合并物料档案；客商去供应商；六角色审核；客户虚拟仓（on-hire）与客户转租最简化'],
     ['同上 · 道远 3:49（王琳总确认）','"这个退租入库给它拆出来……主要复杂就在于要退租"——各租赁线退租独立成段；v2.9 泳道内压缩为「退租」占位节点，完整四链路见 T1 专项'],
     ['D-157 · 2026-09-18 采购退货两守卫（道远拍板）','入库前已付款→退货退款（退款额≤应付已付额·退款登记提交时校验）；入库前未付款→不立退款单（拒收未入库不挂账自终结／入库后退货冲减在途应付）；应付生成口径＝验收通过的实际入库数量'],
-    ['G33 · 2026-09-15 销售退货与退款闭环（D-123 方案 B）','采购退货单/销售退货单/退款登记三组页面落地；销售退货→应收冲减；退款类型 TKL 4 值（G42 扩：采购退货退款/销售退货退款/预收退回/多付退回）'],
+    ['G33 · 2026-09-15 销售退货与退款闭环（D-123 方案 B）','采购退货单/销售退货单/退款登记三组页面落地；销售退货→应收退款（客户·我方付款·审核后登记）＋未收部分冲减应收（负数行）；退款类型 TKL 4 值（G42 扩：采购退货退款/销售退货退款/预收退回/多付退回）'],
   ]},
   l1: {head:'L1 · 单一出租 · 会议依据', items:[
     ['第2次沟通 [会后补充] · 袁丽晶','"采购A，出租A"'],
@@ -838,7 +850,7 @@ var SRC_DATA = {
   fin: {head:'财务通道 F1 应收 / F2 应付 · 会议依据', items:[
     ['第2次沟通 [音频转写] · 袁丽晶 43:24','"不管是租赁一单还是销售单，是可以完全绑定起来的。我从销售单/租赁单里面去申请开票对账，同步到财务，财务做开票、发票上传，再是客户回款、水单核销、收款核销"'],
     ['第2次沟通 [会后补充] · 袁丽晶','"不管买卖类还是租赁类，后期对账结算，可以同步到财务模块"——v2.9 通道节点化：应收/应付双行具体流程'],
-    ['D-157 / G33 · 退货退款通道（v3.9 补）','F2 ＋退款（已付退货·退款登记）；F1 ＋销售退货冲减——回程链路见 B1 泳道第三行「退货回程线」'],
+    ['D-157 / G33 · 退货退款通道（v3.9 补）','B1 两条退货回程线各自链到退款登记（一页双向）：①采购侧已付条件（供应商退我方⇢F2·D-157）②销售侧审核后登记（我方退客户·应收侧⇢F1·G33·未收部分冲减应收）'],
   ]},
 };
 function showSrc(ev, id){
