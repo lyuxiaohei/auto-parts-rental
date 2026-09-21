@@ -1,0 +1,154 @@
+{
+ "schema_version": 1,
+ "diagram_type": "lifecycle",
+ "meta": {
+  "title": "状态机 · 库存状态五态（D-145 / D-146）",
+  "quality_profile": "showcase",
+  "viewBox": [
+   1000,
+   660
+  ],
+  "views": [
+   {
+    "id": "rail",
+    "label": "主轨三段",
+    "focus": [
+     "kc",
+     "kz",
+     "kt",
+     "krq"
+    ],
+    "note": "在库 → 在客户（租出）→ 退租在途 → 租入在库 · 全部为真实迁移"
+   },
+   {
+    "id": "zz",
+    "label": "转租支线",
+    "focus": [
+     "kz",
+     "kzz"
+    ],
+    "note": "转移出库审核驱动进入 · 终止转移回退（D-146）"
+   },
+   {
+    "id": "out",
+    "label": "归还出口",
+    "focus": [
+     "krq",
+     "gh"
+    ],
+    "note": "租入在库 → 归还出库（T2）→ 出系统归还供应商"
+   }
+  ]
+ },
+ "lanes": [
+  {
+   "id": "main",
+   "label": "主轨 · 自有资产链"
+  },
+  {
+   "id": "zz",
+   "label": "转租支线 · 中断与恢复"
+  },
+  {
+   "id": "term",
+   "label": "终态 · 出系统"
+  }
+ ],
+ "states": [
+  {
+   "id": "kc",
+   "type": "start",
+   "label": "在库",
+   "sublabel": "自有 · 可出租",
+   "lane": "main",
+   "col": 0,
+   "step": "01"
+  },
+  {
+   "id": "kz",
+   "type": "active",
+   "label": "在客户（租出）",
+   "sublabel": "租赁出库审核后",
+   "lane": "main",
+   "col": 1,
+   "step": "02"
+  },
+  {
+   "id": "kt",
+   "type": "waiting",
+   "label": "退租在途",
+   "sublabel": "客户退回 · 待验收",
+   "lane": "main",
+   "col": 2,
+   "step": "03"
+  },
+  {
+   "id": "krq",
+   "type": "active",
+   "label": "租入在库",
+   "sublabel": "在库未转租 · 待归还",
+   "lane": "main",
+   "col": 3,
+   "step": "04"
+  },
+  {
+   "id": "kzz",
+   "type": "active",
+   "label": "客户转租出",
+   "sublabel": "转移单审核驱动",
+   "lane": "zz",
+   "col": 1
+  },
+  {
+   "id": "gh",
+   "type": "success",
+   "label": "已归还供应商",
+   "sublabel": "归还出库 · 出系统",
+   "lane": "term",
+   "col": 0
+  }
+ ],
+ "transitions": [
+  {
+   "id": "t-zz-in",
+   "from": "kz",
+   "to": "kzz",
+   "label": "转移出库审核（D-146）",
+   "variant": "dashed",
+   "fromSide": "bottom",
+   "toSide": "top",
+   "route": "drop"
+  },
+  {
+   "id": "t-zz-out",
+   "from": "kzz",
+   "to": "kz",
+   "label": "终止转移 · 回退",
+   "variant": "dashed",
+   "fromSide": "bottom",
+   "toSide": "bottom",
+   "route": "bottom-channel"
+  }
+ ],
+ "cards": [
+  {
+   "dot": "cyan",
+   "title": "五态口径",
+   "items": [
+    "在库 / 在客户（租出）/ 客户转租出 / 退租在途 / 租入在库",
+    "「客户转租出」由转移出库单审核驱动 · 「终止转移」回「在客户（租出）」（D-146）",
+    "在途＝应入库未入库（退租待入库 / 采购到货 / 租入到货）",
+    "租入＝在库未转租 · 转租后计入客户态 · 客户虚拟仓不维护（D-145）"
+   ]
+  },
+  {
+   "dot": "emerald",
+   "title": "出入系统口",
+   "items": [
+    "入库来源 4 种：采购入库（采购订单）｜租入入库（租入单）｜退租入库（客户退回直接录入）｜其他入库（手工例外）",
+    "租入在库 → 归还出库（T2）后出系统归还供应商 · 背靠背 GHCK 由系统自动生成",
+    "自有退租拆散＝按零件入库（L2/L4）· 是否拆散＝记录粒度非流程分支"
+   ]
+  }
+ ]
+}

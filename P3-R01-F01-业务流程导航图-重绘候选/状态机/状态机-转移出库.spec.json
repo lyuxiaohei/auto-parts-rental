@@ -1,0 +1,144 @@
+{
+ "schema_version": 1,
+ "diagram_type": "lifecycle",
+ "meta": {
+  "title": "状态机 · 转移出库（D-146）",
+  "quality_profile": "showcase",
+  "viewBox": [
+   1000,
+   620
+  ],
+  "views": [
+   {
+    "id": "doc",
+    "label": "单据三态",
+    "focus": [
+     "ph1",
+     "ph2",
+     "ph3"
+    ],
+    "note": "审核驱动已转移 · 终止转移出已终止（D-146）"
+   },
+   {
+    "id": "inv",
+    "label": "库存态联动",
+    "focus": [
+     "ph2",
+     "k1",
+     "k2",
+     "ph3"
+    ],
+    "note": "已转移→客户转租出 · 已终止→回在客户（租出）"
+   }
+  ]
+ },
+ "lanes": [
+  {
+   "id": "main",
+   "label": "单据状态"
+  },
+  {
+   "id": "inv",
+   "label": "库存状态联动"
+  },
+  {
+   "id": "term",
+   "label": "终态"
+  }
+ ],
+ "states": [
+  {
+   "id": "ph1",
+   "type": "start",
+   "label": "待审核",
+   "sublabel": "转移出库单 · 待办",
+   "lane": "main",
+   "col": 0,
+   "step": "01"
+  },
+  {
+   "id": "ph2",
+   "type": "success",
+   "label": "已转移",
+   "sublabel": "转移单审核驱动",
+   "lane": "main",
+   "col": 1,
+   "step": "02"
+  },
+  {
+   "id": "k1",
+   "type": "waiting",
+   "label": "在客户（租出）",
+   "sublabel": "转移前库存态",
+   "lane": "inv",
+   "col": 0
+  },
+  {
+   "id": "k2",
+   "type": "waiting",
+   "label": "客户转租出",
+   "sublabel": "转移后库存态",
+   "lane": "inv",
+   "col": 1
+  },
+  {
+   "id": "ph3",
+   "type": "failure",
+   "label": "已终止",
+   "sublabel": "终止转移",
+   "lane": "term",
+   "col": 2
+  }
+ ],
+ "transitions": [
+  {
+   "id": "t-term",
+   "from": "ph2",
+   "to": "ph3",
+   "label": "终止转移",
+   "variant": "security",
+   "fromSide": "right",
+   "toSide": "right",
+   "route": "right-channel"
+  },
+  {
+   "id": "t-inv1",
+   "from": "ph2",
+   "to": "k2",
+   "label": "审核驱动",
+   "variant": "dashed",
+   "fromSide": "bottom",
+   "toSide": "top",
+   "route": "drop"
+  },
+  {
+   "id": "t-inv2",
+   "from": "ph3",
+   "to": "k1",
+   "label": "终止回退",
+   "variant": "dashed",
+   "fromSide": "bottom",
+   "toSide": "bottom",
+   "route": "bottom-channel"
+  }
+ ],
+ "cards": [
+  {
+   "dot": "violet",
+   "title": "结算两模式（D-132）",
+   "items": [
+    "按租出＝默认 · 转移单不进财务链路",
+    "按终端＝特例 · 账单主体切终端 · 历史不回改"
+   ]
+  },
+  {
+   "dot": "cyan",
+   "title": "口径",
+   "items": [
+    "不勾稽原租赁单（D-106）· 只记转出方 → 接收方",
+    "客户虚拟仓不维护（D-145）· 计租不因转移改变（按持有量 · 期段账单）",
+    "来源＝L1–L4 任一租赁流程 · 租赁出库后 · 分批非必经"
+   ]
+  }
+ ]
+}

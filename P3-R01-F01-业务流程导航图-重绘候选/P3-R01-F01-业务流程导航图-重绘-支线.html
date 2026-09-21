@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark" data-preset="classic">
+<html lang="en" data-theme="light" data-preset="classic">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,7 +25,7 @@
           try { theme = localStorage.getItem('archify-theme'); } catch (_) {}
         }
         if (theme !== 'light' && theme !== 'dark') {
-          theme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+          theme = 'light';
         }
         document.documentElement.setAttribute('data-theme', theme);
       } catch (_) {}
@@ -5245,16 +5245,16 @@
           <text data-detail="context" x="88" y="1123" class="t-muted" font-size="8" text-anchor="middle">聚合速滤</text>
         </g>
 
-        <g id="node-au" data-node-id="au" data-node-label="审核弹窗" tabindex="0" role="button" aria-label="Focus 审核弹窗, 15 类单据, S6 审核与待办 › 处理 · 审核" aria-pressed="false" data-node-kind="security" data-node-sublabel="15 类单据" data-node-context="S6 审核与待办 › 处理 · 审核">
-          <title>审核弹窗 · 15 类单据 · S6 审核与待办 › 处理 · 审核</title>
+        <g id="node-au" data-node-id="au" data-node-label="单据审核" tabindex="0" role="button" aria-label="Focus 单据审核, 20 类 · 通过/驳回, S6 审核与待办 › 处理 · 审核" aria-pressed="false" data-node-kind="security" data-node-sublabel="20 类 · 通过/驳回" data-node-context="S6 审核与待办 › 处理 · 审核">
+          <title>单据审核 · 20 类 · 通过/驳回 · S6 审核与待办 › 处理 · 审核</title>
           <rect x="256" y="1085" width="88" height="52" rx="6" class="c-mask"/>
           <rect x="256" y="1085" width="88" height="52" rx="6" class="c-security" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="security" class="semantic-sigil s-security" transform="translate(262 1091) scale(0.6875)">
             <path d="M8 2.2 13 4v3.5c0 3.1-1.8 5.4-5 6.5-3.2-1.1-5-3.4-5-6.5V4Z"/>
             <path d="m5.8 8 1.5 1.5 3-3"/>
           </g>
-          <text data-detail-anchor x="300" y="1106" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">审核弹窗</text>
-          <text data-detail="context" x="300" y="1123" class="t-muted" font-size="8" text-anchor="middle">15 类单据</text>
+          <text data-detail-anchor x="300" y="1106" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">单据审核</text>
+          <text data-detail="context" x="300" y="1123" class="t-muted" font-size="7.8" text-anchor="middle">20 类 · 通过/驳回</text>
         </g>
 
         <g id="node-st" data-node-id="st" data-node-label="状态流转" tabindex="0" role="button" aria-label="Focus 状态流转, 状态推进, S6 审核与待办 › 处理 · 审核" aria-pressed="false" data-node-kind="backend" data-node-sublabel="状态推进" data-node-context="S6 审核与待办 › 处理 · 审核">
@@ -5578,9 +5578,10 @@
           <h3>录单与审核 S5/S6</h3>
         </div>
         <ul>
-          <li>&bull; 录单页由列表页「新增/录入」进入 · 15 类单据统一进待办</li>
+          <li>&bull; 录单页由列表页「新增/录入」进入 · 20 类单据统一进待办（含退货/退款/转移）</li>
           <li>&bull; 状态流范本＝销售订单（待审核/已审核/待发货/已完成/已关闭）</li>
           <li>&bull; S2 上下游绑定见项目详情 · 角色权限矩阵有独立页（S3）</li>
+          <li>&bull; 归还出库由「租入归还」全站更名而来（D-159）· 页面与键名同步更换</li>
         </ul>
       </div>
     </div>
@@ -5754,7 +5755,7 @@
         if (fromUrl) return fromUrl;
         var saved = readStored();
         if (saved === 'light' || saved === 'dark') return saved;
-        return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        return 'light';
       }
 
       function apply(theme) {
@@ -5778,7 +5779,7 @@
         var onChange = function (e) {
           var saved = readStored();
           if (urlOverride() || saved === 'light' || saved === 'dark') return;
-          apply(e.matches ? 'light' : 'dark');
+          apply('light');
         };
         if (media.addEventListener) media.addEventListener('change', onChange);
         else if (media.addListener) media.addListener(onChange);
@@ -13973,12 +13974,11 @@
   </script>
 
 <script id="f01-nav-links">
-/* 交付后追加的节点→页面跳转层（archify 原生不含外链）。
-   用文档级事件委托 + MutationObserver，查看器运行时重建 DOM 后依然有效。 */
+/* 交付后追加的节点→页面跳转层（archify 原生不含外链）· v3.9 同步版。
+   文档级事件委托 + MutationObserver，查看器运行时重建 DOM 后依然有效。 */
 (function () {
   if (window.__f01NavLinks) return; window.__f01NavLinks = true;
-  var MAP = {"sq": "../仓储作业/库存查询.html", "pd": "../仓储作业/盘点列表.html", "pr": "../仓储作业/盘点录入.html", "db": "../仓储作业/库存调拨列表.html", "oi": "../仓储作业/其他入库列表.html", "oo": "../仓储作业/其他出库列表.html", "rp": "../租赁管理/退租入库列表.html", "kb": "../首页/项目看板.html", "da": "../项目管理/项目档案.html", "dd": "../项目管理/项目详情.html", "fb": "../财务协同/损益报表.html", "up": "../系统管理/用户权限.html", "dc": "../系统管理/数据字典.html", "ol3": "../系统管理/操作日志.html", "ga": "../财务协同/应付账单.html", "ar4": "../财务协同/应收账单.html", "ap4": "../财务协同/应付账单.html", "pi5": "../采购管理/采购入库录单.html", "po5": "../租赁管理/租赁出库录单.html", "ti5": "../租赁管理/退租入库新建.html", "bm5": "../基础数据/BOM维护.html", "tp5": "../租赁管理/租赁单列表.html", "rh5": "../租入管理/归还出库新建.html", "td": "../我的待办.html", "au": "../采购管理/采购入库审核.html", "st": "../销售管理/销售订单列表.html", "ol2": "../系统管理/操作日志.html", "tl": "../租赁管理/转移出库列表.html", "tn": "../租赁管理/转移出库新建.html", "tdt": "../租赁管理/转移出库单详情.html"};
-  var STYLE_ID = 'f01-nav-links-style';
+  var MAP = {"sq": "P3-R01-包装租赁管理后台原型/仓储作业/库存查询.html", "pd": "P3-R01-包装租赁管理后台原型/仓储作业/盘点列表.html", "pr": "P3-R01-包装租赁管理后台原型/仓储作业/盘点录入.html", "db": "P3-R01-包装租赁管理后台原型/仓储作业/库存调拨列表.html", "oi": "P3-R01-包装租赁管理后台原型/仓储作业/其他入库列表.html", "oo": "P3-R01-包装租赁管理后台原型/仓储作业/其他出库列表.html", "rp": "P3-R01-包装租赁管理后台原型/租赁管理/退租入库列表.html", "kb": "P3-R01-包装租赁管理后台原型/首页/项目看板.html", "da": "P3-R01-包装租赁管理后台原型/项目管理/项目档案.html", "dd": "P3-R01-包装租赁管理后台原型/项目管理/项目详情.html", "fb": "P3-R01-包装租赁管理后台原型/财务协同/损益报表.html", "up": "P3-R01-包装租赁管理后台原型/系统管理/用户权限.html", "dc": "P3-R01-包装租赁管理后台原型/系统管理/数据字典.html", "ol3": "P3-R01-包装租赁管理后台原型/系统管理/操作日志.html", "ga": "P3-R01-包装租赁管理后台原型/财务协同/应付账单.html", "ar4": "P3-R01-包装租赁管理后台原型/财务协同/应收账单.html", "ap4": "P3-R01-包装租赁管理后台原型/财务协同/应付账单.html", "pi5": "P3-R01-包装租赁管理后台原型/采购管理/采购入库录单.html", "po5": "P3-R01-包装租赁管理后台原型/租赁管理/租赁出库录单.html", "ti5": "P3-R01-包装租赁管理后台原型/租赁管理/退租入库新建.html", "bm5": "P3-R01-包装租赁管理后台原型/基础数据/BOM维护.html", "tp5": "P3-R01-包装租赁管理后台原型/租赁管理/租赁单列表.html", "rh5": "P3-R01-包装租赁管理后台原型/租入管理/归还出库新建.html", "td": "P3-R01-包装租赁管理后台原型/我的待办.html", "au": "P3-R01-包装租赁管理后台原型/采购管理/采购入库审核.html", "st": "P3-R01-包装租赁管理后台原型/销售管理/销售订单列表.html", "ol2": "P3-R01-包装租赁管理后台原型/系统管理/操作日志.html", "tl": "P3-R01-包装租赁管理后台原型/租赁管理/转移出库列表.html", "tn": "P3-R01-包装租赁管理后台原型/租赁管理/转移出库新建.html", "tdt": "P3-R01-包装租赁管理后台原型/租赁管理/转移出库单详情.html"};
   function decorate(root) {
     var n = 0;
     root.querySelectorAll('[data-node-id]').forEach(function (el) {
@@ -13991,9 +13991,9 @@
     });
     return n;
   }
-  var st = document.getElementById(STYLE_ID) || document.createElement('style');
-  st.id = STYLE_ID;
-  st.textContent = '.f01-nav-node:hover{filter:brightness(1.15)}';
+  var st = document.getElementById('f01-nav-links-style') || document.createElement('style');
+  st.id = 'f01-nav-links-style';
+  st.textContent = '.f01-nav-node:hover{filter:brightness(1.12)}';
   document.head.appendChild(st);
   var total = decorate(document);
   document.addEventListener('click', function (ev) {
@@ -14010,7 +14010,7 @@
   mo.observe(document.documentElement, { childList: true, subtree: true });
   var bar = document.createElement('div');
   bar.id = 'f01-nav-badge';
-  bar.textContent = '重绘导航版 · 节点点击直达原型页（archify 校验产物 ＋ 追加跳转层 · 共 ' + total + ' 个可点节点）';
+  bar.textContent = '重绘导航版 v3.9 同步 · 节点点击直达原型页（archify 校验产物 ＋ 追加跳转层 · 共 ' + total + ' 个可点节点）';
   bar.style.cssText = 'position:fixed;left:12px;bottom:12px;z-index:2147483647;';
   bar.style.font = '11px/1.6 "Microsoft YaHei",sans-serif';
   bar.style.color = '#4b5563';
@@ -14020,6 +14020,54 @@
   bar.style.padding = '4px 10px';
   bar.style.pointerEvents = 'none';
   (document.body || document.documentElement).appendChild(bar);
+})();
+</script>
+<script id="f01-nav-menu">
+/* 图页互跳导航（左下角 · 点开菜单 · 当前页置灰） */
+(function () {
+  if (window.__f01NavMenu) return; window.__f01NavMenu = true;
+  var ITEMS = [{"t": "主线 · B1＋L1–L4", "h": "P3-R01-F01-业务流程导航图-重绘-主线.html", "cur": false}, {"t": "退租归还与财务 · T1/T2＋F1/F2", "h": "P3-R01-F01-业务流程导航图-重绘-退租归还与财务.html", "cur": false}, {"t": "支线 · S1–S7", "h": "P3-R01-F01-业务流程导航图-重绘-支线.html", "cur": true}, {"t": "状态机 · 转移出库", "h": "状态机/状态机-转移出库.html", "cur": false}, {"t": "状态机 · 销售订单", "h": "状态机/状态机-销售订单.html", "cur": false}, {"t": "状态机 · 库存五态", "h": "状态机/状态机-库存五态.html", "cur": false}, {"t": "原版 F01 对照（v3.9）", "h": "../P3-R01-包装租赁管理后台原型/P3-R01-F01-业务流程导航图.html", "cur": false}];
+  var b = document.getElementById('f01-nav-badge'); if (b) b.remove();
+  var wrap = document.createElement('div'); wrap.id = 'f01-nav-menu';
+  wrap.style.cssText = 'position:fixed;right:12px;bottom:12px;z-index:2147483647;';
+  var btn = document.createElement('div'); btn.textContent = '导航';
+  btn.style.cssText = 'display:inline-block;cursor:pointer;user-select:none;';
+  btn.style.font = '11px/1.6 "Microsoft YaHei",sans-serif'; btn.style.color = '#0f172a';
+  btn.style.background = 'rgba(255,255,255,.95)'; btn.style.border = '1px solid #0284c7';
+  btn.style.borderRadius = '6px'; btn.style.padding = '4px 10px'; btn.style.fontWeight = '600';
+  var list = document.createElement('div');
+  list.style.cssText = 'display:none;position:absolute;right:0;bottom:calc(100% + 6px);min-width:300px;';
+  list.style.background = '#fff'; list.style.border = '1px solid #dbe2ea'; list.style.borderRadius = '8px';
+  list.style.boxShadow = '0 10px 30px rgba(15,23,42,.14)'; list.style.padding = '6px';
+  var cap = document.createElement('div');
+  cap.textContent = '重绘候选 · v3.9 同步';
+  cap.style.cssText = 'font:600 10px/1 "Microsoft YaHei",sans-serif;color:#94a3b8;letter-spacing:.08em;padding:6px 10px 4px;';
+  list.appendChild(cap);
+  ITEMS.forEach(function (it) {
+    if (it.cur) {
+      var d = document.createElement('div'); d.textContent = '● ' + it.t + '（当前）';
+      d.style.cssText = 'padding:6px 10px;font:11px/1.5 "Microsoft YaHei",sans-serif;color:#94a3b8;';
+      list.appendChild(d);
+    } else {
+      var a = document.createElement('a'); a.href = it.h; a.textContent = it.t;
+      a.style.cssText = 'display:block;padding:6px 10px;font:11px/1.5 "Microsoft YaHei",sans-serif;color:#0f172a;text-decoration:none;border-radius:5px;';
+      a.onmouseenter = function(){ a.style.background = '#f1f5f9'; };
+      a.onmouseleave = function(){ a.style.background = 'transparent'; };
+      list.appendChild(a);
+    }
+  });
+  var sep = document.createElement('div');
+  sep.style.cssText = 'border-top:1px dashed #dbe2ea;margin:4px 6px;';
+  list.insertBefore(sep, list.lastChild.nextSibling);
+  btn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    list.style.display = (list.style.display === 'none') ? 'block' : 'none';
+  });
+  document.addEventListener('click', function (e) {
+    if (!wrap.contains(e.target)) list.style.display = 'none';
+  });
+  wrap.appendChild(btn); wrap.appendChild(list);
+  (document.body || document.documentElement).appendChild(wrap);
 })();
 </script>
 </body>

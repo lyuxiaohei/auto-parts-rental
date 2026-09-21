@@ -1,0 +1,120 @@
+{
+ "schema_version": 1,
+ "diagram_type": "lifecycle",
+ "meta": {
+  "title": "状态机 · 销售订单（全站状态流范本）",
+  "quality_profile": "showcase",
+  "viewBox": [
+   1000,
+   600
+  ],
+  "views": [
+   {
+    "id": "rail",
+    "label": "主状态流",
+    "focus": [
+     "s1",
+     "s2",
+     "s3",
+     "s4"
+    ],
+    "note": "demo 实测四态 · 已关闭为终态出口"
+   },
+   {
+    "id": "close",
+    "label": "关闭出口",
+    "focus": [
+     "s3",
+     "s5"
+    ],
+    "note": "关闭入口见待发货行操作（demo 证据）"
+   }
+  ]
+ },
+ "lanes": [
+  {
+   "id": "main",
+   "label": "订单状态"
+  },
+  {
+   "id": "term",
+   "label": "终态"
+  }
+ ],
+ "states": [
+  {
+   "id": "s1",
+   "type": "start",
+   "label": "待审核",
+   "sublabel": "客户PO · 代下单",
+   "lane": "main",
+   "col": 0,
+   "step": "01"
+  },
+  {
+   "id": "s2",
+   "type": "active",
+   "label": "已审核",
+   "sublabel": "审核通过",
+   "lane": "main",
+   "col": 1,
+   "step": "02"
+  },
+  {
+   "id": "s3",
+   "type": "active",
+   "label": "待发货",
+   "sublabel": "按可用量排程",
+   "lane": "main",
+   "col": 2,
+   "step": "03"
+  },
+  {
+   "id": "s4",
+   "type": "success",
+   "label": "已完成",
+   "sublabel": "出库完成",
+   "lane": "main",
+   "col": 3,
+   "step": "04"
+  },
+  {
+   "id": "s5",
+   "type": "failure",
+   "label": "已关闭",
+   "sublabel": "手动关闭",
+   "lane": "term",
+   "col": 1
+  }
+ ],
+ "transitions": [
+  {
+   "id": "t-close",
+   "from": "s3",
+   "to": "s5",
+   "label": "关闭",
+   "variant": "security",
+   "fromSide": "bottom",
+   "toSide": "top",
+   "route": "drop"
+  }
+ ],
+ "cards": [
+  {
+   "dot": "cyan",
+   "title": "来源与演示",
+   "items": [
+    "订单唯一来源＝项目经理代下（客户PO）· 客户自助下单为演示例外",
+    "先采后销场景：采购在途不影响订单状态推进"
+   ]
+  },
+  {
+   "dot": "amber",
+   "title": "口径说明",
+   "items": [
+    "四态为 demo-data 实测值 · 已关闭来自列表行「关闭」操作（待发货行）",
+    "该五态为全站单据状态流范本（S6）· 其余单据照此对齐"
+   ]
+  }
+ ]
+}

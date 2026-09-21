@@ -6,7 +6,7 @@
   "quality_profile": "showcase",
   "viewBox": [
    1000,
-   1860
+   1520
   ],
   "legend": {
    "mode": "auto",
@@ -32,14 +32,9 @@
      "b1inv",
      "b1so",
      "b1sh",
-     "b1ar",
-     "b1ap",
-     "b1rtd",
-     "b1rtr",
-     "b1std",
-     "b1str"
+     "b1ar"
     ],
-    "note": "一进一出 · 两条独立线不以销定采 · 验收立应付 · 两条退货回程（采购已付条件／销售审核后）"
+    "note": "一进一出 · 采购/销售两条独立线 · 库存缓冲 · 不以销定采（09-04 王琳总拍板）"
    },
    {
     "id": "view-lease",
@@ -51,7 +46,7 @@
      "l1ro",
      "l1ou",
      "l2bm",
-     "l2ou",
+     "l2bo",
      "l2ro",
      "l3ri",
      "l3ii",
@@ -65,14 +60,12 @@
      "l4iv",
      "l4bm",
      "l4ro",
-     "l4ou",
-     "l3zd",
-     "l3zi",
-     "l3zo"
+     "l4ou"
     ],
-    "note": "双线制：补给线独立补货 · 业务线有单发生 · L3 自发/直发双路径 · L3/L4 租入单据独立闭环"
+    "note": "双线制：补给线独立补货 · 业务线有单发生 · L3/L4 租入单据独立闭环（09-04 拍板升级）"
    }
-  ]
+  ],
+  "visual_preset": "signal-flow"
  },
  "lanes": [
   {
@@ -82,14 +75,6 @@
   {
    "id": "b1d",
    "label": "B1 物料买卖 · 业务线（销售）"
-  },
-  {
-   "id": "b1r1",
-   "label": "B1 退货回程① · 采购侧（退供应商 · 已付条件生成退款）"
-  },
-  {
-   "id": "b1r2",
-   "label": "B1 退货回程② · 销售侧（客户退回 · 审核后登记退款）"
   },
   {
    "id": "l1s",
@@ -109,15 +94,11 @@
   },
   {
    "id": "l3s",
-   "label": "L3 租入转租 · 补给线（自发）"
+   "label": "L3 租入转租 · 补给线"
   },
   {
    "id": "l3d",
-   "label": "L3 租入转租 · 业务线（自发/直发共用）"
-  },
-  {
-   "id": "l3z",
-   "label": "L3 直发线（背靠背）· 审核后系统自动 · 不经库存实体"
+   "label": "L3 租入转租 · 业务线"
   },
   {
    "id": "l4buy",
@@ -166,7 +147,7 @@
    "col": 0,
    "type": "backend",
    "label": "采购订单",
-   "sublabel": "买卖物料公用",
+   "sublabel": "零部件公用",
    "width": 88
   },
   {
@@ -291,14 +272,23 @@
    "lane": "l2d",
    "col": 0,
    "type": "external",
-   "label": "BOM组合",
+   "label": "BOM配方",
    "sublabel": "A+B→C",
+   "width": 88
+  },
+  {
+   "id": "l2bo",
+   "lane": "l2d",
+   "col": 2,
+   "type": "backend",
+   "label": "按BOM出库",
+   "sublabel": "扣减无组装",
    "width": 88
   },
   {
    "id": "l2ro",
    "lane": "l2d",
-   "col": 2,
+   "col": 4,
    "type": "backend",
    "label": "租赁单",
    "sublabel": "组合C收租",
@@ -420,87 +410,6 @@
    "label": "租赁出库",
    "sublabel": "⇢ T1/T2",
    "width": 88
-  },
-  {
-   "id": "b1ap",
-   "lane": "b1s",
-   "col": 5,
-   "type": "backend",
-   "label": "应付账单",
-   "sublabel": "验收立应付",
-   "width": 88
-  },
-  {
-   "id": "b1rtd",
-   "lane": "b1r1",
-   "col": 0,
-   "type": "backend",
-   "label": "采购退货单",
-   "sublabel": "D-157两守卫",
-   "width": 88
-  },
-  {
-   "id": "b1rtr",
-   "lane": "b1r1",
-   "col": 2,
-   "type": "backend",
-   "label": "退款登记",
-   "sublabel": "⇢F2 收供应商",
-   "width": 88
-  },
-  {
-   "id": "b1std",
-   "lane": "b1r2",
-   "col": 0,
-   "type": "backend",
-   "label": "销售退货单",
-   "sublabel": "拒收/退货",
-   "width": 88
-  },
-  {
-   "id": "b1str",
-   "lane": "b1r2",
-   "col": 2,
-   "type": "backend",
-   "label": "退款登记",
-   "sublabel": "我方退客户",
-   "width": 88
-  },
-  {
-   "id": "l3zd",
-   "lane": "l3z",
-   "col": 0,
-   "type": "backend",
-   "label": "直发租入单",
-   "sublabel": "系统自动",
-   "width": 88
-  },
-  {
-   "id": "l3zi",
-   "lane": "l3z",
-   "col": 2,
-   "type": "backend",
-   "label": "租入入库",
-   "sublabel": "入虚拟仓",
-   "width": 88
-  },
-  {
-   "id": "l3zo",
-   "lane": "l3z",
-   "col": 4,
-   "type": "backend",
-   "label": "租赁出库",
-   "sublabel": "直发客户",
-   "width": 88
-  },
-  {
-   "id": "l2ou",
-   "lane": "l2d",
-   "col": 4,
-   "type": "backend",
-   "label": "租赁出库",
-   "sublabel": "按BOM扣减",
-   "width": 88
   }
  ],
  "edges": [
@@ -574,12 +483,17 @@
   {
    "id": "e-l2-bm",
    "from": "l2bm",
+   "to": "l2bo"
+  },
+  {
+   "id": "e-l2-bo",
+   "from": "l2bo",
    "to": "l2ro"
   },
   {
    "id": "e-l2-buf",
    "from": "l2iv",
-   "to": "l2ro",
+   "to": "l2bo",
    "label": "按可用量 · 非顺序",
    "variant": "dashed",
    "role": "async",
@@ -656,40 +570,6 @@
    "id": "e-l4-ro",
    "from": "l4ro",
    "to": "l4ou"
-  },
-  {
-   "id": "e-b1-ap",
-   "from": "b1pi",
-   "to": "b1ap",
-   "variant": "dashed",
-   "fromSide": "top",
-   "toSide": "top",
-   "route": "up-channel"
-  },
-  {
-   "id": "e-b1-r1",
-   "from": "b1rtd",
-   "to": "b1rtr"
-  },
-  {
-   "id": "e-b1-r2",
-   "from": "b1std",
-   "to": "b1str"
-  },
-  {
-   "id": "e-l3z-a",
-   "from": "l3zd",
-   "to": "l3zi"
-  },
-  {
-   "id": "e-l3z-b",
-   "from": "l3zi",
-   "to": "l3zo"
-  },
-  {
-   "id": "e-l2-ro",
-   "from": "l2ro",
-   "to": "l2ou"
   }
  ],
  "cards": [
@@ -709,28 +589,7 @@
    "items": [
     "按持有量计租 · 期段账单＝起租日｜止租日｜天数｜日单价｜小计",
     "L1–L4 租赁费 → F1 应收 · L3/L4 租金应付 → F2 应付（均已实现）",
-    "组合出租按组合件C收租金 · 退租按零件入库（A/B/C 单独入库）",
-    "采购应付 → 应付账单（验收立 · 按实际入库数量 · D-157）· L1/L2/L4 通用"
-   ]
-  },
-  {
-   "dot": "rose",
-   "title": "退货回程（G33 · D-157）",
-   "items": [
-    "回程① 采购侧：采购退货 → 退款登记（入库前已付条件生成 · 退款额≤已付额）⇢ F2",
-    "入库前未付 → 不立退款（拒收自终结／冲在途应付）· 应付按验收通过的实际入库数量",
-    "回程② 销售侧：销售退货 → 审核后登记应收退款（我方退客户）⇢ F1 · 未收部分冲减应收（G33 负数行 · 历史账单不回改）",
-    "退款单状态流：待审核 → 已审核 → 已退款"
-   ]
-  },
-  {
-   "dot": "amber",
-   "title": "直发与虚拟仓（D-167）",
-   "items": [
-    "租入单类型＝直发单／自发单（radio）· 直发链审核后系统自动：租入入库 → 直发虚拟仓 XNC-ZF → 自动生成租赁出库",
-    "虚拟仓 XNC-ZF＝字典 KW-05 系统内置不可删改 · 不占实体库存 · 人工单据不可手选（下拉排除）",
-    "报数调整：客户报数增减经其他入库「报数调整」单人工调整虚拟仓账面（QTRK-004）",
-    "背靠背（GHCK）＝系统识别直发类型自动生成 · 退租入库＝人工 · 归还出库＝系统"
+    "组合出租按组合件C收租金 · 退租按零件入库（A/B/C 单独入库）"
    ]
   },
   {
