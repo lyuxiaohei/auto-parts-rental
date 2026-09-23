@@ -284,7 +284,7 @@ th.td-num { text-align:right; }
    <li><div class="sm-link" onclick="go('../租赁管理/租赁单列表.html')">租赁单</div></li>
    <li><div class="sm-link selected">租赁出库</div></li>
    <li><div class="sm-link" onclick="go('../租赁管理/转移出库列表.html')">转移出库</div></li>
-   <li><div class="sm-link" onclick="go('../租赁管理/退租入库列表.html')">退租入库</div></li>
+   <li><div class="sm-link" onclick="go('../租赁管理/退租入库列表.html')">退租登记</div></li>
    </ul>
       </li>
             <li class="sm-item has-sub">
@@ -299,6 +299,7 @@ th.td-num { text-align:right; }
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/><line x1="10" y1="12" x2="14" y2="12"/></svg></span>仓储管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
    <li><div class="sm-link" onclick="go('../仓储作业/库存查询.html')">库存查询</div></li>
+   <li><div class="sm-link" onclick="go('../仓储作业/收发存.html')">收发存</div></li>
    <li><div class="sm-link" onclick="go('../仓储作业/盘点列表.html')">盘点记录</div></li>
    <li><div class="sm-link" onclick="go('../仓储作业/库存调拨列表.html')">库存调拨</div></li>
    <li><div class="sm-link" onclick="go('../仓储作业/其他入库列表.html')">其他入库</div></li>
@@ -317,6 +318,7 @@ th.td-num { text-align:right; }
    <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">应付</li>
    <li><div class="sm-link" onclick="go('../财务协同/应付账单.html')">应付账单</div></li>
    <li><div class="sm-link" onclick="go('../财务协同/付款登记.html')">付款登记</div></li>
+<li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">退款</li>
 <li><div class="sm-link" onclick="go('../财务协同/退款登记.html')">退款登记</div></li>
    </ul>
       </li>
@@ -479,6 +481,69 @@ function addDetailRow(btn) {
   rows.forEach(function (r, i) { r.cells[0].textContent = i + 1; });
 }
 </script>
+<script>/* G57 T3.8 复制出库（0923 拍板·分批出库场景）：列表行「复制」带 ?copy=CK-xxx 跳本页 → 顶部说明＋带出全部明细；无参时不介入，录单既有逻辑零改动 */
+(function () {
+  var m = location.search.match(/[?&]copy=([^&]+)/);
+  if (!m) return;
+  function run() {
+  var key = decodeURIComponent(m[1]);
+  var host = document.querySelector('.content.submit-pad');
+  if (host) {
+    var banner = document.createElement('div');
+    banner.className = 'pn-hint';
+    banner.style.cssText = 'margin:0 0 14px;padding:8px 12px;border:1px solid #91d5ff;background:#e6f4ff;border-radius:6px;color:#1677ff;';
+    banner.textContent = '复制生成新批次·仅改数量/明细（源单 ' + key + ' · 分批出库，新单号提交时自动生成，源单数据不变）';
+    host.insertBefore(banner, host.firstChild);
+  }
+  var rec = window.DEMO_DATA && window.DEMO_DATA.comboOutbounds && window.DEMO_DATA.comboOutbounds[key];
+  if (!rec) return;
+  var f = rec.row.fields || {};
+  function setSelect(labelText, val) {
+    var rows = document.querySelectorAll('.form-row');
+    for (var i = 0; i < rows.length; i++) {
+      var lb = rows[i].querySelector('.form-label');
+      if (!lb || lb.textContent.replace(/[*：:\s]/g, '') !== labelText) continue;
+      var sel = rows[i].querySelector('select');
+      var inp = rows[i].querySelector('input');
+      if (sel) {
+        var hit = false;
+        for (var j = 0; j < sel.options.length; j++) {
+          if ((sel.options[j].text + ' ' + sel.options[j].value).indexOf(val) > -1) { sel.selectedIndex = j; hit = true; break; }
+        }
+        if (!hit) { sel.options[0].text = val; sel.options[0].value = val; sel.selectedIndex = 0; }
+      } else if (inp && val) inp.value = val;
+      return;
+    }
+  }
+  setSelect('出库单号', '自动生成（复制自 ' + key + '）');
+  if (f.project) setSelect('所属项目', f.project);
+  if (f.zl) setSelect('关联租赁单', f.zl);
+  if (f.customer) setSelect('客户', f.customer);
+  if (f.addr) setSelect('收货地点', f.addr);
+  var tb = document.querySelector('.edit-tbl tbody');
+  if (tb && rec.items && rec.items.length) {
+    var h = '';
+    rec.items.forEach(function (r, i) {
+      h += '<tr><td>' + (i + 1) + '</td>'
+        + '<td><select class="zzMat" style="width:100%;min-width:120px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option selected>' + r[1] + '</option></select></td>'
+        + '<td><select class="zzName" style="width:100%;min-width:120px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option value="' + r[1] + '" selected>' + r[2] + '</option></select></td>'
+        + '<td><div class="ctl sel" style="min-width:96px;"><span class="v">' + r[3] + '</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div></td>'
+        + '<td class="td-num"><input data-tax="qty" value="' + r[4] + '"></td>'
+        + '<td class="td-num stock-cell">—</td>'
+        + '<td class="chk-cell"><span style="color:var(--text-3)">未选择</span></td>'
+        + '<td class="td-num"><input value="' + r[5] + '"></td>'
+        + '<td class="td-num"><input value="' + r[6] + '"></td>'
+        + '<td class="td-num auto-cell">' + r[7] + '</td>'
+        + '<td class="td-num auto-cell">' + r[8] + '</td>'
+        + '<td><div class="ctl sel" style="min-width:110px;"><span class="v">' + r[9] + '</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></div></td>'
+        + '<td class="ops sticky-op"><a>删除</a></td></tr>';
+    });
+    tb.innerHTML = h;
+  }
+  if (typeof MSEL !== 'undefined' && MSEL.syncAll) { try { MSEL.syncAll(); } catch (e) {} }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run); else run();
+})();</script>
 <script>
 /* ===== 菜单折叠 / 页签与表单视觉态（统一脚本） ===== */
 function go(url) { location.href = url; }
@@ -616,7 +681,7 @@ SSEL.fillEntity(SSEL.byFormLabel('出库库位'),'locations',{field:'wh',filterV
 
 
 
-<style id="f01-fab-style">.fab-row{position:fixed;right:12px;bottom:12px;z-index:880;display:flex;align-items:center;gap:6px}.fab-row .pn-fab{position:static}.f01-fab{display:flex;text-decoration:none;align-items:center;height:24px;padding:0 10px;border-radius:4px;background:#fff;border:1px solid #d9d9d9;color:#8c8c8c;font-size:11px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.06);opacity:.6;transition:opacity .15s}.f01-fab:hover{opacity:1;border-color:#722ed1;color:#722ed1}</style><div class="fab-row"><a class="f01-fab" href="../P3-R01-F01-业务流程导航图.html">流程图</a></div>
+<style id="f01-fab-style">.fab-row{position:fixed;right:12px;bottom:12px;z-index:880;display:flex;align-items:center;gap:6px}.fab-row .pn-fab{position:static}.f01-fab{display:flex;text-decoration:none;align-items:center;height:24px;padding:0 10px;border-radius:4px;background:#fff;border:1px solid #d9d9d9;color:#8c8c8c;font-size:11px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.06);opacity:.6;transition:opacity .15s}.f01-fab:hover{opacity:1;border-color:#722ed1;color:#722ed1}</style><div class="fab-row"><a class="f01-fab" href="../P3-R01-F01-业务流程导航图/P3-R01-F01-业务流程导航图-主线.html">流程图</a></div>
 <script src="../_data/notes-data.js"></script>
 <script src="../_data/notes-drawer.js"></script>
 <script src="../_data/mat-search.js"></script>

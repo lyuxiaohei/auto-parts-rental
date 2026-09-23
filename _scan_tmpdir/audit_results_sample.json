@@ -1,0 +1,26 @@
+[
+ {
+  "page": "采购管理\\采购入库列表.html",
+  "js_errors": [],
+  "problems": [],
+  "stats": {
+   "buttons": 10,
+   "links": 25,
+   "onclickEls": 68,
+   "modals": 1,
+   "modalTitles": [
+    "批量导入采购入库单"
+   ],
+   "selects": 5,
+   "fakeSelects": 0,
+   "radios": 0,
+   "checkboxes": 0,
+   "inputs": 13,
+   "stabs": 3,
+   "tabs": 3,
+   "bgMut": 0
+  },
+  "dead_links": [],
+  "nav_anomaly": null
+ }
+]

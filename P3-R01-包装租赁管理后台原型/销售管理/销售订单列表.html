@@ -290,7 +290,7 @@ th.td-num { text-align:right; }
    <li><div class="sm-link" onclick="go('../租赁管理/租赁单列表.html')">租赁单</div></li>
    <li><div class="sm-link" onclick="go('../租赁管理/租赁出库列表.html')">租赁出库</div></li>
    <li><div class="sm-link" onclick="go('../租赁管理/转移出库列表.html')">转移出库</div></li>
-   <li><div class="sm-link" onclick="go('../租赁管理/退租入库列表.html')">退租入库</div></li>
+   <li><div class="sm-link" onclick="go('../租赁管理/退租入库列表.html')">退租登记</div></li>
    </ul>
       </li>
             <li class="sm-item has-sub">
@@ -305,6 +305,7 @@ th.td-num { text-align:right; }
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/><line x1="10" y1="12" x2="14" y2="12"/></svg></span>仓储管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
    <li><div class="sm-link" onclick="go('../仓储作业/库存查询.html')">库存查询</div></li>
+   <li><div class="sm-link" onclick="go('../仓储作业/收发存.html')">收发存</div></li>
    <li><div class="sm-link" onclick="go('../仓储作业/盘点列表.html')">盘点记录</div></li>
    <li><div class="sm-link" onclick="go('../仓储作业/库存调拨列表.html')">库存调拨</div></li>
    <li><div class="sm-link" onclick="go('../仓储作业/其他入库列表.html')">其他入库</div></li>
@@ -323,6 +324,7 @@ th.td-num { text-align:right; }
    <li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">应付</li>
    <li><div class="sm-link" onclick="go('../财务协同/应付账单.html')">应付账单</div></li>
    <li><div class="sm-link" onclick="go('../财务协同/付款登记.html')">付款登记</div></li>
+<li style="padding:4px 0 2px 48px;font-size:10px;color:#8c8c8c;letter-spacing:.08em;user-select:none;list-style:none">退款</li>
 <li><div class="sm-link" onclick="go('../财务协同/退款登记.html')">退款登记</div></li>
    </ul>
       </li>
@@ -363,7 +365,7 @@ th.td-num { text-align:right; }
       <select><option selected>全部</option><option>待审核</option><option>已审核</option><option>待发货</option><option>已完成</option><option>已关闭</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
-    <div class="ff ff-row-extra"><span class="ff-label">下单日期：</span><input placeholder="开始日期"><span class="ff-sep">→</span><input placeholder="结束日期"></div>
+    <div class="ff ff-row-extra"><span class="ff-label">创建日期：</span><input placeholder="开始日期"><span class="ff-sep">→</span><input placeholder="结束日期"></div>
     <div class="ff ff-row-extra"><span class="ff-label">下单人：</span><select id="g35AgentSel"><option selected>全部</option></select><svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
         <div class="filter-actions">
       <button class="link-collapse" onclick="var f=document.getElementById('filterCard');f.classList.toggle('collapsed');this.querySelector('span').textContent=f.classList.contains('collapsed')?'展开':'收起'"><span>展开</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
@@ -399,7 +401,8 @@ th.td-num { text-align:right; }
           
           <th>订单状态</th>
           <th>下单人</th>
-          <th>下单时间</th>
+          <th>客户订单号</th>
+          <th>创建日期</th>
           <th class="sticky-op">操作</th>
         </tr>
       </thead>
@@ -415,6 +418,7 @@ th.td-num { text-align:right; }
           <td><span class="tag tag-blue">项目经理代下</span></td>
           <td><span class="tag tag-blue">待发货</span></td>
           <td>江强</td>
+          <td>KHD-20260903-21</td>
           <td>2026-09-03 11:20</td>
           <td class="sticky-op"><span class="ops"><a onclick="go('../销售管理/销售订单新建.html')">编辑</a><a onclick="go('../销售管理/销售订单审核.html')">审核</a><a>关闭</a><a onclick="openAttModal(this)">上传</a><a onclick="orderPrint(this)">打印</a></span></td>
         </tr>
@@ -429,6 +433,7 @@ th.td-num { text-align:right; }
           <td><span class="tag tag-blue">项目经理代下</span></td>
           <td><span class="tag tag-orange">待审核</span></td>
           <td>江强</td>
+          <td>—</td>
           <td>2026-09-02 10:24</td>
                     <td class="sticky-op"><span class="ops"><a onclick="go('../销售管理/销售订单新建.html')">编辑</a><a onclick="go('../销售管理/销售订单审核.html')">审核</a><a>关闭</a><a onclick="openAttModal(this)">上传</a><a onclick="orderPrint(this)">打印</a></span></td>
         </tr>
@@ -443,6 +448,7 @@ th.td-num { text-align:right; }
           <td><span class="tag tag-gray">客户自助</span></td>
           <td><span class="tag tag-orange">待审核</span></td>
           <td>何雅</td>
+          <td>—</td>
           <td>2026-09-01 16:40</td>
           <td>—</td>
                     <td class="sticky-op"><span class="ops"><a onclick="go('../销售管理/销售订单新建.html')">编辑</a><a onclick="go('../销售管理/销售订单审核.html')">审核</a><a>关闭</a><a onclick="openAttModal(this)">上传</a><a onclick="orderPrint(this)">打印</a></span></td>
@@ -458,6 +464,7 @@ th.td-num { text-align:right; }
           <td><span class="tag tag-blue">项目经理代下</span></td>
           <td><span class="tag tag-blue">已审核</span></td>
           <td>陈锋</td>
+          <td>KHD-20260831-08</td>
           <td>2026-08-31 11:05</td>
           <td>—</td>
                     <td class="sticky-op"><span class="ops"><a onclick="go('../销售管理/销售出库列表.html')">发货</a><a>关闭</a></span></td>
@@ -473,6 +480,7 @@ th.td-num { text-align:right; }
           <td><span class="tag tag-gray">客户自助</span></td>
           <td><span class="tag tag-blue">待发货</span></td>
           <td>严明</td>
+          <td>—</td>
           <td>2026-08-30 09:18</td>
           <td>—</td>
                     <td class="sticky-op"><span class="ops"><a onclick="go('../销售管理/销售出库列表.html')">发货</a><a>关闭</a></span></td>
@@ -488,6 +496,7 @@ th.td-num { text-align:right; }
           <td><span class="tag tag-blue">项目经理代下</span></td>
           <td><span class="tag tag-green">已完成</span></td>
           <td>江强</td>
+          <td>—</td>
           <td>2026-08-28 15:52</td>
                     <td class="sticky-op"><span class="ops"><a onclick="go('../销售管理/销售订单详情.html')">详情</a></span></td>
         </tr>
@@ -502,6 +511,7 @@ th.td-num { text-align:right; }
           <td><span class="tag tag-gray">客户自助</span></td>
           <td><span class="tag tag-green">已完成</span></td>
           <td>严明</td>
+          <td>—</td>
           <td>2026-08-27 14:03</td>
                     <td class="sticky-op"><span class="ops"><a onclick="go('../销售管理/销售订单详情.html')">详情</a></span></td>
         </tr>
@@ -516,6 +526,7 @@ th.td-num { text-align:right; }
           <td><span class="tag tag-blue">项目经理代下</span></td>
           <td><span class="tag tag-gray">已关闭</span></td>
           <td>江强</td>
+          <td>KHD-20260820-03</td>
           <td>2026-08-20 10:44</td>
           <td>—</td>
                     <td class="sticky-op"><span class="ops"><a onclick="go('../销售管理/销售订单详情.html')">详情</a></span></td>
@@ -614,7 +625,7 @@ renderListPage({
     { label: '客户名称', field: 'customer' },
     { label: '所属项目', field: 'project' },
     { label: '订单状态', field: 'status' },
-    { label: '下单日期', field: 'date', range: true },
+    { label: '创建日期', field: 'date', range: true },
     { label: '下单人', field: 'agent' }
   ]
 });
@@ -807,7 +818,7 @@ function delAttach(a) { var r = a.closest('.att-row'); if (r) r.remove(); }</scr
 
 
 
-<style id="f01-fab-style">.fab-row{position:fixed;right:12px;bottom:12px;z-index:880;display:flex;align-items:center;gap:6px}.fab-row .pn-fab{position:static}.f01-fab{display:flex;text-decoration:none;align-items:center;height:24px;padding:0 10px;border-radius:4px;background:#fff;border:1px solid #d9d9d9;color:#8c8c8c;font-size:11px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.06);opacity:.6;transition:opacity .15s}.f01-fab:hover{opacity:1;border-color:#722ed1;color:#722ed1}</style><div class="fab-row"><a class="f01-fab" href="../P3-R01-F01-业务流程导航图.html">流程图</a></div>
+<style id="f01-fab-style">.fab-row{position:fixed;right:12px;bottom:12px;z-index:880;display:flex;align-items:center;gap:6px}.fab-row .pn-fab{position:static}.f01-fab{display:flex;text-decoration:none;align-items:center;height:24px;padding:0 10px;border-radius:4px;background:#fff;border:1px solid #d9d9d9;color:#8c8c8c;font-size:11px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.06);opacity:.6;transition:opacity .15s}.f01-fab:hover{opacity:1;border-color:#722ed1;color:#722ed1}</style><div class="fab-row"><a class="f01-fab" href="../P3-R01-F01-业务流程导航图/P3-R01-F01-业务流程导航图-主线.html">流程图</a></div>
 <script src="../_data/notes-data.js"></script>
 <script src="../_data/notes-drawer.js"></script>
 </div>
@@ -884,6 +895,7 @@ function orderPrint(key) {
 .aln-a th:nth-child(5),.aln-a td:nth-child(5),
 .aln-a th:nth-child(6),.aln-a td:nth-child(6),
 .aln-a th:nth-child(9),.aln-a td:nth-child(9),
+.aln-a th:nth-child(11),.aln-a td:nth-child(11),
 .aln-b th:nth-child(2),.aln-b td:nth-child(2),
 .aln-b th:nth-child(4),.aln-b td:nth-child(4){text-align:right;font-variant-numeric:tabular-nums}</style>
 </body>

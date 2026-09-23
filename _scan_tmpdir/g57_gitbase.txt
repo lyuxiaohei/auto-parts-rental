@@ -1,0 +1,202 @@
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   .gitignore
+	modified:   P2-R01-产品需求文档.md
+	modified:   P3-R01-包装租赁管理后台原型/P3-R01-A05-字段字典.md
+	modified:   P3-R01-包装租赁管理后台原型/P3-R01-F01-业务流程导航图/P3-R01-F01-业务流程导航图-支线.html
+	modified:   P3-R01-包装租赁管理后台原型/P3-R01-F01-业务流程导航图/P3-R01-F01-业务流程导航图-支线.spec.json
+	modified:   P3-R01-包装租赁管理后台原型/_data/demo-data.js
+	modified:   P3-R01-包装租赁管理后台原型/_data/pc-msg.js
+	modified:   P3-R01-包装租赁管理后台原型/仓储作业/其他入库列表.html
+	modified:   P3-R01-包装租赁管理后台原型/仓储作业/其他入库审核.html
+	modified:   P3-R01-包装租赁管理后台原型/仓储作业/其他入库新建.html
+	modified:   P3-R01-包装租赁管理后台原型/仓储作业/其他入库详情.html
+	modified:   P3-R01-包装租赁管理后台原型/仓储作业/其他出库列表.html
+	modified:   P3-R01-包装租赁管理后台原型/仓储作业/其他出库审核.html
+	modified:   P3-R01-包装租赁管理后台原型/仓储作业/其他出库新建.html
+	modified:   P3-R01-包装租赁管理后台原型/仓储作业/其他出库详情.html
+	modified:   P3-R01-包装租赁管理后台原型/仓储作业/库存查询.html
+	modified:   P3-R01-包装租赁管理后台原型/仓储作业/库存流水.html
+	modified:   P3-R01-包装租赁管理后台原型/仓储作业/库存调拨列表.html
+	modified:   P3-R01-包装租赁管理后台原型/仓储作业/盘点列表.html
+	modified:   P3-R01-包装租赁管理后台原型/仓储作业/盘点审核.html
+	modified:   P3-R01-包装租赁管理后台原型/仓储作业/盘点录入.html
+	modified:   P3-R01-包装租赁管理后台原型/仓储作业/盘点详情.html
+	modified:   P3-R01-包装租赁管理后台原型/仓储作业/调拨审核.html
+	modified:   P3-R01-包装租赁管理后台原型/仓储作业/调拨新建.html
+	modified:   P3-R01-包装租赁管理后台原型/仓储作业/调拨详情.html
+	deleted:    P3-R01-包装租赁管理后台原型/包装租赁管理后台原型-20260920.zip
+	modified:   P3-R01-包装租赁管理后台原型/基础数据/BOM.html
+	modified:   P3-R01-包装租赁管理后台原型/基础数据/BOM版本查看.html
+	modified:   P3-R01-包装租赁管理后台原型/基础数据/BOM维护.html
+	modified:   P3-R01-包装租赁管理后台原型/基础数据/BOM详情.html
+	modified:   P3-R01-包装租赁管理后台原型/基础数据/产品档案.html
+	modified:   P3-R01-包装租赁管理后台原型/基础数据/客商新建.html
+	modified:   P3-R01-包装租赁管理后台原型/基础数据/客商管理.html
+	modified:   P3-R01-包装租赁管理后台原型/基础数据/客商详情.html
+	modified:   P3-R01-包装租赁管理后台原型/基础数据/库位新建.html
+	modified:   P3-R01-包装租赁管理后台原型/基础数据/库位档案.html
+	modified:   P3-R01-包装租赁管理后台原型/基础数据/物料新建.html
+	modified:   P3-R01-包装租赁管理后台原型/基础数据/物料详情.html
+	modified:   P3-R01-包装租赁管理后台原型/我的待办.html
+	modified:   P3-R01-包装租赁管理后台原型/租入管理/归还出库列表.html
+	modified:   P3-R01-包装租赁管理后台原型/租入管理/归还出库审核.html
+	modified:   P3-R01-包装租赁管理后台原型/租入管理/归还出库新建.html
+	modified:   P3-R01-包装租赁管理后台原型/租入管理/归还出库详情.html
+	modified:   P3-R01-包装租赁管理后台原型/租入管理/租入入库列表.html
+	modified:   P3-R01-包装租赁管理后台原型/租入管理/租入入库确认.html
+	modified:   P3-R01-包装租赁管理后台原型/租入管理/租入入库详情.html
+	modified:   P3-R01-包装租赁管理后台原型/租入管理/租入单列表.html
+	modified:   P3-R01-包装租赁管理后台原型/租入管理/租入单审核.html
+	modified:   P3-R01-包装租赁管理后台原型/租入管理/租入单新建.html
+	modified:   P3-R01-包装租赁管理后台原型/租入管理/租入单详情.html
+	modified:   P3-R01-包装租赁管理后台原型/租赁管理/器具出租履历.html
+	modified:   P3-R01-包装租赁管理后台原型/租赁管理/租赁出库列表.html
+	modified:   P3-R01-包装租赁管理后台原型/租赁管理/租赁出库录单.html
+	modified:   P3-R01-包装租赁管理后台原型/租赁管理/租赁出库确认.html
+	modified:   P3-R01-包装租赁管理后台原型/租赁管理/租赁出库详情.html
+	modified:   P3-R01-包装租赁管理后台原型/租赁管理/租赁单列表.html
+	modified:   P3-R01-包装租赁管理后台原型/租赁管理/租赁单审核.html
+	modified:   P3-R01-包装租赁管理后台原型/租赁管理/租赁单新建.html
+	modified:   P3-R01-包装租赁管理后台原型/租赁管理/租赁单详情.html
+	modified:   P3-R01-包装租赁管理后台原型/租赁管理/转移出库列表.html
+	modified:   P3-R01-包装租赁管理后台原型/租赁管理/转移出库单详情.html
+	modified:   P3-R01-包装租赁管理后台原型/租赁管理/转移出库审核.html
+	modified:   P3-R01-包装租赁管理后台原型/租赁管理/转移出库新建.html
+	modified:   P3-R01-包装租赁管理后台原型/租赁管理/退租入库列表.html
+	modified:   P3-R01-包装租赁管理后台原型/租赁管理/退租入库审核.html
+	modified:   P3-R01-包装租赁管理后台原型/租赁管理/退租入库新建.html
+	modified:   P3-R01-包装租赁管理后台原型/租赁管理/退租入库详情.html
+	modified:   P3-R01-包装租赁管理后台原型/系统管理/字典项新建.html
+	modified:   P3-R01-包装租赁管理后台原型/系统管理/操作日志.html
+	modified:   P3-R01-包装租赁管理后台原型/系统管理/数据字典.html
+	modified:   P3-R01-包装租赁管理后台原型/系统管理/权限配置.html
+	modified:   P3-R01-包装租赁管理后台原型/系统管理/用户新建.html
+	modified:   P3-R01-包装租赁管理后台原型/系统管理/用户权限.html
+	modified:   P3-R01-包装租赁管理后台原型/系统管理/角色新建.html
+	modified:   P3-R01-包装租赁管理后台原型/系统管理/角色管理.html
+	modified:   P3-R01-包装租赁管理后台原型/财务协同/付款新建.html
+	modified:   P3-R01-包装租赁管理后台原型/财务协同/付款登记.html
+	modified:   P3-R01-包装租赁管理后台原型/财务协同/付款确认.html
+	modified:   P3-R01-包装租赁管理后台原型/财务协同/付款详情.html
+	modified:   P3-R01-包装租赁管理后台原型/财务协同/应付新建.html
+	modified:   P3-R01-包装租赁管理后台原型/财务协同/应付详情.html
+	modified:   P3-R01-包装租赁管理后台原型/财务协同/应付账单.html
+	modified:   P3-R01-包装租赁管理后台原型/财务协同/应收生成.html
+	modified:   P3-R01-包装租赁管理后台原型/财务协同/应收详情.html
+	modified:   P3-R01-包装租赁管理后台原型/财务协同/应收账单.html
+	modified:   P3-R01-包装租赁管理后台原型/财务协同/开票新建.html
+	modified:   P3-R01-包装租赁管理后台原型/财务协同/开票登记.html
+	modified:   P3-R01-包装租赁管理后台原型/财务协同/开票详情.html
+	modified:   P3-R01-包装租赁管理后台原型/财务协同/损益报表.html
+	modified:   P3-R01-包装租赁管理后台原型/财务协同/收款新建.html
+	modified:   P3-R01-包装租赁管理后台原型/财务协同/收款登记.html
+	modified:   P3-R01-包装租赁管理后台原型/财务协同/收款详情.html
+	modified:   P3-R01-包装租赁管理后台原型/财务协同/退款新建.html
+	modified:   P3-R01-包装租赁管理后台原型/财务协同/退款登记.html
+	modified:   P3-R01-包装租赁管理后台原型/财务协同/退款详情.html
+	modified:   P3-R01-包装租赁管理后台原型/财务协同/银行回单核销.html
+	modified:   P3-R01-包装租赁管理后台原型/财务协同/银行回单核销详情.html
+	modified:   P3-R01-包装租赁管理后台原型/采购管理/采购入库列表.html
+	modified:   P3-R01-包装租赁管理后台原型/采购管理/采购入库审核.html
+	modified:   P3-R01-包装租赁管理后台原型/采购管理/采购入库录单.html
+	modified:   P3-R01-包装租赁管理后台原型/采购管理/采购入库详情.html
+	modified:   P3-R01-包装租赁管理后台原型/采购管理/采购订单列表.html
+	modified:   P3-R01-包装租赁管理后台原型/采购管理/采购订单审核.html
+	modified:   P3-R01-包装租赁管理后台原型/采购管理/采购订单新建.html
+	modified:   P3-R01-包装租赁管理后台原型/采购管理/采购订单详情.html
+	modified:   P3-R01-包装租赁管理后台原型/采购管理/采购退货单列表.html
+	modified:   P3-R01-包装租赁管理后台原型/采购管理/采购退货审核.html
+	modified:   P3-R01-包装租赁管理后台原型/采购管理/采购退货新建.html
+	modified:   P3-R01-包装租赁管理后台原型/采购管理/采购退货详情.html
+	modified:   P3-R01-包装租赁管理后台原型/销售管理/销售出库列表.html
+	modified:   P3-R01-包装租赁管理后台原型/销售管理/销售出库审核.html
+	modified:   P3-R01-包装租赁管理后台原型/销售管理/销售出库新建.html
+	modified:   P3-R01-包装租赁管理后台原型/销售管理/销售出库详情.html
+	modified:   P3-R01-包装租赁管理后台原型/销售管理/销售订单列表.html
+	modified:   P3-R01-包装租赁管理后台原型/销售管理/销售订单审核.html
+	modified:   P3-R01-包装租赁管理后台原型/销售管理/销售订单新建.html
+	modified:   P3-R01-包装租赁管理后台原型/销售管理/销售订单详情.html
+	modified:   P3-R01-包装租赁管理后台原型/销售管理/销售退货单列表.html
+	modified:   P3-R01-包装租赁管理后台原型/销售管理/销售退货审核.html
+	modified:   P3-R01-包装租赁管理后台原型/销售管理/销售退货新建.html
+	modified:   P3-R01-包装租赁管理后台原型/销售管理/销售退货详情.html
+	modified:   P3-R01-包装租赁管理后台原型/项目管理/上下游绑定.html
+	modified:   P3-R01-包装租赁管理后台原型/项目管理/编码规则.html
+	modified:   P3-R01-包装租赁管理后台原型/项目管理/项目新建.html
+	modified:   P3-R01-包装租赁管理后台原型/项目管理/项目档案.html
+	modified:   P3-R01-包装租赁管理后台原型/项目管理/项目详情.html
+	modified:   P3-R01-包装租赁管理后台原型/首页/项目看板.html
+	modified:   agent-handoff/_索引.md
+	deleted:    g51_shot_detail.png
+	deleted:    g51_shot_mid.png
+	deleted:    g51_shot_top.png
+	deleted:    项目沟通记录/汽车物流包装租赁第5次沟通/汽车物流包装租赁第5次沟通 [会议议题].md
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	P3-R01-包装租赁管理后台原型/包装租赁管理后台-20260920-2.zip
+	P3-R01-包装租赁管理后台原型/包装租赁管理后台-20260920-3.zip
+	_scan_tmpdir/bars_fp.json
+	_scan_tmpdir/bars_tk.json
+	_scan_tmpdir/cg_attach_after.png
+	_scan_tmpdir/cgattach_verify.py
+	_scan_tmpdir/dump_items.js
+	_scan_tmpdir/dump_xlsx.py
+	_scan_tmpdir/f01_fab_link_fix.py
+	_scan_tmpdir/f01v4_branch.png
+	_scan_tmpdir/f01v4_main.png
+	_scan_tmpdir/g56_accept/
+	_scan_tmpdir/g56_audit2.py
+	_scan_tmpdir/g56_audit_flows.py
+	_scan_tmpdir/g56_dict_check.py
+	_scan_tmpdir/g56_render.py
+	_scan_tmpdir/g56_shots/
+	_scan_tmpdir/g56_verify.py
+	_scan_tmpdir/g57_gitbase.txt
+	_scan_tmpdir/g57_running.marker
+	_scan_tmpdir/gen_payload.py
+	_scan_tmpdir/gongqi_dump.json
+	_scan_tmpdir/gtk_chunk_0.json
+	_scan_tmpdir/gtk_chunk_1.json
+	_scan_tmpdir/gtk_chunk_2.json
+	_scan_tmpdir/gtk_chunk_3.json
+	_scan_tmpdir/hz_chunk_0.json
+	_scan_tmpdir/hz_chunk_1.json
+	_scan_tmpdir/items_dump.json
+	_scan_tmpdir/multi_material_audit.py
+	_scan_tmpdir/opmenu_audit.py
+	_scan_tmpdir/opmenu_dump.json
+	_scan_tmpdir/opmenu_live_audit.py
+	_scan_tmpdir/opmenu_live_audit2.py
+	_scan_tmpdir/order_qty_po18.png
+	_scan_tmpdir/orderqty_verify.py
+	_scan_tmpdir/payloads.json
+	_scan_tmpdir/pcmsg_after.png
+	_scan_tmpdir/pcmsg_before.png
+	_scan_tmpdir/pcmsg_before.py
+	_scan_tmpdir/pcmsg_blue.png
+	_scan_tmpdir/pcmsg_blue_check.py
+	_scan_tmpdir/pcmsg_verify.py
+	_scan_tmpdir/pl_fp.json
+	_scan_tmpdir/pl_fp_merged.json
+	_scan_tmpdir/pl_gfp.json
+	_scan_tmpdir/pl_gfp_merged.json
+	_scan_tmpdir/pl_gtk.json
+	_scan_tmpdir/pl_gtk_merged.json
+	_scan_tmpdir/pl_hz.json
+	_scan_tmpdir/pl_hz_merged.json
+	_scan_tmpdir/refund_label.png
+	_scan_tmpdir/refund_label_verify.py
+	_scan_tmpdir/refund_menu_label.py
+	agent-handoff/20260923-G57-第5次沟通待办-原型改造.md
+	agent-handoff/20260923-G58-第5次沟通待办-文档同步.md
+	项目沟通记录/2026-09-21 项目技能研讨第1次/
+	项目沟通记录/2026-09-22 汽车物流包装租赁第5次沟通/
+	项目沟通记录/2026-09-22 项目技能研讨第2次/
+
+no changes added to commit (use "git add" and/or "git commit -a")
