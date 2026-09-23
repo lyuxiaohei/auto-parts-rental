@@ -1,0 +1,37 @@
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   .gitignore
+	modified:   P2-R01-产品需求文档.md
+	modified:   P3-R01-包装租赁管理后台原型/P3-R01-A05-字段字典.md
+	modified:   P3-R01-包装租赁管理后台原型/P3-R01-F01-业务流程导航图/P3-R01-F01-业务流程导航图-支线.html
+	modified:   P3-R01-包装租赁管理后台原型/P3-R01-F01-业务流程导航图/P3-R01-F01-业务流程导航图-支线.spec.json
+	modified:   P3-R01-包装租赁管理后台原型/_data/pc-msg.js
+	deleted:    P3-R01-包装租赁管理后台原型/包装租赁管理后台原型-20260920.zip
+	deleted:    g51_shot_detail.png
+	deleted:    g51_shot_mid.png
+	deleted:    g51_shot_top.png
+	deleted:    项目沟通记录/汽车物流包装租赁第5次沟通/汽车物流包装租赁第5次沟通 [会议议题].md
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	P3-R01-包装租赁管理后台原型/包装租赁管理后台-20260920-2.zip
+	P3-R01-包装租赁管理后台原型/包装租赁管理后台-20260920-3.zip
+	_scan_tmpdir/backup-g57-20260923/
+	_scan_tmpdir/docx_chk.txt
+	_scan_tmpdir/g56_accept/
+	_scan_tmpdir/g56_shots/
+	_scan_tmpdir/g57_commit_list.txt
+	_scan_tmpdir/g57_staged_now.txt
+	_scan_tmpdir/g58_gitbase.txt
+	_scan_tmpdir/g58_running.marker
+	agent-handoff/20260923-G58-第5次沟通待办-文档同步.md
+	项目沟通记录/2026-09-21 项目技能研讨第1次/
+	项目沟通记录/2026-09-22 汽车物流包装租赁第5次沟通/
+	项目沟通记录/2026-09-22 项目技能研讨第2次/
+
+no changes added to commit (use "git add" and/or "git commit -a")

@@ -5731,7 +5731,8 @@
         <ul>
           <li>&bull; B1/L1–L4 全部第一期实现 · L3/L4 为 2026-09-04 拍板升级</li>
           <li>&bull; 转移出库自 L1–L4 抽离为独立支线——每个租赁流程均可能出现</li>
-          <li>&bull; 不勾稽原租赁单（D-106）· 按租出结算＝默认不进财务链路 · 按终端＝特例</li>
+          <li>&bull; 转移出库只到物料粒度·不挂单号（0923·D-178·转移不勾稽半句仍有效）· 结算口径挂客商档案二选一：按租出结算（默认）仅租赁出库侧生成应收／按转移结算仅转移出库侧（按转移数量）·单一模块生成不拆双账·另一侧置灰</li>
+          <li>&bull; 退租入库已改两步选单（0923·D-176·反转 D-106）：先选客户→选原租赁出库单带明细·退租数量≤原出库·退租只新增不改原单；清洗审核节点（D-177）：完工→待审核→审核通过→转可用</li>
         </ul>
       </div>
     </div>
@@ -14160,7 +14161,7 @@
   mo.observe(document.documentElement, { childList: true, subtree: true });
   var bar = document.createElement('div');
   bar.id = 'f01-nav-badge';
-  bar.textContent = '业务流程导航 v4.0 · 节点点击直达原型页 · 会议依据/沿革/口径见「流程信息.md」（共 ' + total + ' 个可点节点）';
+  bar.textContent = '业务流程导航 v4.1 · 节点点击直达原型页 · 会议依据/沿革/口径见「流程信息.md」（共 ' + total + ' 个可点节点）';
   bar.style.cssText = 'position:fixed;left:12px;bottom:12px;z-index:2147483647;';
   bar.style.font = '11px/1.6 "Microsoft YaHei",sans-serif';
   bar.style.color = '#4b5563';

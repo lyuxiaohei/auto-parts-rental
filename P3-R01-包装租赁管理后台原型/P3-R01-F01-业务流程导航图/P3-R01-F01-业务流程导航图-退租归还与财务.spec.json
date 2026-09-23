@@ -128,7 +128,7 @@
    "col": 2,
    "type": "backend",
    "label": "退租入库",
-   "sublabel": "验收核对",
+   "sublabel": "两步选单 · 验收核对",
    "width": 88
   },
   {
@@ -148,6 +148,16 @@
    "label": "租入在库",
    "sublabel": "③完好·租入",
    "width": 104
+  },
+  {
+   "id": "t1ws",
+   "lane": "t1r",
+   "col": 2,
+   "type": "backend",
+   "label": "清洗审核",
+   "sublabel": "完工→审核→转可用",
+   "width": 88,
+   "note": "清洗审核节点（0923 拍板 D-177·非库存状态：清洗完工→待审核→审核通过→转可用库存·列表可批量审核）"
   },
   {
    "id": "t1iv",
@@ -271,6 +281,14 @@
    "to": "t1ap"
   },
   {
+   "id": "e-t1-ws",
+   "from": "t1ti",
+   "to": "t1ws",
+   "fromSide": "bottom",
+   "toSide": "top",
+   "route": "drop"
+  },
+  {
    "id": "e-t1-ri",
    "from": "t1ti",
    "to": "t1ri",
@@ -279,8 +297,8 @@
    "route": "drop"
   },
   {
-   "id": "e-t1-iv",
-   "from": "t1ti",
+   "id": "e-t1-ws-iv",
+   "from": "t1ws",
    "to": "t1iv",
    "fromSide": "bottom",
    "toSide": "top",
