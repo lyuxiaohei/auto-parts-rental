@@ -377,7 +377,7 @@ th.td-num { text-align:right; }
 <div class="card">
   <div class="card-head">
     <h3 class="card-title">其他出库单</h3>
-    <div class="head-btns"><button class="btn btn-default btn-sm">批量导出</button><button class="btn btn-sm" onclick="go('../仓储作业/其他出库新建.html')">新建</button></div>
+    <div class="head-btns"><button class="btn btn-default btn-sm" data-nobatch="1" onclick="openModal('importModal')">批量导入</button><button class="btn btn-default btn-sm">导出</button><button class="btn btn-sm" onclick="go('../仓储作业/其他出库新建.html')">新建</button></div>
   </div>
 <div class="stabs">
   <span class="stab active">全部<span class="stab-count">9</span></span>
@@ -623,5 +623,38 @@ SSEL.fillEntity(SSEL.byLabel('出库库位'),'otherOutbounds',{field:'warehouse'
 <style>/* 列对齐规范（2026-09-20 道远拍板·全量）：数字/日期列右对齐＋tabular-nums·表头随列·其余左（标签不居中） */
 .table-wrap table th:nth-child(5),.table-wrap table td:nth-child(5),
 .table-wrap table th:nth-child(7),.table-wrap table td:nth-child(7){text-align:right;font-variant-numeric:tabular-nums}</style>
+<script>
+/* G59 出库单批量导入（0923 道远拍板·出入库单据导入全覆盖；转移出库=虚拟化口径 D-178 不加） */
+function showToast(msg) {
+  var t = document.getElementById('g59Toast');
+  if (!t) { t = document.createElement('div'); t.id = 'g59Toast'; t.style.cssText = 'position:fixed;top:56px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,.72);color:#fff;padding:7px 16px;border-radius:4px;font-size:13px;z-index:9999;transition:opacity .3s'; document.body.appendChild(t); }
+  t.textContent = msg; t.style.opacity = '1';
+  clearTimeout(t.__tm); t.__tm = setTimeout(function () { t.style.opacity = '0'; }, 2200);
+}
+function g59ImportOk() { closeModal('importModal'); showToast('演示环境·批量导入功能占位'); }
+(function () {
+  function __g59BindIm() { var im = document.getElementById('importModal'); if (im && !im.__g59Mask) { im.__g59Mask = 1; im.addEventListener('click', function (e) { if (e.target === im) im.classList.remove('show'); }); } }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', __g59BindIm); else __g59BindIm();
+})();
+</script>
+
+<div class="modal-overlay" id="importModal">
+  <div class="modal">
+    <div class="modal-header"><h3 class="modal-title">批量导入其他出库单</h3><span class="modal-close" onclick="closeModal('importModal')">×</span></div>
+    <div class="modal-body">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+        <button class="btn btn-default btn-sm" onclick="showToast('演示环境·模板下载占位')">下载模板</button>
+        <span style="font-size:12px;color:#8c8c8c;">按模板填写后上传，单次不超过 1,000 行</span>
+      </div>
+      <div style="border:1px dashed #d9d9d9;border-radius:6px;padding:22px 16px;text-align:center;">
+        <input type="file" style="display:none;" id="g59File">
+        <button class="btn btn-default btn-sm" onclick="var f=document.getElementById('g59File');if(f){f.onchange=function(){this.nextElementSibling&&(this.nextElementSibling.textContent='已选择：'+(this.files[0]?this.files[0].name:''));};f.click();var b=this;b.style.outline='2px solid #1677ff';b.style.outlineOffset='2px';setTimeout(function(){b.style.outline='';},600);}">选择文件</button>
+        <div style="margin-top:8px;font-size:12px;color:#8c8c8c;">支持 .xlsx / .csv</div>
+      </div>
+      <p style="margin-top:12px;font-size:12px;color:#8c8c8c;line-height:1.7;">说明：导入成功生成「待审核」其他出库单；出库数量超过可用库存的行将整单校验失败并提示。</p>
+    </div>
+    <div class="modal-footer"><button class="btn btn-default" onclick="closeModal('importModal')">取消</button><button class="btn btn-primary" onclick="g59ImportOk()">确定</button></div>
+  </div>
+</div>
 </body>
 </html>
