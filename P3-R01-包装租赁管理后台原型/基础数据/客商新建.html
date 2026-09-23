@@ -402,7 +402,11 @@ th.td-num { text-align:right; }
 <div class="card">
   <div class="card-head">
     <h3 class="card-title">开票资料</h3>
+    <div class="head-btns"><button class="btn btn-dashed btn-sm" onclick="ksAddInvGroup()">＋ 添加开票资料</button></div>
   </div>
+  <div class="pn-hint">一家客商可维护多组开票资料（如集团多主体/分公司），开票时选用。</div>
+  <div class="ks-inv-group">
+  <div class="ks-group-head" style="font-size:12px;color:var(--text-3,#8c8c8c);margin:2px 0 6px;">开票资料 ①（默认）<span class="ks-group-del" style="margin-left:12px;color:var(--danger,#d4380d);cursor:pointer;display:none;" onclick="ksDelGroup(this)">删除本组</span></div>
   <div class="form-row">
     <div class="form-label">单位名称：</div>
     <div>
@@ -449,6 +453,7 @@ th.td-num { text-align:right; }
       <div class="input-box" style="width:380px;"><input id="ksRecvAcctNo" placeholder="选填 · 收付款账号可与开票账号不一致"></div>
     </div>
   </div>
+  </div><!-- /ks-inv-group -->
   <div class="form-row">
     <div class="form-label" data-note="2"><span class="req">*</span>结算周期：</div>
     <div>
@@ -466,7 +471,11 @@ th.td-num { text-align:right; }
 <div class="card">
   <div class="card-head">
     <h3 class="card-title">收货信息</h3>
+    <div class="head-btns"><button class="btn btn-dashed btn-sm" onclick="ksAddAddrGroup()">＋ 添加收货地址</button></div>
   </div>
+  <div class="pn-hint">一家客商可维护多个收货地址（多工厂/多仓），下单收货时选用。</div>
+  <div class="ks-addr-group">
+  <div class="ks-group-head" style="font-size:12px;color:var(--text-3,#8c8c8c);margin:2px 0 6px;">收货地址 ①（默认）<span class="ks-group-del" style="margin-left:12px;color:var(--danger,#d4380d);cursor:pointer;display:none;" onclick="ksDelGroup(this)">删除本组</span></div>
   <div class="form-row">
     <div class="form-label">收货人：</div>
     <div>
@@ -485,6 +494,7 @@ th.td-num { text-align:right; }
       <div class="input-box" style="width:380px;"><input id="ksRecvAddr" placeholder="请输入"></div>
     </div>
   </div>
+  </div><!-- /ks-addr-group -->
 </div>
 
 <div class="submit-bar"><button class="btn btn-default" onclick="go('../基础数据/客商管理.html')">取消</button><button class="btn">保存</button></div>
@@ -641,5 +651,38 @@ document.querySelectorAll('.tab').forEach(function (t) {
   }
   if (ts) { ts.addEventListener('change', sync); sync(); }
 })();</script>
+<script>
+/* G60 客商多组开票资料/收货地址（0923 道远拍板：一家公司可多组开票资料/多个收货地址） */
+(function () {
+  var CN = '①②③④⑤⑥⑦⑧⑨⑩';
+  function relabel() {
+    var inv = 0, addr = 0;
+    document.querySelectorAll('.ks-inv-group, .ks-addr-group').forEach(function (g) {
+      var isInv = g.classList.contains('ks-inv-group');
+      var n = isInv ? ++inv : ++addr;
+      var head = g.querySelector('.ks-group-head');
+      if (head) head.firstChild.textContent = (isInv ? '开票资料 ' : '收货地址 ') + CN[n - 1] + (n === 1 ? '（默认）' : '');
+      var del = g.querySelector('.ks-group-del');
+      if (del) del.style.display = (isInv ? inv : addr) > 1 ? '' : 'none';
+    });
+  }
+  window.ksDelGroup = function (el) {
+    var g = el.closest('.ks-inv-group, .ks-addr-group');
+    if (g) { g.remove(); relabel(); }
+  };
+  function addGroup(sel) {
+    var first = document.querySelector(sel);
+    if (!first) return;
+    var c = first.cloneNode(true);
+    c.querySelectorAll('[id]').forEach(function (el) { el.removeAttribute('id'); });
+    c.querySelectorAll('input,textarea').forEach(function (el) { el.value = ''; });
+    c.querySelectorAll('.g57-chip').forEach(function (el) { el.classList.remove('checked'); });
+    first.parentElement.appendChild(c);
+    relabel();
+  }
+  window.ksAddInvGroup = function () { addGroup('.ks-inv-group'); };
+  window.ksAddAddrGroup = function () { addGroup('.ks-addr-group'); };
+})();
+</script>
 </body>
 </html>
