@@ -87,6 +87,24 @@
       });
       h += '</tbody></table></div></div>';
     }
+    /* G61（0923 拍板）：可选多表段 itemSections —— [{title, cols, rows, note?}]
+       物料详情页用：库位分布/客户在租/进出流水 并自原「库位明细」「客户在租」弹窗；
+       无该键的记录零影响（其余详情页不渲染） */
+    if (rec.itemSections) {
+      rec.itemSections.forEach(function (sec) {
+        h += '<div class="card fm-card"><div class="card-head"><h3 class="card-title">' + (sec.title || '') + '</h3></div>';
+        if (sec.note) h += '<div class="pn-hint" style="margin:-8px 0 10px;">' + sec.note + '</div>';
+        h += '<div class="table-wrap"><table><thead><tr>';
+        (sec.cols || []).forEach(function (c) { h += '<th>' + c + '</th>'; });
+        h += '</tr></thead><tbody>';
+        (sec.rows || []).forEach(function (r) {
+          h += '<tr>';
+          r.forEach(function (cell) { h += '<td>' + cell + '</td>'; });
+          h += '</tr>';
+        });
+        h += '</tbody></table></div></div>';
+      });
+    }
     if (rec.chain || rec.timeline) {
       h += '<div class="card fm-card"><div class="card-head"><h3 class="card-title">流转信息</h3></div>';
       if (rec.chain) {

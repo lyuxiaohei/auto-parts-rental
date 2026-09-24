@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<title>收发存查询 - 包装租赁管理后台</title>
+<title>库存台账 - 包装租赁管理后台</title>
 <style>
 :root {
   --primary: #1677ff;
@@ -290,7 +290,7 @@ th.td-num { text-align:right; }
    <li><div class="sm-link" onclick="go('../租赁管理/租赁单列表.html')">租赁单</div></li>
    <li><div class="sm-link" onclick="go('../租赁管理/租赁出库列表.html')">租赁出库</div></li>
    <li><div class="sm-link" onclick="go('../租赁管理/转移出库列表.html')">转移出库</div></li>
-   <li><div class="sm-link" onclick="go('../租赁管理/退租入库列表.html')">退租登记</div></li>
+   <li><div class="sm-link" onclick="go('../租赁管理/退租入库列表.html')">退租入库</div></li>
    </ul>
       </li>
             <li class="sm-item has-sub">
@@ -305,8 +305,7 @@ th.td-num { text-align:right; }
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/><line x1="10" y1="12" x2="14" y2="12"/></svg></span>仓储管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
    <li><div class="sm-link" onclick="go('../仓储作业/库存查询.html')">库存查询</div></li>
-   <li><div class="sm-link" onclick="go('../仓储作业/收发存.html')">收发存</div></li>
-   <li><div class="sm-link selected">收发存</div></li>
+   <li><div class="sm-link selected">库存台账</div></li>
    <li><div class="sm-link" onclick="go('../仓储作业/盘点列表.html')">盘点记录</div></li>
    <li><div class="sm-link" onclick="go('../仓储作业/库存调拨列表.html')">库存调拨</div></li>
    <li><div class="sm-link" onclick="go('../仓储作业/其他入库列表.html')">其他入库</div></li>
@@ -346,7 +345,7 @@ th.td-num { text-align:right; }
   </div></aside>
   <div class="main-col">
 <div class="tabs">
-  <span class="tab active">收发存查询 <span class="close">×</span></span>
+  <span class="tab active">库存台账 <span class="close">×</span></span>
 </div>
     <div class="content">
 <div class="filter-card collapsed" id="filterCard">
@@ -365,11 +364,10 @@ th.td-num { text-align:right; }
 </div>
 <div class="card">
   <div class="card-head">
-    <h3 class="card-title">收发存汇总</h3>
+    <h3 class="card-title" data-note="1">库存台账</h3>
     <div class="head-btns"><button class="btn btn-default btn-sm">导出</button></div>
   </div>
-  <div class="pn-hint" style="margin:0 0 12px;padding:8px 12px;border:1px solid #e5e6eb;border-radius:6px;line-height:1.8;">口径：期初＝期初结转事件；本期入库＝退租回库等入库事件；本期出库＝租赁/销售出库事件；转移＝转移出库事件（演示数据暂无·计 0）；期末结存＝库存四态之和（在库＋退租在途＋客户端(租出)＋退租待入库）。<b>退租关联闭环后数据完整·开发排期待定</b>（0923 拍板：轨迹页面先画进原型）。</div>
-<div class="table-wrap">
+  <div class="table-wrap">
     <table class="sfs-tbl">
       <thead>
         <tr>
@@ -379,7 +377,7 @@ th.td-num { text-align:right; }
           <th>本期入库</th>
           <th>本期出库</th>
           <th>转移</th>
-          <th>期末结存</th>
+          <th data-note="2">期末结存</th>
           <th class="sticky-op">操作</th>
         </tr>
       </thead>
@@ -392,7 +390,7 @@ th.td-num { text-align:right; }
           <td><span class="td-num">60</span></td>
           <td><span class="td-num">0</span></td>
           <td><span class="td-num">170</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="sfsTrack('ZH-2601-A')">轨迹</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../仓储作业/库存流水.html?id=ZH-2601-A')">详情</a></span></td>
         </tr>
         <tr>
           <td>PLT-1210P 塑料托盘</td>
@@ -402,7 +400,7 @@ th.td-num { text-align:right; }
           <td><span class="td-num">150</span></td>
           <td><span class="td-num">0</span></td>
           <td><span class="td-num">150</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="sfsTrack('PLT-1210P')">轨迹</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../仓储作业/库存流水.html?id=PLT-1210P')">详情</a></span></td>
         </tr>
         <tr>
           <td>ZH-2604-D 混合组合套件</td>
@@ -412,7 +410,7 @@ th.td-num { text-align:right; }
           <td><span class="td-num">40</span></td>
           <td><span class="td-num">0</span></td>
           <td><span class="td-num">0</span></td>
-          <td class="sticky-op"><span class="ops"><a onclick="sfsTrack('ZH-2604-D')">轨迹</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../仓储作业/库存流水.html?id=ZH-2604-D')">详情</a></span></td>
         </tr>
       </tbody>
     </table>
@@ -495,7 +493,7 @@ th.td-num { text-align:right; }
 <script src="../_data/detail-generic.js"></script><script src="../_data/list-generic.js"></script>
 
 <script>
-/* G57 T5.13 收发存查询（0923 拍板·张工「库存管理加收发存选项」）：行=stockFlows 物料·期初/本期入库/本期出库=stockEvents 实算·转移=0（无转移事件）·期末=四态之和；行内「轨迹」弹该物料事件时间序列 */
+/* G57 T5.13 → G61 库存台账（0923 拍板：收敛为期间对账口径·菜单定名「库存台账」）：行=stockFlows 物料·期初/本期入库/本期出库=stockEvents 实算·转移=0（无转移事件）·期末=四态之和；行内「详情」跳物料详情页（原「轨迹」弹窗并入·G61） */
 function sfsNum(v) { var x = parseFloat(String(v).replace(/,/g, '')); return isNaN(x) ? 0 : x; }
 function sfsEvents() { return (window.DEMO_DATA && window.DEMO_DATA.stockEvents) || {}; }
 function sfsFlows() { return (window.DEMO_DATA && window.DEMO_DATA.stockFlows) || {}; }
@@ -537,7 +535,7 @@ function sfsRender() {
       + '<td><span class="td-num">' + r.outN.toLocaleString('zh-CN') + '</span></td>'
       + '<td><span class="td-num">0</span></td>'
       + '<td><span class="td-num">' + r.end.toLocaleString('zh-CN') + '</span></td>'
-      + '<td class="sticky-op"><span class="ops"><a onclick="sfsTrack(\'' + nm.split(' ')[0] + '\')">轨迹</a></span></td></tr>';
+      + '<td class="sticky-op"><span class="ops"><a onclick="go(\'../仓储作业/库存流水.html?id=' + r.mat + '\')">详情</a></span></td></tr>';
   });
   var body = document.getElementById('sfsBody');
   if (body) body.innerHTML = h || '<tr><td colspan="8" style="color:#8c8c8c;text-align:center;padding:14px 0;">无匹配物料</td></tr>';
@@ -549,25 +547,6 @@ function sfsReset() {
   if (mSel) mSel.selectedIndex = 0; if (f) f.value = ''; if (t) t.value = '';
   sfsRender();
 }
-window.sfsTrack = function (matKey) {
-  var EV = sfsEvents(), FL = sfsFlows();
-  var rows = '', fl = '';
-  Object.keys(EV).sort().forEach(function (k) {
-    var e = (EV[k].row || {}).fields || {};
-    if (e.mat !== matKey) return;
-    rows += '<tr><td><span class="td-num">' + (e.date || '—') + '</span></td><td>' + (e.dir || '—') + '</td><td><span class="lk">' + (e.doc || k) + '</span></td><td>' + (e.customer || '—') + '</td><td>' + (e.project || '—') + '</td><td><span class="td-num">' + e.qty + ' ' + (e.unit || '') + '</span></td></tr>';
-  });
-  Object.keys(FL).forEach(function (k) {
-    var f2 = (FL[k].row || {}).fields || {};
-    if (k !== matKey && (f2.name || '').indexOf(matKey) < 0) return;
-    fl = f2.name || k;
-  });
-  var box = document.getElementById('sfsTrackBody');
-  var cap = document.getElementById('sfsTrackCap');
-  if (cap) cap.textContent = '物料轨迹 · ' + (fl || matKey);
-  if (box) box.innerHTML = rows || '<tr><td colspan="6" style="color:#8c8c8c;text-align:center;padding:14px 0;">该物料暂无事件流水（退租关联闭环后数据完整）</td></tr>';
-  openModal('sfsTrackModal');
-};
 (function () {
   var mSel = document.getElementById('sfsMat');
   if (mSel) {
@@ -582,19 +561,6 @@ window.sfsTrack = function (matKey) {
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', sfsRender); else sfsRender();
 })();
 </script>
-<div class="modal-overlay" id="sfsTrackModal">
-  <div class="modal modal-lg" style="width:780px;">
-    <div class="modal-header">
-      <h3 class="modal-title" id="sfsTrackCap">物料轨迹</h3>
-      <span class="modal-close" onclick="closeModal('sfsTrackModal')">×</span>
-    </div>
-    <div class="modal-body">
-      <p style="font-size:12px;color:#8c8c8c;line-height:1.7;margin-bottom:10px;">该物料库存事件时间序列（stockEvents：出库/退租回库/期初结转等）；转移事件与完整收发存报表待退租关联闭环后开发（排期待定）。</p>
-      <div class="table-wrap"><table><thead><tr><th>日期</th><th>方向</th><th>关联单据</th><th>客户</th><th>项目</th><th>数量</th></tr></thead><tbody id="sfsTrackBody"></tbody></table></div>
-    </div>
-    <div class="modal-footer"><button class="btn btn-default" onclick="closeModal('sfsTrackModal')">关闭</button></div>
-  </div>
-</div>
 <script>
 /* ===== 菜单折叠 / 页签与表单视觉态（统一脚本） ===== */
 function go(url) { location.href = url; }
@@ -617,12 +583,6 @@ document.querySelectorAll('.radio').forEach(function (r) {
 });
 document.querySelectorAll('.checkbox').forEach(function (c) {
   c.addEventListener('click', function (c2) { c.classList.toggle('checked'); });
-});
-/* ===== 弹窗 ===== */
-function openModal(id) { document.getElementById(id).classList.add('show'); }
-function closeModal(id) { document.getElementById(id).classList.remove('show'); }
-document.querySelectorAll('.modal-overlay').forEach(function (ov) {
-  ov.addEventListener('click', function (e) { if (e.target === ov) ov.classList.remove('show'); });
 });
 </script>
 
@@ -663,11 +623,13 @@ document.querySelectorAll('.tab').forEach(function (t) {
 <script src="../_data/pc-msg.js"></script>
 </div>
 <script src="../_data/select-source.js"></script>
-<style>/* 列对齐规范（2026-09-20 道远拍板·全量）：数字/日期列右对齐＋tabular-nums·表头随列·其余左（标签不居中）·G57 收发存：期初/入库/出库/转移/期末=数字列 */
+<style>/* 列对齐规范（2026-09-20 道远拍板·全量）：数字/日期列右对齐＋tabular-nums·表头随列·其余左（标签不居中）·G57/G61 库存台账：期初/入库/出库/转移/期末=数字列 */
 .sfs-tbl th:nth-child(3),.sfs-tbl td:nth-child(3),
 .sfs-tbl th:nth-child(4),.sfs-tbl td:nth-child(4),
 .sfs-tbl th:nth-child(5),.sfs-tbl td:nth-child(5),
 .sfs-tbl th:nth-child(6),.sfs-tbl td:nth-child(6),
 .sfs-tbl th:nth-child(7),.sfs-tbl td:nth-child(7){text-align:right;font-variant-numeric:tabular-nums}</style>
+<script src="../_data/notes-data.js"></script>
+<script src="../_data/notes-drawer.js"></script>
 </body>
 </html>

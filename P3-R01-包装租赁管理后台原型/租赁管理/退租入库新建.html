@@ -284,7 +284,7 @@ th.td-num { text-align:right; }
    <li><div class="sm-link" onclick="go('../租赁管理/租赁单列表.html')">租赁单</div></li>
    <li><div class="sm-link" onclick="go('../租赁管理/租赁出库列表.html')">租赁出库</div></li>
    <li><div class="sm-link" onclick="go('../租赁管理/转移出库列表.html')">转移出库</div></li>
-   <li><div class="sm-link selected">退租登记</div></li>
+   <li><div class="sm-link selected">退租入库</div></li>
    </ul>
       </li>
             <li class="sm-item has-sub">
@@ -299,7 +299,7 @@ th.td-num { text-align:right; }
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/><line x1="10" y1="12" x2="14" y2="12"/></svg></span>仓储管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
    <li><div class="sm-link" onclick="go('../仓储作业/库存查询.html')">库存查询</div></li>
-   <li><div class="sm-link" onclick="go('../仓储作业/收发存.html')">收发存</div></li>
+   <li><div class="sm-link" onclick="go('../仓储作业/收发存.html')">库存台账</div></li>
    <li><div class="sm-link" onclick="go('../仓储作业/盘点列表.html')">盘点记录</div></li>
    <li><div class="sm-link" onclick="go('../仓储作业/库存调拨列表.html')">库存调拨</div></li>
    <li><div class="sm-link" onclick="go('../仓储作业/其他入库列表.html')">其他入库</div></li>
@@ -340,10 +340,10 @@ th.td-num { text-align:right; }
   <div class="main-col">
 <div class="tabs">
   <span class="tab">退租入库 <span class="close">×</span></span>
-  <span class="tab active">退租登记（选单退租） <span class="close">×</span></span>
+  <span class="tab active">退租入库（选单退租） <span class="close">×</span></span>
 </div>
     <div class="content submit-pad">
-<div class="pn-hint" style="margin:0 0 14px;padding:10px 12px;border:1px solid #91d5ff;background:#e6f4ff;border-radius:6px;color:#1677ff;line-height:1.9;">退租登记说明：① 多次退租从多个出库单分别登记（每单可多次部分退租，逐单登记）；② 退租只新增退租入库单、不改原出库单数据、不核销原出库数量，应收账单照常生成（账单与退租并行）。<br>操作两步：第一步选退回客户 → 第二步选该客户租赁出库单带出明细 → 录退租数量（≤原出库数量）。</div>
+<div class="pn-hint" style="margin:0 0 14px;padding:10px 12px;border:1px solid #91d5ff;background:#e6f4ff;border-radius:6px;color:#1677ff;line-height:1.9;">退租入库说明：① 多次退租从多个出库单分别登记（每单可多次部分退租，逐单登记）；② 退租只新增退租入库单、不改原出库单数据、不核销原出库数量，应收账单照常生成（账单与退租并行）。<br>操作两步：第一步选退回客户 → 第二步选该客户租赁出库单带出明细 → 录退租数量（≤原出库数量）。</div>
 <div class="card">
   <div class="card-head">
     <h3 class="card-title">第一步 · 选择退回客户</h3>

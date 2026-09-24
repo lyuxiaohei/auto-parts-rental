@@ -284,7 +284,7 @@ th.td-num { text-align:right; }
    <li><div class="sm-link" onclick="go('../租赁管理/租赁单列表.html')">租赁单</div></li>
    <li><div class="sm-link" onclick="go('../租赁管理/租赁出库列表.html')">租赁出库</div></li>
    <li><div class="sm-link" onclick="go('../租赁管理/转移出库列表.html')">转移出库</div></li>
-   <li><div class="sm-link" onclick="go('../租赁管理/退租入库列表.html')">退租登记</div></li>
+   <li><div class="sm-link" onclick="go('../租赁管理/退租入库列表.html')">退租入库</div></li>
    </ul>
       </li>
             <li class="sm-item has-sub">
@@ -299,7 +299,7 @@ th.td-num { text-align:right; }
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/><line x1="10" y1="12" x2="14" y2="12"/></svg></span>仓储管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
    <li><div class="sm-link" onclick="go('../仓储作业/库存查询.html')">库存查询</div></li>
-   <li><div class="sm-link" onclick="go('../仓储作业/收发存.html')">收发存</div></li>
+   <li><div class="sm-link" onclick="go('../仓储作业/收发存.html')">库存台账</div></li>
    <li><div class="sm-link" onclick="go('../仓储作业/盘点列表.html')">盘点记录</div></li>
    <li><div class="sm-link" onclick="go('../仓储作业/库存调拨列表.html')">库存调拨</div></li>
    <li><div class="sm-link" onclick="go('../仓储作业/其他入库列表.html')">其他入库</div></li>
@@ -382,7 +382,6 @@ th.td-num { text-align:right; }
   <div id="stockWarn" style="display:none;margin-top:8px;padding:8px 12px;border:1px solid #ffa39e;background:#fff1f0;border-radius:6px;font-size:12px;color:#d4380d;line-height:1.9;">
     <span class="sw-txt">可用库存不足——可选择生成：</span>
     <button class="btn btn-sm" style="margin-left:8px;" onclick="go('../采购管理/采购订单列表.html')">生成采购订单</button>
-    <button class="btn btn-sm" style="margin-left:6px;" onclick="go('../租入管理/租入单列表.html')">生成租入单</button>
   </div>
 
 </div>
@@ -553,7 +552,7 @@ document.querySelectorAll('select[data-tax="prod"]').forEach(function (code) {
 MSEL.attachAll('.edit-tbl select[data-tax="prod"]', { placeholder: '输入编码搜索' });
 MSEL.attachAll('select.soName', { placeholder: '输入名称搜索' });
 </script>
-<script>/* G13 ⑦ 库存校验统一（道远 09-19：销售订单/租赁单/销售出库/租赁出库四单据功能与校验统一）——可用库存列红绿＋数量超库存标红＋不足红条＋生成采购订单/租入单（行含 .chk-cell 时联动满足/不足） */
+<script>/* G13 ⑦ 库存校验统一（道远 09-19：销售订单/租赁单/销售出库/租赁出库四单据功能与校验统一）——可用库存列红绿＋数量超库存标红＋不足红条＋生成采购订单/租入单（行含 .chk-cell 时联动满足/不足）；G63e（0923 拍板）：销售出库红条仅保留「生成采购订单」入口；租赁出库保持双入口（生成采购订单＋生成租入单） */
 (function () {
   var STOCK_MAP = { 'WBX-1210L': [2120, '只'], 'WBX-1210M': [860, '只'], 'PLT-1210W': [60, '块'], 'PLT-1210P': [1410, '块'], 'BTC-6040': [3300, '只'], 'LJ-A100': [5260, '件'], 'LJ-B200': [2640, '件'], 'LJ-C300': [1860, '件'], 'LJ-D400': [980, '件'], 'LJ-F600': [1520, '件'], 'ZH-2601-A': [640, '套'], 'ZH-2602-B': [820, '套'], 'ZH-2603-C': [150, '套'], 'ZH-2604-D': [0, '套'] };
   function num(v) { var x = parseFloat(String(v).replace(/,/g, '')); return isNaN(x) ? 0 : x; }

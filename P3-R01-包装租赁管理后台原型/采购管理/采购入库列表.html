@@ -291,7 +291,7 @@ th.td-num { text-align:right; }
    <li><div class="sm-link" onclick="go('../租赁管理/租赁单列表.html')">租赁单</div></li>
    <li><div class="sm-link" onclick="go('../租赁管理/租赁出库列表.html')">租赁出库</div></li>
    <li><div class="sm-link" onclick="go('../租赁管理/转移出库列表.html')">转移出库</div></li>
-   <li><div class="sm-link" onclick="go('../租赁管理/退租入库列表.html')">退租登记</div></li>
+   <li><div class="sm-link" onclick="go('../租赁管理/退租入库列表.html')">退租入库</div></li>
    </ul>
       </li>
             <li class="sm-item has-sub">
@@ -306,7 +306,7 @@ th.td-num { text-align:right; }
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/><line x1="10" y1="12" x2="14" y2="12"/></svg></span>仓储管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
    <li><div class="sm-link" onclick="go('../仓储作业/库存查询.html')">库存查询</div></li>
-   <li><div class="sm-link" onclick="go('../仓储作业/收发存.html')">收发存</div></li>
+   <li><div class="sm-link" onclick="go('../仓储作业/收发存.html')">库存台账</div></li>
    <li><div class="sm-link" onclick="go('../仓储作业/盘点列表.html')">盘点记录</div></li>
    <li><div class="sm-link" onclick="go('../仓储作业/库存调拨列表.html')">库存调拨</div></li>
    <li><div class="sm-link" onclick="go('../仓储作业/其他入库列表.html')">其他入库</div></li>
@@ -369,6 +369,7 @@ th.td-num { text-align:right; }
     <div class="ff ff-row-extra"><span class="ff-label">入库时间：</span><input placeholder="开始日期"><span class="ff-sep">→</span><input placeholder="结束日期"></div>
     <div class="ff ff-row-extra"><span class="ff-label">制单人：</span><select id="g35MakerSel"><option selected>全部</option></select><svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
     <div class="ff ff-row-extra"><span class="ff-label">入库库位：</span><select id="g35AreaSel"><option selected>全部</option></select><svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+    <div class="ff ff-row-extra"><span class="ff-label">创建日期：</span><input placeholder="开始日期"><span class="ff-sep">→</span><input placeholder="结束日期"></div>
     <div class="filter-actions">
       <button class="link-collapse" onclick="var f=document.getElementById('filterCard');f.classList.toggle('collapsed');this.querySelector('span').textContent=f.classList.contains('collapsed')?'展开':'收起'"><span>展开</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
       <button class="btn btn-default">重置</button>
@@ -402,7 +403,7 @@ th.td-num { text-align:right; }
           <th>状态</th>
           <th>制单人</th>
           <th>入库时间</th>
-          <th class="sticky-op">操作</th>
+          <th>创建日期</th><th class="sticky-op">操作</th>
         </tr>
       </thead>
       <tbody>
@@ -414,12 +415,11 @@ th.td-num { text-align:right; }
           <td>吴越联合五金制品有限公司</td>
           <td><span class="lk">PO-20260828-015</span></td>
           <td>PRJ-2601</td>
-          <td>零部件采购</td>
-          <td><span class="td-num">40 托</span></td>
-          <td>原料区 RA</td>
+          <td><span class="loc-pill">原料区 RA</span><span class="loc-pill">成品区 RB</span></td>
           <td><span class="tag tag-green">已入库</span></td>
           <td>张帆</td>
           <td>2026-08-28 14:32</td>
+          <td>2026-08-28</td>
           <td class="sticky-op"><span class="ops"><a onclick="go('../采购管理/采购入库详情.html')">详情</a><a onclick="go('../采购管理/采购入库审核.html')">验收</a><a onclick="go('../财务协同/应付账单.html')">应付账单</a></span></td>
         </tr>
         <tr>
@@ -428,12 +428,11 @@ th.td-num { text-align:right; }
           <td>甬城塑业包装制品有限公司</td>
           <td><span class="lk">PO-20260901-017</span></td>
           <td>PRJ-2601</td>
-          <td>器具采购</td>
-          <td><span class="td-num">25 托</span></td>
-          <td>原料区 RA</td>
+          <td><span class="loc-pill">原料区 RA</span></td>
           <td><span class="tag tag-green">已入库</span></td>
           <td>张帆</td>
           <td>2026-08-28 10:05</td>
+          <td>2026-08-28</td>
           <td class="sticky-op"><span class="ops"><a onclick="go('../采购管理/采购入库详情.html')">详情</a><a onclick="go('../采购管理/采购入库审核.html')">验收</a><a onclick="go('../财务协同/应付账单.html')">应付账单</a></span></td>
         </tr>
         <tr>
@@ -442,12 +441,11 @@ th.td-num { text-align:right; }
           <td>延陵塑料托盘厂</td>
           <td><span class="lk">PO-20260820-013</span></td>
           <td>PRJ-2602</td>
-          <td>器具采购</td>
-          <td><span class="td-num">18 托</span></td>
-          <td>成品区 RB</td>
+          <td><span class="loc-pill">成品区 RB</span></td>
           <td><span class="tag tag-green">已入库</span></td>
           <td>林国栋</td>
           <td>2026-08-27 16:44</td>
+          <td>2026-08-27</td>
           <td class="sticky-op"><span class="ops"><a onclick="go('../采购管理/采购入库详情.html')">详情</a><a onclick="go('../采购管理/采购入库审核.html')">验收</a><a onclick="go('../财务协同/应付账单.html')">应付账单</a></span></td>
         </tr>
         <tr>
@@ -456,12 +454,11 @@ th.td-num { text-align:right; }
           <td>吴越联合五金制品有限公司</td>
           <td><span class="lk">PO-20260902-018</span></td>
           <td>PRJ-2602</td>
-          <td>零部件采购</td>
-          <td><span class="td-num">12 托</span></td>
-          <td>原料区 RA</td>
+          <td><span class="loc-pill">原料区 RA</span></td>
           <td><span class="tag tag-orange">待验收</span></td>
           <td>林国栋</td>
           <td>2026-08-27 09:20</td>
+          <td>2026-08-27</td>
           <td class="sticky-op"><span class="ops"><a onclick="go('../采购管理/采购入库详情.html')">详情</a><a onclick="go('../采购管理/采购入库审核.html')">验收</a><a onclick="go('../财务协同/应付账单.html')">应付账单</a></span></td>
         </tr>
         <tr>
@@ -470,12 +467,11 @@ th.td-num { text-align:right; }
           <td>甬城塑业包装制品有限公司</td>
           <td><span class="lk">PO-20260825-014</span></td>
           <td>PRJ-2603</td>
-          <td>器具采购</td>
-          <td><span class="td-num">9 托</span></td>
-          <td>原料区 RA</td>
+          <td><span class="loc-pill">原料区 RA</span><span class="loc-pill">次品区 RC</span></td>
           <td><span class="tag tag-green">已入库</span></td>
           <td>张帆</td>
           <td>2026-08-26 15:10</td>
+          <td>2026-08-26</td>
           <td class="sticky-op"><span class="ops"><a onclick="go('../采购管理/采购入库详情.html')">详情</a><a onclick="go('../采购管理/采购入库审核.html')">验收</a><a onclick="go('../财务协同/应付账单.html')">应付账单</a></span></td>
         </tr>
         <tr>
@@ -484,12 +480,11 @@ th.td-num { text-align:right; }
           <td>延陵塑料托盘厂</td>
           <td><span class="lk">PO-20260830-016</span></td>
           <td>PRJ-2603</td>
-          <td>器具采购</td>
-          <td><span class="td-num">22 托</span></td>
-          <td>成品区 RB</td>
+          <td><span class="loc-pill">成品区 RB</span></td>
           <td><span class="tag tag-green">已入库</span></td>
           <td>张帆</td>
           <td>2026-08-25 11:02</td>
+          <td>2026-08-25</td>
           <td class="sticky-op"><span class="ops"><a onclick="go('../采购管理/采购入库详情.html')">详情</a><a onclick="go('../采购管理/采购入库审核.html')">验收</a><a onclick="go('../财务协同/应付账单.html')">应付账单</a></span></td>
         </tr>
         <tr>
@@ -498,12 +493,11 @@ th.td-num { text-align:right; }
           <td>吴越联合五金制品有限公司</td>
           <td><span class="lk">PO-20260815-012</span></td>
           <td>PRJ-2604</td>
-          <td>零部件采购</td>
-          <td><span class="td-num">6 托</span></td>
-          <td>原料区 RA</td>
+          <td><span class="loc-pill">原料区 RA</span></td>
           <td><span class="tag tag-green">已入库</span></td>
           <td>林国栋</td>
           <td>2026-08-24 14:18</td>
+          <td>2026-08-24</td>
           <td class="sticky-op"><span class="ops"><a onclick="go('../采购管理/采购入库详情.html')">详情</a><a onclick="go('../采购管理/采购入库审核.html')">验收</a><a onclick="go('../财务协同/应付账单.html')">应付账单</a></span></td>
         </tr>
         <tr>
@@ -512,12 +506,11 @@ th.td-num { text-align:right; }
           <td>吴越联合五金制品有限公司</td>
           <td><span class="lk">PO-20260815-012</span></td>
           <td>PRJ-2604</td>
-          <td>器具采购</td>
-          <td><span class="td-num">80 件（折叠隔板）</span></td>
-          <td>原料区 RA</td>
+          <td><span class="loc-pill">原料区 RA</span></td>
           <td><span class="tag tag-green">已入库</span></td>
           <td>张帆</td>
           <td>2026-08-20 14:30</td>
+          <td>2026-08-20</td>
           <td class="sticky-op"><span class="ops"><a onclick="go('../采购管理/采购入库详情.html')">详情</a><a onclick="go('../采购管理/采购入库审核.html')">验收</a></span></td>
         </tr>
       </tbody>
@@ -580,7 +573,7 @@ renderListPage({
     { label: '入库时间', field: 'inTime', range: true },
     { label: '制单人', field: 'maker' },
     { label: '入库库位', field: 'area' }
-  ]
+  , { label: '创建日期', field: 'createdAt', range: true }]
 });
 </script>
 <script>/* G35 筛选值域动态渲染（实体/字典取值·渲染失败保留静态兜底） */
@@ -836,7 +829,11 @@ document.querySelectorAll('.tab').forEach(function (t) {
 SSEL.fillEntity(SSEL.byLabel('供应商'),'partners',{label:'name',keepFirst:true,filter:function(k,f){return f.type==='供应商';}});
 SSEL.fillEntity(SSEL.byLabel('所属项目'),'projects',{keepFirst:true});
 </script>
+<style>/* G62 入库库位多值胶囊（样式参考盘点记录「关联单据」+N 胶囊） */
+.loc-pill{display:inline-flex;align-items:center;justify-content:center;height:18px;padding:0 7px;margin-right:4px;border:1px solid #d9d9d9;border-radius:9px;background:#fafafa;color:#595959;font-size:11px;white-space:nowrap}
+.loc-pill:last-child{margin-right:0}
+</style>
 <style>/* 列对齐规范（2026-09-20 道远拍板·全量）：数字/日期列右对齐＋tabular-nums·表头随列·其余左（标签不居中） */
-.table-wrap table th:nth-child(8),.table-wrap table td:nth-child(8){text-align:right;font-variant-numeric:tabular-nums}</style>
+.table-wrap table th:nth-child(8),.table-wrap table td:nth-child(8),.table-wrap table th:nth-child(11),.table-wrap table td:nth-child(11){text-align:right;font-variant-numeric:tabular-nums}</style>
 </body>
 </html>

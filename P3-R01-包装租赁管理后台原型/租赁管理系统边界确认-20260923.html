@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>租赁管理系统 · 系统边界（20260923）</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:"SimSun","宋体",serif; background:#fff; color:#000;
+    -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .page { max-width:880px; margin:12px auto; padding:0 24px 18px; }
+
+  header { text-align:center; padding-bottom:7px; border-bottom:2px solid #000; margin-bottom:2px; }
+  .doc-no { font-family:"SimHei","黑体",sans-serif; font-size:11.5px; letter-spacing:2px; margin-bottom:3px; }
+  h1 { font-family:"SimHei","黑体",sans-serif; font-size:21px; letter-spacing:2px; font-weight:700; }
+  .sub { font-family:"SimHei","黑体",sans-serif; font-size:14.5px; letter-spacing:6px; margin-top:4px; }
+  .meta { font-size:11.5px; margin-top:5px; color:#333; }
+
+  h2 { font-family:"SimHei","黑体",sans-serif; font-size:14.5px; font-weight:700;
+    margin:12px 0 6px; letter-spacing:1px; border-top:2px solid #000; padding-top:7px; }
+  h2.first { border-top:none; margin-top:9px; padding-top:0; }
+
+  table { width:100%; border-collapse:collapse; }
+  th, td { border:1px solid #000; padding:3px 8px; font-size:12px;
+    line-height:1.45; vertical-align:top; text-align:left; }
+  th { font-family:"SimHei","黑体",sans-serif; background:#f2f2f2; text-align:center;
+    font-weight:700; white-space:nowrap; }
+  td.c { text-align:center; vertical-align:middle; white-space:nowrap; }
+  td.grp { font-family:"SimHei","黑体",sans-serif; font-weight:700;
+    text-align:center; vertical-align:middle; }
+  td.menu { vertical-align:middle; white-space:nowrap; }
+  td.desc, td.cap { vertical-align:middle; }
+  .core-note { font-size:10.5px; color:#333; display:block; margin-top:2px; font-weight:400;
+    font-family:"SimSun","宋体",serif; letter-spacing:0; }
+  .ext { font-size:10.5px; color:#333; }
+
+  .fin-note { font-size:11.5px; line-height:1.5; padding:4px 10px 5px;
+    border:1px solid #000; border-top:none; text-indent:2em; }
+
+  ol.rules { margin:2px 0 0; padding-left:0; list-style:none; }
+  ol.rules li { font-size:12px; line-height:1.5; padding-left:2em; text-indent:-2em; }
+  ol.rules li .no { font-family:"SimHei","黑体",sans-serif; }
+
+  .closing { margin-top:8px; padding-top:6px; border-top:1px solid #000; }
+  .closing p { font-size:12px; line-height:1.5; text-indent:2em; }
+  .sign { margin-top:5px; text-align:right; }
+  .sign p { font-size:12px; line-height:1.5; text-indent:0; }
+
+  @media print {
+    .page { margin:0 auto; max-width:100%; }
+    tr { page-break-inside:avoid; }
+    thead { display:table-header-group; }
+  }
+  @media (max-width:640px) {
+    .page { margin:0; padding:0 12px 16px; }
+    h1 { font-size:19px; } .sub { font-size:13px; letter-spacing:4px; }
+    th, td { font-size:11.5px; padding:3px 6px; }
+    td.menu { white-space:normal; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="doc-no">项目文件 · 仅供内部确认</div>
+    <h1>租赁管理系统</h1>
+    <div class="sub">系统边界</div>
+    <div class="meta">整理日期：2026年9月23日　　依据：2026年9月22日第5次沟通结论　　用途：群内确认为本期开发边界</div>
+  </header>
+
+  <h2 class="first">一、本次上线功能（按系统菜单分组，共七组）</h2>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:34px">序号</th>
+        <th style="width:88px">菜单分组</th>
+        <th style="width:150px">包含菜单</th>
+        <th>解决什么问题</th>
+        <th style="width:180px">关键能力</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="c" rowspan="2">1</td>
+        <td class="grp" rowspan="2">项目管理</td>
+        <td class="menu">项目看板</td>
+        <td class="desc" rowspan="2">业务单据、库存按项目归集，看板一屏掌握各项目动态，解决多项目并行时数据分散、进度靠口头问的问题。</td>
+        <td class="cap" rowspan="2">项目维度业务与库存汇总；项目档案维护。</td>
+      </tr>
+      <tr><td class="menu">项目列表</td></tr>
+      <tr>
+        <td class="c" rowspan="4">2</td>
+        <td class="grp" rowspan="4">基础数据</td>
+        <td class="menu">客商管理<span class="ext">（含供应商分类）</span></td>
+        <td class="desc" rowspan="4">客商、物料、BOM、库位等主数据统一维护，解决基础资料各记各账、口径不一的问题。</td>
+        <td class="cap" rowspan="4">供应商分租赁、采购两类可多选；协议税点多选（9%、13%）；物料批量导入。</td>
+      </tr>
+      <tr><td class="menu">物料档案</td></tr>
+      <tr><td class="menu">BOM组合</td></tr>
+      <tr><td class="menu">库位档案</td></tr>
+      <tr>
+        <td class="c" rowspan="3">3</td>
+        <td class="grp" rowspan="3">采购管理</td>
+        <td class="menu">采购订单</td>
+        <td class="desc" rowspan="3">采购订单、入库、退货全程单据化，到货明细自动带出、只需填写实收数量，解决采购靠手工登记、来货对不上计划的问题。</td>
+        <td class="cap" rowspan="3">采购合同附件归档；审核后生成入库单；退货按原单选库位并登记退款；单据批量导入导出。</td>
+      </tr>
+      <tr><td class="menu">采购入库</td></tr>
+      <tr><td class="menu">采购退货</td></tr>
+      <tr>
+        <td class="c" rowspan="3">4</td>
+        <td class="grp" rowspan="3">销售管理</td>
+        <td class="menu">销售订单</td>
+        <td class="desc" rowspan="3">销售订单、出库、退货全程受控，超出订单数量系统直接拦截，解决卖多发错、出货数量无人管控的问题。</td>
+        <td class="cap" rowspan="3">销售订单记录客户订单号；出库超量拦截；缺货可由销售订单直接生成采购订单（背靠背）。</td>
+      </tr>
+      <tr><td class="menu">销售出库</td></tr>
+      <tr><td class="menu">销售退货</td></tr>
+      <tr>
+        <td class="c" rowspan="7">5</td>
+        <td class="grp" rowspan="7">租赁管理<span class="core-note">（本期核心）</span></td>
+        <td class="menu">租赁单</td>
+        <td class="desc" rowspan="7">租入、租出、转移、退租全流程闭环，每只周转箱从租出到退回全程可追溯，解决资产去向靠台账、退租对不上单的问题。</td>
+        <td class="cap" rowspan="7">租赁单分批出库；供应商直发（虚拟仓）；按次数、按周期计费；转移按物料汇总；退租关联原出库单一一对应，清洗审核后回可用库存。</td>
+      </tr>
+      <tr><td class="menu">租赁出库</td></tr>
+      <tr><td class="menu">转移出库</td></tr>
+      <tr><td class="menu">退租入库</td></tr>
+      <tr><td class="menu">租入单</td></tr>
+      <tr><td class="menu">租入入库</td></tr>
+      <tr><td class="menu">归还出库</td></tr>
+      <tr>
+        <td class="c" rowspan="6">6</td>
+        <td class="grp" rowspan="6">仓储作业</td>
+        <td class="menu">库存查询</td>
+        <td class="desc" rowspan="6">库存家底全部数字化，随时查到每个物料在哪个库位有多少、进出轨迹如何，解决账实不清、盘点差异难对账的问题。</td>
+        <td class="cap" rowspan="6">库存查询到库位明细；收发存轨迹；盘盈盘亏自动生成其他出入库单；库位调拨。</td>
+      </tr>
+      <tr><td class="menu">收发存<span class="ext">（新增）</span></td></tr>
+      <tr><td class="menu">盘点记录</td></tr>
+      <tr><td class="menu">库存调拨</td></tr>
+      <tr><td class="menu">其他入库</td></tr>
+      <tr><td class="menu">其他出库</td></tr>
+      <tr>
+        <td class="c" rowspan="5">7</td>
+        <td class="grp" rowspan="5">系统管理</td>
+        <td class="menu">我的待办</td>
+        <td class="desc" rowspan="5">全部单据审批集中于“我的待办”，角色权限分级、操作全程留痕，解决单据审批分散、责任难以追溯的问题。</td>
+        <td class="cap" rowspan="5">二十类单据集中审核（支持批量）；按角色分配数据权限；枚举值字典化维护。</td>
+      </tr>
+      <tr><td class="menu">用户权限</td></tr>
+      <tr><td class="menu">角色管理</td></tr>
+      <tr><td class="menu">操作日志</td></tr>
+      <tr><td class="menu">数据字典</td></tr>
+    </tbody>
+  </table>
+
+  <h2>二、暂缓上线功能</h2>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:90px">类别</th>
+        <th style="width:110px">分组</th>
+        <th>包含菜单 / 内容</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="grp" rowspan="8">财务协同</td>
+        <td class="grp">数据看板</td>
+        <td class="menu">财务看板</td>
+      </tr>
+      <tr>
+        <td class="grp" rowspan="7">业务列表</td>
+        <td class="menu">应收账单</td>
+      </tr>
+      <tr><td class="menu">开票登记</td></tr>
+      <tr><td class="menu">收款登记</td></tr>
+      <tr><td class="menu">收款核销</td></tr>
+      <tr><td class="menu">应付账单</td></tr>
+      <tr><td class="menu">付款登记</td></tr>
+      <tr><td class="menu">退款登记</td></tr>
+      <tr>
+        <td class="grp">批次追踪</td>
+        <td class="menu" colspan="2">生产日期与批次有效期强制追踪（按周转箱业务从简）</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="fin-note">财务协同随财务阶段一并启用，折旧由用友、金蝶等专业财务软件承担，本期仅保证业务单据数据完整，为后续财务对接预留；生产日期与批次有效期追踪按周转箱业务从简，视业务需要列入后续迭代。</div>
+
+  <div class="closing">
+    <p>以上边界请各位在群内确认或提出调整意见，若无异议则作为本期系统开发范围执行。</p>
+    <div class="sign">
+      <p>汽车物流包装租赁项目组</p>
+      <p>二〇二六年九月二十三日</p>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

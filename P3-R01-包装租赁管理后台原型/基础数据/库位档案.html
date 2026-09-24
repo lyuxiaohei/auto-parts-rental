@@ -290,7 +290,7 @@ th.td-num { text-align:right; }
    <li><div class="sm-link" onclick="go('../租赁管理/租赁单列表.html')">租赁单</div></li>
    <li><div class="sm-link" onclick="go('../租赁管理/租赁出库列表.html')">租赁出库</div></li>
    <li><div class="sm-link" onclick="go('../租赁管理/转移出库列表.html')">转移出库</div></li>
-   <li><div class="sm-link" onclick="go('../租赁管理/退租入库列表.html')">退租登记</div></li>
+   <li><div class="sm-link" onclick="go('../租赁管理/退租入库列表.html')">退租入库</div></li>
    </ul>
       </li>
             <li class="sm-item has-sub">
@@ -305,7 +305,7 @@ th.td-num { text-align:right; }
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/><line x1="10" y1="12" x2="14" y2="12"/></svg></span>仓储管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
    <li><div class="sm-link" onclick="go('../仓储作业/库存查询.html')">库存查询</div></li>
-   <li><div class="sm-link" onclick="go('../仓储作业/收发存.html')">收发存</div></li>
+   <li><div class="sm-link" onclick="go('../仓储作业/收发存.html')">库存台账</div></li>
    <li><div class="sm-link" onclick="go('../仓储作业/盘点列表.html')">盘点记录</div></li>
    <li><div class="sm-link" onclick="go('../仓储作业/库存调拨列表.html')">库存调拨</div></li>
    <li><div class="sm-link" onclick="go('../仓储作业/其他入库列表.html')">其他入库</div></li>
@@ -365,6 +365,7 @@ th.td-num { text-align:right; }
       <select><option selected>全部</option><option>启用</option><option>停用</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
+    <div class="ff ff-row-extra"><span class="ff-label">创建日期：</span><input placeholder="开始日期"><span class="ff-sep">→</span><input placeholder="结束日期"></div>
     <div class="filter-actions">
       <button class="link-collapse" onclick="var f=document.getElementById('filterCard');f.classList.toggle('collapsed');this.querySelector('span').textContent=f.classList.contains('collapsed')?'展开':'收起'"><span>展开</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
       <button class="btn btn-default">重置</button>
@@ -388,7 +389,7 @@ th.td-num { text-align:right; }
           <th>规格 / 承载</th>
           <th>占用情况</th>
           <th>状态</th>
-          <th class="sticky-op">操作</th>
+          <th>创建日期</th><th class="sticky-op">操作</th>
         </tr>
       </thead>
       <tbody>
@@ -400,6 +401,7 @@ th.td-num { text-align:right; }
           <td>1.2m×1.0m / 2t</td>
           <td>68%</td>
           <td><span class="tag-green">启用</span></td>
+          <td>2026-01-06</td>
           <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/库位新建.html')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
         </tr>
 <tr>
@@ -410,6 +412,7 @@ th.td-num { text-align:right; }
           <td>1.2m×1.0m / 2t</td>
           <td>45%</td>
           <td><span class="tag-green">启用</span></td>
+          <td>2026-01-06</td>
           <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/库位新建.html')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
         </tr>
 <tr>
@@ -420,6 +423,7 @@ th.td-num { text-align:right; }
           <td>1.2m×1.0m / 2t</td>
           <td>0%</td>
           <td><span class="tag-green">启用</span></td>
+          <td>2026-02-11</td>
           <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/库位新建.html')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
         </tr>
 <tr>
@@ -430,6 +434,7 @@ th.td-num { text-align:right; }
           <td>1.2m×1.0m / 2t</td>
           <td>82%</td>
           <td><span class="tag-green">启用</span></td>
+          <td>2026-03-03</td>
           <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/库位新建.html')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
         </tr>
 <tr>
@@ -440,6 +445,7 @@ th.td-num { text-align:right; }
           <td>1.2m×1.0m / 2t</td>
           <td>74%</td>
           <td><span class="tag-green">启用</span></td>
+          <td>2026-03-19</td>
           <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/库位新建.html')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
         </tr>
 <tr>
@@ -450,6 +456,7 @@ th.td-num { text-align:right; }
           <td>1.2m×1.0m / 1.5t</td>
           <td>60%</td>
           <td><span class="tag-green">启用</span></td>
+          <td>2026-04-07</td>
           <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/库位新建.html')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
         </tr>
 <tr>
@@ -460,6 +467,7 @@ th.td-num { text-align:right; }
           <td>工位 1</td>
           <td>组装中</td>
           <td><span class="tag-green">启用</span></td>
+          <td>2026-04-22</td>
           <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/库位新建.html')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
         </tr>
 <tr>
@@ -470,6 +478,7 @@ th.td-num { text-align:right; }
           <td>工位 2</td>
           <td>空闲</td>
           <td><span class="tag-green">启用</span></td>
+          <td>2026-05-09</td>
           <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/库位新建.html')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
         </tr>
 <tr>
@@ -480,6 +489,7 @@ th.td-num { text-align:right; }
           <td>1.2m×1.0m / 2t</td>
           <td>36%</td>
           <td><span class="tag-green">启用</span></td>
+          <td>2026-05-26</td>
           <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/库位新建.html')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
         </tr>
 <tr>
@@ -490,6 +500,7 @@ th.td-num { text-align:right; }
           <td>1.2m×1.0m / 2t</td>
           <td>0%</td>
           <td><span class="tag-gray">停用</span></td>
+          <td>2026-06-08</td>
           <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/库位新建.html')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
         </tr>
 <tr>
@@ -500,6 +511,7 @@ th.td-num { text-align:right; }
           <td>—</td>
           <td>系统维护</td>
           <td><span class="tag-green">启用</span></td>
+          <td>2026-06-24</td>
           <td class="sticky-op"><span class="ops">—</span></td>
         </tr>
       </tbody>
@@ -608,7 +620,7 @@ renderListPage({
     { label: '库位编码', field: '_key' },
     { label: '库位类型', field: 'ltype' },
     { label: '状态', field: 'status' }
-  ]
+  , { label: '创建日期', field: 'createdAt', range: true }]
 });
 </script>
 <!-- 操作确认弹窗 · 详情落地页补齐 2026-09-04 -->
@@ -755,6 +767,6 @@ document.querySelectorAll('.tab').forEach(function (t) {
 SSEL.fillEntity(SSEL.byLabel('库位'),'locations',{field:'wh',keepFirst:true});
 </script>
 <style>/* 列对齐规范（2026-09-20 道远拍板·全量）：数字/日期列右对齐＋tabular-nums·表头随列·其余左（标签不居中） */
-.table-wrap table th:nth-child(5),.table-wrap table td:nth-child(5){text-align:right;font-variant-numeric:tabular-nums}</style>
+.table-wrap table th:nth-child(5),.table-wrap table td:nth-child(5),.table-wrap table th:nth-child(9),.table-wrap table td:nth-child(9){text-align:right;font-variant-numeric:tabular-nums}</style>
 </body>
 </html>

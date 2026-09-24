@@ -290,7 +290,7 @@ th.td-num { text-align:right; }
    <li><div class="sm-link" onclick="go('../租赁管理/租赁单列表.html')">租赁单</div></li>
    <li><div class="sm-link" onclick="go('../租赁管理/租赁出库列表.html')">租赁出库</div></li>
    <li><div class="sm-link" onclick="go('../租赁管理/转移出库列表.html')">转移出库</div></li>
-   <li><div class="sm-link" onclick="go('../租赁管理/退租入库列表.html')">退租登记</div></li>
+   <li><div class="sm-link" onclick="go('../租赁管理/退租入库列表.html')">退租入库</div></li>
    </ul>
       </li>
             <li class="sm-item has-sub">
@@ -305,7 +305,7 @@ th.td-num { text-align:right; }
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/><line x1="10" y1="12" x2="14" y2="12"/></svg></span>仓储管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
    <li><div class="sm-link" onclick="go('../仓储作业/库存查询.html')">库存查询</div></li>
-   <li><div class="sm-link" onclick="go('../仓储作业/收发存.html')">收发存</div></li>
+   <li><div class="sm-link" onclick="go('../仓储作业/收发存.html')">库存台账</div></li>
    <li><div class="sm-link" onclick="go('../仓储作业/盘点列表.html')">盘点记录</div></li>
    <li><div class="sm-link" onclick="go('../仓储作业/库存调拨列表.html')">库存调拨</div></li>
    <li><div class="sm-link" onclick="go('../仓储作业/其他入库列表.html')">其他入库</div></li>
@@ -363,7 +363,7 @@ th.td-num { text-align:right; }
     </div>
     <div class="ff"><span class="ff-label">联系人：</span><input placeholder="请输入"></div>
     <div class="ff ff-row-extra"><span class="ff-label">合作状态：</span>
-      <select><option selected>全部</option><option>客户</option><option>供应商</option></select>
+      <select><option selected>全部</option><option>正常</option><option>停用</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
     <div class="ff ff-row-extra"><span class="ff-label">创建日期：</span><input placeholder="开始时间"><span class="ff-sep">→</span><input placeholder="结束时间"></div>
@@ -415,7 +415,7 @@ th.td-num { text-align:right; }
           <th>开票资料</th>
           <th>合作状态</th>
           <th>更新日期</th>
-          <th class="sticky-op">操作</th>
+          <th>创建日期</th><th class="sticky-op">操作</th>
         </tr>
       </thead>
       <tbody>
@@ -429,6 +429,7 @@ th.td-num { text-align:right; }
           <td>增值税专票 13%</td>
           <td><span class="tag tag-green">正常</span></td>
           <td>2026-08-12</td>
+          <td>2026-08-12</td>
           <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/客商详情.html')">详情</a><a onclick="go('../基础数据/客商新建.html')">编辑</a></span></td>
         </tr>
         <tr>
@@ -440,6 +441,7 @@ th.td-num { text-align:right; }
           <td>139****0233</td>
           <td>增值税专票 13%</td>
           <td><span class="tag tag-green">正常</span></td>
+          <td>2026-08-05</td>
           <td>2026-08-05</td>
           <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/客商详情.html')">详情</a><a onclick="go('../基础数据/客商新建.html')">编辑</a></span></td>
         </tr>
@@ -453,6 +455,7 @@ th.td-num { text-align:right; }
           <td>增值税专票 13%</td>
           <td><span class="tag tag-green">正常</span></td>
           <td>2026-07-28</td>
+          <td>2026-07-28</td>
           <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/客商详情.html')">详情</a><a onclick="go('../基础数据/客商新建.html')">编辑</a></span></td>
         </tr>
         <tr>
@@ -464,6 +467,7 @@ th.td-num { text-align:right; }
           <td>136****3312</td>
           <td>增值税专票 13%</td>
           <td><span class="tag tag-gray">停用</span></td>
+          <td>2026-06-30</td>
           <td>2026-06-30</td>
           <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/客商详情.html')">详情</a><a onclick="go('../基础数据/客商新建.html')">编辑</a></span></td>
         </tr>
@@ -477,6 +481,7 @@ th.td-num { text-align:right; }
           <td>增值税专票 13%</td>
           <td><span class="tag tag-green">正常</span></td>
           <td>2026-08-18</td>
+          <td>2026-08-18</td>
           <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/客商详情.html')">详情</a><a onclick="go('../基础数据/客商新建.html')">编辑</a></span></td>
         </tr>
         <tr>
@@ -488,6 +493,7 @@ th.td-num { text-align:right; }
           <td>133****5567</td>
           <td>增值税专票 13%</td>
           <td><span class="tag tag-green">正常</span></td>
+          <td>2026-08-18</td>
           <td>2026-08-18</td>
           <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/客商详情.html')">详情</a><a onclick="go('../基础数据/客商新建.html')">编辑</a></span></td>
         </tr>
@@ -501,6 +507,7 @@ th.td-num { text-align:right; }
           <td>增值税普通发票</td>
           <td><span class="tag tag-green">正常</span></td>
           <td>2026-07-15</td>
+          <td>2026-07-15</td>
           <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/客商详情.html')">详情</a><a onclick="go('../基础数据/客商新建.html')">编辑</a></span></td>
         </tr>
         <tr>
@@ -512,6 +519,7 @@ th.td-num { text-align:right; }
           <td>021-66****</td>
           <td>结算对账专用</td>
           <td><span class="tag tag-green">正常</span></td>
+          <td>2026-08-30</td>
           <td>2026-08-30</td>
           <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/客商详情.html')">详情</a><a onclick="go('../基础数据/客商新建.html')">编辑</a></span></td>
         </tr>

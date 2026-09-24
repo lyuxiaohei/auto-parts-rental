@@ -290,7 +290,7 @@ th.td-num { text-align:right; }
    <li><div class="sm-link" onclick="go('../租赁管理/租赁单列表.html')">租赁单</div></li>
    <li><div class="sm-link" onclick="go('../租赁管理/租赁出库列表.html')">租赁出库</div></li>
    <li><div class="sm-link" onclick="go('../租赁管理/转移出库列表.html')">转移出库</div></li>
-   <li><div class="sm-link" onclick="go('../租赁管理/退租入库列表.html')">退租登记</div></li>
+   <li><div class="sm-link" onclick="go('../租赁管理/退租入库列表.html')">退租入库</div></li>
    </ul>
       </li>
             <li class="sm-item has-sub">
@@ -305,7 +305,7 @@ th.td-num { text-align:right; }
    <div class="sm-link"><span class="sm-ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/><line x1="10" y1="12" x2="14" y2="12"/></svg></span>仓储管理<span class="sm-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
    <ul class="sm-sub">
    <li><div class="sm-link" onclick="go('../仓储作业/库存查询.html')">库存查询</div></li>
-   <li><div class="sm-link" onclick="go('../仓储作业/收发存.html')">收发存</div></li>
+   <li><div class="sm-link" onclick="go('../仓储作业/收发存.html')">库存台账</div></li>
    <li><div class="sm-link" onclick="go('../仓储作业/盘点列表.html')">盘点记录</div></li>
    <li><div class="sm-link" onclick="go('../仓储作业/库存调拨列表.html')">库存调拨</div></li>
    <li><div class="sm-link" onclick="go('../仓储作业/其他入库列表.html')">其他入库</div></li>
@@ -362,7 +362,7 @@ th.td-num { text-align:right; }
       <select><option selected>全部</option><option>待审核</option><option>已审核</option><option>已完成</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
-    <div class="ff ff-row-extra"><span class="ff-label">建档日期：</span><input placeholder="开始时间"><span class="ff-sep">→</span><input placeholder="结束时间"></div>
+    <div class="ff ff-row-extra"><span class="ff-label">创建日期：</span><input placeholder="开始时间"><span class="ff-sep">→</span><input placeholder="结束时间"></div>
     <div class="filter-actions">
       <button class="link-collapse" onclick="var f=document.getElementById('filterCard');f.classList.toggle('collapsed');this.querySelector('span').textContent=f.classList.contains('collapsed')?'展开':'收起'"><span>展开</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
       <button class="btn btn-default">重置</button>
@@ -405,177 +405,249 @@ th.td-num { text-align:right; }
           <th colspan="2">参考未税租入价 / 租赁价</th>
           <th>状态</th>
           <th>更新日期</th>
-          <th class="sticky-op">操作</th>
+          <th>创建日期</th><th class="sticky-op">操作</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td><input type="checkbox" class="cb"></td>
-          <td>WBX-1210L</td>
+          <td><span class="lk">WBX-1210L</span></td>
           <td>围板箱 1200×1000×970</td>
           <td><span class="tag tag-blue">围板箱</span></td>
           <td>1200×1000×970 mm</td>
           <td>只</td>
-          <td><span class="tag tag-green">自有</span></td>
-          <td><span class="td-num">38.00</span></td>
-          <td><span class="td-num">38.00</span></td>
+          <td><span class="td-num">380.00</span></td>
+          <td>—</td>
+          <td><span class="td-num">45.00 元/只·月</span></td>
+          <td><span class="td-num">60.00 元/只·月</span></td>
           <td><span class="tag tag-green">启用</span></td>
           <td>2026-01-06</td>
-          <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/物料详情.html')">详情</a><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
+          <td>2026-01-06</td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/物料详情.html?id=WBX-1210L')">详情</a><a onclick="go('../基础数据/物料新建.html')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
-          <td>WBX-1210M</td>
+          <td><span class="lk">WBX-1210M</span></td>
           <td>围板箱 1200×1000×590</td>
           <td><span class="tag tag-blue">围板箱</span></td>
           <td>1200×1000×590 mm</td>
           <td>只</td>
-          <td><span class="tag tag-green">自有</span></td>
-          <td><span class="td-num">32.00</span></td>
-          <td><span class="td-num">32.00</span></td>
+          <td><span class="td-num">340.00</span></td>
+          <td>—</td>
+          <td>—</td>
+          <td><span class="td-num">55.00 元/只·月</span></td>
           <td><span class="tag tag-green">启用</span></td>
           <td>2026-01-06</td>
-          <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/物料详情.html')">详情</a><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
+          <td>2026-01-06</td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/物料详情.html?id=WBX-1210M')">详情</a><a onclick="go('../基础数据/物料新建.html')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
-          <td>PLT-1210W</td>
+          <td><span class="lk">PLT-1210W</span></td>
           <td>木托盘 1200×1000</td>
-          <td><span class="tag tag-green">托盘</span></td>
+          <td><span class="tag tag-green">木托盘</span></td>
           <td>1200×1000×144 mm</td>
           <td>块</td>
-          <td><span class="tag tag-green">自有</span></td>
-          <td><span class="td-num">12.00</span></td>
-          <td><span class="td-num">12.00</span></td>
+          <td><span class="td-num">95.00</span></td>
+          <td>—</td>
+          <td><span class="td-num">6.00 元/块·次</span></td>
+          <td><span class="td-num">15.00 元/块·次</span></td>
           <td><span class="tag tag-green">启用</span></td>
           <td>2026-02-11</td>
-          <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/物料详情.html')">详情</a><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
+          <td>2026-02-11</td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/物料详情.html?id=PLT-1210W')">详情</a><a onclick="go('../基础数据/物料新建.html')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
-          <td>PLT-1210P</td>
+          <td><span class="lk">PLT-1210P</span></td>
           <td>塑料托盘 1200×1000</td>
-          <td><span class="tag tag-green">托盘</span></td>
+          <td><span class="tag tag-green">塑料托盘</span></td>
           <td>1200×1000×150 mm</td>
           <td>块</td>
-          <td><span class="tag tag-orange">租入</span></td>
-          <td><span class="td-num">18.00</span></td>
-          <td><span class="td-num">18.00</span></td>
+          <td><span class="td-num">110.00</span></td>
+          <td>—</td>
+          <td><span class="td-num">12.00 元/块·月</span></td>
+          <td><span class="td-num">18.00 元/块·月</span></td>
           <td><span class="tag tag-green">启用</span></td>
           <td>2026-02-11</td>
-          <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/物料详情.html')">详情</a><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
+          <td>2026-02-11</td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/物料详情.html?id=PLT-1210P')">详情</a><a onclick="go('../基础数据/物料新建.html')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
-          <td>BTC-6040</td>
-          <td>料箱 600×400×340</td>
-          <td><span class="tag tag-orange">料箱</span></td>
-          <td>600×400×340 mm</td>
-          <td>只</td>
-          <td><span class="tag tag-orange">租入</span></td>
-          <td><span class="td-num">8.50</span></td>
-          <td><span class="td-num">8.50</span></td>
-          <td><span class="tag tag-green">启用</span></td>
-          <td>2026-03-02</td>
-          <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/物料详情.html')">详情</a><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
-        </tr>
-        <tr>
-          <td><input type="checkbox" class="cb"></td>
-          <td>BTC-6040S</td>
+          <td><span class="lk">BTC-6040S</span></td>
           <td>料箱 600×400×220（带盖）</td>
           <td><span class="tag tag-orange">料箱</span></td>
           <td>600×400×220 mm</td>
           <td>只</td>
-          <td><span class="tag tag-green">自有</span></td>
-          <td><span class="td-num">7.80</span></td>
-          <td><span class="td-num">7.80</span></td>
+          <td><span class="td-num">78.00</span></td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
           <td><span class="tag tag-gray">停用</span></td>
           <td>2026-03-02</td>
-          <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/物料详情.html')">详情</a><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
+          <td>2026-03-02</td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/物料详情.html?id=BTC-6040S')">详情</a><a onclick="go('../基础数据/物料新建.html')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
-          <td>LJ-A100</td>
+          <td><span class="lk">BTC-6040</span></td>
+          <td>料箱 600×400×340</td>
+          <td><span class="tag tag-orange">料箱</span></td>
+          <td>600×400×340 mm</td>
+          <td>只</td>
+          <td><span class="td-num">85.00</span></td>
+          <td>—</td>
+          <td><span class="td-num">10.00 元/只·月</span></td>
+          <td><span class="td-num">14.00 元/只·次</span></td>
+          <td><span class="tag tag-green">启用</span></td>
+          <td>2026-03-02</td>
+          <td>2026-03-02</td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/物料详情.html?id=BTC-6040')">详情</a><a onclick="go('../基础数据/物料新建.html')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" class="cb"></td>
+          <td><span class="lk">LJ-A100</span></td>
           <td>锁扣组件</td>
-          <td><span class="tag tag-blue">组件</span></td>
+          <td><span class="tag tag-blue">零部件</span></td>
           <td>不锈钢 304 · M8</td>
           <td>件</td>
-          <td><span class="tag tag-green">自有</span></td>
           <td><span class="td-num">6.80</span></td>
-          <td><span class="td-num">—</span></td>
+          <td><span class="td-num">9.80</span></td>
+          <td>—</td>
+          <td>—</td>
           <td><span class="tag tag-green">启用</span></td>
           <td>2026-01-06</td>
-          <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/物料详情.html')">详情</a><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
+          <td>2026-01-06</td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/物料详情.html?id=LJ-A100')">详情</a><a onclick="go('../基础数据/物料新建.html')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
-          <td>LJ-B200</td>
+          <td><span class="lk">LJ-B200</span></td>
           <td>铰链</td>
-          <td><span class="tag tag-blue">组件</span></td>
+          <td><span class="tag tag-blue">零部件</span></td>
           <td>锌合金 · 65mm</td>
           <td>件</td>
-          <td><span class="tag tag-green">自有</span></td>
           <td><span class="td-num">4.20</span></td>
-          <td><span class="td-num">—</span></td>
+          <td><span class="td-num">6.50</span></td>
+          <td>—</td>
+          <td>—</td>
           <td><span class="tag tag-green">启用</span></td>
           <td>2026-01-06</td>
-          <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/物料详情.html')">详情</a><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
+          <td>2026-01-06</td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/物料详情.html?id=LJ-B200')">详情</a><a onclick="go('../基础数据/物料新建.html')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
-          <td>LJ-C300</td>
+          <td><span class="lk">LJ-C300</span></td>
           <td>围板</td>
-          <td><span class="tag tag-blue">组件</span></td>
+          <td><span class="tag tag-blue">零部件</span></td>
           <td>HDPE 波纹板 · 970 高</td>
           <td>件</td>
-          <td><span class="tag tag-green">自有</span></td>
           <td><span class="td-num">52.00</span></td>
-          <td><span class="td-num">—</span></td>
+          <td><span class="td-num">68.00</span></td>
+          <td>—</td>
+          <td>—</td>
           <td><span class="tag tag-green">启用</span></td>
           <td>2026-02-02</td>
-          <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/物料详情.html')">详情</a><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
+          <td>2026-02-02</td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/物料详情.html?id=LJ-C300')">详情</a><a onclick="go('../基础数据/物料新建.html')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
-          <td>LJ-D400</td>
+          <td><span class="lk">LJ-D400</span></td>
           <td>箱盖</td>
-          <td><span class="tag tag-blue">组件</span></td>
+          <td><span class="tag tag-blue">零部件</span></td>
           <td>ABS 吸塑 · 1200×1000</td>
           <td>件</td>
-          <td><span class="tag tag-green">自有</span></td>
           <td><span class="td-num">36.00</span></td>
-          <td><span class="td-num">—</span></td>
+          <td><span class="td-num">48.00</span></td>
+          <td>—</td>
+          <td>—</td>
           <td><span class="tag tag-green">启用</span></td>
           <td>2026-02-02</td>
-          <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/物料详情.html')">详情</a><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
+          <td>2026-02-02</td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/物料详情.html?id=LJ-D400')">详情</a><a onclick="go('../基础数据/物料新建.html')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
-          <td>LJ-E500</td>
+          <td><span class="lk">LJ-E500</span></td>
           <td>底托架</td>
-          <td><span class="tag tag-blue">组件</span></td>
+          <td><span class="tag tag-blue">内衬</span></td>
           <td>钢制喷塑 · 1200×1000</td>
           <td>件</td>
-          <td><span class="tag tag-green">自有</span></td>
           <td><span class="td-num">78.00</span></td>
-          <td><span class="td-num">—</span></td>
+          <td><span class="td-num">98.00</span></td>
+          <td>—</td>
+          <td>—</td>
           <td><span class="tag tag-green">启用</span></td>
           <td>2026-03-06</td>
-          <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/物料详情.html')">详情</a><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
+          <td>2026-03-06</td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/物料详情.html?id=LJ-E500')">详情</a><a onclick="go('../基础数据/物料新建.html')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
-          <td>LJ-F600</td>
+          <td><span class="lk">LJ-F600</span></td>
           <td>内衬</td>
-          <td><span class="tag tag-blue">组件</span></td>
+          <td><span class="tag tag-blue">内衬</span></td>
           <td>EPE 珍珠棉 · 定制</td>
           <td>件</td>
-          <td><span class="tag tag-green">自有</span></td>
           <td><span class="td-num">15.50</span></td>
-          <td><span class="td-num">—</span></td>
+          <td><span class="td-num">22.00</span></td>
+          <td>—</td>
+          <td>—</td>
           <td><span class="tag tag-green">启用</span></td>
           <td>2026-03-06</td>
-          <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/物料详情.html')">详情</a><a onclick="openModal('createModal')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
+          <td>2026-03-06</td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/物料详情.html?id=LJ-F600')">详情</a><a onclick="go('../基础数据/物料新建.html')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" class="cb"></td>
+          <td><span class="lk">KBX-1040M</span></td>
+          <td>卡板箱 1040×800×590</td>
+          <td><span class="tag tag-blue">卡板箱</span></td>
+          <td>1040×800×590 mm</td>
+          <td>只</td>
+          <td><span class="td-num">120.00</span></td>
+          <td>—</td>
+          <td><span class="td-num">8.00 元/只·月</span></td>
+          <td><span class="td-num">12.00 元/只·月</span></td>
+          <td><span class="tag tag-green">启用</span></td>
+          <td>2026-06-18</td>
+          <td>2026-06-18</td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/物料详情.html?id=KBX-1040M')">详情</a><a onclick="go('../基础数据/物料新建.html')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" class="cb"></td>
+          <td><span class="lk">PLT-1210G</span></td>
+          <td>金属托盘 1200×1000</td>
+          <td><span class="tag tag-blue">金属托盘</span></td>
+          <td>1200×1000×144 mm</td>
+          <td>块</td>
+          <td><span class="td-num">165.00</span></td>
+          <td>—</td>
+          <td><span class="td-num">10.00 元/块·月</span></td>
+          <td><span class="td-num">15.00 元/块·月</span></td>
+          <td><span class="tag tag-green">启用</span></td>
+          <td>2026-02-10</td>
+          <td>2026-02-10</td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/物料详情.html?id=PLT-1210G')">详情</a><a onclick="go('../基础数据/物料新建.html')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" class="cb"></td>
+          <td><span class="lk">KJ-2701</span></td>
+          <td>料架 1850×1000×1200</td>
+          <td><span class="tag tag-blue">料架</span></td>
+          <td>1850×1000×1200 mm</td>
+          <td>套</td>
+          <td><span class="td-num">420.00</span></td>
+          <td>—</td>
+          <td><span class="td-num">25.00 元/套·月</span></td>
+          <td><span class="td-num">38.00 元/套·月</span></td>
+          <td><span class="tag tag-green">启用</span></td>
+          <td>2026-04-22</td>
+          <td>2026-04-22</td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../基础数据/物料详情.html?id=KJ-2701')">详情</a><a onclick="go('../基础数据/物料新建.html')">编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
         </tr>
       </tbody>
     </table>
@@ -683,7 +755,7 @@ renderListPage({
     { label: '物料名称', field: 'name' },
     { label: '物料类型', field: 'cls' },
     { label: '状态', field: 'status' },
-    { label: '建档日期', field: 'date', range: true }
+    { label: '创建日期', field: 'date', range: true }
   ]
 });
 </script>
