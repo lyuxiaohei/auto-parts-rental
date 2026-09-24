@@ -180,7 +180,7 @@
   "js_errors": [],
   "problems": [],
   "stats": {
-   "buttons": 72,
+   "buttons": 73,
    "links": 7,
    "onclickEls": 0,
    "modals": 0,
@@ -356,16 +356,18 @@
   "js_errors": [],
   "problems": [],
   "stats": {
-   "buttons": 5,
+   "buttons": 10,
    "links": 11,
-   "onclickEls": 45,
-   "modals": 0,
-   "modalTitles": [],
+   "onclickEls": 51,
+   "modals": 1,
+   "modalTitles": [
+    "批量导入其他出库单"
+   ],
    "selects": 3,
    "fakeSelects": 0,
    "radios": 0,
    "checkboxes": 0,
-   "inputs": 10,
+   "inputs": 11,
    "stabs": 3,
    "tabs": 3,
    "bgMut": 0
@@ -793,16 +795,16 @@
   "js_errors": [],
   "problems": [],
   "stats": {
-   "buttons": 2,
+   "buttons": 4,
    "links": 1,
-   "onclickEls": 38,
+   "onclickEls": 44,
    "modals": 0,
    "modalTitles": [],
    "selects": 3,
    "fakeSelects": 0,
    "radios": 2,
    "checkboxes": 0,
-   "inputs": 13,
+   "inputs": 21,
    "stabs": 0,
    "tabs": 2,
    "bgMut": 0
@@ -1004,16 +1006,18 @@
   "js_errors": [],
   "problems": [],
   "stats": {
-   "buttons": 5,
+   "buttons": 10,
    "links": 10,
-   "onclickEls": 47,
-   "modals": 0,
-   "modalTitles": [],
+   "onclickEls": 53,
+   "modals": 1,
+   "modalTitles": [
+    "批量导入归还出库单"
+   ],
    "selects": 4,
    "fakeSelects": 0,
    "radios": 0,
    "checkboxes": 0,
-   "inputs": 8,
+   "inputs": 9,
    "stabs": 3,
    "tabs": 4,
    "bgMut": 0
@@ -1290,16 +1294,18 @@
   "js_errors": [],
   "problems": [],
   "stats": {
-   "buttons": 5,
+   "buttons": 10,
    "links": 45,
-   "onclickEls": 72,
-   "modals": 0,
-   "modalTitles": [],
+   "onclickEls": 78,
+   "modals": 1,
+   "modalTitles": [
+    "批量导入租赁出库单"
+   ],
    "selects": 3,
    "fakeSelects": 0,
    "radios": 0,
    "checkboxes": 0,
-   "inputs": 16,
+   "inputs": 17,
    "stabs": 4,
    "tabs": 4,
    "bgMut": 0
@@ -2647,16 +2653,18 @@
   "js_errors": [],
   "problems": [],
   "stats": {
-   "buttons": 5,
+   "buttons": 10,
    "links": 29,
-   "onclickEls": 59,
-   "modals": 0,
-   "modalTitles": [],
+   "onclickEls": 65,
+   "modals": 1,
+   "modalTitles": [
+    "批量导入销售出库单"
+   ],
    "selects": 4,
    "fakeSelects": 0,
    "radios": 0,
    "checkboxes": 0,
-   "inputs": 12,
+   "inputs": 13,
    "stabs": 3,
    "tabs": 3,
    "bgMut": 0
@@ -2874,7 +2882,7 @@
    "onclickEls": 39,
    "modals": 0,
    "modalTitles": [],
-   "selects": 2,
+   "selects": 3,
    "fakeSelects": 0,
    "radios": 2,
    "checkboxes": 0,

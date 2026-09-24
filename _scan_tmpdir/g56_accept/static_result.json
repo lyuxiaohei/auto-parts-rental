@@ -1,0 +1,312 @@
+{
+ "tag_balance": {
+  "svg": {
+   "open_total": 2,
+   "self_close": 0,
+   "close": 2,
+   "balanced": true
+  },
+  "a": {
+   "open_total": 102,
+   "self_close": 0,
+   "close": 102,
+   "balanced": true
+  },
+  "g": {
+   "open_total": 12,
+   "self_close": 0,
+   "close": 12,
+   "balanced": true
+  },
+  "text": {
+   "open_total": 310,
+   "self_close": 0,
+   "close": 310,
+   "balanced": true
+  },
+  "rect": {
+   "open_total": 125,
+   "self_close": 125,
+   "close": 0,
+   "balanced": true
+  },
+  "line": {
+   "open_total": 63,
+   "self_close": 63,
+   "close": 0,
+   "balanced": true
+  },
+  "path": {
+   "open_total": 8,
+   "self_close": 8,
+   "close": 0,
+   "balanced": true
+  }
+ },
+ "viewboxes": [
+  "0 0 880 2484",
+  "0 0 880 944"
+ ],
+ "viewbox_ok": true,
+ "maxY": {
+  "0 0 880 2484": {
+   "maxY": 2466.0,
+   "limit": 2468,
+   "ok": true,
+   "detail": {
+    "text_y": 2464.0,
+    "rect_bottom": 2466.0,
+    "line_y": 2460.0,
+    "path_y": 2012.0
+   }
+  },
+  "0 0 880 944": {
+   "maxY": 926.0,
+   "limit": 928,
+   "ok": true,
+   "detail": {
+    "text_y": 924.0,
+    "rect_bottom": 926.0,
+    "line_y": 920.0
+   }
+  }
+ },
+ "href": {
+  "total_href_occurrences": 102,
+  "unique_targets": 49,
+  "missing": [],
+  "new3": {
+   "采购管理/采购退货单列表.html": true,
+   "销售管理/销售退货单列表.html": true,
+   "财务协同/退款登记.html": true
+  },
+  "unique_sorted": [
+   "仓储作业/其他入库列表.html",
+   "仓储作业/其他出库列表.html",
+   "仓储作业/库存查询.html",
+   "仓储作业/库存调拨列表.html",
+   "仓储作业/盘点列表.html",
+   "仓储作业/盘点录入.html",
+   "基础数据/BOM.html",
+   "基础数据/BOM维护.html",
+   "基础数据/产品档案.html",
+   "基础数据/客商管理.html",
+   "基础数据/库位档案.html",
+   "我的待办.html",
+   "租入管理/归还出库列表.html",
+   "租入管理/归还出库新建.html",
+   "租入管理/租入入库列表.html",
+   "租入管理/租入单列表.html",
+   "租赁管理/租赁出库列表.html",
+   "租赁管理/租赁出库录单.html",
+   "租赁管理/租赁单列表.html",
+   "租赁管理/转移出库列表.html",
+   "租赁管理/转移出库单详情.html",
+   "租赁管理/转移出库新建.html",
+   "租赁管理/退租入库列表.html",
+   "租赁管理/退租入库新建.html",
+   "系统管理/操作日志.html",
+   "系统管理/数据字典.html",
+   "系统管理/用户权限.html",
+   "系统管理/角色管理.html",
+   "财务协同/付款登记.html",
+   "财务协同/付款确认.html",
+   "财务协同/应付账单.html",
+   "财务协同/应收账单.html",
+   "财务协同/开票登记.html",
+   "财务协同/损益报表.html",
+   "财务协同/收款登记.html",
+   "财务协同/退款登记.html",
+   "财务协同/银行回单核销.html",
+   "采购管理/采购入库列表.html",
+   "采购管理/采购入库审核.html",
+   "采购管理/采购入库录单.html",
+   "采购管理/采购订单列表.html",
+   "采购管理/采购退货单列表.html",
+   "销售管理/销售出库列表.html",
+   "销售管理/销售订单列表.html",
+   "销售管理/销售退货单列表.html",
+   "项目管理/上下游绑定.html",
+   "项目管理/项目档案.html",
+   "项目管理/项目详情.html",
+   "首页/项目看板.html"
+  ]
+ },
+ "grep": {
+  "v3.9": {
+   "count": 8,
+   "rule": "ge 4",
+   "ok": true
+  },
+  "v3.8 原型业务流程导航": {
+   "count": 0,
+   "rule": "eq 0",
+   "ok": true
+  },
+  "直发": {
+   "count": 35,
+   "rule": "ge 5",
+   "ok": true
+  },
+  "背靠背": {
+   "count": 6,
+   "rule": "ge 2",
+   "ok": true
+  },
+  "XNC-ZF": {
+   "count": 5,
+   "rule": "ge 1",
+   "ok": true
+  },
+  "采购退货": {
+   "count": 6,
+   "rule": "ge 2",
+   "ok": true
+  },
+  "销售退货": {
+   "count": 11,
+   "rule": "ge 2",
+   "ok": true
+  },
+  "退款": {
+   "count": 22,
+   "rule": "ge 3",
+   "ok": true
+  },
+  "67 个弹窗": {
+   "count": 0,
+   "rule": "eq 0",
+   "ok": true
+  },
+  "38 个页面": {
+   "count": 0,
+   "rule": "eq 0",
+   "ok": true
+  },
+  "Geist": {
+   "count": 0,
+   "rule": "eq 0",
+   "ok": true
+  }
+ },
+ "f02_reconcile": {
+  "node_boxes": {
+   "main": 58,
+   "branch": 31,
+   "total": 89,
+   "f02_claim": [
+    58,
+    31,
+    89
+   ]
+  },
+  "a_total": {
+   "actual": 102,
+   "f02_claim": 102
+  },
+  "inline_a": {
+   "actual": 13,
+   "f02_claim": 13
+  },
+  "unique_targets": {
+   "main": 25,
+   "branch": 30,
+   "union": 49,
+   "intersection": [
+    "仓储作业/库存查询.html",
+    "租赁管理/租赁单列表.html",
+    "租赁管理/退租入库列表.html",
+    "财务协同/应付账单.html",
+    "财务协同/应收账单.html",
+    "销售管理/销售订单列表.html"
+   ],
+   "f02_claim": [
+    25,
+    30,
+    49,
+    6
+   ]
+  },
+  "src_data_keys": {
+   "actual": [
+    "b1",
+    "l1",
+    "l2",
+    "l3",
+    "l4",
+    "t1",
+    "t2",
+    "fin"
+   ],
+   "f02_claim": [
+    "b1",
+    "l1",
+    "l2",
+    "l3",
+    "l4",
+    "t1",
+    "t2",
+    "fin"
+   ]
+  },
+  "titles_16px": {
+   "main": 8,
+   "branch": 7,
+   "total": 15,
+   "f02_claim": [
+    8,
+    7,
+    15
+   ]
+  }
+ },
+ "f02_forbidden_outside_s8": {
+  "组合出库列表": {
+   "count": 0,
+   "ok": true
+  },
+  "租赁管理/租入": {
+   "count": 0,
+   "ok": true
+  },
+  "租赁管理/归还": {
+   "count": 0,
+   "ok": true
+  },
+  "银行水单": {
+   "count": 0,
+   "ok": true
+  },
+  "盈亏报表": {
+   "count": 0,
+   "ok": true
+  },
+  "1280": {
+   "count": 0,
+   "ok": true
+  },
+  "v3.3": {
+   "count": 0,
+   "ok": true
+  }
+ },
+ "f02_s8_found": true,
+ "f02_forbidden_inside_s8": {
+  "组合出库列表": 0,
+  "租赁管理/租入": 0,
+  "租赁管理/归还": 0,
+  "银行水单": 0,
+  "盈亏报表": 0,
+  "1280": 0,
+  "v3.3": 2
+ },
+ "f02_claims_text": {
+  "102 处 <a>": true,
+  "89 (58+31)": true,
+  "唯一目标 49 (25+30·6)": true,
+  "viewBox 2484": true,
+  "viewBox 944": true,
+  "SRC_DATA 8 键": true,
+  "16px 15 (8+7)": true
+ }
+}

@@ -1,23 +1,21 @@
 [
  {
-  "page": "采购管理\\采购入库列表.html",
+  "page": "基础数据\\客商新建.html",
   "js_errors": [],
   "problems": [],
   "stats": {
-   "buttons": 10,
-   "links": 25,
-   "onclickEls": 68,
-   "modals": 1,
-   "modalTitles": [
-    "批量导入采购入库单"
-   ],
-   "selects": 5,
+   "buttons": 4,
+   "links": 1,
+   "onclickEls": 44,
+   "modals": 0,
+   "modalTitles": [],
+   "selects": 3,
    "fakeSelects": 0,
-   "radios": 0,
+   "radios": 2,
    "checkboxes": 0,
-   "inputs": 13,
-   "stabs": 3,
-   "tabs": 3,
+   "inputs": 21,
+   "stabs": 0,
+   "tabs": 2,
    "bgMut": 0
   },
   "dead_links": [],
