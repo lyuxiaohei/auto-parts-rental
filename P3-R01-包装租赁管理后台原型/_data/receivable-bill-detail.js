@@ -30,7 +30,7 @@
     var h = '';
 
     h += '<div class="dt-sec">单据信息</div><div class="dgrid c3">';
-    h += drow('账单号', b.billNo, true);
+    h += drow('应收账单号', b.billNo, true);
     h += drow('状态', '<span class="tag ' + (STATUS_CLS[b.status] || 'tag-gray') + '">' + b.status + '</span>');
     h += drow('账期', b.period);
     h += drow('账单类型', b.billType || '—');

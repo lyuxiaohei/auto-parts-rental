@@ -379,7 +379,7 @@ th.td-num { text-align:right; }
 <div class="card">
   <div class="card-head">
     <h3 class="card-title" data-note="2">销售出库单</h3>
-    <div class="head-btns"><button class="btn btn-default btn-sm" data-nobatch="1" onclick="openModal('importModal')">批量导入</button><button class="btn btn-default btn-sm">导出</button><button class="btn btn-sm" onclick="go('../销售管理/销售出库新建.html')">新建</button></div>
+    <div class="head-btns"><button class="btn btn-default btn-sm" data-nobatch="1" onclick="openModal('importModal')">批量导入</button><button class="btn btn-default btn-sm">导出</button><button class="btn btn-default btn-sm" onclick="if(this.style.opacity!=='.45')xsckBatchAudit()">批量审核</button><button class="btn btn-sm" onclick="go('../销售管理/销售出库新建.html')">新建</button></div>
   </div>
 <div class="stabs">
   <span class="stab active">全部<span class="stab-count">42</span></span>
@@ -506,6 +506,75 @@ th.td-num { text-align:right; }
 
 <!-- 销售出库新建已页面化：销售管理/销售出库新建.html（G36 B2） -->
 <!-- 销售出库审核已页面化：销售管理/销售出库审核.html（G36 B2） -->
+<!-- G73 批量审核（2026-09-24 道远「列表有审核功能的都补充下批量审核功能」）：与采购订单列表 G64 同款＝弹窗集中给结论；单条复核仍走「销售出库审核」整页，两种交互分开 -->
+<div class="modal-overlay" id="xsckBatchModal">
+  <div class="modal" style="width:640px;">
+    <div class="modal-header"><span class="modal-title">批量审核</span><span class="modal-close" onclick="closeModal('xsckBatchModal')">&times;</span></div>
+    <div class="modal-body">
+      <div class="pn-hint" style="margin:0 0 10px;">已勾选 <b id="xsckBatchCount">0</b> 张待审核销售出库单 · 批量审核仅做集中结论；需复核明细请点单号进「销售出库审核」逐单办理</div>
+      <div style="border:1px solid var(--border);border-radius:6px;max-height:240px;overflow:auto;">
+        <table>
+          <thead><tr><th>出库单号</th><th>客户</th><th style="width:110px;text-align:right;">数量</th></tr></thead>
+          <tbody id="xsckBatchList"></tbody>
+        </table>
+      </div>
+      <div class="form-row" style="margin:16px 0 0;">
+        <div class="form-label"><span class="req">*</span>审核结论：</div>
+        <div><span class="radio checked" data-v="通过"><span class="dot"></span>通过</span><span class="radio" data-v="驳回"><span class="dot"></span>驳回</span></div>
+      </div>
+      <div class="form-row" style="margin:16px 0 0;align-items:flex-start;">
+        <div class="form-label" style="padding-top:6px;">审核意见：</div>
+        <div>
+          <div class="input-box" style="width:380px;height:auto;padding:6px 11px;"><textarea id="xsckBatchNote" placeholder="选填，驳回时建议填写原因" style="width:100%;border:none;outline:none;background:transparent;font:inherit;color:inherit;resize:vertical;min-height:64px;line-height:1.6;"></textarea></div>
+          <div class="pn-hint">通过后各单生效并流转下一环节；驳回退回提交人修改（演示提交，不改动列表数据）。</div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer"><button class="btn btn-default" onclick="closeModal('xsckBatchModal')">取消</button><button class="btn" onclick="xsckBatchSubmit()">确认提交</button></div>
+  </div>
+</div>
+<script>
+/* G73 批量审核（销售出库列表）：从勾选行中过滤「待审核」状态的销售出库单 → 弹窗集中结论（G64 同款）；空勾选 toast 拦截。审核 op 在 ⋮ 菜单的行也按状态标签纳入 */
+(function () {
+  var m = document.getElementById('xsckBatchModal');
+  if (m) m.addEventListener('click', function (e) { if (e.target === m) m.classList.remove('show'); });
+})();
+document.querySelectorAll('#xsckBatchModal .radio').forEach(function (r) {
+  r.addEventListener('click', function () {
+    r.parentElement.querySelectorAll('.radio').forEach(function (x) { x.classList.remove('checked'); });
+    r.classList.add('checked');
+  });
+});
+function xsckBatchAudit() {
+  var rows = [];
+  var tbody = document.querySelector('tbody');
+  if (tbody) tbody.querySelectorAll('tr').forEach(function (tr) {
+    var cb = tr.querySelector('input[type="checkbox"]');
+    if (!cb || !cb.checked) return;
+    var pend = false;
+    tr.querySelectorAll('.tag').forEach(function (t) { if (t.textContent.trim() === '待审核') pend = true; });
+    if (!pend) return;
+    var tds = tr.querySelectorAll('td');
+    var lk = tr.querySelector('span.lk');
+    rows.push({ k: lk ? lk.textContent.trim() : '', a: tds[3] ? tds[3].innerText.trim() : '', b: tds[6] ? tds[6].innerText.trim() : '' });
+  });
+  if (!rows.length) { showToast('勾选的行中没有待审核销售出库单'); return; }
+  document.getElementById('xsckBatchCount').textContent = rows.length;
+  document.getElementById('xsckBatchList').innerHTML = rows.map(function (r) {
+    return '<tr><td><span class="lk" onclick="go(\'../销售管理/销售出库审核.html?id=\' + r.k)">' + r.k + '</span></td><td>' + r.a + '</td><td style="text-align:right;font-variant-numeric:tabular-nums;">' + r.b + '</td></tr>';
+  }).join('');
+  document.querySelectorAll('#xsckBatchModal .radio').forEach(function (r, i) { r.classList.toggle('checked', i === 0); });
+  document.getElementById('xsckBatchNote').value = '';
+  openModal('xsckBatchModal');
+}
+function xsckBatchSubmit() {
+  var n = document.querySelectorAll('#xsckBatchList tr').length;
+  var rc = document.querySelector('#xsckBatchModal .radio.checked');
+  var v = rc ? rc.getAttribute('data-v') : '通过';
+  closeModal('xsckBatchModal');
+  showToast('已批量审核 ' + n + ' 单：' + v + '（演示）');
+}
+</script>
 <script id="batch-btn-js">
 (function(){
   // 找到所有批量按钮，初始禁用

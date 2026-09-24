@@ -353,7 +353,7 @@ th.td-num { text-align:right; }
     <div class="content">
 <div class="filter-card collapsed" id="filterCard">
   <div class="filter-grid">
-    <div class="ff"><span class="ff-label">发票登记号：</span><input placeholder="请输入"></div>
+    <div class="ff"><span class="ff-label">开票登记单号：</span><input placeholder="请输入"></div>
     <div class="ff"><span class="ff-label">发票号码：</span><input placeholder="请输入"></div>
     <div class="ff"><span class="ff-label">购方名称：</span><input placeholder="请输入"></div>
     <div class="ff ff-row-extra"><span class="ff-label">发票类型：</span>
@@ -388,9 +388,9 @@ th.td-num { text-align:right; }
       <thead>
         <tr>
           <th></th>
-          <th>发票登记号</th>
+          <th>开票登记单号</th>
           <th>发票号码</th>
-          <th>类型</th>
+          <th>发票类型</th>
           <th>购方名称</th>
           <th>关联应收账单</th>
           <th>开票金额(元)</th>
@@ -609,7 +609,7 @@ renderListPage({
   entity: 'invoices',
   stabs: true,
   filters: [
-    { label: '发票登记号', field: '_key' },
+    { label: '开票登记单号', field: '_key' },
     { label: '发票号码', field: 'no' },
     { label: '购方名称', field: 'buyer' },
     { label: '发票类型', field: 'itype' },

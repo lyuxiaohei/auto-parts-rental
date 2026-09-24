@@ -13,7 +13,6 @@
   header { text-align:center; padding-bottom:7px; border-bottom:2px solid #000; margin-bottom:2px; }
   .doc-no { font-family:"SimHei","黑体",sans-serif; font-size:11.5px; letter-spacing:2px; margin-bottom:3px; }
   h1 { font-family:"SimHei","黑体",sans-serif; font-size:21px; letter-spacing:2px; font-weight:700; }
-  .sub { font-family:"SimHei","黑体",sans-serif; font-size:14.5px; letter-spacing:6px; margin-top:4px; }
   .meta { font-size:11.5px; margin-top:5px; color:#333; }
 
   h2 { font-family:"SimHei","黑体",sans-serif; font-size:14.5px; font-weight:700;
@@ -30,8 +29,6 @@
     text-align:center; vertical-align:middle; }
   td.menu { vertical-align:middle; white-space:nowrap; }
   td.desc, td.cap { vertical-align:middle; }
-  .core-note { font-size:10.5px; color:#333; display:block; margin-top:2px; font-weight:400;
-    font-family:"SimSun","宋体",serif; letter-spacing:0; }
   .ext { font-size:10.5px; color:#333; }
 
   .fin-note { font-size:11.5px; line-height:1.5; padding:4px 10px 5px;
@@ -53,7 +50,7 @@
   }
   @media (max-width:640px) {
     .page { margin:0; padding:0 12px 16px; }
-    h1 { font-size:19px; } .sub { font-size:13px; letter-spacing:4px; }
+    h1 { font-size:19px; }
     th, td { font-size:11.5px; padding:3px 6px; }
     td.menu { white-space:normal; }
   }
@@ -63,13 +60,12 @@
 <div class="page">
 
   <header>
-    <div class="doc-no">项目文件 · 仅供内部确认</div>
-    <h1>租赁管理系统</h1>
-    <div class="sub">系统边界</div>
+    <div class="doc-no">项目需求确认文件</div>
+    <h1>租赁管理系统 · 系统边界</h1>
     <div class="meta">整理日期：2026年9月23日　　依据：2026年9月22日第5次沟通结论　　用途：群内确认为本期开发边界</div>
   </header>
 
-  <h2 class="first">一、本次上线功能（按系统菜单分组，共七组）</h2>
+  <h2 class="first">一、本次上线功能（按系统菜单分组，共八组）</h2>
   <table>
     <thead>
       <tr>
@@ -118,32 +114,38 @@
       <tr><td class="menu">销售出库</td></tr>
       <tr><td class="menu">销售退货</td></tr>
       <tr>
-        <td class="c" rowspan="7">5</td>
-        <td class="grp" rowspan="7">租赁管理<span class="core-note">（本期核心）</span></td>
+        <td class="c" rowspan="4">5</td>
+        <td class="grp" rowspan="4">租赁管理</td>
         <td class="menu">租赁单</td>
-        <td class="desc" rowspan="7">租入、租出、转移、退租全流程闭环，每只周转箱从租出到退回全程可追溯，解决资产去向靠台账、退租对不上单的问题。</td>
-        <td class="cap" rowspan="7">租赁单分批出库；供应商直发（虚拟仓）；按次数、按周期计费；转移按物料汇总；退租关联原出库单一一对应，清洗审核后回可用库存。</td>
+        <td class="desc" rowspan="4">租出、转移、退租全流程闭环，每只周转箱从租出到退回全程可追溯，解决资产去向靠台账、退租对不上单的问题。</td>
+        <td class="cap" rowspan="4">租赁单分批出库；供应商直发（虚拟仓）；按次数、按周期计费；转移按物料汇总；退租关联原出库单一一对应，清洗审核后回可用库存。</td>
       </tr>
       <tr><td class="menu">租赁出库</td></tr>
       <tr><td class="menu">转移出库</td></tr>
       <tr><td class="menu">退租入库</td></tr>
-      <tr><td class="menu">租入单</td></tr>
+      <tr>
+        <td class="c" rowspan="3">6</td>
+        <td class="grp" rowspan="3">租入管理</td>
+        <td class="menu">租入单</td>
+        <td class="desc" rowspan="3">向供应商租入周转箱全程单据化，租入入库、到期归还有据可查，解决租入器具与自有库存混记、归还靠口头对账的问题。</td>
+        <td class="cap" rowspan="3">租入单登记租入协议与明细；租入入库入账增加可用库存；归还出库关联原租入单归还。</td>
+      </tr>
       <tr><td class="menu">租入入库</td></tr>
       <tr><td class="menu">归还出库</td></tr>
       <tr>
-        <td class="c" rowspan="6">6</td>
+        <td class="c" rowspan="6">7</td>
         <td class="grp" rowspan="6">仓储作业</td>
         <td class="menu">库存查询</td>
         <td class="desc" rowspan="6">库存家底全部数字化，随时查到每个物料在哪个库位有多少、进出轨迹如何，解决账实不清、盘点差异难对账的问题。</td>
-        <td class="cap" rowspan="6">库存查询到库位明细；收发存轨迹；盘盈盘亏自动生成其他出入库单；库位调拨。</td>
+        <td class="cap" rowspan="6">库存查询到库位明细；库存台账轨迹；盘盈盘亏自动生成其他出入库单；库位调拨。</td>
       </tr>
-      <tr><td class="menu">收发存<span class="ext">（新增）</span></td></tr>
+      <tr><td class="menu">库存台账<span class="ext">（新增）</span></td></tr>
       <tr><td class="menu">盘点记录</td></tr>
       <tr><td class="menu">库存调拨</td></tr>
       <tr><td class="menu">其他入库</td></tr>
       <tr><td class="menu">其他出库</td></tr>
       <tr>
-        <td class="c" rowspan="5">7</td>
+        <td class="c" rowspan="5">8</td>
         <td class="grp" rowspan="5">系统管理</td>
         <td class="menu">我的待办</td>
         <td class="desc" rowspan="5">全部单据审批集中于“我的待办”，角色权限分级、操作全程留痕，解决单据审批分散、责任难以追溯的问题。</td>
@@ -160,21 +162,22 @@
   <table>
     <thead>
       <tr>
-        <th style="width:90px">类别</th>
-        <th style="width:110px">分组</th>
-        <th>包含菜单 / 内容</th>
+        <th style="width:34px">序号</th>
+        <th style="width:88px">菜单分组</th>
+        <th style="width:150px">包含菜单</th>
+        <th>解决什么问题</th>
+        <th style="width:180px">关键能力</th>
       </tr>
     </thead>
     <tbody>
       <tr>
+        <td class="c" rowspan="8">1</td>
         <td class="grp" rowspan="8">财务协同</td>
-        <td class="grp">数据看板</td>
         <td class="menu">财务看板</td>
+        <td class="desc" rowspan="8">租赁、销售、采购业务产生的应收应付与收付款在系统内单据化流转，与业务单据自动勾稽，解决业务与财务两张皮、对账靠手工的问题。</td>
+        <td class="cap" rowspan="8">应收、应付账单按业务单据自动生成；开票登记；收款、付款登记与核销；退货退款登记。</td>
       </tr>
-      <tr>
-        <td class="grp" rowspan="7">业务列表</td>
-        <td class="menu">应收账单</td>
-      </tr>
+      <tr><td class="menu">应收账单</td></tr>
       <tr><td class="menu">开票登记</td></tr>
       <tr><td class="menu">收款登记</td></tr>
       <tr><td class="menu">收款核销</td></tr>
@@ -182,8 +185,11 @@
       <tr><td class="menu">付款登记</td></tr>
       <tr><td class="menu">退款登记</td></tr>
       <tr>
+        <td class="c">2</td>
         <td class="grp">批次追踪</td>
-        <td class="menu" colspan="2">生产日期与批次有效期强制追踪（按周转箱业务从简）</td>
+        <td class="menu">生产日期与批次有效期追踪</td>
+        <td class="desc">物料从入库到出库按批次强制记录，解决带效期物料流向难以追溯的问题。</td>
+        <td class="cap">批次号贯穿出入库单据；按周转箱业务从简，视业务需要列入后续迭代。</td>
       </tr>
     </tbody>
   </table>

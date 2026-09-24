@@ -380,7 +380,7 @@ th.td-num { text-align:right; }
 <div class="card">
   <div class="card-head">
     <h3 class="card-title" data-note="2">采购订单</h3>
-    <div class="head-btns"><button class="btn btn-default btn-sm">批量导出</button><button class="btn btn-sm" onclick="go('../采购管理/采购订单新建.html')">新建</button></div>
+    <div class="head-btns"><button class="btn btn-default btn-sm">批量导出</button><button class="btn btn-default btn-sm" onclick="if(this.style.opacity!=='.45')poBatchAudit()">批量审核</button><button class="btn btn-sm" onclick="go('../采购管理/采购订单新建.html')">新建</button></div>
   </div>
 <div class="stabs">
   <span class="stab active">全部<span class="stab-count">18</span></span>
@@ -456,7 +456,7 @@ th.td-num { text-align:right; }
           <td><span class="tag tag-blue">已审核</span></td>
           <td>—</td>
           <td>2026-08-30</td>
-          <td class="sticky-op"><span class="ops"><a onclick="go('../采购管理/采购入库列表.html')">生成入库单</a><a>关闭</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../采购管理/采购入库录单.html')">生成入库单</a><a>关闭</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
@@ -472,7 +472,7 @@ th.td-num { text-align:right; }
           <td><span class="tag tag-blue">已审核</span></td>
           <td>GYS-240828-88</td>
           <td>2026-08-28</td>
-          <td class="sticky-op"><span class="ops"><a onclick="go('../采购管理/采购入库列表.html')">生成入库单</a><a>关闭</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../采购管理/采购入库录单.html')">生成入库单</a><a>关闭</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
@@ -758,6 +758,82 @@ function orderPrint(key) {
     pick.value = '';
   });
 })();
+</script>
+<!-- G64 批量审核（2026-09-24 道远拍板·方案 A 弹窗集中结论；单条审核仍走审核页＝两种交互分开） -->
+<div class="modal-overlay" id="poBatchModal">
+  <div class="modal" style="width:640px;">
+    <div class="modal-header"><span class="modal-title">批量审核</span><span class="modal-close" onclick="closeModal('poBatchModal')">&times;</span></div>
+    <div class="modal-body">
+      <div class="pn-hint" style="margin:0 0 10px;">已勾选 <b id="poBatchCount">0</b> 张待审核采购订单 · 批量审核仅做集中结论；需复核明细请点单号进「采购订单审核」逐单办理</div>
+      <div class="table-wrap" style="border:1px solid var(--border);border-radius:6px;max-height:240px;overflow:auto;">
+        <table class="aln-b">
+          <thead><tr><th>采购订单号</th><th>供应商</th><th style="width:110px;">含税金额(元)</th></tr></thead>
+          <tbody id="poBatchList"></tbody>
+        </table>
+      </div>
+      <div class="form-row" style="margin:16px 0 0;">
+        <div class="form-label"><span class="req">*</span>审核结论：</div>
+        <div><span class="radio checked" data-v="通过"><span class="dot"></span>通过</span><span class="radio" data-v="驳回"><span class="dot"></span>驳回</span></div>
+      </div>
+      <div class="form-row" style="margin-top:16px;align-items:flex-start;margin-bottom:0;">
+        <div class="form-label" style="padding-top:6px;">审核意见：</div>
+        <div>
+          <div class="input-box" style="width:380px;height:auto;padding:6px 11px;"><textarea id="poBatchNote" placeholder="选填，驳回时建议填写原因" style="width:100%;border:none;outline:none;background:transparent;font:inherit;color:inherit;resize:vertical;min-height:64px;line-height:1.6;"></textarea></div>
+          <div class="pn-hint">通过后各单生效并流转下一环节；驳回退回提交人修改（演示提交，不改动列表数据）。</div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer"><button class="btn btn-default" onclick="closeModal('poBatchModal')">取消</button><button class="btn" onclick="poBatchSubmit()">确认提交</button></div>
+  </div>
+</div>
+<script>
+/* G64 批量审核：勾选待审核单 → 弹窗集中结论（单条审核＝审核页整页复核，两交互分开） */
+(function () {
+  var m = document.getElementById('poBatchModal');
+  if (m) m.addEventListener('click', function (e) { if (e.target === m) m.classList.remove('show'); });
+})();
+document.querySelectorAll('#poBatchModal .radio').forEach(function (r) {
+  r.addEventListener('click', function () {
+    r.parentElement.querySelectorAll('.radio').forEach(function (x) { x.classList.remove('checked'); });
+    r.classList.add('checked');
+  });
+});
+function poToast(msg) {
+  var t = document.getElementById('g64Toast');
+  if (!t) { t = document.createElement('div'); t.id = 'g64Toast'; t.style.cssText = 'position:fixed;top:56px;left:50%;transform:translateX(-50%);z-index:1200;background:#fff;border:1px solid #1677ff;color:#1677ff;padding:8px 16px;border-radius:6px;font-size:13px;box-shadow:0 4px 12px rgba(0,0,0,.12);max-width:80vw;'; document.body.appendChild(t); }
+  t.textContent = msg; t.style.display = 'block';
+  clearTimeout(window.__g64ToastT); window.__g64ToastT = setTimeout(function () { t.style.display = 'none'; }, 3200);
+}
+function poBatchAudit() {
+  var rows = [];
+  document.querySelectorAll('table.aln-a tbody tr').forEach(function (tr) {
+    var cb = tr.querySelector('input.cb');
+    if (!cb || !cb.checked) return;
+    var tds = tr.querySelectorAll('td');
+    if (!tds[10] || tds[10].innerText.trim().indexOf('待审核') < 0) return;
+    rows.push({
+      key: tds[1] ? tds[1].innerText.trim() : '',
+      supplier: tds[2] ? tds[2].innerText.trim() : '',
+      amount: tds[6] ? tds[6].innerText.trim() : ''
+    });
+  });
+  if (!rows.length) { poToast('勾选的行中没有待审核采购订单'); return; }
+  document.getElementById('poBatchCount').textContent = rows.length;
+  document.getElementById('poBatchList').innerHTML = rows.map(function (r) {
+    return '<tr><td><span class="lk" onclick="go(\'../采购管理/采购订单审核.html?id=' + r.key + '\')">' + r.key + '</span></td><td>' + r.supplier + '</td><td style="text-align:right;font-variant-numeric:tabular-nums">' + r.amount + '</td></tr>';
+  }).join('');
+  document.querySelectorAll('#poBatchModal .radio').forEach(function (r, i) { r.classList.toggle('checked', i === 0); });
+  var note = document.getElementById('poBatchNote');
+  if (note) note.value = '';
+  openModal('poBatchModal');
+}
+function poBatchSubmit() {
+  var n = document.querySelectorAll('#poBatchList tr').length;
+  var rc = document.querySelector('#poBatchModal .radio.checked');
+  var v = rc ? (rc.getAttribute('data-v') || rc.innerText.trim()) : '通过';
+  closeModal('poBatchModal');
+  poToast('已批量审核 ' + n + ' 单：' + v + '（演示）');
+}
 </script>
 <style>/* 列对齐规范（2026-09-20 道远拍板·全量）：数字/日期列右对齐＋tabular-nums·表头随列·其余左（标签不居中）；aln-a=主表·aln-b=附件弹窗表 */
 .aln-a th:nth-child(5),.aln-a td:nth-child(5),

@@ -355,9 +355,9 @@ th.td-num { text-align:right; }
     </div>
   </div>
   <div class="form-row">
-    <div class="form-label"><span class="req">*</span>盘点范围：</div>
+    <div class="form-label"><span class="req">*</span>盘点库位：</div>
     <div>
-      <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>全库区（RA / RB / RC / RD）</option><option>全库区（RA / RB / RC / RD）· 其他</option></select><span class="caret">▾</span></div>
+      <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>全部库位（原料区 RA / 成品区 RB / 次品区 RC · 不含虚拟仓）</option><option>原料区 RA（RA-A-01-01 / RA-A-01-02 / RA-B-02-01）</option><option>成品区 RB（RB-A-01-01 / RB-A-01-02 / RB-B-01-01）</option><option>成品区 RB · 组装暂存（RD-01 / RD-02）</option><option>次品区 RC（RC-01）</option></select><span class="caret">▾</span></div>
     </div>
   </div>
   <div class="form-row">
@@ -390,7 +390,7 @@ th.td-num { text-align:right; }
   </div>
   <div class="table-wrap edit-tbl">
     <table>
-      <thead><tr><th>库位</th><th>编码</th><th>名称</th><th>账面数量</th><th style="width:110px;">实盘数量 *</th><th>差异</th><th style="width:180px;">差异说明</th><th class="sticky-op" data-note="3">操作</th></tr></thead>
+      <thead><tr><th>库位</th><th>物料编码</th><th>物料名称</th><th>账面数量</th><th style="width:110px;">实盘数量 *</th><th>差异</th><th style="width:180px;">差异说明</th><th class="sticky-op" data-note="3">操作</th></tr></thead>
       <tbody>
         <tr>
           <td>RA-A-01-01</td>
@@ -430,7 +430,7 @@ th.td-num { text-align:right; }
           <td class="td-num"><input value="642"></td>
           <td class="td-num auto-cell"><span style="color:var(--primary)">+2</span></td>
           <td><input value="上月组装回填遗漏" placeholder="差异必填说明"></td>
-                  <td class="sticky-op"><span style="color:#8c8c8c;">—</span></td>
+                  <td class="sticky-op"><a class="lk" onclick="genOtherDoc('in', 'ZH-2601-A')">生成其他入库</a></td>
         </tr>
         <tr>
           <td>RB-A-01-02</td>
@@ -462,7 +462,7 @@ th.td-num { text-align:right; }
     </div>
   </div>
   <div class="form-row">
-    <div class="form-label">复 盘 人：</div>
+    <div class="form-label">复盘人：</div>
     <div>
       <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>林国栋（仓储主管）</option><option>江强（采购主管）</option><option>刘志强（运营）</option></select><span class="caret">▾</span></div>
     </div>
@@ -507,10 +507,10 @@ document.querySelectorAll('.checkbox').forEach(function (c) {
 
 
 <script>/* G31 T7 盘点行内生成其他入/出库（D-110）：跳创建页自动带物料·按差异方向分单 */
+/* G74（2026-09-24 道远「生成XX单按钮需跳转到新建单据页面」）：原跳列表页 ?create=1&item=&type= 但列表页不消费这些参数＝落列表不落新建——改裸跳新建页 */
 function genOtherDoc(dir, item) {
-  var page = dir === 'in' ? '../仓储作业/其他入库列表.html' : '../仓储作业/其他出库列表.html';
-  var type = dir === 'in' ? '盘盈' : '盘亏';
-  location.href = page + '?create=1&item=' + encodeURIComponent(item) + '&type=' + encodeURIComponent(type);
+  var page = dir === 'in' ? '../仓储作业/其他入库新建.html' : '../仓储作业/其他出库新建.html';
+  location.href = page;
 }</script>
 <script>/*ia-fix: tab-switch + btn-feedback (2026-09-04)*/
 /* R3 顶部页签切换（点击换 active；× 不做关闭跳转——原型不销毁页签） */

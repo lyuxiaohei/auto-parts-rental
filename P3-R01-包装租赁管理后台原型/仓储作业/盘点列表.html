@@ -354,8 +354,8 @@ th.td-num { text-align:right; }
 <div class="filter-card collapsed" id="filterCard">
   <div class="filter-grid">
     <div class="ff"><span class="ff-label">盘点单号：</span><input placeholder="请输入"></div>
-    <div class="ff"><span class="ff-label">盘点范围：</span>
-      <select><option selected>全部</option><option>原料区 RA</option><option>成品区 RB</option><option>外协周转区 RC</option><option>全仓</option></select>
+    <div class="ff"><span class="ff-label">盘点库位：</span>
+      <select><option selected>全部</option><option>全部库位（原料区 RA / 成品区 RB / 次品区 RC · 不含虚拟仓）</option><option>原料区 RA（RA-A-01-01 / RA-A-01-02 / RA-B-02-01）</option><option>成品区 RB（RB-A-01-01 / RB-A-01-02 / RB-B-01-01）</option><option>成品区 RB · 组装暂存（RD-01 / RD-02）</option><option>次品区 RC（RC-01）</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
     <div class="ff"><span class="ff-label">盘点口径：</span>
@@ -382,7 +382,7 @@ th.td-num { text-align:right; }
 <div class="card">
   <div class="card-head">
     <h3 class="card-title" data-note="1">盘点单</h3>
-    <div class="head-btns"><button class="btn btn-default btn-sm">批量导出</button><button class="btn btn-sm" onclick="go('../仓储作业/盘点录入.html')">新建</button></div>
+    <div class="head-btns"><button class="btn btn-default btn-sm">批量导出</button><button class="btn btn-default btn-sm" onclick="if(this.style.opacity!=='.45')pdBatchAudit()">批量审核</button><button class="btn btn-sm" onclick="go('../仓储作业/盘点录入.html')">新建</button></div>
   </div>
 <div class="stabs">
   <span class="stab active">全部<span class="stab-count">42</span></span>
@@ -396,7 +396,7 @@ th.td-num { text-align:right; }
         <tr>
           <th></th>
           <th>盘点单号</th>
-          <th>盘点范围</th>
+          <th>盘点库位</th>
           <th>盘点口径</th>
           <th>盘点项数</th>
           <th>损益合计</th>
@@ -411,7 +411,7 @@ th.td-num { text-align:right; }
         <tr>
           <td><input type="checkbox" class="cb"></td>
           <td><span class="lk">PD-202608-03</span></td>
-          <td>华东中心仓 / 全库区</td>
+          <td>全部库位（原料区 RA / 成品区 RB / 次品区 RC · 不含虚拟仓）</td>
           <td><span class="tag tag-green">正常</span></td>
           <td><span class="td-num">1,286</span></td>
           <td>—</td>
@@ -425,7 +425,7 @@ th.td-num { text-align:right; }
         <tr>
           <td><input type="checkbox" class="cb"></td>
           <td><span class="lk">PD-202608-02</span></td>
-          <td>华东中心仓 / 组装区 RD</td>
+          <td>成品区 RB · 组装暂存（RD-01 / RD-02）</td>
           <td><span class="tag tag-green">正常</span></td>
           <td><span class="td-num">36</span></td>
           <td><span class="td-num" style="color:var(--primary)">+18</span></td>
@@ -439,7 +439,7 @@ th.td-num { text-align:right; }
         <tr>
           <td><input type="checkbox" class="cb"></td>
           <td><span class="lk">PD-202607-02</span></td>
-          <td>华东中心仓 / 成品区 RB</td>
+          <td>成品区 RB（RB-A-01-01 / RB-A-01-02 / RB-B-01-01）</td>
           <td><span class="tag tag-blue">在租</span></td>
           <td><span class="td-num">86</span></td>
           <td><span class="td-num" style="color:var(--danger)">-2</span></td>
@@ -453,7 +453,7 @@ th.td-num { text-align:right; }
         <tr>
           <td><input type="checkbox" class="cb"></td>
           <td><span class="lk">PD-202607-01</span></td>
-          <td>华东中心仓 / 原料区 RA</td>
+          <td>原料区 RA（RA-A-01-01 / RA-A-01-02 / RA-B-02-01）</td>
           <td><span class="tag tag-green">正常</span></td>
           <td><span class="td-num">642</span></td>
           <td><span class="td-num">0</span></td>
@@ -467,7 +467,7 @@ th.td-num { text-align:right; }
         <tr>
           <td><input type="checkbox" class="cb"></td>
           <td><span class="lk">PD-202606-01</span></td>
-          <td>华东中心仓 / 退货区 RC</td>
+          <td>次品区 RC（RC-01）</td>
           <td><span class="tag tag-green">正常</span></td>
           <td><span class="td-num">128</span></td>
           <td><span class="td-num" style="color:var(--primary)">+3</span></td>
@@ -509,6 +509,81 @@ th.td-num { text-align:right; }
 
 
 <!-- G36 B4：弹窗已页面化 -->
+<!-- G73 批量审核（2026-09-24 道远「列表有审核功能的都补充下批量审核功能」）：与采购订单列表 G64 同款＝弹窗集中给结论；单条复核仍走「盘点审核」整页，两种交互分开 -->
+<div class="modal-overlay" id="pdBatchModal">
+  <div class="modal" style="width:640px;">
+    <div class="modal-header"><span class="modal-title">批量审核</span><span class="modal-close" onclick="closeModal('pdBatchModal')">&times;</span></div>
+    <div class="modal-body">
+      <div class="pn-hint" style="margin:0 0 10px;">已勾选 <b id="pdBatchCount">0</b> 张待审核盘点单 · 批量审核仅做集中结论；需复核明细请点单号进「盘点审核」逐单办理</div>
+      <div style="border:1px solid var(--border);border-radius:6px;max-height:240px;overflow:auto;">
+        <table>
+          <thead><tr><th>盘点单号</th><th>盘点库位</th><th style="width:110px;text-align:right;">损益合计</th></tr></thead>
+          <tbody id="pdBatchList"></tbody>
+        </table>
+      </div>
+      <div class="form-row" style="margin:16px 0 0;">
+        <div class="form-label"><span class="req">*</span>审核结论：</div>
+        <div><span class="radio checked" data-v="通过"><span class="dot"></span>通过</span><span class="radio" data-v="驳回"><span class="dot"></span>驳回</span></div>
+      </div>
+      <div class="form-row" style="margin:16px 0 0;align-items:flex-start;">
+        <div class="form-label" style="padding-top:6px;">审核意见：</div>
+        <div>
+          <div class="input-box" style="width:380px;height:auto;padding:6px 11px;"><textarea id="pdBatchNote" placeholder="选填，驳回时建议填写原因" style="width:100%;border:none;outline:none;background:transparent;font:inherit;color:inherit;resize:vertical;min-height:64px;line-height:1.6;"></textarea></div>
+          <div class="pn-hint">通过后各单生效并流转下一环节；驳回退回提交人修改（演示提交，不改动列表数据）。</div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer"><button class="btn btn-default" onclick="closeModal('pdBatchModal')">取消</button><button class="btn" onclick="pdBatchSubmit()">确认提交</button></div>
+  </div>
+</div>
+<script>
+/* G73 批量审核（盘点列表）：从勾选行中过滤「待审核」状态的盘点单 → 弹窗集中结论（G64 同款）；空勾选 toast 拦截。本页无全局 showToast，内置 pdToast */
+(function () {
+  var m = document.getElementById('pdBatchModal');
+  if (m) m.addEventListener('click', function (e) { if (e.target === m) m.classList.remove('show'); });
+})();
+document.querySelectorAll('#pdBatchModal .radio').forEach(function (r) {
+  r.addEventListener('click', function () {
+    r.parentElement.querySelectorAll('.radio').forEach(function (x) { x.classList.remove('checked'); });
+    r.classList.add('checked');
+  });
+});
+var pdToast = function (msg) {
+  var t = document.getElementById('pdToast');
+  if (!t) { t = document.createElement('div'); t.id = 'pdToast'; t.style.cssText = 'position:fixed;top:56px;left:50%;transform:translateX(-50%);z-index:1200;background:#fff;border:1px solid #1677ff;color:#1677ff;padding:8px 16px;border-radius:6px;font-size:13px;box-shadow:0 4px 12px rgba(0,0,0,.12);max-width:80vw;'; document.body.appendChild(t); }
+  t.textContent = msg; t.style.display = 'block';
+  clearTimeout(window.__pdToastT); window.__pdToastT = setTimeout(function () { t.style.display = 'none'; }, 3200);
+};
+function pdBatchAudit() {
+  var rows = [];
+  var tbody = document.querySelector('tbody');
+  if (tbody) tbody.querySelectorAll('tr').forEach(function (tr) {
+    var cb = tr.querySelector('input[type="checkbox"]');
+    if (!cb || !cb.checked) return;
+    var pend = false;
+    tr.querySelectorAll('.tag').forEach(function (t) { if (t.textContent.trim() === '待审核') pend = true; });
+    if (!pend) return;
+    var tds = tr.querySelectorAll('td');
+    var lk = tr.querySelector('span.lk');
+    rows.push({ k: lk ? lk.textContent.trim() : '', a: tds[2] ? tds[2].innerText.trim() : '', b: tds[5] ? tds[5].innerText.trim() : '' });
+  });
+  if (!rows.length) { pdToast('勾选的行中没有待审核盘点单'); return; }
+  document.getElementById('pdBatchCount').textContent = rows.length;
+  document.getElementById('pdBatchList').innerHTML = rows.map(function (r) {
+    return '<tr><td><span class="lk" onclick="go(\'../仓储作业/盘点审核.html?id=\' + r.k)">' + r.k + '</span></td><td>' + r.a + '</td><td style="text-align:right;font-variant-numeric:tabular-nums;">' + r.b + '</td></tr>';
+  }).join('');
+  document.querySelectorAll('#pdBatchModal .radio').forEach(function (r, i) { r.classList.toggle('checked', i === 0); });
+  document.getElementById('pdBatchNote').value = '';
+  openModal('pdBatchModal');
+}
+function pdBatchSubmit() {
+  var n = document.querySelectorAll('#pdBatchList tr').length;
+  var rc = document.querySelector('#pdBatchModal .radio.checked');
+  var v = rc ? rc.getAttribute('data-v') : '通过';
+  closeModal('pdBatchModal');
+  pdToast('已批量审核 ' + n + ' 单：' + v + '（演示）');
+}
+</script>
 <script id="batch-btn-js">
 (function(){
   // 找到所有批量按钮，初始禁用
@@ -583,7 +658,7 @@ renderListPage({
   stabs: true,
   filters: [
     { label: '盘点单号', field: '_key' },
-    { label: '盘点范围', field: 'scope' },
+    { label: '盘点库位', field: 'scope' },
     { label: '盘点口径', field: 'caliber' },
     { label: '盘点状态', field: 'status' },
     { label: '盘点日期', field: 'date', range: true },
@@ -717,24 +792,9 @@ document.querySelectorAll('.tab').forEach(function (t) {
   /* renderListPage 渲染完后绑定（渲染是同步的，DOMContentLoaded 后跑一次+轮询兜底） */
   function boot() { bindPlus(); setTimeout(bindPlus, 400); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
-
-  window.showGen = function (dir, ev) {
-    ev && ev.stopPropagation && ev.stopPropagation();
-    var tr = ev.target.closest('tr'); var pd = tr ? (tr.querySelector('.lk').textContent.trim()) : '';
-    pop.innerHTML = '<div class="dp-t">生成' + NAME[dir] + '<span class="dp-x">×</span></div>'
-      + '<div style="line-height:1.8">将按 ' + pd + ' 的盘' + (dir === 'in' ? '盈' : '亏') + '明细自动生成' + NAME[dir] + '草稿，入库/出库后库存即时调整。</div>'
-      + '<div class="dp-go"><button class="btn btn-sm" id="dpGen">生成草稿</button><span class="dp-ok" id="dpDone" style="display:none"></span></div>';
-    pop.querySelector('.dp-x').addEventListener('click', close);
-    pop.querySelector('#dpGen').addEventListener('click', function () {
-      var no = (dir === 'in' ? 'QTRK-' : 'QTCK-') + '20260911-0' + Math.ceil(Math.random() * 9);
-      this.style.display = 'none';
-      var done = pop.querySelector('#dpDone');
-      done.style.display = 'inline';
-      done.innerHTML = '已生成 <span class="lk" onclick="go(\'' + TARGET[dir] + '\')">' + no + '</span> · 点击单号前往查看';
-    });
-    var rc = ev.target.getBoundingClientRect();
-    place(rc.left + window.scrollX - 80, rc.bottom + window.scrollY);
-  };
+  /* G75（2026-09-24 道远「生成入库/生成出库只应在盘点明细中，列表操作栏不放」）：
+     showGen 生成弹层随列表行 ops「生成入库/生成出库」一并退场（demo-data stocktakes 3 行已删）；
+     本 IIFE 仅保留 docsPlus 关联单据弹层（查看已生成单→列表页）。生成动作唯一入口＝盘点录入明细行（G69） */
 })();
 </script>
 
@@ -797,7 +857,7 @@ document.querySelectorAll('.tab').forEach(function (t) {
 <script>
 /* G43 下拉数据源化：静态 option 为无 JS 兜底，运行时按字典/实体重渲染（矩阵见 _scan_tmpdir/g43_接线差集_v2.md） */
 SSEL.fillDict(SSEL.byLabel('盘点口径'),'盘点口径',true);
-SSEL.fillEntity(SSEL.byLabel('盘点范围'),'stocktakes',{field:'scope',keepFirst:true});
+SSEL.fillEntity(SSEL.byLabel('盘点库位'),'stocktakes',{field:'scope',keepFirst:true});
 SSEL.fillEntity(SSEL.byLabel('盘点人'),'stocktakes',{field:'checker',keepFirst:true});
 </script>
 <style>/* 列对齐规范（2026-09-20 道远拍板·全量）：数字/日期列右对齐＋tabular-nums·表头随列·其余左（标签不居中） */

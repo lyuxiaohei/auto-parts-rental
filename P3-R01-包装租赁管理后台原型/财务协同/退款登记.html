@@ -352,7 +352,7 @@ th.td-num { text-align:right; }
     <div class="content">
 <div class="filter-card collapsed" id="filterCard">
   <div class="filter-grid">
-    <div class="ff"><span class="ff-label">退款编号：</span><input placeholder="请输入退款编号"></div>
+    <div class="ff"><span class="ff-label">退款单号：</span><input placeholder="请输入退款单号"></div>
     <div class="ff"><span class="ff-label">退款类型：</span>
       <select><option value="">全部</option><option>采购退货退款</option><option>销售退货退款</option><option>预收退回</option><option>多付退回</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
@@ -388,7 +388,7 @@ th.td-num { text-align:right; }
       <thead>
         <tr>
           <th></th>
-          <th>退款编号</th>
+          <th>退款单号</th>
           <th>退款类型</th>
           <th>关联退货单号</th>
           <th>往来单位</th>
@@ -577,7 +577,7 @@ renderListPage({
   entity: 'refunds',
   stabs: true,
   filters: [
-    { label: '退款编号', field: '_key', match: 'contains' },
+    { label: '退款单号', field: '_key', match: 'contains' },
     { label: '退款类型', field: 'type' },
     { label: '关联退货单号', field: 'ref' },
     { label: '往来单位', field: 'partner' },

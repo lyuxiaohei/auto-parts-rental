@@ -353,7 +353,7 @@ th.td-num { text-align:right; }
     <div class="content">
 <div class="filter-card collapsed" id="filterCard">
   <div class="filter-grid">
-    <div class="ff"><span class="ff-label">账单编号：</span><input placeholder="请输入"></div>
+    <div class="ff"><span class="ff-label">应收账单号：</span><input placeholder="请输入"></div>
     <div class="ff"><span class="ff-label">客户：</span>
       <select><option selected>全部</option><option>华骏重卡汽车有限公司</option><option>东海商用汽车有限公司宁波分公司</option><option>星途新能源汽车科技有限公司</option><option>长风汽车制造有限公司</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
@@ -399,7 +399,7 @@ th.td-num { text-align:right; }
       <thead>
         <tr>
           <th></th>
-          <th>账单编号</th>
+          <th>应收账单号</th>
           <th>账期</th>
           <th>所属项目</th>
           <th>客户</th>
@@ -711,7 +711,7 @@ renderListPage({
   stabs: true,
   filters: [
     { label: '账单类型', field: 'btype', match: 'contains' },
-    { label: '账单编号', field: '_key' },
+    { label: '应收账单号', field: '_key' },
     { label: '客户', field: 'customer' },
     { label: '所属项目', field: 'project' },
     { label: '账单状态', field: 'status' },

@@ -356,7 +356,7 @@ th.td-num { text-align:right; }
   <div class="filter-grid">
     <div class="ff"><span class="ff-label">租入单号：</span><input placeholder="请输入租入单号"></div>
     <div class="ff"><span class="ff-label">供应商：</span><select><option value="">全部</option><option>环通循环包装运营（上海）有限公司</option></select><svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
-    <div class="ff"><span class="ff-label">物料：</span><select><option value="">全部</option><option>围板箱 1200×1000×970</option><option>塑料托盘 1200×1000</option><option>金属料箱 800×600</option></select><svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+    <div class="ff"><span class="ff-label">物料名称：</span><select><option value="">全部</option><option>围板箱 1200×1000×970</option><option>塑料托盘 1200×1000</option><option>金属料箱 800×600</option></select><svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
     <div class="ff ff-row-extra"><span class="ff-label">状态：</span><select><option value="">全部</option><option>新建(草稿)</option><option>待审核</option><option>履行中</option><option>部分归还</option><option>已归还</option><option>已终止</option></select><svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
     <div class="ff ff-row-extra"><span class="ff-label">租期开始：</span><input placeholder="开始日期"><span class="ff-sep">→</span><input placeholder="结束日期"></div>
     <div class="ff ff-row-extra"><span class="ff-label">经办人：</span><input placeholder="请输入经办人"></div>
@@ -374,7 +374,7 @@ th.td-num { text-align:right; }
 <div class="card">
     <div class="card-head">
     <h3 class="card-title">租入单</h3>
-    <div class="head-btns"><button class="btn btn-default btn-sm">批量导出</button><button class="btn btn-sm" onclick="go('../租入管理/租入单新建.html')">新建</button></div>
+    <div class="head-btns"><button class="btn btn-default btn-sm">批量导出</button><button class="btn btn-default btn-sm" onclick="if(this.style.opacity!=='.45')rzdBatchAudit()">批量审核</button><button class="btn btn-sm" onclick="go('../租入管理/租入单新建.html')">新建</button></div>
   </div>
   <div class="stabs">
   <span class="stab active">全部<span class="stab-count">6</span></span>
@@ -393,7 +393,7 @@ th.td-num { text-align:right; }
           <th>租入单号</th>
           <th>类型</th>
           <th>供应商</th>
-          <th>物料</th>
+          <th>物料名称</th>
           <th>数量</th>
           <th>租金</th>
           <th>租期起止</th>
@@ -422,7 +422,7 @@ th.td-num { text-align:right; }
           <td>周志远</td>
           <td>GYS-260815-01</td>
           <td>2026-08-15 10:22</td>
-          <td class="sticky-op"><span class="ops"><a onclick="go('../租入管理/租入单详情.html')">详情</a><a onclick="go('../财务协同/应付账单.html')">生成租金应付</a><a onclick="go('../租入管理/归还出库列表.html')">发起归还</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../租入管理/租入单详情.html')">详情</a><a onclick="go('../财务协同/应付新建.html')">生成租金应付</a><a onclick="go('../租入管理/归还出库列表.html')">发起归还</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
@@ -439,7 +439,7 @@ th.td-num { text-align:right; }
           <td>周志远</td>
           <td>—</td>
           <td>2026-08-15 11:05</td>
-          <td class="sticky-op"><span class="ops"><a onclick="go('../租入管理/租入单详情.html')">详情</a><a onclick="go('../财务协同/应付账单.html')">生成租金应付</a><a onclick="go('../租入管理/归还出库列表.html')">发起归还</a></span></td>
+          <td class="sticky-op"><span class="ops"><a onclick="go('../租入管理/租入单详情.html')">详情</a><a onclick="go('../财务协同/应付新建.html')">生成租金应付</a><a onclick="go('../租入管理/归还出库列表.html')">发起归还</a></span></td>
         </tr>
         <tr>
           <td><input type="checkbox" class="cb"></td>
@@ -542,7 +542,7 @@ renderListPage({
   filters: [
     { label: '租入单号', field: '_key' },
     { label: '供应商', field: 'operator' },
-    { label: '物料', field: 'appliance' },
+    { label: '物料名称', field: 'appliance' },
     { label: '状态', field: 'status' },
     { label: '租期开始', field: 'date', range: true },
     { label: '经办人', field: 'agent' }
@@ -583,6 +583,75 @@ document.querySelectorAll('.modal-overlay').forEach(function (ov) {
 });
 </script>
 
+<!-- G73 批量审核（2026-09-24 道远「列表有审核功能的都补充下批量审核功能」）：与采购订单列表 G64 同款＝弹窗集中给结论；单条复核仍走「租入单审核」整页，两种交互分开 -->
+<div class="modal-overlay" id="rzdBatchModal">
+  <div class="modal" style="width:640px;">
+    <div class="modal-header"><span class="modal-title">批量审核</span><span class="modal-close" onclick="closeModal('rzdBatchModal')">&times;</span></div>
+    <div class="modal-body">
+      <div class="pn-hint" style="margin:0 0 10px;">已勾选 <b id="rzdBatchCount">0</b> 张待审核租入单 · 批量审核仅做集中结论；需复核明细请点单号进「租入单审核」逐单办理</div>
+      <div style="border:1px solid var(--border);border-radius:6px;max-height:240px;overflow:auto;">
+        <table>
+          <thead><tr><th>租入单号</th><th>供应商</th><th style="width:110px;text-align:right;">租金(元)</th></tr></thead>
+          <tbody id="rzdBatchList"></tbody>
+        </table>
+      </div>
+      <div class="form-row" style="margin:16px 0 0;">
+        <div class="form-label"><span class="req">*</span>审核结论：</div>
+        <div><span class="radio checked" data-v="通过"><span class="dot"></span>通过</span><span class="radio" data-v="驳回"><span class="dot"></span>驳回</span></div>
+      </div>
+      <div class="form-row" style="margin:16px 0 0;align-items:flex-start;">
+        <div class="form-label" style="padding-top:6px;">审核意见：</div>
+        <div>
+          <div class="input-box" style="width:380px;height:auto;padding:6px 11px;"><textarea id="rzdBatchNote" placeholder="选填，驳回时建议填写原因" style="width:100%;border:none;outline:none;background:transparent;font:inherit;color:inherit;resize:vertical;min-height:64px;line-height:1.6;"></textarea></div>
+          <div class="pn-hint">通过后各单生效并流转下一环节；驳回退回提交人修改（演示提交，不改动列表数据）。</div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer"><button class="btn btn-default" onclick="closeModal('rzdBatchModal')">取消</button><button class="btn" onclick="rzdBatchSubmit()">确认提交</button></div>
+  </div>
+</div>
+<script>
+/* G73 批量审核（租入单列表）：从勾选行中过滤「待审核」状态的租入单 → 弹窗集中结论（G64 同款）；空勾选 toast 拦截 */
+(function () {
+  var m = document.getElementById('rzdBatchModal');
+  if (m) m.addEventListener('click', function (e) { if (e.target === m) m.classList.remove('show'); });
+})();
+document.querySelectorAll('#rzdBatchModal .radio').forEach(function (r) {
+  r.addEventListener('click', function () {
+    r.parentElement.querySelectorAll('.radio').forEach(function (x) { x.classList.remove('checked'); });
+    r.classList.add('checked');
+  });
+});
+function rzdBatchAudit() {
+  var rows = [];
+  var tbody = document.querySelector('tbody');
+  if (tbody) tbody.querySelectorAll('tr').forEach(function (tr) {
+    var cb = tr.querySelector('input[type="checkbox"]');
+    if (!cb || !cb.checked) return;
+    var pend = false;
+    tr.querySelectorAll('.tag').forEach(function (t) { if (t.textContent.trim() === '待审核') pend = true; });
+    if (!pend) return;
+    var tds = tr.querySelectorAll('td');
+    var lk = tr.querySelector('span.lk');
+    rows.push({ k: lk ? lk.textContent.trim() : '', a: tds[3] ? tds[3].innerText.trim() : '', b: tds[8] ? tds[8].innerText.trim() : '' });
+  });
+  if (!rows.length) { showToast('勾选的行中没有待审核租入单'); return; }
+  document.getElementById('rzdBatchCount').textContent = rows.length;
+  document.getElementById('rzdBatchList').innerHTML = rows.map(function (r) {
+    return '<tr><td><span class="lk" onclick="go(\'../租入管理/租入单审核.html?id=\' + r.k)">' + r.k + '</span></td><td>' + r.a + '</td><td style="text-align:right;font-variant-numeric:tabular-nums;">' + r.b + '</td></tr>';
+  }).join('');
+  document.querySelectorAll('#rzdBatchModal .radio').forEach(function (r, i) { r.classList.toggle('checked', i === 0); });
+  document.getElementById('rzdBatchNote').value = '';
+  openModal('rzdBatchModal');
+}
+function rzdBatchSubmit() {
+  var n = document.querySelectorAll('#rzdBatchList tr').length;
+  var rc = document.querySelector('#rzdBatchModal .radio.checked');
+  var v = rc ? rc.getAttribute('data-v') : '通过';
+  closeModal('rzdBatchModal');
+  showToast('已批量审核 ' + n + ' 单：' + v + '（演示）');
+}
+</script>
 <script id="batch-btn-js">
 (function(){
   // 找到所有批量按钮，初始禁用
@@ -757,7 +826,7 @@ function showToast(msg) {
 <script>
 /* G43 下拉数据源化：静态 option 为无 JS 兜底，运行时按字典/实体重渲染（矩阵见 _scan_tmpdir/g43_接线差集_v2.md） */
 SSEL.fillEntity(SSEL.byLabel('供应商'),'rentInOrders',{field:'operator',keepFirst:true,filterV:function(v){return v.indexOf('待选')<0;}});
-SSEL.fillEntity(SSEL.byLabel('物料'),'rentInOrders',{field:'appliance',keepFirst:true});
+SSEL.fillEntity(SSEL.byLabel('物料名称'),'rentInOrders',{field:'appliance',keepFirst:true});
 </script>
 <style>/* 列对齐规范（2026-09-20 道远拍板·全量）：数字/日期列右对齐＋tabular-nums·表头随列·其余左（标签不居中） */
 .table-wrap table th:nth-child(5),.table-wrap table td:nth-child(5),

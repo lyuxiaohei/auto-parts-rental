@@ -357,7 +357,7 @@ th.td-num { text-align:right; }
         <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option>吴越联合五金制品有限公司</option><option>甬城塑业包装制品有限公司</option><option>延陵塑料托盘厂</option><option>环通循环包装运营（上海）有限公司</option></select><span class="caret">▾</span></div>
       </div>
       <div class="form-row">
-        <div class="form-label"><span class="req">*</span>关联原单：</div>
+        <div class="form-label"><span class="req">*</span>关联采购入库单号：</div>
         <div class="input-box select-box" style="width:380px;"><select style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>CGRK-20260828-012（吴越联合 · 可退 10 只）</option><option>CGRK-20260828-011（甬城塑业 · 可退 500 套）</option><option>CGRK-20260827-010（延陵托盘 · 可退 40 张）</option></select><span class="caret">▾</span></div>
         <div class="form-tip" style="margin-left:12px;">选择原单后带出物料行与可退上限</div>
       </div>
@@ -526,12 +526,12 @@ document.querySelectorAll('.tab').forEach(function (t) {
 <script>
 /* G43 下拉数据源化：静态 option 为无 JS 兜底，运行时按字典/实体重渲染（矩阵见 _scan_tmpdir/g43_接线差集_v2.md） */
 SSEL.fillEntity(SSEL.byFormLabel('供应商'),'partners',{label:'name',filter:function(k,f){return f.type==='供应商';}});
-SSEL.fillEntity(SSEL.byFormLabel('关联原单'),'purchaseInbounds',{desc:true,limit:30,label:function(k,f){return k+' · '+(f.supplier||'');}});
+SSEL.fillEntity(SSEL.byFormLabel('关联采购入库单号'),'purchaseInbounds',{desc:true,limit:30,label:function(k,f){return k+' · '+(f.supplier||'');}});
 </script>
 <script src="../_data/mat-search.js"></script>
 <script>
 /* 关联单据号搜索下拉（2026-09-17 道远指示·采购入库录单样板推广） */
-MSEL.attach(SSEL.byFormLabel('关联原单'), { placeholder: '输入原单号/单位搜索' });
+MSEL.attach(SSEL.byFormLabel('关联采购入库单号'), { placeholder: '输入原单号/单位搜索' });
 </script>
 <script>
 /* 主数据字段搜索下拉（2026-09-17 道远采纳建议） */

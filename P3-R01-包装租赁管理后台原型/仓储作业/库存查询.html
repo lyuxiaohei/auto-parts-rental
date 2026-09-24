@@ -380,10 +380,6 @@ th.td-num { text-align:right; }
       <select><option selected>全部</option><option>在库</option><option>客户端(租出)</option><option>客户转租出</option><option>退租待入库</option><option>租入</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
-    <div class="ff"><span class="ff-label">库房：</span>
-      <select><option selected>全部</option><option>原料区 RA</option><option>成品区 RB</option><option>次品区 RC</option><option>客户虚拟仓</option><option>转租终端仓</option><option>上海一号库</option></select>
-      <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-    </div>
     <div class="ff"><span class="ff-label">库位：</span>
       <select><option selected>全部</option><option>RA-A-01-01</option><option>RA-A-01-02</option><option>RB-A-01-01</option><option>RB-A-01-02</option><option>XNC-AJZX</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
@@ -410,13 +406,13 @@ th.td-num { text-align:right; }
     <table class="aln-a">
       <thead>
         <tr>
-          <th>编码</th>
+          <th>物料编码</th>
           <th>物料名称</th>
           <th>物料类型</th>
           <th>适用项目</th>
           <th>在库</th>
           <th>退租在途</th>
-          <th>客户端(租出)</th>
+          <th>客户端（租出）</th>
           <th>退租待入库</th>
           <th>总量</th>
           <th>成本单价</th>
@@ -650,7 +646,6 @@ renderListPage({
     { label: '物料编码', field: '_key' },
     { label: '库存状态', field: 'status' },
     { label: '物料类型', field: 'cls' },
-    { label: '库房', field: 'area' },
     { label: '库位', field: 'loc' },
     { label: '物料名称', field: 'name' },
     { label: '项目', field: 'project', match: 'contains' }
@@ -849,7 +844,6 @@ document.querySelectorAll('.tab').forEach(function (t) {
 <script>
 /* G43 下拉数据源化：静态 option 为无 JS 兜底，运行时按字典/实体重渲染（矩阵见 _scan_tmpdir/g43_接线差集_v2.md） */
 SSEL.fillDict(SSEL.byLabel('库存状态'),'库存状态',true);
-SSEL.fillEntity(SSEL.byLabel('库房'),'stockFlows',{field:'area',keepFirst:true,append:['次品区 RC']});
 SSEL.fillEntity(SSEL.byLabel('库位'),'stockFlows',{field:'loc',keepFirst:true});
 SSEL.fillEntity(SSEL.byLabel('项目'),'projects',{keepFirst:true});
 </script>

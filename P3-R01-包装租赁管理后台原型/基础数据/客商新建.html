@@ -391,6 +391,12 @@ th.td-num { text-align:right; }
       <div class="input-box" style="width:380px;"><input id="ksPhone" placeholder="请输入" value="138****0000"></div>
     </div>
   </div>
+  <div class="form-row">
+    <div class="form-label" data-note="2"><span class="req">*</span>结算周期：</div>
+    <div>
+      <div class="input-box select-box" style="width:380px;"><select id="ksSettleSel" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>月结</option><option>货到付款</option><option>预付</option></select><span class="caret">▾</span></div>
+    </div>
+  </div>
   <div class="form-row" style="align-items:flex-start;">
     <div class="form-label" style="padding-top:6px;">备注：</div>
     <div>
@@ -416,17 +422,7 @@ th.td-num { text-align:right; }
   <div class="form-row">
     <div class="form-label">发票类型：</div>
     <div>
-      <div class="input-box select-box" style="width:380px;"><select id="ksInvTypeSel" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>增值税专票 13%</option><option>增值税普通发票</option></select><span class="caret">▾</span></div>
-    </div>
-  </div>
-  <div class="form-row">
-    <div class="form-label">协议税点：</div>
-    <div>
-      <div style="display:flex;flex-wrap:wrap;gap:8px;width:380px;">
-        <span class="g57-chip checked" data-v="9%">9%</span>
-        <span class="g57-chip checked" data-v="13%">13%</span>
-      </div>
-      <div class="pn-hint">可多选；开票时税率可手动修改或在复选项中选择。</div>
+      <div class="input-box select-box" style="width:380px;"><select id="ksInvTypeSel" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>增值税专票 13%</option><option>增值税专票 9%</option><option>增值税专票 6%</option><option>增值税专票 3%</option><option>增值税专票 1%</option><option>增值税专票 0%</option><option>增值税普通发票</option></select><span class="caret">▾</span></div>
     </div>
   </div>
   <div class="form-row">
@@ -454,12 +450,6 @@ th.td-num { text-align:right; }
     </div>
   </div>
   </div><!-- /ks-inv-group -->
-  <div class="form-row">
-    <div class="form-label" data-note="2"><span class="req">*</span>结算周期：</div>
-    <div>
-      <div class="input-box select-box" style="width:380px;"><select id="ksSettleSel" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>月结</option><option>货到付款</option><option>预付</option></select><span class="caret">▾</span></div>
-    </div>
-  </div>
   <div class="form-row" style="align-items:flex-start;">
     <div class="form-label" style="padding-top:6px;">备注：</div>
     <div>
@@ -516,7 +506,7 @@ function fillSel(id, opts, keepCur) {
   s.innerHTML = opts.map(function (o) { return '<option>' + o + '</option>'; }).join('');
   if (cur && opts.indexOf(cur) > -1) s.value = cur;
 }
-(function(){ fillSel('ksTypeSel', dictOpts('客商类型'), true); fillSel('ksInvTypeSel', dictOpts('发票类型'), true); fillSel('ksSettleSel', dictOpts('结算周期'), true); })();</script>
+(function(){ fillSel('ksTypeSel', dictOpts('客商类型'), true); fillSel('ksInvTypeSel', dictOpts('供应商税率').sort(function(a,b){ return parseFloat(b) - parseFloat(a); }).map(function(r){ return '增值税专票 ' + r; }).concat(['增值税普通发票']), true); fillSel('ksSettleSel', dictOpts('结算周期'), true); })();</script>
 <script>
 /* ===== 菜单折叠 / 页签与表单视觉态（统一脚本） ===== */
 function go(url) { location.href = url; }
@@ -631,10 +621,11 @@ document.querySelectorAll('.tab').forEach(function (t) {
 <style id="f01-fab-style">.fab-row{position:fixed;right:12px;bottom:12px;z-index:880;display:flex;align-items:center;gap:6px}.fab-row .pn-fab{position:static}.f01-fab{display:flex;text-decoration:none;align-items:center;height:24px;padding:0 10px;border-radius:4px;background:#fff;border:1px solid #d9d9d9;color:#8c8c8c;font-size:11px;font-family:-apple-system,'Segoe UI','Microsoft YaHei',sans-serif;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.06);opacity:.6;transition:opacity .15s}.f01-fab:hover{opacity:1;border-color:#722ed1;color:#722ed1}</style><div class="fab-row"><a class="f01-fab" href="../P3-R01-F01-业务流程导航图/P3-R01-F01-业务流程导航图-主线.html">流程图</a></div>
 <script src="../_data/notes-data.js"></script>
 <script src="../_data/notes-drawer.js"></script>
-<style>/* G57 多选 chips（0923 拍板：供应商类型/协议税点多选） */
+<style>/* G57 多选 chips（0923 拍板：供应商类型多选）＋G68 组尾间距（0924 道远：收款账号↔备注太近——组末行命中 :last-child 零间距，恢复 20px） */
 .g57-chip { display:inline-flex;align-items:center;height:26px;padding:0 12px;border-radius:13px;border:1px solid #d9d9d9;background:#fff;color:rgba(0,0,0,.65);font-size:13px;cursor:pointer;user-select:none;transition:all .15s; }
 .g57-chip:hover { border-color:#1677ff;color:#1677ff; }
-.g57-chip.checked { background:#e6f4ff;border-color:#1677ff;color:#1677ff; }</style>
+.g57-chip.checked { background:#e6f4ff;border-color:#1677ff;color:#1677ff; }
+.ks-inv-group .form-row:last-child, .ks-addr-group .form-row:last-child { margin-bottom:20px; }</style>
 <script>/* G57 供应商类型/协议税点多选 chips＋客商类型联动行显隐（0923 第5次沟通拍板） */
 (function () {
   document.addEventListener('click', function (e) {

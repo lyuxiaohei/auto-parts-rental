@@ -350,8 +350,12 @@ th.td-num { text-align:right; }
     <div class="content">
 <div class="filter-card collapsed" id="filterCard">
   <div class="filter-grid">
-    <div class="ff"><span class="ff-label">物料：</span>
+    <div class="ff"><span class="ff-label">物料名称：</span>
       <select id="sfsMat"><option selected>全部</option></select>
+      <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+    <div class="ff"><span class="ff-label">仓库/库区：</span>
+      <select id="sfsArea"><option selected>全部</option></select>
       <svg class="ff-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
     </div>
     <div class="ff ff-row-extra"><span class="ff-label">时间区间：</span><input id="sfsFrom" placeholder="开始日期"><span class="ff-sep">→</span><input id="sfsTo" placeholder="结束日期"></div>
@@ -371,12 +375,12 @@ th.td-num { text-align:right; }
     <table class="sfs-tbl">
       <thead>
         <tr>
-          <th>物料</th>
+          <th>物料名称</th>
           <th>物料类型</th>
-          <th>期初</th>
-          <th>本期入库</th>
-          <th>本期出库</th>
-          <th>转移</th>
+          <th>期初结转</th>
+          <th>退租入库</th>
+          <th>租赁出库</th>
+          <th>归还出库</th>
           <th data-note="2">期末结存</th>
           <th class="sticky-op">操作</th>
         </tr>
@@ -493,20 +497,21 @@ th.td-num { text-align:right; }
 <script src="../_data/detail-generic.js"></script><script src="../_data/list-generic.js"></script>
 
 <script>
-/* G57 T5.13 → G61 库存台账（0923 拍板：收敛为期间对账口径·菜单定名「库存台账」）：行=stockFlows 物料·期初/本期入库/本期出库=stockEvents 实算·转移=0（无转移事件）·期末=四态之和；行内「详情」跳物料详情页（原「轨迹」弹窗并入·G61） */
+/* G57 T5.13 → G61 库存台账（0923 拍板：收敛为期间对账口径·菜单定名「库存台账」）→ 0924 增强（道远拍板·调研对照行业收发存汇总表口径）：收发列按单据类型细分（期初结转/退租入库/租赁出库/归还出库）＋修 G57 两处漏计（dir=归还 3 事件未计·期初结转挂 doc 字段未入期初列）＋仓库/库区筛选（按行 area 过滤·收发按物料计/期末按所选库区行计）；转移列撤（无转移事件·恒 0）；期末=四态之和不变；行内「详情」跳物料详情页（G61） */
 function sfsNum(v) { var x = parseFloat(String(v).replace(/,/g, '')); return isNaN(x) ? 0 : x; }
 function sfsEvents() { return (window.DEMO_DATA && window.DEMO_DATA.stockEvents) || {}; }
 function sfsFlows() { return (window.DEMO_DATA && window.DEMO_DATA.stockFlows) || {}; }
 function sfsRender() {
-  var mSel = document.getElementById('sfsMat'), f = document.getElementById('sfsFrom'), t = document.getElementById('sfsTo');
-  var mat = mSel ? mSel.value : '全部', from = f ? f.value : '', to = t ? t.value : '';
+  var mSel = document.getElementById('sfsMat'), aSel = document.getElementById('sfsArea'), f = document.getElementById('sfsFrom'), t = document.getElementById('sfsTo');
+  var mat = mSel ? mSel.value : '全部', area = aSel ? aSel.value : '全部', from = f ? f.value : '', to = t ? t.value : '';
   var EV = sfsEvents(), FL = sfsFlows();
-  /* 行＝stockFlows 物料（name 携带编码前缀物料名）；事件按物料聚合 */
-  var mats = {}, optHtml = '<option selected>全部</option>';
+  /* 行＝stockFlows 物料×库位（name 携带编码前缀物料名）；仓库/库区筛选＝按行 area 过滤；事件按物料聚合（事件无仓库维度·收发按物料计） */
+  var mats = {};
   Object.keys(FL).forEach(function (k) {
     var fl = (FL[k].row || {}).fields || {};
     var nm = fl.name || k; if (!nm) return;
-    mats[nm] = { mat: k, cls: fl.cls || '—', end: 0, ini: 0, inN: 0, outN: 0, trN: 0 };
+    if (area !== '全部' && (fl.area || '') !== area) return;
+    mats[nm] = { mat: k, cls: fl.cls || '—', end: 0, ini: 0, inTui: 0, outZu: 0, outGui: 0 };
     var q = fl.qtyByProject || {};
     Object.keys(q).forEach(function (p) { (q[p] || []).forEach(function (v) { mats[nm].end += sfsNum(v); }); });
   });
@@ -520,10 +525,11 @@ function sfsRender() {
     if (from && d && d < from) return;
     if (to && d && d > to) return;
     var q = sfsNum(e.qty);
-    if (e.dir === '期初结转') mats[hit].ini += q;
-    else if (e.dir === '出库') mats[hit].outN += q;
-    else if (e.dir === '退租' || e.dir === '入库') mats[hit].inN += q;
-    /* dir=其他出入库 双向不定·不计入（口径注记） */
+    if (e.doc === '期初结转') mats[hit].ini += q;
+    else if (e.dir === '退租') mats[hit].inTui += q;
+    else if (e.dir === '出库') mats[hit].outZu += q;
+    else if (e.dir === '归还') mats[hit].outGui += q;
+    /* dir=其他出入库（非期初结转）双向不定·不计入；转移出库无库存事件·不单列（口径注记） */
   });
   var h = '', n = 0;
   Object.keys(mats).forEach(function (nm) {
@@ -531,9 +537,9 @@ function sfsRender() {
     var r = mats[nm]; n++;
     h += '<tr><td>' + nm + '</td><td><span class="tag tag-blue">' + r.cls + '</span></td>'
       + '<td><span class="td-num">' + r.ini.toLocaleString('zh-CN') + '</span></td>'
-      + '<td><span class="td-num">' + r.inN.toLocaleString('zh-CN') + '</span></td>'
-      + '<td><span class="td-num">' + r.outN.toLocaleString('zh-CN') + '</span></td>'
-      + '<td><span class="td-num">0</span></td>'
+      + '<td><span class="td-num">' + r.inTui.toLocaleString('zh-CN') + '</span></td>'
+      + '<td><span class="td-num">' + r.outZu.toLocaleString('zh-CN') + '</span></td>'
+      + '<td><span class="td-num">' + r.outGui.toLocaleString('zh-CN') + '</span></td>'
       + '<td><span class="td-num">' + r.end.toLocaleString('zh-CN') + '</span></td>'
       + '<td class="sticky-op"><span class="ops"><a onclick="go(\'../仓储作业/库存流水.html?id=' + r.mat + '\')">详情</a></span></td></tr>';
   });
@@ -543,21 +549,22 @@ function sfsRender() {
   if (pg) pg.textContent = '第 1-' + n + ' 条/总共 ' + n + ' 条';
 }
 function sfsReset() {
-  var mSel = document.getElementById('sfsMat'), f = document.getElementById('sfsFrom'), t = document.getElementById('sfsTo');
-  if (mSel) mSel.selectedIndex = 0; if (f) f.value = ''; if (t) t.value = '';
+  var mSel = document.getElementById('sfsMat'), aSel = document.getElementById('sfsArea'), f = document.getElementById('sfsFrom'), t = document.getElementById('sfsTo');
+  if (mSel) mSel.selectedIndex = 0; if (aSel) aSel.selectedIndex = 0; if (f) f.value = ''; if (t) t.value = '';
   sfsRender();
 }
 (function () {
-  var mSel = document.getElementById('sfsMat');
-  if (mSel) {
-    var FL = sfsFlows(), seen = {};
-    var opts = '<option selected>全部</option>';
-    Object.keys(FL).forEach(function (k) {
-      var f2 = (FL[k].row || {}).fields || {}; var nm = f2.name || k;
-      if (!nm || seen[nm]) return; seen[nm] = 1; opts += '<option>' + nm.split(' ')[0] + '</option>';
-    });
-    mSel.innerHTML = opts;
-  }
+  var mSel = document.getElementById('sfsMat'), aSel = document.getElementById('sfsArea');
+  var FL = sfsFlows(), seen = {}, seenA = {};
+  var opts = '<option selected>全部</option>', optA = '<option selected>全部</option>';
+  Object.keys(FL).forEach(function (k) {
+    var f2 = (FL[k].row || {}).fields || {}; var nm = f2.name || k;
+    if (nm && !seen[nm]) { seen[nm] = 1; opts += '<option>' + nm.split(' ')[0] + '</option>'; }
+    var ar = f2.area || '';
+    if (ar && !seenA[ar]) { seenA[ar] = 1; optA += '<option>' + ar + '</option>'; }
+  });
+  if (mSel) mSel.innerHTML = opts;
+  if (aSel) aSel.innerHTML = optA;
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', sfsRender); else sfsRender();
 })();
 </script>

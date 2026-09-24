@@ -345,39 +345,12 @@ th.td-num { text-align:right; }
 <div class="dic-wrap">
   <div class="dic-list">
     <div class="card-title" style="font-size:14px;margin:6px 6px 10px;" data-note="1">字典分类</div>
-    <div class="dic-item"><span>单据状态</span><span class="cnt">32</span></div>
-    <div class="dic-item active"><span>缺损类型</span><span class="cnt hot">5</span></div>
-    <div class="dic-item"><span>计费方式</span><span class="cnt">5</span></div>
-    <div class="dic-item"><span>计量单位</span><span class="cnt">8</span></div>
-    <div class="dic-item"><span>项目状态</span><span class="cnt">4</span></div>
-    <div class="dic-item"><span>单据类型</span><span class="cnt">12</span></div>
-    <div class="dic-item"><span>循环状态</span><span class="cnt">5</span></div>
-    <div class="dic-item"><span>库位类型</span><span class="cnt">5</span></div>
-    <div class="dic-item"><span>银行账户</span><span class="cnt">3</span></div>
-    <div class="dic-item"><span>支付方式</span><span class="cnt">2</span></div>
-          <div class="dic-item"><span>物料类型</span><span class="cnt">6</span></div>
-          <div class="dic-item"><span>库存状态</span><span class="cnt">5</span></div>
-          <div class="dic-item"><span>入库类型</span><span class="cnt">3</span></div>
-          <div class="dic-item"><span>出库类型</span><span class="cnt">4</span></div>
-          <div class="dic-item"><span>应收账单类型</span><span class="cnt">7</span></div>
-          <div class="dic-item"><span>应付账单类型</span><span class="cnt">5</span></div>
-          <div class="dic-item"><span>费用分类</span><span class="cnt">7</span></div>
-          <div class="dic-item"><span>发票类型</span><span class="cnt">2</span></div>
-          <div class="dic-item"><span>客商类型</span><span class="cnt">3</span></div>
-          <div class="dic-item"><span>数据权限范围</span><span class="cnt">3</span></div>
-          <div class="dic-item"><span>盘点口径</span><span class="cnt">2</span></div>
-          <div class="dic-item"><span>周期单位</span><span class="cnt">3</span></div>
-          <div class="dic-item"><span>待办单据类型</span><span class="cnt">20</span></div>
-          <div class="dic-item"><span>消息类型</span><span class="cnt">4</span></div>
-          <div class="dic-item"><span>退货类型</span><span class="cnt">2</span></div>
-          <div class="dic-item"><span>退款类型</span><span class="cnt">4</span></div>
-          <div class="dic-item"><span>供应商税率</span><span class="cnt">6</span></div>
-          <div class="dic-item"><span>结算周期</span><span class="cnt">9</span></div>
+    <div id="dicGroupList"><!-- G72：字典列表＝dictItems 实算渲染（分组＋计数·左栏） --></div>
   </div>
   <div>
 <div class="card">
   <div class="card-head">
-    <h3 class="card-title">字典项 · 缺损类型</h3>
+    <h3 class="card-title" id="dicItemTitle">字典项</h3>
     <div class="head-btns"><button class="btn btn-sm" onclick="go('../系统管理/字典项新建.html')">新建</button></div>
   </div>
   <div class="table-wrap">
@@ -393,65 +366,13 @@ th.td-num { text-align:right; }
           <th class="sticky-op">操作</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <td>DT-01</td>
-          <td>PS</td>
-          <td>破损</td>
-          <td>1</td>
-          <td>外观或结构损坏，可维修</td>
-          <td><span class="tag tag-green">启用</span></td>
-          <td class="sticky-op"><span class="ops"><a>编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
-        </tr>
-        <tr>
-          <td>DT-02</td>
-          <td>QS</td>
-          <td>缺失</td>
-          <td>2</td>
-          <td>回收时无法找到的部件</td>
-          <td><span class="tag tag-green">启用</span></td>
-          <td class="sticky-op"><span class="ops"><a>编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
-        </tr>
-        <tr>
-          <td>DT-03</td>
-          <td>BX</td>
-          <td>变形</td>
-          <td>3</td>
-          <td>超差变形影响使用</td>
-          <td><span class="tag tag-green">启用</span></td>
-          <td class="sticky-op"><span class="ops"><a>编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
-        </tr>
-        <tr>
-          <td>DT-04</td>
-          <td>WS</td>
-          <td>污损</td>
-          <td>4</td>
-          <td>严重污染无法清理</td>
-          <td><span class="tag tag-green">启用</span></td>
-          <td class="sticky-op"><span class="ops"><a>编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
-        </tr>
-        <tr>
-          <td>DT-05</td>
-          <td>LH</td>
-          <td>老化</td>
-          <td>5</td>
-          <td>达到设计寿命正常老化</td>
-          <td><span class="tag tag-green">启用</span></td>
-          <td class="sticky-op"><span class="ops"><a>编辑</a><a onclick="openModal('stopModal')">停用</a></span></td>
-        </tr>
-      </tbody>
+      <tbody id="dicItemBody"><!-- G72：由 dictItems 按所选分类渲染（右栏） --></tbody>
     </table>
   </div>
   <div class="pager">
-    <span class="pg-info">第 1-10 条/总共 5 条</span>
+    <span class="pg-info" id="dicPagerInfo">第 1-0 条/总共 0 条</span>
     <span class="pg-btn">‹</span>
     <span class="pg-btn cur">1</span>
-    <span class="pg-btn">2</span>
-    <span class="pg-btn">3</span>
-    <span class="pg-btn">4</span>
-    <span class="pg-btn">5</span>
-    <span class="pg-ellipsis">…</span>
-    <span class="pg-btn">8</span>
     <span class="pg-btn">›</span>
     <span class="pg-size">10 条/页
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
@@ -459,61 +380,6 @@ th.td-num { text-align:right; }
     <span class="pg-jump">跳至 <input value="" placeholder="跳转页码"> 页</span>
   </div>
 </div>
-    <div class="card">
-      <div class="card-head">
-        <h3 class="card-title" data-note="2">计费方式</h3>
-      </div>
-  <div class="table-wrap">
-    <table>
-      <thead>
-        <tr>
-          <th>简码</th>
-          <th>名称</th>
-          <th>计费基准</th>
-          <th>当前用途</th>
-          <th>状态</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>按月</td>
-          <td>按月计租</td>
-          <td>月租金 / 按套数单价</td>
-          <td>围板箱/托盘租赁</td>
-          <td><span class="tag tag-green">启用</span></td>
-        </tr>
-        <tr>
-          <td>按次</td>
-          <td>按次计费</td>
-          <td>出库/退租次数 × 次单价</td>
-          <td>组装服务费 / 按次租价</td>
-          <td><span class="tag tag-green">启用</span></td>
-        </tr>
-        <tr>
-          <td>按张</td>
-          <td>按张计费</td>
-          <td>在租张数 × 张单价</td>
-          <td>托盘/料箱备用口径</td>
-          <td><span class="tag tag-gray">停用</span></td>
-        </tr>
-        <tr>
-          <td>按年</td>
-          <td>按年计租</td>
-          <td>年租金 × 租期年数</td>
-          <td>长周期备用口径</td>
-          <td><span class="tag tag-green">启用</span></td>
-        </tr>
-        <tr>
-          <td>按日</td>
-          <td>按日计租</td>
-          <td>日租金 × 在租天数</td>
-          <td>短期备用口径（本期无日租金业务）</td>
-          <td><span class="tag tag-green">启用</span></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-      </div>
   </div>
 </div>
     </div>
@@ -571,47 +437,54 @@ document.querySelectorAll('.modal-overlay').forEach(function (ov) {
 </script>
 <script src="../_data/demo-data.js"></script>
 <script>
-/* G12 数据驱动接线（2026-09-10）：字典分类点击切换主表（陆鸣点名交互）+ dictItems 实体渲染 + 分类计数联动 */
+/* G72 数据字典双栏（0924 道远：左＝字典列表·右＝字典项列表；修复「计费方式」静态卡常驻问题）
+   ——左栏由 dictItems 实算分组＋计数（原静态 28 行·计数过时）；右栏随所选分类渲染。
+   G12 沿革：字典分类点击切换主表（陆鸣点名交互）+ dictItems 实体渲染 + 分类计数联动（2026-09-10） */
 (function () {
   var DATA = window.DEMO_DATA && window.DEMO_DATA.dictItems;
   if (!DATA) return;
   var keysAll = Object.keys(DATA).filter(function (k) { return DATA[k].row; });
-  var tbody = document.querySelector('.dic-wrap table tbody');
-  var title = document.querySelector('.dic-wrap .card-head .card-title');
-  var pg = document.querySelector('.dic-wrap .pg-info');
-  var items = document.querySelectorAll('.dic-list .dic-item');
-  if (!tbody) return;
-  function byCat(cat) {
-    return keysAll.filter(function (k) { return DATA[k].row.fields.category === cat; });
-  }
+  var groups = [], counts = {};
+  keysAll.forEach(function (k) {
+    var c = DATA[k].row.fields.category;
+    if (!counts[c]) { groups.push(c); counts[c] = 0; }
+    counts[c]++;
+  });
+  var listEl = document.getElementById('dicGroupList');
+  var tbody = document.getElementById('dicItemBody');
+  var title = document.getElementById('dicItemTitle');
+  var pg = document.getElementById('dicPagerInfo');
+  if (!listEl || !tbody) return;
+  listEl.innerHTML = groups.map(function (c, i) {
+    return '<div class="dic-item' + (i === 0 ? ' active' : '') + '" data-cat="' + c + '"' +
+      (c === '计费方式' ? ' data-note="2"' : '') +
+      '><span>' + c + '</span><span class="cnt' + (i === 0 ? ' hot' : '') + '">' + counts[c] + '</span></div>';
+  }).join('\n');
   function render(cat) {
-    var keys = byCat(cat);
+    var keys = keysAll.filter(function (k) { return DATA[k].row.fields.category === cat; });
     tbody.innerHTML = keys.length ? keys.map(function (k) {
       var r = DATA[k].row;
-      var ops = r.ops.map(function (o) { return o.act ? '<a onclick="' + o.act + '">' + o.t + '</a>' : '<a>' + o.t + '</a>'; }).join('');
+      var ops = (r.ops || []).map(function (o) { return o.act ? '<a onclick="' + o.act + '">' + o.t + '</a>' : '<a>' + o.t + '</a>'; }).join('');
       return '<tr><td>' + k + '</td>' + r.cells.map(function (c) { return '<td>' + c + '</td>'; }).join('') +
         '<td class="sticky-op"><span class="ops">' + ops + '</span></td></tr>';
     }).join('\n') : '<tr><td colspan="7" style="text-align:center;color:#8c8c8c;padding:24px 0;">该分类暂无字典项</td></tr>';
     if (title) title.textContent = '字典项 · ' + cat;
     if (pg) pg.textContent = '第 1-' + keys.length + ' 条/总共 ' + keys.length + ' 条';
   }
-  function refreshCounts(activeCat) {
-    items.forEach(function (it) {
-      var name = it.querySelector('span').textContent.trim();
+  function activate(cat) {
+    listEl.querySelectorAll('.dic-item').forEach(function (it) {
+      var on = it.getAttribute('data-cat') === cat;
+      it.classList.toggle('active', on);
       var cnt = it.querySelector('.cnt');
-      if (cnt) { cnt.textContent = byCat(name).length; cnt.classList.toggle('hot', name === activeCat); }
-      it.classList.toggle('active', name === activeCat);
+      if (cnt) cnt.classList.toggle('hot', on);
     });
+    render(cat);
   }
-  items.forEach(function (it) {
-    it.addEventListener('click', function () {
-      var cat = it.querySelector('span').textContent.trim();
-      render(cat); refreshCounts(cat);
-    });
+  listEl.addEventListener('click', function (e) {
+    var it = e.target.closest ? e.target.closest('.dic-item') : null;
+    if (it) activate(it.getAttribute('data-cat'));
   });
-  var init = document.querySelector('.dic-list .dic-item.active span');
-  var cat0 = init ? init.textContent.trim() : '缺损类型';
-  render(cat0); refreshCounts(cat0);
+  activate(groups[0]);
 })();
 </script>
 

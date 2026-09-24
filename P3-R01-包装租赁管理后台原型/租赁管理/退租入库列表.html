@@ -377,7 +377,7 @@ th.td-num { text-align:right; }
 <div class="card">
   <div class="card-head">
     <h3 class="card-title" data-note="4">退租入库单</h3>
-    <div class="head-btns"><button class="btn btn-default btn-sm">批量导出</button><button class="btn btn-sm" onclick="if(this.style.opacity!=='.45')g57BatchAudit()">批量审核</button></div>
+    <div class="head-btns"><button class="btn btn-default btn-sm">批量导出</button><button class="btn btn-sm" onclick="if(this.style.opacity!=='.45')tzrkBatchAudit()">批量审核</button></div>
     <!-- G57（0923 拍板）：退租入库取消自由新建——退租走「退租入库新建.html」两步选单（选客户→选租赁出库单）；列表不再放新建入口 -->
   </div>
 <div class="stabs">
@@ -396,7 +396,7 @@ th.td-num { text-align:right; }
           <th>退租物料名称</th>
           <th>退租数量</th>
           <th>按BOM拆解后散件明细摘要</th>
-          <th>拆解去向</th>
+          <th>拆散去向</th>
           <th>入库库位</th>
           <th>入库日期</th>
           <th>验收结果</th>
@@ -545,6 +545,75 @@ th.td-num { text-align:right; }
 
 
 <!-- 退租入库审核已页面化（G36 B3） -->
+<!-- G73 批量审核（2026-09-24 道远「列表有审核功能的都补充下批量审核功能」）：G57 toast 轻交互升级为与采购订单列表 G64 同款＝弹窗集中给结论；单条复核仍走「退租入库审核」整页，两种交互分开 -->
+<div class="modal-overlay" id="tzrkBatchModal">
+  <div class="modal" style="width:640px;">
+    <div class="modal-header"><span class="modal-title">批量审核</span><span class="modal-close" onclick="closeModal('tzrkBatchModal')">&times;</span></div>
+    <div class="modal-body">
+      <div class="pn-hint" style="margin:0 0 10px;">已勾选 <b id="tzrkBatchCount">0</b> 单清洗完工待审核 · 批量审核仅做集中结论；需复核明细请点单号进「退租入库审核」逐单办理</div>
+      <div style="border:1px solid var(--border);border-radius:6px;max-height:240px;overflow:auto;">
+        <table>
+          <thead><tr><th>退租入库单号</th><th>客户</th><th style="width:110px;text-align:right;">退租数量</th></tr></thead>
+          <tbody id="tzrkBatchList"></tbody>
+        </table>
+      </div>
+      <div class="form-row" style="margin:16px 0 0;">
+        <div class="form-label"><span class="req">*</span>审核结论：</div>
+        <div><span class="radio checked" data-v="通过"><span class="dot"></span>通过</span><span class="radio" data-v="驳回"><span class="dot"></span>驳回</span></div>
+      </div>
+      <div class="form-row" style="margin:16px 0 0;align-items:flex-start;">
+        <div class="form-label" style="padding-top:6px;">审核意见：</div>
+        <div>
+          <div class="input-box" style="width:380px;height:auto;padding:6px 11px;"><textarea id="tzrkBatchNote" placeholder="选填，驳回时建议填写原因" style="width:100%;border:none;outline:none;background:transparent;font:inherit;color:inherit;resize:vertical;min-height:64px;line-height:1.6;"></textarea></div>
+          <div class="pn-hint">通过后各单生效并流转下一环节；驳回退回提交人修改（演示提交，不改动列表数据）。</div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer"><button class="btn btn-default" onclick="closeModal('tzrkBatchModal')">取消</button><button class="btn" onclick="tzrkBatchSubmit()">确认提交</button></div>
+  </div>
+</div>
+<script>
+/* G73 批量审核（退租入库列表，语义＝清洗完工审核）：从勾选行中过滤「待审核」状态的退租入库单 → 弹窗集中结论（G64 同款）；空勾选 toast 拦截 */
+(function () {
+  var m = document.getElementById('tzrkBatchModal');
+  if (m) m.addEventListener('click', function (e) { if (e.target === m) m.classList.remove('show'); });
+})();
+document.querySelectorAll('#tzrkBatchModal .radio').forEach(function (r) {
+  r.addEventListener('click', function () {
+    r.parentElement.querySelectorAll('.radio').forEach(function (x) { x.classList.remove('checked'); });
+    r.classList.add('checked');
+  });
+});
+function tzrkBatchAudit() {
+  var rows = [];
+  var tbody = document.querySelector('tbody');
+  if (tbody) tbody.querySelectorAll('tr').forEach(function (tr) {
+    var cb = tr.querySelector('input[type="checkbox"]');
+    if (!cb || !cb.checked) return;
+    var pend = false;
+    tr.querySelectorAll('.tag').forEach(function (t) { if (t.textContent.trim() === '待审核') pend = true; });
+    if (!pend) return;
+    var tds = tr.querySelectorAll('td');
+    var lk = tr.querySelector('span.lk');
+    rows.push({ k: lk ? lk.textContent.trim() : '', a: tds[2] ? tds[2].innerText.trim() : '', b: tds[5] ? tds[5].innerText.trim() : '' });
+  });
+  if (!rows.length) { showToast('勾选的行中没有待审核的清洗完工单据'); return; }
+  document.getElementById('tzrkBatchCount').textContent = rows.length;
+  document.getElementById('tzrkBatchList').innerHTML = rows.map(function (r) {
+    return '<tr><td><span class="lk" onclick="go(\'../租赁管理/退租入库审核.html?id=\' + r.k)">' + r.k + '</span></td><td>' + r.a + '</td><td style="text-align:right;font-variant-numeric:tabular-nums;">' + r.b + '</td></tr>';
+  }).join('');
+  document.querySelectorAll('#tzrkBatchModal .radio').forEach(function (r, i) { r.classList.toggle('checked', i === 0); });
+  document.getElementById('tzrkBatchNote').value = '';
+  openModal('tzrkBatchModal');
+}
+function tzrkBatchSubmit() {
+  var n = document.querySelectorAll('#tzrkBatchList tr').length;
+  var rc = document.querySelector('#tzrkBatchModal .radio.checked');
+  var v = rc ? rc.getAttribute('data-v') : '通过';
+  closeModal('tzrkBatchModal');
+  showToast('已批量审核 ' + n + ' 单：' + v + '（演示）');
+}
+</script>
 <script id="batch-btn-js">
 (function(){
   // 找到所有批量按钮，初始禁用
@@ -685,10 +754,7 @@ function showToast(msg) {
   t.textContent = msg; t.style.display = 'block';
   clearTimeout(window.__g57ToastT); window.__g57ToastT = setTimeout(function () { t.style.display = 'none'; }, 3200);
 }
-function g57BatchAudit() {
-  var n = document.querySelectorAll('tbody input[type="checkbox"]:checked').length;
-  showToast(n ? '已提交批量审核：' + n + ' 单清洗完工待审核（演示）' : '请先勾选需审核的清洗完工单据');
-}
+/* G73（0924）：原 G57 toast 轻批量审核升级为弹窗集中结论（tzrkBatchAudit，见下方弹窗脚本），旧函数移除 */
 document.querySelectorAll('.modal-overlay').forEach(function (ov) {
   ov.addEventListener('click', function (e) { if (e.target === ov) ov.classList.remove('show'); });
 });
