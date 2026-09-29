@@ -2801,14 +2801,14 @@ window.DEMO_DATA = {
       ]
     },
     'CK-20260903-016': {
-      'row': {"fields": {"project": "PRJ-2601", "customer": "华骏重卡汽车有限公司", "zl": "ZL-20260903-034", "combo": "ZH-2601-A × 60 套（退租回库件循环出库）", "mat": "ZH-2601-A", "matName": "驾驶室围板箱整箱套件", "qty": "60", "unit": "套", "so": "—（租赁出库）", "addr": "长春基地一号门", "status": "已出库", "date": "2026-09-03", "createdAt": "2026-09-03"}, "cells": ["PRJ-2601", "华骏重卡汽车有限公司", "<span class=\"lk\">ZL-20260903-034</span>", "ZH-2601-A × 60 套（退租回库件循环出库）", "—（租赁出库）", "长春基地一号门", "<span class=\"tag tag-green\">已出库</span>", "2026-09-03 09:15", "2026-09-03"], "ops": [{"t": "详情", "act": "go('../租赁管理/租赁出库详情.html?id=CK-20260903-016')"}, {"t": "打印", "act": "go('出货单打印.html?key=CK-20260903-016')"}, {"t": "审核", "act": "go('../租赁管理/租赁出库确认.html?id=CK-20260903-016')"}, {"t": "复制", "act": "go('../租赁管理/租赁出库录单.html?copy=CK-20260903-016')"}]},
+      'row': {"fields": {"project": "PRJ-2601", "customer": "华骏重卡汽车有限公司", "zl": "ZL-20260815-028", "combo": "ZH-2601-A × 60 套（退租回库件循环出库）", "mat": "ZH-2601-A", "matName": "驾驶室围板箱整箱套件", "qty": "60", "unit": "套", "so": "—（租赁出库）", "addr": "长春基地一号门", "status": "已出库", "date": "2026-09-03", "createdAt": "2026-09-03"}, "cells": ["PRJ-2601", "华骏重卡汽车有限公司", "<span class=\"lk\">ZL-20260815-028</span>", "ZH-2601-A × 60 套（退租回库件循环出库）", "—（租赁出库）", "长春基地一号门", "<span class=\"tag tag-green\">已出库</span>", "2026-09-03 09:15", "2026-09-03"], "ops": [{"t": "详情", "act": "go('../租赁管理/租赁出库详情.html?id=CK-20260903-016')"}, {"t": "打印", "act": "go('出货单打印.html?key=CK-20260903-016')"}, {"t": "审核", "act": "go('../租赁管理/租赁出库确认.html?id=CK-20260903-016')"}, {"t": "复制", "act": "go('../租赁管理/租赁出库录单.html?copy=CK-20260903-016')"}]},
       'title': '租赁出库单详情',
       'formTitle': '基本信息',
       'formRows': [
         { 'label': '出库单号', 'text': 'CK-20260903-016' },
         { 'label': '状态', 'tag': '已出库' },
         { 'label': '所属项目', 'text': 'PRJ-2601' },
-        { 'label': '关联租赁单号', 'text': 'ZL-20260903-034', 'url': '租赁管理/租赁单列表.html' },
+        { 'label': '关联租赁单号', 'text': 'ZL-20260815-028', 'url': '租赁管理/租赁单列表.html' },
         { 'label': '关联销售订单号', 'text': '—（租赁出库）' },
         { 'label': '客户', 'text': '华骏重卡汽车有限公司' },
         { 'label': '出库类型', 'text': '一箱一件 · 逐件核对（扫码口预留）', 'full': true },
@@ -2827,7 +2827,7 @@ window.DEMO_DATA = {
       'chain': [
         {
           'role': '租赁单',
-          'name': 'ZL-20260903-034',
+          'name': 'ZL-20260815-028',
           'url': '租赁管理/租赁单列表.html'
         },
         {
@@ -2984,14 +2984,14 @@ window.DEMO_DATA = {
       ]
     },
     'CK-20260829-013': {
-      'row': {"fields": {"project": "PRJ-2603", "customer": "星途新能源汽车科技有限公司", "zl": "ZL-20260610-015", "combo": "ZH-2603-C × 60 套", "mat": "ZH-2603-C", "matName": "电池托盘护角套件", "qty": "60", "unit": "套", "so": "SO-20260828-0035", "addr": "广州工厂收货口", "status": "已出库", "date": "2026-08-29", "createdAt": "2026-08-29"}, "cells": ["PRJ-2603", "星途新能源汽车科技有限公司", "<span class=\"lk\">ZL-20260610-015</span>", "ZH-2603-C × 60 套", "SO-20260828-0035", "广州工厂收货口", "<span class=\"tag tag-green\">已出库</span>", "2026-08-29 16:05", "2026-08-29"], "ops": [{"t": "详情", "act": "go('../租赁管理/租赁出库详情.html?id=CK-20260829-013')"}, {"t": "打印", "act": "go('出货单打印.html?key=CK-20260829-013')"}, {"t": "审核", "act": "go('../租赁管理/租赁出库确认.html?id=CK-20260829-013')"}, {"t": "复制", "act": "go('../租赁管理/租赁出库录单.html?copy=CK-20260829-013')"}]},
+      'row': {"fields": {"project": "PRJ-2603", "customer": "星途新能源汽车科技有限公司", "zl": "ZL-20260720-022", "combo": "ZH-2603-C × 60 套", "mat": "ZH-2603-C", "matName": "电池托盘护角套件", "qty": "60", "unit": "套", "so": "SO-20260828-0035", "addr": "广州工厂收货口", "status": "已出库", "date": "2026-08-29", "createdAt": "2026-08-29"}, "cells": ["PRJ-2603", "星途新能源汽车科技有限公司", "<span class=\"lk\">ZL-20260720-022</span>", "ZH-2603-C × 60 套", "SO-20260828-0035", "广州工厂收货口", "<span class=\"tag tag-green\">已出库</span>", "2026-08-29 16:05", "2026-08-29"], "ops": [{"t": "详情", "act": "go('../租赁管理/租赁出库详情.html?id=CK-20260829-013')"}, {"t": "打印", "act": "go('出货单打印.html?key=CK-20260829-013')"}, {"t": "审核", "act": "go('../租赁管理/租赁出库确认.html?id=CK-20260829-013')"}, {"t": "复制", "act": "go('../租赁管理/租赁出库录单.html?copy=CK-20260829-013')"}]},
       'title': '租赁出库单详情',
       'formTitle': '基本信息',
       'formRows': [
         { 'label': '出库单号', 'text': 'CK-20260829-013' },
         { 'label': '状态', 'tag': '已出库' },
         { 'label': '所属项目', 'text': 'PRJ-2603' },
-        { 'label': '关联租赁单号', 'text': 'ZL-20260610-015', 'url': '租赁管理/租赁单列表.html' },
+        { 'label': '关联租赁单号', 'text': 'ZL-20260720-022', 'url': '租赁管理/租赁单列表.html' },
         { 'label': '关联销售订单号', 'text': 'SO-20260828-0035（双关联）', 'url': '销售管理/销售订单列表.html' },
         { 'label': '客户', 'text': '星途新能源汽车科技有限公司' },
         { 'label': '出库类型', 'text': '一箱一件 · 逐件核对（扫码口预留）', 'full': true },
@@ -3010,7 +3010,7 @@ window.DEMO_DATA = {
       'chain': [
         {
           'role': '租赁单',
-          'name': 'ZL-20260610-015',
+          'name': 'ZL-20260720-022',
           'url': '租赁管理/租赁单列表.html'
         },
         {
@@ -3112,14 +3112,14 @@ window.DEMO_DATA = {
       ]
     },
     'CK-20260828-011': {
-      'row': {"fields": {"project": "PRJ-2604", "customer": "长风汽车制造有限公司", "zl": "ZL-20260828-031", "combo": "ZH-2601-A × 96 套", "mat": "ZH-2601-A", "matName": "驾驶室围板箱整箱套件", "qty": "96", "unit": "套", "so": "SO-20260826-0033", "addr": "武汉工厂 2 号门", "status": "已出库", "date": "2026-08-28", "createdAt": "2026-08-28"}, "cells": ["PRJ-2604", "长风汽车制造有限公司", "<span class=\"lk\">ZL-20260828-031</span>", "ZH-2601-A × 96 套", "SO-20260826-0033", "武汉工厂 2 号门", "<span class=\"tag tag-green\">已出库</span>", "2026-08-28 14:55", "2026-08-28"], "ops": [{"t": "详情", "act": "go('../租赁管理/租赁出库详情.html?id=CK-20260828-011')"}, {"t": "打印", "act": "go('出货单打印.html?key=CK-20260828-011')"}, {"t": "审核", "act": "go('../租赁管理/租赁出库确认.html?id=CK-20260828-011')"}, {"t": "复制", "act": "go('../租赁管理/租赁出库录单.html?copy=CK-20260828-011')"}]},
+      'row': {"fields": {"project": "PRJ-2604", "customer": "长风汽车制造有限公司", "zl": "ZL-20260115-002", "combo": "ZH-2601-A × 96 套", "mat": "ZH-2601-A", "matName": "驾驶室围板箱整箱套件", "qty": "96", "unit": "套", "so": "SO-20260826-0033", "addr": "武汉工厂 2 号门", "status": "已出库", "date": "2026-08-28", "createdAt": "2026-08-28"}, "cells": ["PRJ-2604", "长风汽车制造有限公司", "<span class=\"lk\">ZL-20260115-002</span>", "ZH-2601-A × 96 套", "SO-20260826-0033", "武汉工厂 2 号门", "<span class=\"tag tag-green\">已出库</span>", "2026-08-28 14:55", "2026-08-28"], "ops": [{"t": "详情", "act": "go('../租赁管理/租赁出库详情.html?id=CK-20260828-011')"}, {"t": "打印", "act": "go('出货单打印.html?key=CK-20260828-011')"}, {"t": "审核", "act": "go('../租赁管理/租赁出库确认.html?id=CK-20260828-011')"}, {"t": "复制", "act": "go('../租赁管理/租赁出库录单.html?copy=CK-20260828-011')"}]},
       'title': '租赁出库单详情',
       'formTitle': '基本信息',
       'formRows': [
         { 'label': '出库单号', 'text': 'CK-20260828-011' },
         { 'label': '状态', 'tag': '已出库' },
         { 'label': '所属项目', 'text': 'PRJ-2604' },
-        { 'label': '关联租赁单号', 'text': 'ZL-20260828-031', 'url': '租赁管理/租赁单列表.html' },
+        { 'label': '关联租赁单号', 'text': 'ZL-20260115-002', 'url': '租赁管理/租赁单列表.html' },
         { 'label': '关联销售订单号', 'text': 'SO-20260826-0033（双关联）', 'url': '销售管理/销售订单列表.html' },
         { 'label': '客户', 'text': '长风汽车制造有限公司' },
         { 'label': '出库类型', 'text': '一箱一件 · 逐件核对（扫码口预留）', 'full': true },
@@ -3138,7 +3138,7 @@ window.DEMO_DATA = {
       'chain': [
         {
           'role': '租赁单',
-          'name': 'ZL-20260828-031',
+          'name': 'ZL-20260115-002',
           'url': '租赁管理/租赁单列表.html'
         },
         {
@@ -3235,14 +3235,14 @@ window.DEMO_DATA = {
       ]
     },
     'CK-20260828-010': {
-      'row': {"fields": {"project": "PRJ-2602", "customer": "东海商用宁波分公司", "zl": "ZL-20260815-028", "combo": "ZH-2602-B × 200 套", "mat": "ZH-2602-B", "matName": "冲压件料箱组套", "qty": "200", "unit": "套", "so": "SO-20260826-0032", "addr": "宁波工厂 C 门", "status": "已出库", "date": "2026-08-28", "createdAt": "2026-08-28"}, "cells": ["PRJ-2602", "东海商用宁波分公司", "<span class=\"lk\">ZL-20260815-028</span>", "ZH-2602-B × 200 套", "SO-20260826-0032", "宁波工厂 C 门", "<span class=\"tag tag-green\">已出库</span>", "2026-08-28 09:30", "2026-08-28"], "ops": [{"t": "详情", "act": "go('../租赁管理/租赁出库详情.html?id=CK-20260828-010')"}, {"t": "打印", "act": "go('出货单打印.html?key=CK-20260828-010')"}, {"t": "审核", "act": "go('../租赁管理/租赁出库确认.html?id=CK-20260828-010')"}, {"t": "复制", "act": "go('../租赁管理/租赁出库录单.html?copy=CK-20260828-010')"}]},
+      'row': {"fields": {"project": "PRJ-2602", "customer": "东海商用宁波分公司", "zl": "ZL-20260828-031", "combo": "ZH-2602-B × 200 套", "mat": "ZH-2602-B", "matName": "冲压件料箱组套", "qty": "200", "unit": "套", "so": "SO-20260826-0032", "addr": "宁波工厂 C 门", "status": "已出库", "date": "2026-08-28", "createdAt": "2026-08-28"}, "cells": ["PRJ-2602", "东海商用宁波分公司", "<span class=\"lk\">ZL-20260828-031</span>", "ZH-2602-B × 200 套", "SO-20260826-0032", "宁波工厂 C 门", "<span class=\"tag tag-green\">已出库</span>", "2026-08-28 09:30", "2026-08-28"], "ops": [{"t": "详情", "act": "go('../租赁管理/租赁出库详情.html?id=CK-20260828-010')"}, {"t": "打印", "act": "go('出货单打印.html?key=CK-20260828-010')"}, {"t": "审核", "act": "go('../租赁管理/租赁出库确认.html?id=CK-20260828-010')"}, {"t": "复制", "act": "go('../租赁管理/租赁出库录单.html?copy=CK-20260828-010')"}]},
       'title': '租赁出库单详情',
       'formTitle': '基本信息',
       'formRows': [
         { 'label': '出库单号', 'text': 'CK-20260828-010' },
         { 'label': '状态', 'tag': '已出库' },
         { 'label': '所属项目', 'text': 'PRJ-2602' },
-        { 'label': '关联租赁单号', 'text': 'ZL-20260815-028', 'url': '租赁管理/租赁单列表.html' },
+        { 'label': '关联租赁单号', 'text': 'ZL-20260828-031', 'url': '租赁管理/租赁单列表.html' },
         { 'label': '关联销售订单号', 'text': 'SO-20260826-0032（双关联）', 'url': '销售管理/销售订单列表.html' },
         { 'label': '客户', 'text': '东海商用宁波分公司' },
         { 'label': '出库类型', 'text': '一箱一件 · 逐件核对（扫码口预留）', 'full': true },
@@ -3261,7 +3261,7 @@ window.DEMO_DATA = {
       'chain': [
         {
           'role': '租赁单',
-          'name': 'ZL-20260815-028',
+          'name': 'ZL-20260828-031',
           'url': '租赁管理/租赁单列表.html'
         },
         {
@@ -3305,13 +3305,13 @@ window.DEMO_DATA = {
   /* 拆散去向：自有回库 / 租入件转归还；缺损/丢失联动丢损赔偿 */
   returnInbounds: {
     'TZRK-20260902-010': {
-      'row': {"fields": {"customer": "华骏重卡汽车有限公司", "project": "PRJ-2604", "appliance": "ZH-2604-D 混合组合套件（自购隔板 + 租入大箱）", "mat": "ZH-2604-D", "matName": "混合组合套件（自购隔板 + 租入大箱）", "qty": "40", "unit": "套", "dest": "自有回库 租入件转归还", "warehouse": "成品区 RB", "date": "2026-09-02", "result": "缺损", "status": "待审核", "createdAt": "2026-09-02"}, "note": "1", "cells": ["华骏重卡汽车有限公司", "PRJ-2604", "ZH-2604-D 混合组合套件（自购隔板 + 租入大箱）", "<span class=\"td-num\">40 套</span>", "隔板×80（自购）/ 大箱×10（租入，其中 4 只缺损）", "<span class=\"tag tag-gray\">自有回库</span> <span class=\"tag tag-orange\" onclick=\"go('../租入管理/归还出库列表.html')\" style=\"cursor:pointer\">租入件转归还</span>", "成品区 RB", "2026-09-02", "<span class=\"tag tag-orange\">缺损</span>", "<span class=\"tag tag-orange\">待审核</span>", "2026-09-02"], "ops": [{"t": "详情", "act": "go('../租赁管理/退租入库详情.html?id=TZRK-20260902-010')"}, {"t": "审核", "act": "go('../租赁管理/退租入库审核.html?id=TZRK-20260902-010')"}]},
+      'row': {"fields": {"customer": "华骏重卡汽车有限公司", "project": "PRJ-2604", "appliance": "ZH-2604-D 混合组合套件（自购隔板 + 租入大箱）", "mat": "ZH-2604-D", "matName": "混合组合套件（自购隔板 + 租入大箱）", "qty": "40", "unit": "套", "dest": "自有回库 租入件转归还", "warehouse": "成品区 RB", "date": "2026-09-02", "result": "缺损", "status": "待审核", "createdAt": "2026-09-02"}, "note": "1", "cells": ["华骏重卡汽车有限公司", "PRJ-2604", "<span class=\"lk\">ZL-20260823-033</span>", "ZH-2604-D 混合组合套件（自购隔板 + 租入大箱）", "<span class=\"td-num\">40 套</span>", "隔板×80（自购）/ 大箱×10（租入，其中 4 只缺损）", "<span class=\"tag tag-gray\">自有回库</span> <span class=\"tag tag-orange\" onclick=\"go('../租入管理/归还出库列表.html')\" style=\"cursor:pointer\">租入件转归还</span>", "成品区 RB", "2026-09-02", "<span class=\"tag tag-orange\">缺损</span>", "<span class=\"tag tag-orange\">待审核</span>", "2026-09-02"], "ops": [{"t": "详情", "act": "go('../租赁管理/退租入库详情.html?id=TZRK-20260902-010')"}, {"t": "审核", "act": "go('../租赁管理/退租入库审核.html?id=TZRK-20260902-010')"}]},
       'title': '退租入库单详情',
       'formTitle': '退租入库信息',
       'formRows': [
         { 'label': '入库单号', 'text': 'TZRK-20260902-010' },
         { 'label': '状态', 'tag': '待审核' },
-        { 'label': '关联租赁单号', 'text': 'ZL-20260823-033', 'url': '租赁管理/租赁单列表.html' },
+        { 'label': '关联出库单', 'text': 'CK-20260824-009', 'url': '租赁管理/租赁出库列表.html' },
         { 'label': '客户', 'text': '华骏重卡汽车有限公司' },
         { 'label': '所属项目', 'text': 'PRJ-2604' },
         { 'label': '入库库位', 'text': '成品区 RB' },
@@ -3374,13 +3374,13 @@ window.DEMO_DATA = {
       ]
     },
     'TZRK-20260903-009': {
-      'row': {"fields": {"customer": "东海商用汽车有限公司宁波分公司", "project": "PRJ-2603", "appliance": "WBX-1210L 围板箱 1200×1000×970（租入）", "mat": "WBX-1210L", "matName": "围板箱 1200×1000×970（租入）", "qty": "30", "unit": "只", "dest": "租入件转归还", "warehouse": "直发虚拟仓", "date": "2026-09-03", "result": "完好", "status": "待审核", "createdAt": "2026-09-03"}, "note": "2", "cells": ["东海商用汽车有限公司宁波分公司", "PRJ-2603", "WBX-1210L 围板箱 1200×1000×970（租入）", "<span class=\"td-num\">30 只</span>", "整箱退回（租入资产，不拆散）", "<span class=\"tag tag-orange\" onclick=\"go('../租入管理/归还出库列表.html')\" style=\"cursor:pointer\">租入件转归还</span>", "直发虚拟仓", "2026-09-03", "<span class=\"tag tag-green\">完好</span>", "<span class=\"tag tag-orange\">待审核</span>", "2026-09-03"], "ops": [{"t": "详情", "act": "go('../租赁管理/退租入库详情.html?id=TZRK-20260903-009')"}, {"t": "审核", "act": "go('../租赁管理/退租入库审核.html?id=TZRK-20260903-009')"}]},
+      'row': {"fields": {"customer": "东海商用汽车有限公司宁波分公司", "project": "PRJ-2603", "appliance": "WBX-1210L 围板箱 1200×1000×970（租入）", "mat": "WBX-1210L", "matName": "围板箱 1200×1000×970（租入）", "qty": "30", "unit": "只", "dest": "租入件转归还", "warehouse": "直发虚拟仓", "date": "2026-09-03", "result": "完好", "status": "待审核", "createdAt": "2026-09-03"}, "note": "2", "cells": ["东海商用汽车有限公司宁波分公司", "PRJ-2603", "<span class=\"lk\">ZL-20260816-029</span>", "WBX-1210L 围板箱 1200×1000×970（租入）", "<span class=\"td-num\">30 只</span>", "整箱退回（租入资产，不拆散）", "<span class=\"tag tag-orange\" onclick=\"go('../租入管理/归还出库列表.html')\" style=\"cursor:pointer\">租入件转归还</span>", "直发虚拟仓", "2026-09-03", "<span class=\"tag tag-green\">完好</span>", "<span class=\"tag tag-orange\">待审核</span>", "2026-09-03"], "ops": [{"t": "详情", "act": "go('../租赁管理/退租入库详情.html?id=TZRK-20260903-009')"}, {"t": "审核", "act": "go('../租赁管理/退租入库审核.html?id=TZRK-20260903-009')"}]},
       'title': '退租入库单详情',
       'formTitle': '退租入库信息',
       'formRows': [
         { 'label': '入库单号', 'text': 'TZRK-20260903-009' },
         { 'label': '状态', 'tag': '待审核' },
-        { 'label': '关联租赁单号', 'text': 'ZL-20260816-029', 'url': '租赁管理/租赁单列表.html' },
+        { 'label': '关联出库单', 'text': 'CK-20260912-024（直发）', 'url': '租赁管理/租赁出库列表.html' },
         { 'label': '客户', 'text': '东海商用汽车有限公司宁波分公司' },
         { 'label': '所属项目', 'text': 'PRJ-2603' },
         { 'label': '入库库位', 'text': '直发虚拟仓（XNC-ZF·识别背靠背自动带出）' },
@@ -3443,13 +3443,13 @@ window.DEMO_DATA = {
       ]
     },
     'TZRK-20260902-008': {
-      'row': {"fields": {"customer": "华骏重卡汽车有限公司", "project": "PRJ-2601", "appliance": "ZH-2601-A 驾驶室围板箱整箱套件", "mat": "ZH-2601-A", "matName": "驾驶室围板箱整箱套件", "qty": "60", "unit": "套", "dest": "自有回库", "warehouse": "成品区 RB", "date": "2026-09-02", "result": "缺损", "status": "待审核", "createdAt": "2026-09-02"}, "note": "3", "cells": ["华骏重卡汽车有限公司", "PRJ-2601", "ZH-2601-A 驾驶室围板箱整箱套件", "<span class=\"td-num\">60 套</span>", "围板×120 / 箱体×60 / 锁扣组件×240", "<span class=\"tag tag-gray\">自有回库</span>", "成品区 RB", "2026-09-02", "<span class=\"tag tag-orange\">缺损</span>", "<span class=\"tag tag-orange\">待审核</span>", "2026-09-02"], "ops": [{"t": "审核", "act": "go('../租赁管理/退租入库审核.html?id=TZRK-20260902-008')"}]},
+      'row': {"fields": {"customer": "华骏重卡汽车有限公司", "project": "PRJ-2601", "appliance": "ZH-2601-A 驾驶室围板箱整箱套件", "mat": "ZH-2601-A", "matName": "驾驶室围板箱整箱套件", "qty": "60", "unit": "套", "dest": "自有回库", "warehouse": "成品区 RB", "date": "2026-09-02", "result": "缺损", "status": "待审核", "createdAt": "2026-09-02"}, "note": "3", "cells": ["华骏重卡汽车有限公司", "PRJ-2601", "<span class=\"lk\">ZL-20260815-028</span>", "ZH-2601-A 驾驶室围板箱整箱套件", "<span class=\"td-num\">60 套</span>", "围板×120 / 箱体×60 / 锁扣组件×240", "<span class=\"tag tag-gray\">自有回库</span>", "成品区 RB", "2026-09-02", "<span class=\"tag tag-orange\">缺损</span>", "<span class=\"tag tag-orange\">待审核</span>", "2026-09-02"], "ops": [{"t": "审核", "act": "go('../租赁管理/退租入库审核.html?id=TZRK-20260902-008')"}]},
       'title': '退租入库单详情',
       'formTitle': '退租入库信息',
       'formRows': [
         { 'label': '入库单号', 'text': 'TZRK-20260902-008' },
         { 'label': '状态', 'tag': '待审核' },
-        { 'label': '关联租赁单号', 'text': 'ZL-20260823-033', 'url': '租赁管理/租赁单列表.html' },
+        { 'label': '关联出库单', 'text': 'CK-20260903-016', 'url': '租赁管理/租赁出库列表.html' },
         { 'label': '客户', 'text': '华骏重卡汽车有限公司' },
         { 'label': '所属项目', 'text': 'PRJ-2601' },
         { 'label': '入库库位', 'text': '成品区 RB' },
@@ -3507,13 +3507,13 @@ window.DEMO_DATA = {
       ]
     },
     'TZRK-20260901-007': {
-      'row': {"fields": {"customer": "东海商用汽车有限公司宁波分公司", "project": "PRJ-2602", "appliance": "ZH-2602-B 冲压件料箱组套", "mat": "ZH-2602-B", "matName": "冲压件料箱组套", "qty": "45", "unit": "套", "dest": "自有回库", "warehouse": "成品区 RB", "date": "2026-09-01", "result": "完好", "status": "已入库", "createdAt": "2026-09-01"}, "cells": ["东海商用汽车有限公司宁波分公司", "PRJ-2602", "ZH-2602-B 冲压件料箱组套", "<span class=\"td-num\">45 套</span>", "料箱×45 / 隔板×90", "<span class=\"tag tag-gray\">自有回库</span>", "成品区 RB", "2026-09-01", "<span class=\"tag tag-green\">完好</span>", "<span class=\"tag tag-green\">已入库</span>", "2026-09-01"], "ops": [{"t": "详情", "act": "go('../租赁管理/退租入库详情.html?id=TZRK-20260901-007')"}]},
+      'row': {"fields": {"customer": "东海商用汽车有限公司宁波分公司", "project": "PRJ-2602", "appliance": "ZH-2602-B 冲压件料箱组套", "mat": "ZH-2602-B", "matName": "冲压件料箱组套", "qty": "45", "unit": "套", "dest": "自有回库", "warehouse": "成品区 RB", "date": "2026-09-01", "result": "完好", "status": "已入库", "createdAt": "2026-09-01"}, "cells": ["东海商用汽车有限公司宁波分公司", "PRJ-2602", "<span class=\"lk\">ZL-20260828-031</span>", "ZH-2602-B 冲压件料箱组套", "<span class=\"td-num\">45 套</span>", "料箱×45 / 隔板×90", "<span class=\"tag tag-gray\">自有回库</span>", "成品区 RB", "2026-09-01", "<span class=\"tag tag-green\">完好</span>", "<span class=\"tag tag-green\">已入库</span>", "2026-09-01"], "ops": [{"t": "详情", "act": "go('../租赁管理/退租入库详情.html?id=TZRK-20260901-007')"}]},
       'title': '退租入库单详情',
       'formTitle': '退租入库信息',
       'formRows': [
         { 'label': '入库单号', 'text': 'TZRK-20260901-007' },
         { 'label': '状态', 'tag': '已入库' },
-        { 'label': '关联租赁单号', 'text': 'ZL-20260816-029', 'url': '租赁管理/租赁单列表.html' },
+        { 'label': '关联出库单', 'text': 'CK-20260828-010', 'url': '租赁管理/租赁出库列表.html' },
         { 'label': '客户', 'text': '东海商用汽车有限公司宁波分公司' },
         { 'label': '所属项目', 'text': 'PRJ-2602' },
         { 'label': '入库库位', 'text': '成品区 RB' },
@@ -3560,13 +3560,13 @@ window.DEMO_DATA = {
       ]
     },
     'TZRK-20260831-006': {
-      'row': {"fields": {"customer": "星途新能源汽车科技有限公司", "project": "PRJ-2603", "appliance": "ZH-2603-C 电池托盘护角套件", "mat": "ZH-2603-C", "matName": "电池托盘护角套件", "qty": "20", "unit": "套", "dest": "自有回库", "warehouse": "成品区 RB", "date": "2026-08-31", "result": "丢失", "status": "已入库", "createdAt": "2026-08-31"}, "cells": ["星途新能源汽车科技有限公司", "PRJ-2603", "ZH-2603-C 电池托盘护角套件", "<span class=\"td-num\">20 套</span>", "托盘×20 / 护角×80", "<span class=\"tag tag-gray\">自有回库</span>", "成品区 RB", "2026-08-31", "<span class=\"tag tag-red\">丢失</span>", "<span class=\"tag tag-green\">已入库</span>", "2026-08-31"], "ops": [{"t": "详情", "act": "go('../租赁管理/退租入库详情.html?id=TZRK-20260831-006')"}]},
+      'row': {"fields": {"customer": "星途新能源汽车科技有限公司", "project": "PRJ-2603", "appliance": "ZH-2603-C 电池托盘护角套件", "mat": "ZH-2603-C", "matName": "电池托盘护角套件", "qty": "20", "unit": "套", "dest": "自有回库", "warehouse": "成品区 RB", "date": "2026-08-31", "result": "丢失", "status": "已入库", "createdAt": "2026-08-31"}, "cells": ["星途新能源汽车科技有限公司", "PRJ-2603", "<span class=\"lk\">ZL-20260720-022</span>", "ZH-2603-C 电池托盘护角套件", "<span class=\"td-num\">20 套</span>", "托盘×20 / 护角×80", "<span class=\"tag tag-gray\">自有回库</span>", "成品区 RB", "2026-08-31", "<span class=\"tag tag-red\">丢失</span>", "<span class=\"tag tag-green\">已入库</span>", "2026-08-31"], "ops": [{"t": "详情", "act": "go('../租赁管理/退租入库详情.html?id=TZRK-20260831-006')"}]},
       'title': '退租入库单详情',
       'formTitle': '退租入库信息',
       'formRows': [
         { 'label': '入库单号', 'text': 'TZRK-20260831-006' },
         { 'label': '状态', 'tag': '已入库' },
-        { 'label': '关联租赁单号', 'text': 'ZL-20260720-022', 'url': '租赁管理/租赁单列表.html' },
+        { 'label': '关联出库单', 'text': 'CK-20260829-013', 'url': '租赁管理/租赁出库列表.html' },
         { 'label': '客户', 'text': '星途新能源汽车科技有限公司' },
         { 'label': '所属项目', 'text': 'PRJ-2603' },
         { 'label': '入库库位', 'text': '成品区 RB' },
@@ -3624,13 +3624,13 @@ window.DEMO_DATA = {
       ]
     },
     'TZRK-20260828-005': {
-      'row': {"fields": {"customer": "华骏重卡汽车有限公司", "project": "PRJ-2601", "appliance": "BTC-6040 料箱", "mat": "BTC-6040", "matName": "料箱", "qty": "200", "unit": "只", "dest": "自有回库", "warehouse": "成品区 RB", "date": "2026-08-28", "result": "完好", "status": "已入库", "createdAt": "2026-08-28"}, "cells": ["华骏重卡汽车有限公司", "PRJ-2601", "BTC-6040 料箱", "<span class=\"td-num\">200 只</span>", "—（散件直接入库）", "<span class=\"tag tag-gray\">自有回库</span>", "成品区 RB", "2026-08-28", "<span class=\"tag tag-green\">完好</span>", "<span class=\"tag tag-green\">已入库</span>", "2026-08-28"], "ops": [{"t": "详情", "act": "go('../租赁管理/退租入库详情.html?id=TZRK-20260828-005')"}]},
+      'row': {"fields": {"customer": "华骏重卡汽车有限公司", "project": "PRJ-2601", "appliance": "BTC-6040 料箱", "mat": "BTC-6040", "matName": "料箱", "qty": "200", "unit": "只", "dest": "自有回库", "warehouse": "成品区 RB", "date": "2026-08-28", "result": "完好", "status": "已入库", "createdAt": "2026-08-28"}, "cells": ["华骏重卡汽车有限公司", "PRJ-2601", "<span class=\"lk\">ZL-20260610-015</span>", "BTC-6040 料箱", "<span class=\"td-num\">200 只</span>", "—（散件直接入库）", "<span class=\"tag tag-gray\">自有回库</span>", "成品区 RB", "2026-08-28", "<span class=\"tag tag-green\">完好</span>", "<span class=\"tag tag-green\">已入库</span>", "2026-08-28"], "ops": [{"t": "详情", "act": "go('../租赁管理/退租入库详情.html?id=TZRK-20260828-005')"}]},
       'title': '退租入库单详情',
       'formTitle': '退租入库信息',
       'formRows': [
         { 'label': '入库单号', 'text': 'TZRK-20260828-005' },
         { 'label': '状态', 'tag': '已入库' },
-        { 'label': '关联租赁单号', 'text': 'ZL-20260823-033', 'url': '租赁管理/租赁单列表.html' },
+        { 'label': '关联出库单', 'text': 'CK-20260830-015', 'url': '租赁管理/租赁出库列表.html' },
         { 'label': '客户', 'text': '华骏重卡汽车有限公司' },
         { 'label': '所属项目', 'text': 'PRJ-2601' },
         { 'label': '入库库位', 'text': '成品区 RB' },
@@ -3672,13 +3672,13 @@ window.DEMO_DATA = {
       ]
     },
     'TZRK-20260825-004': {
-      'row': {"fields": {"customer": "东海商用汽车有限公司宁波分公司", "project": "PRJ-2602", "appliance": "PLT-1210P 塑料托盘", "mat": "PLT-1210P", "matName": "塑料托盘", "qty": "150", "unit": "块", "dest": "自有回库", "warehouse": "成品区 RB", "date": "2026-08-25", "result": "完好", "status": "已入库", "createdAt": "2026-08-25"}, "cells": ["东海商用汽车有限公司宁波分公司", "PRJ-2602", "PLT-1210P 塑料托盘", "<span class=\"td-num\">150 块</span>", "—（散件直接入库）", "<span class=\"tag tag-gray\">自有回库</span>", "成品区 RB", "2026-08-25", "<span class=\"tag tag-green\">完好</span>", "<span class=\"tag tag-green\">已入库</span>", "2026-08-25"], "ops": [{"t": "详情", "act": "go('../租赁管理/退租入库详情.html?id=TZRK-20260825-004')"}]},
+      'row': {"fields": {"customer": "东海商用汽车有限公司宁波分公司", "project": "PRJ-2602", "appliance": "PLT-1210P 塑料托盘", "mat": "PLT-1210P", "matName": "塑料托盘", "qty": "150", "unit": "块", "dest": "自有回库", "warehouse": "成品区 RB", "date": "2026-08-25", "result": "完好", "status": "已入库", "createdAt": "2026-08-25"}, "cells": ["东海商用汽车有限公司宁波分公司", "PRJ-2602", "<span class=\"lk\">ZL-20260828-031</span>", "PLT-1210P 塑料托盘", "<span class=\"td-num\">150 块</span>", "—（散件直接入库）", "<span class=\"tag tag-gray\">自有回库</span>", "成品区 RB", "2026-08-25", "<span class=\"tag tag-green\">完好</span>", "<span class=\"tag tag-green\">已入库</span>", "2026-08-25"], "ops": [{"t": "详情", "act": "go('../租赁管理/退租入库详情.html?id=TZRK-20260825-004')"}]},
       'title': '退租入库单详情',
       'formTitle': '退租入库信息',
       'formRows': [
         { 'label': '入库单号', 'text': 'TZRK-20260825-004' },
         { 'label': '状态', 'tag': '已入库' },
-        { 'label': '关联租赁单号', 'text': 'ZL-20260816-029', 'url': '租赁管理/租赁单列表.html' },
+        { 'label': '关联出库单', 'text': 'CK-20260828-010', 'url': '租赁管理/租赁出库列表.html' },
         { 'label': '客户', 'text': '东海商用汽车有限公司宁波分公司' },
         { 'label': '所属项目', 'text': 'PRJ-2602' },
         { 'label': '入库库位', 'text': '成品区 RB' },
@@ -3720,13 +3720,13 @@ window.DEMO_DATA = {
       ]
     },
     'TZRK-20260820-003': {
-      'row': {"fields": {"customer": "华骏重卡汽车有限公司", "project": "PRJ-2601", "appliance": "ZH-2601-A 驾驶室围板箱整箱套件", "mat": "ZH-2601-A", "matName": "驾驶室围板箱整箱套件", "qty": "30", "unit": "套", "dest": "自有回库", "warehouse": "成品区 RB", "date": "2026-08-20", "result": "缺损", "status": "已入库", "createdAt": "2026-08-20"}, "cells": ["华骏重卡汽车有限公司", "PRJ-2601", "ZH-2601-A 驾驶室围板箱整箱套件", "<span class=\"td-num\">30 套</span>", "围板×60 / 箱体×30 / 锁扣组件×120", "<span class=\"tag tag-gray\">自有回库</span>", "成品区 RB", "2026-08-20", "<span class=\"tag tag-orange\">缺损</span>", "<span class=\"tag tag-green\">已入库</span>", "2026-08-20"], "ops": [{"t": "详情", "act": "go('../租赁管理/退租入库详情.html?id=TZRK-20260820-003')"}]},
+      'row': {"fields": {"customer": "华骏重卡汽车有限公司", "project": "PRJ-2601", "appliance": "ZH-2601-A 驾驶室围板箱整箱套件", "mat": "ZH-2601-A", "matName": "驾驶室围板箱整箱套件", "qty": "30", "unit": "套", "dest": "自有回库", "warehouse": "成品区 RB", "date": "2026-08-20", "result": "缺损", "status": "已入库", "createdAt": "2026-08-20"}, "cells": ["华骏重卡汽车有限公司", "PRJ-2601", "<span class=\"lk\">ZL-20260610-015</span>", "ZH-2601-A 驾驶室围板箱整箱套件", "<span class=\"td-num\">30 套</span>", "围板×60 / 箱体×30 / 锁扣组件×120", "<span class=\"tag tag-gray\">自有回库</span>", "成品区 RB", "2026-08-20", "<span class=\"tag tag-orange\">缺损</span>", "<span class=\"tag tag-green\">已入库</span>", "2026-08-20"], "ops": [{"t": "详情", "act": "go('../租赁管理/退租入库详情.html?id=TZRK-20260820-003')"}]},
       'title': '退租入库单详情',
       'formTitle': '退租入库信息',
       'formRows': [
         { 'label': '入库单号', 'text': 'TZRK-20260820-003' },
         { 'label': '状态', 'tag': '已入库' },
-        { 'label': '关联租赁单号', 'text': 'ZL-20260823-033', 'url': '租赁管理/租赁单列表.html' },
+        { 'label': '关联出库单', 'text': 'CK-20260830-015', 'url': '租赁管理/租赁出库列表.html' },
         { 'label': '客户', 'text': '华骏重卡汽车有限公司' },
         { 'label': '所属项目', 'text': 'PRJ-2601' },
         { 'label': '入库库位', 'text': '成品区 RB' },
@@ -3778,13 +3778,13 @@ window.DEMO_DATA = {
       ]
     },
     'TZRK-20260908-011': {
-      'row': {"fields": {"customer": "华骏重卡汽车有限公司", "project": "PRJ-2601", "appliance": "ZH-2601-A 驾驶室围板箱整箱套件", "mat": "ZH-2601-A", "matName": "驾驶室围板箱整箱套件", "qty": "120", "unit": "套", "dest": "自有回库", "warehouse": "成品区 RB", "date": "2026-09-08", "result": "完好", "status": "已入库", "createdAt": "2026-09-08"}, "cells": ["华骏重卡汽车有限公司", "PRJ-2601", "ZH-2601-A 驾驶室围板箱整箱套件", "<span class=\"td-num\">120 套</span>", "整套退回 120 套 · 部分退租（在租 530 套中退 120）", "<span class=\"tag tag-gray\">自有回库</span>", "成品区 RB", "2026-09-08", "<span class=\"tag tag-green\">完好</span>", "<span class=\"tag tag-green\">已入库</span>", "2026-09-08"], "ops": [{"t": "详情", "act": "go('../租赁管理/退租入库详情.html?id=TZRK-20260908-011')"}]},
+      'row': {"fields": {"customer": "华骏重卡汽车有限公司", "project": "PRJ-2601", "appliance": "ZH-2601-A 驾驶室围板箱整箱套件", "mat": "ZH-2601-A", "matName": "驾驶室围板箱整箱套件", "qty": "120", "unit": "套", "dest": "自有回库", "warehouse": "成品区 RB", "date": "2026-09-08", "result": "完好", "status": "已入库", "createdAt": "2026-09-08"}, "cells": ["华骏重卡汽车有限公司", "PRJ-2601", "<span class=\"lk\">ZL-20260823-033</span> 等 3 笔", "ZH-2601-A 驾驶室围板箱整箱套件", "<span class=\"td-num\">120 套</span>", "整套退回 120 套 · 部分退租（在租 530 套中退 120）", "<span class=\"tag tag-gray\">自有回库</span>", "成品区 RB", "2026-09-08", "<span class=\"tag tag-green\">完好</span>", "<span class=\"tag tag-green\">已入库</span>", "2026-09-08"], "ops": [{"t": "详情", "act": "go('../租赁管理/退租入库详情.html?id=TZRK-20260908-011')"}]},
       'title': '退租入库单详情',
       'formTitle': '退租入库信息',
       'formRows': [
         { 'label': '入库单号', 'text': 'TZRK-20260908-011' },
         { 'label': '状态', 'tag': '已入库' },
-        { 'label': '关联租赁单号', 'text': 'ZL-20260823-033 / ZL-20260610-015 / ZL-20260903-034（对应出库单 -012 / -015 / -016）', 'url': '租赁管理/租赁单列表.html' },
+        { 'label': '关联出库单', 'text': 'CK-20260829-012 / -015 / -016（多张 · 分批退租）', 'url': '租赁管理/租赁出库列表.html' },
         { 'label': '客户', 'text': '华骏重卡汽车有限公司' },
         { 'label': '所属项目', 'text': 'PRJ-2601' },
         { 'label': '入库库位', 'text': '成品区 RB' },
@@ -3812,13 +3812,13 @@ window.DEMO_DATA = {
       ]
     },
     'TZRK-20260915-012': {
-      'row': {"fields": {"customer": "安吉智行物流", "project": "PRJ-2605", "appliance": "XNC-ZZ-WBX 围板箱 1200×1000×970", "mat": "XNC-ZZ-WBX", "matName": "围板箱 1200×1000×970", "qty": "100", "unit": "只", "dest": "自有回库", "warehouse": "成品区 RB", "date": "2026-09-15", "result": "完好", "status": "已入库", "createdAt": "2026-09-15"}, "cells": ["安吉智行物流", "PRJ-2605", "XNC-ZZ-WBX 围板箱 1200×1000×970", "<span class=\"td-num\">100 只</span>", "转租物部分退回（终端在租 240 只中退 100 · 余 140 只继续在租）", "<span class=\"tag tag-gray\">自有回库</span>", "成品区 RB", "2026-09-15", "<span class=\"tag tag-green\">完好</span>", "<span class=\"tag tag-green\">已入库</span>", "2026-09-15"], "ops": [{"t": "详情", "act": "go('../租赁管理/退租入库详情.html?id=TZRK-20260915-012')"}]},
+      'row': {"fields": {"customer": "安吉智行物流", "project": "PRJ-2605", "appliance": "XNC-ZZ-WBX 围板箱 1200×1000×970", "mat": "XNC-ZZ-WBX", "matName": "围板箱 1200×1000×970", "qty": "100", "unit": "只", "dest": "自有回库", "warehouse": "成品区 RB", "date": "2026-09-15", "result": "完好", "status": "已入库", "createdAt": "2026-09-15"}, "cells": ["安吉智行物流", "PRJ-2605", "—（转租链路）", "XNC-ZZ-WBX 围板箱 1200×1000×970", "<span class=\"td-num\">100 只</span>", "转租物部分退回（终端在租 240 只中退 100 · 余 140 只继续在租）", "<span class=\"tag tag-gray\">自有回库</span>", "成品区 RB", "2026-09-15", "<span class=\"tag tag-green\">完好</span>", "<span class=\"tag tag-green\">已入库</span>", "2026-09-15"], "ops": [{"t": "详情", "act": "go('../租赁管理/退租入库详情.html?id=TZRK-20260915-012')"}]},
       'title': '退租入库单详情',
       'formTitle': '退租入库信息',
       'formRows': [
         { 'label': '入库单号', 'text': 'TZRK-20260915-012' },
         { 'label': '状态', 'tag': '已入库' },
-        { 'label': '关联租赁单号', 'text': '—（客户转租链路 · 经转移出库 ZY-20260914-001 退回）' },
+        { 'label': '关联出库单', 'text': '—（客户转租链路 · 经转移出库 ZY-20260914-001 退回）' },
         { 'label': '客户', 'text': '安吉智行物流' },
         { 'label': '所属项目', 'text': 'PRJ-2605' },
         { 'label': '入库库位', 'text': '成品区 RB' },

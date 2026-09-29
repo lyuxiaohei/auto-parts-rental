@@ -340,38 +340,30 @@ th.td-num { text-align:right; }
   <div class="main-col">
 <div class="tabs">
   <span class="tab">退租入库 <span class="close">×</span></span>
-  <span class="tab active">退租入库（选单退租） <span class="close">×</span></span>
+  <span class="tab active">退租入库（关联出库单退租） <span class="close">×</span></span>
 </div>
     <div class="content submit-pad">
-<div class="pn-hint" style="margin:0 0 14px;padding:10px 12px;border:1px solid #91d5ff;background:#e6f4ff;border-radius:6px;color:#1677ff;line-height:1.9;">退租入库说明：① 多次退租从多个出库单分别登记（每单可多次部分退租，逐单登记）；② 退租只新增退租入库单、不改原出库单数据、不核销原出库数量，应收账单照常生成（账单与退租并行）。<br>操作两步：第一步选退回客户 → 第二步选该客户租赁出库单带出明细 → 录退租数量（≤原出库数量）。退租入库单同时关联所选出库单及其租赁单（关联租赁单号由出库单带出，G78）。</div>
+<div class="pn-hint" style="margin:0 0 14px;padding:10px 12px;border:1px solid #91d5ff;background:#e6f4ff;border-radius:6px;color:#1677ff;line-height:1.9;">退租入库说明：① 勾选关联出库单（可多张 · 限同一客户 · 支持按项目/客户筛选），明细自动带出（含原出库数量）；② 退租数量不可超原出库数量；③ 退租只新增退租入库单、不改原出库单数据、不核销原出库数量，应收账单照常生成（账务与退租并行）。关联租赁单号见下表列（退租入库列表亦显示）。</div>
 <div class="card">
   <div class="card-head">
-    <h3 class="card-title">第一步 · 选择退回客户</h3>
-  </div>
-      <div class="form-row">
-        <div class="form-label"><span class="req">*</span>退回客户：</div>
-        <div>
-          <div class="input-box select-box" style="width:380px;"><select id="g57TzCust" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected>华骏重卡汽车有限公司</option><option>东海商用汽车有限公司宁波分公司</option><option>星途新能源汽车科技有限公司</option><option>长风汽车制造有限公司</option></select><span class="caret">▾</span></div>
-          <div class="pn-hint">选择客户后，第二步自动带出该客户全部租赁出库单（已出库）。</div>
-        </div>
-      </div>
-</div>
-<div class="card">
-  <div class="card-head">
-    <h3 class="card-title">第二步 · 选择租赁出库单</h3>
+    <h3 class="card-title">关联出库单 <span style="color:#ff4d4f;">*</span>（可多选 · 同一客户）</h3>
+    <div class="head-btns" style="gap:8px;">
+      <div class="input-box select-box" style="width:250px;"><select id="g79ProjF" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option value="">项目：全部</option></select><span class="caret">▾</span></div>
+      <div class="input-box select-box" style="width:300px;"><select id="g79CustF" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option value="">客户：全部</option></select><span class="caret">▾</span></div>
+    </div>
   </div>
   <div class="table-wrap">
     <table>
-              <thead><tr><th style="width:36px;"></th><th>出库单号</th><th>关联租赁单号</th><th>出库日期</th><th>客户</th><th>物料</th><th>出库数量</th><th>状态</th><th class="sticky-op">操作</th></tr></thead>
+              <thead><tr><th style="width:36px;"></th><th>出库单号</th><th>关联租赁单号</th><th>出库日期</th><th>客户</th><th>所属项目</th><th>物料</th><th>出库数量</th><th>状态</th></tr></thead>
       <tbody id="g57TzOrders">
-        <tr><td><input type="radio" name="g57TzPick" checked></td><td><span class="lk">CK-20260830-015</span></td><td><span class="lk">ZL-20260610-015</span></td><td>2026-08-30</td><td>华骏重卡汽车有限公司</td><td>ZH-2601-A 驾驶室围板箱整箱套件</td><td><span class="td-num">180 套</span></td><td><span class="tag tag-green">已出库</span></td><td class="sticky-op"><span class="ops"><a onclick="g57PickOrder('CK-20260830-015')">选择</a></span></td></tr>
-        <tr><td><input type="radio" name="g57TzPick"></td><td><span class="lk">CK-20260903-016</span></td><td><span class="lk">ZL-20260903-034</span></td><td>2026-09-03</td><td>华骏重卡汽车有限公司</td><td>ZH-2601-A 驾驶室围板箱整箱套件</td><td><span class="td-num">60 套</span></td><td><span class="tag tag-green">已出库</span></td><td class="sticky-op"><span class="ops"><a onclick="g57PickOrder('CK-20260903-016')">选择</a></span></td></tr>
-        <tr><td><input type="radio" name="g57TzPick"></td><td><span class="lk">CK-20260829-012</span></td><td><span class="lk">ZL-20260823-033</span></td><td>2026-08-29</td><td>华骏重卡汽车有限公司</td><td>ZH-2601-A 驾驶室围板箱整箱套件</td><td><span class="td-num">120 套</span></td><td><span class="tag tag-green">已出库</span></td><td class="sticky-op"><span class="ops"><a onclick="g57PickOrder('CK-20260829-012')">选择</a></span></td></tr>
-        <tr><td><input type="radio" name="g57TzPick"></td><td><span class="lk">CK-20260824-009</span></td><td><span class="lk">ZL-20260823-033</span></td><td>2026-08-24</td><td>华骏重卡汽车有限公司</td><td>ZH-2604-D 混合组合套件</td><td><span class="td-num">40 套</span></td><td><span class="tag tag-green">已出库</span></td><td class="sticky-op"><span class="ops"><a onclick="g57PickOrder('CK-20260824-009')">选择</a></span></td></tr>
+        <tr><td><input type="checkbox" class="g79Ck" data-key="CK-20260830-015" data-cust="华骏重卡汽车有限公司" checked></td><td><span class="lk">CK-20260830-015</span></td><td><span class="lk">ZL-20260610-015</span></td><td>2026-08-30</td><td>华骏重卡汽车有限公司</td><td>PRJ-2601</td><td>ZH-2601-A 驾驶室围板箱整箱套件</td><td><span class="td-num">180 套</span></td><td><span class="tag tag-green">已出库</span></td></tr>
+        <tr><td><input type="checkbox" class="g79Ck" data-key="CK-20260903-016" data-cust="华骏重卡汽车有限公司"></td><td><span class="lk">CK-20260903-016</span></td><td><span class="lk">ZL-20260815-028</span></td><td>2026-09-03</td><td>华骏重卡汽车有限公司</td><td>PRJ-2601</td><td>ZH-2601-A 驾驶室围板箱整箱套件</td><td><span class="td-num">60 套</span></td><td><span class="tag tag-green">已出库</span></td></tr>
+        <tr><td><input type="checkbox" class="g79Ck" data-key="CK-20260829-012" data-cust="华骏重卡汽车有限公司"></td><td><span class="lk">CK-20260829-012</span></td><td><span class="lk">ZL-20260823-033</span></td><td>2026-08-29</td><td>华骏重卡汽车有限公司</td><td>PRJ-2601</td><td>ZH-2601-A 驾驶室围板箱整箱套件</td><td><span class="td-num">120 套</span></td><td><span class="tag tag-green">已出库</span></td></tr>
+        <tr><td><input type="checkbox" class="g79Ck" data-key="CK-20260824-009" data-cust="华骏重卡汽车有限公司"></td><td><span class="lk">CK-20260824-009</span></td><td><span class="lk">ZL-20260823-033</span></td><td>2026-08-24</td><td>华骏重卡汽车有限公司</td><td>PRJ-2604</td><td>ZH-2604-D 混合组合套件</td><td><span class="td-num">40 套</span></td><td><span class="tag tag-green">已出库</span></td></tr>
       </tbody>
     </table>
   </div>
-  <div class="pn-hint" style="margin-top:8px;">点击「选择」带出该单全部明细至下方退回明细（带原出库数量，退租数量不可超原出库数量）；多次退租请从多个出库单分别登记。</div>
+  <div class="pn-hint" style="margin-top:8px;">按项目/客户筛选后勾选（可多张 · 限同一客户）；勾选后明细带「原出库数量」列入下方退回明细，退租数量不可超原出库数量；多次退租可分批登记。</div>
 </div>
 <div class="card">
   <div class="card-head">
@@ -387,11 +379,11 @@ th.td-num { text-align:right; }
       </div>
       <div class="form-row">
         <div class="form-label"><span class="req">*</span>客户：</div>
-        <div class="input-box" style="width:380px;background:#fafafa;"><span id="g57TzCustShow" style="color:#8c8c8c;">华骏重卡汽车有限公司（第一步带出 · 不可改）</span></div>
+        <div class="input-box" style="width:380px;background:#fafafa;"><span id="g57TzCustShow" style="color:#8c8c8c;">—（勾选出库单后带出 · 不可改）</span></div>
       </div>
       <div class="form-row">
-        <div class="form-label">关联租赁单号：</div>
-        <div class="input-box" style="width:380px;background:#fafafa;"><span id="g57TzZlShow" style="color:#8c8c8c;">—（第二步选单后由出库单带出 · 不可改）</span></div>
+        <div class="form-label">关联出库单：</div>
+        <div class="input-box" style="width:380px;background:#fafafa;"><span id="g79CkShow" style="color:#8c8c8c;">—（勾选上表出库单后带出 · 不可改）</span></div>
       </div>
       <div class="form-row">
         <div class="form-label">所属项目：</div>
@@ -438,7 +430,7 @@ th.td-num { text-align:right; }
               </tbody>
             </table>
           </div>
-          <div class="pn-hint">明细由第二步所选租赁出库单带出（含原出库数量）；退租数量不可超过原出库数量；缺损行生成丢损应收（对客户）或应付（对供应商）；去向=租入件转归还的行，提交后分流生成归还出库单。</div>
+          <div class="pn-hint">明细由所勾选租赁出库单带出（含原出库数量）；退租数量不可超过原出库数量；缺损行生成丢损应收（对客户）或应付（对供应商）；去向=租入件转归还的行，提交后分流生成归还出库单。</div>
         </div>
       </div>
       
@@ -465,61 +457,76 @@ function batchLocToast(msg){var t=document.createElement("div");t.style.cssText=
 <script src="../_data/demo-data.js"></script>
 <script src="../_data/select-source.js"></script>
 <script>
-/* G43 下拉数据源化：静态 option 为无 JS 兜底，运行时按实体重渲染（人工单据不选虚拟仓 D-167·直发虚拟仓由系统自动单据流转·库位下拉过滤） */
-SSEL.fillEntity(SSEL.byFormLabel('客户'),'partners',{label:'name',filter:function(k,f){return f.type==='客户';}});
+/* G43 下拉数据源化：静态 option 为无 JS 兜底，运行时按实体重渲染（人工单据不选虚拟仓 D-167·直发虚拟仓由系统自动单据流转·库位下拉过滤）；G79：客户改为勾选出库单带出·筛选下拉由 G79 块自填 */
 SSEL.fillEntity(SSEL.byFormLabel('所属项目'),'projects',{filter:function(k,f){return f.status!=='已完结';},label:function(k,f){return k+' '+(f.name||'');}});
 SSEL.fillEntity(SSEL.byFormLabel('入库库位'),'locations',{field:'wh',filterV:function(v){return v.indexOf('虚拟仓')<0;}});
 </script>
-<script>/* G57 T4.11 两步选单退租（0923 第5次沟通拍板·反转 D-106/D-152④）：①选客户 → ②带出该客户全部租赁出库单 → 选中带出明细 → 录退租数量（≤原出库数量）；退租只新增不改原单 */
+<script>/* G79（0929 道远拍板·关联出库单列表多选替代两步选单）：筛选项=项目/客户；勾选多张（限同一客户）→明细汇总带出（含原出库数量·≤原出库校验）；退租只新增不改原单（G57/D-176 口径延续）；沿革：G57 两步选单→G78 关联租赁单号→G79 列表多选 */
 (function () {
-  var custSel = document.getElementById('g57TzCust');
-  var show = document.getElementById('g57TzCustShow');
   var ordBody = document.getElementById('g57TzOrders');
-  if (!custSel || !ordBody) return;
-  try { SSEL.fillEntity(custSel, 'partners', { label: 'name', filter: function (k, f) { return f.type === '客户'; } }); } catch (e) {}
+  if (!ordBody) return;
+  var projF = document.getElementById('g79ProjF');
+  var custF = document.getElementById('g79CustF');
+  var custShow = document.getElementById('g57TzCustShow');
+  var ckShow = document.getElementById('g79CkShow');
   function num(v) { var x = parseFloat(String(v).replace(/,/g, '')); return isNaN(x) ? 0 : x; }
   function D() { return (window.DEMO_DATA && window.DEMO_DATA.comboOutbounds) || {}; }
+  var sel = [];
+  function fillFilters() {
+    var ps = {}, cs = {}, pk = (window.DEMO_DATA && window.DEMO_DATA.projects) || {};
+    Object.keys(D()).forEach(function (k) { var f = (D()[k].row || {}).fields || {}; if (f.status !== '已出库') return; if (f.project) ps[f.project] = 1; if (f.customer) cs[f.customer] = 1; });
+    Object.keys(ps).sort().forEach(function (p) { var nm = (pk[p] && pk[p].row && pk[p].row.fields && pk[p].row.fields.name) ? (' ' + pk[p].row.fields.name.slice(0, 12)) : ''; var o = document.createElement('option'); o.value = p; o.textContent = '项目：' + p + nm; projF.appendChild(o); });
+    Object.keys(cs).forEach(function (c) { var o = document.createElement('option'); o.value = c; o.textContent = '客户：' + c; custF.appendChild(o); });
+  }
   function renderOrders() {
-    var so = custSel.selectedOptions && custSel.selectedOptions[0];
-    var c = (so ? so.textContent.trim() : custSel.value) || custSel.value;
-    if (show) show.textContent = c + '（第一步带出 · 不可改）';
-    var zlReset = document.getElementById('g57TzZlShow');
-    if (zlReset) zlReset.textContent = '—（第二步选单后由出库单带出 · 不可改）';
-    var h = '', first = true;
+    var pv = projF.value, cv = custF.value, h = '';
     Object.keys(D()).forEach(function (k) {
       var f = (D()[k].row || {}).fields || {};
-      if (f.customer !== c || f.status !== '已出库') return;
-      h += '<tr><td><input type="radio" name="g57TzPick"' + (first ? ' checked' : '') + '></td>'
+      if (f.status !== '已出库') return;
+      if (pv && f.project !== pv) return;
+      if (cv && f.customer !== cv) return;
+      var on = sel.indexOf(k) > -1;
+      h += '<tr><td><input type="checkbox" class="g79Ck"' + (on ? ' checked' : '') + ' data-key="' + k + '" data-cust="' + f.customer + '"></td>'
         + '<td><span class="lk">' + k + '</span></td><td><span class="lk">' + (f.zl || '—') + '</span></td><td>' + (f.date || '—') + '</td><td>' + f.customer + '</td>'
-        + '<td>' + (f.mat || '—') + ' ' + (f.matName || '') + '</td>'
+        + '<td>' + (f.project || '—') + '</td><td>' + (f.mat || '—') + ' ' + (f.matName || '') + '</td>'
         + '<td><span class="td-num">' + (f.qty || '—') + ' ' + (f.unit || '') + '</span></td>'
-        + '<td><span class="tag tag-green">已出库</span></td>'
-        + '<td class="sticky-op"><span class="ops"><a onclick="g57PickOrder(\'' + k + '\')">选择</a></span></td></tr>';
-      first = false;
+        + '<td><span class="tag tag-green">已出库</span></td></tr>';
     });
-    ordBody.innerHTML = h || '<tr><td colspan="9" style="color:#8c8c8c;text-align:center;padding:14px 0;">该客户暂无已出库的租赁出库单</td></tr>';
+    ordBody.innerHTML = h || '<tr><td colspan="9" style="color:#8c8c8c;text-align:center;padding:14px 0;">当前筛选条件下暂无已出库的租赁出库单</td></tr>';
   }
-  window.g57PickOrder = function (key) {
-    var rec = D()[key];
-    var tb = document.getElementById('tzItems');
-    if (!rec || !tb) return;
-    var f = rec.row.fields || {};
-    var zlShow = document.getElementById('g57TzZlShow');
-    if (zlShow) zlShow.textContent = (f.zl || '—') + '（由所选出库单带出 · 不可改）';
-    document.querySelectorAll('#g57TzOrders input[type="radio"]').forEach(function (r, i) {
-      var td = r.closest('tr').children[1]; r.checked = td && td.textContent.indexOf(key) > -1;
+  function g79Toast(msg) { var t = document.createElement('div'); t.style.cssText = 'position:fixed;top:70px;left:50%;transform:translateX(-50%);background:#fff7e6;color:#d46b08;border:1px solid #ffd591;padding:8px 18px;border-radius:6px;z-index:9999;font-size:13px;box-shadow:0 4px 12px rgba(0,0,0,.12)'; t.textContent = msg; document.body.appendChild(t); setTimeout(function () { t.remove(); }, 2200); }
+  function refresh() {
+    var cust = null;
+    sel.forEach(function (k) { var f = (D()[k].row || {}).fields || {}; if (f.customer) cust = f.customer; });
+    if (custShow) custShow.textContent = sel.length ? (cust + '（由勾选出库单带出 · 不可改）') : '—（勾选出库单后带出 · 不可改）';
+    if (ckShow) ckShow.textContent = sel.length ? (sel.join(' / ') + '（共 ' + sel.length + ' 张 · 不可改）') : '—（勾选上表出库单后带出 · 不可改）';
+    var tb = document.getElementById('tzItems'), h = '';
+    sel.forEach(function (k) {
+      var rec = D()[k]; if (!rec) return;
+      var f = rec.row.fields || {};
+      (rec.items || []).forEach(function (r) {
+        h += '<tr><td class="auto-cell">' + r[1] + '</td><td class="auto-cell">' + r[2] + '</td><td>' + (f.unit || '件') + '</td>'
+          + '<td class="td-num g57Orig">' + r[4] + '</td>'
+          + '<td><input class="tzQty" data-max="' + num(r[4]) + '" value="' + r[4] + '"></td>'
+          + '<td><input value="0"></td>'
+          + '<td><select class="tkLoc" style="width:110px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option>原料区 RA</option><option selected>成品区 RB</option><option>次品区 RC</option></select></td>'
+          + '<td><select style="width:132px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option selected>自有回库</option><option>租入件转归还</option></select></td></tr>';
+      });
     });
-    var h = '';
-    (rec.items || []).forEach(function (r, i) {
-      h += '<tr><td class="auto-cell">' + r[1] + '</td><td class="auto-cell">' + r[2] + '</td><td>' + (f.unit || '件') + '</td>'
-        + '<td class="td-num g57Orig">' + r[4] + '</td>'
-        + '<td><input class="tzQty" data-max="' + num(r[4]) + '" value="' + r[4] + '"></td>'
-        + '<td><input value="0"></td>'
-        + '<td><select class="tkLoc" style="width:110px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option>原料区 RA</option><option selected>成品区 RB</option><option>次品区 RC</option></select></td>'
-        + '<td><select style="width:132px;border:1px solid #d9d9d9;border-radius:4px;padding:2px 4px;font:inherit;background:#fff;cursor:pointer;"><option selected>自有回库</option><option>租入件转归还</option></select></td></tr>';
-    });
-    tb.innerHTML = h || '<tr><td colspan="8" style="color:#8c8c8c;text-align:center;padding:14px 0;">该单无明细</td></tr>';
-  };
+    tb.innerHTML = h || '<tr><td colspan="8" style="color:#8c8c8c;text-align:center;padding:14px 0;">尚未勾选出库单（明细随勾选带出）</td></tr>';
+  }
+  ordBody.addEventListener('change', function (e) {
+    var cb = e.target;
+    if (!cb.classList || !cb.classList.contains('g79Ck')) return;
+    var k = cb.getAttribute('data-key'), c = cb.getAttribute('data-cust');
+    if (cb.checked) {
+      var other = null;
+      sel.forEach(function (s) { var f = (D()[s].row || {}).fields || {}; if (f.customer && f.customer !== c) other = f.customer; });
+      if (other) { cb.checked = false; g79Toast('一张退租入库单只能对应一个客户（已选 ' + other + '），跨客户请分单登记'); return; }
+      if (sel.indexOf(k) < 0) sel.push(k);
+    } else { var i = sel.indexOf(k); if (i > -1) sel.splice(i, 1); }
+    refresh();
+  });
   document.addEventListener('input', function (e) {
     var q = e.target;
     if (!q.classList || !q.classList.contains('tzQty')) return;
@@ -532,8 +539,9 @@ SSEL.fillEntity(SSEL.byFormLabel('入库库位'),'locations',{field:'wh',filterV
       tag.textContent = '超原出库数量 ' + (num(q.value) - max);
     } else { q.style.borderColor = ''; if (tag) tag.remove(); }
   });
-  custSel.addEventListener('change', renderOrders);
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', renderOrders); else renderOrders();
+  projF.addEventListener('change', renderOrders);
+  custF.addEventListener('change', renderOrders);
+  fillFilters(); renderOrders(); refresh();
 })();</script>
 
 <script>
