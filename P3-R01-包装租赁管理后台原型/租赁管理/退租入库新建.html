@@ -343,7 +343,7 @@ th.td-num { text-align:right; }
   <span class="tab active">退租入库（选单退租） <span class="close">×</span></span>
 </div>
     <div class="content submit-pad">
-<div class="pn-hint" style="margin:0 0 14px;padding:10px 12px;border:1px solid #91d5ff;background:#e6f4ff;border-radius:6px;color:#1677ff;line-height:1.9;">退租入库说明：① 多次退租从多个出库单分别登记（每单可多次部分退租，逐单登记）；② 退租只新增退租入库单、不改原出库单数据、不核销原出库数量，应收账单照常生成（账单与退租并行）。<br>操作两步：第一步选退回客户 → 第二步选该客户租赁出库单带出明细 → 录退租数量（≤原出库数量）。</div>
+<div class="pn-hint" style="margin:0 0 14px;padding:10px 12px;border:1px solid #91d5ff;background:#e6f4ff;border-radius:6px;color:#1677ff;line-height:1.9;">退租入库说明：① 多次退租从多个出库单分别登记（每单可多次部分退租，逐单登记）；② 退租只新增退租入库单、不改原出库单数据、不核销原出库数量，应收账单照常生成（账单与退租并行）。<br>操作两步：第一步选退回客户 → 第二步选该客户租赁出库单带出明细 → 录退租数量（≤原出库数量）。退租入库单同时关联所选出库单及其租赁单（关联租赁单号由出库单带出，G78）。</div>
 <div class="card">
   <div class="card-head">
     <h3 class="card-title">第一步 · 选择退回客户</h3>
@@ -362,12 +362,12 @@ th.td-num { text-align:right; }
   </div>
   <div class="table-wrap">
     <table>
-      <thead><tr><th style="width:36px;"></th><th>出库单号</th><th>出库日期</th><th>客户</th><th>物料</th><th>出库数量</th><th>状态</th><th class="sticky-op">操作</th></tr></thead>
+              <thead><tr><th style="width:36px;"></th><th>出库单号</th><th>关联租赁单号</th><th>出库日期</th><th>客户</th><th>物料</th><th>出库数量</th><th>状态</th><th class="sticky-op">操作</th></tr></thead>
       <tbody id="g57TzOrders">
-        <tr><td><input type="radio" name="g57TzPick" checked></td><td><span class="lk">CK-20260830-015</span></td><td>2026-08-30</td><td>华骏重卡汽车有限公司</td><td>ZH-2601-A 驾驶室围板箱整箱套件</td><td><span class="td-num">180 套</span></td><td><span class="tag tag-green">已出库</span></td><td class="sticky-op"><span class="ops"><a onclick="g57PickOrder('CK-20260830-015')">选择</a></span></td></tr>
-        <tr><td><input type="radio" name="g57TzPick"></td><td><span class="lk">CK-20260903-016</span></td><td>2026-09-03</td><td>华骏重卡汽车有限公司</td><td>ZH-2601-A 驾驶室围板箱整箱套件</td><td><span class="td-num">60 套</span></td><td><span class="tag tag-green">已出库</span></td><td class="sticky-op"><span class="ops"><a onclick="g57PickOrder('CK-20260903-016')">选择</a></span></td></tr>
-        <tr><td><input type="radio" name="g57TzPick"></td><td><span class="lk">CK-20260829-012</span></td><td>2026-08-29</td><td>华骏重卡汽车有限公司</td><td>ZH-2601-A 驾驶室围板箱整箱套件</td><td><span class="td-num">120 套</span></td><td><span class="tag tag-green">已出库</span></td><td class="sticky-op"><span class="ops"><a onclick="g57PickOrder('CK-20260829-012')">选择</a></span></td></tr>
-        <tr><td><input type="radio" name="g57TzPick"></td><td><span class="lk">CK-20260824-009</span></td><td>2026-08-24</td><td>华骏重卡汽车有限公司</td><td>ZH-2604-D 混合组合套件</td><td><span class="td-num">40 套</span></td><td><span class="tag tag-green">已出库</span></td><td class="sticky-op"><span class="ops"><a onclick="g57PickOrder('CK-20260824-009')">选择</a></span></td></tr>
+        <tr><td><input type="radio" name="g57TzPick" checked></td><td><span class="lk">CK-20260830-015</span></td><td><span class="lk">ZL-20260610-015</span></td><td>2026-08-30</td><td>华骏重卡汽车有限公司</td><td>ZH-2601-A 驾驶室围板箱整箱套件</td><td><span class="td-num">180 套</span></td><td><span class="tag tag-green">已出库</span></td><td class="sticky-op"><span class="ops"><a onclick="g57PickOrder('CK-20260830-015')">选择</a></span></td></tr>
+        <tr><td><input type="radio" name="g57TzPick"></td><td><span class="lk">CK-20260903-016</span></td><td><span class="lk">ZL-20260903-034</span></td><td>2026-09-03</td><td>华骏重卡汽车有限公司</td><td>ZH-2601-A 驾驶室围板箱整箱套件</td><td><span class="td-num">60 套</span></td><td><span class="tag tag-green">已出库</span></td><td class="sticky-op"><span class="ops"><a onclick="g57PickOrder('CK-20260903-016')">选择</a></span></td></tr>
+        <tr><td><input type="radio" name="g57TzPick"></td><td><span class="lk">CK-20260829-012</span></td><td><span class="lk">ZL-20260823-033</span></td><td>2026-08-29</td><td>华骏重卡汽车有限公司</td><td>ZH-2601-A 驾驶室围板箱整箱套件</td><td><span class="td-num">120 套</span></td><td><span class="tag tag-green">已出库</span></td><td class="sticky-op"><span class="ops"><a onclick="g57PickOrder('CK-20260829-012')">选择</a></span></td></tr>
+        <tr><td><input type="radio" name="g57TzPick"></td><td><span class="lk">CK-20260824-009</span></td><td><span class="lk">ZL-20260823-033</span></td><td>2026-08-24</td><td>华骏重卡汽车有限公司</td><td>ZH-2604-D 混合组合套件</td><td><span class="td-num">40 套</span></td><td><span class="tag tag-green">已出库</span></td><td class="sticky-op"><span class="ops"><a onclick="g57PickOrder('CK-20260824-009')">选择</a></span></td></tr>
       </tbody>
     </table>
   </div>
@@ -388,6 +388,10 @@ th.td-num { text-align:right; }
       <div class="form-row">
         <div class="form-label"><span class="req">*</span>客户：</div>
         <div class="input-box" style="width:380px;background:#fafafa;"><span id="g57TzCustShow" style="color:#8c8c8c;">华骏重卡汽车有限公司（第一步带出 · 不可改）</span></div>
+      </div>
+      <div class="form-row">
+        <div class="form-label">关联租赁单号：</div>
+        <div class="input-box" style="width:380px;background:#fafafa;"><span id="g57TzZlShow" style="color:#8c8c8c;">—（第二步选单后由出库单带出 · 不可改）</span></div>
       </div>
       <div class="form-row">
         <div class="form-label">所属项目：</div>
@@ -479,25 +483,29 @@ SSEL.fillEntity(SSEL.byFormLabel('入库库位'),'locations',{field:'wh',filterV
     var so = custSel.selectedOptions && custSel.selectedOptions[0];
     var c = (so ? so.textContent.trim() : custSel.value) || custSel.value;
     if (show) show.textContent = c + '（第一步带出 · 不可改）';
+    var zlReset = document.getElementById('g57TzZlShow');
+    if (zlReset) zlReset.textContent = '—（第二步选单后由出库单带出 · 不可改）';
     var h = '', first = true;
     Object.keys(D()).forEach(function (k) {
       var f = (D()[k].row || {}).fields || {};
       if (f.customer !== c || f.status !== '已出库') return;
       h += '<tr><td><input type="radio" name="g57TzPick"' + (first ? ' checked' : '') + '></td>'
-        + '<td><span class="lk">' + k + '</span></td><td>' + (f.date || '—') + '</td><td>' + f.customer + '</td>'
+        + '<td><span class="lk">' + k + '</span></td><td><span class="lk">' + (f.zl || '—') + '</span></td><td>' + (f.date || '—') + '</td><td>' + f.customer + '</td>'
         + '<td>' + (f.mat || '—') + ' ' + (f.matName || '') + '</td>'
         + '<td><span class="td-num">' + (f.qty || '—') + ' ' + (f.unit || '') + '</span></td>'
         + '<td><span class="tag tag-green">已出库</span></td>'
         + '<td class="sticky-op"><span class="ops"><a onclick="g57PickOrder(\'' + k + '\')">选择</a></span></td></tr>';
       first = false;
     });
-    ordBody.innerHTML = h || '<tr><td colspan="8" style="color:#8c8c8c;text-align:center;padding:14px 0;">该客户暂无已出库的租赁出库单</td></tr>';
+    ordBody.innerHTML = h || '<tr><td colspan="9" style="color:#8c8c8c;text-align:center;padding:14px 0;">该客户暂无已出库的租赁出库单</td></tr>';
   }
   window.g57PickOrder = function (key) {
     var rec = D()[key];
     var tb = document.getElementById('tzItems');
     if (!rec || !tb) return;
     var f = rec.row.fields || {};
+    var zlShow = document.getElementById('g57TzZlShow');
+    if (zlShow) zlShow.textContent = (f.zl || '—') + '（由所选出库单带出 · 不可改）';
     document.querySelectorAll('#g57TzOrders input[type="radio"]').forEach(function (r, i) {
       var td = r.closest('tr').children[1]; r.checked = td && td.textContent.indexOf(key) > -1;
     });
