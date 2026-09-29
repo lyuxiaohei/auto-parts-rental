@@ -377,8 +377,9 @@ th.td-num { text-align:right; }
 <div class="card">
   <div class="card-head">
     <h3 class="card-title" data-note="4">退租入库单</h3>
-    <div class="head-btns"><button class="btn btn-default btn-sm">批量导出</button><button class="btn btn-sm" onclick="if(this.style.opacity!=='.45')tzrkBatchAudit()">批量审核</button></div>
+    <div class="head-btns"><button class="btn btn-default btn-sm">批量导出</button><button class="btn btn-sm" onclick="if(this.style.opacity!=='.45')tzrkBatchAudit()">批量审核</button><button class="btn btn-sm" onclick="go('../租赁管理/退租入库新建.html')">新建</button></div>
     <!-- G57（0923 拍板）：退租入库取消自由新建——退租走「退租入库新建.html」两步选单（选客户→选租赁出库单）；列表不再放新建入口 -->
+    <!-- G77（0929 道远拍板）：列表头部恢复「新建」按钮方便演示——指向两步选单页（选客户→选原租赁出库单带明细·退租数量≤原出库），自由新建仍不恢复·D-176 闭环口径不变 -->
   </div>
 <div class="stabs">
   <span class="stab active">全部<span class="stab-count">31</span></span>
