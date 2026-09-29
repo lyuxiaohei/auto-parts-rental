@@ -1,23 +1,24 @@
 [
  {
-  "page": "租赁管理\\退租入库列表.html",
+  "page": "租赁管理\\租赁出库列表.html",
   "js_errors": [],
   "problems": [],
   "stats": {
-   "buttons": 8,
-   "links": 21,
-   "onclickEls": 57,
-   "modals": 1,
+   "buttons": 13,
+   "links": 45,
+   "onclickEls": 82,
+   "modals": 2,
    "modalTitles": [
-    "批量审核(演示页)"
+    "批量审核(演示页)",
+    "批量导入租赁出库单"
    ],
-   "selects": 4,
+   "selects": 3,
    "fakeSelects": 0,
    "radios": 2,
    "checkboxes": 0,
-   "inputs": 17,
-   "stabs": 3,
-   "tabs": 2,
+   "inputs": 20,
+   "stabs": 4,
+   "tabs": 4,
    "bgMut": 0
   },
   "dead_links": [],
