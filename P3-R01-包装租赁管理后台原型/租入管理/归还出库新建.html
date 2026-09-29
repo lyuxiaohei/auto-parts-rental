@@ -343,20 +343,44 @@ th.td-num { text-align:right; }
   <span class="tab active">新建归还出库单 <span class="close">×</span></span>
 </div>
     <div class="content submit-pad">
+<div class="pn-hint" style="margin:0 0 14px;padding:10px 12px;border:1px solid #91d5ff;background:#e6f4ff;border-radius:6px;color:#1677ff;line-height:1.9;">归还出库说明：① 勾选关联租入单（可多张 · 限同一供应商 · 支持按项目/供应商筛选），归还明细自动带出（含已归还数量与可归还数量）；② 本次归还数量不可超可归还数量；③ 归还审核通过后按租入单结算租金应付与押金退还（分批归还逐次结算）。</div>
+<div class="card">
+  <div class="card-head">
+    <h3 class="card-title">关联租入单 <span style="color:#ff4d4f;">*</span>（可多选 · 同一供应商）</h3>
+    <div class="head-btns" style="gap:8px;">
+      <div class="input-box select-box" style="width:250px;"><select id="g80ProjF" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option value="">项目：全部</option></select><span class="caret">▾</span></div>
+      <div class="input-box select-box" style="width:300px;"><select id="g80SupF" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option value="">供应商：全部</option></select><span class="caret">▾</span></div>
+    </div>
+  </div>
+  <div class="table-wrap">
+    <table>
+              <thead><tr><th style="width:36px;"></th><th>租入单号</th><th>类型</th><th>供应商</th><th>所属项目</th><th>物料</th><th>租入数量</th><th>已归还</th><th>可归还</th><th>状态</th></tr></thead>
+      <tbody id="g80RzdBody">
+        <tr><td><input type="checkbox" class="g80Ck" data-key="RZD-20260815-005" data-sup="环通循环包装运营（上海）有限公司" checked></td><td><span class="lk">RZD-20260815-005</span></td><td><span class="tag tag-blue">自发</span></td><td>环通循环包装运营（上海）有限公司</td><td>PRJ-2604</td><td>围板箱 1200×1000×970</td><td><span class="td-num">10 只</span></td><td><span class="td-num">4 只</span></td><td><span class="td-num">6 只</span></td><td><span class="tag tag-orange">部分归还</span></td></tr>
+        <tr><td><input type="checkbox" class="g80Ck" data-key="RZD-20260815-003" data-sup="环通循环包装运营（上海）有限公司"></td><td><span class="lk">RZD-20260815-003</span></td><td><span class="tag tag-blue">直发</span></td><td>环通循环包装运营（上海）有限公司</td><td>PRJ-2601</td><td>围板箱 1200×1000×970</td><td><span class="td-num">30 只</span></td><td><span class="td-num">0 只</span></td><td><span class="td-num">30 只</span></td><td><span class="tag tag-green">履行中</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="pn-hint" style="margin-top:8px;">按项目/供应商筛选后勾选（可多张 · 限同一供应商）；勾选后明细带「租入数量/已归还/可归还」列入下方归还明细，本次归还数量不可超可归还数量；分批归还可逐次登记。</div>
+</div>
 <div class="card">
   <div class="card-head">
     <h3 class="card-title">归还信息</h3>
   </div>
 
       <div class="form-row">
-        <div class="form-label"><span class="req">*</span>关联租入单号：</div>
-        <div class="input-box select-box" style="width:380px;"><select id="riSelect" onchange="syncReturnItems(this)" style="flex:1;min-width:0;border:none;outline:none;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0;appearance:none;-webkit-appearance:none;"><option selected data-key="RZD-20260815-005">RZD-20260815-005（环通·围板箱×10 · 部分归还）</option><option data-key="RZD-20260815-003">RZD-20260815-003（环通·围板箱×30 · 履行中）</option><option data-key="RZD-20260902-008">RZD-20260902-008（环通·塑料托盘×60 · 待审核）</option></select><span class="caret">▾</span></div>
+        <div class="form-label"><span class="req">*</span>供应商：</div>
+        <div class="input-box" style="width:380px;background:#fafafa;"><span id="g80SupShow" style="color:#8c8c8c;">—（勾选租入单后带出 · 不可改）</span></div>
+      </div>
+      <div class="form-row">
+        <div class="form-label">关联租入单：</div>
+        <div class="input-box" style="width:380px;background:#fafafa;"><span id="g80RzdShow" style="color:#8c8c8c;">—（勾选上表租入单后带出 · 不可改）</span></div>
       </div>
       <div class="form-row">
         <div class="form-label"><span class="req">*</span>归还类型：</div>
-        <div><span class="radio checked"><span class="dot"></span>整退归还（该租入单全部归还）</span><span class="radio"><span class="dot"></span>分流归还（退租拆解后部分归还）</span></div>
+        <div><span class="radio checked"><span class="dot"></span>整退归还（所勾选租入单全部归还）</span><span class="radio"><span class="dot"></span>分流归还（退租拆解后部分归还）</span></div>
       </div>
-      
+
       <div class="form-row" style="align-items:flex-start;">
         <div class="form-label" style="padding-top:6px;">备注：</div>
         <div>
@@ -372,7 +396,9 @@ th.td-num { text-align:right; }
           <div class="table-wrap edit-tbl" style="border:1px solid var(--border);border-radius:6px;">
             <table>
               <thead><tr><th>物料编码</th><th>物料名称</th><th>单位</th><th>租入数量</th><th>已归还</th><th>本次归还数量</th></tr></thead>
-              <tbody id="riItemsBody" data-note="1"></tbody>
+              <tbody id="riItemsBody" data-note="1">
+                <tr><td>WBX-1210L</td><td>围板箱 1200×1000×970</td><td>只</td><td><span class="td-num">10 只</span></td><td><span class="td-num">4 只</span></td><td><input class="riQty" data-max="6" value="6"></td></tr>
+              </tbody>
             </table>
           </div>
         </div>
@@ -385,28 +411,95 @@ th.td-num { text-align:right; }
   </div>
 </div>
 <script src="../_data/demo-data.js"></script>
-<script>/* G13 ⑨ 关联租入单 → 归还明细同步（demo-data rentInOrders.returnItems；无数据环境回退静态演示） */
-function syncReturnItems(sel) {
-  var key = sel.selectedOptions[0].getAttribute('data-key');
-  var items = null;
-  try {
-    var rec = window.DEMO_DATA && window.DEMO_DATA.rentInOrders && window.DEMO_DATA.rentInOrders[key];
-    if (rec && rec.returnItems) items = rec.returnItems;
-  } catch (e) { /* 独立模板无 demo-data，走静态回退 */ }
-  if (!items) items = [{ item: 'WBX-1210L 围板箱 1200×1000×970', rentQty: 10, returned: 4, unit: '只' }];
-  var tb = document.getElementById('riItemsBody');
-  tb.innerHTML = items.map(function (it) {
-    var left = Math.max(0, it.rentQty - it.returned);
-    var sp = String(it.item).indexOf(' ');
-    var code = sp > 0 ? String(it.item).slice(0, sp) : it.item;
-    var name = sp > 0 ? String(it.item).slice(sp + 1) : '—';
-    return '<tr><td>' + code + '</td><td>' + name + '</td><td>' + it.unit + '</td>' +
-      '<td><span class="td-num">' + it.rentQty + ' ' + it.unit + '</span></td>' +
-      '<td><span class="td-num">' + it.returned + ' ' + it.unit + '</span></td>' +
-      '<td><input value="' + left + '" placeholder="≤' + left + '"></td></tr>';
-  }).join('');
-}
-syncReturnItems(document.getElementById('riSelect'));</script>
+<script>/* G80（0929 道远拍板·归还与退租保持一致）：关联租入单列表多选（项目/供应商筛选·限同一供应商）→明细汇总带出（可归还=租入−已归还·超量红字）；沿革：G13 下拉选单+明细同步→G80 列表多选 */
+(function () {
+  var body = document.getElementById('g80RzdBody');
+  if (!body) return;
+  var projF = document.getElementById('g80ProjF');
+  var supF = document.getElementById('g80SupF');
+  var supShow = document.getElementById('g80SupShow');
+  var rzdShow = document.getElementById('g80RzdShow');
+  function num(v) { var x = parseFloat(String(v).replace(/,/g, '')); return isNaN(x) ? 0 : x; }
+  function D() { return (window.DEMO_DATA && window.DEMO_DATA.rentInOrders) || {}; }
+  function projOf(rec) { var r = (rec.formRows || []).filter(function (x) { return x.label === '所属项目'; })[0]; return (r && r.text && r.text !== '—') ? r.text : ''; }
+  function rowsOf(rec) { return rec.returnItems || []; }
+  function sum(rec, f) { var s = 0; rowsOf(rec).forEach(function (it) { s += num(it[f]); }); return s; }
+  var RETABLE = { '履行中': 1, '部分归还': 1 };
+  var sel = [];
+  function fillFilters() {
+    var ps = {}, ss = {}, pk = (window.DEMO_DATA && window.DEMO_DATA.projects) || {};
+    Object.keys(D()).forEach(function (k) { var rec = D()[k]; var f = rec.row.fields || {}; if (!RETABLE[f.status]) return; var p = projOf(rec); if (p) ps[p] = 1; if (f.operator) ss[f.operator] = 1; });
+    Object.keys(ps).sort().forEach(function (p) { var nm = (pk[p] && pk[p].row && pk[p].row.fields && pk[p].row.fields.name) ? (' ' + pk[p].row.fields.name.slice(0, 12)) : ''; var o = document.createElement('option'); o.value = p; o.textContent = '项目：' + p + nm; projF.appendChild(o); });
+    Object.keys(ss).forEach(function (s) { var o = document.createElement('option'); o.value = s; o.textContent = '供应商：' + s; supF.appendChild(o); });
+  }
+  function renderList() {
+    var pv = projF.value, sv = supF.value, h = '';
+    Object.keys(D()).forEach(function (k) {
+      var rec = D()[k]; var f = rec.row.fields || {};
+      if (!RETABLE[f.status]) return;
+      var p = projOf(rec);
+      if (pv && p !== pv) return;
+      if (sv && f.operator !== sv) return;
+      var on = sel.indexOf(k) > -1;
+      var rq = sum(rec, 'rentQty'), rt = sum(rec, 'returned'), left = Math.max(0, rq - rt);
+      h += '<tr><td><input type="checkbox" class="g80Ck"' + (on ? ' checked' : '') + ' data-key="' + k + '" data-sup="' + f.operator + '"></td>'
+        + '<td><span class="lk">' + k + '</span></td><td><span class="tag tag-blue">' + f.type + '</span></td><td>' + f.operator + '</td><td>' + (p || '—') + '</td>'
+        + '<td>' + (f.appliance || '—') + '</td>'
+        + '<td><span class="td-num">' + rq + '</span></td><td><span class="td-num">' + rt + '</span></td><td><span class="td-num">' + left + '</span></td>'
+        + '<td><span class="tag tag-' + (f.status === '履行中' ? 'green' : 'orange') + '">' + f.status + '</span></td></tr>';
+    });
+    body.innerHTML = h || '<tr><td colspan="10" style="color:#8c8c8c;text-align:center;padding:14px 0;">当前筛选条件下暂无可归还的租入单（履行中 / 部分归还）</td></tr>';
+  }
+  function g80Toast(msg) { var t = document.createElement('div'); t.style.cssText = 'position:fixed;top:70px;left:50%;transform:translateX(-50%);background:#fff7e6;color:#d46b08;border:1px solid #ffd591;padding:8px 18px;border-radius:6px;z-index:9999;font-size:13px;box-shadow:0 4px 12px rgba(0,0,0,.12)'; t.textContent = msg; document.body.appendChild(t); setTimeout(function () { t.remove(); }, 2200); }
+  function refresh() {
+    var sup = null;
+    sel.forEach(function (k) { var f = (D()[k].row || {}).fields || {}; if (f.operator) sup = f.operator; });
+    if (supShow) supShow.textContent = sel.length ? (sup + '（由勾选租入单带出 · 不可改）') : '—（勾选租入单后带出 · 不可改）';
+    if (rzdShow) rzdShow.textContent = sel.length ? (sel.join(' / ') + '（共 ' + sel.length + ' 张 · 不可改）') : '—（勾选上表租入单后带出 · 不可改）';
+    var tb = document.getElementById('riItemsBody'), h = '';
+    sel.forEach(function (k) {
+      var rec = D()[k]; if (!rec) return;
+      rowsOf(rec).forEach(function (it) {
+        var left = Math.max(0, num(it.rentQty) - num(it.returned));
+        var sp = String(it.item).indexOf(' ');
+        var code = sp > 0 ? String(it.item).slice(0, sp) : it.item;
+        var name = sp > 0 ? String(it.item).slice(sp + 1) : '—';
+        h += '<tr><td>' + code + '</td><td>' + name + '</td><td>' + it.unit + '</td>'
+          + '<td><span class="td-num">' + it.rentQty + ' ' + it.unit + '</span></td>'
+          + '<td><span class="td-num">' + it.returned + ' ' + it.unit + '</span></td>'
+          + '<td><input class="riQty" data-max="' + left + '" value="' + left + '" placeholder="≤' + left + '"></td></tr>';
+      });
+    });
+    tb.innerHTML = h || '<tr><td colspan="6" style="color:#8c8c8c;text-align:center;padding:14px 0;">尚未勾选租入单（明细随勾选带出）</td></tr>';
+  }
+  body.addEventListener('change', function (e) {
+    var cb = e.target;
+    if (!cb.classList || !cb.classList.contains('g80Ck')) return;
+    var k = cb.getAttribute('data-key'), s = cb.getAttribute('data-sup');
+    if (cb.checked) {
+      var other = null;
+      sel.forEach(function (x) { var f = (D()[x].row || {}).fields || {}; if (f.operator && f.operator !== s) other = f.operator; });
+      if (other) { cb.checked = false; g80Toast('一张归还出库单只能对应一个供应商（已选 ' + other + '），跨供应商请分单登记'); return; }
+      if (sel.indexOf(k) < 0) sel.push(k);
+    } else { var i = sel.indexOf(k); if (i > -1) sel.splice(i, 1); }
+    refresh();
+  });
+  document.addEventListener('input', function (e) {
+    var q = e.target;
+    if (!q.classList || !q.classList.contains('riQty')) return;
+    var max = num(q.getAttribute('data-max'));
+    var td = q.closest('td');
+    var tag = td.querySelector('.g80-over');
+    if (num(q.value) > max) {
+      q.style.borderColor = '#ff4d4f';
+      if (!tag) { tag = document.createElement('div'); tag.className = 'g80-over'; tag.style.cssText = 'margin-top:4px;font-size:12px;color:#ff4d4f;line-height:1.4;'; td.appendChild(tag); }
+      tag.textContent = '超可归还数量 ' + (num(q.value) - max);
+    } else { q.style.borderColor = ''; if (tag) tag.remove(); }
+  });
+  projF.addEventListener('change', renderList);
+  supF.addEventListener('change', renderList);
+  fillFilters(); renderList(); refresh();
+})();</script>
 <script>
 /* ===== 菜单折叠 / 页签与表单视觉态（统一脚本） ===== */
 function go(url) { location.href = url; }
@@ -522,19 +615,13 @@ document.querySelectorAll('.tab').forEach(function (t) {
 <script src="../_data/notes-data.js"></script>
 <script src="../_data/notes-drawer.js"></script>
 <script src="../_data/select-source.js"></script>
-<script>
-/* G43 下拉数据源化：静态 option 为无 JS 兜底，运行时按字典/实体重渲染（矩阵见 _scan_tmpdir/g43_接线差集_v2.md） */
-SSEL.fillEntity(document.getElementById('riSelect'),'rentInOrders',{desc:true,limit:30,filter:function(k,f){return f.status!=='新建(草稿)';},label:function(k,f){return k+' · '+(f.operator||'')+' · '+(f.status||'');}});
-if(typeof syncReturnItems==='function'){var _r=document.getElementById('riSelect');if(_r)syncReturnItems(_r);}
-</script>
-<script src="../_data/mat-search.js"></script>
-<script>
-/* 关联单据号搜索下拉（2026-09-17 道远指示·采购入库录单样板推广） */
-MSEL.attach(document.getElementById('riSelect'), { placeholder: '输入单号搜索' });
-</script>
+<!-- G80：riSelect 单选下拉已随选单形态重构退场（SSEL/MSEL 接线随之移除·关联租入单列表与筛选由 G80 块自渲染） -->
 <style>/* 列对齐规范（2026-09-20 道远拍板·全量）：数字/日期列右对齐＋tabular-nums·表头随列·其余左（标签不居中） */
-table th:nth-child(4),table td:nth-child(4),
-table th:nth-child(5),table td:nth-child(5),
-table th:nth-child(6),table td:nth-child(6){text-align:right;font-variant-numeric:tabular-nums}</style>
+.edit-tbl table th:nth-child(4),.edit-tbl table td:nth-child(4),
+.edit-tbl table th:nth-child(5),.edit-tbl table td:nth-child(5),
+.edit-tbl table th:nth-child(6),.edit-tbl table td:nth-child(6),
+.table-wrap:not(.edit-tbl) table th:nth-child(7),.table-wrap:not(.edit-tbl) table td:nth-child(7),
+.table-wrap:not(.edit-tbl) table th:nth-child(8),.table-wrap:not(.edit-tbl) table td:nth-child(8),
+.table-wrap:not(.edit-tbl) table th:nth-child(9),.table-wrap:not(.edit-tbl) table td:nth-child(9){text-align:right;font-variant-numeric:tabular-nums}</style>
 </body>
 </html>
